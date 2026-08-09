@@ -1,0 +1,1 @@
+Run the checksum-verified World Leader Chat repository installation and build.
