@@ -87,4 +87,52 @@
     };
     return result;
   };
+
+  function needsConversationUpgrade(bundle) {
+    return Boolean(bundle?.event?.messages) && bundle.event.messages.length < 10;
+  }
+
+  function upgradedBundle(bundle) {
+    if (!needsConversationUpgrade(bundle)) return bundle;
+    const version = Number(bundle.approval?.draftVersion || 0);
+    return fallbackSuggestion(bundle, version);
+  }
+
+  if (typeof render === "function") {
+    const originalRender = render;
+    render = function renderWithLongerDrafts() {
+      for (const issue of issues || []) {
+        const labels = labelSet(issue);
+        if (issue.state === "closed" || labels.has("published") || labels.has("editorial-approved")) continue;
+        const bundle = parseBundle(issue.body || "");
+        if (!needsConversationUpgrade(bundle)) continue;
+        issue.body = replaceBundle(issue.body || "", upgradedBundle(bundle));
+      }
+      return originalRender();
+    };
+  }
+
+  if (typeof act === "function") {
+    const originalAct = act;
+    act = async function actWithLongerDraft(action, number) {
+      if ((action === "approve" || action === "regenerate") && !busy.has(number)) {
+        const currentIssue = await api(`/repos/${OWNER}/${REPO}/issues/${number}`);
+        const labels = labelSet(currentIssue);
+        if (currentIssue.state !== "closed" && !labels.has("published") && !labels.has("editorial-approved")) {
+          const bundle = parseBundle(currentIssue.body || "");
+          if (needsConversationUpgrade(bundle)) {
+            const longer = upgradedBundle(bundle);
+            const body = replaceBundle(currentIssue.body || "", longer);
+            await api(`/repos/${OWNER}/${REPO}/issues/${number}`, {
+              method: "PATCH",
+              body: JSON.stringify({ body })
+            });
+            const localIssue = issues.find((item) => item.number === number);
+            if (localIssue) localIssue.body = body;
+          }
+        }
+      }
+      return originalAct(action, number);
+    };
+  }
 })();
