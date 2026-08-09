@@ -15,7 +15,8 @@ const publicHtml = await readFile(resolve(root, "index.html"), "utf8");
 const publicScripts = [
   '  <script src="./social-tools.js"></script>',
   '  <script src="./newsroom-site.js"></script>',
-  '  <script src="./disclosure-polish.js"></script>'
+  '  <script src="./disclosure-polish.js"></script>',
+  '  <script src="./rolling-archive.js"></script>'
 ];
 let instrumentedHtml = publicHtml
   .replace(
@@ -60,6 +61,7 @@ await writeFile(resolve(output, "404.html"), instrumentedHtml, "utf8");
 await cp(resolve(root, "social-tools.js"), resolve(output, "social-tools.js"));
 await cp(resolve(root, "newsroom-site.js"), resolve(output, "newsroom-site.js"));
 await cp(resolve(root, "disclosure-polish.js"), resolve(output, "disclosure-polish.js"));
+await cp(resolve(root, "rolling-archive.js"), resolve(output, "rolling-archive.js"));
 await cp(resolve(root, "editor/index.html"), resolve(output, "editor/index.html"));
 await cp(resolve(root, "editor/app.js"), resolve(output, "editor/app.js"));
 await cp(resolve(root, "editor/conversation-upgrade.js"), resolve(output, "editor/conversation-upgrade.js"));
@@ -81,8 +83,9 @@ const htmlSize = (await readFile(resolve(output, "index.html"))).byteLength;
 const socialSize = (await readFile(resolve(output, "social-tools.js"))).byteLength;
 const newsroomSize = (await readFile(resolve(output, "newsroom-site.js"))).byteLength;
 const disclosureSize = (await readFile(resolve(output, "disclosure-polish.js"))).byteLength;
+const rollingSize = (await readFile(resolve(output, "rolling-archive.js"))).byteLength;
 const editorSize = (await readFile(resolve(output, "editor/index.html"))).byteLength;
 const appSize = (await readFile(resolve(output, "editor/app.js"))).byteLength;
 const conversationSize = (await readFile(resolve(output, "editor/conversation-upgrade.js"))).byteLength;
 const editorNewsroomSize = (await readFile(resolve(output, "editor/newsroom-upgrade.js"))).byteLength;
-console.log(`Built GitHub Pages artifact in _site (${htmlSize} byte index, ${socialSize} byte social tools, ${newsroomSize} byte newsroom UI, ${disclosureSize} byte disclosure polish, ${editorSize} byte editor, ${appSize} byte editor app, ${conversationSize} byte conversation upgrade, ${editorNewsroomSize} byte article upgrade, ${published.length} external event(s)).`);
+console.log(`Built GitHub Pages artifact in _site (${htmlSize} byte index, ${socialSize} byte social tools, ${newsroomSize} byte newsroom UI, ${disclosureSize} byte disclosure polish, ${rollingSize} byte rolling archive, ${editorSize} byte editor, ${appSize} byte editor app, ${conversationSize} byte conversation upgrade, ${editorNewsroomSize} byte article upgrade, ${published.length} external event(s)).`);
