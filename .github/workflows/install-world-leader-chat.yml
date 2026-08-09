@@ -6,6 +6,10 @@ on:
     paths:
       - ".github/bootstrap/**"
       - ".github/workflows/install-world-leader-chat.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - ".github/installer-trigger/**"
   workflow_dispatch:
 
 permissions:
