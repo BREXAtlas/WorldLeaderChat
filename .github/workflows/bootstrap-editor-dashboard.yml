@@ -20,7 +20,7 @@ jobs:
   install:
     if: >-
       (github.event_name == 'push' && github.event.head_commit.message != 'Install editorial dashboard application files') ||
-      (github.event_name == 'issues' && github.event.label.name == 'bootstrap-editor-dashboard')
+      (github.event_name == 'issues' && github.event.label.name == 'news-candidate' && startsWith(github.event.issue.title, 'SYSTEM: Install editor dashboard'))
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
