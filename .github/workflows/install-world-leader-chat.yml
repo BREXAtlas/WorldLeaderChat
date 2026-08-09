@@ -42,8 +42,14 @@ jobs:
         run: |
           set -euo pipefail
           tar -xzf /tmp/world-leader-chat.tar.gz -C .
+
+          # The connector publishes the permanent workflows after this build.
+          # Keep this installer unchanged so GITHUB_TOKEN only commits ordinary
+          # repository content, then remove the temporary archive segments.
+          rm -rf .github/workflows
+          mkdir -p .github/workflows
+          git show HEAD:.github/workflows/install-world-leader-chat.yml > .github/workflows/install-world-leader-chat.yml
           rm -rf .github/bootstrap
-          rm -f .github/workflows/install-world-leader-chat.yml
 
       - name: Use Node.js 24
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
@@ -65,5 +71,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
           git diff --cached --check
-          git commit -m "Add World Leader Chat news and editorial pipeline"
+          git commit -m "Build World Leader Chat application and editorial service"
           git push origin HEAD:main
