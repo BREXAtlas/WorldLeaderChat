@@ -5,6 +5,7 @@ const token = process.env.GITHUB_TOKEN;
 const repository = process.env.GITHUB_REPOSITORY;
 const apiBase = process.env.GITHUB_API_URL || "https://api.github.com";
 const limit = Number(process.env.WLC_REFINE_LIMIT || 50);
+const repeatedDisclosure = /\b(the event is real|the poll is real|private replies are not|private reactions.*imagined|facts are sourced|fictional satire|sourced event)\b/i;
 
 if (!token) throw new Error("GITHUB_TOKEN is required.");
 if (!repository || !repository.includes("/")) throw new Error("GITHUB_REPOSITORY must be owner/name.");
@@ -39,6 +40,36 @@ function replaceBundle(body, bundle) {
   return body.slice(0, start) + block + body.slice(end + STORY_JSON_END.length);
 }
 
+function openingFor(bundle) {
+  const text = `${bundle?.event?.title || ""} ${bundle?.event?.summary || ""}`.toLowerCase();
+  if (/election|poll|ballot/.test(text)) return "New thread: election confidence. The spreadsheet entered with notifications on.";
+  if (/gaza|netanyahu|hamas/.test(text)) return "New thread: Gaza plan. Fifteen points entered; the conditions are already typing.";
+  if (/houthi|saudi|refinery|oil/.test(text)) return "New thread: refinery attack claim. Oil prices joined before the second reply.";
+  if (/iran|hormuz|tehran|nuclear/.test(text)) return "New thread: Iran file. The latest ‘final’ update has reopened the previous final update.";
+  if (/ukraine|zelensky|russia|putin|kyiv/.test(text)) return "New thread: Ukraine security. The word ‘guarantee’ has requested legal counsel.";
+  if (/rocket|spacex|blue origin|nasa|moon|mars/.test(text)) return "New thread: launch successful. National prestige has exceeded the listed payload.";
+  if (/artificial intelligence|\bai\b|openai|sam altman/.test(text)) return "New thread: AI release. Every participant has declared themselves the responsible adult.";
+  if (/taylor swift|music|song|copyright|tiktok/.test(text)) return "New thread: music rights. Copyright joined with counsel present.";
+  if (/larry david|tan suit|obama/.test(text)) return "New thread: the tan-suit file has been reopened for television.";
+  if (/consulate|diplomatic vacuum/.test(text)) return "New thread: five diplomatic posts are closing. Soft power is checking the lease.";
+  return "New thread opened. The first confident reply arrived before the briefing finished loading.";
+}
+
+function hasRepeatedDisclosure(bundle) {
+  return (bundle?.event?.messages || []).some((message) => message?.kind === "system" && repeatedDisclosure.test(String(message.text || "")));
+}
+
+function polishSystemLanguage(messages, bundle) {
+  let openingReplaced = false;
+  return messages.map((message) => {
+    if (!openingReplaced && message?.kind === "system" && repeatedDisclosure.test(String(message.text || ""))) {
+      openingReplaced = true;
+      return { ...message, text: openingFor(bundle) };
+    }
+    return message;
+  });
+}
+
 const issues = await github(`/repos/${repository}/issues?state=open&labels=news-candidate&per_page=100`);
 const queue = issues
   .filter((issue) => !issue.pull_request)
@@ -57,16 +88,20 @@ for (const issue of queue) {
   checked += 1;
   try {
     const bundle = extractStoryBundle(issue.body || "");
-    if (!dialogueNeedsRefinement(bundle)) continue;
+    const needsDialogue = dialogueNeedsRefinement(bundle);
+    const needsDisclosurePolish = hasRepeatedDisclosure(bundle);
+    if (!needsDialogue && !needsDisclosurePolish) continue;
 
-    bundle.event.messages = buildDirectDialogue(bundle);
+    const messages = needsDialogue ? buildDirectDialogue(bundle) : bundle.event.messages;
+    bundle.event.messages = polishSystemLanguage(messages, bundle);
     bundle.approval = {
       ...(bundle.approval || {}),
       conversationStyle: "direct-back-and-forth",
       targetMessageCount: "10-14",
       dialogueQuality: "first-person direct dialogue; no meta narration",
+      disclosureStyle: "site-level disclosure; chat notes stay in-world",
       dialogueRefinedAt: new Date().toISOString(),
-      reviewNotes: `${bundle.approval?.reviewNotes || ""} Dialogue quality pass replaced descriptive or one-off reactions with direct recurring-speaker exchanges.`.trim()
+      reviewNotes: `${bundle.approval?.reviewNotes || ""} Dialogue quality pass keeps recurring-speaker exchanges direct and leaves disclosure to the site-level statement.`.trim()
     };
 
     await github(`/repos/${repository}/issues/${issue.number}`, {
