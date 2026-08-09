@@ -46,13 +46,6 @@ jobs:
         run: |
           set -euo pipefail
           tar -xzf /tmp/world-leader-chat.tar.gz -C .
-
-          # The connector publishes the permanent workflows after this build.
-          # Keep this installer unchanged so GITHUB_TOKEN only commits ordinary
-          # repository content, then remove the temporary archive segments.
-          rm -rf .github/workflows
-          mkdir -p .github/workflows
-          git show HEAD:.github/workflows/install-world-leader-chat.yml > .github/workflows/install-world-leader-chat.yml
           rm -rf .github/bootstrap
 
       - name: Use Node.js 24
@@ -71,6 +64,16 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+
+          # Validation needs the permanent workflow files present. The connector
+          # publishes them after this build, so remove only those four files
+          # immediately before the GITHUB_TOKEN commit.
+          rm -f \
+            .github/workflows/ci.yml \
+            .github/workflows/deploy-pages.yml \
+            .github/workflows/editorial-publish.yml \
+            .github/workflows/news-ingestion.yml
+
           git config user.name "world-leader-chat-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
