@@ -1,0 +1,72 @@
+name: Cleanup published duplicates
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/cleanup-published-duplicates.mjs"
+      - ".github/workflows/cleanup-published-duplicates.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: cleanup-published-duplicates
+  cancel-in-progress: false
+
+jobs:
+  cleanup-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out main
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Use Node.js 24
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Merge duplicate published events
+        run: node scripts/cleanup-published-duplicates.mjs
+
+      - name: Validate and test
+        run: |
+          npm test
+          npm run validate
+
+      - name: Commit cleaned editorial data
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- data/published-events.json data/editorial-log.json data/site-meta.json; then
+            echo "No duplicate data changes to commit."
+          else
+            git config user.name "world-leader-chat-bot"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/published-events.json data/editorial-log.json data/site-meta.json
+            git commit -m "Merge duplicate Gaza plan coverage"
+            git push origin HEAD:main
+          fi
+
+      - name: Build cleaned site
+        run: npm run build
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: _site
+
+      - name: Deploy cleaned site
+        id: deployment
+        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5.0.0

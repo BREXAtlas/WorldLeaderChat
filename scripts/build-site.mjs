@@ -13,6 +13,7 @@ await mkdir(resolve(output, "editor"), { recursive: true });
 await cp(resolve(root, "index.html"), resolve(output, "index.html"));
 await cp(resolve(root, "index.html"), resolve(output, "404.html"));
 await cp(resolve(root, "editor/index.html"), resolve(output, "editor/index.html"));
+await cp(resolve(root, "editor/app.js"), resolve(output, "editor/app.js"));
 await cp(resolve(root, "data/published-events.json"), resolve(output, "data/published-events.json"));
 
 const published = await readJson(resolve(root, "data/published-events.json"), []);
@@ -28,4 +29,5 @@ await writeFile(resolve(output, "robots.txt"), "User-agent: *\nAllow: /\nDisallo
 
 const htmlSize = (await readFile(resolve(output, "index.html"))).byteLength;
 const editorSize = (await readFile(resolve(output, "editor/index.html"))).byteLength;
-console.log(`Built GitHub Pages artifact in _site (${htmlSize} byte index, ${editorSize} byte editor, ${published.length} external event(s)).`);
+const appSize = (await readFile(resolve(output, "editor/app.js"))).byteLength;
+console.log(`Built GitHub Pages artifact in _site (${htmlSize} byte index, ${editorSize} byte editor, ${appSize} byte editor app, ${published.length} external event(s)).`);
