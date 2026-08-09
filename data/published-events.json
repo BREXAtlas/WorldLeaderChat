@@ -412,5 +412,74 @@
       "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.",
       "reviewNotes": "S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages labeled as satire."
     }
+  },
+  {
+    "id": "2026-08-06-iran-aims-to-ban-u-s-and-israeli-ships-from-strait-of-hormuz-and",
+    "eventDate": "2026-08-06",
+    "year": 2026,
+    "date": "August 6, 2026",
+    "title": "THE IRAN WAR CHAT HAS ENTERED ITS “FINAL WARNING — PART 14” ERA",
+    "kicker": "Threats, negotiations and political timing collide in the fictional group chat where everyone has receipts from the previous “final” warning.",
+    "category": "World Affairs",
+    "summary": "Iran's parliament is reviewing a plan to ban ships linked to the U.S., Israel and other \"hostile countries\" from transiting the Strait of Hormuz. The Trump administration has rejected the plan.",
+    "sources": [
+      {
+        "label": "Iran aims to ban U.S. and Israeli ships from Strait of Hormuz and charge others a toll",
+        "url": "https://www.npr.org/2026/08/06/nx-s1-5923623/iran-strait-hormuz-us-israel-ban",
+        "publisher": "NPR"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "Please number all final warnings so the archive remains searchable.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "This one is extremely final. More final than the others.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Iran",
+        "text": "We have created a folder titled FINAL_FINAL_REAL_THIS_TIME.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Macron",
+        "text": "Diplomacy would benefit from fewer season finales.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Putin",
+        "text": "The useful thing about red lines is how often they can be redrawn.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Xi",
+        "text": "China recommends fewer typing indicators and more negotiated text.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "UN Admin enabled disappearing messages. The threats did not disappear.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-09T15:43:27.078Z",
+    "editorial": {
+      "issueNumber": 8,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/8",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-09T15:43:27.078Z",
+      "fingerprint": "b5d2756395adba9a9f75b083e238922d2138ffd7c642ed393ad9a64311280432",
+      "sourcePublishedAt": "2026-08-06T20:58:56.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.",
+      "reviewNotes": "S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages labeled as satire."
+    }
   }
 ]
