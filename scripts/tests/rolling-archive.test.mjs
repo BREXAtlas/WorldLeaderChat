@@ -5,23 +5,34 @@ import { mergePublishedDuplicates } from "../lib/published-dedupe.mjs";
 
 const read = (path) => readFile(new URL(`../../${path}`, import.meta.url), "utf8");
 
-test("current newsroom follows the exact today-minus-seven through today window", async () => {
+test("current newsroom shows the entire Chicago current month", async () => {
   const source = await read("rolling-archive.js");
-  assert.match(source, /DAYS_BEFORE_TODAY = 7/);
-  assert.match(source, /const windowStart = addDays\(today, -DAYS_BEFORE_TODAY\)/);
-  assert.match(source, /value >= windowStart\.getTime\(\) && value <= today\.getTime\(\)/);
-  assert.match(source, /CURRENT FILES \/\//);
-  assert.match(source, /event\.id !== leadId/);
+  assert.match(source, /MINIMUM_VISIBLE_FILES = 10/);
+  assert.match(source, /const currentMonthIndex = today\.getUTCMonth\(\)/);
+  assert.match(source, /const currentMonthEvents = eventsInMonth\(currentYearEvents, currentYear, currentMonthIndex\)/);
+  assert.match(source, /CURRENT MONTH/);
+  assert.match(source, /1 FEATURED ABOVE/);
+  assert.doesNotMatch(source, /DAYS_BEFORE_TODAY/);
 });
 
-test("current year archives by month then day before older year archives", async () => {
+test("2026 archives directly by month without day sub-archives", async () => {
   const source = await read("rolling-archive.js");
-  assert.match(source, /MONTH &amp; DAY ARCHIVE/);
-  assert.match(source, /class="month-archive"/);
-  assert.match(source, /class="day-archive"/);
+  assert.match(source, /MONTH ARCHIVE/);
+  assert.match(source, /class="month-archive/);
+  assert.match(source, /automaticOpenMonths/);
+  assert.match(source, /visible < MINIMUM_VISIBLE_FILES/);
   assert.match(source, /class="historic-archive"/);
   assert.match(source, /ARCHIVE \/\//);
+  assert.doesNotMatch(source, /class="day-archive"/);
   assert.match(source, /grid-template-columns:repeat\(3,minmax\(0,1fr\)\)/);
+});
+
+test("legacy built-in 2026 display dates participate in month archives", async () => {
+  const source = await read("rolling-archive.js");
+  assert.match(source, /const MONTH_INDEX = new Map/);
+  assert.match(source, /event\?\.date/);
+  assert.match(source, /\[–—-\]/);
+  assert.match(source, /the first day determines month/);
 });
 
 test("headline colors distinguish major news desks", async () => {
