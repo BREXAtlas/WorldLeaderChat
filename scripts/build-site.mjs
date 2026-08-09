@@ -12,16 +12,23 @@ await mkdir(resolve(output, "data"), { recursive: true });
 await mkdir(resolve(output, "editor"), { recursive: true });
 
 const publicHtml = await readFile(resolve(root, "index.html"), "utf8");
-const socialScriptTag = '  <script src="./social-tools.js"></script>\n';
-const instrumentedHtml = publicHtml.includes("social-tools.js")
-  ? publicHtml
-  : publicHtml.replace("</body>", `${socialScriptTag}</body>`);
+const publicScripts = [
+  '  <script src="./social-tools.js"></script>',
+  '  <script src="./newsroom-site.js"></script>'
+];
+let instrumentedHtml = publicHtml;
+for (const tag of publicScripts) {
+  const src = tag.match(/src="([^"]+)/)?.[1];
+  if (src && !instrumentedHtml.includes(src)) instrumentedHtml = instrumentedHtml.replace("</body>", `${tag}\n</body>`);
+}
 await writeFile(resolve(output, "index.html"), instrumentedHtml, "utf8");
 await writeFile(resolve(output, "404.html"), instrumentedHtml, "utf8");
 await cp(resolve(root, "social-tools.js"), resolve(output, "social-tools.js"));
+await cp(resolve(root, "newsroom-site.js"), resolve(output, "newsroom-site.js"));
 await cp(resolve(root, "editor/index.html"), resolve(output, "editor/index.html"));
 await cp(resolve(root, "editor/app.js"), resolve(output, "editor/app.js"));
 await cp(resolve(root, "editor/conversation-upgrade.js"), resolve(output, "editor/conversation-upgrade.js"));
+await cp(resolve(root, "editor/newsroom-upgrade.js"), resolve(output, "editor/newsroom-upgrade.js"));
 await cp(resolve(root, "data/published-events.json"), resolve(output, "data/published-events.json"));
 
 const published = await readJson(resolve(root, "data/published-events.json"), []);
@@ -37,7 +44,9 @@ await writeFile(resolve(output, "robots.txt"), "User-agent: *\nAllow: /\nDisallo
 
 const htmlSize = (await readFile(resolve(output, "index.html"))).byteLength;
 const socialSize = (await readFile(resolve(output, "social-tools.js"))).byteLength;
+const newsroomSize = (await readFile(resolve(output, "newsroom-site.js"))).byteLength;
 const editorSize = (await readFile(resolve(output, "editor/index.html"))).byteLength;
 const appSize = (await readFile(resolve(output, "editor/app.js"))).byteLength;
 const conversationSize = (await readFile(resolve(output, "editor/conversation-upgrade.js"))).byteLength;
-console.log(`Built GitHub Pages artifact in _site (${htmlSize} byte index, ${socialSize} byte social tools, ${editorSize} byte editor, ${appSize} byte editor app, ${conversationSize} byte conversation upgrade, ${published.length} external event(s)).`);
+const editorNewsroomSize = (await readFile(resolve(output, "editor/newsroom-upgrade.js"))).byteLength;
+console.log(`Built GitHub Pages artifact in _site (${htmlSize} byte index, ${socialSize} byte social tools, ${newsroomSize} byte newsroom UI, ${editorSize} byte editor, ${appSize} byte editor app, ${conversationSize} byte conversation upgrade, ${editorNewsroomSize} byte article upgrade, ${published.length} external event(s)).`);
