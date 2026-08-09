@@ -343,5 +343,74 @@
       "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.",
       "reviewNotes": "S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages labeled as satire."
     }
+  },
+  {
+    "id": "2026-08-08-vance-says-us-destroyed-iran-s-nuclear-programme",
+    "eventDate": "2026-08-08",
+    "year": 2026,
+    "date": "August 8, 2026",
+    "title": "VANCE POSTS “MISSION ACCOMPLISHED” AND THE CHAT IMMEDIATELY ASKS FOR RECEIPTS",
+    "kicker": "A sweeping U.S. claim about Iran’s nuclear program becomes the kind of message every leader reads twice before reacting.",
+    "category": "War & Security",
+    "summary": "US Vice President JD Vance claims Washington has “destroyed” Iran’s nuclear programme and degraded its military.",
+    "sources": [
+      {
+        "label": "Vance says US ‘destroyed’ Iran’s nuclear programme",
+        "url": "https://www.aljazeera.com/video/newsfeed/2026/8/8/vance-says-us-destroyed-irans-nuclear-programme?traffic_source=rss",
+        "publisher": "Al Jazeera"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "Reminder: operational claims require sources. Reaction emojis do not count as verification.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Vance",
+        "text": "The program is destroyed. I am choosing the confident font.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "Very strong statement. I would have used all caps, but strong.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Iran",
+        "text": "Interesting. We appear to have been informed of our status through the group chat.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Macron",
+        "text": "Can we distinguish “destroyed,” “degraded,” and “the briefing had a dramatic slide”?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Xi",
+        "text": "Precision in language is useful, especially after precision strikes.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "Vance pinned a message. Everyone else pinned the word “verification.”",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-09T15:36:41.946Z",
+    "editorial": {
+      "issueNumber": 11,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/11",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-09T15:36:41.946Z",
+      "fingerprint": "756dff0baf1baca2c605fc8e38bff15c5b5dd1dd56684e95c5752f2d585df74d",
+      "sourcePublishedAt": "2026-08-08T23:27:55.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.",
+      "reviewNotes": "S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages labeled as satire."
+    }
   }
 ]

@@ -58,5 +58,17 @@
     "sourceUrls": [
       "https://www.dw.com/en/ukraine-russia-pounds-kyiv-as-zelenskyy-visits-serbia/a-78287715?maca=en-rss-en-top-1022-rdf"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-08-vance-says-us-destroyed-iran-s-nuclear-programme",
+    "issueNumber": 11,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/11",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-09T15:36:41.946Z",
+    "fingerprint": "756dff0baf1baca2c605fc8e38bff15c5b5dd1dd56684e95c5752f2d585df74d",
+    "sourceUrls": [
+      "https://www.aljazeera.com/video/newsfeed/2026/8/8/vance-says-us-destroyed-irans-nuclear-programme?traffic_source=rss"
+    ]
   }
 ]
