@@ -43,8 +43,14 @@ jobs:
       - name: Install GitHub Copilot CLI
         run: npm install --global @github/copilot
 
-      - name: Create complete S-M-A-R editorial suggestions
+      - name: Create complete truth-first editorial suggestions
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WLC_DRAFT_LIMIT: 20
         run: node scripts/draft-editorial-issues.mjs
+
+      - name: Replace meta narration with direct recurring-speaker dialogue
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WLC_REFINE_LIMIT: 50
+        run: node scripts/refine-editorial-dialogue.mjs

@@ -35,6 +35,8 @@ jobs:
           node --check editor/conversation-upgrade.js
           node --check editor/newsroom-upgrade.js
           node --check scripts/draft-editorial-issues.mjs
+          node --check scripts/refine-editorial-dialogue.mjs
+          node --check scripts/lib/newsroom-dialogue.mjs
           node --check scripts/ingest-news.mjs
 
       - name: Run unit tests
