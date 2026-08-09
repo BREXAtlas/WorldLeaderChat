@@ -1,33 +1,32 @@
-name: Bootstrap editor dashboard branch
+name: Install verified editor dashboard source
 
 on:
-  push:
+  pull_request:
+    types: [opened, reopened, synchronize]
     branches: [main]
     paths:
-      - ".github/bootstrap/editor-dashboard/manifest.json"
-  issues:
-    types: [labeled]
+      - ".github/bootstrap/editor-dashboard/**"
 
 permissions:
   contents: write
-  issues: write
 
 concurrency:
-  group: bootstrap-editor-dashboard
+  group: install-editor-dashboard-${{ github.event.pull_request.number }}
   cancel-in-progress: false
 
 jobs:
   install:
     if: >-
-      (github.event_name == 'push' && github.event.head_commit.message != 'Install editorial dashboard application files') ||
-      (github.event_name == 'issues' && github.event.label.name == 'news-candidate' && startsWith(github.event.issue.title, 'SYSTEM: Install editor dashboard'))
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      startsWith(github.event.pull_request.head.ref, 'agent/install-editor-dashboard')
     runs-on: ubuntu-latest
     timeout-minutes: 15
+
     steps:
-      - name: Check out main
+      - name: Check out the pull-request branch
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: main
+          ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
 
       - name: Reconstruct and verify application archive
@@ -35,18 +34,19 @@ jobs:
         run: |
           set -euo pipefail
           cat .github/bootstrap/editor-dashboard/chunk-*.b64 | base64 --decode > /tmp/editor-dashboard.tar.gz
-          echo "fa94979ba13062f0ec62e6cca35be1fafe18528f7214ec931c4b07b72e1cd8cd  /tmp/editor-dashboard.tar.gz" | sha256sum --check --strict
+          echo "46a607969b7868f8850abbc738a81db1fb00bab1c81c28dc6a351094a1898f29  /tmp/editor-dashboard.tar.gz" | sha256sum --check --strict
           if tar -tzf /tmp/editor-dashboard.tar.gz | grep -Eq '(^/|(^|/)\.\.(/|$))'; then
             echo "Unsafe archive path detected." >&2
             exit 1
           fi
 
-      - name: Install dashboard and drafting source
+      - name: Install dashboard, drafting engine, and permanent workflows
         shell: bash
         run: |
           set -euo pipefail
           tar -xzf /tmp/editor-dashboard.tar.gz -C .
           rm -rf .github/bootstrap/editor-dashboard
+          rm -f .github/workflows/bootstrap-editor-dashboard.yml
 
       - name: Use Node.js 24
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
@@ -60,22 +60,15 @@ jobs:
           npm run validate
           npm run build
 
-      - name: Commit installed application files
+      - name: Commit the finished source to the pull-request branch
         shell: bash
+        env:
+          HEAD_BRANCH: ${{ github.event.pull_request.head.ref }}
         run: |
           set -euo pipefail
           git config user.name "world-leader-chat-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
           git diff --cached --check
-          git commit -m "Install editorial dashboard application files"
-          git push origin HEAD:main
-
-      - name: Close bootstrap issue
-        if: github.event_name == 'issues'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ISSUE_NUMBER: ${{ github.event.issue.number }}
-        run: |
-          gh issue close "${ISSUE_NUMBER}" --repo "${GITHUB_REPOSITORY}" \
-            --comment "Editor dashboard source installed, tested, validated, and built on main."
+          git commit -m "Install editorial dashboard and Copilot drafting engine"
+          git push origin "HEAD:${HEAD_BRANCH}"
