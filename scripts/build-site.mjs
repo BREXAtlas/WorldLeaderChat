@@ -21,6 +21,7 @@ await writeFile(resolve(output, "404.html"), instrumentedHtml, "utf8");
 await cp(resolve(root, "social-tools.js"), resolve(output, "social-tools.js"));
 await cp(resolve(root, "editor/index.html"), resolve(output, "editor/index.html"));
 await cp(resolve(root, "editor/app.js"), resolve(output, "editor/app.js"));
+await cp(resolve(root, "editor/conversation-upgrade.js"), resolve(output, "editor/conversation-upgrade.js"));
 await cp(resolve(root, "data/published-events.json"), resolve(output, "data/published-events.json"));
 
 const published = await readJson(resolve(root, "data/published-events.json"), []);
@@ -38,4 +39,5 @@ const htmlSize = (await readFile(resolve(output, "index.html"))).byteLength;
 const socialSize = (await readFile(resolve(output, "social-tools.js"))).byteLength;
 const editorSize = (await readFile(resolve(output, "editor/index.html"))).byteLength;
 const appSize = (await readFile(resolve(output, "editor/app.js"))).byteLength;
-console.log(`Built GitHub Pages artifact in _site (${htmlSize} byte index, ${socialSize} byte social tools, ${editorSize} byte editor, ${appSize} byte editor app, ${published.length} external event(s)).`);
+const conversationSize = (await readFile(resolve(output, "editor/conversation-upgrade.js"))).byteLength;
+console.log(`Built GitHub Pages artifact in _site (${htmlSize} byte index, ${socialSize} byte social tools, ${editorSize} byte editor, ${appSize} byte editor app, ${conversationSize} byte conversation upgrade, ${published.length} external event(s)).`);
