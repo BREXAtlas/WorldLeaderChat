@@ -96,12 +96,17 @@
     "title": "HORMUZ GROUP CHAT ADDS A TOLL BOOTH AND EVERY NAVY STARTS TYPING",
     "kicker": "A Strait of Hormuz proposal turns one of the world’s most strategic waterways into the least relaxing group-chat logistics thread imaginable.",
     "category": "War & Security",
-    "summary": "The Iranian president calls for an end to deadlock with the US, declaring it the right moment for a lasting agreement.",
+    "summary": "Iranian President Masoud Pezeshkian urged a lasting agreement with the United States while Iran also considered restrictions and tolls for ships linked to hostile countries in the Strait of Hormuz, according to Al Jazeera and NPR.",
     "sources": [
       {
         "label": "Why is Pezeshkian urging an end to Iran’s ‘no war, no peace’ status?",
         "url": "https://www.aljazeera.com/news/2026/8/9/why-is-pezeshkian-urging-an-end-to-irans-no-war-no-peace-status?traffic_source=rss",
         "publisher": "Al Jazeera"
+      },
+      {
+        "label": "Iran aims to ban U.S. and Israeli ships from Strait of Hormuz and charge others a toll",
+        "url": "https://www.npr.org/2026/08/06/nx-s1-5923623/iran-strait-hormuz-us-israel-ban",
+        "publisher": "NPR"
       }
     ],
     "messages": [
@@ -153,8 +158,16 @@
       "approvedAt": "2026-08-09T15:27:35.266Z",
       "fingerprint": "9b754bc6f2dca0ea036fe967756bb86f077080463a2d16242511982b41d2fbb8",
       "sourcePublishedAt": "2026-08-09T10:02:59.000Z",
-      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.",
-      "reviewNotes": "S-M-A-R: source locked; satire targets decision-makers only; sober tone recommended; avoid jokes about casualties."
+      "singleSourceException": "",
+      "reviewNotes": "S-M-A-R: source locked; satire targets decision-makers only; sober tone recommended; avoid jokes about casualties. S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages labeled as satire. Merged the overlapping Iran-U.S. deadlock and Strait of Hormuz access coverage into one sourced Hormuz file instead of repeating the same chat premise.",
+      "mergedIssueNumbers": [
+        8,
+        23
+      ],
+      "mergedEventIds": [
+        "2026-08-09-why-is-pezeshkian-urging-an-end-to-iran-s-no-war-no-peace-status",
+        "2026-08-06-iran-aims-to-ban-u-s-and-israeli-ships-from-strait-of-hormuz-and"
+      ]
     }
   },
   {
@@ -227,75 +240,6 @@
     }
   },
   {
-    "id": "2026-08-08-child-among-three-killed-in-russian-missile-attacks-near-kyiv",
-    "eventDate": "2026-08-08",
-    "year": 2026,
-    "date": "August 8, 2026",
-    "title": "ZELENSKYY ENTERS THE CHAT SERBIA HOPED WOULD STAY ON MUTE",
-    "kicker": "A Serbia visit lands in the middle of another Russia-Ukraine escalation, so the imaginary leaders’ chat immediately becomes a diplomacy stress test.",
-    "category": "War & Security",
-    "summary": "Russia continued its overnight attacks after President Volodymyr Zelensky warned of Ukraine's dwindling supplies of missile interceptors.",
-    "sources": [
-      {
-        "label": "Child among three killed in Russian missile attacks near Kyiv",
-        "url": "https://www.bbc.co.uk/news/articles/cz7dy8gq99eo?at_medium=RSS&at_campaign=rss",
-        "publisher": "BBC News"
-      }
-    ],
-    "messages": [
-      {
-        "speaker": "UN Admin",
-        "text": "New topic: Serbia, Ukraine and Russia. Please avoid turning “strategic ambiguity” into a reaction emoji.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
-        "speaker": "Zelenskyy",
-        "text": "I came to talk cooperation. Somehow every room in Europe still has one invisible chair labeled “Moscow.”",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Putin",
-        "text": "Invisible? I prefer “historically reserved.”",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Meloni",
-        "text": "Could everyone stop treating geography like a group project where nobody read the instructions?",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Trump",
-        "text": "I could settle this chat very quickly. First we need better admins. Tremendous admins.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Xi",
-        "text": "China observes that the mute function remains underused.",
-        "kind": "satire",
-        "reaction": ""
-      }
-    ],
-    "meme": "UN Admin changed the group description to: “NO ONE IS NEUTRAL AFTER THE THIRD REPLY.”",
-    "quote": null,
-    "tone": "comic",
-    "publishedAt": "2026-08-09T15:45:24.473Z",
-    "editorial": {
-      "issueNumber": 7,
-      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/7",
-      "approvedBy": "BREXAtlas",
-      "approvedAt": "2026-08-09T15:45:24.473Z",
-      "fingerprint": "612631804f711d8537c7453c47dde38dd85aafa94e0a3512fe23093f56da2351",
-      "sourcePublishedAt": "2026-08-08T18:06:25.000Z",
-      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.",
-      "reviewNotes": "S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages labeled as satire."
-    }
-  },
-  {
     "id": "2026-08-08-ukraine-russia-pounds-kyiv-as-zelenskyy-visits-serbia",
     "eventDate": "2026-08-08",
     "year": 2026,
@@ -309,6 +253,11 @@
         "label": "Ukraine: Russia pounds Kyiv as Zelenskyy visits Serbia",
         "url": "https://www.dw.com/en/ukraine-russia-pounds-kyiv-as-zelenskyy-visits-serbia/a-78287715?maca=en-rss-en-top-1022-rdf",
         "publisher": "DW"
+      },
+      {
+        "label": "Child among three killed in Russian missile attacks near Kyiv",
+        "url": "https://www.bbc.co.uk/news/articles/cz7dy8gq99eo?at_medium=RSS&at_campaign=rss",
+        "publisher": "BBC News"
       }
     ],
     "messages": [
@@ -360,8 +309,16 @@
       "approvedAt": "2026-08-09T15:34:48.936Z",
       "fingerprint": "7192a2fbb21831156b86daca49012f9518bfb89f4586e7a5e9616e444466a4b5",
       "sourcePublishedAt": "2026-08-08T14:10:00.000Z",
-      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.",
-      "reviewNotes": "S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages labeled as satire."
+      "singleSourceException": "",
+      "reviewNotes": "S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages labeled as satire. Merged BBC and DW coverage of the same August 8 Kyiv-strikes and Zelenskyy-in-Serbia news cycle into one file.",
+      "mergedIssueNumbers": [
+        7,
+        13
+      ],
+      "mergedEventIds": [
+        "2026-08-08-ukraine-russia-pounds-kyiv-as-zelenskyy-visits-serbia",
+        "2026-08-08-child-among-three-killed-in-russian-missile-attacks-near-kyiv"
+      ]
     }
   },
   {
@@ -429,75 +386,6 @@
       "approvedAt": "2026-08-09T15:36:41.946Z",
       "fingerprint": "756dff0baf1baca2c605fc8e38bff15c5b5dd1dd56684e95c5752f2d585df74d",
       "sourcePublishedAt": "2026-08-08T23:27:55.000Z",
-      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.",
-      "reviewNotes": "S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages labeled as satire."
-    }
-  },
-  {
-    "id": "2026-08-06-iran-aims-to-ban-u-s-and-israeli-ships-from-strait-of-hormuz-and",
-    "eventDate": "2026-08-06",
-    "year": 2026,
-    "date": "August 6, 2026",
-    "title": "THE IRAN WAR CHAT HAS ENTERED ITS “FINAL WARNING — PART 14” ERA",
-    "kicker": "Threats, negotiations and political timing collide in the fictional group chat where everyone has receipts from the previous “final” warning.",
-    "category": "World Affairs",
-    "summary": "Iran's parliament is reviewing a plan to ban ships linked to the U.S., Israel and other \"hostile countries\" from transiting the Strait of Hormuz. The Trump administration has rejected the plan.",
-    "sources": [
-      {
-        "label": "Iran aims to ban U.S. and Israeli ships from Strait of Hormuz and charge others a toll",
-        "url": "https://www.npr.org/2026/08/06/nx-s1-5923623/iran-strait-hormuz-us-israel-ban",
-        "publisher": "NPR"
-      }
-    ],
-    "messages": [
-      {
-        "speaker": "UN Admin",
-        "text": "Please number all final warnings so the archive remains searchable.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
-        "speaker": "Trump",
-        "text": "This one is extremely final. More final than the others.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Iran",
-        "text": "We have created a folder titled FINAL_FINAL_REAL_THIS_TIME.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Macron",
-        "text": "Diplomacy would benefit from fewer season finales.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Putin",
-        "text": "The useful thing about red lines is how often they can be redrawn.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Xi",
-        "text": "China recommends fewer typing indicators and more negotiated text.",
-        "kind": "satire",
-        "reaction": ""
-      }
-    ],
-    "meme": "UN Admin enabled disappearing messages. The threats did not disappear.",
-    "quote": null,
-    "tone": "comic",
-    "publishedAt": "2026-08-09T15:43:27.078Z",
-    "editorial": {
-      "issueNumber": 8,
-      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/8",
-      "approvedBy": "BREXAtlas",
-      "approvedAt": "2026-08-09T15:43:27.078Z",
-      "fingerprint": "b5d2756395adba9a9f75b083e238922d2138ffd7c642ed393ad9a64311280432",
-      "sourcePublishedAt": "2026-08-06T20:58:56.000Z",
       "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.",
       "reviewNotes": "S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages labeled as satire."
     }
