@@ -94,5 +94,17 @@
     "sourceUrls": [
       "https://www.bbc.co.uk/news/articles/cz7dy8gq99eo?at_medium=RSS&at_campaign=rss"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-08-bluster-and-backdown-have-turned-iran-war-into-trump-s-own-groun",
+    "issueNumber": 10,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/10",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-09T15:46:57.777Z",
+    "fingerprint": "2cbc182fab37cdbe9933d4d79f6f5aa93330e27198045a716d9a8f1670ffb95c",
+    "sourceUrls": [
+      "https://www.theguardian.com/world/ng-interactive/2026/aug/08/trump-iran-war-criticism-groundhog-day"
+    ]
   }
 ]

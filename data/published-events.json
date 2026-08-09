@@ -276,6 +276,75 @@
     }
   },
   {
+    "id": "2026-08-08-bluster-and-backdown-have-turned-iran-war-into-trump-s-own-groun",
+    "eventDate": "2026-08-08",
+    "year": 2026,
+    "date": "August 8, 2026",
+    "title": "THE IRAN WAR CHAT HAS ENTERED ITS “FINAL WARNING — PART 14” ERA",
+    "kicker": "Threats, negotiations and political timing collide in the fictional group chat where everyone has receipts from the previous “final” warning.",
+    "category": "War & Security",
+    "summary": "The US president’s profound ignorance of his enemy has led to an impotent cycle of empty threats, analysts say Being the subject of mockery may be the most intense of all Donald Trump’s known aversions. Yet more than five months after embarking on a war of choice against Iran, the US president risks attracting ridicule as he struggles to secure a military victory – while repeatedly threatening devastating bombardment against the Tehran regime, only to back down on the pretext of renewed negotiations. Continue reading...",
+    "sources": [
+      {
+        "label": "Bluster and backdown have turned Iran war into Trump’s own Groundhog Day",
+        "url": "https://www.theguardian.com/world/ng-interactive/2026/aug/08/trump-iran-war-criticism-groundhog-day",
+        "publisher": "The Guardian"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "Please number all final warnings so the archive remains searchable.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "This one is extremely final. More final than the others.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Iran",
+        "text": "We have created a folder titled FINAL_FINAL_REAL_THIS_TIME.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Macron",
+        "text": "Diplomacy would benefit from fewer season finales.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Putin",
+        "text": "The useful thing about red lines is how often they can be redrawn.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Xi",
+        "text": "China recommends fewer typing indicators and more negotiated text.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "UN Admin enabled disappearing messages. The threats did not disappear.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-09T15:46:57.777Z",
+    "editorial": {
+      "issueNumber": 10,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/10",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-09T15:46:57.777Z",
+      "fingerprint": "2cbc182fab37cdbe9933d4d79f6f5aa93330e27198045a716d9a8f1670ffb95c",
+      "sourcePublishedAt": "2026-08-08T09:00:43.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.",
+      "reviewNotes": "S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages labeled as satire."
+    }
+  },
+  {
     "id": "2026-08-08-child-among-three-killed-in-russian-missile-attacks-near-kyiv",
     "eventDate": "2026-08-08",
     "year": 2026,
