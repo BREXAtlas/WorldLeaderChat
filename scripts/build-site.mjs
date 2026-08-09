@@ -16,7 +16,40 @@ const publicScripts = [
   '  <script src="./social-tools.js"></script>',
   '  <script src="./newsroom-site.js"></script>'
 ];
-let instrumentedHtml = publicHtml;
+let instrumentedHtml = publicHtml
+  .replace(
+    /<div class="satire-strip">[\s\S]*?<\/div>/,
+    '<div class="satire-strip"><b>WORLD LEADER CHAT</b> • REAL EVENTS • ORIGINAL SOURCES • IMAGINED PRIVATE REACTIONS</div>'
+  )
+  .replace(
+    /<p class="mast-note">[\s\S]*?<\/p>/,
+    '<p class="mast-note">The day’s real headlines, rewritten with a sharper edge. Open any file for the short report, the original sources and the conversation the room might have sounded like.</p>'
+  )
+  .replace(
+    /<button class="btn" id="modeBtn" type="button">[\s\S]*?<\/button>/,
+    '<button class="btn" id="modeBtn" type="button">Switch to Report Mode</button>'
+  )
+  .replace(
+    /<div class="mode-note" id="modeNote">[\s\S]*?<\/div>/,
+    '<div class="mode-note" id="modeNote">HEADLINE MODE: scan the sharpest line, then open any file for the report, sources and conversation.</div>'
+  )
+  .replace(
+    /<b>WORLD LEADER CHAT \/\/ FICTIONAL TRANSCRIPT VIEWER<\/b>/,
+    '<b>WORLD LEADER CHAT // THE FILE</b>'
+  )
+  .replace(
+    /<p>End-to-end fictional • public record excerpts highlighted in yellow<\/p>/,
+    '<p>Sourced event • imagined off-mic reactions • public-record excerpts highlighted in yellow</p>'
+  )
+  .replace(
+    /<footer>[\s\S]*?<\/footer>/,
+    '<footer><strong>SATIRICAL NEWS FORMAT, NOT LEAKED CORRESPONDENCE.</strong><br>Events and public quotations are sourced. Private reactions are imagined. Open any file to view the original reporting.</footer>'
+  )
+  .replace(
+    "</head>",
+    '<style id="newsroom-critical">#deskJump,.update-desk{display:none!important}</style>\n</head>'
+  );
+
 for (const tag of publicScripts) {
   const src = tag.match(/src="([^"]+)/)?.[1];
   if (src && !instrumentedHtml.includes(src)) instrumentedHtml = instrumentedHtml.replace("</body>", `${tag}\n</body>`);
