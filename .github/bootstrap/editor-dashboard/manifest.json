@@ -3,5 +3,6 @@
   "archive": "editor-dashboard.tar.gz",
   "chunks": 7,
   "sha256": "fa94979ba13062f0ec62e6cca35be1fafe18528f7214ec931c4b07b72e1cd8cd",
-  "purpose": "Install the editor dashboard and Copilot drafting application files on the feature branch."
+  "purpose": "Install the validated World Leader Chat editor dashboard and Copilot drafting source.",
+  "triggeredAt": "2026-08-09T03:00:00Z"
 }
