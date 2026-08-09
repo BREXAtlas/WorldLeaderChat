@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "scripts/cleanup-published-duplicates.mjs"
+      - "scripts/lib/published-dedupe.mjs"
       - ".github/workflows/cleanup-published-duplicates.yml"
   workflow_dispatch:
 
@@ -34,7 +35,7 @@ jobs:
           node-version: 24
           package-manager-cache: false
 
-      - name: Merge duplicate published events
+      - name: Merge repeated published coverage into canonical files
         run: node scripts/cleanup-published-duplicates.mjs
 
       - name: Validate and test
@@ -46,13 +47,13 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          if git diff --quiet -- data/published-events.json data/editorial-log.json data/site-meta.json; then
+          if git diff --quiet -- data/published-events.json data/site-meta.json; then
             echo "No duplicate data changes to commit."
           else
             git config user.name "world-leader-chat-bot"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add data/published-events.json data/editorial-log.json data/site-meta.json
-            git commit -m "Merge duplicate Gaza plan coverage"
+            git add data/published-events.json data/site-meta.json
+            git commit -m "Merge remaining duplicate published coverage"
             git push origin HEAD:main
           fi
 

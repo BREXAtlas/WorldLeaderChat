@@ -27,9 +27,9 @@ test("newsroom editor requires a sourced article before future approval", async 
   assert.match(newsroomEditor, /SHORT ARTICLE PREVIEW/);
 });
 
-test("public newsroom puts 2026 across three columns and archives older years", async () => {
+test("public newsroom keeps three-column current coverage and older-year dropdowns", async () => {
   const newsroom = await read("newsroom-site.js");
-  assert.match(newsroom, /2026 \/\/ CURRENT FILES/);
+  assert.match(newsroom, /CURRENT FILES/);
   assert.match(newsroom, /ARCHIVE \/\/ 2020–2025/);
   assert.match(newsroom, /details class="year-archive"/);
   assert.match(newsroom, /grid-template-columns:repeat\(3/);
@@ -46,10 +46,11 @@ test("current files own the full page width before stacked archive dropdowns", a
   assert.match(polish, /\.current-columns,\.archive-year-grid\{[\s\S]*grid-template-columns:repeat\(3,minmax\(0,1fr\)\)!important/);
 });
 
-test("Pages build includes social, newsroom and editor article assets", async () => {
+test("Pages build includes social, newsroom, rolling archive and editor assets", async () => {
   const build = await read("scripts/build-site.mjs");
   assert.match(build, /social-tools\.js/);
   assert.match(build, /newsroom-site\.js/);
+  assert.match(build, /rolling-archive\.js/);
   assert.match(build, /conversation-upgrade\.js/);
   assert.match(build, /newsroom-upgrade\.js/);
 });
