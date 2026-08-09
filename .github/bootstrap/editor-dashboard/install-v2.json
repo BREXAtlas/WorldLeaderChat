@@ -1,0 +1,19 @@
+{
+  "name": "World Leader Chat private editorial dashboard",
+  "version": 2,
+  "archiveSha256": "46a607969b7868f8850abbc738a81db1fb00bab1c81c28dc6a351094a1898f29",
+  "features": [
+    "private editor dashboard at /editor/",
+    "New, Drafting, Ready for Approval, and Published lanes",
+    "system-generated fictional world-leader chats",
+    "S-M-A-R source and satire review",
+    "approve, regenerate, and reject decisions",
+    "GitHub Actions drafting and publishing"
+  ],
+  "validation": {
+    "unitTests": 14,
+    "repositoryValidation": "passed",
+    "productionBuild": "passed",
+    "cleanBaselineInstall": "passed"
+  }
+}
