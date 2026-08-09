@@ -1,0 +1,66 @@
+name: News ingestion
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+    inputs:
+      lookback_hours:
+        description: "How far back to scan each feed"
+        required: false
+        default: "72"
+      minimum_score:
+        description: "Minimum world-leader relevance score"
+        required: false
+        default: "7"
+      max_candidates:
+        description: "Maximum new editorial issues in this run"
+        required: false
+        default: "8"
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: world-leader-chat-news-ingestion
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      INGESTION_OUTPUT: tmp/ingestion-candidates.json
+      WLC_LOOKBACK_HOURS: ${{ inputs.lookback_hours || '72' }}
+      WLC_MINIMUM_SCORE: ${{ inputs.minimum_score || '7' }}
+      WLC_MAX_CANDIDATES: ${{ inputs.max_candidates || '8' }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Use Node.js 24
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Fetch, normalize and rank current news
+        run: node scripts/ingest-news.mjs
+
+      - name: Open deduplicated editorial issues
+        id: queue
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/open-editorial-issues.mjs
+
+      - name: Write run summary
+        run: |
+          {
+            echo "## World Leader Chat ingestion"
+            echo
+            echo "- New editorial issues: ${{ steps.queue.outputs.issues_created }}"
+            echo "- Existing candidates skipped: ${{ steps.queue.outputs.issues_skipped }}"
+            echo "- No story was published. Every candidate requires human fact-checking and approval."
+          } >> "$GITHUB_STEP_SUMMARY"
