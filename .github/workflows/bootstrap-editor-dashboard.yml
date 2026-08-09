@@ -3,6 +3,7 @@ name: Bootstrap editor dashboard branch
 on:
   push:
     branches:
+      - main
       - agent/editor-dashboard-copilot-drafting
     paths:
       - ".github/bootstrap/editor-dashboard/manifest.json"
@@ -11,7 +12,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: bootstrap-editor-dashboard
+  group: bootstrap-editor-dashboard-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
@@ -20,10 +21,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - name: Check out feature branch
+      - name: Check out the triggering branch
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: agent/editor-dashboard-copilot-drafting
+          ref: ${{ github.ref_name }}
           fetch-depth: 0
 
       - name: Reconstruct and verify application archive
@@ -65,4 +66,4 @@ jobs:
           git add -A
           git diff --cached --check
           git commit -m "Install editorial dashboard application files"
-          git push origin HEAD:agent/editor-dashboard-copilot-drafting
+          git push origin "HEAD:${{ github.ref_name }}"
