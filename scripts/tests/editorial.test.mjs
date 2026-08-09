@@ -41,7 +41,7 @@ test("editorial issue body preserves a machine-readable newsroom draft", () => {
   assert.equal(bundle.ingestion.newsroomFormat, 2);
   assert.equal(bundle.event.sources[0].url, candidate.url);
   assert.ok(bundle.event.article);
-  assert.match(body, /same real event/i);
+  assert.match(body, /conclusion must match the listed original reporting/i);
 });
 
 test("multiple original reports remain attached to one editorial file", () => {
