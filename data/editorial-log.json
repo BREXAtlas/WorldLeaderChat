@@ -46,5 +46,17 @@
     "sourceUrls": [
       "https://www.bbc.co.uk/news/articles/c5yw4lpe0yeo?at_medium=RSS&at_campaign=rss"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-08-ukraine-russia-pounds-kyiv-as-zelenskyy-visits-serbia",
+    "issueNumber": 13,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/13",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-09T15:34:48.936Z",
+    "fingerprint": "7192a2fbb21831156b86daca49012f9518bfb89f4586e7a5e9616e444466a4b5",
+    "sourceUrls": [
+      "https://www.dw.com/en/ukraine-russia-pounds-kyiv-as-zelenskyy-visits-serbia/a-78287715?maca=en-rss-en-top-1022-rdf"
+    ]
   }
 ]

@@ -274,5 +274,74 @@
       "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.",
       "reviewNotes": "S-M-A-R: source locked; satire targets decision-makers only; sober tone recommended; avoid jokes about casualties."
     }
+  },
+  {
+    "id": "2026-08-08-ukraine-russia-pounds-kyiv-as-zelenskyy-visits-serbia",
+    "eventDate": "2026-08-08",
+    "year": 2026,
+    "date": "August 8, 2026",
+    "title": "ZELENSKYY ENTERS THE CHAT SERBIA HOPED WOULD STAY ON MUTE",
+    "kicker": "A Serbia visit lands in the middle of another Russia-Ukraine escalation, so the imaginary leaders’ chat immediately becomes a diplomacy stress test.",
+    "category": "World Affairs",
+    "summary": "Ukrainian President Volodymyr Zelenskyy is visiting Serbia, a country that has traditionally been friendly with Moscow, as Russia strikes the Kyiv region once again.",
+    "sources": [
+      {
+        "label": "Ukraine: Russia pounds Kyiv as Zelenskyy visits Serbia",
+        "url": "https://www.dw.com/en/ukraine-russia-pounds-kyiv-as-zelenskyy-visits-serbia/a-78287715?maca=en-rss-en-top-1022-rdf",
+        "publisher": "DW"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "New topic: Serbia, Ukraine and Russia. Please avoid turning strategic ambiguity into a reaction emoji.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Zelenskyy",
+        "text": "I came to talk cooperation. Somehow every room in Europe still has one invisible chair labeled Moscow.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Putin",
+        "text": "Invisible? I prefer historically reserved.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Meloni",
+        "text": "Could everyone stop treating geography like a group project where nobody read the instructions?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "I could settle this chat very quickly. First we need better admins. Tremendous admins.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Xi",
+        "text": "China observes that the mute function remains underused.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "UN Admin changed the group description to: NO ONE IS NEUTRAL AFTER THE THIRD REPLY.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-09T15:34:48.936Z",
+    "editorial": {
+      "issueNumber": 13,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/13",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-09T15:34:48.936Z",
+      "fingerprint": "7192a2fbb21831156b86daca49012f9518bfb89f4586e7a5e9616e444466a4b5",
+      "sourcePublishedAt": "2026-08-08T14:10:00.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.",
+      "reviewNotes": "S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages labeled as satire."
+    }
   }
 ]
