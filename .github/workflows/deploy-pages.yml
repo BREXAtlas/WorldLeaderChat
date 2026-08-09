@@ -86,7 +86,7 @@ jobs:
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/newsroom-site.js" | grep -F "CURRENT FILES"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
-            "${PAGE_URL%/}/rolling-archive.js" | grep -F "MONTH & DAY ARCHIVE"
+            "${PAGE_URL%/}/rolling-archive.js" | grep -F "month-archive"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/rolling-archive.js" | grep -F "DAYS_BEFORE_TODAY = 7"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
