@@ -36,14 +36,29 @@ export function candidateFingerprint(item) {
   return sha256(`${cleanWhitespace(item.title).toLowerCase()}|${item.url}`);
 }
 
+function candidateSources(candidate, sourceTitle, publisher) {
+  const incoming = Array.isArray(candidate.sources) && candidate.sources.length
+    ? candidate.sources
+    : [{ label: sourceTitle, url: candidate.url, publisher }];
+  const seen = new Set();
+  return incoming
+    .map((source) => ({
+      label: sanitizeUntrustedText(source.label || source.title || sourceTitle).slice(0, 300),
+      url: String(source.url || candidate.url),
+      publisher: sanitizeUntrustedText(source.publisher || publisher).slice(0, 120)
+    }))
+    .filter((source) => source.url && !seen.has(source.url) && seen.add(source.url));
+}
+
 export function createDraftBundle(candidate, now = new Date()) {
   const candidateDate = String(candidate.publishedAt ?? "").slice(0, 10);
   const eventDate = isCalendarDate(candidateDate) ? candidateDate : now.toISOString().slice(0, 10);
   const year = Number(eventDate.slice(0, 4));
   const sourceTitle = sanitizeUntrustedText(candidate.title);
-  const sourceExcerpt = sanitizeUntrustedText(candidate.excerpt || sourceTitle).slice(0, 900);
+  const sourceExcerpt = sanitizeUntrustedText(candidate.excerpt || sourceTitle).slice(0, 1200);
   const publisher = sanitizeUntrustedText(candidate.publisher || "Unknown publisher").slice(0, 120);
   const id = `${eventDate}-${slugify(sourceTitle, 64)}`;
+  const sources = candidateSources(candidate, sourceTitle, publisher);
 
   return {
     schemaVersion: 1,
@@ -54,34 +69,39 @@ export function createDraftBundle(candidate, now = new Date()) {
       relevanceScore: candidate.relevanceScore,
       matchedKeywords: candidate.matchedKeywords,
       sourceId: candidate.sourceId,
-      sourcePublishedAt: candidate.publishedAt
+      sourceDesk: candidate.sourceDesk || "World News",
+      sourcePublishedAt: candidate.publishedAt,
+      newsroomFormat: 2,
+      coveragePublishers: candidate.coveragePublishers || sources.map((source) => source.publisher)
     },
     event: {
       id,
       eventDate,
       year,
       date: formatHumanDate(eventDate),
-      title: `[EDITOR: WRITE SATIRICAL HEADLINE] ${sourceTitle.toUpperCase()}`,
-      kicker: "[EDITOR: Write a one-sentence factual setup with a satirical edge.]",
-      category: candidate.category || "World Affairs",
+      title: `[EDITOR: REWRITE AS A TRUTHFUL, SHARP HEADLINE] ${sourceTitle.toUpperCase()}`,
+      kicker: "[EDITOR: Write one engaging line that frames the real event with a dry, sarcastic edge.]",
+      category: candidate.category || candidate.sourceDesk || "World News",
       summary: sourceExcerpt,
-      sources: [
-        {
-          label: sourceTitle,
-          url: candidate.url,
-          publisher
-        }
-      ],
+      article: {
+        headline: "[EDITOR: Write a catchy factual article headline.]",
+        dek: "[EDITOR: Write a one-sentence factual deck with a restrained sarcastic angle.]",
+        body: [
+          "[EDITOR: Write a 3–5 paragraph short article. Every factual assertion must be supported by the listed sources. Report the real event clearly, use wit in framing rather than inventing facts, and let the article read as though the group chat exposed the subtext.]"
+        ],
+        sourceCredit: `Original reporting credited below to ${sources.map((source) => source.publisher).join(", ")}.`
+      },
+      sources,
       messages: [
         {
           speaker: "UN Admin",
-          text: "[EDITOR: Write the opening fictional system message.]",
+          text: "[EDITOR: Write the opening system message that names the real event without inventing a new one.]",
           kind: "system",
           reaction: ""
         },
         {
           speaker: "World Leader",
-          text: "[EDITOR: Write a fictional satirical response grounded in public personality and policy.]",
+          text: "[EDITOR: Write a plausible fictional reaction grounded in public personality, policy and the verified event.]",
           kind: "satire",
           reaction: ""
         }
@@ -98,11 +118,15 @@ export function createDraftBundle(candidate, now = new Date()) {
       satireTargetsPowerNotVictims: false,
       sensitiveEventReview: false,
       clearSatireLabel: true,
+      articleMatchesSources: false,
       twoSourceRuleMet: false,
       singleSourceException: ""
     },
     approval: {
-      reviewNotes: ""
+      reviewNotes: "",
+      articleStyle: "truth-first-sarcastic-news",
+      conversationStyle: "back-and-forth",
+      targetMessageCount: "10-14"
     }
   };
 }
@@ -114,6 +138,7 @@ export function createEditorialIssueBody(candidate, repositoryUrl) {
   const keywords = Array.isArray(candidate.matchedKeywords) && candidate.matchedKeywords.length
     ? candidate.matchedKeywords.map(sanitizeUntrustedText).join(", ")
     : "none";
+  const coverage = (candidate.coveragePublishers || [publisher]).join(", ");
   return `<!-- WLC_NEWS_CANDIDATE -->
 <!-- WLC_FINGERPRINT: ${candidate.fingerprint} -->
 
@@ -121,20 +146,25 @@ export function createEditorialIssueBody(candidate, repositoryUrl) {
 
 **Source headline:** ${headline}
 
-**Publisher:** ${publisher}<br>
+**Primary publisher:** ${publisher}<br>
+**Coverage included:** ${coverage}<br>
 **Published:** ${candidate.publishedAt ?? "Feed did not provide a usable date"}<br>
+**Desk:** ${candidate.sourceDesk || "World News"}<br>
 **Relevance score:** ${candidate.relevanceScore}<br>
 **Matched terms:** ${keywords}
 
 **Original report:** ${candidate.url}
 
-## What the editor must do
+## Approval standard
 
-1. Open the original report and add a second reliable source. A one-source exception requires a written reason.
-2. Edit only the JSON between the machine markers below. Replace every \`[EDITOR: ...]\` placeholder.
-3. Write the verified summary first, then the clearly fictional chat. Brief genuine quotations must use \`kind: "public"\` and include \`sourceUrl\`.
-4. Set \`status\` to \`approved\`; complete every fact-check field; use \`tone: "sober"\` for tragedy, deaths, disasters or active hostage situations.
-5. Apply the **fact-checked** label, then the **editorial-approved** label. Publication begins only after both labels exist and the labeler has write permission.
+The drafting system prepares the short article and conversation. The editor approves, regenerates or rejects the completed recommendation.
+
+1. The event, names, chronology and conclusion must match the listed original reporting.
+2. The article may be dry, sarcastic and engaging, but it may not invent an event, quote, motive or result.
+3. Wit belongs in framing, comparisons and plausible private reactions—not in unsupported factual claims.
+4. The conversation should contain 10–14 messages with actual back-and-forth interaction.
+5. Genuine quotations must use \`kind: "public"\` and include a matching \`sourceUrl\`.
+6. Sensitive stories must target powerful people, policy and messaging rather than victims.
 
 Editorial policy: ${repositoryUrl}/blob/main/docs/EDITORIAL_WORKFLOW.md
 
