@@ -25,7 +25,7 @@ test("world-leader-adjacent culture reporting qualifies without pretending it is
     sourceDesk: "Culture & Entertainment"
   }, config.relevance);
   assert.ok(result.score >= config.minimumScore, `score was ${result.score}`);
-  assert.equal(result.category, "Technology & AI");
+  assert.equal(result.category, "Culture & Entertainment");
   assert.ok(result.matchedKeywords.includes("taylor swift"));
   assert.ok(result.matchedKeywords.includes("trump"));
 });
