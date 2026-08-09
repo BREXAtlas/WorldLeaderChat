@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "index.html"
+      - "social-tools.js"
       - "editor/**"
       - "data/published-events.json"
       - "data/site-meta.json"
@@ -71,19 +72,23 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - name: Verify deployed World Leader Chat and editor
+      - name: Verify deployed World Leader Chat, sharing tools, and editor
         env:
           PAGE_URL: ${{ needs.deploy.outputs.page_url }}
         run: |
           set -euo pipefail
           test -n "${PAGE_URL}"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
-            "${PAGE_URL}" | grep -F "World Leader Chat"
+            "${PAGE_URL}" | grep -F "social-tools.js"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
-            "${PAGE_URL%/}/editor/" | grep -F "WORLD LEADER"
+            "${PAGE_URL%/}/social-tools.js" | grep -F "Copy Full Chat"
+          curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
+            "${PAGE_URL%/}/editor/" | grep -F "conversation-upgrade.js"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/editor/app.js" | grep -F "Approval submitted"
-          echo "Verified live deployment and editor: ${PAGE_URL}"
+          curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
+            "${PAGE_URL%/}/editor/conversation-upgrade.js" | grep -F "targetMessageCount"
+          echo "Verified live deployment, copy tools, and longer-chat editor: ${PAGE_URL}"
 
   report:
     if: always()
@@ -103,7 +108,7 @@ jobs:
           set -euo pipefail
           if [[ "${BUILD_RESULT}" == "success" && "${DEPLOY_RESULT}" == "success" && "${VERIFY_RESULT}" == "success" ]]; then
             state="success"
-            description="Pages and editor deployed; live smoke tests passed"
+            description="Pages, copy tools, and editor deployed; live smoke tests passed"
           else
             state="failure"
             description="build=${BUILD_RESULT} deploy=${DEPLOY_RESULT} verify=${VERIFY_RESULT}"
