@@ -1,0 +1,153 @@
+name: Editorial approval and publish
+
+on:
+  issues:
+    types: [labeled]
+
+permissions:
+  contents: write
+  issues: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: world-leader-chat-editorial-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.event.label.name == 'editorial-approved'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    outputs:
+      event_id: ${{ steps.publish.outputs.event_id }}
+      commit_sha: ${{ steps.commit.outputs.commit_sha }}
+      published: ${{ steps.publish.outputs.published }}
+
+    steps:
+      - name: Require the fact-checked label
+        env:
+          ISSUE_LABELS_JSON: ${{ toJson(github.event.issue.labels.*.name) }}
+        run: |
+          node -e '
+            const labels = new Set(JSON.parse(process.env.ISSUE_LABELS_JSON));
+            if (!labels.has("fact-checked")) {
+              throw new Error("Add the fact-checked label before editorial-approved.");
+            }
+          '
+
+      - name: Verify the approving actor has write permission
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          permission="$(gh api "repos/${GITHUB_REPOSITORY}/collaborators/${GITHUB_ACTOR}/permission" --jq '.permission')"
+          echo "Approver permission: ${permission}"
+          case "${permission}" in
+            admin|maintain|write) ;;
+            *) echo "Only a repository writer, maintainer or administrator may publish." >&2; exit 1 ;;
+          esac
+
+      - name: Check out main
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Use Node.js 24
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Fast-forward to the latest main
+        run: git pull --ff-only origin main
+
+      - name: Validate the issue and add the approved event
+        id: publish
+        run: node scripts/publish-from-issue.mjs
+
+      - name: Run unit tests
+        run: npm test
+
+      - name: Validate repository safeguards
+        run: npm run validate
+
+      - name: Commit approved editorial data
+        id: commit
+        env:
+          EVENT_ID: ${{ steps.publish.outputs.event_id }}
+        run: |
+          if [[ "${{ steps.publish.outputs.published }}" == "true" ]]; then
+            git config user.name "world-leader-chat-bot"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/published-events.json data/editorial-log.json data/site-meta.json
+            git commit -m "Publish ${EVENT_ID}"
+            git push origin HEAD:main
+          fi
+          echo "commit_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Build the approved site
+        run: npm run build
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: _site
+
+  deploy:
+    if: needs.publish.result == 'success'
+    needs: publish
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      pages: write
+      id-token: write
+    outputs:
+      page_url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5.0.0
+
+  finalize:
+    if: needs.publish.result == 'success' && needs.deploy.result == 'success'
+    needs: [publish, deploy]
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Mark the editorial issue published
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          EVENT_ID: ${{ needs.publish.outputs.event_id }}
+          COMMIT_SHA: ${{ needs.publish.outputs.commit_sha }}
+          PAGE_URL: ${{ needs.deploy.outputs.page_url }}
+        run: |
+          gh issue edit "${ISSUE_NUMBER}" --repo "${GITHUB_REPOSITORY}" \
+            --add-label published \
+            --remove-label editorial-approved \
+            --remove-label needs-editor
+          gh issue close "${ISSUE_NUMBER}" --repo "${GITHUB_REPOSITORY}" \
+            --comment "Published **${EVENT_ID}** from commit \`${COMMIT_SHA}\`. Live site: ${PAGE_URL}"
+
+  report-failure:
+    if: always() && (needs.publish.result == 'failure' || needs.deploy.result == 'failure')
+    needs: [publish, deploy]
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Leave the issue open with retry instructions
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          gh issue comment "${ISSUE_NUMBER}" --repo "${GITHUB_REPOSITORY}" --body \
+            "Publication failed validation or deployment. Open the failed **Editorial approval and publish** run, correct the issue JSON if needed, then remove and re-add the \`editorial-approved\` label. Nothing new was silently published by this failed run."
