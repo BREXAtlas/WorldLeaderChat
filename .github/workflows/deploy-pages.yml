@@ -11,16 +11,13 @@ on:
       - "scripts/validate-repository.mjs"
       - "scripts/lib/**"
       - ".github/workflows/deploy-pages.yml"
-  pull_request:
-    branches: [main]
-    paths:
-      - ".github/pages-deploy-trigger/**"
   workflow_dispatch:
 
 permissions:
   contents: read
   pages: write
   id-token: write
+  statuses: write
 
 concurrency:
   group: github-pages
@@ -83,3 +80,36 @@ jobs:
             --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL}" | grep -F "World Leader Chat"
           echo "Verified live deployment: ${PAGE_URL}"
+
+  report:
+    if: always()
+    needs: [build, deploy, verify]
+    runs-on: ubuntu-latest
+    permissions:
+      statuses: write
+    steps:
+      - name: Publish Pages deployment status
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BUILD_RESULT: ${{ needs.build.result }}
+          DEPLOY_RESULT: ${{ needs.deploy.result }}
+          VERIFY_RESULT: ${{ needs.verify.result }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          if [[ "${BUILD_RESULT}" == "success" && "${DEPLOY_RESULT}" == "success" && "${VERIFY_RESULT}" == "success" ]]; then
+            state="success"
+            description="Pages deployed and live smoke test passed"
+          else
+            state="failure"
+            description="build=${BUILD_RESULT} deploy=${DEPLOY_RESULT} verify=${VERIFY_RESULT}"
+          fi
+
+          gh api --method POST \
+            "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
+            -f state="${state}" \
+            -f context="pages/live-smoke" \
+            -f description="${description}" \
+            -f target_url="${RUN_URL}"
+
+          [[ "${state}" == "success" ]]
