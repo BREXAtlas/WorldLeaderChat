@@ -9,8 +9,10 @@ execFileSync(process.execPath, [resolve(root, "scripts/validate-repository.mjs")
 
 await rm(output, { recursive: true, force: true });
 await mkdir(resolve(output, "data"), { recursive: true });
+await mkdir(resolve(output, "editor"), { recursive: true });
 await cp(resolve(root, "index.html"), resolve(output, "index.html"));
 await cp(resolve(root, "index.html"), resolve(output, "404.html"));
+await cp(resolve(root, "editor/index.html"), resolve(output, "editor/index.html"));
 await cp(resolve(root, "data/published-events.json"), resolve(output, "data/published-events.json"));
 
 const published = await readJson(resolve(root, "data/published-events.json"), []);
@@ -22,7 +24,8 @@ const siteMeta = {
 };
 await writeFile(resolve(output, "data/site-meta.json"), `${JSON.stringify(siteMeta, null, 2)}\n`, "utf8");
 await writeFile(resolve(output, ".nojekyll"), "", "utf8");
-await writeFile(resolve(output, "robots.txt"), "User-agent: *\nAllow: /\n", "utf8");
+await writeFile(resolve(output, "robots.txt"), "User-agent: *\nAllow: /\nDisallow: /editor/\n", "utf8");
 
 const htmlSize = (await readFile(resolve(output, "index.html"))).byteLength;
-console.log(`Built GitHub Pages artifact in _site (${htmlSize} byte index, ${published.length} external event(s)).`);
+const editorSize = (await readFile(resolve(output, "editor/index.html"))).byteLength;
+console.log(`Built GitHub Pages artifact in _site (${htmlSize} byte index, ${editorSize} byte editor, ${published.length} external event(s)).`);
