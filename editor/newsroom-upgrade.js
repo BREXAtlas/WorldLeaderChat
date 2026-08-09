@@ -4,6 +4,8 @@
   if (typeof fallbackSuggestion !== "function") return;
 
   const originalFallbackSuggestion = fallbackSuggestion;
+  const metaNarration = /\b(imagined|hypothetical|would likely|would probably|plausible reaction|reaction consistent|response imagined|posture|take:|style response|public-figure|would note|would stress|would frame|would urge|would point to|voice would)\b/i;
+  const genericSpeaker = /^(world leader|u\.?s\.? official|american official|european diplomat|government official|public figure|political observer|analyst)$/i;
 
   function cleanSummary(value) {
     return String(value || "")
@@ -37,9 +39,9 @@
       dek: angle,
       body: [
         summary,
-        `The original reporting points to one factual conclusion. This version keeps that conclusion intact and leaves the public choreography visible: who is claiming credit, who is objecting and which part of the official language is doing the most work.`,
+        "The original reporting points to one factual conclusion. This version keeps that conclusion intact and leaves the public choreography visible: who is claiming credit, who is objecting and which part of the official language is doing the most work.",
         angle,
-        `The conversation below is the imagined off-mic layer. It exaggerates recognizable reactions and rivalries, but it does not change the event, outcome or source record.`
+        "The conversation below is the imagined off-mic layer. It exaggerates recognizable reactions and rivalries, but it does not change the event, outcome or source record."
       ],
       sourceCredit: `Based on original reporting from ${publishers.join(", ") || "the linked publisher"}. Open the source links for the full reporting.`
     };
@@ -53,13 +55,32 @@
     return result;
   }
 
+  function dialogueNeedsUpgrade(messages) {
+    if (!Array.isArray(messages) || messages.length < 10 || messages.length > 14) return true;
+    if (messages.some((message) => metaNarration.test(String(message?.text || "")))) return true;
+    if (messages.some((message) => genericSpeaker.test(String(message?.speaker || "").trim()))) return true;
+    const counts = new Map();
+    for (const message of messages) {
+      if (!message || message.kind === "system") continue;
+      const speaker = String(message.speaker || "").trim();
+      counts.set(speaker, (counts.get(speaker) || 0) + 1);
+    }
+    return [...counts.values()].filter((count) => count >= 2).length < 2;
+  }
+
   function ensureNewsroom(bundle, version = 0) {
     if (!bundle) return null;
     let result = bundle;
-    const incomplete = JSON.stringify(result).includes("[EDITOR:") || (result.event?.messages || []).length < 10;
+    const incomplete = JSON.stringify(result).includes("[EDITOR:") || dialogueNeedsUpgrade(result.event?.messages || []);
     if (incomplete) result = originalFallbackSuggestion(result, version);
     if (!result.event?.article?.body || result.event.article.body.length < 2) result = addArticle(result);
     result.ingestion = {...(result.ingestion || {}), newsroomFormat: 2};
+    result.approval = {
+      ...(result.approval || {}),
+      conversationStyle: "direct-back-and-forth",
+      dialogueQuality: "first-person direct dialogue; no meta narration",
+      targetMessageCount: "10-14"
+    };
     return result;
   }
 
