@@ -27,8 +27,15 @@ jobs:
           node-version: 24
           package-manager-cache: false
 
-      - name: Check editor JavaScript syntax
-        run: node --check editor/app.js
+      - name: Check newsroom and editor JavaScript syntax
+        run: |
+          node --check social-tools.js
+          node --check newsroom-site.js
+          node --check editor/app.js
+          node --check editor/conversation-upgrade.js
+          node --check editor/newsroom-upgrade.js
+          node --check scripts/draft-editorial-issues.mjs
+          node --check scripts/ingest-news.mjs
 
       - name: Run unit tests
         run: npm test

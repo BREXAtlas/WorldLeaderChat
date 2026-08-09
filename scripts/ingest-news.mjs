@@ -10,13 +10,13 @@ const outputPath = resolve(root, process.env.INGESTION_OUTPUT || "tmp/ingestion-
 const config = await readJson(configPath);
 const lookbackHours = Number(process.env.WLC_LOOKBACK_HOURS || config.lookbackHours || 72);
 const minimumScore = Number(process.env.WLC_MINIMUM_SCORE || config.minimumScore || 7);
-const maxCandidates = Number(process.env.WLC_MAX_CANDIDATES || config.maxCandidatesPerRun || 8);
+const maxCandidates = Number(process.env.WLC_MAX_CANDIDATES || config.maxCandidatesPerRun || 12);
 const timeoutMs = Number(config.requestTimeoutMs || 20000);
 const cutoff = Date.now() - lookbackHours * 60 * 60 * 1000;
 const futureLimit = Date.now() + 48 * 60 * 60 * 1000;
 
 const stopwords = new Set([
-  "a","an","and","are","as","at","be","by","for","from","has","have","in","is","it","its","of","on","s","says","say","the","to","us","with","after","amid","latest","live","news","update","updates"
+  "a","an","and","are","as","at","be","by","for","from","has","have","in","is","it","its","of","on","s","says","say","the","to","us","with","after","amid","latest","live","news","update","updates","new","report"
 ]);
 
 async function fetchFeed(source) {
@@ -26,7 +26,7 @@ async function fetchFeed(source) {
     const response = await fetch(source.url, {
       headers: {
         accept: "application/rss+xml, application/atom+xml, application/xml, text/xml;q=0.9, */*;q=0.2",
-        "user-agent": "WorldLeaderChat-NewsDesk/1.0 (+https://github.com/BREXAtlas/WorldLeaderChat)"
+        "user-agent": "WorldLeaderChat-NewsDesk/2.0 (+https://github.com/BREXAtlas/WorldLeaderChat)"
       },
       redirect: "follow",
       signal: controller.signal
@@ -61,7 +61,68 @@ function sameNewsEvent(a, b) {
   const intersection = [...left].filter((term) => right.has(term)).length;
   const union = new Set([...left, ...right]).size || 1;
   const jaccard = intersection / union;
-  return jaccard >= 0.5 || (intersection >= 4 && jaccard >= 0.34);
+  return jaccard >= 0.48 || (intersection >= 4 && jaccard >= 0.31);
+}
+
+function sourceRecord(candidate) {
+  return {
+    label: candidate.title,
+    url: candidate.url,
+    publisher: candidate.publisher,
+    publishedAt: candidate.publishedAt,
+    excerpt: candidate.excerpt
+  };
+}
+
+function addCoverage(cluster, candidate) {
+  if (!cluster.sources.some((source) => source.url === candidate.url)) {
+    cluster.sources.push(sourceRecord(candidate));
+  }
+  cluster.coveragePublishers = [...new Set(cluster.sources.map((source) => source.publisher))];
+}
+
+function selectDiverseCandidates(clusters, limit) {
+  const selected = [];
+  const selectedIds = new Set();
+  const categoryCounts = new Map();
+  const deskCounts = new Map();
+  const sorted = [...clusters].sort((a, b) => {
+    if (b.relevanceScore !== a.relevanceScore) return b.relevanceScore - a.relevanceScore;
+    return String(b.publishedAt ?? "").localeCompare(String(a.publishedAt ?? ""));
+  });
+
+  // First pass: give strong non-political desks a chance to appear beside hard news.
+  const preferredDesks = [
+    "World News",
+    "US Politics & Society",
+    "Technology & AI",
+    "Science & Space",
+    "Business & Power",
+    "Culture & Entertainment",
+    "Sports & Soft Power"
+  ];
+  for (const desk of preferredDesks) {
+    const candidate = sorted.find((item) => item.sourceDesk === desk && !selectedIds.has(item.fingerprint));
+    if (!candidate || selected.length >= limit) continue;
+    selected.push(candidate);
+    selectedIds.add(candidate.fingerprint);
+    categoryCounts.set(candidate.category, 1);
+    deskCounts.set(candidate.sourceDesk, 1);
+  }
+
+  // Second pass: fill the run by score, while preventing one conflict/category from owning the queue.
+  for (const candidate of sorted) {
+    if (selected.length >= limit || selectedIds.has(candidate.fingerprint)) continue;
+    const categoryCount = categoryCounts.get(candidate.category) || 0;
+    const deskCount = deskCounts.get(candidate.sourceDesk) || 0;
+    if (categoryCount >= 3 || deskCount >= 4) continue;
+    selected.push(candidate);
+    selectedIds.add(candidate.fingerprint);
+    categoryCounts.set(candidate.category, categoryCount + 1);
+    deskCounts.set(candidate.sourceDesk, deskCount + 1);
+  }
+
+  return selected;
 }
 
 const sourceReports = [];
@@ -73,7 +134,7 @@ for (const source of config.sources.filter((entry) => entry.enabled)) {
     const xml = await fetchFeed(source);
     const items = parseFeed(xml, source);
     successfulSources += 1;
-    sourceReports.push({ sourceId: source.id, status: "ok", items: items.length });
+    sourceReports.push({ sourceId: source.id, desk: source.desk, status: "ok", items: items.length });
 
     for (const item of items) {
       const publishedTime = item.publishedAt ? new Date(item.publishedAt).valueOf() : null;
@@ -96,8 +157,9 @@ for (const source of config.sources.filter((entry) => entry.enabled)) {
       const title = cleanWhitespace(item.title).slice(0, 300);
       rawCandidates.push({
         fingerprint: candidateFingerprint({ ...item, url }),
-        topicTerms: topicTerms(title),
+        topicTerms: topicTerms(`${title} ${item.excerpt}`),
         sourceId: item.sourceId,
+        sourceDesk: item.sourceDesk,
         publisher: item.publisher,
         title,
         url,
@@ -105,12 +167,13 @@ for (const source of config.sources.filter((entry) => entry.enabled)) {
         excerpt: cleanWhitespace(item.excerpt).slice(0, 1000),
         relevanceScore: scored.score,
         matchedKeywords: scored.matchedKeywords,
-        category: scored.category
+        category: scored.category,
+        sources: []
       });
     }
   } catch (error) {
     const message = error?.name === "AbortError" ? `Timed out after ${timeoutMs}ms` : error.message;
-    sourceReports.push({ sourceId: source.id, status: "error", error: message });
+    sourceReports.push({ sourceId: source.id, desk: source.desk, status: "error", error: message });
     console.error(`::warning title=Feed failed::${source.publisher}: ${message}`);
   }
 }
@@ -119,28 +182,27 @@ if (!successfulSources) {
   throw new Error("Every configured news feed failed. No editorial issues were created.");
 }
 
-// Cross-publisher event dedupe: different outlets frequently headline the same event differently.
-// Keep the strongest candidate when titles substantially overlap within a 36-hour window.
+// Cross-publisher event dedupe keeps one editorial file while preserving every original source link.
 const clusters = [];
 for (const candidate of rawCandidates.sort((a, b) => b.relevanceScore - a.relevanceScore)) {
   const existing = clusters.find((item) => sameNewsEvent(item, candidate));
   if (!existing) {
+    candidate.sources = [sourceRecord(candidate)];
+    candidate.coveragePublishers = [candidate.publisher];
     clusters.push(candidate);
     continue;
   }
-  console.log(`Collapsed same-event coverage: ${candidate.publisher} “${candidate.title}” -> ${existing.publisher} “${existing.title}”`);
+  addCoverage(existing, candidate);
+  existing.relevanceScore = Math.max(existing.relevanceScore, candidate.relevanceScore);
+  existing.matchedKeywords = [...new Set([...existing.matchedKeywords, ...candidate.matchedKeywords])];
+  console.log(`Merged same-event coverage: ${candidate.publisher} “${candidate.title}” -> ${existing.publisher} “${existing.title}”`);
 }
 
-const candidates = clusters
-  .sort((a, b) => {
-    if (b.relevanceScore !== a.relevanceScore) return b.relevanceScore - a.relevanceScore;
-    return String(b.publishedAt ?? "").localeCompare(String(a.publishedAt ?? ""));
-  })
-  .slice(0, maxCandidates)
+const candidates = selectDiverseCandidates(clusters, maxCandidates)
   .map(({ topicTerms: _topicTerms, ...candidate }) => candidate);
 
 const report = {
-  schemaVersion: 1,
+  schemaVersion: 2,
   generatedAt: new Date().toISOString(),
   settings: { lookbackHours, minimumScore, maxCandidates },
   sourceReports,
