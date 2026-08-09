@@ -276,6 +276,75 @@
     }
   },
   {
+    "id": "2026-08-08-child-among-three-killed-in-russian-missile-attacks-near-kyiv",
+    "eventDate": "2026-08-08",
+    "year": 2026,
+    "date": "August 8, 2026",
+    "title": "ZELENSKYY ENTERS THE CHAT SERBIA HOPED WOULD STAY ON MUTE",
+    "kicker": "A Serbia visit lands in the middle of another Russia-Ukraine escalation, so the imaginary leaders’ chat immediately becomes a diplomacy stress test.",
+    "category": "War & Security",
+    "summary": "Russia continued its overnight attacks after President Volodymyr Zelensky warned of Ukraine's dwindling supplies of missile interceptors.",
+    "sources": [
+      {
+        "label": "Child among three killed in Russian missile attacks near Kyiv",
+        "url": "https://www.bbc.co.uk/news/articles/cz7dy8gq99eo?at_medium=RSS&at_campaign=rss",
+        "publisher": "BBC News"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "New topic: Serbia, Ukraine and Russia. Please avoid turning “strategic ambiguity” into a reaction emoji.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Zelenskyy",
+        "text": "I came to talk cooperation. Somehow every room in Europe still has one invisible chair labeled “Moscow.”",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Putin",
+        "text": "Invisible? I prefer “historically reserved.”",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Meloni",
+        "text": "Could everyone stop treating geography like a group project where nobody read the instructions?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "I could settle this chat very quickly. First we need better admins. Tremendous admins.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Xi",
+        "text": "China observes that the mute function remains underused.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "UN Admin changed the group description to: “NO ONE IS NEUTRAL AFTER THE THIRD REPLY.”",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-09T15:45:24.473Z",
+    "editorial": {
+      "issueNumber": 7,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/7",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-09T15:45:24.473Z",
+      "fingerprint": "612631804f711d8537c7453c47dde38dd85aafa94e0a3512fe23093f56da2351",
+      "sourcePublishedAt": "2026-08-08T18:06:25.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.",
+      "reviewNotes": "S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages labeled as satire."
+    }
+  },
+  {
     "id": "2026-08-08-ukraine-russia-pounds-kyiv-as-zelenskyy-visits-serbia",
     "eventDate": "2026-08-08",
     "year": 2026,

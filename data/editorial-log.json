@@ -82,5 +82,17 @@
     "sourceUrls": [
       "https://www.npr.org/2026/08/06/nx-s1-5923623/iran-strait-hormuz-us-israel-ban"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-08-child-among-three-killed-in-russian-missile-attacks-near-kyiv",
+    "issueNumber": 7,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/7",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-09T15:45:24.473Z",
+    "fingerprint": "612631804f711d8537c7453c47dde38dd85aafa94e0a3512fe23093f56da2351",
+    "sourceUrls": [
+      "https://www.bbc.co.uk/news/articles/cz7dy8gq99eo?at_medium=RSS&at_campaign=rss"
+    ]
   }
 ]
