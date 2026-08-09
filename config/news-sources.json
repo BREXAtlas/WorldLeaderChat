@@ -1,8 +1,8 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "lookbackHours": 72,
   "minimumScore": 7,
-  "maxCandidatesPerRun": 8,
+  "maxCandidatesPerRun": 12,
   "requestTimeoutMs": 20000,
   "sources": [
     {
@@ -10,42 +10,144 @@
       "publisher": "BBC News",
       "url": "https://feeds.bbci.co.uk/news/world/rss.xml",
       "enabled": true,
-      "weight": 2
+      "weight": 2,
+      "desk": "World News"
+    },
+    {
+      "id": "bbc-technology",
+      "publisher": "BBC News",
+      "url": "https://feeds.bbci.co.uk/news/technology/rss.xml",
+      "enabled": true,
+      "weight": 2,
+      "desk": "Technology & AI"
+    },
+    {
+      "id": "bbc-science",
+      "publisher": "BBC News",
+      "url": "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml",
+      "enabled": true,
+      "weight": 2,
+      "desk": "Science & Space"
+    },
+    {
+      "id": "bbc-business",
+      "publisher": "BBC News",
+      "url": "https://feeds.bbci.co.uk/news/business/rss.xml",
+      "enabled": true,
+      "weight": 2,
+      "desk": "Business & Power"
+    },
+    {
+      "id": "bbc-entertainment",
+      "publisher": "BBC News",
+      "url": "https://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml",
+      "enabled": true,
+      "weight": 1,
+      "desk": "Culture & Entertainment"
     },
     {
       "id": "guardian-world",
       "publisher": "The Guardian",
       "url": "https://www.theguardian.com/world/rss",
       "enabled": true,
-      "weight": 1
+      "weight": 1,
+      "desk": "World News"
+    },
+    {
+      "id": "guardian-us",
+      "publisher": "The Guardian",
+      "url": "https://www.theguardian.com/us-news/rss",
+      "enabled": true,
+      "weight": 1,
+      "desk": "US Politics & Society"
+    },
+    {
+      "id": "guardian-technology",
+      "publisher": "The Guardian",
+      "url": "https://www.theguardian.com/technology/rss",
+      "enabled": true,
+      "weight": 1,
+      "desk": "Technology & AI"
+    },
+    {
+      "id": "guardian-science",
+      "publisher": "The Guardian",
+      "url": "https://www.theguardian.com/science/rss",
+      "enabled": true,
+      "weight": 1,
+      "desk": "Science & Space"
+    },
+    {
+      "id": "guardian-business",
+      "publisher": "The Guardian",
+      "url": "https://www.theguardian.com/business/rss",
+      "enabled": true,
+      "weight": 1,
+      "desk": "Business & Power"
+    },
+    {
+      "id": "guardian-culture",
+      "publisher": "The Guardian",
+      "url": "https://www.theguardian.com/culture/rss",
+      "enabled": true,
+      "weight": 1,
+      "desk": "Culture & Entertainment"
+    },
+    {
+      "id": "guardian-sport",
+      "publisher": "The Guardian",
+      "url": "https://www.theguardian.com/sport/rss",
+      "enabled": true,
+      "weight": 0,
+      "desk": "Sports & Soft Power"
+    },
+    {
+      "id": "rolling-stone",
+      "publisher": "Rolling Stone",
+      "url": "https://www.rollingstone.com/feed/",
+      "enabled": true,
+      "weight": 1,
+      "desk": "Culture & Entertainment"
+    },
+    {
+      "id": "jpl-news",
+      "publisher": "NASA Jet Propulsion Laboratory",
+      "url": "https://www.jpl.nasa.gov/feeds/news/",
+      "enabled": true,
+      "weight": 2,
+      "desk": "Science & Space"
     },
     {
       "id": "al-jazeera-all",
       "publisher": "Al Jazeera",
       "url": "https://www.aljazeera.com/xml/rss/all.xml",
       "enabled": true,
-      "weight": 1
+      "weight": 1,
+      "desk": "World News"
     },
     {
       "id": "dw-top",
       "publisher": "DW",
       "url": "https://rss.dw.com/rdf/rss-en-top",
       "enabled": true,
-      "weight": 1
+      "weight": 1,
+      "desk": "World News"
     },
     {
       "id": "un-news",
       "publisher": "UN News",
       "url": "https://news.un.org/feed/subscribe/en/news/all/rss.xml",
       "enabled": true,
-      "weight": 2
+      "weight": 2,
+      "desk": "World News"
     },
     {
       "id": "npr-world",
       "publisher": "NPR",
       "url": "https://feeds.npr.org/1004/rss.xml",
       "enabled": true,
-      "weight": 1
+      "weight": 1,
+      "desk": "World News"
     }
   ],
   "relevance": {
@@ -69,7 +171,41 @@
       "von der leyen",
       "merkel",
       "obama",
-      "clinton"
+      "clinton",
+      "kamala harris",
+      "aoc",
+      "ocasio-cortez",
+      "bernie sanders",
+      "speaker johnson",
+      "schumer",
+      "pope leo",
+      "king charles"
+    ],
+    "adjacentPeopleTerms": [
+      "elon musk",
+      "spacex",
+      "tesla",
+      "jeff bezos",
+      "blue origin",
+      "peter thiel",
+      "mark zuckerberg",
+      "meta",
+      "sam altman",
+      "openai",
+      "sundar pichai",
+      "tim cook",
+      "taylor swift",
+      "larry david",
+      "beyonce",
+      "ariana grande",
+      "sabrina carpenter",
+      "joe rogan",
+      "rupert murdoch",
+      "congressman",
+      "congresswoman",
+      "senator",
+      "governor",
+      "supreme court"
     ],
     "highValueTerms": [
       "white house",
@@ -89,6 +225,7 @@
       "sanctions",
       "tariff",
       "election",
+      "midterms",
       "coup",
       "impeachment",
       "state visit",
@@ -103,7 +240,57 @@
       "iran",
       "israel",
       "gaza",
-      "north korea"
+      "north korea",
+      "immigration",
+      "deportation",
+      "ice raids",
+      "copyright",
+      "tiktok",
+      "artificial intelligence",
+      "ai model",
+      "rocket launch",
+      "space launch",
+      "moon mission",
+      "mars mission",
+      "electric vehicle",
+      "antitrust",
+      "billionaire tax",
+      "climate summit",
+      "olympics",
+      "world cup"
+    ],
+    "worldNewsTerms": [
+      "breakthrough",
+      "launches",
+      "launch",
+      "mission",
+      "discovery",
+      "record",
+      "historic",
+      "first ever",
+      "regulator",
+      "court ruling",
+      "lawsuit",
+      "strike",
+      "protest",
+      "poll",
+      "approval rating",
+      "music removed",
+      "social media post",
+      "streaming",
+      "film",
+      "television",
+      "hbo",
+      "album",
+      "tour",
+      "championship",
+      "medal",
+      "technology",
+      "science",
+      "space",
+      "economy",
+      "markets",
+      "company"
     ],
     "supportingTerms": [
       "president",
@@ -123,17 +310,25 @@
       "negotiations",
       "talks",
       "agreement",
-      "crisis"
+      "crisis",
+      "campaign",
+      "white house staff",
+      "copyright owner",
+      "chief executive",
+      "ceo",
+      "government",
+      "national",
+      "international"
     ],
     "downrankTerms": [
-      "celebrity",
-      "fashion",
       "recipe",
       "horoscope",
-      "lottery",
-      "box office",
-      "reality tv",
-      "transfer rumor"
+      "lottery numbers",
+      "shopping deals",
+      "coupon",
+      "transfer rumor",
+      "fantasy football waiver",
+      "weather forecast"
     ]
   }
 }
