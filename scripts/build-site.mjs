@@ -43,7 +43,7 @@ let instrumentedHtml = publicHtml
   )
   .replace(
     /<footer>[\s\S]*?<\/footer>/,
-    '<footer><strong>SATIRICAL NEWS FORMAT, NOT LEAKED CORRESPONDENCE.</strong><br>Events and public quotations are sourced. Private reactions are imagined. Open any file to view the original reporting.</footer>'
+    '<footer><strong>POLITICAL PARODY, NOT LEAKED CORRESPONDENCE.</strong><br>No private message on this page is authentic. Public-record excerpts are brief, visibly labeled and paired with source links.</footer>'
   )
   .replace(
     "</head>",
