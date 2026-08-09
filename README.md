@@ -1,5 +1,7 @@
 # World Leader Chat
 
+[![Validate repository](https://github.com/BREXAtlas/WorldLeaderChat/actions/workflows/ci.yml/badge.svg)](https://github.com/BREXAtlas/WorldLeaderChat/actions/workflows/ci.yml)
+
 **World Leader Chat** is a sourced political-satire archive presented as the fictional group chat world leaders would never admit exists.
 
 The front page uses a dense, old-school headline layout. Every story opens into a Signal-style fictional conversation. Verified event summaries and source links are separated from invented satire, and short genuine public excerpts are visibly labeled.
