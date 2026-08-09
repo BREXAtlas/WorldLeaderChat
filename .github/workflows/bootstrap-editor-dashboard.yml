@@ -2,29 +2,32 @@ name: Bootstrap editor dashboard branch
 
 on:
   push:
-    branches:
-      - main
-      - agent/editor-dashboard-copilot-drafting
+    branches: [main]
     paths:
       - ".github/bootstrap/editor-dashboard/manifest.json"
+  issues:
+    types: [labeled]
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
-  group: bootstrap-editor-dashboard-${{ github.ref }}
+  group: bootstrap-editor-dashboard
   cancel-in-progress: false
 
 jobs:
   install:
-    if: github.event.head_commit.message != 'Install editorial dashboard application files'
+    if: >-
+      (github.event_name == 'push' && github.event.head_commit.message != 'Install editorial dashboard application files') ||
+      (github.event_name == 'issues' && github.event.label.name == 'bootstrap-editor-dashboard')
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - name: Check out the triggering branch
+      - name: Check out main
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: ${{ github.ref_name }}
+          ref: main
           fetch-depth: 0
 
       - name: Reconstruct and verify application archive
@@ -66,4 +69,13 @@ jobs:
           git add -A
           git diff --cached --check
           git commit -m "Install editorial dashboard application files"
-          git push origin "HEAD:${{ github.ref_name }}"
+          git push origin HEAD:main
+
+      - name: Close bootstrap issue
+        if: github.event_name == 'issues'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          gh issue close "${ISSUE_NUMBER}" --repo "${GITHUB_REPOSITORY}" \
+            --comment "Editor dashboard source installed, tested, validated, and built on main."
