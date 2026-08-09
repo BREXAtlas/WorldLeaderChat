@@ -16,10 +16,10 @@ export function suggestCategory(item) {
     ["War & Security", ["war", "airstrike", "missile", "invasion", "military", "ceasefire", "hostage", "nuclear"]],
     ["Diplomacy", ["summit", "talks", "negotiations", "agreement", "state visit", "diplomatic", "consulate", "embassy"]],
     ["Trade & Economy", ["tariff", "trade", "sanctions", "export", "import", "economy", "inflation", "markets"]],
+    ["Culture & Entertainment", ["music", "song", "album", "tour", "film", "movie", "television", "hbo", "streaming", "actor", "comedian", "copyright"]],
     ["Technology & AI", ["artificial intelligence", " ai ", "ai model", "openai", "robot", "semiconductor", "chip", "tiktok", "social media", "cyber"]],
     ["Science & Space", ["rocket", "spacecraft", "space launch", "moon", "mars", "nasa", "spacex", "blue origin", "telescope", "discovery", "asteroid"]],
     ["Business & Power", ["chief executive", " ceo ", "billionaire", "company", "antitrust", "merger", "tesla", "amazon", "meta"]],
-    ["Culture & Entertainment", ["music", "song", "album", "tour", "film", "movie", "television", "hbo", "streaming", "actor", "comedian", "copyright"]],
     ["Sports & Soft Power", ["olympics", "world cup", "championship", "medal", "fifa", "sports diplomacy"]],
     ["Climate & Disaster", ["climate", "wildfire", "hurricane", "earthquake", "flood", "disaster", "heatwave"]],
     ["Health & Society", ["health", "pandemic", "outbreak", "immigration", "deportation", "protest", "civil rights"]],
@@ -59,8 +59,9 @@ export function scoreStory(item, relevance = {}) {
   if (highValueHits.length >= 2 && worldNewsHits.length) score += 2;
   if (/\b(president|prime minister|chancellor|supreme leader|senator|governor|congressman|congresswoman)\b/.test(title)) score += 2;
 
-  // A major science, technology, business or culture story may qualify without a politician
-  // when it has global/national significance and a plausible world-leader-adjacent angle.
+  // A major science, technology, business, culture or sports story may qualify
+  // without a politician when it has national/global significance and a
+  // plausible world-leader-adjacent angle.
   const broadDesk = /Technology|Science|Business|Culture|Sports/.test(item.sourceDesk ?? "");
   if (broadDesk && worldNewsHits.length >= 1 && (adjacentHits.length || highValueHits.length >= 1)) score += 4;
 
