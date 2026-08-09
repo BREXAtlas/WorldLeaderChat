@@ -1,0 +1,1 @@
+Fetch current configured feeds, rank world-leader stories, and open only deduplicated editorial candidates.
