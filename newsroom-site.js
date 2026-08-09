@@ -48,6 +48,21 @@
     document.head.appendChild(style);
   }
 
+  function updateSideboxLanguage() {
+    const sidebox = document.querySelector(".sidebox");
+    if (!sidebox) return;
+    const title = sidebox.querySelector("h3");
+    if (title) title.textContent = "HOW TO READ THE FILE";
+    const intro = sidebox.querySelector("p");
+    if (intro) intro.textContent = "The front page carries the urgency of an old-school link newspaper. Open a headline for the sourced short report and the imagined off-mic conversation.";
+    const fiction = sidebox.querySelector(".legend .fiction");
+    const record = sidebox.querySelector(".legend .record");
+    const system = sidebox.querySelector(".legend .sys");
+    if (fiction) fiction.textContent = "GREEN = PRIVATE REACTION";
+    if (record) record.textContent = "YELLOW = PUBLIC RECORD";
+    if (system) system.textContent = "GRAY = CHAT NOTE";
+  }
+
   function updatePublicLanguage() {
     const strip = document.querySelector(".satire-strip");
     if (strip) strip.innerHTML = "<b>WORLD LEADER CHAT</b> • REAL EVENTS • ORIGINAL SOURCES • IMAGINED PRIVATE REACTIONS";
@@ -58,7 +73,8 @@
     const chatNote = document.querySelector(".chat-top p");
     if (chatNote) chatNote.textContent = "Sourced event • imagined off-mic reactions • public-record excerpts labeled";
     const footer = document.querySelector("footer");
-    if (footer) footer.innerHTML = "<strong>POLITICAL PARODY, NOT LEAKED CORRESPONDENCE.</strong><br>Events and public quotations are sourced. Private reactions are imagined. Open any file to view the original reporting.";
+    if (footer) footer.innerHTML = "<strong>SATIRICAL NEWS FORMAT, NOT LEAKED CORRESPONDENCE.</strong><br>Events and public quotations are sourced. Private reactions are imagined. Open any file to view the original reporting.";
+    updateSideboxLanguage();
   }
 
   function buildCategoryFilter() {
@@ -99,6 +115,7 @@
   function customRender() {
     const filtered = allEvents().filter((event) => matches(event) && newsroomMatches(event));
     renderTopline(filtered);
+    updateSideboxLanguage();
     const archive = document.getElementById("archive");
     if (!archive) return;
     if (!filtered.length) {
@@ -164,7 +181,10 @@
     if (typeof bubbleHTML !== "function") return;
     const originalBubble = bubbleHTML;
     bubbleHTML = function newsroomBubble(message, index) {
-      return originalBubble(message, index).replace("FICTIONAL SATIRE", "IMAGINED REACTION");
+      const html = originalBubble(message, index);
+      return message.kind === "satire"
+        ? html.replace('<span class="label">FICTIONAL SATIRE</span>', "")
+        : html;
     };
   }
 
@@ -184,7 +204,6 @@
     };
   }
 
-  // Re-render after the original async bootstrap and after any subsequent search/year changes.
   setTimeout(() => {
     updatePublicLanguage();
     buildCategoryFilter();
