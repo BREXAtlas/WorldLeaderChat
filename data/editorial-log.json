@@ -22,5 +22,17 @@
     "sourceUrls": [
       "https://www.aljazeera.com/news/2026/8/9/israel-rejects-trumps-15-point-plan-for-gaza?traffic_source=rss"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-09-middle-east-crisis-live-netanyahu-rejects-us-s-gaza-plan-and-vow",
+    "issueNumber": 19,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/19",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-09T15:31:55.703Z",
+    "fingerprint": "cf84c1e4453d420fe5325be92ccb41bd2d6113be45ac2ed0b9a5b5af69b4a6c9",
+    "sourceUrls": [
+      "https://www.theguardian.com/world/live/2026/aug/09/iran-us-irgc-strait-of-hormuz-israel-netanyahu-trump-gaza-plan-latest-news-updates"
+    ]
   }
 ]
