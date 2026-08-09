@@ -38,6 +38,14 @@ test("public newsroom puts 2026 across three columns and archives older years", 
   assert.match(newsroom, /THE SHORT REPORT/);
 });
 
+test("current files own the full page width before stacked archive dropdowns", async () => {
+  const polish = await read("disclosure-polish.js");
+  assert.match(polish, /#archive\.archive\{[\s\S]*display:block!important/);
+  assert.match(polish, /#archive > \.current-news,[\s\S]*#archive > \.archive-heading,[\s\S]*#archive > details\.year-archive/);
+  assert.match(polish, /grid-column:1\/-1!important/);
+  assert.match(polish, /\.current-columns,\.archive-year-grid\{[\s\S]*grid-template-columns:repeat\(3,minmax\(0,1fr\)\)!important/);
+});
+
 test("Pages build includes social, newsroom and editor article assets", async () => {
   const build = await read("scripts/build-site.mjs");
   assert.match(build, /social-tools\.js/);
