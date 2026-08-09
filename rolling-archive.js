@@ -23,10 +23,35 @@
     return new Date(Date.UTC(Number(values.year), Number(values.month) - 1, Number(values.day)));
   }
 
+  const MONTH_INDEX = new Map([
+    ["january", 0], ["february", 1], ["march", 2], ["april", 3],
+    ["may", 4], ["june", 5], ["july", 6], ["august", 7],
+    ["september", 8], ["october", 9], ["november", 10], ["december", 11]
+  ]);
+
   function parseEventDate(event) {
-    const match = String(event?.eventDate || "").match(/^(\d{4})-(\d{2})-(\d{2})$/);
-    if (!match) return null;
-    return new Date(Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3])));
+    const machine = String(event?.eventDate || "").match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    if (machine) {
+      return new Date(Date.UTC(Number(machine[1]), Number(machine[2]) - 1, Number(machine[3])));
+    }
+
+    // The original built-in archive predates eventDate and stores dates such as
+    // â€œJuly 24, 2026â€ or â€œJune 15â€“17, 2026â€. Use the first day of a displayed
+    // range so those files participate in the rolling window and month/day archive.
+    const display = String(event?.date || "").trim();
+    const human = display.match(/^([A-Za-z]+)\s+(\d{1,2})(?:[â€“â€”-]\d{1,2})?,\s*(\d{4})$/);
+    if (!human) return null;
+    const monthIndex = MONTH_INDEX.get(human[1].toLowerCase());
+    if (monthIndex === undefined) return null;
+    return new Date(Date.UTC(Number(human[3]), monthIndex, Number(human[2])));
+  }
+
+  function isoDate(date) {
+    if (!date) return "";
+    const year = date.getUTCFullYear();
+    const month = String(date.getUTCMonth() + 1).padStart(2, "0");
+    const day = String(date.getUTCDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
   }
 
   function addDays(date, amount) {
@@ -121,7 +146,7 @@
       const sourceUrls = (event.sources || []).map((source) => source.url).filter(Boolean);
       if (sourceUrls.some((url) => seenSources.has(url))) continue;
 
-      const titleDate = `${event.eventDate || ""}|${normalizeTitle(event.title)}`;
+      const titleDate = `${isoDate(parseEventDate(event))}|${normalizeTitle(event.title)}`;
       if (seenTitleDates.has(titleDate)) continue;
 
       seenIds.add(event.id);
@@ -133,7 +158,7 @@
   }
 
   function storyWeight(event) {
-    return 6
+    const return 6
       + Math.ceil(String(event.title || "").length / 34)
       + Math.ceil(String(event.kicker || "").length / 70)
       + Math.ceil(String(event.meme || "").length / 60);
@@ -171,7 +196,7 @@
       const monthIndex = date.getUTCMonth();
       if (!months.has(monthIndex)) months.set(monthIndex, new Map());
       const days = months.get(monthIndex);
-      const dayKey = event.eventDate;
+      const dayKey = isoDate(date);
       if (!days.has(dayKey)) days.set(dayKey, []);
       days.get(dayKey).push(event);
     }
@@ -182,11 +207,11 @@
     if (!events.length) return "";
     const months = groupCurrentYearArchive(events);
     const searchOpen = Boolean(state.query);
-    const monthHtml = [...months.entries()]
+    const monthHTML = [...months.entries()]
       .sort(([a], [b]) => b - a)
       .map(([monthIndex, days]) => {
         const count = [...days.values()].reduce((total, list) => total + list.length, 0);
-        const dayHtml = [...days.entries()]
+        const dayHTML = [...days.entries()]
           .sort(([a], [b]) => b.localeCompare(a))
           .map(([dayKey, dayEvents]) => {
             const date = parseEventDate({ eventDate: dayKey });
@@ -197,147 +222,33 @@
           }).join("");
         return `<details class="month-archive" ${searchOpen ? "open" : ""}>
           <summary>${esc(formatMonth(year, monthIndex))}<span>${count} FILE${count === 1 ? "" : "S"} â€¢ OPEN MONTH</span></summary>
-          <div class="month-days">${dayHtml}</div>
+          <div class="month-days">${dayHTML}</div>
         </details>`;
       }).join("");
 
     return `<section class="current-year-archive">
-      <div class="archive-heading current-year-heading">${year} MONTH &amp; DAY ARCHIVE</div>
-      ${monthHtml}
-    </section>`;
-  }
+      <div class="archive-heading current-year-heading">${year} MONTH &[\ÈVHTÒU‘OÙ]‚ˆ	Û[ÛSBˆÜÙXİ[Û˜ÂˆB‚ˆ[˜İ[Ûˆ™[™\“Û\–YX\\˜Ú]™J]™[Ëİ\œ™[YX\‹Ù[XİYYX\ŠHÂˆÛÛœİYX\œÈHË‹‹›™]ÈÙ]
+]™[Ë›X\
 
-  function renderOlderYearArchive(events, currentYear, selectedYear) {
-    const years = [...new Set(events.map((event) => Number(event.year)).filter((year) => year < currentYear))]
-      .sort((a, b) => b - a);
-    const yearsToShow = selectedYear && selectedYear < currentYear ? [selectedYear] : years;
-    if (!yearsToShow.length) return "";
+]™[
+HOˆ[X™\Š]™[YX\ŠJK™š[\Š
+YX\ŠHOˆYX\ˆİ\œ™[YX\ŠJWBˆœÛÜ
 
-    const details = yearsToShow.map((year) => {
-      const yearEvents = events.filter((event) => Number(event.year) === year);
-      if (!yearEvents.length) return "";
-      const open = Boolean(selectedYear === year || state.query);
-      return `<details class="year-archive" ${open ? "open" : ""}>
-        <summary>${year}<span>${yearEvents.length} FILE${yearEvents.length === 1 ? "" : "S"} â€¢ OPEN YEAR</span></summary>
-        <div class="archive-year-grid">${balancedColumns(yearEvents, 3, "archive-year-column")}</div>
-      </details>`;
-    }).join("");
+KŠHOˆˆHJNÂˆÛÛœİYX\œÕÔÚİÈHÙ[XİYYX\ˆ	‰ˆÙ[XİYYX\ˆİ\œ™[YX\ˆÈÜÙ[XİYYX\—HˆYX\œÎÂˆYˆ
+^YX\œÕÔÚİË›[™İ
+H™]\›ˆˆÂ‚ˆÛÛœİ]Z[ÈHYX\œÕÔÚİË›X\
 
-    const firstHistoricYear = Math.min(...yearsToShow);
-    const lastHistoricYear = Math.max(...yearsToShow);
-    const range = firstHistoricYear === lastHistoricYear ? String(firstHistoricYear) : `${firstHistoricYear}â€“${lastHistoricYear}`;
-    return `<section class="historic-archive">
-      <div class="archive-heading">ARCHIVE // ${range}</div>
-      ${details}
-    </section>`;
-  }
-
-  function injectStyles() {
-    if (document.getElementById("rolling-archive-style")) return;
-    const style = document.createElement("style");
-    style.id = "rolling-archive-style";
-    style.textContent = `
-      .rolling-window-title{border-top:7px double #111;border-bottom:2px solid #111;padding:8px 0 6px;margin:18px 0 0;display:flex;justify-content:space-between;align-items:flex-end;gap:18px}
-      .rolling-window-title h2{font:900 34px/1 Georgia,serif;margin:0}.rolling-window-title span{font:900 11px/1.35 Arial,sans-serif;color:#c40000;letter-spacing:.08em;text-align:right}
-      .current-news{width:100%;margin-bottom:30px}.current-columns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;width:100%;align-items:start}
-      .current-column{min-width:0}.current-column+.current-column{border-left:1px solid #aaa;padding-left:24px}
-      .current-year-archive,.historic-archive{display:block;width:100%;margin-top:24px}
-      details.month-archive,details.day-archive,details.year-archive{display:block;width:100%;background:#fffdf7}
-      details.month-archive{border-top:3px solid #111;margin:0 0 10px}
-      details.month-archive>summary{cursor:pointer;list-style:none;padding:13px 4px;font:900 24px/1 Georgia,serif;display:flex;justify-content:space-between;gap:12px}
-      details.month-archive>summary::-webkit-details-marker,details.day-archive>summary::-webkit-details-marker{display:none}
-      details.month-archive>summary span,details.day-archive>summary span{font:900 10px Arial,sans-serif;color:#c40000;letter-spacing:.08em}
-      details.month-archive[open]>summary{border-bottom:2px solid #111}
-      .month-days{padding:4px 0 12px}
-      details.day-archive{border-bottom:1px solid #aaa}
-      details.day-archive>summary{cursor:pointer;list-style:none;padding:10px 10px;font:900 14px/1.2 Arial,sans-serif;display:flex;justify-content:space-between;gap:12px;background:#f4f0e7}
-      details.day-archive[open]>summary{background:#111;color:#fff}details.day-archive[open]>summary span{color:#ffdf4d}
-      .archive-day-grid,.archive-year-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;padding:8px 0 18px;width:100%}
-      .archive-day-column,.archive-year-column{min-width:0}.archive-day-column+.archive-day-column,.archive-year-column+.archive-year-column{border-left:1px solid #bbb;padding-left:18px}
-      .current-year-heading{color:#111}
-      .story[data-desk]{--desk:#3f4650;border-top:4px solid var(--desk);padding-top:8px}
-      .story[data-desk] h3 button{color:var(--desk);text-decoration-color:var(--desk)}
-      .story[data-desk="War & Security"],.lead[data-desk="War & Security"]{--desk:#a30d16}
-      .story[data-desk="Science & Space"],.lead[data-desk="Science & Space"]{--desk:#006b63}
-      .story[data-desk="Technology & AI"],.lead[data-desk="Technology & AI"]{--desk:#5d2a91}
-      .story[data-desk="Politics & Society"],.lead[data-desk="Politics & Society"]{--desk:#153e75}
-      .story[data-desk="Business & Power"],.lead[data-desk="Business & Power"]{--desk:#8a4b08}
-      .story[data-desk="Culture & Entertainment"],.lead[data-desk="Culture & Entertainment"]{--desk:#9b175c}
-      .story[data-desk="Sports & Soft Power"],.lead[data-desk="Sports & Soft Power"]{--desk:#26723a}
-      .story[data-desk="World News"],.lead[data-desk="World News"]{--desk:#364552}
-      .lead[data-desk] h2 button{color:var(--desk)}
-      #newsroomFilter button[data-newsroom-category="World News"]{border-color:#a30d16;color:#a30d16}
-      #newsroomFilter button[data-newsroom-category="Politics & Society"]{border-color:#153e75;color:#153e75}
-      #newsroomFilter button[data-newsroom-category="Technology & AI"]{border-color:#5d2a91;color:#5d2a91}
-      #newsroomFilter button[data-newsroom-category="Science & Space"]{border-color:#006b63;color:#006b63}
-      #newsroomFilter button[data-newsroom-category="Business & Power"]{border-color:#8a4b08;color:#8a4b08}
-      #newsroomFilter button[data-newsroom-category="Culture & Entertainment"]{border-color:#9b175c;color:#9b175c}
-      #newsroomFilter button[data-newsroom-category="Sports & Soft Power"]{border-color:#26723a;color:#26723a}
-      #newsroomFilter button.active{background:#111!important;color:#fff!important;border-color:#111!important}
-      @media(max-width:900px){
-        .rolling-window-title{align-items:flex-start;flex-direction:column}.rolling-window-title h2{font-size:27px}.rolling-window-title span{text-align:left}
-        .current-columns,.archive-day-grid,.archive-year-grid{grid-template-columns:1fr!important}
-        .current-column+.current-column,.archive-day-column+.archive-day-column,.archive-year-column+.archive-year-column{border-left:0;padding-left:0}
-      }
-    `;
-    document.head.appendChild(style);
-  }
-
-  function rollingRender() {
-    const all = dedupeEvents(allEvents());
-    const filtered = all.filter((event) => matches(event) && deskMatches(event));
-    renderTopline(filtered);
-    colorLead(filtered[0] || all[0]);
-
-    const archive = document.getElementById("archive");
-    if (!archive) return;
-    if (!filtered.length) {
-      archive.innerHTML = '<div class="empty">NO MATCHES. EVEN THE GROUP CHAT COULD NOT MANUFACTURE A CROSSTAB.</div>';
-      bindOpeners();
-      return;
-    }
-
-    const today = chicagoToday();
-    const windowStart = addDays(today, -DAYS_BEFORE_TODAY);
-    const currentYear = today.getUTCFullYear();
-    const selectedYear = state.year === "all" ? null : Number(state.year);
-    const showHistoricOnly = selectedYear && selectedYear < currentYear;
-    let html = "";
-
-    if (!showHistoricOnly) {
-      const currentWindow = filtered.filter((event) => {
-        const value = dateValue(event);
-        return Number(event.year) === currentYear && value >= windowStart.getTime() && value <= today.getTime();
-      });
-      const leadId = filtered[0]?.id;
-      const gridEvents = currentWindow.filter((event) => event.id !== leadId);
-      const leadNote = currentWindow.some((event) => event.id === leadId) ? " â€¢ 1 FEATURED ABOVE" : "";
-      html += `<section class="current-news">
-        <div class="rolling-window-title">
-          <h2>CURRENT FILES // ${esc(formatRange(windowStart, today))}</h2>
-          <span>${currentWindow.length} FILE${currentWindow.length === 1 ? "" : "S"}${leadNote}</span>
-        </div>
-        ${gridEvents.length
-          ? `<div class="current-columns">${balancedColumns(gridEvents, 3)}</div>`
-          : '<div class="empty">NO ADDITIONAL CURRENT FILES. THE FEATURED FILE IS ABOVE.</div>'}
-      </section>`;
-
-      const currentYearArchive = filtered.filter((event) => {
-        const value = dateValue(event);
-        return Number(event.year) === currentYear && value < windowStart.getTime();
-      });
-      html += renderCurrentYearArchive(currentYearArchive, currentYear);
-    }
-
-    html += renderOlderYearArchive(filtered, currentYear, selectedYear);
-    archive.innerHTML = html || '<div class="empty">NO ARCHIVED FILES MATCH THIS VIEW.</div>';
-    bindOpeners();
-  }
-
-  injectStyles();
-  if (typeof render === "function") render = rollingRender;
-  setTimeout(() => {
-    injectStyles();
-    if (typeof render === "function") render();
-  }, 0);
-})();
+YX\ŠHOˆÂˆÛÛœİYX\‘]™[ÈH]™[Ë™š[\Š
+]™[
+HOˆ[X™\Š]™[YX\ŠHOOHYX\ŠNÂˆYˆ
+^YX\‘]™[Ë›[™İ
+H™]\›ˆˆÂˆÛÛœİÜ[ˆH›ÛÛX[ŠÙ[XİYYX\ˆOOHYX\ˆİ]Kœ]Y\JNÂˆ™]\›ˆ]Z[ÈÛ\ÜÏHYX\‹X\˜Ú]™Hˆ	ÛÜ[ˆÈ›Ü[ˆˆˆˆŸO‚ˆİ[[X\O‰ŞYX\ŸOÜ[‰ŞYX\‘]™[Ë›[™İH’SIŞYX\‘]™[Ë›[™İOOHHÈˆˆˆ”ÈŸH8 (ˆÔSˆQPTÜÜ[Üİ[[X\O‚ˆ]ˆÛ\ÜÏH˜\˜Ú]™K^YX\‹YÜšY‰Ø˜[[˜ÙYÛÛ[[œÊYX\‘]™[ËË˜\˜Ú]™K^YX\‹XÛÛ[[ˆŠ_OÙ]‚ˆÙ]Z[Ï˜ÂˆJKš›Ú[ŠˆŠNÂ‚ˆÛÛœİš\œİ\İÜšXÖYX\ˆHX]›Z[Š‹‹YX\œÕÔÚİÊNÂˆÛÛœİ\İ\İÜšXÖYX\ˆHX]›X^
+‹‹YX\œÕÔÚİÊNÂˆÛÛœİ˜[™ÙHHš\œİ\İÜšXÖYX\ˆOOH\İ\İÜšXÖYX\ˆÈİš[™Êš\œİ\İÜšXÖYX\ŠHˆ	Ùš\œİ\İÜšXÖYX\Ÿx $ÉÛ\İ\İÜšXÖYX\ŸXÂˆ™]\›ˆÙXİ[ÛˆÛ\ÜÏHš\İÜšXËX\˜Ú]™H‚ˆ]ˆÛ\ÜÏH˜\˜Ú]™KZXY[™ÈTÒU‘HËÈ	Ü˜[™Ù_OÙ]‚ˆ	Ù]Z[ßBˆÜÙXİ[Û˜ÂˆB‚ˆ[˜İ[Ûˆ[š™Xİİ[\Ê
+HÂˆYˆ
+Øİ[Y[™Ù][[Y[RY
+œ›Û[™ËX\˜Ú]™K\İ[HŠJH™]\›ÂˆÛÛœİİ[HHØİ[Y[˜Ü™X]Q[[Y[
+œİ[HŠNÂˆİ[KšYHœ›Û[™ËX\˜Ú]™K\İ[HÂˆİ[K^ÛÛ[Hˆœ›Û[™Ë]Ú[™İË]]^Ø›Ü™\‹]ÜÜİX›HÌLLNØ›Ü™\‹X›İÛNŒœÛÛYÌLLNÜY[™ÎœÛX\™Ú[ŒNÙ\Ü^N™›^Ú\İYKXÛÛ[œÜXÙKX™]ÙY[Ø[YÛ‹Z][\Î™›^Y[™ÙØ\ŒNBˆœ›Û[™Ë]Ú[™İË]]HÙ›ÛLÍÌHÙ[Ü™ÚXKÙ\šYÛX\™Ú[ŒKœ›Û[™Ë]Ú[™İË]]HÜ[Ù›ÛLL\ÌKŒÍH\šX[Ø[œË\Ù\šYØÛÛÜˆØÍÛ]\‹\ÜXÚ[™Î‹Œ[Nİ^X[YÛœšYÚBˆ˜İ\œ™[[™]ÜÈİÚYŒL	NÛX\™Ú[‹X›İÛNŒÌK˜İ\œ™[XÛÛ[[œŞÙ\Ü^N™ÜšYÙÜšY][\]KXÛÛ[[œÎœ™\X]
+ËZ[›X^
+YœŠJNÙØ\ŒİÚYŒL	NØ[YÛ‹Z][\Îœİ\Bˆ˜İ\œ™[XÛÛ[[ÛZ[‹]ÚYŒK˜İ\œ™[XÛÛ[[ŠË˜İ\œ™[XÛÛ[[Ø›Ü™\‹[YŒ\ÛÛYØXXNÜY[™Ë[YŒBˆ˜İ\œ™[^YX\‹X\˜Ú]™Kš\İÜšXËX\˜Ú]™^Ù\Ü^N˜›ØÚÎİÚYŒL	NÛX\™Ú[‹]ÜŒBˆ]Z[Ë›[ÛX\˜Ú]™K]Z[Ë™^KX\˜Ú]™K]Z[ËYX\‹X\˜Ú]™^Ù\Ü^N˜›ØÚÎİÚYŒL	NØ˜XÚÙÜ›İ[™ˆÙ™™™ßBˆ]Z[Ë›[ÛX\˜Ú]™^Ø›Ü™\‹]ÜŒÜÛÛYÌLLNÛX\™Ú[ŒLBˆ]Z[Ë›[ÛX\˜Ú]™Oœİ[[X\^Øİ\œÛÜœÚ[\Û\İ\İ[N››Û™NÜY[™ÎŒLÜÙ›ÛLÌHÙ[Ü™ÚXKÙ\šYÙ\Ü^N™›^Ú\İYKXÛÛ[œÜXÙKX™]ÙY[ÙØ\ŒLœBˆ]Z[Ë›[ÛX\˜Ú]™Oœİ[[X\N‹]ÙXšÚ]Y]Z[Ë[X\šÙ\‹]Z[Ë™^KX\˜Ú]™Oœİ[[X\N‹]ÙXšÚ]Y]Z[Ë[X\šÙ\Ù\Ü^N››Û™_Bˆ]Z[Ë›[ÛX\˜Ú]™Oœİ[[X\HÜ[‹]Z[Ë™^KX\˜Ú]™Oœİ[[X\HÜ[Ù›ÛLL\šX[Ø[œË\Ù\šYØÛÛÜˆØÍÛ]\‹\ÜXÚ[™Î‹Œ[_Bˆ]Z[Ë›[ÛX\˜Ú]™VÛÜ[—Oœİ[[X\^Ø›Ü™\‹X›İÛNŒœÛÛYÌLL_Bˆ›[ÛY^\ŞÜY[™ÎLœBˆ]Z[Ë™^KX\˜Ú]™^Ø›Ü™\‹X›İÛNŒ\ÛÛYØXX_Bˆ]Z[Ë™^KX\˜Ú]™Oœİ[[X\^Øİ\œÛÜœÚ[\Û\İ\İ[N››Û™NÜY[™ÎŒLLÙ›ÛLMÌKŒˆ\šX[Ø[œË\Ù\šYÙ\Ü^N™›^Ú\İYKXÛÛ[œÜXÙKX™]ÙY[ÙØ\ŒLœØ˜XÚÙÜ›İ[™ˆÙŒMßBˆ]Z[Ë™^KX\˜Ú]™VÛÜ[—Oœİ[[X\^Ø˜XÚÙÜ›İ[™ˆÌLLNØÛÛÜˆÙ™™ŸY]Z[Ë™^KX\˜Ú]™VÛÜ[—Oœİ[[X\HÜ[ØÛÛÜˆÙ™™Bˆ˜\˜Ú]™KY^KYÜšY˜\˜Ú]™K^YX\‹YÜšYÙ\Ü^N™ÜšYÙÜšY][\]KXÛÛ[[œÎœ™\X]
+ËZ[›X^
+YœŠJNÙØ\ŒŒÜY[™ÎNİÚYŒL	_Bˆ˜\˜Ú]™KY^KXÛÛ[[‹˜\˜Ú]™K^YX\‹XÛÛ[[ÛZ[‹]ÚYŒK˜\˜Ú]™KY^KXÛÛ[[ŠË˜\˜Ú]™KY^KXÛÛ[[‹˜\˜Ú]™K^YX\‹XÛÛ[[ŠË˜\˜Ú]™K^YX\‹XÛÛ[[Ø›Ü™\‹[YŒ\ÛÛYØ˜˜ÜY[™Ë[YŒNBˆ˜İ\œ™[^YX\‹ZXY[™ŞØÛÛÜˆÌLL_BˆœİÜVÙ]KY\Ú×^ËKY\ÚÎˆÌÙLØ›Ü™\‹]ÜÛÛY˜\ŠKY\ÚÊNÜY[™Ë]ÜBˆœİÜVÙ]KY\Ú×H
