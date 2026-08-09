@@ -7,6 +7,7 @@ on:
       - "index.html"
       - "social-tools.js"
       - "newsroom-site.js"
+      - "disclosure-polish.js"
       - "editor/**"
       - "data/published-events.json"
       - "data/site-meta.json"
@@ -73,16 +74,18 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - name: Verify deployed newsroom, sharing tools, and editor
+      - name: Verify deployed newsroom, disclosure, sharing tools, and editor
         env:
           PAGE_URL: ${{ needs.deploy.outputs.page_url }}
         run: |
           set -euo pipefail
           test -n "${PAGE_URL}"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
-            "${PAGE_URL}" | grep -F "newsroom-site.js"
+            "${PAGE_URL}" | grep -F "disclosure-polish.js"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/newsroom-site.js" | grep -F "CURRENT FILES"
+          curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
+            "${PAGE_URL%/}/disclosure-polish.js" | grep -F "POLITICAL PARODY, NOT LEAKED CORRESPONDENCE"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/social-tools.js" | grep -F "Copy Article + Chat"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
@@ -93,7 +96,7 @@ jobs:
             "${PAGE_URL%/}/editor/conversation-upgrade.js" | grep -F "targetMessageCount"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/editor/newsroom-upgrade.js" | grep -F "articleMatchesSources"
-          echo "Verified live newsroom, article copy tools, archives, and editor: ${PAGE_URL}"
+          echo "Verified live newsroom, concise disclosure, article copy tools, archives, and editor: ${PAGE_URL}"
 
   report:
     if: always()
@@ -113,7 +116,7 @@ jobs:
           set -euo pipefail
           if [[ "${BUILD_RESULT}" == "success" && "${DEPLOY_RESULT}" == "success" && "${VERIFY_RESULT}" == "success" ]]; then
             state="success"
-            description="Newsroom, articles, archives, sharing tools and editor deployed"
+            description="Newsroom, concise disclosure, archives and editor deployed"
           else
             state="failure"
             description="build=${BUILD_RESULT} deploy=${DEPLOY_RESULT} verify=${VERIFY_RESULT}"
