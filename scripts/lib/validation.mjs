@@ -36,6 +36,29 @@ function containsPlaceholder(value, policy) {
   return (policy.placeholderPatterns ?? []).some((pattern) => haystack.includes(String(pattern).toUpperCase()));
 }
 
+function validateArticle(article, policy, context = "") {
+  const errors = [];
+  add(errors, isObject(article), `${context}event.article must be an object.`);
+  if (!isObject(article)) return errors;
+  add(errors, stringLengthBetween(article.headline, 10, 240), `${context}event.article.headline must be 10–240 characters.`);
+  add(errors, stringLengthBetween(article.dek, 20, 420), `${context}event.article.dek must be 20–420 characters.`);
+  add(errors, Array.isArray(article.body) && article.body.length >= 2 && article.body.length <= 6,
+    `${context}event.article.body must contain 2–6 short paragraphs.`);
+  if (Array.isArray(article.body)) {
+    article.body.forEach((paragraph, index) => {
+      add(errors, stringLengthBetween(paragraph, 45, 1400),
+        `${context}event.article.body paragraph ${index + 1} must be 45–1400 characters.`);
+    });
+    const total = article.body.join(" ").trim().length;
+    add(errors, total >= 250 && total <= 6500,
+      `${context}event.article.body must total 250–6500 characters.`);
+  }
+  add(errors, stringLengthBetween(article.sourceCredit, 10, 500),
+    `${context}event.article.sourceCredit must be 10–500 characters.`);
+  add(errors, !containsPlaceholder(article, policy), `${context}event.article still contains an editorial placeholder.`);
+  return errors;
+}
+
 export function validateEvent(event, policy, options = {}) {
   const errors = [];
   const context = options.context ? `${options.context}: ` : "";
@@ -63,6 +86,10 @@ export function validateEvent(event, policy, options = {}) {
   add(errors, stringLengthBetween(event.meme, 10, maxMeme), `${context}event.meme must be 10–${maxMeme} characters.`);
   add(errors, (policy.allowedTones ?? ["comic", "sober"]).includes(event.tone), `${context}event.tone is not allowed.`);
   add(errors, !containsPlaceholder(event, policy), `${context}event still contains an editorial placeholder.`);
+
+  if (options.requireArticle || event.article !== undefined) {
+    errors.push(...validateArticle(event.article, policy, context));
+  }
 
   add(errors, Array.isArray(event.sources) && event.sources.length >= 1, `${context}event.sources must contain at least one source.`);
   const sourceUrls = new Set();
@@ -149,13 +176,18 @@ export function validateApprovedBundle(bundle, policy, options = {}) {
     }
   }
 
-  errors.push(...validateEvent(bundle.event, policy));
+  const requiresArticle = Number(bundle.ingestion?.newsroomFormat ?? 0) >= 2;
+  errors.push(...validateEvent(bundle.event, policy, { requireArticle: requiresArticle }));
 
   const factCheck = bundle.factCheck;
   add(errors, isObject(factCheck), "factCheck is missing.");
   if (isObject(factCheck)) {
     for (const field of policy.factCheckFields ?? []) {
       add(errors, factCheck[field] === true, `factCheck.${field} must be true.`);
+    }
+    if (requiresArticle) {
+      add(errors, factCheck.articleMatchesSources === true,
+        "factCheck.articleMatchesSources must be true for newsroom-format articles.");
     }
     const minimumSources = Number(policy.minimumSources ?? 2);
     const hasEnoughSources = Array.isArray(bundle.event?.sources) && bundle.event.sources.length >= minimumSources;
