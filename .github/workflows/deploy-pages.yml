@@ -11,6 +11,10 @@ on:
       - "scripts/validate-repository.mjs"
       - "scripts/lib/**"
       - ".github/workflows/deploy-pages.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - ".github/pages-deploy-trigger/**"
   workflow_dispatch:
 
 permissions:
@@ -57,7 +61,25 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    outputs:
+      page_url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5.0.0
+
+  verify:
+    needs: deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Verify deployed World Leader Chat page
+        env:
+          PAGE_URL: ${{ needs.deploy.outputs.page_url }}
+        run: |
+          set -euo pipefail
+          test -n "${PAGE_URL}"
+          curl --fail --location --silent --show-error \
+            --retry 12 --retry-all-errors --retry-delay 5 \
+            "${PAGE_URL}" | grep -F "World Leader Chat"
+          echo "Verified live deployment: ${PAGE_URL}"
