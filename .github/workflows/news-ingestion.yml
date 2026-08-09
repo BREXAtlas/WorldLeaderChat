@@ -10,17 +10,18 @@ on:
         required: false
         default: "72"
       minimum_score:
-        description: "Minimum world-leader relevance score"
+        description: "Minimum World Leader Chat relevance score"
         required: false
         default: "7"
       max_candidates:
         description: "Maximum new editorial issues in this run"
         required: false
-        default: "8"
+        default: "12"
 
 permissions:
   contents: read
   issues: write
+  copilot-requests: write
 
 concurrency:
   group: world-leader-chat-news-ingestion
@@ -29,12 +30,12 @@ concurrency:
 jobs:
   ingest:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
     env:
       INGESTION_OUTPUT: tmp/ingestion-candidates.json
       WLC_LOOKBACK_HOURS: ${{ inputs.lookback_hours || '72' }}
       WLC_MINIMUM_SCORE: ${{ inputs.minimum_score || '7' }}
-      WLC_MAX_CANDIDATES: ${{ inputs.max_candidates || '8' }}
+      WLC_MAX_CANDIDATES: ${{ inputs.max_candidates || '12' }}
 
     steps:
       - name: Check out repository
@@ -46,7 +47,7 @@ jobs:
           node-version: 24
           package-manager-cache: false
 
-      - name: Fetch, normalize and rank current news
+      - name: Fetch, normalize, rank and diversify current news
         run: node scripts/ingest-news.mjs
 
       - name: Open deduplicated editorial issues
@@ -55,12 +56,24 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/open-editorial-issues.mjs
 
+      - name: Install GitHub Copilot CLI
+        run: npm install --global @github/copilot
+
+      - name: Draft truth-first short articles and back-and-forth chats
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WLC_DRAFT_LIMIT: 20
+        run: node scripts/draft-editorial-issues.mjs
+
       - name: Write run summary
         run: |
           {
-            echo "## World Leader Chat ingestion"
+            echo "## World Leader Chat news sweep"
             echo
+            echo "- Schedule: every six hours"
             echo "- New editorial issues: ${{ steps.queue.outputs.issues_created }}"
             echo "- Existing candidates skipped: ${{ steps.queue.outputs.issues_skipped }}"
-            echo "- No story was published. Every candidate requires human fact-checking and approval."
+            echo "- Coverage: world affairs, politics, technology, science, space, business, culture, entertainment, society and sports"
+            echo "- New candidates receive a sourced short article and a 10–14-message conversation before owner approval."
+            echo "- Nothing publishes without owner approval."
           } >> "$GITHUB_STEP_SUMMARY"
