@@ -1,0 +1,6 @@
+{
+  "purpose": "Convert the current editorial queue to truth-first short articles and 10-14-message conversations",
+  "requestedAt": "2026-08-09",
+  "scope": "all eligible open news-candidate issues",
+  "publish": false
+}
