@@ -2,9 +2,9 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { parseFeed } from "../lib/feed.mjs";
 
-const source = { id: "test", publisher: "Test News", weight: 2 };
+const source = { id: "test", publisher: "Test News", weight: 2, desk: "Technology & AI" };
 
-test("parseFeed reads RSS items and decodes HTML", () => {
+test("parseFeed reads RSS items, decodes HTML and keeps desk metadata", () => {
   const xml = `<?xml version="1.0"?>
     <rss><channel><item>
       <title><![CDATA[Leaders meet &amp; discuss ceasefire]]></title>
@@ -19,6 +19,7 @@ test("parseFeed reads RSS items and decodes HTML", () => {
   assert.equal(items[0].url, "https://example.com/world/story");
   assert.equal(items[0].excerpt, "The president met the prime minister.");
   assert.equal(items[0].publishedAt, "2026-08-08T12:00:00.000Z");
+  assert.equal(items[0].sourceDesk, "Technology & AI");
 });
 
 test("parseFeed reads Atom entries", () => {
@@ -34,4 +35,5 @@ test("parseFeed reads Atom entries", () => {
   assert.equal(items.length, 1);
   assert.equal(items[0].url, "https://example.org/summit");
   assert.equal(items[0].publisher, "Test News");
+  assert.equal(items[0].sourceDesk, "Technology & AI");
 });
