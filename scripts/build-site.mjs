@@ -16,7 +16,7 @@ const publicScripts = [
   '  <script src="./social-tools.js"></script>',
   '  <script src="./newsroom-site.js"></script>',
   '  <script src="./disclosure-polish.js"></script>',
-  '  <script src="./rolling-archive.js"></script>'
+  '  <script src="./rolling-archive.js?v=monthly-20260809"></script>'
 ];
 let instrumentedHtml = publicHtml
   .replace(
@@ -88,4 +88,4 @@ const editorSize = (await readFile(resolve(output, "editor/index.html"))).byteLe
 const appSize = (await readFile(resolve(output, "editor/app.js"))).byteLength;
 const conversationSize = (await readFile(resolve(output, "editor/conversation-upgrade.js"))).byteLength;
 const editorNewsroomSize = (await readFile(resolve(output, "editor/newsroom-upgrade.js"))).byteLength;
-console.log(`Built GitHub Pages artifact in _site (${htmlSize} byte index, ${socialSize} byte social tools, ${newsroomSize} byte newsroom UI, ${disclosureSize} byte disclosure polish, ${rollingSize} byte rolling archive, ${editorSize} byte editor, ${appSize} byte editor app, ${conversationSize} byte conversation upgrade, ${editorNewsroomSize} byte article upgrade, ${published.length} external event(s)).`);
+console.log(`Built GitHub Pages artifact in _site (${htmlSize} byte index, ${socialSize} byte social tools, ${newsroomSize} byte newsroom UI, ${disclosureSize} byte disclosure polish, ${rollingSize} byte monthly archive, ${editorSize} byte editor, ${appSize} byte editor app, ${conversationSize} byte conversation upgrade, ${editorNewsroomSize} byte article upgrade, ${published.length} external event(s)).`);
