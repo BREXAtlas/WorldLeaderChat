@@ -33,7 +33,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          base64 --decode .github/bootstrap/editor-dashboard/v2-all.b64 > /tmp/editor-dashboard.tar.gz
+          cat .github/bootstrap/editor-dashboard/parts/part-*.b64 | base64 --decode > /tmp/editor-dashboard.tar.gz
           echo "46a607969b7868f8850abbc738a81db1fb00bab1c81c28dc6a351094a1898f29  /tmp/editor-dashboard.tar.gz" | sha256sum --check --strict
           if tar -tzf /tmp/editor-dashboard.tar.gz | grep -Eq '(^/|(^|/)\.\.(/|$))'; then
             echo "Unsafe archive path detected." >&2
