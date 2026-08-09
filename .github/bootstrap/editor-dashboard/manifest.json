@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 1,
+  "archive": "editor-dashboard.tar.gz",
+  "chunks": 7,
+  "sha256": "fa94979ba13062f0ec62e6cca35be1fafe18528f7214ec931c4b07b72e1cd8cd",
+  "purpose": "Install the editor dashboard and Copilot drafting application files on the feature branch."
+}
