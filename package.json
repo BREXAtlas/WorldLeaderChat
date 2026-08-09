@@ -1,0 +1,17 @@
+{
+  "name": "world-leader-chat",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A sourced political-satire archive with GitHub Actions news ingestion and human editorial approval.",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "test": "node --test scripts/tests/*.test.mjs",
+    "validate": "node scripts/validate-repository.mjs",
+    "build": "node scripts/build-site.mjs",
+    "ingest": "node scripts/ingest-news.mjs",
+    "editorial:preview": "node scripts/preview-issue-body.mjs"
+  }
+}

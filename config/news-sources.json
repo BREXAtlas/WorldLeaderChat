@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 1,
+  "lookbackHours": 72,
+  "minimumScore": 7,
+  "maxCandidatesPerRun": 8,
+  "requestTimeoutMs": 20000,
+  "sources": [
+    {
+      "id": "bbc-world",
+      "publisher": "BBC News",
+      "url": "https://feeds.bbci.co.uk/news/world/rss.xml",
+      "enabled": true,
+      "weight": 2
+    },
+    {
+      "id": "guardian-world",
+      "publisher": "The Guardian",
+      "url": "https://www.theguardian.com/world/rss",
+      "enabled": true,
+      "weight": 1
+    },
+    {
+      "id": "al-jazeera-all",
+      "publisher": "Al Jazeera",
+      "url": "https://www.aljazeera.com/xml/rss/all.xml",
+      "enabled": true,
+      "weight": 1
+    },
+    {
+      "id": "dw-top",
+      "publisher": "DW",
+      "url": "https://rss.dw.com/rdf/rss-en-top",
+      "enabled": true,
+      "weight": 1
+    },
+    {
+      "id": "un-news",
+      "publisher": "UN News",
+      "url": "https://news.un.org/feed/subscribe/en/news/all/rss.xml",
+      "enabled": true,
+      "weight": 2
+    },
+    {
+      "id": "npr-world",
+      "publisher": "NPR",
+      "url": "https://feeds.npr.org/1004/rss.xml",
+      "enabled": true,
+      "weight": 1
+    }
+  ],
+  "relevance": {
+    "leaderTerms": [
+      "trump",
+      "biden",
+      "vance",
+      "putin",
+      "zelensky",
+      "xi jinping",
+      "macron",
+      "starmer",
+      "meloni",
+      "milei",
+      "modi",
+      "netanyahu",
+      "erdogan",
+      "khamenei",
+      "pezeshkian",
+      "kim jong un",
+      "von der leyen",
+      "merkel",
+      "obama",
+      "clinton"
+    ],
+    "highValueTerms": [
+      "white house",
+      "kremlin",
+      "nato",
+      "g7",
+      "g20",
+      "united nations",
+      "european union",
+      "summit",
+      "ceasefire",
+      "peace talks",
+      "invasion",
+      "war",
+      "airstrike",
+      "missile",
+      "sanctions",
+      "tariff",
+      "election",
+      "coup",
+      "impeachment",
+      "state visit",
+      "diplomatic",
+      "hostage",
+      "nuclear",
+      "strait of hormuz",
+      "ukraine",
+      "russia",
+      "china",
+      "taiwan",
+      "iran",
+      "israel",
+      "gaza",
+      "north korea"
+    ],
+    "supportingTerms": [
+      "president",
+      "prime minister",
+      "chancellor",
+      "foreign minister",
+      "defense minister",
+      "administration",
+      "parliament",
+      "congress",
+      "alliance",
+      "treaty",
+      "trade",
+      "border",
+      "security",
+      "military",
+      "negotiations",
+      "talks",
+      "agreement",
+      "crisis"
+    ],
+    "downrankTerms": [
+      "celebrity",
+      "fashion",
+      "recipe",
+      "horoscope",
+      "lottery",
+      "box office",
+      "reality tv",
+      "transfer rumor"
+    ]
+  }
+}

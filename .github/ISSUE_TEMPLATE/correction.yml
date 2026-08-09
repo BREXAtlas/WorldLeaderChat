@@ -1,0 +1,36 @@
+name: Source correction or satire concern
+description: Report an inaccurate fact, broken source, unclear satire label, or harmful joke.
+title: "CORRECTION: "
+labels: ["needs-editor"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        World Leader Chat separates verified event facts from fictional satire. Please identify the exact event and concern.
+  - type: input
+    id: event
+    attributes:
+      label: Event headline or URL
+      placeholder: Paste the World Leader Chat event link or headline
+    validations:
+      required: true
+  - type: dropdown
+    id: concern
+    attributes:
+      label: Concern type
+      options:
+        - Factual error
+        - Broken or weak source
+        - Public quotation attribution
+        - Satire label is unclear
+        - Joke targets victims or a vulnerable group
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: What should be reviewed?
+      description: Include a reliable source when reporting a factual correction.
+    validations:
+      required: true

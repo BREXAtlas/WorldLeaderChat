@@ -1,0 +1,6 @@
+# Editorial data and publishing automation require owner review when branch protection is enabled.
+/data/ @BREXAtlas
+/config/ @BREXAtlas
+/scripts/ @BREXAtlas
+/.github/workflows/ @BREXAtlas
+/index.html @BREXAtlas

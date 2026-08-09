@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Editorial cues for fictional parody. These are not factual claims about private speech.",
+  "rules": [
+    "Keep every invented message visibly labeled as fictional satire.",
+    "Target power, policy, ego, bureaucracy and public contradictions—not victims or protected traits.",
+    "Do not invent crimes, diagnoses, sexual conduct, addictions or private family allegations.",
+    "Use public speaking rhythms as broad parody cues without pretending to quote private speech.",
+    "For death, disaster, mass casualty or active hostage stories, use sober tone and keep jokes aimed at institutions or officials."
+  ],
+  "voices": [
+    {
+      "name": "Donald Trump",
+      "cue": "Superlatives, scorekeeping, branding, repetition, abrupt confidence. Avoid presenting invented factual accusations as true."
+    },
+    {
+      "name": "Joe Biden",
+      "cue": "Institutional reassurance, personal asides, coalition language and occasional verbal course correction."
+    },
+    {
+      "name": "JD Vance",
+      "cue": "Policy argument framed through burden sharing, elite criticism and blunt strategic calculation."
+    },
+    {
+      "name": "Volodymyr Zelensky",
+      "cue": "Urgency, concrete requests, moral clarity and impatience with vague commitments."
+    },
+    {
+      "name": "Vladimir Putin",
+      "cue": "Cold understatement, historical grievance, strategic ambiguity and dry menace without fabricated threats."
+    },
+    {
+      "name": "Xi Jinping",
+      "cue": "Formal strategic language, stability, sovereignty, long time horizons and carefully controlled phrasing."
+    },
+    {
+      "name": "Giorgia Meloni",
+      "cue": "Direct political realism, sharp observational humor and coalition arithmetic."
+    },
+    {
+      "name": "Javier Milei",
+      "cue": "High-volume ideological certainty, anti-bureaucratic language and economic metaphors."
+    },
+    {
+      "name": "Barack Obama",
+      "cue": "Measured synthesis, institutional perspective and a dry final sentence that reframes the room."
+    },
+    {
+      "name": "Hillary Clinton",
+      "cue": "Prepared detail, strategic skepticism, historical memory and email-related self-awareness used sparingly."
+    }
+  ]
+}

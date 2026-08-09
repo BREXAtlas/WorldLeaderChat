@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "requiredApprovalLabels": [
+    "fact-checked",
+    "editorial-approved"
+  ],
+  "minimumChatMessages": 5,
+  "maximumChatMessages": 30,
+  "minimumSatireMessages": 3,
+  "minimumSources": 2,
+  "maximumPublicExcerptCharacters": 280,
+  "maximumSummaryCharacters": 1200,
+  "maximumMemeCharacters": 220,
+  "allowedMessageKinds": [
+    "system",
+    "satire",
+    "public"
+  ],
+  "allowedTones": [
+    "comic",
+    "sober"
+  ],
+  "placeholderPatterns": [
+    "[EDITOR",
+    "TODO",
+    "TBD",
+    "WRITE THIS",
+    "REPLACE ME"
+  ],
+  "factCheckFields": [
+    "sourceOpened",
+    "summaryVerified",
+    "namesAndTitlesVerified",
+    "publicQuotesVerified",
+    "satireTargetsPowerNotVictims",
+    "sensitiveEventReview",
+    "clearSatireLabel"
+  ]
+}

@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Editorial workflow instructions
+    url: https://github.com/BREXAtlas/WorldLeaderChat/blob/main/docs/EDITORIAL_WORKFLOW.md
+    about: Learn how automated candidates are fact-checked, approved and published.

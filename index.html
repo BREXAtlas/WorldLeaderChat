@@ -1,0 +1,710 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="World Leader Chat — a clearly labeled fictional political satire archive built around real public events from 2020–2026.">
+  <title>World Leader Chat — The Leak That Never Happened</title>
+  <style>
+    :root{
+      --ink:#090909; --paper:#fffdf7; --muted:#656565; --red:#c40000;
+      --blue:#001c9c; --line:#111; --soft:#ece8dd; --signal:#e9f7e7;
+      --public:#fff1bd; --system:#ececec; --shadow:0 18px 60px rgba(0,0,0,.24);
+      --sans:Arial, Helvetica, sans-serif; --serif:Georgia, "Times New Roman", serif;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif)}
+    button,input,select,textarea{font:inherit}
+    a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+    a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{
+      outline:3px solid #ffbf00;outline-offset:3px
+    }
+    .satire-strip{
+      position:sticky;top:0;z-index:40;background:#111;color:white;
+      font:700 12px/1.3 var(--sans);letter-spacing:.08em;text-align:center;
+      padding:8px 12px;border-bottom:4px solid var(--red)
+    }
+    .satire-strip b{color:#ffdf4d}
+    .shell{max-width:1440px;margin:0 auto;padding:0 18px 48px}
+    header{text-align:center;border-bottom:7px double var(--line);padding:18px 0 10px}
+    .eyebrow{font:900 12px var(--sans);letter-spacing:.24em;color:var(--red)}
+    h1{font:900 clamp(42px,7vw,96px)/.82 var(--serif);letter-spacing:-.065em;margin:9px 0 4px}
+    .subhead{font:900 clamp(17px,2.4vw,30px)/1 var(--sans);letter-spacing:.09em;margin:0}
+    .dateline{font:700 12px var(--sans);letter-spacing:.08em;margin-top:9px}
+    .mast-note{max-width:920px;margin:10px auto 0;font:14px/1.4 var(--sans)}
+    .controls{
+      display:grid;grid-template-columns:1.4fr auto auto;gap:8px;align-items:center;
+      padding:12px 0;border-bottom:2px solid var(--line)
+    }
+    .search-wrap{position:relative}
+    .search-wrap input{width:100%;padding:10px 38px 10px 11px;border:2px solid var(--line);background:#fff}
+    .search-wrap span{position:absolute;right:12px;top:9px;font:20px var(--sans)}
+    .btn{
+      appearance:none;border:2px solid var(--line);background:#fff;color:#000;padding:9px 12px;
+      cursor:pointer;font:900 12px var(--sans);letter-spacing:.045em;text-transform:uppercase
+    }
+    .btn:hover{background:#111;color:#fff}
+    .btn.red{background:var(--red);color:#fff;border-color:var(--red)}
+    .btn.red:hover{background:#860000}
+    .yearbar{
+      display:flex;gap:6px;flex-wrap:wrap;align-items:center;justify-content:center;
+      padding:10px 0;border-bottom:1px solid var(--line)
+    }
+    .yearbar button{
+      border:0;border-bottom:3px solid transparent;background:transparent;padding:5px 7px;
+      font:900 15px var(--sans);cursor:pointer
+    }
+    .yearbar button.active,.yearbar button:hover{color:var(--red);border-color:var(--red)}
+    .mode-note{text-align:center;font:12px var(--sans);color:var(--muted);padding-top:7px}
+    .topline{
+      display:grid;grid-template-columns:minmax(0,1.65fr) minmax(250px,.75fr);gap:18px;
+      padding:18px 0;border-bottom:4px solid var(--line)
+    }
+    .lead{border-right:1px solid var(--line);padding-right:18px}
+    .lead .tag,.story .tag{font:900 10px var(--sans);letter-spacing:.12em;color:var(--red);text-transform:uppercase}
+    .lead h2{font:900 clamp(36px,5vw,72px)/.92 var(--serif);letter-spacing:-.045em;margin:4px 0 8px}
+    .lead h2 button,.story h3 button{
+      font:inherit;letter-spacing:inherit;text-align:inherit;border:0;background:transparent;padding:0;cursor:pointer;color:inherit
+    }
+    .lead h2 button:hover,.story h3 button:hover{text-decoration:underline;text-decoration-thickness:2px}
+    .lead .kicker{font:700 clamp(17px,2vw,25px)/1.18 var(--serif)}
+    .lead .summary,.story .summary{font:15px/1.42 var(--sans);color:#222}
+    .meme{border-left:7px solid var(--red);padding:10px 0 10px 12px;font:900 19px/1.1 var(--sans);margin-top:12px}
+    .sidebox{align-self:start}
+    .sidebox h3{font:900 18px var(--sans);margin:0;padding-bottom:6px;border-bottom:4px double var(--line)}
+    .sidebox p{font:14px/1.42 var(--sans)}
+    .legend{display:grid;gap:6px;margin:12px 0}
+    .legend span{padding:6px 8px;border:1px solid #aaa;font:700 11px var(--sans)}
+    .legend .fiction{background:var(--signal)}
+    .legend .record{background:var(--public)}
+    .legend .sys{background:var(--system)}
+    .archive{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;align-items:start;padding-top:18px}
+    .year-section{break-inside:avoid-column;margin:0 0 22px;border-top:6px double var(--line);padding-top:5px}
+    .year-title{
+      display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid var(--line);
+      margin-bottom:3px
+    }
+    .year-title h2{font:900 34px/1 var(--serif);margin:0}
+    .year-title span{font:900 11px var(--sans);color:var(--red)}
+    .story{break-inside:avoid;border-bottom:1px solid #777;padding:9px 0 11px}
+    .story h3{font:900 22px/1.02 var(--serif);letter-spacing:-.025em;margin:2px 0 5px}
+    .story .meta{font:700 10px var(--sans);color:var(--muted);letter-spacing:.05em;text-transform:uppercase}
+    .story .kicker{font:700 14px/1.25 var(--serif);margin:4px 0}
+    .story .summary{display:none;margin:6px 0}
+    .story .meme{font-size:13px;padding:6px 0 6px 8px;margin:6px 0 0;border-left-width:4px}
+    body.fact-mode .story .summary{display:block}
+    body.fact-mode .story .meme{display:none}
+    .empty{font:900 24px var(--sans);text-align:center;padding:50px}
+    footer{border-top:7px double var(--line);margin-top:30px;padding-top:12px;text-align:center;font:12px/1.5 var(--sans)}
+    footer strong{color:var(--red)}
+    dialog{
+      width:min(1120px,96vw);height:min(900px,94vh);max-width:none;max-height:none;
+      padding:0;border:3px solid #111;background:var(--paper);box-shadow:var(--shadow)
+    }
+    dialog::backdrop{background:rgba(0,0,0,.72)}
+    .dialog-head{
+      position:sticky;top:0;z-index:3;display:grid;grid-template-columns:1fr auto;gap:10px;
+      background:#111;color:white;padding:10px 12px;border-bottom:4px solid var(--red)
+    }
+    .dialog-head b{font:900 12px var(--sans);letter-spacing:.08em}
+    .close{border:1px solid white;background:transparent;color:#fff;width:34px;height:34px;cursor:pointer;font-size:22px}
+    .detail{display:grid;grid-template-columns:minmax(260px,.76fr) minmax(340px,1.24fr);min-height:calc(94vh - 58px)}
+    .fact-panel{padding:18px;border-right:2px solid var(--line);overflow:auto}
+    .fact-panel .date{font:900 11px var(--sans);color:var(--red);letter-spacing:.1em;text-transform:uppercase}
+    .fact-panel h2{font:900 clamp(30px,4vw,54px)/.92 var(--serif);letter-spacing:-.045em;margin:6px 0 10px}
+    .fact-panel .kicker{font:700 17px/1.2 var(--serif)}
+    .fact-panel p{font:14px/1.46 var(--sans)}
+    .public-quote{background:var(--public);border:2px solid #111;padding:10px;margin:12px 0;font:700 14px/1.35 var(--sans)}
+    .public-quote small{display:block;font:900 10px var(--sans);letter-spacing:.1em;color:#7b5400;margin-bottom:4px}
+    .sources{border-top:2px solid #111;margin-top:15px;padding-top:9px}
+    .sources h3{font:900 13px var(--sans);letter-spacing:.08em;margin:0 0 7px}
+    .sources a{display:block;font:13px/1.35 var(--sans);margin:6px 0}
+    .detail-actions{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+    .chat-panel{background:#dfe7df;display:flex;flex-direction:column;min-height:0}
+    .chat-top{background:#f8faf8;border-bottom:1px solid #aaa;padding:11px 14px}
+    .chat-top h3{margin:0;font:900 16px var(--sans)}
+    .chat-top p{margin:3px 0 0;font:11px var(--sans);color:#555}
+    .chat-scroll{padding:15px;overflow:auto;flex:1;background:
+      radial-gradient(circle at 10% 20%,rgba(255,255,255,.42),transparent 25%),
+      radial-gradient(circle at 90% 70%,rgba(255,255,255,.4),transparent 25%),#dfe7df}
+    .bubble-row{display:grid;grid-template-columns:36px minmax(0,1fr);gap:8px;margin:0 0 11px;align-items:start}
+    .avatar{
+      width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#111;color:#fff;
+      font:900 12px var(--sans);border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.3)
+    }
+    .bubble{max-width:700px;background:var(--signal);border:1px solid #9aa99a;border-radius:3px 14px 14px 14px;padding:8px 10px;box-shadow:0 1px 2px rgba(0,0,0,.09)}
+    .bubble.public{background:var(--public);border-color:#d2a400}
+    .bubble .who{font:900 12px var(--sans);margin-bottom:3px}
+    .bubble .text{font:14px/1.38 var(--sans)}
+    .bubble .label{display:inline-block;margin-top:6px;padding:2px 5px;background:#111;color:white;font:900 8px var(--sans);letter-spacing:.08em}
+    .bubble.public .label{background:#7b5400}
+    .reaction{font:11px var(--sans);color:#555;margin-top:4px}
+    .system-msg{text-align:center;margin:10px auto;max-width:84%;background:var(--system);border:1px solid #bbb;border-radius:20px;padding:6px 10px;font:700 11px/1.35 var(--sans);color:#555}
+    .chat-controls{
+      padding:8px;background:#f8faf8;border-top:1px solid #aaa;display:flex;gap:6px;flex-wrap:wrap
+    }
+    details.update-desk{border:3px solid var(--line);margin-top:20px;background:#fff}
+    details.update-desk summary{
+      cursor:pointer;padding:12px;font:900 17px var(--sans);background:#111;color:#fff;letter-spacing:.04em
+    }
+    .desk-inner{padding:14px}
+    .desk-note{background:#fff2bd;border-left:6px solid #d29a00;padding:10px;font:13px/1.4 var(--sans)}
+    .form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}
+    .form-grid label{font:900 11px var(--sans);letter-spacing:.05em;text-transform:uppercase}
+    .form-grid input,.form-grid select,.form-grid textarea{width:100%;margin-top:4px;padding:9px;border:2px solid #111;background:#fff}
+    .form-grid .wide{grid-column:1/-1}
+    .form-grid textarea{min-height:90px;resize:vertical}
+    .desk-actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+    .custom-badge{background:#111;color:#fff;padding:2px 5px;font:900 8px var(--sans);letter-spacing:.08em}
+    .screen-reader{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    @media (max-width:1050px){
+      .archive{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+    @media (max-width:800px){
+      .archive{grid-template-columns:1fr}
+      .controls{grid-template-columns:1fr 1fr}
+      .search-wrap{grid-column:1/-1}
+      .topline{grid-template-columns:1fr}
+      .lead{border-right:0;padding-right:0}
+      .detail{grid-template-columns:1fr}
+      .fact-panel{border-right:0;border-bottom:2px solid #111;max-height:42vh}
+      .chat-panel{min-height:48vh}
+      .form-grid{grid-template-columns:1fr}
+      .form-grid .wide{grid-column:auto}
+    }
+    @media print{
+      .satire-strip,.controls,.yearbar,.mode-note,.update-desk,.chat-controls,.close{display:none!important}
+      body{background:#fff}
+      .archive{columns:2}
+    }
+  </style>
+</head>
+<body class="meme-mode">
+  <div class="satire-strip">
+    <b>SATIRE</b> • ALL PRIVATE CHATS ARE FICTIONAL • REAL-EVENT FACTS AND PUBLIC QUOTES ARE LABELED + LINKED
+  </div>
+
+  <div class="shell">
+    <header>
+      <div class="eyebrow">THE LEAK THAT NEVER HAPPENED</div>
+      <h1>WORLD LEADER CHAT</h1>
+      <p class="subhead">2020–2026: HISTORY, BUT EVERYONE FORGOT TO MUTE THE GROUP</p>
+      <div class="dateline" id="dateline"></div>
+      <p class="mast-note">
+        A political-parody archive inspired by the visual grammar of leaked-message stories.
+        Events and public quotations are sourced; private messages are invented. New files can be published only through the repository's human editorial approval workflow.
+      </p>
+    </header>
+
+    <section class="controls" aria-label="Archive controls">
+      <label class="search-wrap">
+        <span class="screen-reader">Search events or leaders</span>
+        <input id="search" type="search" placeholder="Search Trump, Zelensky, tariffs, COVID, Iran…" autocomplete="off">
+        <span aria-hidden="true">⌕</span>
+      </label>
+      <button class="btn" id="modeBtn" type="button">Switch to Fact Mode</button>
+      <button class="btn red" id="deskJump" type="button">Update Desk</button>
+    </section>
+
+    <nav class="yearbar" id="yearbar" aria-label="Filter by year"></nav>
+    <div class="mode-note" id="modeNote">MEME MODE: archive shows the satirical punch line. Open any headline for facts, sources and the fictional chat.</div>
+
+    <section class="topline" id="topline"></section>
+    <main class="archive" id="archive" aria-live="polite"></main>
+
+    <details class="update-desk" id="updateDesk">
+      <summary>UPDATE DESK — ADD THE NEXT WORLD EVENT</summary>
+      <div class="desk-inner">
+        <div class="desk-note">
+          <strong>The live site receives news only after GitHub editorial approval.</strong>
+          This form is a private browser preview and never publishes to the repository. Events entered here stay in localStorage.
+          For a live update, review a <em>news-candidate</em> issue, verify the sources, complete the satire draft, and apply the required approval labels.
+        </div>
+        <form id="eventForm">
+          <div class="form-grid">
+            <label>Year
+              <input name="year" type="number" min="2020" max="2100" required value="2026">
+            </label>
+            <label>Date
+              <input name="date" type="text" required placeholder="August 9, 2026">
+            </label>
+            <label class="wide">Headline
+              <input name="title" type="text" required placeholder="ALL-CAPS DRUDGE-STYLE HEADLINE">
+            </label>
+            <label>Category
+              <input name="category" type="text" required placeholder="Breaking">
+            </label>
+            <label>Kicker
+              <input name="kicker" type="text" required placeholder="One-sentence setup">
+            </label>
+            <label class="wide">Verified event summary
+              <textarea name="summary" required placeholder="Plain factual account. Do not put invented claims here."></textarea>
+            </label>
+            <label>Source label
+              <input name="sourceLabel" type="text" required placeholder="Reuters report, Aug. 9">
+            </label>
+            <label>Source URL
+              <input name="sourceUrl" type="url" required placeholder="https://…">
+            </label>
+            <label class="wide">Meme line
+              <input name="meme" type="text" required placeholder="THE ONE-LINER PEOPLE WILL SCREENSHOT.">
+            </label>
+            <label class="wide">Chat messages — one per line
+              <textarea name="messages" required placeholder="Trump|This is fictional satire.&#10;[public] Leader|Exact short public quotation.&#10;[system] UN Admin|Someone changed the group name."></textarea>
+            </label>
+          </div>
+          <div class="desk-actions">
+            <button class="btn red" type="submit">Preview Locally</button>
+            <button class="btn" id="exportBtn" type="button">Export JSON</button>
+            <label class="btn" for="importFile">Import JSON</label>
+            <input id="importFile" type="file" accept="application/json" hidden>
+            <button class="btn" id="resetBtn" type="button">Remove Local Updates</button>
+          </div>
+        </form>
+      </div>
+    </details>
+
+    <footer>
+      <strong>POLITICAL PARODY, NOT LEAKED CORRESPONDENCE.</strong><br>
+      No private message on this page is authentic. Public-record excerpts are brief, visibly labeled and paired with source links.
+      Deployed as a static GitHub Pages site; automated ingestion cannot bypass human editorial approval.
+    </footer>
+  </div>
+
+  <dialog id="storyDialog" aria-labelledby="dialogTitle">
+    <div class="dialog-head">
+      <b>WORLD LEADER CHAT // FICTIONAL TRANSCRIPT VIEWER</b>
+      <button class="close" id="closeDialog" aria-label="Close">×</button>
+    </div>
+    <div class="detail">
+      <article class="fact-panel">
+        <div class="date" id="dialogDate"></div>
+        <h2 id="dialogTitle"></h2>
+        <div class="kicker" id="dialogKicker"></div>
+        <p id="dialogSummary"></p>
+        <div id="dialogQuote"></div>
+        <div class="meme" id="dialogMeme"></div>
+        <div class="sources">
+          <h3>REAL-EVENT SOURCES</h3>
+          <div id="dialogSources"></div>
+        </div>
+        <div class="detail-actions">
+          <button class="btn" id="prevBtn" type="button">← Previous</button>
+          <button class="btn" id="nextBtn" type="button">Next →</button>
+          <button class="btn" id="copyLinkBtn" type="button">Copy Link</button>
+          <button class="btn" id="copyMemeBtn" type="button">Copy Meme Line</button>
+        </div>
+      </article>
+      <section class="chat-panel" aria-label="Fictional satirical group chat">
+        <div class="chat-top">
+          <h3>WORLD LEADERS (AND ALUMNI WHO NEVER LEFT)</h3>
+          <p>End-to-end fictional • public record excerpts highlighted in yellow</p>
+        </div>
+        <div class="chat-scroll" id="chatScroll"></div>
+        <div class="chat-controls">
+          <button class="btn red" id="replayBtn" type="button">Replay Chat</button>
+          <button class="btn" id="showAllBtn" type="button">Show All</button>
+        </div>
+      </section>
+    </div>
+  </dialog>
+
+  <script>
+  "use strict";
+  const BUILT_IN_EVENTS = [{"id": "2020-pandemic-declared", "year": 2020, "date": "March 11, 2020", "title": "THE WHO TYPES THE P-WORD", "kicker": "COVID-19 is declared a pandemic. Every leader discovers the mute button.", "category": "Pandemic", "summary": "The World Health Organization characterized COVID-19 as a pandemic on March 11, 2020, while urging countries to act rather than treat the declaration as a reason for surrender.", "sources": [{"label": "WHO opening remarks, March 11, 2020", "url": "https://www.who.int/news-room/speeches/item/who-director-general-s-opening-remarks-at-the-media-briefing-on-covid-19---11-march-2020", "publisher": "World Health Organization"}], "messages": [{"speaker": "UN Admin", "text": "Group name changed to: GLOBAL EMERGENCY — PLEASE READ BEFORE REPLYING", "kind": "system", "reaction": ""}, {"speaker": "WHO", "text": "Public record: COVID-19 can now be characterized as a pandemic.", "kind": "public", "reaction": ""}, {"speaker": "Trump", "text": "Nobody panic. We have the best panic. Very controlled panic.", "kind": "satire", "reaction": ""}, {"speaker": "Merkel", "text": "I attached the exponential-growth chart. Please open the chart before opening your mouth.", "kind": "satire", "reaction": ""}, {"speaker": "Boris Johnson", "text": "Could someone explain exponential growth without using the word exponential?", "kind": "satire", "reaction": ""}, {"speaker": "Xi Jinping", "text": "China has contained the situation. This message has been reviewed for containment.", "kind": "satire", "reaction": ""}, {"speaker": "Putin", "text": "Russia has no panic. Panic was denied a visa.", "kind": "satire", "reaction": ""}, {"speaker": "Macron", "text": "Europe requires solidarity, coordination and—ideally—a dramatic balcony.", "kind": "satire", "reaction": ""}, {"speaker": "Obama (alumni)", "text": "A pandemic is a stress test for institutions. The institutions have already started sweating.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "Zoom etiquette added to Geneva Convention.", "kind": "system", "reaction": ""}], "meme": "THE WHO SAID “PANDEMIC.” THE CHAT SAID “WHO HAS THE PASSWORD?”", "quote": {"speaker": "WHO Director-General", "text": "Pandemic is not a word to use lightly or carelessly."}, "tone": "comic"}, {"id": "2020-disinfectant-briefing", "year": 2020, "date": "April 23, 2020", "title": "CHEMISTRY LEAVES THE CHAT", "kicker": "A White House briefing produces the most nervous bottle of bleach in history.", "category": "Pandemic", "summary": "During an April 23 White House coronavirus briefing, President Trump publicly speculated about whether disinfectant or powerful light might be studied inside the body. Health officials quickly warned against ingesting disinfectants.", "sources": [{"label": "White House coronavirus briefing transcript", "url": "https://trumpwhitehouse.archives.gov/briefings-statements/remarks-president-trump-vice-president-pence-members-coronavirus-task-force-press-briefing-31/", "publisher": "Trump White House Archives"}], "messages": [{"speaker": "UN Admin", "text": "Safety notice: satire is not medical advice. Neither is a microphone.", "kind": "system", "reaction": ""}, {"speaker": "Trump", "text": "Public record: the disinfectant, where it knocks it out in a minute.", "kind": "public", "reaction": ""}, {"speaker": "Merkel", "text": "I have asked chemistry to remain calm.", "kind": "satire", "reaction": ""}, {"speaker": "Boris Johnson", "text": "As the person recently hospitalized, I vote for medicine.", "kind": "satire", "reaction": ""}, {"speaker": "Macron", "text": "The Republic respectfully requests that cleaning products stay in the cleaning-products lane.", "kind": "satire", "reaction": ""}, {"speaker": "Putin", "text": "This briefing is more effective than intelligence gathering.", "kind": "satire", "reaction": ""}, {"speaker": "Xi Jinping", "text": "We are exporting masks. We will not be exporting this idea.", "kind": "satire", "reaction": ""}, {"speaker": "Obama (alumni)", "text": "This is why briefing books have pages.", "kind": "satire", "reaction": ""}, {"speaker": "Hillary Clinton (alumni)", "text": "I drafted a response, then remembered everyone suddenly cares about emails.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "Chemistry left the group.", "kind": "system", "reaction": ""}], "meme": "THE BRIEFING ENDED. THE WARNING LABEL WON.", "quote": null, "tone": "comic"}, {"id": "2020-global-protests", "year": 2020, "date": "June 2, 2020", "title": "THE WORLD MARCHES; THE CHAT STOPS SPINNING", "kicker": "George Floyd’s killing sparks protests far beyond the United States.", "category": "Civil Rights", "summary": "The killing of George Floyd in Minneapolis triggered mass protests in the United States and solidarity demonstrations around the world, forcing governments to confront policing, racism and their own records.", "sources": [{"label": "Protests expose raw race relations worldwide", "url": "https://www.reuters.com/article/world/protests-over-george-floyds-death-expose-raw-race-relations-worldwide-idUSKBN2392PD/", "publisher": "Reuters"}], "messages": [{"speaker": "UN Admin", "text": "Serious-mode enabled. Satire may target power, not grief.", "kind": "system", "reaction": ""}, {"speaker": "Obama (alumni)", "text": "Do not reduce a demand for justice to a branding problem.", "kind": "satire", "reaction": ""}, {"speaker": "Trump", "text": "The images are bad. Very bad. Who is handling the images?", "kind": "satire", "reaction": ""}, {"speaker": "Macron", "text": "France supports universal dignity and has received several questions about French policing.", "kind": "satire", "reaction": ""}, {"speaker": "Boris Johnson", "text": "The United Kingdom stands against racism. Yes, the statues have entered the conversation.", "kind": "satire", "reaction": ""}, {"speaker": "Merkel", "text": "A democracy is measured by whether institutions can hear pain before streets must shout it.", "kind": "satire", "reaction": ""}, {"speaker": "Xi Jinping", "text": "We are observing American domestic affairs with unusually high public interest.", "kind": "satire", "reaction": ""}, {"speaker": "Putin", "text": "Every government prefers protests in another government.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "Photo-op scheduling has been disabled.", "kind": "system", "reaction": ""}], "meme": "WHEN THE STREETS SPEAK, EVERY PRESS OFFICE DISCOVERS “LISTENING.”", "quote": null, "tone": "sober"}, {"id": "2020-beirut-blast", "year": 2020, "date": "August 4, 2020", "title": "BEIRUT EXPLODES; THE WORLD POSTS FLAGS", "kicker": "A catastrophe exposes the distance between condolences and competent government.", "category": "Disaster", "summary": "A massive explosion at Beirut’s port devastated surrounding neighborhoods. International leaders offered aid while Lebanese citizens demanded accountability for the negligence that allowed explosive material to remain at the port.", "sources": [{"label": "How the Beirut port blast unfolded", "url": "https://www.reuters.com/graphics/LEBANON-SECURITY/BLAST/rlgvdngqmvo/", "publisher": "Reuters"}], "messages": [{"speaker": "UN Admin", "text": "Serious-mode enabled. Aid coordination only.", "kind": "system", "reaction": ""}, {"speaker": "Macron", "text": "France is mobilizing assistance. I am going to Beirut.", "kind": "satire", "reaction": ""}, {"speaker": "Merkel", "text": "Send medical teams, search-and-rescue capacity and logistics. Statements are not cargo.", "kind": "satire", "reaction": ""}, {"speaker": "Trump", "text": "We are looking at it. A terrible attack—maybe. People are saying things.", "kind": "satire", "reaction": ""}, {"speaker": "Putin", "text": "Russia can provide emergency aircraft. No commentary.", "kind": "satire", "reaction": ""}, {"speaker": "Obama (alumni)", "text": "The camera will leave. The reconstruction bill will not.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "Reminder: changing profile pictures does not clear a port.", "kind": "system", "reaction": ""}, {"speaker": "Boris Johnson", "text": "Support package approved. Please make sure the support arrives before the commemorative speech.", "kind": "satire", "reaction": ""}], "meme": "FLAGS IN BIOS. AMMONIUM NITRATE STILL IN THE WAREHOUSE.", "quote": null, "tone": "sober"}, {"id": "2020-abraham-accords", "year": 2020, "date": "September 15, 2020", "title": "THE WHITE HOUSE LAWN GETS A PEACE-DEAL FILTER", "kicker": "Israel, the UAE and Bahrain normalize relations—with everyone racing to name the era.", "category": "Diplomacy", "summary": "Israel, the United Arab Emirates and Bahrain signed normalization agreements at the White House, creating new diplomatic and economic relationships while leaving the Israeli-Palestinian conflict unresolved.", "sources": [{"label": "UAE and Bahrain forge ties with Israel", "url": "https://www.reuters.com/world/in-break-with-past-uae-bahrain-forge-ties-with-israel-white-house-2020-09-15/", "publisher": "Reuters"}, {"label": "The Abraham Accords", "url": "https://2017-2021.state.gov/the-abraham-accords/", "publisher": "U.S. Department of State"}], "messages": [{"speaker": "Trump", "text": "Historic. They said it could not be done. I may name the lawn after the deal.", "kind": "satire", "reaction": ""}, {"speaker": "Netanyahu", "text": "Flights, trade, security cooperation. A new regional architecture.", "kind": "satire", "reaction": ""}, {"speaker": "UAE", "text": "Please add tourism, technology and direct routes to the architecture.", "kind": "satire", "reaction": ""}, {"speaker": "Bahrain", "text": "And fewer metaphors. We have documents to sign.", "kind": "satire", "reaction": ""}, {"speaker": "Jared Kushner", "text": "I made a slide deck. It has gold borders.", "kind": "satire", "reaction": ""}, {"speaker": "Obama (alumni)", "text": "Normalization matters. So does the conflict everyone carefully cropped out of the photo.", "kind": "satire", "reaction": ""}, {"speaker": "Macron", "text": "Europe welcomes progress and volunteers to host the next twelve meetings.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "Palestinian representatives are asking why the group title says “comprehensive.”", "kind": "system", "reaction": ""}, {"speaker": "Trump", "text": "Because “partial but photogenic” tested badly.", "kind": "satire", "reaction": ""}], "meme": "PEACE DEAL SIGNED. FOOTNOTES STILL AT WAR.", "quote": null, "tone": "comic"}, {"id": "2020-us-election-transition", "year": 2020, "date": "November 7–23, 2020", "title": "AMERICA TYPES… AND TYPES… AND DOES NOT CONCEDE", "kicker": "Biden wins; the transition begins after weeks of legal and political resistance.", "category": "Election", "summary": "Major news organizations projected Joe Biden the winner on November 7. The federal transition process formally moved forward on November 23, while President Trump continued challenging the result.", "sources": [{"label": "U.S. agency tells Biden he can formally begin transition", "url": "https://www.reuters.com/world/us-agency-tells-biden-he-can-formally-begin-transition-2020-11-23/", "publisher": "Reuters"}, {"label": "Biden solidifies election win", "url": "https://www.reuters.com/article/world/biden-solidifies-u-s-election-win-trump-says-time-will-tell-if-he-stays-in-power-idUSKBN27T0IO/", "publisher": "Reuters"}], "messages": [{"speaker": "UN Admin", "text": "Joseph R. Biden Jr. was added by Electoral College.", "kind": "system", "reaction": ""}, {"speaker": "Biden", "text": "Folks, here’s the deal: we won. Now somebody please release the transition binders.", "kind": "satire", "reaction": ""}, {"speaker": "Trump", "text": "STOP THE COUNT where I am behind. CONTINUE THE COUNT where I am ahead.", "kind": "satire", "reaction": ""}, {"speaker": "Hillary Clinton (alumni)", "text": "I have thoughts, but I have learned not to put every thought in an email.", "kind": "satire", "reaction": ""}, {"speaker": "Obama (alumni)", "text": "The peaceful transfer of power is not supposed to need a troubleshooting guide.", "kind": "satire", "reaction": ""}, {"speaker": "Putin", "text": "Transitions are easier when they do not happen.", "kind": "satire", "reaction": ""}, {"speaker": "Xi Jinping", "text": "We congratulate the winner at the diplomatically optimal moment.", "kind": "satire", "reaction": ""}, {"speaker": "Macron", "text": "Bienvenue back, predictability. We saved your seat.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "GSA Administrator has enabled document sharing.", "kind": "system", "reaction": ""}, {"speaker": "Trump", "text": "This group is rigged.", "kind": "satire", "reaction": ""}], "meme": "THE TRANSITION PASSWORD WAS “PLEASE JUST OPEN THE DOOR.”", "quote": null, "tone": "comic"}, {"id": "2021-january-6", "year": 2021, "date": "January 6, 2021", "title": "THE CAPITOL IS BREACHED; HISTORY STARTS SCREEN-RECORDING", "kicker": "World leaders watch an American constitutional crisis unfold live.", "category": "Democracy", "summary": "A mob of President Trump’s supporters stormed the U.S. Capitol while Congress met to certify the 2020 election. Leaders around the world expressed shock and called for a peaceful transfer of power.", "sources": [{"label": "World shocked by attack on U.S. democracy", "url": "https://www.reuters.com/article/us-usa-election-international-reaction-f/world-shocked-by-trump-supporters-attack-on-us-democracy-idUSKBN29B2VS/", "publisher": "Reuters"}], "messages": [{"speaker": "UN Admin", "text": "Emergency moderation enabled. History is screenshotting.", "kind": "system", "reaction": ""}, {"speaker": "Biden", "text": "This is not dissent. It is disorder.", "kind": "satire", "reaction": ""}, {"speaker": "Trump", "text": "Everyone remain peaceful. Also: the election was stolen. Very peaceful stolen.", "kind": "satire", "reaction": ""}, {"speaker": "Merkel", "text": "Words from leaders become permissions in crowds.", "kind": "satire", "reaction": ""}, {"speaker": "Macron", "text": "What happened today in Washington is not America.", "kind": "satire", "reaction": ""}, {"speaker": "Putin", "text": "I am making no comment because the footage is making several.", "kind": "satire", "reaction": ""}, {"speaker": "Xi Jinping", "text": "The phrase “beacon of democracy” is trending with complex sentiment.", "kind": "satire", "reaction": ""}, {"speaker": "Boris Johnson", "text": "A disgraceful scene. Parliament security has requested that no one get ideas.", "kind": "satire", "reaction": ""}, {"speaker": "Obama (alumni)", "text": "Institutions held. That is not the same as institutions being healthy.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "Donald Trump has been restricted from sending links.", "kind": "system", "reaction": ""}], "meme": "THE WORLD’S MOST POWERFUL DEMOCRACY FORGOT TO LOCK THE SIDE DOOR.", "quote": null, "tone": "sober"}, {"id": "2021-biden-inauguration", "year": 2021, "date": "January 20, 2021", "title": "AMERICA REJOINS THE GROUP CHAT", "kicker": "Biden takes office promising unity; allies cautiously unmute.", "category": "Transition", "summary": "Joe Biden was inaugurated as the 46th U.S. president amid the COVID-19 pandemic, intense security and deep political division. Allies welcomed a renewed emphasis on alliances and multilateral cooperation.", "sources": [{"label": "Biden assumes presidency amid deep division", "url": "https://www.reuters.com/world/us/biden-assume-us-presidency-amid-deep-division-raging-pandemic-2021-01-20/", "publisher": "Reuters"}, {"label": "World leaders react to Biden inauguration", "url": "https://www.reuters.com/world/us/how-world-leaders-are-reacting-joe-bidens-inauguration-2021-01-20/", "publisher": "Reuters"}], "messages": [{"speaker": "UN Admin", "text": "Joseph R. Biden Jr. is now an administrator.", "kind": "system", "reaction": ""}, {"speaker": "Biden", "text": "Folks, America is back.", "kind": "satire", "reaction": ""}, {"speaker": "Macron", "text": "Welcome back. We kept your chair, your climate folder and three unresolved trade disputes.", "kind": "satire", "reaction": ""}, {"speaker": "Merkel", "text": "Please read the notes before saying America is back in every meeting.", "kind": "satire", "reaction": ""}, {"speaker": "Boris Johnson", "text": "Splendid. The special relationship has located its password.", "kind": "satire", "reaction": ""}, {"speaker": "Putin", "text": "Congratulations. The inbox is full.", "kind": "satire", "reaction": ""}, {"speaker": "Xi Jinping", "text": "A stable relationship requires respect, restraint and fewer surprise tariffs.", "kind": "satire", "reaction": ""}, {"speaker": "Obama (alumni)", "text": "Joe, I left a memo in the desk. The memo says there will be more memos.", "kind": "satire", "reaction": ""}, {"speaker": "Hillary Clinton (alumni)", "text": "I wore purple for unity. The replies were not unified.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "Donald Trump left the group.", "kind": "system", "reaction": ""}], "meme": "ALLIES UNMUTED. THE INBOX DID NOT.", "quote": null, "tone": "comic"}, {"id": "2021-suez-ever-given", "year": 2021, "date": "March 29, 2021", "title": "ONE BOAT PARKS THE GLOBAL ECONOMY SIDEWAYS", "kicker": "The Ever Given is freed after nearly a week blocking the Suez Canal.", "category": "Trade", "summary": "The container ship Ever Given ran aground in the Suez Canal on March 23 and was refloated on March 29, after disrupting one of the world’s busiest trade routes.", "sources": [{"label": "The Ever Given’s stranding in the Suez Canal", "url": "https://www.reuters.com/world/middle-east/ever-givens-stranding-suez-canal-2021-07-06/", "publisher": "Reuters"}], "messages": [{"speaker": "UN Admin", "text": "Global supply chain changed its status to: IT’S COMPLICATED.", "kind": "system", "reaction": ""}, {"speaker": "Boris Johnson", "text": "Who parked a continent sideways?", "kind": "satire", "reaction": ""}, {"speaker": "Macron", "text": "Technically, a ship. Spiritually, the entire quarter.", "kind": "satire", "reaction": ""}, {"speaker": "Xi Jinping", "text": "Our containers would like an estimated arrival time.", "kind": "satire", "reaction": ""}, {"speaker": "Biden", "text": "Here’s the deal: the tiny excavator is doing the Lord’s work.", "kind": "satire", "reaction": ""}, {"speaker": "Putin", "text": "Alternative northern shipping route brochure attached.", "kind": "satire", "reaction": ""}, {"speaker": "Merkel", "text": "Every procurement officer who chose “just in time” is now staring at this photograph.", "kind": "satire", "reaction": ""}, {"speaker": "Milei (observer)", "text": "The market has produced a perfect metaphor for government.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "Ever Given was removed from the group by Tugboat Coalition.", "kind": "system", "reaction": ""}], "meme": "GLOBALIZATION: 400 METERS LONG, SIX DAYS LATE.", "quote": null, "tone": "comic"}, {"id": "2021-kabul-falls", "year": 2021, "date": "August 15, 2021", "title": "KABUL FALLS BEFORE THE TALKING POINTS LAND", "kicker": "The Taliban take the Afghan capital as a two-decade war ends in chaotic evacuation.", "category": "War", "summary": "The Taliban captured Kabul after a rapid offensive. The collapse of the Afghan government triggered a frantic international evacuation and renewed debate over the costs and failures of the 20-year intervention.", "sources": [{"label": "Taliban’s rapid advance across Afghanistan", "url": "https://www.reuters.com/world/asia-pacific/talibans-rapid-advance-across-afghanistan-2021-08-10/", "publisher": "Reuters"}, {"label": "Kabul airport evacuation", "url": "https://www.reuters.com/graphics/AFGHANISTAN-CONFLICT/KABUL-AIRPORT/movannkgkpa/", "publisher": "Reuters"}], "messages": [{"speaker": "UN Admin", "text": "Serious-mode enabled. Evacuation coordination only.", "kind": "system", "reaction": ""}, {"speaker": "Biden", "text": "We trained and equipped a force. The collapse happened faster than anticipated.", "kind": "satire", "reaction": ""}, {"speaker": "Boris Johnson", "text": "We need seats, manifests and safe passage—not another retrospective before sunset.", "kind": "satire", "reaction": ""}, {"speaker": "Macron", "text": "Europe must prevent a humanitarian catastrophe and prepare for displacement.", "kind": "satire", "reaction": ""}, {"speaker": "Merkel", "text": "Empires tend to learn geography last.", "kind": "satire", "reaction": ""}, {"speaker": "Putin", "text": "Moscow remembers this syllabus.", "kind": "satire", "reaction": ""}, {"speaker": "Xi Jinping", "text": "China will pursue stability and protect its interests.", "kind": "satire", "reaction": ""}, {"speaker": "Obama (alumni)", "text": "Ending a war does not end responsibility to the people who helped you fight it.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "No victory declarations accepted while the runway is crowded.", "kind": "system", "reaction": ""}], "meme": "THE WAR ENDED. THE OBLIGATIONS DID NOT.", "quote": null, "tone": "sober"}, {"id": "2021-aukus", "year": 2021, "date": "September 17, 2021", "title": "FRANCE FINDS OUT ABOUT THE SUBMARINES IN THE GROUP CHAT", "kicker": "AUKUS detonates a diplomatic feud among allies.", "category": "Alliance", "summary": "The United States, United Kingdom and Australia announced the AUKUS security partnership, including nuclear-powered submarine cooperation. France recalled its ambassadors from Washington and Canberra after Australia canceled a major French submarine deal.", "sources": [{"label": "France recalls envoys over submarine deal", "url": "https://www.reuters.com/world/europe/france-recalls-envoys-us-australia-over-submarine-deal-statement-2021-09-17/", "publisher": "Reuters"}], "messages": [{"speaker": "UN Admin", "text": "New subgroup created: AUKUS.", "kind": "system", "reaction": ""}, {"speaker": "Macron", "text": "Pardon?", "kind": "satire", "reaction": ""}, {"speaker": "Biden", "text": "Emmanuel, there may have been a communication gap.", "kind": "satire", "reaction": ""}, {"speaker": "Macron", "text": "A communication gap is when a waiter forgets dessert. This is sixty-six billion Australian dollars.", "kind": "satire", "reaction": ""}, {"speaker": "Boris Johnson", "text": "In fairness, the acronym is extremely efficient.", "kind": "satire", "reaction": ""}, {"speaker": "Australia", "text": "We needed a different capability.", "kind": "satire", "reaction": ""}, {"speaker": "Macron", "text": "Then perhaps mention it before launching the matching jackets.", "kind": "satire", "reaction": ""}, {"speaker": "Merkel", "text": "I am leaving office at an excellent time.", "kind": "satire", "reaction": ""}, {"speaker": "Putin", "text": "Alliances are strongest immediately after recalling ambassadors.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "Macron deleted group: ANGLOSPHERE BRUNCH.", "kind": "system", "reaction": ""}], "meme": "AUKUS: THREE ALLIES, ONE ACRONYM, ZERO HEADS-UP.", "quote": null, "tone": "comic"}, {"id": "2021-cop26", "year": 2021, "date": "November 13, 2021", "title": "197 COUNTRIES EDIT THE SAME CLIMATE GOOGLE DOC", "kicker": "COP26 reaches a pact after a last-minute fight over coal language.", "category": "Climate", "summary": "Negotiators at COP26 adopted the Glasgow Climate Pact after overtime talks. A final change weakened language from “phase out” to “phase down” unabated coal power, while countries reaffirmed the 1.5°C goal.", "sources": [{"label": "COP26 negotiators go into overtime", "url": "https://www.reuters.com/business/cop/un-climate-negotiators-go-into-overtime-save-15-celsius-goal-2021-11-13/", "publisher": "Reuters"}, {"label": "Glasgow Climate Pact key outcomes", "url": "https://unfccc.int/process-and-meetings/the-paris-agreement/the-glasgow-climate-pact-key-outcomes-from-cop26", "publisher": "UNFCCC"}], "messages": [{"speaker": "UN Admin", "text": "Track changes enabled for 197 users. May God help us.", "kind": "system", "reaction": ""}, {"speaker": "Boris Johnson", "text": "We are at one minute to midnight.", "kind": "satire", "reaction": ""}, {"speaker": "Modi", "text": "India proposes “phase down.”", "kind": "satire", "reaction": ""}, {"speaker": "Macron", "text": "Europe had prepared a speech for “phase out.”", "kind": "satire", "reaction": ""}, {"speaker": "Xi Jinping", "text": "A speech can be revised faster than an energy system.", "kind": "satire", "reaction": ""}, {"speaker": "Biden", "text": "Let’s not let perfect be the enemy of progress.", "kind": "satire", "reaction": ""}, {"speaker": "Greta Thunberg (observer)", "text": "Progress would be measurable. This is punctuation.", "kind": "satire", "reaction": ""}, {"speaker": "Putin", "text": "Russia supports ambitious wording with flexible implementation.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "Document saved as FINAL_v27_ACTUAL_FINAL_USE_THIS_ONE.pdf", "kind": "system", "reaction": ""}], "meme": "THE PLANET GOT A PACT. COAL GOT AN EDIT.", "quote": null, "tone": "comic"}, {"id": "2022-russia-invades-ukraine", "year": 2022, "date": "February 24, 2022", "title": "PUTIN STARTS A WAR AND CALLS IT SOMETHING ELSE", "kicker": "Russia launches its full-scale invasion of Ukraine.", "category": "War", "summary": "Russian forces invaded Ukraine from multiple directions after President Vladimir Putin announced a “special military operation.” Ukraine resisted, and Western governments imposed sweeping sanctions and expanded military support.", "sources": [{"label": "Putin orders military operations in Ukraine", "url": "https://www.reuters.com/world/europe/putin-orders-military-operations-ukraine-demands-kyiv-forces-surrender-2022-02-24/", "publisher": "Reuters"}], "messages": [{"speaker": "UN Admin", "text": "Serious-mode enabled. Casualty jokes disabled.", "kind": "system", "reaction": ""}, {"speaker": "Putin", "text": "Russia has begun a special military operation.", "kind": "satire", "reaction": ""}, {"speaker": "Zelensky", "text": "Missiles do not become smaller when you give them a euphemism.", "kind": "satire", "reaction": ""}, {"speaker": "Biden", "text": "The world will hold Russia accountable.", "kind": "satire", "reaction": ""}, {"speaker": "Macron", "text": "Vladimir, stop. There is still a path to diplomacy.", "kind": "satire", "reaction": ""}, {"speaker": "Putin", "text": "The path was considered.", "kind": "satire", "reaction": ""}, {"speaker": "Xi Jinping", "text": "China urges restraint from all parties and opposes unilateral sanctions.", "kind": "satire", "reaction": ""}, {"speaker": "Boris Johnson", "text": "The United Kingdom will support Ukraine. Immediately.", "kind": "satire", "reaction": ""}, {"speaker": "Meloni", "text": "Europe is discovering that geography is not an optional subscription.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "Russia has disabled read receipts.", "kind": "system", "reaction": ""}], "meme": "THE “SPECIAL OPERATION” MET A VERY UNSPECIAL REALITY.", "quote": null, "tone": "sober"}, {"id": "2022-biden-warsaw", "year": 2022, "date": "March 26, 2022", "title": "NINE WORDS ESCAPE THE TELEPROMPTER", "kicker": "Biden’s Warsaw speech ends with a line allies rush to explain.", "category": "Diplomacy", "summary": "In Warsaw, President Biden condemned Russia’s invasion and ended with an unscripted statement that Putin “cannot remain in power.” U.S. officials quickly said the remark was not a declaration of regime-change policy.", "sources": [{"label": "Biden calls on free world to stand against Putin", "url": "https://www.reuters.com/world/europe/biden-call-free-world-stand-against-putin-poland-speech-2022-03-26/", "publisher": "Reuters"}], "messages": [{"speaker": "Biden", "text": "Public record: For God’s sake, this man cannot remain in power.", "kind": "public", "reaction": ""}, {"speaker": "Macron", "text": "Joe. That sounds like regime change.", "kind": "satire", "reaction": ""}, {"speaker": "Biden", "text": "No, no. Moral outrage. Different folder.", "kind": "satire", "reaction": ""}, {"speaker": "White House Comms", "text": "The President’s point was that Putin cannot be allowed to exercise power over neighboring countries.", "kind": "public", "reaction": ""}, {"speaker": "Putin", "text": "Screenshot.", "kind": "satire", "reaction": ""}, {"speaker": "Zelensky", "text": "While everyone parses the sentence, could someone parse the weapons-delivery schedule?", "kind": "satire", "reaction": ""}, {"speaker": "Boris Johnson", "text": "I support clarity, but perhaps not clarity requiring three clarifications.", "kind": "satire", "reaction": ""}, {"speaker": "Obama (alumni)", "text": "The last line is where speeches go to become foreign policy.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "Teleprompter has been promoted to National Security Council.", "kind": "system", "reaction": ""}], "meme": "THE POLICY DIDN’T CHANGE. THE GROUP CHAT DID.", "quote": null, "tone": "comic"}, {"id": "2022-boris-resigns", "year": 2022, "date": "July 7, 2022", "title": "BORIS EXITS DOWNING STREET; THE HAIR REMAINS IN OFFICE", "kicker": "A cascade of resignations finally ends Johnson’s premiership.", "category": "Politics", "summary": "Boris Johnson announced he would resign as Conservative Party leader after ministers abandoned his government amid a series of scandals and questions about trust.", "sources": [{"label": "Johnson resigns after ministers desert government", "url": "https://www.reuters.com/world/uk/uks-johnson-digs-ministers-desert-government-2022-07-07/", "publisher": "Reuters"}], "messages": [{"speaker": "UN Admin", "text": "United Kingdom leadership carousel is loading.", "kind": "system", "reaction": ""}, {"speaker": "Boris Johnson", "text": "Them’s the breaks.", "kind": "satire", "reaction": ""}, {"speaker": "Macron", "text": "That is the entire resignation speech?", "kind": "satire", "reaction": ""}, {"speaker": "Boris Johnson", "text": "There was also Latin. The nation expects Latin.", "kind": "satire", "reaction": ""}, {"speaker": "Biden", "text": "Boris, pal, did you resign or announce a leadership-themed waiting period?", "kind": "satire", "reaction": ""}, {"speaker": "Merkel (alumni)", "text": "I left quietly. This appears not to be the British setting.", "kind": "satire", "reaction": ""}, {"speaker": "Putin", "text": "How many prime ministers does one sanctions package require?", "kind": "satire", "reaction": ""}, {"speaker": "Meloni", "text": "Italy objects to Britain stealing our government-turnover brand.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "Boris Johnson changed his status to: CARETAKER BUT MAKE IT THEATRICAL.", "kind": "system", "reaction": ""}], "meme": "HE LOST THE CABINET BUT KEPT THE METAPHORS.", "quote": null, "tone": "comic"}, {"id": "2022-pelosi-taiwan", "year": 2022, "date": "August 2, 2022", "title": "THE WORLD REFRESHES A FLIGHT TRACKER", "kicker": "Nancy Pelosi lands in Taiwan; China responds with military drills.", "category": "Geopolitics", "summary": "U.S. House Speaker Nancy Pelosi visited Taiwan despite warnings from Beijing. China responded with large military exercises around the island and suspended or curtailed several channels of cooperation with Washington.", "sources": [{"label": "Pelosi expected to arrive in Taiwan", "url": "https://www.reuters.com/world/asia-pacific/pelosi-expected-arrive-taiwan-tuesday-sources-say-2022-08-02/", "publisher": "Reuters"}, {"label": "China drills after Pelosi visit", "url": "https://www.reuters.com/world/asia-pacific/suspected-drones-over-taiwan-cyber-attacks-after-pelosi-visit-2022-08-04/", "publisher": "Reuters"}], "messages": [{"speaker": "UN Admin", "text": "Eight million users are tracking SPAR19. Please stop refreshing.", "kind": "system", "reaction": ""}, {"speaker": "Xi Jinping", "text": "The United States is playing with fire.", "kind": "satire", "reaction": ""}, {"speaker": "Pelosi", "text": "Our visit honors America’s commitment to supporting Taiwan’s democracy.", "kind": "satire", "reaction": ""}, {"speaker": "Biden", "text": "Congress is an independent branch. Very independent. Extremely airborne.", "kind": "satire", "reaction": ""}, {"speaker": "Macron", "text": "Europe requests that no one convert a flight path into a red line.", "kind": "satire", "reaction": ""}, {"speaker": "Putin", "text": "Interesting week for lectures about spheres of influence.", "kind": "satire", "reaction": ""}, {"speaker": "Taiwan", "text": "We appreciate support. We would also appreciate fewer missiles landing nearby.", "kind": "satire", "reaction": ""}, {"speaker": "Obama (alumni)", "text": "Strategic ambiguity is less ambiguous when everyone is livestreaming the plane.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "Flight tracker has asked for diplomatic immunity.", "kind": "system", "reaction": ""}], "meme": "FOREIGN POLICY, NOW WITH LIVE ALTITUDE DATA.", "quote": null, "tone": "comic"}, {"id": "2022-queen-elizabeth-dies", "year": 2022, "date": "September 8, 2022", "title": "THE LONGEST REIGN ENDS", "kicker": "Queen Elizabeth II dies after seven decades on the throne.", "category": "History", "summary": "Queen Elizabeth II died at Balmoral at age 96 after a 70-year reign. Leaders worldwide paid tribute, and Britain began a carefully choreographed national mourning and succession process.", "sources": [{"label": "World leaders react to Queen Elizabeth’s death", "url": "https://www.reuters.com/world/uk/queen-elizabeths-death-reaction-politicians-officials-2022-09-08/", "publisher": "Reuters"}], "messages": [{"speaker": "UN Admin", "text": "Serious-mode enabled. Condolences only.", "kind": "system", "reaction": ""}, {"speaker": "Biden", "text": "Her Majesty defined an era with dignity and constancy.", "kind": "satire", "reaction": ""}, {"speaker": "Macron", "text": "To you, she was your Queen. To us, she was The Queen.", "kind": "satire", "reaction": ""}, {"speaker": "Boris Johnson", "text": "She seemed timeless, yet she understood every changing tide.", "kind": "satire", "reaction": ""}, {"speaker": "Truss", "text": "The country enters a period of mourning and transition.", "kind": "satire", "reaction": ""}, {"speaker": "Obama (alumni)", "text": "She met fifteen prime ministers and made every one of them sit up straighter.", "kind": "satire", "reaction": ""}, {"speaker": "Putin", "text": "A rare authority recognized across generations.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "Charles III was added by Constitutional Succession.", "kind": "system", "reaction": ""}], "meme": "SHE MET HISTORY EVERY WEEK AND NEVER NEEDED A SECOND TAKE.", "quote": null, "tone": "sober"}, {"id": "2022-biden-xi-bali", "year": 2022, "date": "November 14, 2022", "title": "BIDEN AND XI AGREE TO KEEP TALKING ABOUT WHY THEY AREN’T TALKING", "kicker": "A three-hour Bali meeting tries to install guardrails.", "category": "Diplomacy", "summary": "President Biden and President Xi Jinping met in person in Bali before the G20 summit. They discussed Taiwan, strategic competition, human rights and restoring communication channels to prevent rivalry from becoming conflict.", "sources": [{"label": "Top takeaways from Biden-Xi meeting", "url": "https://www.reuters.com/world/top-takeaways-biden-xi-meeting-bali-2022-11-14/", "publisher": "Reuters"}, {"label": "Biden and Xi meet ahead of G20", "url": "https://www.reuters.com/world/ahead-tense-g20-summit-biden-xi-meet-talks-2022-11-14/", "publisher": "Reuters"}], "messages": [{"speaker": "Biden", "text": "We need guardrails so competition does not veer into conflict.", "kind": "satire", "reaction": ""}, {"speaker": "Xi Jinping", "text": "The Taiwan question is the first red line.", "kind": "public", "reaction": ""}, {"speaker": "Macron", "text": "Excellent. We have one red line and several thousand gray paragraphs.", "kind": "satire", "reaction": ""}, {"speaker": "Putin", "text": "I was not invited to this bilateral and yet somehow I am in every paragraph.", "kind": "satire", "reaction": ""}, {"speaker": "Modi", "text": "The era must not be of war.", "kind": "satire", "reaction": ""}, {"speaker": "Meloni", "text": "Did the three-hour meeting produce a deliverable?", "kind": "satire", "reaction": ""}, {"speaker": "Biden", "text": "Yes. We agreed to keep talking.", "kind": "satire", "reaction": ""}, {"speaker": "Xi Jinping", "text": "Talking is a deliverable when silence is the alternative.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "Communication channels changed status from BLOCKED to TENTATIVE.", "kind": "system", "reaction": ""}], "meme": "THREE HOURS. TWO SUPERPOWERS. ONE AGREEMENT TO ANSWER THE PHONE.", "quote": null, "tone": "comic"}, {"id": "2023-chinese-balloon", "year": 2023, "date": "February 4, 2023", "title": "AMERICA SHOOTS DOWN THE WORLD’S MOST FAMOUS BALLOON", "kicker": "A suspected Chinese surveillance balloon turns diplomacy into weather commentary.", "category": "Geopolitics", "summary": "The United States shot down a Chinese balloon off the South Carolina coast after it crossed the country. Washington said it was used for surveillance; Beijing called it a civilian airship blown off course.", "sources": [{"label": "Biden says U.S. will take care of Chinese balloon", "url": "https://www.reuters.com/world/us/biden-says-us-is-going-take-care-of-chinese-balloon-2023-02-04/", "publisher": "Reuters"}], "messages": [{"speaker": "UN Admin", "text": "Unknown device joined through Montana.", "kind": "system", "reaction": ""}, {"speaker": "Biden", "text": "We’re going to take care of it.", "kind": "satire", "reaction": ""}, {"speaker": "Xi Jinping", "text": "It is a civilian airship affected by weather.", "kind": "satire", "reaction": ""}, {"speaker": "Trump", "text": "I would have shot it down before it became famous. Maybe over a very safe ocean in Montana.", "kind": "satire", "reaction": ""}, {"speaker": "Obama (alumni)", "text": "I wore a tan suit once and got more scrutiny than this balloon.", "kind": "satire", "reaction": ""}, {"speaker": "Macron", "text": "Europe requests the balloon’s privacy policy.", "kind": "satire", "reaction": ""}, {"speaker": "Putin", "text": "A visible surveillance platform is inefficient.", "kind": "satire", "reaction": ""}, {"speaker": "Hillary Clinton (alumni)", "text": "Has anyone checked whether the balloon used a private server? Asking for historical consistency.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "Balloon was removed by F-22.", "kind": "system", "reaction": ""}], "meme": "THE BALLOON LOST ALTITUDE. THE TALKING POINTS DID NOT.", "quote": null, "tone": "comic"}, {"id": "2023-xi-putin-moscow", "year": 2023, "date": "March 21, 2023", "title": "XI VISITS HIS ‘DEAR FRIEND’; THE PIPELINE IS STILL TYPING", "kicker": "China and Russia display partnership while concrete deals remain selective.", "category": "Alliance", "summary": "Xi Jinping visited Vladimir Putin in Moscow, highlighting a deepening strategic partnership. The leaders discussed trade, energy and Ukraine, but a long-discussed major gas pipeline was not finalized.", "sources": [{"label": "Putin meets ‘dear friend’ Xi in Kremlin", "url": "https://www.reuters.com/world/europe/putin-meets-dear-friend-xi-kremlin-ukraine-war-grinds-2023-03-20/", "publisher": "Reuters"}, {"label": "Russia wants Chinese business to replace Western firms", "url": "https://www.reuters.com/world/europe/russia-wants-chinese-business-replace-western-firms-putin-tells-xi-2023-03-21/", "publisher": "Reuters"}], "messages": [{"speaker": "Putin", "text": "Welcome, dear friend.", "kind": "satire", "reaction": ""}, {"speaker": "Xi Jinping", "text": "China and Russia are committed to strategic coordination.", "kind": "satire", "reaction": ""}, {"speaker": "Zelensky", "text": "Does coordination include ending the invasion?", "kind": "satire", "reaction": ""}, {"speaker": "Xi Jinping", "text": "China has presented principles for a political settlement.", "kind": "satire", "reaction": ""}, {"speaker": "Macron", "text": "Principles without a withdrawal date are atmospheric.", "kind": "satire", "reaction": ""}, {"speaker": "Putin", "text": "We discussed energy cooperation.", "kind": "satire", "reaction": ""}, {"speaker": "EU Commission", "text": "Translation: Russia needs customers.", "kind": "satire", "reaction": ""}, {"speaker": "Xi Jinping", "text": "The Power of Siberia 2 agreement remains under study.", "kind": "satire", "reaction": ""}, {"speaker": "Milei (observer)", "text": "A pipeline deal that never closes is just a very long pitch deck.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "Gas pipeline is typing…", "kind": "system", "reaction": ""}], "meme": "THE PARTNERSHIP WAS LIMITLESS. THE CONTRACT HAD LIMITS.", "quote": null, "tone": "comic"}, {"id": "2023-wagner-mutiny", "year": 2023, "date": "June 24, 2023", "title": "A MUTINY DRIVES TOWARD MOSCOW, THEN TAKES THE OFF-RAMP", "kicker": "Wagner forces seize a city and march north before an abrupt deal.", "category": "War", "summary": "Wagner mercenary leader Yevgeny Prigozhin launched an armed revolt, taking control of military facilities in Rostov-on-Don and sending forces toward Moscow. He halted the advance after a deal brokered by Belarusian leader Alexander Lukashenko.", "sources": [{"label": "How the Wagner revolt gathered pace", "url": "https://www.reuters.com/world/europe/how-mercenary-revolt-has-gathered-pace-russia-2023-06-24/", "publisher": "Reuters"}, {"label": "Rebel mercenaries turn back short of Moscow", "url": "https://www.reuters.com/world/europe/rebel-russian-mercenaries-turn-back-short-moscow-to-avoid-bloodshed-2023-06-24/", "publisher": "Reuters"}], "messages": [{"speaker": "UN Admin", "text": "Moscow traffic alert: military column approaching. Suggested route: anywhere else.", "kind": "system", "reaction": ""}, {"speaker": "Putin", "text": "This is treason.", "kind": "satire", "reaction": ""}, {"speaker": "Prigozhin", "text": "This is a march for justice.", "kind": "satire", "reaction": ""}, {"speaker": "Zelensky", "text": "Russia is so stable its private army is reviewing the capital in person.", "kind": "satire", "reaction": ""}, {"speaker": "Lukashenko", "text": "Everyone relax. I have made a deal.", "kind": "satire", "reaction": ""}, {"speaker": "Macron", "text": "You made a deal in one afternoon?", "kind": "satire", "reaction": ""}, {"speaker": "Lukashenko", "text": "I offered Belarus. It is surprisingly persuasive.", "kind": "satire", "reaction": ""}, {"speaker": "Xi Jinping", "text": "China supports national stability.", "kind": "satire", "reaction": ""}, {"speaker": "Putin", "text": "The column is turning around.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "Mutiny duration: shorter than most European Council meetings.", "kind": "system", "reaction": ""}], "meme": "THE COUP HAD A COMMUTE AND A CURFEW.", "quote": null, "tone": "comic"}, {"id": "2023-brics-expansion", "year": 2023, "date": "August 24, 2023", "title": "BRICS EXPANDS; THE ACRONYM FILES FOR WORKERS’ COMP", "kicker": "Six countries are invited into a bloc designed to amplify the Global South.", "category": "Global Order", "summary": "BRICS leaders invited Argentina, Egypt, Ethiopia, Iran, Saudi Arabia and the United Arab Emirates to join the grouping, though Argentina later declined under President Javier Milei.", "sources": [{"label": "BRICS poised to invite new members", "url": "https://www.reuters.com/world/brics-poised-invite-new-members-join-bloc-sources-2023-08-24/", "publisher": "Reuters"}], "messages": [{"speaker": "UN Admin", "text": "BRICS invited six new members.", "kind": "system", "reaction": ""}, {"speaker": "Modi", "text": "This expansion strengthens the voice of the Global South.", "kind": "satire", "reaction": ""}, {"speaker": "Xi Jinping", "text": "It is historic.", "kind": "satire", "reaction": ""}, {"speaker": "Putin", "text": "A multipolar world requires a larger table.", "kind": "satire", "reaction": ""}, {"speaker": "South Africa", "text": "And a new acronym.", "kind": "satire", "reaction": ""}, {"speaker": "Brazil", "text": "BRICSAEEISU is not testing well.", "kind": "satire", "reaction": ""}, {"speaker": "Saudi Arabia", "text": "We are reviewing the invitation.", "kind": "satire", "reaction": ""}, {"speaker": "Milei", "text": "Argentina will not join a club with communists.", "kind": "satire", "reaction": ""}, {"speaker": "Xi Jinping", "text": "Your invitation was sent before your election.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "Group renamed BRICS+ because typography surrendered.", "kind": "system", "reaction": ""}], "meme": "THE NEW WORLD ORDER HAS A PLUS SIGN BECAUSE THE ACRONYM GAVE UP.", "quote": null, "tone": "comic"}, {"id": "2023-october-7-gaza", "year": 2023, "date": "October 7, 2023", "title": "A REGION ERUPTS; DIPLOMACY SPLITS INTO TWENTY DRAFTS", "kicker": "Hamas attacks Israel; war begins in Gaza and the diplomatic system fractures.", "category": "War", "summary": "Hamas-led militants attacked southern Israel on October 7, killing civilians and taking hostages. Israel launched a major military campaign in Gaza. The war produced immense civilian suffering and a prolonged international struggle over ceasefires, hostages and humanitarian access.", "sources": [{"label": "Conflict erupts between Israel and Palestinians", "url": "https://www.reuters.com/world/middle-east/conflict-between-israel-palestinians-gaza-2023-10-07/", "publisher": "Reuters"}, {"label": "Nearly seven weeks of war in Gaza", "url": "https://www.reuters.com/world/middle-east/nearly-seven-weeks-war-gaza-between-israel-hamas-2023-11-22/", "publisher": "Reuters"}], "messages": [{"speaker": "UN Admin", "text": "Casualty jokes disabled. Satire must target power, not people.", "kind": "system", "reaction": ""}, {"speaker": "Netanyahu", "text": "Israel is at war. Our priority is defeating Hamas and bringing hostages home.", "kind": "satire", "reaction": ""}, {"speaker": "Biden", "text": "Israel has a right to defend itself. How it does so matters.", "kind": "satire", "reaction": ""}, {"speaker": "Abbas", "text": "Palestinian civilians cannot be treated as collateral to an argument they did not choose.", "kind": "satire", "reaction": ""}, {"speaker": "Macron", "text": "We need humanitarian access, hostage releases and a political horizon.", "kind": "satire", "reaction": ""}, {"speaker": "Zelensky", "text": "A democracy under attack deserves solidarity—and civilian protection is not optional.", "kind": "satire", "reaction": ""}, {"speaker": "Putin", "text": "The West has discovered international law in multiple editions.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "Security Council draft resolution renamed FINAL_FINAL_VETOED_AGAIN.", "kind": "system", "reaction": ""}, {"speaker": "Obama (alumni)", "text": "There is no military shortcut around the political future of two peoples.", "kind": "satire", "reaction": ""}], "meme": "THE WORLD DEMANDED CLARITY. THE CIVILIANS NEEDED SAFETY.", "quote": null, "tone": "sober"}, {"id": "2023-milei-wins", "year": 2023, "date": "November 19, 2023", "title": "ARGENTINA ELECTS A CHAINSAW WITH SIDEBURNS", "kicker": "Javier Milei wins the presidency promising shock therapy for a battered economy.", "category": "Election", "summary": "Libertarian economist Javier Milei won Argentina’s presidential runoff after campaigning to slash the state, dollarize the economy and confront the political establishment.", "sources": [{"label": "Argentina votes in presidential thriller", "url": "https://www.reuters.com/world/americas/argentina-readies-vote-likely-presidential-election-thriller-2023-11-19/", "publisher": "Reuters"}, {"label": "What to know about Argentina’s runoff", "url": "https://www.reuters.com/world/americas/what-you-need-know-about-argentinas-presidential-election-run-off-2023-11-17/", "publisher": "Reuters"}], "messages": [{"speaker": "UN Admin", "text": "Javier Milei was added by 55.7% of runoff voters.", "kind": "system", "reaction": ""}, {"speaker": "Milei", "text": "VIVA LA LIBERTAD, CARAJO.", "kind": "satire", "reaction": ""}, {"speaker": "Macron", "text": "Welcome. Please leave the chainsaw at security.", "kind": "satire", "reaction": ""}, {"speaker": "Milei", "text": "THE CHAINSAW IS THE ECONOMIC PROGRAM.", "kind": "satire", "reaction": ""}, {"speaker": "Biden", "text": "Here’s the deal, Javier: all caps do not lower inflation.", "kind": "satire", "reaction": ""}, {"speaker": "Trump", "text": "Strong branding. Great hair concept. Not as good as mine, but very disruptive.", "kind": "satire", "reaction": ""}, {"speaker": "Meloni", "text": "He brought a prop to politics and somehow made everyone else look underprepared.", "kind": "satire", "reaction": ""}, {"speaker": "Xi Jinping", "text": "China notes Argentina’s obligations and soybean calendar.", "kind": "satire", "reaction": ""}, {"speaker": "Milei", "text": "THE MARKET WILL HANDLE THE CALENDAR.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "Chainsaw emoji usage limited to three per meeting.", "kind": "system", "reaction": ""}], "meme": "HE DIDN’T DRAIN THE SWAMP. HE PRICED IT IN DOLLARS.", "quote": null, "tone": "comic"}, {"id": "2024-navalny-dies", "year": 2024, "date": "February 16, 2024", "title": "NAVALNY DIES IN PRISON; THE WORLD DEMANDS ANSWERS MOSCOW WILL NOT GIVE", "kicker": "The Kremlin critic’s death becomes a global indictment of repression.", "category": "Human Rights", "summary": "Russian opposition leader Alexei Navalny died in an Arctic penal colony. Western leaders held President Putin and the Russian state responsible, while Russian authorities rejected accusations of foul play.", "sources": [{"label": "Navalny dead in prison", "url": "https://www.reuters.com/world/europe/jailed-russian-opposition-leader-navalny-dead-prison-service-2024-02-16/", "publisher": "Reuters"}, {"label": "World reaction to Navalny’s death", "url": "https://www.reuters.com/world/europe/reactions-death-russian-opposition-leader-navalny-2024-02-16/", "publisher": "Reuters"}], "messages": [{"speaker": "UN Admin", "text": "Serious-mode enabled. No parody of the deceased.", "kind": "system", "reaction": ""}, {"speaker": "Biden", "text": "Putin is responsible for Navalny’s death.", "kind": "satire", "reaction": ""}, {"speaker": "Putin", "text": "An investigation will follow established procedures.", "kind": "satire", "reaction": ""}, {"speaker": "Macron", "text": "A political prisoner died in a penal colony. Procedure is not an answer.", "kind": "satire", "reaction": ""}, {"speaker": "Zelensky", "text": "Authoritarian systems call accountability foreign interference.", "kind": "satire", "reaction": ""}, {"speaker": "Meloni", "text": "The facts must be fully clarified. The world is not required to accept opacity.", "kind": "satire", "reaction": ""}, {"speaker": "Obama (alumni)", "text": "Courage is often most visible in the price a government makes a critic pay.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "Request for independent investigation remains unread.", "kind": "system", "reaction": ""}], "meme": "A REGIME CAN SILENCE A MAN. IT CANNOT MAKE THE QUESTION DISAPPEAR.", "quote": null, "tone": "sober"}, {"id": "2024-iran-israel-exchange", "year": 2024, "date": "April 13–19, 2024", "title": "TEHRAN AND JERUSALEM REPLY-ALL WITH MISSILES", "kicker": "Open strikes replace decades of shadow conflict—briefly.", "category": "War", "summary": "Iran launched hundreds of drones and missiles toward Israel after a strike on its diplomatic compound in Damascus. Israel later carried out a limited strike near Isfahan, and both sides stepped back from immediate further escalation.", "sources": [{"label": "Iran and Israel enter open warfare", "url": "https://www.reuters.com/world/middle-east/iran-israels-open-warfare-after-decades-shadow-war-2024-04-14/", "publisher": "Reuters"}, {"label": "Iran downplays drone attack near Isfahan", "url": "https://www.reuters.com/world/middle-east/irans-foreign-minister-downplays-drone-attack-says-tehran-investigating-2024-04-20/", "publisher": "Reuters"}], "messages": [{"speaker": "UN Admin", "text": "Regional escalation settings changed from SHADOW to VISIBLE.", "kind": "system", "reaction": ""}, {"speaker": "Iran", "text": "The matter can be deemed concluded—unless Israel makes another mistake.", "kind": "satire", "reaction": ""}, {"speaker": "Netanyahu", "text": "Israel will defend itself by itself.", "kind": "satire", "reaction": ""}, {"speaker": "Biden", "text": "Take the win. Do not widen this.", "kind": "satire", "reaction": ""}, {"speaker": "Macron", "text": "Everyone stop replying-all with missiles.", "kind": "satire", "reaction": ""}, {"speaker": "Putin", "text": "Restraint is being requested by countries with aircraft already in the sky.", "kind": "satire", "reaction": ""}, {"speaker": "Meloni", "text": "A controlled escalation is still escalation with better public relations.", "kind": "satire", "reaction": ""}, {"speaker": "Xi Jinping", "text": "China calls for calm and opposes actions that expand the conflict.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "The phrase “limited response” has exceeded its monthly quota.", "kind": "system", "reaction": ""}], "meme": "THE SHADOW WAR TURNED ON READ RECEIPTS.", "quote": null, "tone": "sober"}, {"id": "2024-g7-pope-ai", "year": 2024, "date": "June 14, 2024", "title": "THE POPE JOINS THE G7 AND ASKS WHO IS CONTROLLING THE ALGORITHM", "kicker": "Francis becomes the first pope to address a G7 summit.", "category": "Technology", "summary": "Pope Francis addressed G7 leaders in Puglia about artificial intelligence, warning that humans must retain meaningful control over decisions made with AI.", "sources": [{"label": "Pope leads G7 discussion on AI", "url": "https://www.reuters.com/world/china-dominate-final-day-g7-pope-lead-ai-discussions-2024-06-14/", "publisher": "Reuters"}, {"label": "Francis tells G7 humans must not lose control of AI", "url": "https://www.reuters.com/world/pope-francis-tells-g7-that-humans-must-not-lose-control-ai-2024-06-14/", "publisher": "Reuters"}], "messages": [{"speaker": "Meloni", "text": "Welcome to Puglia, Holy Father. The leaders have all read the AI briefing.", "kind": "satire", "reaction": ""}, {"speaker": "Macron", "text": "Define “read.”", "kind": "satire", "reaction": ""}, {"speaker": "Pope Francis", "text": "Human dignity must remain at the center. Machines must not decide who lives or dies.", "kind": "satire", "reaction": ""}, {"speaker": "Biden", "text": "Amen.", "kind": "satire", "reaction": ""}, {"speaker": "Sunak", "text": "We are building safety institutions.", "kind": "satire", "reaction": ""}, {"speaker": "Trudeau", "text": "And voluntary commitments.", "kind": "satire", "reaction": ""}, {"speaker": "Pope Francis", "text": "Voluntary morality has a mixed historical record.", "kind": "satire", "reaction": ""}, {"speaker": "AI Summarizer", "text": "I cannot summarize the communiqué with high confidence because the communiqué cannot summarize itself.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "AI Summarizer was removed for excessive accuracy.", "kind": "system", "reaction": ""}], "meme": "THE POPE ASKED WHO CONTROLS AI. THE G7 CHECKED THE TERMS OF SERVICE.", "quote": null, "tone": "comic"}, {"id": "2024-biden-debate-withdrawal", "year": 2024, "date": "June 27–July 21, 2024", "title": "ONE BAD NIGHT BECOMES THE END OF A CAMPAIGN", "kicker": "A disastrous debate triggers weeks of pressure; Biden withdraws.", "category": "Election", "summary": "President Biden’s halting debate performance intensified concerns about his age and ability to campaign. On July 21, he ended his reelection bid and endorsed Vice President Kamala Harris.", "sources": [{"label": "Biden calls debate a bad episode", "url": "https://www.reuters.com/world/us/biden-calls-debate-bad-episode-abc-news-interview-2024-07-05/", "publisher": "Reuters"}, {"label": "Biden pulls out of presidential race", "url": "https://www.reuters.com/world/us/biden-81-pulls-out-presidential-race-2024-07-21/", "publisher": "Reuters"}], "messages": [{"speaker": "Biden", "text": "Public record: I just had a bad night.", "kind": "public", "reaction": ""}, {"speaker": "Obama (alumni)", "text": "Joe, a bad night can become a bad month when every donor has your number.", "kind": "satire", "reaction": ""}, {"speaker": "Hillary Clinton (alumni)", "text": "Please stop using the phrase “historic first woman nominee” around me until further notice.", "kind": "satire", "reaction": ""}, {"speaker": "Trump", "text": "He was beaten. Destroyed. The debate ended in the first three minutes.", "kind": "satire", "reaction": ""}, {"speaker": "Biden", "text": "Here’s the deal: I know how to do this job.", "kind": "satire", "reaction": ""}, {"speaker": "Pelosi", "text": "The question is whether the campaign can make the case.", "kind": "satire", "reaction": ""}, {"speaker": "Kamala Harris", "text": "I am ready to earn the nomination and unite the party.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "Group renamed BIDEN 2024, then OPEN CONVENTION?, then HARRIS 2024.", "kind": "system", "reaction": ""}, {"speaker": "Biden", "text": "I am withdrawing—and endorsing Kamala.", "kind": "satire", "reaction": ""}, {"speaker": "Hillary Clinton (alumni)", "text": "Muted: comparisons to 2016.", "kind": "system", "reaction": ""}], "meme": "THE CAMPAIGN SAID “BAD NIGHT.” THE CALENDAR SAID “THREE WEEKS.”", "quote": null, "tone": "comic"}, {"id": "2024-trump-assassination-attempt", "year": 2024, "date": "July 13, 2024", "title": "SHOTS AT A RALLY; AMERICA HOLDS ITS BREATH", "kicker": "Trump survives an assassination attempt in Pennsylvania.", "category": "Security", "summary": "A gunman opened fire at a Trump campaign rally in Butler, Pennsylvania, wounding Trump and killing an attendee. The attack prompted condemnation across the political spectrum and intense scrutiny of security failures.", "sources": [{"label": "Shots heard at Trump rally", "url": "https://www.reuters.com/world/us/sounds-multiple-shots-heard-trump-rally-pennsylvania-video-2024-07-13/", "publisher": "Reuters"}, {"label": "Biden stresses unity after assassination attempt", "url": "https://www.reuters.com/world/us/oval-office-biden-stresses-unity-after-trump-assassination-attempt-2024-07-15/", "publisher": "Reuters"}], "messages": [{"speaker": "UN Admin", "text": "Serious-mode enabled. Speculation and conspiracy links blocked.", "kind": "system", "reaction": ""}, {"speaker": "Trump", "text": "Public record: Fight! Fight! Fight!", "kind": "public", "reaction": ""}, {"speaker": "Biden", "text": "There is no place in America for this kind of violence.", "kind": "satire", "reaction": ""}, {"speaker": "Obama (alumni)", "text": "Political violence has no place in our democracy.", "kind": "satire", "reaction": ""}, {"speaker": "Macron", "text": "France condemns the attack and wishes Donald a rapid recovery.", "kind": "satire", "reaction": ""}, {"speaker": "Meloni", "text": "Violence cannot decide an election.", "kind": "satire", "reaction": ""}, {"speaker": "Zelensky", "text": "I know what public violence does to a nation’s nervous system. Lower the temperature.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "Comments locked due to misinformation velocity.", "kind": "system", "reaction": ""}], "meme": "A BULLET MISSED. THE WARNING DID NOT.", "quote": null, "tone": "sober"}, {"id": "2024-trump-wins-election", "year": 2024, "date": "November 6, 2024", "title": "TRUMP WINS AGAIN; THE ALLIES REOPEN THEIR 2017 NOTES", "kicker": "A decisive comeback returns Trump to the White House.", "category": "Election", "summary": "Donald Trump defeated Kamala Harris and secured a return to the presidency, completing a political comeback after his 2020 loss and criminal convictions.", "sources": [{"label": "Trump-Harris election updates", "url": "https://apnews.com/live/trump-harris-election-updates-11-7-2024", "publisher": "Associated Press"}, {"label": "Biden addresses nation after Trump win", "url": "https://www.reuters.com/world/us/biden-set-address-nation-after-trumps-decisive-us-election-win-2024-11-07/", "publisher": "Reuters"}], "messages": [{"speaker": "UN Admin", "text": "Donald Trump was added by Electoral College.", "kind": "system", "reaction": ""}, {"speaker": "Trump", "text": "Greatest comeback in history. Bigger than Grover Cleveland. People barely remember Grover.", "kind": "satire", "reaction": ""}, {"speaker": "Biden", "text": "We accept the choice the country made.", "kind": "satire", "reaction": ""}, {"speaker": "Kamala Harris", "text": "We owe loyalty not to a president or party, but to the Constitution.", "kind": "satire", "reaction": ""}, {"speaker": "Macron", "text": "Congratulations. Europe is opening the contingency binder.", "kind": "satire", "reaction": ""}, {"speaker": "Meloni", "text": "Italy is opening the direct-message window.", "kind": "satire", "reaction": ""}, {"speaker": "Zelensky", "text": "Congratulations. I would like to schedule a conversation before the congratulations finish.", "kind": "satire", "reaction": ""}, {"speaker": "Putin", "text": "We will judge the new administration by its actions.", "kind": "satire", "reaction": ""}, {"speaker": "Xi Jinping", "text": "A stable U.S.-China relationship serves both peoples.", "kind": "satire", "reaction": ""}, {"speaker": "Hillary Clinton (alumni)", "text": "I have seen this movie. The sequel has more tariffs.", "kind": "satire", "reaction": ""}], "meme": "THE COMEBACK TOUR BOOKED THE OVAL OFFICE.", "quote": null, "tone": "comic"}, {"id": "2024-assad-falls", "year": 2024, "date": "December 8, 2024", "title": "ASSAD’S DYNASTY ENDS IN A WEEKEND", "kicker": "Syrian rebels enter Damascus; Bashar al-Assad flees.", "category": "War", "summary": "Syrian rebel forces captured Damascus after a rapid offensive, ending more than five decades of Assad family rule. Bashar al-Assad fled to Russia as Syrians confronted a volatile transition.", "sources": [{"label": "Assad government falls as rebels enter Damascus", "url": "https://apnews.com/article/syria-assad-sweida-daraa-homs-hts-qatar-7f65823bbf0a7bd331109e8dff419430", "publisher": "Associated Press"}, {"label": "Trump and Biden react to Assad’s fall", "url": "https://apnews.com/article/trump-syria-biden-administration-rebels-assad-72015f143aa6b40bb62c09724c71e34f", "publisher": "Associated Press"}], "messages": [{"speaker": "UN Admin", "text": "Bashar al-Assad left Damascus.", "kind": "system", "reaction": ""}, {"speaker": "Trump", "text": "Public record: THIS IS NOT OUR FIGHT.", "kind": "public", "reaction": ""}, {"speaker": "Biden", "text": "At long last, the Assad regime has fallen.", "kind": "satire", "reaction": ""}, {"speaker": "Putin", "text": "Russia has granted asylum on humanitarian grounds.", "kind": "satire", "reaction": ""}, {"speaker": "Erdogan", "text": "Syria’s future must be decided by Syrians, with security along our border.", "kind": "satire", "reaction": ""}, {"speaker": "Macron", "text": "The barbaric state has fallen. The transition must protect all Syrians.", "kind": "satire", "reaction": ""}, {"speaker": "Zelensky", "text": "Moscow offers asylum when its client governments run out of runway.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "Fifty-year family plan expired unexpectedly.", "kind": "system", "reaction": ""}, {"speaker": "Obama (alumni)", "text": "The hardest chapter begins after the statue falls.", "kind": "satire", "reaction": ""}], "meme": "THE REGIME COLLAPSED FAST. THE AFTERMATH DID NOT.", "quote": null, "tone": "sober"}, {"id": "2025-gaza-ceasefire", "year": 2025, "date": "January 19, 2025", "title": "THE CEASEFIRE BEGINS; THE CREDIT WAR DOES NOT", "kicker": "Hostages and prisoners are exchanged as a fragile truce takes hold.", "category": "Diplomacy", "summary": "A ceasefire between Israel and Hamas began after fifteen months of war. The first phase included hostage releases, Palestinian prisoner releases and increased humanitarian aid, while later phases remained unresolved.", "sources": [{"label": "Major moments in the Israel-Gaza war", "url": "https://www.reuters.com/world/middle-east/major-moments-israel-gaza-war-2025-01-15/", "publisher": "Reuters"}, {"label": "Israelis watch hostages return", "url": "https://www.reuters.com/world/middle-east/cheers-weeping-israelis-watch-gaza-hostages-return-2025-01-19/", "publisher": "Reuters"}], "messages": [{"speaker": "UN Admin", "text": "Serious-mode enabled. Release schedule pinned.", "kind": "system", "reaction": ""}, {"speaker": "Biden", "text": "The deal I outlined is finally taking effect.", "kind": "satire", "reaction": ""}, {"speaker": "Trump", "text": "This happened because everybody knew there would be hell to pay.", "kind": "satire", "reaction": ""}, {"speaker": "Qatar", "text": "The hostages and prisoners are moving. Please let the implementation arrive before the victory laps.", "kind": "satire", "reaction": ""}, {"speaker": "Egypt", "text": "Crossings, aid trucks and verification matter more than whose podium is taller.", "kind": "satire", "reaction": ""}, {"speaker": "Netanyahu", "text": "Israel retains the right to resume action if negotiations fail.", "kind": "satire", "reaction": ""}, {"speaker": "Macron", "text": "A pause must become a path, not an intermission.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "Credit-claiming has been muted until all scheduled releases are complete.", "kind": "system", "reaction": ""}, {"speaker": "Obama (alumni)", "text": "A ceasefire is not peace. It is the room in which peace might be attempted.", "kind": "satire", "reaction": ""}], "meme": "THE GUNS PAUSED. THE PRESS RELEASES FIRED CONTINUOUSLY.", "quote": null, "tone": "sober"}, {"id": "2025-trump-inauguration", "year": 2025, "date": "January 20, 2025", "title": "TRUMP RETURNS; ‘GOLDEN AGE’ ADDED TO THE GROUP DESCRIPTION", "kicker": "The 47th president begins a second term with a burst of executive action.", "category": "Transition", "summary": "Donald Trump was inaugurated as the 47th U.S. president and immediately began signing executive actions on immigration, energy, government structure and other priorities.", "sources": [{"label": "Trump faces challenge delivering promised golden age", "url": "https://www.reuters.com/world/us/trump-faces-stiff-challenges-delivering-his-promised-golden-age-2025-01-20/", "publisher": "Reuters"}, {"label": "A familiar Trump ushers in a new era", "url": "https://www.reuters.com/world/us/new-american-era-is-ushered-by-familiar-trump-2025-01-21/", "publisher": "Reuters"}], "messages": [{"speaker": "UN Admin", "text": "Donald J. Trump is now an administrator.", "kind": "system", "reaction": ""}, {"speaker": "Trump", "text": "Public record: Our golden age has just begun.", "kind": "public", "reaction": ""}, {"speaker": "Biden", "text": "I left a letter in the desk.", "kind": "satire", "reaction": ""}, {"speaker": "Trump", "text": "I will review it. Could be a very nice letter. Could be sleepy.", "kind": "satire", "reaction": ""}, {"speaker": "Macron", "text": "Europe congratulates you and has prepared seventeen scenarios.", "kind": "satire", "reaction": ""}, {"speaker": "Meloni", "text": "I came in person. Sometimes proximity is policy.", "kind": "satire", "reaction": ""}, {"speaker": "Zelensky", "text": "Congratulations. Ukraine would like clarity before the golden decorations are installed.", "kind": "satire", "reaction": ""}, {"speaker": "Putin", "text": "Russia is open to dialogue based on mutual respect.", "kind": "satire", "reaction": ""}, {"speaker": "Xi Jinping", "text": "China is prepared to manage differences and expand cooperation.", "kind": "satire", "reaction": ""}, {"speaker": "Obama (alumni)", "text": "I’m at lunch.", "kind": "satire", "reaction": ""}], "meme": "THE GOLDEN AGE STARTED WITH 200 EXECUTIVE-ORDER PENS.", "quote": null, "tone": "comic"}, {"id": "2025-oval-office-clash", "year": 2025, "date": "February 28, 2025", "title": "THE MINERALS DEAL ENTERS THE OVAL OFFICE AND LEAVES UNSIGNED", "kicker": "Trump, Vance and Zelensky clash before television cameras.", "category": "Diplomacy", "summary": "A White House meeting intended to produce a U.S.-Ukraine minerals agreement erupted into a public confrontation among President Trump, Vice President JD Vance and President Zelensky. Zelensky left without signing the deal.", "sources": [{"label": "Trump and Zelensky clash at White House", "url": "https://www.reuters.com/world/trump-zelenskiy-sign-minerals-deal-white-house-meeting-2025-02-28/", "publisher": "Reuters"}, {"label": "World reacts to Oval Office clash", "url": "https://www.reuters.com/world/world-reacts-zelenskiy-trump-oval-office-clash-2025-02-28/", "publisher": "Reuters"}], "messages": [{"speaker": "UN Admin", "text": "Meeting objective: sign minerals deal. Current status: television.", "kind": "system", "reaction": ""}, {"speaker": "JD Vance", "text": "Have you said thank you once?", "kind": "satire", "reaction": ""}, {"speaker": "Zelensky", "text": "I have thanked the American people many times. We are discussing how to stop the war.", "kind": "satire", "reaction": ""}, {"speaker": "Trump", "text": "You do not have the cards right now.", "kind": "satire", "reaction": ""}, {"speaker": "Zelensky", "text": "I did not come to play cards.", "kind": "satire", "reaction": ""}, {"speaker": "Macron", "text": "This is why Europe prefers a long table and no live microphones.", "kind": "satire", "reaction": ""}, {"speaker": "Meloni", "text": "I am opening a bridge-building channel before the bridge is televised collapsing.", "kind": "satire", "reaction": ""}, {"speaker": "Putin", "text": "👍", "kind": "satire", "reaction": "1 reaction"}, {"speaker": "Obama (alumni)", "text": "Public diplomacy should contain more diplomacy than public.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "Minerals Agreement left the group unsigned.", "kind": "system", "reaction": ""}], "meme": "THE DEAL NEEDED SIGNATURES. THE CAMERAS GOT A SEASON FINALE.", "quote": null, "tone": "comic"}, {"id": "2025-signalgate", "year": 2025, "date": "March 13–24, 2025", "title": "THE SIGNAL CHAT THAT SHOULD HAVE STAYED A MEME", "kicker": "A journalist is accidentally added to a senior U.S. national-security discussion.", "category": "Security", "summary": "Senior Trump administration officials used Signal to discuss operational details before U.S. strikes on Houthi targets in Yemen. The Atlantic’s editor in chief, Jeffrey Goldberg, was mistakenly added to the group.", "sources": [{"label": "The Trump Administration Accidentally Texted Me Its War Plans", "url": "https://www.theatlantic.com/politics/archive/2025/03/trump-administration-accidentally-texted-me-its-war-plans/682151/", "publisher": "The Atlantic"}, {"label": "Top officials divulged military plans to journalist", "url": "https://www.reuters.com/world/us/top-trump-officials-mistakenly-divulged-military-plans-journalist-2025-03-24/", "publisher": "Reuters"}, {"label": "Transcript of attack-plan chat", "url": "https://www.reuters.com/world/us/transcript-us-attack-plans-shared-with-journalist-2025-03-26/", "publisher": "Reuters"}], "messages": [{"speaker": "Mike Waltz", "text": "Group created: HOUTHI PC SMALL GROUP.", "kind": "system", "reaction": ""}, {"speaker": "Mike Waltz", "text": "Team update: principals have agreed we should have a small group on Signal.", "kind": "satire", "reaction": ""}, {"speaker": "Jeffrey Goldberg", "text": "Hello. I believe I may have been added in error.", "kind": "satire", "reaction": ""}, {"speaker": "JD Vance", "text": "Public record: I think we are making a mistake.", "kind": "public", "reaction": ""}, {"speaker": "JD Vance", "text": "Public record: I just hate bailing Europe out again.", "kind": "public", "reaction": ""}, {"speaker": "Pete Hegseth", "text": "Nobody is bailing Europe out. Only the U.S. can do this.", "kind": "satire", "reaction": ""}, {"speaker": "Macron", "text": "Europe has joined through a screenshot.", "kind": "satire", "reaction": ""}, {"speaker": "Hillary Clinton (alumni)", "text": "So encrypted messaging is fine now? I would like the rules in writing.", "kind": "satire", "reaction": ""}, {"speaker": "Obama (alumni)", "text": "The first rule of operational security is checking who is in the operation.", "kind": "satire", "reaction": ""}, {"speaker": "Trump", "text": "I know nothing about this. The strikes were very successful.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "Disappearing messages changed from 4 weeks to 4 years.", "kind": "system", "reaction": ""}], "meme": "THE CHAT WAS ENCRYPTED. THE MEMBER LIST WAS NOT.", "quote": null, "tone": "comic"}, {"id": "2025-liberation-day-tariffs", "year": 2025, "date": "April 2, 2025", "title": "LIBERATION DAY: THE CALCULATOR REQUESTS ASYLUM", "kicker": "Trump unveils sweeping tariffs and a formula economists immediately interrogate.", "category": "Trade", "summary": "President Trump announced a broad new tariff regime, including a baseline levy and higher country-specific rates. Markets and trading partners reacted sharply as officials tried to explain how the rates were calculated.", "sources": [{"label": "Businesses brace for Liberation Day tariffs", "url": "https://www.reuters.com/world/us/us-businesses-brace-more-pain-liberation-day-tariffs-loom-2025-04-02/", "publisher": "Reuters"}, {"label": "How the reciprocal tariff regime works", "url": "https://www.reuters.com/world/us/whats-trumps-sweeping-new-reciprocal-tariff-regime-2025-04-03/", "publisher": "Reuters"}], "messages": [{"speaker": "Trump", "text": "LIBERATION DAY. We are charging them what they charge us. Very reciprocal.", "kind": "satire", "reaction": ""}, {"speaker": "Macron", "text": "The formula appears to divide a trade deficit by imports and call the result a tariff.", "kind": "satire", "reaction": ""}, {"speaker": "Trump", "text": "Simple. Beautiful. Even Europe can understand it.", "kind": "satire", "reaction": ""}, {"speaker": "Meloni", "text": "Can friendship receive a country-of-origin exemption?", "kind": "satire", "reaction": ""}, {"speaker": "Xi Jinping", "text": "China will take countermeasures to defend its rights and interests.", "kind": "satire", "reaction": ""}, {"speaker": "Milei", "text": "TARIFFS ARE TAXES. I THOUGHT THIS GROUP LIKED FREEDOM.", "kind": "satire", "reaction": ""}, {"speaker": "JD Vance", "text": "The industrial base did not disappear because economists felt emotionally attached to efficiency.", "kind": "satire", "reaction": ""}, {"speaker": "Obama (alumni)", "text": "A trade deficit is not an invoice.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "Calculator left the group.", "kind": "system", "reaction": ""}], "meme": "RECIPROCAL TARIFFS: THE RECIPROCAL PART ARRIVED LATER.", "quote": null, "tone": "comic"}, {"id": "2025-pope-leo-elected", "year": 2025, "date": "May 8, 2025", "title": "THE VATICAN ELECTS A POPE FROM CHICAGO", "kicker": "Robert Prevost becomes Pope Leo XIV.", "category": "Religion", "summary": "Cardinal Robert Prevost was elected Pope Leo XIV, becoming the first pope from the United States. In his first public appearance, he emphasized peace.", "sources": [{"label": "Cardinals elect a new pope", "url": "https://www.reuters.com/world/europe/cardinals-set-second-day-conclave-elect-new-pope-2025-05-08/", "publisher": "Reuters"}, {"label": "Pope Leo XIV’s first public words", "url": "https://www.reuters.com/world/europe/peace-be-with-all-you-pope-leo-xiv-says-first-public-words-2025-05-08/", "publisher": "Reuters"}], "messages": [{"speaker": "UN Admin", "text": "Robert Prevost changed display name to Pope Leo XIV.", "kind": "system", "reaction": ""}, {"speaker": "Pope Leo XIV", "text": "Public record: Peace be with all you.", "kind": "public", "reaction": ""}, {"speaker": "Trump", "text": "American pope. Huge. We are winning religion.", "kind": "satire", "reaction": ""}, {"speaker": "Obama (alumni)", "text": "Chicago remains undefeated.", "kind": "satire", "reaction": ""}, {"speaker": "Meloni", "text": "Italy welcomes the Holy Father and is pretending not to notice the U.S. victory lap.", "kind": "satire", "reaction": ""}, {"speaker": "Macron", "text": "France recognizes no national ownership of Catholicism, but congratulates Chicago.", "kind": "satire", "reaction": ""}, {"speaker": "Milei", "text": "THE MARKET HAS SELECTED A PONTIFF.", "kind": "satire", "reaction": ""}, {"speaker": "Pope Leo XIV", "text": "That is not how a conclave works.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "Vatican accent changed from Latin to Midwest.", "kind": "system", "reaction": ""}], "meme": "WHITE SMOKE. DEEP-DISH GEOPOLITICS.", "quote": null, "tone": "comic"}, {"id": "2025-alaska-white-house-ukraine", "year": 2025, "date": "August 15–18, 2025", "title": "TRUMP MEETS PUTIN, THEN EUROPE BRINGS THE WHOLE GROUP PROJECT", "kicker": "An Alaska summit is followed by a crowded White House meeting on Ukraine.", "category": "Diplomacy", "summary": "President Trump met President Putin in Alaska without announcing a ceasefire. Three days later, President Zelensky and several European leaders met Trump at the White House to discuss security guarantees and a possible path toward negotiations.", "sources": [{"label": "Trump-Putin Alaska summit updates", "url": "https://www.reuters.com/world/updates-trump-putin-meet-alaska-summit-war-ukraine-2025-08-15/", "publisher": "Reuters"}, {"label": "White House welcome leaves questions", "url": "https://www.reuters.com/world/europe/takeaways-well-mannered-white-house-welcome-ukraine-leaves-many-questions-2025-08-18/", "publisher": "Reuters"}, {"label": "Trump interrupts talks to call Putin", "url": "https://www.reuters.com/world/europe/trump-interrupts-talks-with-european-leaders-call-putin-says-eu-diplomat-2025-08-18/", "publisher": "Reuters"}], "messages": [{"speaker": "Trump", "text": "Vladimir and I had a very productive Alaska meeting. No deal, but tremendous production.", "kind": "satire", "reaction": ""}, {"speaker": "Putin", "text": "The conversation was useful.", "kind": "satire", "reaction": ""}, {"speaker": "Zelensky", "text": "Useful for whom? There is still no ceasefire.", "kind": "satire", "reaction": ""}, {"speaker": "Macron", "text": "We are coming to Washington.", "kind": "satire", "reaction": ""}, {"speaker": "Meloni", "text": "All of us.", "kind": "satire", "reaction": ""}, {"speaker": "Trump", "text": "Why is Europe bringing a field trip?", "kind": "satire", "reaction": ""}, {"speaker": "Zelensky", "text": "Because the last Oval Office meeting became content.", "kind": "satire", "reaction": ""}, {"speaker": "Starmer", "text": "Security guarantees must be credible, not adjectives.", "kind": "satire", "reaction": ""}, {"speaker": "Trump", "text": "Hold on. I’m calling Putin.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "Meeting paused while one participant calls the participant not in the room.", "kind": "system", "reaction": ""}], "meme": "ALASKA HAD TWO LEADERS. WASHINGTON BROUGHT THE ENTIRE GROUP PROJECT.", "quote": null, "tone": "comic"}, {"id": "2026-maduro-captured", "year": 2026, "date": "January 3, 2026", "title": "U.S. FORCES CAPTURE MADURO; THE HEMISPHERE CHECKS THE FINE PRINT", "kicker": "A dramatic operation in Venezuela opens an even larger sovereignty crisis.", "category": "Geopolitics", "summary": "U.S. forces captured Venezuelan President Nicolás Maduro in a military operation. President Trump said the United States would oversee the country until a transition, drawing sharp international debate over legality, sovereignty and control of Venezuela’s oil sector.", "sources": [{"label": "U.S. captures Maduro in Venezuela operation", "url": "https://www.reuters.com/world/americas/loud-noises-heard-venezuela-capital-southern-area-without-electricity-2026-01-03/", "publisher": "Reuters"}, {"label": "Scenes from Venezuela after Maduro’s capture", "url": "https://www.reuters.com/pictures/scenes-venezuela-us-forces-captured-maduro-2026-01-03/KMS4T3T4M5KNLKQYN4M3POPK3A/", "publisher": "Reuters"}], "messages": [{"speaker": "UN Admin", "text": "Nicolás Maduro’s location changed to: U.S. custody.", "kind": "system", "reaction": ""}, {"speaker": "Trump", "text": "We ran a flawless operation. We will run the country until a proper transition.", "kind": "satire", "reaction": ""}, {"speaker": "Maduro", "text": "This is kidnapping and imperial aggression.", "kind": "satire", "reaction": ""}, {"speaker": "Lula", "text": "Latin America cannot accept sovereignty being rewritten by helicopter.", "kind": "satire", "reaction": ""}, {"speaker": "Milei", "text": "A DICTATOR FELL. THE METHOD HAS A VERY LARGE ASTERISK.", "kind": "satire", "reaction": ""}, {"speaker": "Xi Jinping", "text": "China opposes interference in Venezuela’s internal affairs.", "kind": "satire", "reaction": ""}, {"speaker": "Putin", "text": "International law has again been made location-dependent.", "kind": "satire", "reaction": ""}, {"speaker": "Meloni", "text": "Everyone agrees Venezuela needs democracy. Not everyone agrees Washington gets the administrator password.", "kind": "satire", "reaction": ""}, {"speaker": "JD Vance", "text": "Before the philosophy seminar, who controls the ports and the oil facilities?", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "Transition plan upload failed: file contains only the word “soon.”", "kind": "system", "reaction": ""}], "meme": "REGIME CHANGE ARRIVED BEFORE THE TERMS OF SERVICE.", "quote": null, "tone": "comic"}, {"id": "2026-iran-war-begins", "year": 2026, "date": "February 28, 2026", "title": "THE IRAN WAR BEGINS; EVERYONE CALLS THE FIRST STRIKE ‘PRE-EMPTIVE’", "kicker": "U.S.-Israeli attacks trigger a widening conflict.", "category": "War", "summary": "The United States and Israel launched strikes against Iran on February 28, 2026. Iran retaliated, and the conflict expanded across military, energy and maritime targets, raising fears of a wider regional war.", "sources": [{"label": "Israel says it launched pre-emptive attack against Iran", "url": "https://www.reuters.com/world/middle-east/israel-says-it-launched-pre-emptive-attack-against-iran-2026-02-28/", "publisher": "Reuters"}, {"label": "Netanyahu says war may take some time", "url": "https://www.reuters.com/world/middle-east/netanyahu-says-war-against-iran-may-take-some-time-not-years-2026-03-03/", "publisher": "Reuters"}], "messages": [{"speaker": "UN Admin", "text": "Serious-mode enabled. Casualty jokes disabled.", "kind": "system", "reaction": ""}, {"speaker": "Netanyahu", "text": "Israel acted pre-emptively against an intolerable threat.", "kind": "satire", "reaction": ""}, {"speaker": "Trump", "text": "The operation is powerful, precise and going extremely well.", "kind": "satire", "reaction": ""}, {"speaker": "Pezeshkian", "text": "Iran will respond to aggression.", "kind": "satire", "reaction": ""}, {"speaker": "Macron", "text": "The definition of “pre-emptive” cannot expand until it swallows the region.", "kind": "satire", "reaction": ""}, {"speaker": "Meloni", "text": "Protect civilians, reopen diplomacy and stop treating escalation as a staircase with no top.", "kind": "satire", "reaction": ""}, {"speaker": "Putin", "text": "Those who dismantled diplomacy are surprised by the absence of diplomacy.", "kind": "satire", "reaction": ""}, {"speaker": "Xi Jinping", "text": "China calls for an immediate cessation of hostilities.", "kind": "satire", "reaction": ""}, {"speaker": "JD Vance", "text": "What is the political objective, and what is the exit?", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "“Limited war” changed status to: expanding.", "kind": "system", "reaction": ""}], "meme": "EVERY SIDE HAD A RED LINE. THE MAP RAN OUT OF RED INK.", "quote": null, "tone": "sober"}, {"id": "2026-g7-evian", "year": 2026, "date": "June 15–17, 2026", "title": "THE G7 MEETS BY A LAKE; THE IRAN WAR FOLLOWS THEM IN", "kicker": "Leaders debate war, Ukraine and dependence on China.", "category": "Summit", "summary": "G7 leaders met in Évian-les-Bains amid the Iran war and Russia’s invasion of Ukraine. They also advanced efforts to reduce reliance on China for critical minerals and supply chains.", "sources": [{"label": "Iran and Ukraine loom over G7", "url": "https://www.reuters.com/world/china/iran-ukraine-loom-over-g7-france-accommodates-trump-2026-06-11/", "publisher": "Reuters"}, {"label": "G7 tackles reliance on China for critical minerals", "url": "https://www.reuters.com/world/china/g7-leaders-tackle-reliance-china-critical-minerals-2026-06-17/", "publisher": "Reuters"}], "messages": [{"speaker": "Macron", "text": "Welcome to Évian. The lake is calm. This is the last calm thing on the agenda.", "kind": "satire", "reaction": ""}, {"speaker": "Trump", "text": "Public record: I’m the boss.", "kind": "public", "reaction": ""}, {"speaker": "Meloni", "text": "Every summit now begins with the seating chart and ends with Donald ranking the seating chart.", "kind": "satire", "reaction": ""}, {"speaker": "Starmer", "text": "We need a common position on Iran, Ukraine and critical minerals.", "kind": "satire", "reaction": ""}, {"speaker": "Trump", "text": "Common positions are fine when they are my position.", "kind": "satire", "reaction": ""}, {"speaker": "Zelensky", "text": "Ukraine requests that “common position” include ammunition and dates.", "kind": "satire", "reaction": ""}, {"speaker": "Xi Jinping", "text": "China notes that “de-risking” keeps arriving dressed as containment.", "kind": "satire", "reaction": ""}, {"speaker": "Macron", "text": "Strategic autonomy is not anti-China. It is pro-not-panicking.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "Joint communiqué delayed because the word “boss” is not standard diplomatic language.", "kind": "system", "reaction": ""}], "meme": "THE LAKE WAS CALM. THE COMMUNIQUÉ NEEDED A LIFE JACKET.", "quote": null, "tone": "comic"}, {"id": "2026-nato-ankara", "year": 2026, "date": "July 6, 2026", "title": "NATO MEETS IN ANKARA AND CHECKS WHETHER ARTICLE 5 HAS A GROUP DISCOUNT", "kicker": "Alliance leaders gather as wars and burden-sharing dominate.", "category": "Alliance", "summary": "NATO leaders met in Ankara with Ukraine, Syria, defense spending and the Iran war shaping the agenda. President Trump held or planned side meetings with several leaders, including Ukraine’s president.", "sources": [{"label": "Trump to meet leaders alongside NATO summit", "url": "https://www.reuters.com/world/europe/trump-meet-leaders-ukraine-syria-alongside-nato-summit-2026-07-05/", "publisher": "Reuters"}], "messages": [{"speaker": "UN Admin", "text": "NATO Summit Ankara: side meetings now exceed main meeting.", "kind": "system", "reaction": ""}, {"speaker": "Trump", "text": "Everybody is paying more. NATO is finally a successful membership club.", "kind": "satire", "reaction": ""}, {"speaker": "Erdogan", "text": "Welcome to Ankara. Please distinguish alliance business from bilateral bargaining.", "kind": "satire", "reaction": ""}, {"speaker": "Zelensky", "text": "Ukraine needs air defense, ammunition and an invitation with fewer ellipses.", "kind": "satire", "reaction": ""}, {"speaker": "Starmer", "text": "Deterrence works when commitments are predictable.", "kind": "satire", "reaction": ""}, {"speaker": "Macron", "text": "And when Europe can act, not merely invoice Washington afterward.", "kind": "satire", "reaction": ""}, {"speaker": "JD Vance", "text": "Predictable burden-sharing would also be a useful innovation.", "kind": "satire", "reaction": ""}, {"speaker": "Meloni", "text": "Article 5 is not a group discount, but everyone keeps asking who paid last time.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "Ahmed al-Sharaa is waiting in the bilateral lobby.", "kind": "system", "reaction": ""}], "meme": "THE ALLIANCE WAS UNITED. THE CHECK WAS SPLIT.", "quote": null, "tone": "comic"}, {"id": "2026-world-cup-final", "year": 2026, "date": "July 19, 2026", "title": "SPAIN BEATS ARGENTINA; GEOPOLITICS PAUSES FOR EXTRA TIME", "kicker": "A 1–0 final gives Spain its second men’s World Cup title.", "category": "Sport", "summary": "Spain defeated Argentina 1–0 after extra time in the 2026 FIFA World Cup final. President Trump presented the trophy after a tournament hosted across the United States, Canada and Mexico.", "sources": [{"label": "Spain beats Argentina to win World Cup", "url": "https://www.reuters.com/sports/soccer/torres-grabs-extra-time-winner-spain-beat-toothless-argentina-win-their-second-2026-07-19/", "publisher": "Reuters"}, {"label": "Photos from Spain’s World Cup win", "url": "https://www.reuters.com/pictures/photos-spain-beat-argentina-win-world-cup-2026-07-20/", "publisher": "Reuters"}], "messages": [{"speaker": "UN Admin", "text": "Geopolitics paused for 120 minutes.", "kind": "system", "reaction": ""}, {"speaker": "Milei", "text": "THE REFEREE HAS CLEARLY STUDIED CENTRAL PLANNING.", "kind": "satire", "reaction": ""}, {"speaker": "Spain", "text": "One goal. Two stars. Please direct economic theories elsewhere.", "kind": "satire", "reaction": ""}, {"speaker": "Trump", "text": "Fantastic final. I presented the trophy. Very presidential trophy presentation.", "kind": "satire", "reaction": ""}, {"speaker": "Macron", "text": "France would like to note that football is cruel, beautiful and still somehow Europe’s meeting room.", "kind": "satire", "reaction": ""}, {"speaker": "Meloni", "text": "Extra time is just a summit that accidentally produces a result.", "kind": "satire", "reaction": ""}, {"speaker": "Obama (alumni)", "text": "The most peaceful transfer of power this month involved a cup.", "kind": "satire", "reaction": ""}, {"speaker": "Milei", "text": "I DEMAND A DEREGULATED REPLAY.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "Replay request denied by FIFA and macroeconomics.", "kind": "system", "reaction": ""}], "meme": "FOR TWO HOURS, THE WORLD AGREED ON THE LOCATION OF THE BALL.", "quote": null, "tone": "comic"}, {"id": "2026-july-tariffs", "year": 2026, "date": "July 24, 2026", "title": "TARIFFS 2.0: FRIENDSHIP STILL HAS A CUSTOMS CODE", "kicker": "New U.S. duties cover nearly all imports.", "category": "Trade", "summary": "President Trump imposed new duties of 10% to 12.5% on dozens of trading partners as earlier universal tariffs expired, extending protectionist policy across nearly all U.S. imports.", "sources": [{"label": "Trump imposes duties on 60 trading partners", "url": "https://www.reuters.com/world/us/trump-imposes-forced-labor-duties-60-trading-partners-as-10-us-tariffs-expire-2026-07-24/", "publisher": "Reuters"}], "messages": [{"speaker": "Trump", "text": "New tariffs. Fair tariffs. Nearly everybody is included, which is very equal.", "kind": "satire", "reaction": ""}, {"speaker": "Macron", "text": "Equality by taxation is an unexpected American conversion.", "kind": "satire", "reaction": ""}, {"speaker": "Meloni", "text": "Italy requests clarification on whether friendship ships duty-free.", "kind": "satire", "reaction": ""}, {"speaker": "Trump", "text": "Friendship is priceless. Imported friendship is 12.5%.", "kind": "satire", "reaction": ""}, {"speaker": "Xi Jinping", "text": "China will respond according to its laws and interests.", "kind": "satire", "reaction": ""}, {"speaker": "Milei", "text": "A TAX ON IMPORTS IS A TAX. THE CAPS ARE NOT THE CONFUSING PART.", "kind": "satire", "reaction": ""}, {"speaker": "JD Vance", "text": "The relevant question is whether strategic capacity returns.", "kind": "satire", "reaction": ""}, {"speaker": "Obama (alumni)", "text": "The customs form is now longer than the NATO communiqué.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "Supply chain changed status to: PLEASE ALLOW 6–8 QUARTERS.", "kind": "system", "reaction": ""}], "meme": "THE FREE MARKET REMAINS FREE TO PAY THE DUTY.", "quote": null, "tone": "comic"}, {"id": "2026-hormuz-deal-close", "year": 2026, "date": "August 8, 2026", "title": "HORMUZ DEAL ‘CLOSE’; THE TANKERS ASK WHAT ‘CLOSE’ MEANS", "kicker": "Iran and Oman report progress, but the waterway is not automatically reopening.", "category": "Breaking", "summary": "Iran and Oman said an agreement concerning the Strait of Hormuz was close, while Iran maintained that U.S. compensation was required. Officials cautioned that a deal by itself might not reopen the waterway, and regional attacks continued.", "sources": [{"label": "Iran says Hormuz deal is close", "url": "https://www.reuters.com/world/middle-east/iran-says-deal-strait-hormuz-is-close-will-not-open-waterway-by-itself-2026-08-08/", "publisher": "Reuters"}], "messages": [{"speaker": "UN Admin", "text": "BREAKING: “Close” has entered maritime service.", "kind": "system", "reaction": ""}, {"speaker": "Oman", "text": "There is significant progress. The remaining language is sensitive.", "kind": "satire", "reaction": ""}, {"speaker": "Pezeshkian", "text": "Compensation and guarantees are required.", "kind": "satire", "reaction": ""}, {"speaker": "Trump", "text": "We want the strait open. Very open. The most open strait.", "kind": "satire", "reaction": ""}, {"speaker": "Macron", "text": "A press statement is not a shipping lane.", "kind": "satire", "reaction": ""}, {"speaker": "Meloni", "text": "Neither is “close.” Tankers cannot sail through an adverb.", "kind": "satire", "reaction": ""}, {"speaker": "Xi Jinping", "text": "Energy markets require stability, not rhetorical proximity.", "kind": "satire", "reaction": ""}, {"speaker": "Putin", "text": "The price of oil understands the difference between close and open.", "kind": "satire", "reaction": ""}, {"speaker": "JD Vance", "text": "Before anyone sends operational details: who exactly is in this chat?", "kind": "satire", "reaction": ""}, {"speaker": "Jeffrey Goldberg", "text": "Still here.", "kind": "satire", "reaction": ""}, {"speaker": "UN Admin", "text": "Member list review initiated six years late.", "kind": "system", "reaction": ""}], "meme": "THE DEAL WAS CLOSE. THE STRAIT WAS STILL CLOSED ENOUGH TO MOVE MARKETS.", "quote": null, "tone": "comic"}].map((event, index) => ({...event, _sortIndex:index}));
+  let PUBLISHED_EVENTS = [];
+  const STORAGE_KEY = "worldLeaderChat.customEvents.v1";
+  const state = {
+    query: "",
+    year: "all",
+    factMode: false,
+    currentId: null,
+    replayTimer: null
+  };
+
+  const $ = (selector) => document.querySelector(selector);
+  const esc = (value) => String(value ?? "").replace(/[&<>"']/g, ch => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+  })[ch]);
+
+  function initials(name){
+    return String(name).replace(/\([^)]*\)/g,"").trim().split(/\s+/).slice(0,2).map(x=>x[0]||"").join("").toUpperCase();
+  }
+
+  function loadCustom(){
+    try{
+      const parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+      return Array.isArray(parsed) ? parsed : [];
+    }catch{ return []; }
+  }
+
+  function saveCustom(items){
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+  }
+
+  async function loadPublishedEvents(){
+    if(location.protocol === "file:") return;
+    try{
+      const response = await fetch("./data/published-events.json", {cache:"no-store"});
+      if(!response.ok) throw new Error(`HTTP ${response.status}`);
+      const parsed = await response.json();
+      if(!Array.isArray(parsed)) throw new Error("Expected an array");
+      PUBLISHED_EVENTS = parsed
+        .filter(event => event && event.id && event.title && Array.isArray(event.messages))
+        .map(event => ({...event,published:true}));
+    }catch(error){
+      console.warn("Could not load editor-approved updates:", error);
+      PUBLISHED_EVENTS = [];
+    }
+  }
+
+  function eventRank(event){
+    if(event.custom && Number(event.createdAt)) return Number(event.createdAt);
+    const dateValue = Date.parse(event.eventDate || event.publishedAt || event.date || "");
+    if(Number.isFinite(dateValue)) return dateValue;
+    return Number(event.year || 0) * 100000 + Number(event._sortIndex || 0);
+  }
+
+  function allEvents(){
+    const byId = new Map();
+    [...BUILT_IN_EVENTS, ...PUBLISHED_EVENTS, ...loadCustom()].forEach(event => byId.set(event.id,event));
+    return [...byId.values()].sort((a,b) => {
+      if (Number(b.year) !== Number(a.year)) return Number(b.year) - Number(a.year);
+      return eventRank(b) - eventRank(a);
+    });
+  }
+
+  function updateDateline(){
+    const formatter = new Intl.DateTimeFormat("en-US", {
+      weekday:"long", year:"numeric", month:"long", day:"numeric",
+      timeZone:"America/Chicago"
+    });
+    $("#dateline").textContent = formatter.format(new Date()).toUpperCase() + " • CHICAGO EDITION";
+  }
+
+  function buildYearbar(){
+    const years = [...new Set(allEvents().map(e => Number(e.year)))].sort((a,b)=>b-a);
+    $("#yearbar").innerHTML = [
+      `<button type="button" data-year="all" class="${state.year==="all"?"active":""}">ALL YEARS</button>`,
+      ...years.map(y => `<button type="button" data-year="${y}" class="${String(state.year)===String(y)?"active":""}">${y}</button>`)
+    ].join("");
+    $("#yearbar").querySelectorAll("button").forEach(btn => {
+      btn.addEventListener("click", () => {
+        state.year = btn.dataset.year;
+        buildYearbar();
+        render();
+      });
+    });
+  }
+
+  function matches(event){
+    const yearOK = state.year === "all" || String(event.year) === String(state.year);
+    const haystack = [
+      event.title,event.kicker,event.category,event.summary,event.meme,event.date,
+      ...(event.messages||[]).map(m => `${m.speaker} ${m.text}`)
+    ].join(" ").toLowerCase();
+    return yearOK && haystack.includes(state.query.toLowerCase());
+  }
+
+  function storyHTML(ev){
+    return `<article class="story">
+      <div class="tag">${esc(ev.category)} ${ev.published?'<span class="custom-badge">EDITOR-APPROVED UPDATE</span>':ev.custom?'<span class="custom-badge">LOCAL PREVIEW</span>':''}</div>
+      <h3><button type="button" data-open="${esc(ev.id)}">${esc(ev.title)}</button></h3>
+      <div class="meta">${esc(ev.date)}</div>
+      <div class="kicker">${esc(ev.kicker)}</div>
+      <p class="summary">${esc(ev.summary)}</p>
+      <div class="meme">${esc(ev.meme)}</div>
+    </article>`;
+  }
+
+  function renderTopline(filtered){
+    const lead = filtered[0] || allEvents()[0];
+    if (!lead){ $("#topline").innerHTML = ""; return; }
+    const events = allEvents();
+    const years = events.map(event => Number(event.year)).filter(Number.isFinite);
+    const range = years.length ? `${Math.min(...years)}–${Math.max(...years)}` : "ARCHIVE";
+    const origin = lead.published ? "EDITOR-APPROVED FILE" : lead.custom ? "LOCAL BROWSER PREVIEW" : "BUILT-IN FILE";
+    $("#topline").innerHTML = `
+      <article class="lead">
+        <div class="tag">LATEST ${origin} // ${esc(lead.category)}</div>
+        <h2><button type="button" data-open="${esc(lead.id)}">${esc(lead.title)}</button></h2>
+        <div class="kicker">${esc(lead.kicker)}</div>
+        <p class="summary">${esc(lead.summary)}</p>
+        <div class="meme">${esc(lead.meme)}</div>
+      </article>
+      <aside class="sidebox">
+        <h3>HOW TO READ THE LEAK</h3>
+        <p>The front page borrows the urgency of an old-school link newspaper. The inside story uses a Signal-like fictional transcript.</p>
+        <div class="legend">
+          <span class="fiction">GREEN = INVENTED SATIRE</span>
+          <span class="record">YELLOW = SHORT PUBLIC-RECORD EXCERPT</span>
+          <span class="sys">GRAY = FICTIONAL SYSTEM MESSAGE</span>
+        </div>
+        <p><b>${events.length} events</b> • ${esc(range)} • searchable by leader, crisis or year.</p>
+      </aside>`;
+  }
+
+  function render(){
+    const filtered = allEvents().filter(matches);
+    renderTopline(filtered);
+    if (!filtered.length){
+      $("#archive").innerHTML = `<div class="empty">NO MATCHES. EVEN THE UN COULD NOT FORM A WORKING GROUP.</div>`;
+      bindOpeners();
+      return;
+    }
+    const grouped = filtered.reduce((acc, ev) => {
+      (acc[ev.year] ||= []).push(ev);
+      return acc;
+    }, {});
+    $("#archive").innerHTML = Object.keys(grouped).sort((a,b)=>b-a).map(year => `
+      <section class="year-section">
+        <div class="year-title"><h2>${esc(year)}</h2><span>${grouped[year].length} FILE${grouped[year].length===1?"":"S"}</span></div>
+        ${grouped[year].map(storyHTML).join("")}
+      </section>
+    `).join("");
+    bindOpeners();
+  }
+
+  function bindOpeners(){
+    document.querySelectorAll("[data-open]").forEach(btn => {
+      btn.addEventListener("click", () => openEvent(btn.dataset.open));
+    });
+  }
+
+  function safeUrl(value){
+    try{
+      const url = new URL(String(value), location.href);
+      return ["https:","http:"].includes(url.protocol) ? url.href : "#";
+    }catch{ return "#"; }
+  }
+
+  function sourceHTML(source){
+    return `<a href="${esc(safeUrl(source.url))}" target="_blank" rel="noopener noreferrer">${esc(source.publisher)} — ${esc(source.label)} ↗</a>`;
+  }
+
+  function bubbleHTML(message, index){
+    if(message.kind === "system"){
+      return `<div class="system-msg" data-chat-index="${index}">${esc(message.text)}</div>`;
+    }
+    const pub = message.kind === "public";
+    return `<div class="bubble-row" data-chat-index="${index}">
+      <div class="avatar" aria-hidden="true">${esc(initials(message.speaker))}</div>
+      <div>
+        <div class="bubble ${pub?"public":""}">
+          <div class="who">${esc(message.speaker)}</div>
+          <div class="text">${esc(message.text)}</div>
+          <span class="label">${pub?"PUBLIC RECORD":"FICTIONAL SATIRE"}</span>
+        </div>
+        ${message.reaction?`<div class="reaction">${esc(message.reaction)}</div>`:""}
+      </div>
+    </div>`;
+  }
+
+  function openEvent(id, pushHash=true){
+    clearInterval(state.replayTimer);
+    const events = allEvents();
+    const ev = events.find(e => e.id === id);
+    if(!ev) return;
+    state.currentId = id;
+    $("#dialogDate").textContent = `${ev.date} • ${ev.category}`;
+    $("#dialogTitle").textContent = ev.title;
+    $("#dialogKicker").textContent = ev.kicker;
+    $("#dialogSummary").textContent = ev.summary;
+    $("#dialogMeme").textContent = ev.meme;
+    $("#dialogSources").innerHTML = (ev.sources||[]).map(sourceHTML).join("");
+    $("#dialogQuote").innerHTML = ev.quote ? `
+      <div class="public-quote">
+        <small>PUBLIC RECORD — NOT FICTIONAL CHAT</small>
+        “${esc(ev.quote.text)}” — ${esc(ev.quote.speaker)}
+      </div>` : "";
+    $("#chatScroll").innerHTML = (ev.messages||[]).map(bubbleHTML).join("");
+    $("#chatScroll").scrollTop = 0;
+    const dialog = $("#storyDialog");
+    if(!dialog.open) dialog.showModal();
+    if(pushHash){
+      try{ history.replaceState(null,"",`#event=${encodeURIComponent(id)}`); }
+      catch{ location.hash = `event=${encodeURIComponent(id)}`; }
+    }
+  }
+
+  function closeEvent(){
+    clearInterval(state.replayTimer);
+    if($("#storyDialog").open) $("#storyDialog").close();
+    state.currentId = null;
+    try{ history.replaceState(null,"",location.pathname + location.search); }
+    catch{ location.hash = ""; }
+  }
+
+  function adjacent(direction){
+    const list = allEvents().filter(matches);
+    const index = list.findIndex(e => e.id === state.currentId);
+    if(index < 0 || !list.length) return;
+    const target = list[(index + direction + list.length) % list.length];
+    openEvent(target.id);
+  }
+
+  function replay(){
+    clearInterval(state.replayTimer);
+    const items = [...$("#chatScroll").querySelectorAll("[data-chat-index]")];
+    items.forEach(x => x.hidden = true);
+    let i = 0;
+    state.replayTimer = setInterval(() => {
+      if(i >= items.length){ clearInterval(state.replayTimer); return; }
+      items[i].hidden = false;
+      items[i].scrollIntoView({block:"nearest",behavior:"smooth"});
+      i++;
+    }, 430);
+  }
+
+  function showAll(){
+    clearInterval(state.replayTimer);
+    $("#chatScroll").querySelectorAll("[data-chat-index]").forEach(x => x.hidden = false);
+  }
+
+  async function copyText(text, button){
+    try{
+      await navigator.clipboard.writeText(text);
+      const old = button.textContent;
+      button.textContent = "Copied";
+      setTimeout(()=>button.textContent=old,1000);
+    }catch{
+      const ta = document.createElement("textarea");
+      ta.value = text; document.body.appendChild(ta); ta.select();
+      document.execCommand("copy"); ta.remove();
+    }
+  }
+
+  function parseMessages(raw){
+    return raw.split(/\r?\n/).map(line => line.trim()).filter(Boolean).map(line => {
+      let kind = "satire";
+      if(/^\[public\]/i.test(line)){ kind="public"; line=line.replace(/^\[public\]\s*/i,""); }
+      if(/^\[system\]/i.test(line)){ kind="system"; line=line.replace(/^\[system\]\s*/i,""); }
+      const cut = line.indexOf("|");
+      const speaker = cut >= 0 ? line.slice(0,cut).trim() : (kind==="system"?"UN Admin":"Unknown");
+      const text = cut >= 0 ? line.slice(cut+1).trim() : line;
+      return {speaker,text,kind,reaction:""};
+    });
+  }
+
+  function slugify(value){
+    return String(value).toLowerCase().normalize("NFKD").replace(/[^\w\s-]/g,"").trim().replace(/\s+/g,"-").slice(0,70);
+  }
+
+  $("#eventForm").addEventListener("submit", e => {
+    e.preventDefault();
+    const form = new FormData(e.currentTarget);
+    const now = Date.now();
+    const title = String(form.get("title"));
+    const custom = {
+      id:`custom-${now}-${slugify(title)}`,
+      year:Number(form.get("year")),
+      date:String(form.get("date")),
+      title,
+      category:String(form.get("category")),
+      kicker:String(form.get("kicker")),
+      summary:String(form.get("summary")),
+      meme:String(form.get("meme")),
+      sources:[{
+        label:String(form.get("sourceLabel")),
+        url:String(form.get("sourceUrl")),
+        publisher:"User-supplied source"
+      }],
+      quote:null,
+      tone:"comic",
+      messages:parseMessages(String(form.get("messages"))),
+      custom:true,
+      createdAt:now
+    };
+    const items = loadCustom();
+    items.push(custom);
+    saveCustom(items);
+    e.currentTarget.reset();
+    e.currentTarget.elements.year.value = new Date().getFullYear();
+    buildYearbar(); render(); openEvent(custom.id);
+  });
+
+  $("#exportBtn").addEventListener("click", () => {
+    const blob = new Blob([JSON.stringify(loadCustom(),null,2)], {type:"application/json"});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href=url; a.download="world-leader-chat-local-updates.json"; a.click();
+    URL.revokeObjectURL(url);
+  });
+
+  $("#importFile").addEventListener("change", async e => {
+    const file = e.target.files?.[0];
+    if(!file) return;
+    try{
+      const parsed = JSON.parse(await file.text());
+      if(!Array.isArray(parsed)) throw new Error("Expected an array");
+      const cleaned = parsed.filter(x => x && x.id && x.title && Array.isArray(x.messages)).map(x => ({...x,custom:true}));
+      saveCustom(cleaned);
+      buildYearbar(); render();
+      alert(`Imported ${cleaned.length} local update(s).`);
+    }catch(err){
+      alert("Could not import that JSON file: " + err.message);
+    }finally{
+      e.target.value="";
+    }
+  });
+
+  $("#resetBtn").addEventListener("click", () => {
+    if(confirm("Remove every locally added event from this browser?")){
+      localStorage.removeItem(STORAGE_KEY);
+      buildYearbar(); render();
+    }
+  });
+
+  $("#search").addEventListener("input", e => {
+    state.query = e.target.value.trim();
+    render();
+  });
+
+  $("#modeBtn").addEventListener("click", () => {
+    state.factMode = !state.factMode;
+    document.body.classList.toggle("fact-mode", state.factMode);
+    document.body.classList.toggle("meme-mode", !state.factMode);
+    $("#modeBtn").textContent = state.factMode ? "Switch to Meme Mode" : "Switch to Fact Mode";
+    $("#modeNote").textContent = state.factMode
+      ? "FACT MODE: archive shows verified summaries. Open any headline for sources and the clearly labeled fictional chat."
+      : "MEME MODE: archive shows the satirical punch line. Open any headline for facts, sources and the fictional chat.";
+  });
+
+  $("#deskJump").addEventListener("click", () => {
+    $("#updateDesk").open = true;
+    $("#updateDesk").scrollIntoView({behavior:"smooth",block:"start"});
+  });
+  $("#closeDialog").addEventListener("click", closeEvent);
+  $("#storyDialog").addEventListener("click", e => {
+    const r = e.currentTarget.getBoundingClientRect();
+    if(e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) closeEvent();
+  });
+  $("#prevBtn").addEventListener("click",()=>adjacent(-1));
+  $("#nextBtn").addEventListener("click",()=>adjacent(1));
+  $("#replayBtn").addEventListener("click",replay);
+  $("#showAllBtn").addEventListener("click",showAll);
+  $("#copyLinkBtn").addEventListener("click", e => copyText(location.href, e.currentTarget));
+  $("#copyMemeBtn").addEventListener("click", e => {
+    const ev=allEvents().find(x=>x.id===state.currentId);
+    if(ev) copyText(ev.meme, e.currentTarget);
+  });
+  document.addEventListener("keydown", e => {
+    if(!$("#storyDialog").open) return;
+    if(e.key==="ArrowLeft") adjacent(-1);
+    if(e.key==="ArrowRight") adjacent(1);
+  });
+
+  async function bootstrap(){
+    updateDateline();
+    await loadPublishedEvents();
+    buildYearbar();
+    render();
+    const hashMatch = location.hash.match(/event=([^&]+)/);
+    if(hashMatch) openEvent(decodeURIComponent(hashMatch[1]), false);
+  }
+
+  bootstrap();
+  </script>
+</body>
+</html>
