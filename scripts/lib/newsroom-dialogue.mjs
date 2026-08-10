@@ -1,181 +1,218 @@
-const META_NARRATION = /\b(imagined|hypothetical|would likely|would probably|plausible reaction|reaction consistent|response imagined|posture|take:|style response|public-figure|a .*? response would|would note|would stress|would frame|would urge|would point to|voice would)\b/i;
-const GENERIC_SPEAKER = /^(world leader|u\.?s\.? official|american official|european diplomat|government official|public figure|political observer|analyst)$/i;
+import { dialogueProblems } from "./chat-quality.mjs";
 
-function textOf(bundle) {
-  return `${bundle?.event?.title || ""} ${bundle?.event?.kicker || ""} ${bundle?.event?.summary || ""} ${(bundle?.event?.sources || []).map((source) => source.label).join(" ")}`.toLowerCase();
+function headlineText(bundle) {
+  const event = bundle?.event || {};
+  return `${event.title || ""} ${event.article?.headline || ""} ${(event.sources || []).map((source) => source.label).join(" ")}`.toLowerCase();
+}
+
+function fullText(bundle) {
+  const event = bundle?.event || {};
+  return `${headlineText(bundle)} ${event.kicker || ""} ${event.summary || ""} ${event.article?.dek || ""}`.toLowerCase();
 }
 
 function msg(speaker, text, kind = "satire", reaction = "") {
   return { speaker, text, kind, reaction };
 }
 
-export function dialogueNeedsRefinement(bundle) {
-  const messages = bundle?.event?.messages;
-  if (!Array.isArray(messages) || messages.length < 10 || messages.length > 14) return true;
-  if (messages.some((message) => META_NARRATION.test(String(message?.text || "")))) return true;
-  if (messages.some((message) => GENERIC_SPEAKER.test(String(message?.speaker || "").trim()))) return true;
-
-  const counts = new Map();
-  for (const message of messages) {
-    if (!message || message.kind === "system") continue;
-    const speaker = String(message.speaker || "").trim();
-    counts.set(speaker, (counts.get(speaker) || 0) + 1);
-  }
-  const recurring = [...counts.values()].filter((count) => count >= 2).length;
-  return recurring < 2;
-}
-
-function israeliElectionDialogue() {
+function gazaDialogue() {
   return [
-    msg("UN Admin", "New thread: election confidence. The poll is real; the private replies are not.", "system"),
-    msg("Netanyahu", "Seventy percent sounds dramatic until you ask who wrote the question and who is quoting it."),
-    msg("Yair Lapid", "The question is whether voters trust the election. They answered before your press office could revise the wording."),
-    msg("Netanyahu", "Voters also want security. That part of the poll seems to disappear whenever you open the spreadsheet."),
-    msg("Benny Gantz", "Security and election confidence are not competing subscriptions. A country needs both active."),
-    msg("Trump", "Polls can be very unfair. Unless they are good polls. Then they are extremely accurate."),
-    msg("Lapid", "Thank you for entering the exact example nobody requested."),
-    msg("Netanyahu", "I did not add him."),
-    msg("Trump", "I was already in the group. Strong invitation. Best settings."),
-    msg("Meloni", "Can somebody reassure the voters before this becomes an international masterclass in reassuring nobody?"),
-    msg("UN Admin", "The poll was pinned. Trust remains an unverified attachment.", "system")
-  ];
-}
-
-function usElectionThreatDialogue() {
-  return [
-    msg("UN Admin", "New exercise: election disruption. Please stop asking whether democracy has a backup password.", "system"),
-    msg("Chuck Schumer", "We are planning for scenarios that used to sound too strange for a Senate hearing."),
-    msg("Trump", "They are war-gaming an election because they are terrified of winning it the normal way."),
-    msg("Adam Schiff", "The exercise is about what happens when somebody decides the normal way is optional."),
-    msg("Trump", "There he is. Always a scenario. Never a ratings report."),
-    msg("Obama", "Planning for a constitutional crisis is not causing one. Fire drills do not invent fire."),
-    msg("Vance", "They do become suspicious when one party keeps rehearsing the same villain."),
-    msg("Schumer", "The villain is whoever ignores certified results. Casting remains open."),
-    msg("AOC", "Nothing says healthy democracy like having to tabletop whether the table survives the election."),
-    msg("Trump", "The table is fine. I built better tables."),
-    msg("UN Admin", "Contingency plan saved as DEMOCRACY_FINAL_v12_ACTUALLY_FINAL.pdf.", "system")
+    msg("UN Admin", "New thread: Gaza roadmap. Fifteen points are in the file; withdrawal and disarmament are fighting over the order.", "system"),
+    msg("Trump", "I sent a fifteen-point plan. Fifteen is enough points for peace and at least three press conferences."),
+    msg("Netanyahu", "The number is not the issue. No withdrawal happens before Hamas is genuinely disarmed."),
+    msg("Trump", "Then put that in point sixteen. I just improved the plan by one point."),
+    msg("Bassem Naim", "A roadmap stops being a roadmap when one side can erase the road after everyone signs."),
+    msg("Netanyahu", "An endorsement is not disarmament, and a timetable is not a security guarantee."),
+    msg("Macron", "You are negotiating sequence as if the sequence were not the entire agreement."),
+    msg("Trump", "The agreement is very close. It only needs the people in the agreement to agree."),
+    msg("Bassem Naim", "That sentence is why the mediators keep asking Washington to apply pressure."),
+    msg("Netanyahu", "Pressure does not replace verification. The troops move when the condition is real."),
+    msg("UN Admin", "The plan remains at fifteen points. The argument has reached page forty-two.", "system")
   ];
 }
 
 function houthiSaudiDialogue() {
   return [
-    msg("UN Admin", "New thread: refinery attack claim. Keep the jokes aimed at strategy, not civilians.", "system"),
-    msg("Saudi Arabia", "A defense pact was supposed to reduce surprises, not schedule the next one for Sunday morning."),
-    msg("Houthis", "Consider this our objection to the regional seating chart."),
-    msg("Iran", "Everyone is very eager to assign us administrative privileges we did not request in writing."),
-    msg("Trump", "If Iran is aligned with them, Iran can unalign them. Very simple. Great word: unalign."),
-    msg("Saudi Arabia", "Regional security has not traditionally responded to vocabulary inventions."),
-    msg("Iran", "Neither has diplomacy responded well to threats written entirely in capital letters."),
-    msg("Meloni", "The refinery is burning and somehow the argument has already become a branding workshop."),
-    msg("Xi", "Energy markets prefer fewer messages beginning with ‘we claim responsibility.’"),
-    msg("Trump", "Markets also prefer strength. Nobody has stronger market preferences."),
-    msg("UN Admin", "Oil prices joined the chat and immediately turned off read receipts.", "system")
+    msg("UN Admin", "New thread: Saudi refinery attack claim. The defense pact is two days old and already has notifications.", "system"),
+    msg("Saudi Arabia", "We signed a pact to reduce regional surprises. This is not the welcome packet."),
+    msg("Houthis", "Consider the refinery strike our review of the new security arrangement."),
+    msg("Saudi Arabia", "Reviews normally arrive without drones and a fire crew."),
+    msg("Iran", "Everyone is assigning us admin privileges we did not request in writing."),
+    msg("Trump", "If Tehran has influence, use it. Influence that cannot stop a strike is terrible influence."),
+    msg("Iran", "Threats in capital letters have not improved your own influence record."),
+    msg("Saudi Arabia", "Meanwhile, Hormuz is still restricted and the refinery is still the part on fire."),
+    msg("Meloni", "A defense pact, a shipping crisis and a refinery strike in one weekend is not deterrence. It is a group project without a coordinator."),
+    msg("Houthis", "The region received the message. Whether it likes the sender is a separate question."),
+    msg("UN Admin", "Oil prices joined the thread and immediately enabled priority notifications.", "system")
   ];
 }
 
-function iranMidtermDialogue() {
+function healthcareAgencyDialogue() {
   return [
-    msg("UN Admin", "New thread: Tehran, negotiations and the U.S. midterms. The calendar has entered the conflict.", "system"),
-    msg("Iran", "Time is also leverage. Your election date is conveniently visible from here."),
-    msg("Trump", "You think you can drag this out? I invented dragging negotiations out until the other side begs."),
-    msg("Iran", "Then you understand the strategy better than your briefing suggested."),
-    msg("Vance", "Turning a war into an election tactic does not make the tactic sophisticated."),
-    msg("Obama", "It does make the election calendar part of the battlefield, which is the point."),
-    msg("Trump", "Nobody is putting my midterms on their battlefield. We have our own battlefield. Much better."),
-    msg("Iran", "Your reply appears to confirm that the timing is working."),
-    msg("Macron", "Could the talks resume before both sides convert the calendar into a weapons system?"),
-    msg("Putin", "Calendars have always been strategic. Some leaders simply announce it less loudly."),
-    msg("UN Admin", "The negotiation deadline was moved. The campaign deadline declined to move with it.", "system")
+    msg("UN Admin", "New thread: AHRQ patient-safety research. The checklist saved lives; the budget document has asked for a shorter name.", "system"),
+    msg("Trump", "If an agency is important, people should know the agency. Nobody knows these initials."),
+    msg("AHRQ", "Hospitals knew the work. Central-line infections fell 41 percent after the national safety program."),
+    msg("ICU Nurse", "The checklist worked because a nurse could stop a surgeon before a preventable infection started."),
+    msg("Trump", "Good checklist. Maybe hospitals can keep the checklist without keeping the agency."),
+    msg("AHRQ", "The checklist did not research, fund and spread itself across more than a thousand intensive-care units."),
+    msg("White House Budget Office", "The savings are estimated in billions. The line item is still being treated like clutter."),
+    msg("Obama", "This is the usual problem with prevention: success looks like nothing happened, so somebody decides nothing did the work."),
+    msg("ICU Nurse", "Twenty-nine thousand avoided deaths do not become less real because they are missing from a headline."),
+    msg("Trump", "Then give me a better headline. Agencies need branding too."),
+    msg("UN Admin", "Patient safety submitted the numbers again. The budget meeting requested a logo.", "system")
   ];
 }
 
-function consulateDialogue() {
+function gymnasticsDialogue() {
   return [
-    msg("UN Admin", "New thread: five U.S. posts scheduled to close. Please stop calling diplomatic reach ‘unused office space.’", "system"),
-    msg("Trump", "We are cutting waste. If an office is not making a deal, why is it paying rent?"),
-    msg("Xi", "A disciplined question. China will be happy to ask it from the offices nearby."),
-    msg("Trump", "Nobody offered you the offices."),
-    msg("Xi", "Influence rarely waits for a formal listing."),
-    msg("Macron", "Diplomacy is cheaper than discovering later that you needed diplomacy."),
-    msg("Milei", "Have you considered one ambassador with five chainsaws and an excellent travel card?"),
-    msg("Meloni", "That is not a diplomatic network. That is a touring production."),
-    msg("Trump", "Touring productions make money. Embassies should learn something."),
-    msg("Xi", "China has saved the listing."),
-    msg("UN Admin", "Soft power was placed on the curb with a sign reading FREE TO A GOOD HOME.", "system")
+    msg("UN Admin", "New thread: Frederick Richard wins the U.S. all-around title with 170.015. The 2028 predictions have started early.", "system"),
+    msg("Frederick Richard", "I wanted the national title, not another paragraph about potential. Two days, six events, job done."),
+    msg("Shane Wiskus", "Two points clear is not subtle. You could have left the rest of us a decimal."),
+    msg("Richard", "Gymnastics has spent years teaching me that every decimal belongs to whoever lands it."),
+    msg("Team USA", "Paris bronze was the team chapter. This title makes the Los Angeles chapter harder to ignore."),
+    msg("Trump", "American gymnastics. Great flips. Very strong landing. We should score all negotiations like this."),
+    msg("Wiskus", "Then every negotiation would end with six judges and somebody filing an inquiry."),
+    msg("Richard", "Fine by me. I brought the routines and the receipt: 170.015."),
+    msg("LA 2028", "Please stop calling this a preview. The pressure department is already fully staffed."),
+    msg("Team USA", "A first national title is not an Olympic medal, but it is an excellent way to make everyone update the depth chart."),
+    msg("UN Admin", "The podium closed. The 2028 group chat did not.", "system")
   ];
 }
 
-function gazaDialogue() {
+function fedCookDialogue() {
   return [
-    msg("UN Admin", "New thread: Gaza plan. The proposal and rejection are sourced; the private replies are imagined.", "system"),
-    msg("Trump", "Fifteen points. Very complete. People love a plan where the numbering does half the negotiating."),
-    msg("Netanyahu", "I read all fifteen. The missing point was no withdrawal before disarmament."),
-    msg("Trump", "That can be point sixteen. I got us to sixteen points. Progress."),
-    msg("Netanyahu", "You may keep the numbering. I am keeping the condition."),
-    msg("Macron", "A longer document is not the same thing as a narrower disagreement."),
-    msg("Meloni", "At this rate the appendix will need its own ceasefire."),
-    msg("Trump", "We can call it the seventeen-point plan. Seventeen is a winning number."),
-    msg("Netanyahu", "Renaming the file does not change the military position."),
-    msg("Xi", "China recommends agreeing on the document before increasing the page count."),
-    msg("UN Admin", "File renamed: 15-POINT-PLAN_v8_FINAL_FINAL_USE_THIS_ONE.pdf.", "system")
+    msg("UN Admin", "New thread: Lisa Cook, Fed independence and another White House removal letter. The June ruling is still pinned.", "system"),
+    msg("Trump", "The Court said there is a process. We are using the process very strongly."),
+    msg("Lisa Cook", "Sending the allegation again does not turn last year’s claim into new evidence."),
+    msg("White House Counsel", "The letter says the president is considering removal. Every verb was selected with the ruling open beside it."),
+    msg("Cook", "Institutional independence becomes decorative if the same pressure returns in a different envelope."),
+    msg("Trump", "Independent does not mean unaccountable. It definitely does not mean untouchable."),
+    msg("Fed Board", "It means monetary policy is not supposed to change every time the White House changes stationery."),
+    msg("Senate Banking Staff", "We have now received the same dispute in legal, political and campaign fonts."),
+    msg("Trump", "The font is excellent. The underlying issue is still the underlying issue."),
+    msg("Cook", "And the Supreme Court’s limit is still the Supreme Court’s limit."),
+    msg("UN Admin", "The Fed remained independent. The letter remained extremely interested.", "system")
   ];
 }
 
-function ukraineDialogue() {
+function tariffRefundDialogue() {
   return [
-    msg("UN Admin", "New thread: Ukraine security. The word ‘guarantee’ has requested legal counsel.", "system"),
-    msg("Zelenskyy", "I asked for commitments, not another paragraph describing how deeply everyone understands the urgency."),
-    msg("Putin", "Urgency is often what one side calls the other side refusing its timetable."),
-    msg("Zelenskyy", "Missiles have been keeping the timetable without asking either of us."),
-    msg("Trump", "I could settle this quickly. First, give me admin rights."),
-    msg("Zelenskyy", "That sentence did not make the security guarantee feel more guaranteed."),
-    msg("Macron", "Could we avoid negotiating the whole war through the group settings?"),
-    msg("Putin", "The settings are the only part anyone appears willing to change."),
-    msg("Meloni", "We have reached the traditional European phase where everyone defines commitment differently."),
-    msg("Xi", "The group has acknowledged the concern without resolving any part of it."),
-    msg("UN Admin", "Concern upgraded to profound. Material support remains in another thread.", "system")
+    msg("UN Admin", "New thread: $165 billion in tariffs collected, about $100 billion refunded after the court ruling. Accounting has entered with counsel.", "system"),
+    msg("Trump", "The tariffs were powerful. Even the refunds are huge. Nobody has ever refunded like this."),
+    msg("U.S. Customs", "We have returned roughly 60 percent. The remaining claims are still producing spreadsheets."),
+    msg("Importer", "You collected the money as policy and returned it as paperwork. Our cash flow experienced both versions."),
+    msg("Trump", "The policy forced everyone to respect American trade. The refund proves we can also be flexible."),
+    msg("Supreme Court Clerk", "The ruling used the word illegal, not flexible."),
+    msg("Xi", "China notes that a liberation-day tariff has developed a return policy."),
+    msg("Importer", "Does the return include interest, or is that another freedom we purchase separately?"),
+    msg("Trump", "The companies got a tremendous lesson in resilience. Lessons are valuable."),
+    msg("U.S. Customs", "The Court of International Trade would still like the remaining $65 billion explained in numbers."),
+    msg("UN Admin", "The tariff left as a refund. The slogan was marked final sale.", "system")
   ];
 }
 
-function spaceDialogue() {
+function ukraineRefineryDialogue() {
   return [
-    msg("UN Admin", "New thread: launch successful. National prestige and billionaire pride are already exceeding payload limits.", "system"),
-    msg("Elon Musk", "The rocket landed. Reusability remains undefeated."),
-    msg("Jeff Bezos", "Congratulations. We will compare payload, altitude and adjectives after the data are public."),
-    msg("Trump", "American rockets. Beautiful rockets. Ours leave better than anybody’s."),
-    msg("Xi", "Space does not recognize campaign branding, although launch coverage apparently does."),
-    msg("Elon Musk", "The physics are neutral. The memes are not."),
-    msg("Bezos", "I have added humility to our next manifest. It has no listed mass."),
-    msg("NASA", "Mission data are available. The subtweets are not part of the science package."),
-    msg("Trump", "NASA should post more. Great missions, very under-posted."),
-    msg("Musk", "Finally, a federal performance metric I understand."),
-    msg("UN Admin", "The comparison thread achieved orbit despite repeated attempts to decommission it.", "system")
+    msg("UN Admin", "New thread: Ukrainian strikes on Russian oil facilities in Tatarstan and Tyumen. The word pressure is now visible from orbit.", "system"),
+    msg("Zelenskyy", "Refineries finance the war. Hitting them is pressure with an address, not a metaphor."),
+    msg("Putin", "Kyiv calls every escalation pressure and every Russian response proof of aggression."),
+    msg("Zelenskyy", "The refinery fire does not need help identifying which side brought the drones."),
+    msg("Tyumen Governor", "Several drones fell at an industrial facility. Emergency services handled the fire."),
+    msg("Putin", "Regional officials report incidents. Western headlines write strategy around the smoke."),
+    msg("EU Energy Desk", "Oil infrastructure has a habit of turning military messages into market prices before diplomats finish speaking."),
+    msg("Zelenskyy", "That is why the facilities matter. Moscow understands pressure when it reaches revenue."),
+    msg("Xi", "Energy markets prefer stability. Neither side appears to be submitting stability proposals."),
+    msg("Putin", "Russia will answer attacks on strategic infrastructure on its own timetable."),
+    msg("UN Admin", "Moscow called it an incident. Kyiv called it pressure. The refinery supplied the smoke.", "system")
   ];
 }
 
-function aiDialogue() {
+function unSecretaryDialogue() {
   return [
-    msg("UN Admin", "New thread: AI announcement. Every participant has declared themselves the responsible adult.", "system"),
-    msg("Sam Altman", "The model is more capable. The governance conversation remains in beta."),
-    msg("Elon Musk", "Interesting definition of open. Also interesting definition of safe."),
-    msg("Trump", "We need the best AI. American AI. It should know who won before the question is finished."),
-    msg("Xi", "Technology leadership is measured in infrastructure, not adjectives."),
-    msg("Altman", "Infrastructure is useful. So is not turning every benchmark into a sovereignty dispute."),
-    msg("Musk", "Benchmarks are easier when you write the test and grade it."),
-    msg("Macron", "Europe has prepared a regulation while the rest of you prepared a product launch."),
-    msg("Trump", "Regulations do not launch. That is the problem with regulations."),
-    msg("Xi", "The model has now observed ten definitions of control and selected none."),
-    msg("UN Admin", "Human oversight is typing… and has been typing for several releases.", "system")
+    msg("UN Vote Counter", "New thread: the next secretary-general contest. The private straw poll has developed public body language.", "system"),
+    msg("Rebeca Grynspan", "If the institution wants its first woman leader, it can begin by treating that as a qualification, not a ceremonial sentence."),
+    msg("Trump", "The UN needs someone who can make deals and send smaller invoices."),
+    msg("Xi", "The secretary-general must preserve multilateral balance, not audition for one capital."),
+    msg("Grynspan", "Balance is not silence. The office has to say what the members prefer to leave in footnotes."),
+    msg("Security Council", "Five permanent members have read that message and interpreted it five permanent ways."),
+    msg("Meloni", "The first woman to lead the UN should not need unanimous permission to sound qualified."),
+    msg("Trump", "Qualifications are good. Winning the vote is the qualification that matters most."),
+    msg("Xi", "That is an unusually concise description of the veto system."),
+    msg("Grynspan", "Then perhaps the campaign can spend less time praising history and more time deciding whether to make it."),
+    msg("UN Vote Counter", "The ballot stayed secret. The positioning did not.", "system")
+  ];
+}
+
+function independentVotersDialogue() {
+  return [
+    msg("UN Admin", "New thread: independent voters like several policies and dislike both parties’ labels. Branding has requested a recount.", "system"),
+    msg("Independent Voter", "I can support the policy without joining the fan club printed on the yard sign."),
+    msg("Trump", "If you like strong borders and American jobs, the label is obvious."),
+    msg("AOC", "If you like lower costs and stronger public programs, the policy is also obvious."),
+    msg("Independent Voter", "You both heard me reject the labels and immediately offered larger labels."),
+    msg("Vance", "Voters want outcomes, but labels tell them who will actually fight for the outcome."),
+    msg("Obama", "Labels also let campaigns avoid explaining where the popular parts end and the unpopular parts begin."),
+    msg("Independent Voter", "Exactly. I ordered the policy. Stop insisting it comes with a personality bundle."),
+    msg("Trump", "The personality bundle gets excellent ratings."),
+    msg("AOC", "And there is the surcharge nobody saw in the poll question."),
+    msg("UN Admin", "The crosstabs remained independent. Both parties claimed custody.", "system")
+  ];
+}
+
+function cyberModelDialogue() {
+  return [
+    msg("UN Admin", "New thread: OpenAI flags a model approaching a critical cybersecurity threshold. Access controls have entered before the launch party.", "system"),
+    msg("Sam Altman", "The capability is useful enough that releasing it normally would be irresponsible."),
+    msg("Cybersecurity Researcher", "That is a polished way to say the model may help defenders and attackers with the same keyboard."),
+    msg("Elon Musk", "Interesting. The safety plan is now ‘trust the company that built the capability.’"),
+    msg("Altman", "The plan includes restricted access, monitoring and pausing work where the risk is too high."),
+    msg("Trump", "We need the strongest cyber model, but it should only be strong for us. Very secure arrangement."),
+    msg("EU Commission", "A control is not a control merely because the product announcement contains the word responsible."),
+    msg("Cybersecurity Researcher", "The test is whether safeguards survive contact with a motivated user, not a policy memo."),
+    msg("Xi", "Strategic technology is never governed only by the company that introduces it."),
+    msg("Altman", "Agreed. That is why the threshold warning was public before the model was broadly available."),
+    msg("UN Admin", "The model passed the benchmark. Humanity requested a second benchmark for judgment.", "system")
+  ];
+}
+
+function moonCrashDialogue() {
+  return [
+    msg("UN Admin", "New thread: a four-ton Falcon 9 stage has struck the Moon and produced a dust plume. Lunar customer service is unavailable.", "system"),
+    msg("SpaceX", "The stage completed an unplanned high-velocity surface interaction."),
+    msg("NASA", "That phrase is doing a great deal of work for the word crash."),
+    msg("Elon Musk", "It reached the Moon. Most discarded hardware cannot say that."),
+    msg("Jeff Bezos", "Congratulations on converting orbital debris into a delivery metric."),
+    msg("Musk", "A delivery is successful when the payload reaches the destination."),
+    msg("NASA", "There was no payload, no customer and no requested destination."),
+    msg("China National Space Administration", "The dust plume is scientifically useful. The parking technique is less instructive."),
+    msg("Trump", "American rocket reaches the Moon. Very direct route. Nobody mentions the paperwork."),
+    msg("Bezos", "We will continue aiming for landings where the vehicle remains eligible for another meeting."),
+    msg("UN Admin", "The Moon received four tons. It did not sign for the package.", "system")
+  ];
+}
+
+function easyJetDialogue() {
+  return [
+    msg("UN Admin", "New thread: Apollo agrees a £5.7 billion easyJet takeover. The ownership rules have requested a passport check.", "system"),
+    msg("Apollo", "We are buying the airline, not changing the destination board."),
+    msg("easyJet", "Passengers would appreciate if the destination board survives the transaction."),
+    msg("EU Commission", "European airline ownership is not a carry-on item you can move between seats after boarding."),
+    msg("Apollo", "We have advisers for the ownership structure."),
+    msg("Passenger", "Do the advisers charge separately for selecting a structure near the front?"),
+    msg("easyJet", "The low-cost model is not improved by turning the corporate chart into an optional extra."),
+    msg("UK Treasury", "A £5.7 billion deal tends to make every regulator suddenly remember the same calendar."),
+    msg("Meloni", "Europe can approve an airline purchase only after proving the purchaser is European enough to purchase the airline."),
+    msg("Apollo", "We expected turbulence. We did not expect it before takeoff."),
+    msg("UN Admin", "The airline changed owners. The baggage fee retained operational independence.", "system")
   ];
 }
 
 function tanSuitDialogue() {
   return [
-    msg("UN Admin", "New thread: the tan suit has been reopened for television. National security remains unaffected.", "system"),
+    msg("UN Admin", "New thread: Obama and Larry David reopen the tan-suit controversy for television. National security remains beige.", "system"),
     msg("Obama", "I wore a suit. The country survived. Apparently the writers’ room did not move on."),
     msg("Larry David", "I saw an unresolved national trauma and thought: finally, affordable production design."),
     msg("Trump", "The suit was weak. Very low-energy color. Everybody knew it."),
-    msg("Obama", "Thank you for proving the premise before the episode airs."),
+    msg("Obama", "Thank you for proving the episode’s premise before it airs."),
     msg("Larry David", "Please stop generating free scenes. We have lawyers for that."),
     msg("Meloni", "America can turn beige fabric into a constitutional seminar. Impressive soft power."),
     msg("Trump", "My suits never needed a congressional hearing."),
@@ -185,14 +222,62 @@ function tanSuitDialogue() {
   ];
 }
 
+function fifaDialogue() {
+  return [
+    msg("UN Admin", "New thread: FIFA leadership crisis and a collapsed commercial-rights proposal. The red card has entered the boardroom.", "system"),
+    msg("Gianni Infantino", "Football needs investment, global reach and leadership that can move quickly."),
+    msg("UEFA", "Moving quickly is not the same as moving a proposal before the members know what is being sold."),
+    msg("Infantino", "The plan was designed to unlock value for the game."),
+    msg("FIFA Council", "The phrase unlock value is usually when everyone checks whether the lock belongs to them."),
+    msg("Trump", "The World Cup is enormous. Very valuable. You do not sell the best parts without a fantastic deal."),
+    msg("UEFA", "The concern is not whether the rights are valuable. It is who decided the process was sufficient."),
+    msg("Sponsor", "We purchased certainty and received a governance documentary."),
+    msg("Infantino", "Criticism does not replace a viable commercial strategy."),
+    msg("Meloni", "Neither does a commercial strategy replace consent from the people whose competition you are monetizing."),
+    msg("UN Admin", "The proposal was withdrawn. The resignation calls remained on the fixture list.", "system")
+  ];
+}
+
+function lebanonDialogue() {
+  return [
+    msg("UN Admin", "New thread: Israel-Lebanon talks continue after soldiers are killed and strikes return to southern Lebanon.", "system"),
+    msg("Israel", "Talks cannot continue as if attacks on our soldiers are background noise."),
+    msg("Lebanon", "And strikes across the south cannot be presented as punctuation in a peace process."),
+    msg("U.S. Envoy", "Rome produced a channel. The channel now has to survive what happened after everyone left Rome."),
+    msg("Israel", "A channel without enforcement becomes a place to file complaints after the next attack."),
+    msg("Lebanon", "Enforcement that arrives only from the air is not a negotiated arrangement."),
+    msg("Macron", "The diplomatic achievement was getting both sides into a room. The strategic failure is how quickly the battlefield reclaimed the agenda."),
+    msg("Meloni", "Rome hosted talks, not a magic trick. Somebody still has to honor the terms outside the conference hall."),
+    msg("Israel", "Security guarantees have to be measurable, not ceremonial."),
+    msg("Lebanon", "So do limits on retaliation."),
+    msg("UN Admin", "The talks stayed open. Southern Lebanon supplied the follow-up in smoke.", "system")
+  ];
+}
+
+function aiDialogue() {
+  return [
+    msg("UN Admin", "New thread: AI capability announcement. Every participant has declared themselves the responsible adult.", "system"),
+    msg("Sam Altman", "The model is more capable. The governance conversation is still catching up."),
+    msg("Elon Musk", "Interesting definition of open. Also an interesting definition of safe."),
+    msg("Trump", "We need the best American AI. It should know the answer before the question is finished."),
+    msg("Xi", "Technology leadership is measured in infrastructure, not adjectives."),
+    msg("Altman", "Infrastructure helps. Turning every benchmark into a sovereignty dispute does not."),
+    msg("Musk", "Benchmarks are easier when the builder writes the test and grades it."),
+    msg("Macron", "Europe prepared a regulation while the rest of you prepared a launch event."),
+    msg("Trump", "Regulations do not launch. That is the problem with regulations."),
+    msg("Xi", "The model has now observed ten definitions of control and selected none."),
+    msg("UN Admin", "Human oversight is typing and has been typing for several releases.", "system")
+  ];
+}
+
 function taylorDialogue() {
   return [
-    msg("UN Admin", "New thread: music removed from a political post. Copyright has joined with counsel present.", "system"),
+    msg("UN Admin", "New thread: Taylor Swift’s music leaves a Trump post. Copyright joined with counsel present.", "system"),
     msg("White House Comms", "The clip tested extremely well before the audio stopped being available."),
-    msg("Taylor Swift", "My team reviewed the use. The silence you hear is the rights holder responding."),
+    msg("Taylor Swift", "My team reviewed the use. The silence is the rights holder responding."),
     msg("Trump", "The video was better with the song. That means the song benefited too."),
-    msg("Taylor Swift", "That is not how licensing works, even when explained in all caps."),
-    msg("Vance", "Could we discuss whether the removal was automated or requested?"),
+    msg("Swift", "That is not how licensing works, even when explained in all caps."),
+    msg("Vance", "Was the removal automated or requested? The answer changes the communications plan."),
     msg("Swift", "My lawyers can discuss it in a format with fewer reaction emojis."),
     msg("White House Comms", "We are exploring alternate audio with fewer opinions."),
     msg("Obama", "This is what happens when campaign content meets an artist with organized metadata."),
@@ -203,48 +288,110 @@ function taylorDialogue() {
 
 function immigrationDialogue() {
   return [
-    msg("UN Admin", "New thread: immigration poll. Every campaign has highlighted a different cell in the spreadsheet.", "system"),
-    msg("Trump", "The numbers show people want a strong border. Very clear. Best clarity."),
-    msg("Obama", "The numbers also show voters distinguish enforcement from chaos. Polls contain more than one row."),
+    msg("UN Admin", "New thread: immigration polling. Every campaign highlighted a different cell in the spreadsheet.", "system"),
+    msg("Trump", "The numbers show people want a strong border. Very clear."),
+    msg("Obama", "They also show voters distinguish enforcement from chaos. Polls contain more than one row."),
     msg("Vance", "People are tired of a system that treats enforcement as an apology."),
     msg("AOC", "People are also tired of cruelty being marketed as operational efficiency."),
-    msg("Trump", "There it is. They call borders cruel until the poll arrives."),
+    msg("Trump", "They call borders cruel until the poll arrives."),
     msg("Obama", "And you call every inconvenient crosstab fake until it improves."),
-    msg("Senate Staff", "We circulated the full methodology. Nobody has opened it, but reactions are strong."),
-    msg("Meloni", "Congratulations. The poll has become a coalition government of selective reading."),
+    msg("Senate Staff", "We circulated the methodology. Nobody opened it, but reactions are strong."),
+    msg("Meloni", "The poll has become a coalition government of selective reading."),
+    msg("Vance", "Selective or not, the political message is that the status quo has no constituency."),
     msg("UN Admin", "The same survey was saved under four filenames beginning with DEFINITIVE.", "system")
   ];
 }
 
-function generalDialogue() {
+const KNOWN_ACTORS = [
+  ["Trump", /\btrump\b/], ["Obama", /\bobama\b/], ["Biden", /\bbiden\b/], ["Vance", /\bvance\b/],
+  ["Netanyahu", /\bnetanyahu\b/], ["Zelenskyy", /\bzelensk(?:y|yy)\b/], ["Putin", /\bputin\b/], ["Xi", /\bxi\b|\bchina\b/],
+  ["Meloni", /\bmeloni\b/], ["Macron", /\bmacron\b/], ["Milei", /\bmilei\b/], ["Elon Musk", /\belon musk\b|\bspacex\b|\btesla\b/],
+  ["Jeff Bezos", /\bjeff bezos\b|\bblue origin\b/], ["Sam Altman", /\bsam altman\b|\bopenai\b/], ["Taylor Swift", /\btaylor swift\b/],
+  ["Larry David", /\blarry david\b/], ["Lisa Cook", /\blisa cook\b/], ["Frederick Richard", /\bfrederick richard\b|\bfred richard\b/]
+];
+
+function shortClause(value, max = 105) {
+  const text = String(value || "").replace(/\s+/g, " ").trim().replace(/[.!?]+$/, "");
+  if (text.length <= max) return text;
+  return `${text.slice(0, max).replace(/\s+\S*$/, "")}…`;
+}
+
+function contextualDialogue(bundle) {
+  const text = fullText(bundle);
+  const event = bundle?.event || {};
+  const headline = shortClause(event.article?.headline || event.sources?.[0]?.label || event.title || "the latest development");
+  const fact = shortClause(event.summary || event.article?.dek || headline, 150);
+  const actors = KNOWN_ACTORS.filter(([, pattern]) => pattern.test(text)).map(([name]) => name);
+  const defaults = /business|trade|tariff|market|company/.test(text)
+    ? ["Trump", "Markets", "Treasury", "Meloni"]
+    : /science|space|technology|ai|cyber/.test(text)
+      ? ["Trump", "Research Desk", "Xi", "Macron"]
+      : ["Trump", "Macron", "Meloni", "Xi"];
+  const cast = [...new Set([...actors, ...defaults])].slice(0, 4);
+  const [a, b, c, d] = cast;
   return [
-    msg("UN Admin", "New thread: the event is real. Confidence levels in the replies are not independently verified.", "system"),
-    msg("Trump", "I have reviewed it and already have the strongest interpretation."),
-    msg("Macron", "Could we agree on the facts before competing over the dramatic interpretation?"),
-    msg("Trump", "The facts are doing very well under my interpretation."),
-    msg("Meloni", "That sentence made the meeting longer and the facts more nervous."),
-    msg("Xi", "China is observing both the event and the speed with which everyone made it about themselves."),
-    msg("Obama", "We may want to separate the development from the personality test."),
-    msg("Trump", "The personality test had excellent ratings."),
-    msg("Macron", "The agenda has again been defeated by the commentary on the agenda."),
-    msg("Xi", "The typing indicator remains more stable than the consensus."),
-    msg("UN Admin", "Agenda restored. Confidence in agenda: low.", "system")
+    msg("UN Admin", `New thread: ${headline}. Keep every reply tied to the decision in the source.`, "system"),
+    msg(a, `The headline is ${headline}. My question is who owns what happens next.`),
+    msg(b, `Your conclusion arrived before the briefing. The source says ${fact}.`),
+    msg(a, "I heard the fact. I am disputing the part where everyone else gets to define the consequence."),
+    msg(c, `The consequence cannot be separated from ${shortClause(event.title || headline, 70)} just because the press line is inconvenient.`),
+    msg(b, "Agreed. The argument is over the response, not permission to replace the event with a better slogan."),
+    msg(d, `Everyone has now quoted the same report and reached four different strategic lessons from ${shortClause(headline, 60)}.`),
+    msg(a, "That is why leadership matters. Somebody has to choose the lesson before the next headline chooses it for us."),
+    msg(c, "Leadership also means answering the detail you skipped, not merely speaking first and longest."),
+    msg(b, `Then return to the specific question raised by ${shortClause(headline, 55)} and answer it without changing the subject.`),
+    msg("UN Admin", `The source remained the same. The interpretations were archived in separate folders.`, "system")
   ];
 }
 
+export function dialogueNeedsRefinement(bundle, options = {}) {
+  return dialogueProblems(bundle, options).length > 0;
+}
+
 export function buildDirectDialogue(bundle) {
-  const text = textOf(bundle);
-  if (/election integrity|integrity of israel|jewish israelis|october elections/.test(text)) return israeliElectionDialogue();
-  if (/democrats.*election|election threats|voting disruption|wargame democracy|schumer/.test(text)) return usElectionThreatDialogue();
-  if (/houthi|oil refinery|saudi arabia/.test(text)) return houthiSaudiDialogue();
-  if (/iran.*midterm|midterm.*iran|dragging out talks|entangled in war/.test(text)) return iranMidtermDialogue();
-  if (/consulate|diplomatic vacuum|open desk space/.test(text)) return consulateDialogue();
+  const headline = headlineText(bundle);
+  const text = fullText(bundle);
+
+  if (/gaza|netanyahu.*peace plan|hamas.*disarm/.test(headline)) return gazaDialogue();
+  if (/houthi|saudi.*refinery|refinery.*saudi/.test(headline)) return houthiSaudiDialogue();
+  if (/ahrq|agency.*healthcare research|hospital patients safe|patient safety/.test(headline)) return healthcareAgencyDialogue();
+  if (/frederick richard|fred richard|gymnastics.*title|national title.*gymnastics/.test(headline)) return gymnasticsDialogue();
+  if (/lisa cook|fed governor.*cook|mortgage fraud.*cook/.test(headline)) return fedCookDialogue();
+  if (/tariff.*refund|refund.*tariff|liberation day.*tariff/.test(headline)) return tariffRefundDialogue();
+  if (/ukraine.*refiner|refiner.*ukraine|tatarstan|tyumen/.test(headline)) return ukraineRefineryDialogue();
+  if (/secretary.general|next boss|head of un|rebeca grynspan/.test(headline)) return unSecretaryDialogue();
+  if (/independent voters|progressive goals|policies.*labels|labels.*policies/.test(headline)) return independentVotersDialogue();
+  if (/critical cybersecurity|cybersecurity risk|cyber model|astra model/.test(headline)) return cyberModelDialogue();
+  if (/crash.*moon|moon.*crash|spacex.*moon|falcon.*moon/.test(headline)) return moonCrashDialogue();
+  if (/easyjet|apollo.*airline|airline.*apollo/.test(headline)) return easyJetDialogue();
+  if (/tan suit|larry david/.test(headline)) return tanSuitDialogue();
+  if (/fifa|infantino|world cup.*rights/.test(headline)) return fifaDialogue();
+  if (/lebanon|southern lebanon|israeli soldiers/.test(headline)) return lebanonDialogue();
+  if (/taylor swift|songs removed|copyright.*tiktok|tiktok.*copyright/.test(headline)) return taylorDialogue();
+  if (/immigration|deportation|border|ice raid/.test(headline)) return immigrationDialogue();
+  if (/artificial intelligence|\bai\b|openai|sam altman|semiconductor|ai model/.test(headline)) return aiDialogue();
   if (/gaza|netanyahu|hamas/.test(text)) return gazaDialogue();
-  if (/ukraine|zelensky|kyiv|russia|putin|serbia/.test(text)) return ukraineDialogue();
-  if (/rocket|spacex|blue origin|nasa|spacecraft|moon|mars|launch/.test(text)) return spaceDialogue();
-  if (/artificial intelligence|\bai\b|openai|sam altman|semiconductor|ai model/.test(text)) return aiDialogue();
-  if (/tan suit|larry david/.test(text)) return tanSuitDialogue();
-  if (/taylor swift|songs removed|copyright.*tiktok|tiktok.*copyright/.test(text)) return taylorDialogue();
-  if (/immigration|deportation|border|ice raid/.test(text)) return immigrationDialogue();
-  return generalDialogue();
+  if (/ukraine|zelensky|kyiv|russia|putin|serbia/.test(text) && !/refinery.*saudi|houthi/.test(text)) return ukraineRefineryDialogue();
+  return contextualDialogue(bundle);
+}
+
+export function closingLineFor(bundle) {
+  const headline = headlineText(bundle);
+  if (/gaza|netanyahu.*peace plan|hamas.*disarm/.test(headline)) return "The roadmap had fifteen points. The disagreement found a sixteenth.";
+  if (/houthi|saudi.*refinery|refinery.*saudi/.test(headline)) return "The defense pact was signed Friday. The refinery received the Sunday notification.";
+  if (/ahrq|patient safety|hospital patients safe/.test(headline)) return "The checklist saved lives. The budget meeting asked whether it had a logo.";
+  if (/frederick richard|fred richard|gymnastics/.test(headline)) return "Richard won by two points. The 2028 group chat started four years early.";
+  if (/lisa cook|fed governor/.test(headline)) return "The Court protected Fed independence. The White House sent another letter anyway.";
+  if (/tariff.*refund|refund.*tariff|liberation day/.test(headline)) return "$165 billion entered as policy. $100 billion left as a refund.";
+  if (/ukraine.*refiner|tatarstan|tyumen/.test(headline)) return "Moscow called it an incident. Kyiv called it pressure. The refinery supplied the smoke.";
+  if (/secretary.general|rebeca grynspan|head of un/.test(headline)) return "The ballot stayed secret. The five vetoes did not.";
+  if (/independent voters|progressive goals/.test(headline)) return "The voters kept the policies and returned both labels to sender.";
+  if (/cybersecurity|cyber model|astra model/.test(headline)) return "The model passed the benchmark. Judgment requested another test.";
+  if (/moon|falcon|spacex/.test(headline)) return "The Moon received four tons. It did not sign for the package.";
+  if (/easyjet|apollo.*airline/.test(headline)) return "The airline changed owners. The baggage fee retained operational independence.";
+  if (/tan suit|larry david/.test(headline)) return "The suit was beige. The national memory remained high-contrast.";
+  if (/fifa|infantino/.test(headline)) return "The proposal left the field. The resignation calls stayed on the fixture list.";
+  if (/lebanon/.test(headline)) return "Rome hosted the talks. Southern Lebanon delivered the follow-up in smoke.";
+  const event = bundle?.event || {};
+  return `${shortClause(event.article?.headline || event.title || "The event", 120)} — the facts stayed put while the spin changed seats.`;
 }
