@@ -74,6 +74,18 @@ const POLISH = new Map([
   ]
 ]);
 
+const SPEAKER_ALIASES = new Map([
+  ["Hong", "Francesca Hong"],
+  ["Schumer", "Chuck Schumer"],
+  ["Hawley", "Josh Hawley"],
+  ["Schwartz", "Erica Schwartz"],
+  ["Musk", "Elon Musk"],
+  ["Altman", "Sam Altman"],
+  ["Bezos", "Jeff Bezos"],
+  ["Swift", "Taylor Swift"],
+  ["Lapid", "Yair Lapid"]
+]);
+
 function appendReviewNote(event, note) {
   event.editorial = {
     ...(event.editorial || {}),
@@ -84,6 +96,7 @@ function appendReviewNote(event, note) {
 function normalizeDirectLanguage(messages) {
   return messages.map((message) => ({
     ...message,
+    speaker: SPEAKER_ALIASES.get(message.speaker) || message.speaker,
     text: String(message.text || "").replace(/\bhypothetical\b/gi, "simulated")
   }));
 }
