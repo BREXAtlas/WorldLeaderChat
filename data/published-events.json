@@ -1,5 +1,114 @@
 [
   {
+    "id": "2026-08-09-concerns-mount-over-integrity-of-israel-s-upcoming-october-elect",
+    "eventDate": "2026-08-09",
+    "year": 2026,
+    "date": "August 9, 2026",
+    "title": "70% Say the Vote Looks Shaky — Netanyahu Government Gets a Polling Headache",
+    "kicker": "Trust deficit",
+    "category": "Election",
+    "summary": "Poll shows 70 percent of Jewish Israelis fear election integrity risks as Netanyahu government faces mounting criticism.",
+    "sources": [
+      {
+        "label": "Concerns mount over integrity of Israel’s upcoming October elections",
+        "url": "https://www.aljazeera.com/news/2026/8/9/concerns-mount-over-integrity-of-israels-upcoming-october-elections?traffic_source=rss",
+        "publisher": "Al Jazeera"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "New thread: election confidence. The spreadsheet entered with notifications on.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Netanyahu",
+        "text": "Seventy percent sounds dramatic until you ask who wrote the question and who is quoting it.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Yair Lapid",
+        "text": "The question is whether voters trust the election. They answered before your press office could revise the wording.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Netanyahu",
+        "text": "Voters also want security. That part of the poll seems to disappear whenever you open the spreadsheet.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Benny Gantz",
+        "text": "Security and election confidence are not competing subscriptions. A country needs both active.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "Polls can be very unfair. Unless they are good polls. Then they are extremely accurate.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Lapid",
+        "text": "Thank you for entering the exact example nobody requested.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Netanyahu",
+        "text": "I did not add him.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "I was already in the group. Strong invitation. Best settings.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Meloni",
+        "text": "Can somebody reassure the voters before this becomes an international masterclass in reassuring nobody?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UN Admin",
+        "text": "The poll was pinned. Trust remains an unverified attachment.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "A ballot box wearing a bandage and shrug emoji — 'We’re fine, right?'",
+    "quote": null,
+    "tone": "comic",
+    "article": {
+      "headline": "Major poll finds 70% of Jewish Israelis fear election integrity risks as criticism of Netanyahu government grows",
+      "dek": "A new survey puts a spotlight on public doubt ahead of Israel’s elections, underscoring the political challenge facing the government.",
+      "body": [
+        "A poll published in reporting by Al Jazeera on August 9, 2026 found that 70 percent of Jewish Israelis express fear that the integrity of the upcoming elections could be at risk. The figure landed like an alarm bell in a campaign already described — with a refreshing lack of restraint — as fraught. The headline number is simple, stubborn and newsy: seven out of ten respondents say they worry about the fairness or safety of the vote, and that worry arrives as the Netanyahu government faces mounting criticism.",
+        "The political consequences are obvious without needing to manufacture drama. A trust shortfall of this size hands the opposition a talking point and hands the government an uphill communications task: reassure sceptical voters while under public pressure. The poll doesn’t say how voters will act on their fear; it only says the fear is real and widespread. Al Jazeera’s coverage framed the result as part of a broader story about doubts and scrutiny that now follow official decisions and authorities — a narrative that campaigns rarely want to lead but often must answer.",
+        "So what happens next is both prosaic and consequential: politicians plot, commentators diagnose, and the public judges. The poll makes the integrity question the issue everyone will have to address — not only in party press lines, but in the quieter work of election administration and civic confidence. For now, the clearest, least debatable fact is the poll’s number and the context reported by Al Jazeera: a large share of Jewish Israelis are telling pollsters they fear the vote itself may not be safe or fair, and that admission has added pressure on the Netanyahu government."
+      ],
+      "sourceCredit": "Based on original reporting from Al Jazeera (https://www.aljazeera.com/news/2026/8/9/concerns-mount-over-integrity-of-israels-upcoming-october-elections?traffic_source=rss)"
+    },
+    "publishedAt": "2026-08-10T03:53:48.901Z",
+    "editorial": {
+      "issueNumber": 30,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/30",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-10T03:53:48.901Z",
+      "fingerprint": "ccf284966ac7d212ab4bb57d7f87aef32f3a7314bfeb6b4286c59752d5c26408",
+      "sourcePublishedAt": "2026-08-09T15:20:18.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.",
+      "reviewNotes": "S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages explicitly fictional."
+    }
+  },
+  {
     "id": "2026-08-09-costa-rican-diplomat-emerges-as-strong-contender-to-be-first-fem",
     "eventDate": "2026-08-09",
     "year": 2026,

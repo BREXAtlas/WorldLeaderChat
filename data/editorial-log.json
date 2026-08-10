@@ -319,5 +319,17 @@
       "https://www.reuters.com/world/middle-east/two-israeli-soldiers-killed-southern-lebanon-israeli-military-says-2026-08-06/",
       "https://www.reuters.com/world/middle-east/us-facilitated-israel-lebanon-talks-have-begun-says-state-department-2026-08-04/"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-09-concerns-mount-over-integrity-of-israel-s-upcoming-october-elect",
+    "issueNumber": 30,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/30",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-10T03:53:48.901Z",
+    "fingerprint": "ccf284966ac7d212ab4bb57d7f87aef32f3a7314bfeb6b4286c59752d5c26408",
+    "sourceUrls": [
+      "https://www.aljazeera.com/news/2026/8/9/concerns-mount-over-integrity-of-israels-upcoming-october-elections?traffic_source=rss"
+    ]
   }
 ]
