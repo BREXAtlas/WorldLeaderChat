@@ -230,6 +230,109 @@
     }
   },
   {
+    "id": "2026-08-10-shoved-the-tube-so-hard-it-tore-my-nose-kurdish-film-maker-recou",
+    "eventDate": "2026-08-10",
+    "year": 2026,
+    "date": "August 10, 2026",
+    "title": "Force‑fed and Forgotten: A Filmmaker’s Account from Inside an ICE Medical Cell",
+    "kicker": "Small cage, big accusation",
+    "category": "Culture & Entertainment",
+    "summary": "Gabar Choli tells of how, for months, he was shackled, pinned and forcibly fed – and the physical and emotional scars the ordeal has left In June 2025, a sluggish and thin Gabar Choli, with sunken temples and bones visible under his skin, braced himself for the immigration detention center guards to charge into his cell once again. Choli was in a solitary confinement medical cell inside the Port Isabel service processing center, an Immigration and Customs Enforcement ( ICE ) detention facility in south Texas where immigrants arrested in Donald Trump’s anti-immigration crackdown are detained. Continue reading...",
+    "article": {
+      "headline": "Kurdish Filmmaker Says ICE Force‑Fed Him in Texas — Solitary Details Raise New Questions",
+      "dek": "Gabar Choli recounts being shackled, pinned and fed through a tube while in a Port Isabel solitary medical cell.",
+      "body": [
+        "In June 2025 a frail, sluggish Gabar Choli — a Kurdish filmmaker with sunken temples and bones visible beneath his skin — braced himself in a solitary medical cell at the Port Isabel service processing center. According to the reporting, he says guards shackled and pinned him while an officer shoved a feeding tube into his nose so forcefully it tore tissue; the episode has left him with both physical injuries and emotional scars. The account is presented in The Guardian’s coverage of detention practices this summer.",
+        "Choli’s description is stark and procedural: a medical cell that is supposed to tend to sick detainees instead became the site of what he calls forcible feeding. He was held at an Immigration and Customs Enforcement facility where, the article frames, immigrants arrested under Donald Trump’s anti‑immigration crackdown are processed and detained. The detail that he waited for guards to charge back into his cell — and the visible toll on his body — is the kind of domestic human-rights image unlikely to stay confined to a single story.",
+        "Reportage like this lands where policy and theater meet. Whether the episode will change official practice, prompt oversight, or simply harden opposing narratives is unclear; what is clear from the reporting is the pairing of clinical procedure and human harm. Readers who follow the original piece will find the documented condition of Choli and the conditions of Port Isabel laid out bluntly — an allegation that invites scrutiny of how medical care and detention intersect in enforcement settings."
+      ],
+      "sourceCredit": "Based on original reporting from The Guardian (https://www.theguardian.com/us-news/2026/aug/10/ice-force-feeding-detention-gabar-choli)"
+    },
+    "sources": [
+      {
+        "label": "‘Shoved the tube so hard it tore my nose’: Kurdish film-maker recounts ‘inhumane’ ICE force-feeding",
+        "url": "https://www.theguardian.com/us-news/2026/aug/10/ice-force-feeding-detention-gabar-choli",
+        "publisher": "The Guardian"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "New thread: immigration poll. Every campaign has highlighted a different cell in the spreadsheet.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "The numbers show people want a strong border. Very clear. Best clarity.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Obama",
+        "text": "The numbers also show voters distinguish enforcement from chaos. Polls contain more than one row.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Vance",
+        "text": "People are tired of a system that treats enforcement as an apology.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "AOC",
+        "text": "People are also tired of cruelty being marketed as operational efficiency.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "There it is. They call borders cruel until the poll arrives.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Obama",
+        "text": "And you call every inconvenient crosstab fake until it improves.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Senate Staff",
+        "text": "We circulated the full methodology. Nobody has opened it, but reactions are strong.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Meloni",
+        "text": "Congratulations. The poll has become a coalition government of selective reading.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UN Admin",
+        "text": "The same survey was saved under four filenames beginning with DEFINITIVE.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "A stark still: a hospital tray and a detention-bar shadow, captioned 'Care with conditions.'",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-10T16:42:28.407Z",
+    "editorial": {
+      "issueNumber": 72,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/72",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-10T16:42:28.407Z",
+      "fingerprint": "5570ac34f5c0078d9671d5971d4f1a2373bb36149b28f667fede25b2ead023b6",
+      "sourcePublishedAt": "2026-08-10T10:00:43.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.",
+      "reviewNotes": "S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages explicitly fictional."
+    }
+  },
+  {
     "id": "2026-08-09-concerns-mount-over-integrity-of-israel-s-upcoming-october-elect",
     "eventDate": "2026-08-09",
     "year": 2026,
