@@ -30,6 +30,7 @@ jobs:
       - name: Check newsroom and editor JavaScript syntax
         run: |
           node --check social-tools.js
+          node --check social-card-export.js
           node --check newsroom-site.js
           node --check disclosure-polish.js
           node --check recency-order.js

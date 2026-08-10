@@ -6,6 +6,7 @@ on:
     paths:
       - "index.html"
       - "social-tools.js"
+      - "social-card-export.js"
       - "newsroom-site.js"
       - "disclosure-polish.js"
       - "recency-order.js"
@@ -76,16 +77,24 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - name: Verify deployed newsroom order, unique-chat editor, archives and sharing tools
+      - name: Verify deployed newsroom order, social PNGs, editor, archives and copy tools
         env:
           PAGE_URL: ${{ needs.deploy.outputs.page_url }}
         run: |
           set -euo pipefail
           test -n "${PAGE_URL}"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
+            "${PAGE_URL}" | grep -F "social-card-export.js?v=20260810"
+          curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL}" | grep -F "recency-order.js?v=20260810"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL}" | grep -F "rolling-archive.js?v=monthly-20260810"
+          curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
+            "${PAGE_URL%/}/social-card-export.js" | grep -F "Save Social PNG"
+          curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
+            "${PAGE_URL%/}/social-card-export.js" | grep -F "WLC_SOCIAL_EXPORT"
+          curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
+            "${PAGE_URL%/}/social-card-export.js" | grep -F "Story / TikTok (9:16)"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/recency-order.js" | grep -F "compareRecency"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
@@ -106,7 +115,7 @@ jobs:
             "${PAGE_URL%/}/editor/conversation-upgrade.js" | grep -F "browserGeneratedDialogue: false"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/editor/newsroom-upgrade.js" | grep -F "never manufactures or rewrites dialogue"
-          echo "Verified newest-first current month, unique-chat editor, archives and sharing tools: ${PAGE_URL}"
+          echo "Verified social PNG exports, newest-first newsroom, editor, archives and copy tools: ${PAGE_URL}"
 
   report:
     if: always()
@@ -126,7 +135,7 @@ jobs:
           set -euo pipefail
           if [[ "${BUILD_RESULT}" == "success" && "${DEPLOY_RESULT}" == "success" && "${VERIFY_RESULT}" == "success" ]]; then
             state="success"
-            description="Newest-first newsroom and unique-chat editor deployed"
+            description="Social PNGs, newsroom and editor deployed"
           else
             state="failure"
             description="build=${BUILD_RESULT} deploy=${DEPLOY_RESULT} verify=${VERIFY_RESULT}"
