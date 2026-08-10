@@ -1407,6 +1407,120 @@
     }
   },
   {
+    "id": "2026-08-07-some-us-progressive-goals-win-support-of-independent-voters-reut",
+    "eventDate": "2026-08-07",
+    "year": 2026,
+    "date": "August 7, 2026",
+    "title": "INDEPENDENTS LIKE THE POLICIES, HATE THE LABELS, AND WANT BOTH PARTIES TO STOP BRANDING THE MENU",
+    "kicker": "The poll found voters shopping à la carte while the parties kept selling combo meals.",
+    "category": "Politics & Society",
+    "summary": "A Reuters/Ipsos poll found majorities of independent voters supported higher taxes on the wealthy and government-provided healthcare, even as many rejected both democratic-socialist and MAGA labels.",
+    "article": {
+      "headline": "Independent voters embrace parts of the progressive agenda while rejecting party labels",
+      "dek": "The Reuters/Ipsos numbers suggest the political middle is not ideologically empty; it is simply unwilling to buy either party’s complete branded package.",
+      "body": [
+        "A Reuters/Ipsos poll conducted from July 29 through August 3 found that 64% of independent voters supported higher taxes on wealthy people and corporations, while 60% supported government-provided healthcare. Those are positions commonly associated with the progressive wing of the Democratic Party, and they arrived in a survey of 4,505 U.S. adults that included 1,097 independents.",
+        "The same voters were considerably less enthusiastic about political labels. Forty-three percent said they would be less likely to support a candidate described as a democratic socialist. Fifty-nine percent said the same about a candidate aligned with the MAGA movement. Independents also split across issues usually claimed by the right, including reduced immigration and cuts to foreign aid.",
+        "The practical reading is that independents are selecting policies without pledging loyalty to the box they came in. Both parties can find encouraging numbers in the poll, and both can find a warning: voters may support an idea while disliking the messenger, the label or the full platform attached to it. The center is not empty. It is browsing."
+      ],
+      "sourceCredit": "Original reporting: Reuters — Some US progressive goals win support of independent voters, Reuters/Ipsos poll finds; Reuters — Democrats lead Republicans on economy as Trump approval falls, Reuters/Ipsos poll finds."
+    },
+    "sources": [
+      {
+        "label": "Some US progressive goals win support of independent voters, Reuters/Ipsos poll finds",
+        "url": "https://www.reuters.com/world/some-us-progressive-goals-win-support-independent-voters-reutersipsos-poll-finds-2026-08-07/",
+        "publisher": "Reuters"
+      },
+      {
+        "label": "Democrats lead Republicans on economy as Trump approval falls, Reuters/Ipsos poll finds",
+        "url": "https://www.reuters.com/world/us/democrats-lead-republicans-economy-trump-approval-falls-reutersipsos-poll-finds-2026-08-03/",
+        "publisher": "Reuters"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Poll Admin",
+        "text": "Independent voters have entered the store. Party labels are being left at customer service.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Bernie Sanders",
+        "text": "Higher taxes on billionaires and healthcare for everyone are popular because people understand the bill they are already paying.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "They do not like socialism. Very clear. Terrible brand.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "AOC",
+        "text": "They like the policies and dislike the word you trained them to fear. That is not the victory lap you think it is.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Vance",
+        "text": "They also want less immigration and less foreign aid. The à la carte menu goes both ways.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Obama",
+        "text": "Which is why treating independents as one coherent ideology has never survived contact with an actual poll.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Bernie Sanders",
+        "text": "Call it whatever you want. People still know when medicine and rent are too expensive.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "I call it winning without the socialist label. Much better packaging.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "AOC",
+        "text": "You are describing the policy equivalent of removing the logo and keeping the product.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Vance",
+        "text": "Welcome to American politics. Everyone wants the feature and argues about the operating system.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Poll Admin",
+        "text": "Results saved: voters ordered eight policies and declined both loyalty cards.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "INDEPENDENTS DID NOT SPLIT THE DIFFERENCE. THEY BUILT THEIR OWN PLAYLIST.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-10T03:51:37.150Z",
+    "editorial": {
+      "issueNumber": 45,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/45",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-10T03:51:37.150Z",
+      "fingerprint": "d4ffa03980caf7573e8408e1d174886842a257e732d2ceee5c30c40a37d7c269",
+      "sourcePublishedAt": "2026-08-07T12:00:00.000Z",
+      "singleSourceException": "",
+      "reviewNotes": "S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages explicitly fictional."
+    }
+  },
+  {
     "id": "2026-08-07-the-white-house-s-plan-to-vet-potentially-dangerous-ai-is-cloake",
     "eventDate": "2026-08-07",
     "year": 2026,

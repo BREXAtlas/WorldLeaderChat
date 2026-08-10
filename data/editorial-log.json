@@ -279,5 +279,18 @@
       "https://www.reuters.com/legal/litigation/openai-flags-possible-critical-cybersecurity-risk-upcoming-model-tightens-2026-08-07/",
       "https://www.theguardian.com/technology/2026/aug/08/openai-astra-security-concerns"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-07-some-us-progressive-goals-win-support-of-independent-voters-reut",
+    "issueNumber": 45,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/45",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-10T03:51:37.150Z",
+    "fingerprint": "d4ffa03980caf7573e8408e1d174886842a257e732d2ceee5c30c40a37d7c269",
+    "sourceUrls": [
+      "https://www.reuters.com/world/some-us-progressive-goals-win-support-independent-voters-reutersipsos-poll-finds-2026-08-07/",
+      "https://www.reuters.com/world/us/democrats-lead-republicans-economy-trump-approval-falls-reutersipsos-poll-finds-2026-08-03/"
+    ]
   }
 ]
