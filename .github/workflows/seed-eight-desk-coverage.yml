@@ -1,0 +1,37 @@
+name: Seed eight newsroom desks
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "config/desk-fill-2026-08-09.json.gz.b64"
+      - "scripts/seed-eight-desk-issues.mjs"
+      - ".github/workflows/seed-eight-desk-coverage.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: seed-eight-newsroom-desks
+  cancel-in-progress: false
+
+jobs:
+  seed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out main
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Use Node.js 24
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Create one completed recommendation per desk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/seed-eight-desk-issues.mjs
