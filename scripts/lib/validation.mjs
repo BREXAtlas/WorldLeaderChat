@@ -1,3 +1,5 @@
+import { dialogueProblems } from "./chat-quality.mjs";
+
 function add(errors, condition, message) {
   if (!condition) errors.push(message);
 }
@@ -178,6 +180,8 @@ export function validateApprovedBundle(bundle, policy, options = {}) {
 
   const requiresArticle = Number(bundle.ingestion?.newsroomFormat ?? 0) >= 2;
   errors.push(...validateEvent(bundle.event, policy, { requireArticle: requiresArticle }));
+  errors.push(...dialogueProblems(bundle, { existingBundles: options.existingBundles ?? [] })
+    .map((problem) => `Chat quality: ${problem}`));
 
   const factCheck = bundle.factCheck;
   add(errors, isObject(factCheck), "factCheck is missing.");
