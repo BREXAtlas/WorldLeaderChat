@@ -355,5 +355,17 @@
     "sourceUrls": [
       "https://www.theguardian.com/us-news/2026/aug/05/us-state-department-consulate-closures"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-10-francesca-hong-the-progressive-leading-a-messy-race-for-wisconsi",
+    "issueNumber": 76,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/76",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-10T16:37:20.861Z",
+    "fingerprint": "b56e529a60170820cd8574e81e2a2b09193f1c57cdea98c2d2e09f38490fb5b7",
+    "sourceUrls": [
+      "https://www.theguardian.com/us-news/2026/aug/10/francesca-hong-democratic-socialist-wisconsin-governor-race"
+    ]
   }
 ]

@@ -1,5 +1,120 @@
 [
   {
+    "id": "2026-08-10-francesca-hong-the-progressive-leading-a-messy-race-for-wisconsi",
+    "eventDate": "2026-08-10",
+    "year": 2026,
+    "date": "August 10, 2026",
+    "title": "WORLD LEADERS OPENED THE NEWS AND IMMEDIATELY REGRETTED HAVING READ RECEIPTS ON",
+    "kicker": "A real-world headline becomes a fictional private thread built from public personas, policy positions and diplomatic awkwardness.",
+    "category": "Election",
+    "summary": "Hong, whose grassroots campaign has made her a frontrunner, aims for primary win after public skepticism from top Democrats and a last-minute shake-up As Francesca Hong surged ahead in the final weeks of the chaotic Democratic primary to be Wisconsin ’s next governor, the democratic socialist has become the internet’s main character. Donald Trump has mocked her old tweets, while major figures in her own party publicly questioned her ability to win a general election. The man she is vying to succeed even launched a late blitz in support of one of her rivals. Continue reading...",
+    "article": {
+      "headline": "Hong Surges as Democrats Panic Over Wisconsin's Accidental Internet Celebrity",
+      "dek": "Francesca Hong's late-stage sprint to the front of the Democratic primary has alarmed establishment figures—and amused everyone else.",
+      "body": [
+        "In the final weeks of Wisconsin's chaotic Democratic primary for governor, Francesca Hong did something the state party establishment had not anticipated: she won online. The democratic socialist's grassroots campaign, built on the kind of floor-by-floor organizing that makes consultants nervous, catapulted her from challenger to frontrunner—and in doing so, handed her a prize no candidate really wants: the internet's undivided attention. Donald Trump, never one to miss a target, began excavating her old tweets for mockery. Mainstream Democrats, watching her momentum with barely concealed dread, started asking the question that always precedes a reckoning: Can she actually win?",
+        "The answer, apparently, was nobody's guess. Major figures in her own party took the unusual step of publicly questioning whether a democratic socialist could survive a general election against a Republican opponent. The sitting governor—the man Hong aims to replace—broke protocol entirely, launching a late-stage blitz on behalf of one of her rivals. These were not the moves of a party machine confident in the landscape. They were the moves of a party machine watching its preferred outcome slip away and deciding, with some desperation, to go public about its concerns. In Democratic politics, this is the equivalent of a parent loudly questioning their child's career choices at the dinner table.",
+        "What made the primary 'messy,' in the estimation of observers, was not the presence of competing ideas but the collision between grassroots momentum and institutional weight. Hong's campaign embodied something real: fatigue with incremental politics and a hunger for a clearer break with the status quo. Whether that hunger could survive a general election—or whether it even had to—remained the central, unresolved question as primary voters prepared their ballots. The chaos, in other words, was not a bug. It was an honest reflection of a party struggling to navigate its own moment."
+      ],
+      "sourceCredit": "Based on original reporting from The Guardian"
+    },
+    "sources": [
+      {
+        "label": "Francesca Hong, the progressive leading a ‘messy’ race for Wisconsin’s governor: ‘They’re tired of the status quo’",
+        "url": "https://www.theguardian.com/us-news/2026/aug/10/francesca-hong-democratic-socialist-wisconsin-governor-race",
+        "publisher": "The Guardian"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "New event added. Facts are sourced; everything below is fictional satire.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "I have thoughts. Many people are saying they are excellent thoughts.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Meloni",
+        "text": "That sentence already made the meeting longer.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Macron",
+        "text": "Could we attempt one reply containing a complete policy?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Xi",
+        "text": "China is observing the typing indicator.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Milei",
+        "text": "I have brought a metaphorical chainsaw. Again.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "I would like the record to show my first message was still the strongest message.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Macron",
+        "text": "The record has asked not to be involved.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Meloni",
+        "text": "Can we discuss the actual event before someone changes the group name again?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "Fine. But the group name needs work.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Xi",
+        "text": "China supports returning to the agenda. China also predicts this will not happen.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UN Admin",
+        "text": "Agenda restored. Confidence in agenda: low.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "UN Admin disabled “Everyone can change the group name.”",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-10T16:37:20.861Z",
+    "editorial": {
+      "issueNumber": 76,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/76",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-10T16:37:20.861Z",
+      "fingerprint": "b56e529a60170820cd8574e81e2a2b09193f1c57cdea98c2d2e09f38490fb5b7",
+      "sourcePublishedAt": "2026-08-10T13:00:44.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.",
+      "reviewNotes": "S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages explicitly fictional."
+    }
+  },
+  {
     "id": "2026-08-09-concerns-mount-over-integrity-of-israel-s-upcoming-october-elect",
     "eventDate": "2026-08-09",
     "year": 2026,
