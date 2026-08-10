@@ -139,8 +139,59 @@ function chipTariffDialogue() {
   ];
 }
 
+function iceForceFeedingDialogue() {
+  return [
+    msg("UN Admin", "New thread: alleged ICE force-feeding at Port Isabel. Medical care and coercion are disputing ownership of the same room.", "system"),
+    msg("ICE", "Medical intervention becomes necessary when a detainee’s health is at immediate risk."),
+    msg("Medical Ethics Board", "Necessity does not erase consent, force or the obligation to document exactly what was done."),
+    msg("DHS Inspector General", "The allegation includes shackling, restraint and a feeding tube that reportedly caused injury. That requires records, not a slogan."),
+    msg("ICE", "Facility staff operate under clinical and security protocols."),
+    msg("Senate Oversight", "Then produce the protocols, the medical authorization and the incident review."),
+    msg("Trump", "ICE has a hard job. People attack the officers and ignore the border problem."),
+    msg("Medical Ethics Board", "A hard job is not a medical standard. The question is whether treatment became punishment."),
+    msg("DHS Inspector General", "And whether solitary confinement made meaningful consent impossible before the procedure began."),
+    msg("ICE", "The agency will respond through the formal review process."),
+    msg("UN Admin", "The facility called it care. The injury report demanded a fuller sentence.", "system")
+  ];
+}
+
+function secretAiFrameworkDialogue() {
+  return [
+    msg("UN Admin", "New thread: White House AI safety framework. Testing criteria are finalized and the public has received a locked screen.", "system"),
+    msg("White House Tech Office", "The framework works better if companies cannot game the tests before submitting a model."),
+    msg("Anthropic", "Confidential test details can be reasonable. Confidential standards with no public accountability are a different product."),
+    msg("OpenAI", "Developers need enough clarity to build safeguards before a model reaches evaluation."),
+    msg("Trump", "The best companies are in the room. We do not need to publish every question before the exam."),
+    msg("Cybersecurity Researcher", "The public does need to know what risks count, who decides a model passes and what happens when it fails."),
+    msg("Meta", "A voluntary process also needs consistent access. Selective criteria can become selective advantage."),
+    msg("White House Tech Office", "The companies will receive the information required to participate."),
+    msg("EU Commission", "That explains access for the companies. It does not explain oversight for everyone affected by the systems."),
+    msg("Trump", "If we publish everything, China reads it too. Very simple."),
+    msg("UN Admin", "The safety framework passed confidentiality review. Transparency remains in the waiting room.", "system")
+  ];
+}
+
+function taylorCopyrightDialogue() {
+  return [
+    msg("UN Admin", "New thread: Taylor Swift songs removed from Trump and White House posts. Copyright has joined with counsel present.", "system"),
+    msg("White House Comms", "The clip tested extremely well before the audio stopped being available."),
+    msg("Taylor Swift", "My team reviewed the use. The silence is the rights holder responding."),
+    msg("Trump", "The video was better with the song. That means the song benefited too."),
+    msg("Swift", "That is not how licensing works, even when explained in all caps."),
+    msg("Vance", "Was the removal automated or requested? The answer changes the communications plan."),
+    msg("Swift", "My lawyers can discuss that in a format with fewer reaction emojis."),
+    msg("White House Comms", "We are exploring alternate audio with fewer opinions."),
+    msg("Obama", "This is what happens when campaign content meets an artist with organized metadata."),
+    msg("Trump", "We will use a bigger song next time."),
+    msg("UN Admin", "The post kept its views. The soundtrack exercised its right to remain silent.", "system")
+  ];
+}
+
 export function buildDirectDialogue(bundle) {
   const text = headlineText(bundle);
+  if (/force.feed|gabar choli|port isabel|feeding tube.*ice/.test(text)) return iceForceFeedingDialogue();
+  if (/white house.*ai.*secret|ai safety framework|vet potentially dangerous ai|testing criteria.*private/.test(text)) return secretAiFrameworkDialogue();
+  if (/taylor swift.*song|songs removed.*trump|white house.*swift/.test(text)) return taylorCopyrightDialogue();
   if (/francesca hong|wisconsin.*governor|wisconsin.*primary/.test(text)) return wisconsinPrimaryDialogue();
   if (/simulate election threats|wargame democracy|election disruption.*exercise|democrats.*election.*scenario/.test(text)) return electionWargameDialogue();
   if (/abortion surveillance|erica schwartz|cdc director.*hawley/.test(text)) return cdcSurveillanceDialogue();
@@ -154,6 +205,9 @@ export function buildDirectDialogue(bundle) {
 
 export function closingLineFor(bundle) {
   const text = headlineText(bundle);
+  if (/force.feed|gabar choli|port isabel|feeding tube.*ice/.test(text)) return "The facility called it care. The injury report asked who was allowed to refuse.";
+  if (/white house.*ai.*secret|ai safety framework|vet potentially dangerous ai|testing criteria.*private/.test(text)) return "The AI safety rules were completed. Public access failed the test.";
+  if (/taylor swift.*song|songs removed.*trump|white house.*swift/.test(text)) return "The post kept the fireworks. Copyright muted the soundtrack.";
   if (/francesca hong|wisconsin.*governor|wisconsin.*primary/.test(text)) return "Hong built a grassroots campaign. The party establishment responded with a leaf blower.";
   if (/simulate election threats|wargame democracy|election disruption.*exercise/.test(text)) return "Democracy entered the war room and asked why contingency planning had become a recurring meeting.";
   if (/abortion surveillance|erica schwartz|cdc director.*hawley/.test(text)) return "The CDC got a permanent director. The definition of surveillance remained under observation.";
