@@ -253,5 +253,18 @@
       "https://www.reuters.com/business/castlelake-walks-away-easyjet-pursuit-2026-08-06/",
       "https://www.theguardian.com/business/2026/aug/06/easyjet-agrees-takeover-private-equity-firm-apollo-global-management"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-04-defunct-spacex-rocket-crashes-into-the-moon-kicks-up-dust",
+    "issueNumber": 47,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/47",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-10T03:49:56.138Z",
+    "fingerprint": "6ede4d8b2d298cb164acdea18cc2c9159d98858a863e475510b630b8273df0e2",
+    "sourceUrls": [
+      "https://www.reuters.com/science/piece-spacex-rocket-will-crash-into-moon-wednesday-2026-08-04/",
+      "https://www.skyatnightmagazine.com/news/space-x-falcon-9-upper-stage-moon-impact-august-2026"
+    ]
   }
 ]
