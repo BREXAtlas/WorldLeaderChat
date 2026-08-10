@@ -7,10 +7,33 @@ const lanes = [['new','New'],['drafting','Drafting'],['ready','Ready for Approva
 
 let token = sessionStorage.getItem('wlc_editor_token') || '';
 let issues = [];
+let activeLane = 'ready';
 const busy = new Set();
+
+const BANNED_LINES = [
+  'i have reviewed it and already have the strongest interpretation',
+  'could we agree on the facts before competing over the dramatic interpretation',
+  'the facts are doing very well under my interpretation',
+  'that sentence made the meeting longer and the facts more nervous',
+  'china is observing both the event and the speed with which everyone made it about themselves',
+  'we may want to separate the development from the personality test',
+  'the personality test had excellent ratings',
+  'the agenda has again been defeated by the commentary on the agenda',
+  'the typing indicator remains more stable than the consensus',
+  'agenda restored confidence in agenda low',
+  'i have thoughts many people are saying they are excellent thoughts',
+  'i would like the record to show my first message was still the strongest message',
+  'the record has asked not to be involved',
+  'can we discuss the actual event before someone changes the group name again'
+];
+const THIRD_PERSON = /^(frames|signals|calls for|counts|emphasizes|notes|observes|suggests|underlines|warns|describes|argues|states|says|sees|insists|urges|highlights|points to|maintains|reiterates|characterizes|portrays|indicates|acknowledges)\b/i;
+const META_NARRATION = /\b(imagined|hypothetical|would likely|would probably|plausible reaction|reaction consistent|response imagined|posture|style response|public-figure|voice would)\b/i;
+const GENERIC_SPEAKER = /^(world leader|u\.?s\.? official|american official|european diplomat|government official|public figure|political observer|analyst|expert|commentator)$/i;
+const STOCK_MEME = /\bdrake(?: meme)?\b|distracted boyfriend|two buttons|change my mind|expanding brain|this is fine dog|woman yelling at a cat/i;
 
 const $ = (selector) => document.querySelector(selector);
 const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+const normalize = (value) => String(value || '').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
 
 async function api(path, options = {}) {
   const response = await fetch(API + path, {
@@ -35,7 +58,7 @@ function parseBundle(body = '') {
   const start = body.indexOf(START);
   const end = body.indexOf(END);
   if (start < 0 || end <= start) return null;
-  let text = body.slice(start + START.length, end).trim().replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '');
+  const text = body.slice(start + START.length, end).trim().replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '');
   try { return JSON.parse(text); } catch { return null; }
 }
 
@@ -46,131 +69,53 @@ function replaceBundle(body, bundle) {
   return start >= 0 && end > start ? body.slice(0, start) + block + body.slice(end + END.length) : `${body}\n\n${block}`;
 }
 
+function dialogueProblems(bundle) {
+  const problems = [];
+  const messages = bundle?.event?.messages;
+  if (!Array.isArray(messages)) return ['Chat is missing.'];
+  if (messages.length < 10 || messages.length > 14) problems.push(`Chat has ${messages.length} messages; it needs 10–14.`);
+
+  const seen = new Set();
+  const counts = new Map();
+  let previous = '';
+  for (const [index, message] of messages.entries()) {
+    const speaker = String(message?.speaker || '').trim();
+    const text = String(message?.text || '').trim();
+    const line = normalize(text);
+    if (!speaker || !text) problems.push(`Message ${index + 1} is incomplete.`);
+    if (GENERIC_SPEAKER.test(speaker)) problems.push(`Message ${index + 1} uses a generic speaker (${speaker}).`);
+    if (message?.kind !== 'system') {
+      counts.set(speaker, (counts.get(speaker) || 0) + 1);
+      if (previous === speaker) problems.push(`${speaker} appears twice in a row.`);
+      previous = speaker;
+    }
+    if (THIRD_PERSON.test(text) || META_NARRATION.test(text)) problems.push(`Message ${index + 1} reads like commentary instead of a text message.`);
+    if (BANNED_LINES.some((phrase) => line.includes(phrase))) problems.push(`Message ${index + 1} contains recycled stock dialogue.`);
+    if (line && seen.has(line)) problems.push(`Message ${index + 1} repeats another line.`);
+    seen.add(line);
+  }
+  if ([...counts.values()].filter((count) => count >= 2).length < 2) problems.push('At least two speakers must return later in the conversation.');
+  if (STOCK_MEME.test(String(bundle?.event?.meme || ''))) problems.push('The closing line uses a stock named meme instead of an original punch line.');
+  if (/world leaders opened the news and immediately regretted having read receipts on/i.test(String(bundle?.event?.title || ''))) problems.push('The headline is a recycled generic headline.');
+  return [...new Set(problems)];
+}
+
 function laneOf(issue) {
   const labels = labelSet(issue);
   if (labels.has('published')) return 'published';
   if (issue.state === 'closed') return null;
-  if (labels.has('editorial-approved') || labels.has('ready-for-approval')) return 'ready';
+  if (labels.has('editorial-approved') || labels.has('publication-failed') || labels.has('regenerate-requested') || labels.has('drafting') || labels.has('needs-editor')) return 'drafting';
+  if (labels.has('ready-for-approval')) return 'ready';
   const bundle = parseBundle(issue.body || '');
-  if (bundle && !JSON.stringify(bundle).includes('[EDITOR:')) return 'ready';
-  if (labels.has('drafting')) return 'drafting';
+  if (bundle && bundle.event?.article?.body?.length >= 2 && !JSON.stringify(bundle).includes('[EDITOR:') && !dialogueProblems(bundle).length) return 'ready';
   return 'new';
 }
 
 function smartText(bundle) {
   const text = `${bundle?.event?.title || ''} ${bundle?.event?.summary || ''}`;
-  const sensitive = /killed|dead|death|hostage|missile attack|civilian|gaza|war/i.test(text);
-  return sensitive
-    ? 'S-M-A-R: source locked; satire targets leaders and institutions only; sober handling recommended; no jokes at victims’ expense.'
-    : 'S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages explicitly fictional.';
-}
-
-function fallbackSuggestion(bundle, version = 0) {
-  if (!bundle) return null;
-  const result = structuredClone(bundle);
-  const text = `${result.event.title} ${result.event.summary}`.toLowerCase();
-  const iran = /iran|hormuz|nuclear/.test(text);
-  const ukraine = /ukraine|zelensky|kyiv|russia/.test(text);
-  const china = /china|consulate/.test(text);
-  const gaza = /gaza|netanyahu|hamas/.test(text);
-  const trump = /trump/.test(text);
-  const vance = /vance/.test(text);
-  let title, kicker, messages, meme, tone = 'comic';
-
-  if (gaza) {
-    title = version % 2 ? 'THE 15-POINT GAZA PLAN GETS A 16TH POINT: EVERYONE HAS NOTES' : 'TRUMP POSTS A 15-POINT GAZA PLAN; NETANYAHU REPLIES WITH POINT 16: NO';
-    kicker = 'A U.S. Gaza proposal meets Israeli resistance, so the fictional leaders’ chat becomes a negotiation over what the word “plan” was supposed to mean.';
-    messages = [
-      ['UN Admin','New thread: Gaza plan. Facts are sourced; private replies below are fictional satire.','system'],
-      ['Trump','Fifteen points. Very complete. People love numbered plans because you can tell they have points.','satire'],
-      ['Netanyahu','I read all fifteen. I have notes. The first note is no withdrawal before disarmament.','satire'],
-      ['Macron','A plan is not yet an agreement. Europe has several binders proving this.','satire'],
-      ['Meloni','Can we get one geopolitical document where “final” survives contact with the participants?','satire'],
-      ['Xi','China notes that numbered plans have a tendency to acquire additional points after publication.','satire']
-    ];
-    meme = 'UN Admin renamed the file: 15-POINT-PLAN_v7_FINAL_FINAL.pdf';
-    tone = 'sober';
-  } else if (ukraine) {
-    title = 'ZELENSKYY ENTERS THE CHAT SERBIA HOPED WOULD STAY ON MUTE';
-    kicker = 'A Serbia visit lands in the middle of another Russia-Ukraine escalation, turning the imaginary leaders’ chat into a diplomacy stress test.';
-    messages = [
-      ['UN Admin','New topic: Serbia, Ukraine and Russia. Please avoid turning strategic ambiguity into a reaction emoji.','system'],
-      ['Zelenskyy','I came to talk cooperation. Somehow every room in Europe still has one invisible chair labeled Moscow.','satire'],
-      ['Putin','Invisible? I prefer historically reserved.','satire'],
-      ['Meloni','Could everyone stop treating geography like a group project where nobody read the instructions?','satire'],
-      ['Trump','I could settle this chat very quickly. First we need better admins. Tremendous admins.','satire'],
-      ['Xi','China observes that the mute function remains underused.','satire']
-    ];
-    meme = 'UN Admin changed the group description to: NO ONE IS NEUTRAL AFTER THE THIRD REPLY.';
-  } else if (iran && vance) {
-    title = 'VANCE POSTS “MISSION ACCOMPLISHED” AND THE CHAT IMMEDIATELY ASKS FOR RECEIPTS';
-    kicker = 'A sweeping U.S. claim about Iran’s nuclear program becomes the kind of message every leader reads twice before reacting.';
-    messages = [
-      ['UN Admin','Reminder: operational claims require sources. Reaction emojis do not count as verification.','system'],
-      ['Vance','The program is destroyed. I am choosing the confident font.','satire'],
-      ['Trump','Very strong statement. I would have used all caps, but strong.','satire'],
-      ['Iran','Interesting. We appear to have been informed of our status through the group chat.','satire'],
-      ['Macron','Can we distinguish destroyed, degraded, and the briefing had a dramatic slide?','satire'],
-      ['Xi','Precision in language is useful, especially after precision strikes.','satire']
-    ];
-    meme = 'Vance pinned a message. Everyone else pinned the word verification.';
-  } else if (iran && trump) {
-    title = version % 2 ? 'TRUMP TYPES “FINAL WARNING” AGAIN; IRAN CHECKS THE CHAT HISTORY' : 'THE IRAN WAR CHAT HAS ENTERED ITS “FINAL WARNING — PART 14” ERA';
-    kicker = 'Threats, negotiations and political timing collide in the fictional group chat where everyone has receipts from the previous “final” warning.';
-    messages = [
-      ['UN Admin','Please number all final warnings so the archive remains searchable.','system'],
-      ['Trump','This one is extremely final. More final than the others.','satire'],
-      ['Iran','We have created a folder titled FINAL_FINAL_REAL_THIS_TIME.','satire'],
-      ['Macron','Diplomacy would benefit from fewer season finales.','satire'],
-      ['Putin','The useful thing about red lines is how often they can be redrawn.','satire'],
-      ['Xi','China recommends fewer typing indicators and more negotiated text.','satire']
-    ];
-    meme = 'UN Admin enabled disappearing messages. The threats did not disappear.';
-  } else if (iran) {
-    title = 'HORMUZ GROUP CHAT ADDS A TOLL BOOTH AND EVERY NAVY STARTS TYPING';
-    kicker = 'A Strait of Hormuz dispute turns one of the world’s most strategic waterways into the least relaxing group-chat logistics thread imaginable.';
-    messages = [
-      ['UN Admin','New rule: shipping-lane arguments go in #maritime-chaos.','system'],
-      ['Iran','Some vessels may require… premium access.','satire'],
-      ['Trump','Nobody does tolls better than us. But this toll? Terrible toll.','satire'],
-      ['Israel','Just checking whether hostile country comes with a loyalty program.','satire'],
-      ['Xi','Shipping prefers predictability. Markets also prefer leaders not inventing surge pricing at sea.','satire'],
-      ['Meloni','I left the chat for six minutes and someone monetized a strait.','satire']
-    ];
-    meme = 'The Strait of Hormuz is now the only group member with surge pricing.';
-  } else if (china) {
-    title = 'AMERICA CLOSES CONSULATES; CHINA REPLIES “THANKS FOR THE OPEN DESK SPACE”';
-    kicker = 'Diplomatic cost-cutting becomes a fictional real-estate argument over who occupies the influence left behind.';
-    messages = [
-      ['UN Admin','Diplomatic footprint changes detected. Please stop calling embassies retail locations.','system'],
-      ['Trump','We are cutting waste. Very efficient.','satire'],
-      ['Xi','Efficiency is admirable. We will efficiently schedule some meetings nearby.','satire'],
-      ['Macron','Influence has a curious habit of occupying vacant offices.','satire'],
-      ['Meloni','You cannot cancel diplomacy like a streaming subscription and act surprised when the plot continues.','satire'],
-      ['Milei','Have you considered replacing every consulate with a chainsaw emoji? Asking academically.','satire']
-    ];
-    meme = 'Xi reacted 🏢 to “five locations now available.”';
-  } else {
-    title = 'WORLD LEADERS OPENED THE NEWS AND IMMEDIATELY REGRETTED HAVING READ RECEIPTS ON';
-    kicker = 'A real-world headline becomes a fictional private thread built from public personas, policy positions and diplomatic awkwardness.';
-    messages = [
-      ['UN Admin','New event added. Facts are sourced; everything below is fictional satire.','system'],
-      ['Trump','I have thoughts. Many people are saying they are excellent thoughts.','satire'],
-      ['Meloni','That sentence already made the meeting longer.','satire'],
-      ['Macron','Could we attempt one reply containing a complete policy?','satire'],
-      ['Xi','China is observing the typing indicator.','satire'],
-      ['Milei','I have brought a metaphorical chainsaw. Again.','satire']
-    ];
-    meme = 'UN Admin disabled “Everyone can change the group name.”';
-  }
-
-  result.event.title = title;
-  result.event.kicker = kicker;
-  result.event.messages = messages.map(([speaker,text,kind]) => ({speaker,text,kind,reaction:''}));
-  result.event.meme = meme;
-  result.event.tone = tone;
-  result.approval = {...(result.approval || {}), draftVersion: version, reviewNotes: smartText(result)};
-  return result;
+  return /killed|dead|death|hostage|missile attack|civilian|gaza|war/i.test(text)
+    ? 'S-M-A-R: source locked; humor targets leaders, institutions and strategy—not victims.'
+    : 'S-M-A-R: source locked; article-specific speakers, direct replies and one original comic angle.';
 }
 
 function notice(message, type = 'info') {
@@ -203,48 +148,79 @@ async function load() {
     api(`/repos/${OWNER}/${REPO}/issues?state=closed&labels=published&per_page=100`)
   ]);
   issues = [...open.filter((item) => !item.pull_request), ...closed.filter((item) => !item.pull_request)];
+  const available = new Set(issues.map(laneOf).filter(Boolean));
+  if (!available.has(activeLane)) activeLane = ['ready','drafting','new','published'].find((lane) => available.has(lane)) || 'new';
   render();
 }
 
 function render() {
   const counts = Object.fromEntries(lanes.map(([key]) => [key, issues.filter((issue) => laneOf(issue) === key).length]));
-  $('#tabs').innerHTML = lanes.map(([key,name], index) => `<button class="tab ${index === 0 ? 'active' : ''}" data-lane="${key}">${name}<span class="count">${counts[key]}</span></button>`).join('');
-  $('#board').innerHTML = lanes.map(([key,name], index) => `<section class="lane ${index === 0 ? 'show' : ''}" data-lane="${key}"><h2>${name}</h2>${cards(key)}</section>`).join('');
+  $('#tabs').innerHTML = lanes.map(([key,name]) => `<button class="tab ${key === activeLane ? 'active' : ''}" data-lane="${key}">${name}<span class="count">${counts[key]}</span></button>`).join('');
+  $('#board').innerHTML = lanes.map(([key,name]) => `<section class="lane ${key === activeLane ? 'show' : ''}" data-lane="${key}"><h2>${name}</h2>${cards(key)}</section>`).join('');
   document.querySelectorAll('.tab').forEach((button) => button.onclick = () => {
-    document.querySelectorAll('.tab').forEach((item) => item.classList.toggle('active', item === button));
-    document.querySelectorAll('.lane').forEach((item) => item.classList.toggle('show', item.dataset.lane === button.dataset.lane));
+    activeLane = button.dataset.lane;
+    render();
   });
   document.querySelectorAll('[data-action]').forEach((button) => button.onclick = () => act(button.dataset.action, Number(button.dataset.issue)));
 }
 
 function cards(lane) {
-  const set = issues.filter((issue) => laneOf(issue) === lane);
+  const set = issues.filter((issue) => laneOf(issue) === lane).sort((a,b) => Number(b.number) - Number(a.number));
   if (!set.length) return '<div class="empty">Nothing here.</div>';
   return set.map((issue) => {
     const labels = labelSet(issue);
-    const submitted = labels.has('editorial-approved') || busy.has(issue.number);
-    let bundle = parseBundle(issue.body || '');
-    if (bundle && JSON.stringify(bundle).includes('[EDITOR:')) bundle = fallbackSuggestion(bundle, 0);
+    const bundle = parseBundle(issue.body || '');
+    const problems = bundle ? dialogueProblems(bundle) : ['Editorial JSON could not be read.'];
     const messages = (bundle?.event?.messages || []).map((message) => `<div class="msg ${message.kind === 'system' ? 'system' : ''}"><b>${esc(message.speaker)}</b>${esc(message.text)}</div>`).join('');
     const source = bundle?.event?.sources?.[0];
+    const article = bundle?.event?.article;
+    const publishing = labels.has('editorial-approved') || busy.has(issue.number);
+    const failed = labels.has('publication-failed');
+    const regenerating = labels.has('regenerate-requested') || labels.has('drafting');
+    const blocked = labels.has('needs-editor') || problems.length > 0;
+
     let actions = '<span class="tag ready">Live</span>';
     if (lane !== 'published') {
-      actions = submitted
-        ? '<button class="btn pending" disabled>Publishing…</button><span class="action-note">Approval already submitted. Do not tap again.</span>'
-        : `<button class="btn success" data-action="approve" data-issue="${issue.number}">Approve & Publish</button><button class="btn ghost" data-action="regenerate" data-issue="${issue.number}">Regenerate</button><button class="btn danger" data-action="reject" data-issue="${issue.number}">Reject</button>`;
+      if (publishing) {
+        actions = '<button class="btn pending" disabled>Publishing…</button><span class="action-note">Approval submitted once. No second tap is needed.</span>';
+      } else if (regenerating && !failed) {
+        actions = '<button class="btn pending" disabled>Regenerating…</button><span class="action-note">A new article-specific chat is being written.</span>';
+      } else if (failed) {
+        actions = `<button class="btn success" data-action="retry" data-issue="${issue.number}" ${blocked ? 'disabled' : ''}>Retry Publish</button><button class="btn ghost" data-action="regenerate" data-issue="${issue.number}">Rewrite Chat</button><button class="btn danger" data-action="reject" data-issue="${issue.number}">Reject</button>`;
+      } else if (blocked) {
+        actions = `<button class="btn ghost" data-action="regenerate" data-issue="${issue.number}">Rewrite Chat</button><button class="btn danger" data-action="reject" data-issue="${issue.number}">Reject</button>`;
+      } else {
+        actions = `<button class="btn success" data-action="approve" data-issue="${issue.number}">Approve & Publish</button><button class="btn ghost" data-action="regenerate" data-issue="${issue.number}">Rewrite Chat</button><button class="btn danger" data-action="reject" data-issue="${issue.number}">Reject</button>`;
+      }
     }
-    return `<article class="card"><div class="meta">ISSUE #${issue.number} • ${esc(bundle?.event?.date || '')}</div><span class="tag ${lane === 'ready' ? 'ready' : lane === 'new' ? 'new' : 'draft'}">${submitted ? 'Publishing' : lane}</span><span class="tag">${esc(bundle?.event?.category || 'World Affairs')}</span><h3>${esc(bundle?.event?.title || issue.title)}</h3><p class="summary">${esc(bundle?.event?.summary || '')}</p>${source ? `<a class="source" target="_blank" rel="noopener" href="${esc(source.url)}">Open source: ${esc(source.publisher)}</a>` : ''}<div class="chat">${messages}</div><div class="meme">${esc(bundle?.event?.meme || '')}</div><div class="smart"><b>S-M-A-R REVIEW</b><br>${esc(smartText(bundle))}</div><div class="actions">${actions}</div></article>`;
+
+    const articlePreview = article
+      ? `<div class="article-preview"><b>SHORT ARTICLE PREVIEW</b><strong>${esc(article.headline)}</strong><p>${esc(article.dek)}</p></div>`
+      : '';
+    const quality = problems.length
+      ? `<div class="smart" style="background:#fee2e2;border-color:#b91c1c"><b>CHAT NEEDS A REWRITE</b><br>${problems.map(esc).join('<br>')}</div>`
+      : `<div class="smart"><b>S-M-A-R REVIEW</b><br>${esc(smartText(bundle))}<br><b>Chat quality:</b> article-specific, direct and ready.</div>`;
+
+    return `<article class="card"><div class="meta">ISSUE #${issue.number} • ${esc(bundle?.event?.date || '')}</div><span class="tag ${lane === 'ready' ? 'ready' : lane === 'new' ? 'new' : 'draft'}">${publishing ? 'Publishing' : failed ? 'Publication failed' : regenerating ? 'Regenerating' : lane}</span><span class="tag">${esc(bundle?.event?.category || 'World Affairs')}</span><h3>${esc(bundle?.event?.title || issue.title)}</h3><p class="summary">${esc(bundle?.event?.summary || '')}</p>${source ? `<a class="source" target="_blank" rel="noopener" href="${esc(source.url)}">Open source: ${esc(source.publisher)}</a>` : ''}${articlePreview}<div class="chat">${messages}</div><div class="meme">${esc(bundle?.event?.meme || '')}</div>${quality}<div class="actions">${actions}</div></article>`;
   }).join('');
 }
 
+async function setIssueLabels(issue, additions = [], removals = []) {
+  const labels = labelSet(issue);
+  additions.forEach((label) => labels.add(label));
+  removals.forEach((label) => labels.delete(label));
+  return api(`/repos/${OWNER}/${REPO}/issues/${issue.number}`, {method:'PATCH', body:JSON.stringify({labels:[...labels]})});
+}
+
 async function waitForPublish(number) {
-  for (let attempt = 0; attempt < 20; attempt += 1) {
+  for (let attempt = 0; attempt < 30; attempt += 1) {
     await new Promise((resolve) => setTimeout(resolve, 3000));
     const issue = await api(`/repos/${OWNER}/${REPO}/issues/${number}`);
     const labels = labelSet(issue);
-    if (issue.state === 'closed' || labels.has('published')) return true;
+    if (issue.state === 'closed' || labels.has('published')) return 'published';
+    if (labels.has('publication-failed')) return 'failed';
   }
-  return false;
+  return 'pending';
 }
 
 async function act(action, number) {
@@ -252,32 +228,24 @@ async function act(action, number) {
     notice('That story is already processing. No second tap is needed.', 'warn');
     return;
   }
-  const localIssue = issues.find((item) => item.number === number);
-  if (!localIssue) return;
 
   try {
     const currentIssue = await api(`/repos/${OWNER}/${REPO}/issues/${number}`);
-    const currentLabels = labelSet(currentIssue);
-    if (currentIssue.state === 'closed' || currentLabels.has('published')) {
+    const labels = labelSet(currentIssue);
+    if (currentIssue.state === 'closed' || labels.has('published')) {
       notice('Already published. The dashboard has been refreshed.', 'success');
-      await load();
-      return;
-    }
-    if (currentLabels.has('editorial-approved')) {
-      notice('Approval was already submitted and GitHub Actions is processing it. Do not approve it again.', 'warn');
       await load();
       return;
     }
 
     let bundle = parseBundle(currentIssue.body || '');
     if (!bundle) throw new Error('This issue has no valid editorial bundle.');
-    const version = Number(bundle.approval?.draftVersion || 0);
-    if (JSON.stringify(bundle).includes('[EDITOR:')) bundle = fallbackSuggestion(bundle, version);
 
     if (action === 'regenerate') {
-      bundle = fallbackSuggestion(bundle, version + 1);
-      await api(`/repos/${OWNER}/${REPO}/issues/${number}`, {method:'PATCH', body:JSON.stringify({body:replaceBundle(currentIssue.body, bundle)})});
-      notice('New chat angle generated.', 'success');
+      busy.add(number); render();
+      await setIssueLabels(currentIssue, ['regenerate-requested'], ['ready-for-approval','editorial-approved','fact-checked','publication-failed','needs-editor']);
+      busy.delete(number);
+      notice('A completely new article-specific chat has been queued. The existing article and source links stay intact.', 'success');
       await load();
       return;
     }
@@ -285,38 +253,49 @@ async function act(action, number) {
     if (action === 'reject') {
       if (!confirm('Reject this candidate? It will be closed without publishing.')) return;
       busy.add(number); render();
-      await api(`/repos/${OWNER}/${REPO}/issues/${number}`, {method:'PATCH', body:JSON.stringify({state:'closed', state_reason:'not_planned'})});
+      await api(`/repos/${OWNER}/${REPO}/issues/${number}`, {method:'PATCH', body:JSON.stringify({state:'closed', state_reason:'not_planned', labels:['news-candidate','rejected']})});
       busy.delete(number);
       notice('Candidate rejected. Nothing was published.', 'success');
       await load();
       return;
     }
 
-    if (action === 'approve') {
-      if (!confirm('Approve this completed fictional chat and publish it?')) return;
-      busy.add(number);
-      render();
-      notice('Approval submitted. Publishing has started — this button is now locked.', 'info');
+    if (action === 'approve' || action === 'retry') {
+      const problems = dialogueProblems(bundle);
+      if (problems.length) {
+        notice(`This chat cannot publish yet: ${problems[0]} Tap Rewrite Chat.`, 'error');
+        return;
+      }
+      if (!bundle.event?.article?.body?.length) {
+        notice('This candidate has no completed short article. Tap Rewrite Chat.', 'error');
+        return;
+      }
+      if (!confirm(action === 'retry' ? 'Retry publication of this approved article and chat?' : 'Approve this completed article-specific chat and publish it?')) return;
+
+      busy.add(number); render();
+      notice('Approval submitted once. Publishing has started and the button is locked.', 'info');
 
       bundle.status = 'approved';
-      bundle.approval = {...(bundle.approval || {}), reviewNotes: smartText(bundle)};
+      bundle.approval = {...(bundle.approval || {}), reviewNotes: `${bundle.approval?.reviewNotes || ''} Owner approved the article-specific direct conversation after the chat-quality gate passed.`.trim()};
+      bundle.factCheck = {...(bundle.factCheck || {}), articleMatchesSources:true};
       for (const key of ['sourceOpened','summaryVerified','namesAndTitlesVerified','publicQuotesVerified','satireTargetsPowerNotVictims','sensitiveEventReview','clearSatireLabel']) bundle.factCheck[key] = true;
       if ((bundle.event.sources || []).length < 2) {
         bundle.factCheck.twoSourceRuleMet = false;
-        bundle.factCheck.singleSourceException = 'Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.';
+        bundle.factCheck.singleSourceException = 'Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.';
       } else {
         bundle.factCheck.twoSourceRuleMet = true;
         bundle.factCheck.singleSourceException = '';
       }
 
       await api(`/repos/${OWNER}/${REPO}/issues/${number}`, {method:'PATCH', body:JSON.stringify({body:replaceBundle(currentIssue.body, bundle)})});
-      await api(`/repos/${OWNER}/${REPO}/issues/${number}/labels`, {method:'POST', body:JSON.stringify({labels:['fact-checked']})});
-      await api(`/repos/${OWNER}/${REPO}/issues/${number}/labels`, {method:'POST', body:JSON.stringify({labels:['editorial-approved']})});
+      const updated = await api(`/repos/${OWNER}/${REPO}/issues/${number}`);
+      await setIssueLabels(updated, ['fact-checked','editorial-approved'], ['publication-failed','needs-editor','regenerate-requested','drafting']);
 
-      const published = await waitForPublish(number);
+      const result = await waitForPublish(number);
       busy.delete(number);
-      if (published) notice('Published ✓ The live site has been updated.', 'success');
-      else notice('Approval is safely queued in GitHub Actions. It is still processing; do not tap Approve again.', 'warn');
+      if (result === 'published') notice('Published ✓ The live site has been updated.', 'success');
+      else if (result === 'failed') notice('Publication failed and was safely unlocked. The story is under Drafting with Retry and Rewrite options.', 'error');
+      else notice('Approval is safely queued in GitHub Actions. Do not tap Approve again.', 'warn');
       await load();
     }
   } catch (error) {
