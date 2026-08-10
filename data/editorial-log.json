@@ -343,5 +343,17 @@
     "sourceUrls": [
       "https://www.theguardian.com/us-news/2026/aug/09/democrats-election-disruption-planning-exercises"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-06-us-to-shut-five-consulates-as-critics-fear-china-could-fill-dipl",
+    "issueNumber": 12,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/12",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-10T03:55:08.890Z",
+    "fingerprint": "21a06ddd4d94165039656fc72c0c03b2e1efbf7177774a0c037c38fc8a73d362",
+    "sourceUrls": [
+      "https://www.theguardian.com/us-news/2026/aug/05/us-state-department-consulate-closures"
+    ]
   }
 ]
