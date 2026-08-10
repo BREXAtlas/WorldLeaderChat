@@ -510,6 +510,120 @@
     }
   },
   {
+    "id": "2026-08-08-barack-obama-blames-larry-david-for-his-infamous-tan-suit-scanda",
+    "eventDate": "2026-08-08",
+    "year": 2026,
+    "date": "August 8, 2026",
+    "title": "OBAMA REOPENS THE TAN-SUIT FILE; LARRY DAVID CONFESSES THE COVER-UP WAS BEIGE",
+    "kicker": "Twelve years later, America finally got the answer nobody needed and everybody clicked.",
+    "category": "Culture & Entertainment",
+    "summary": "The finale of Larry David’s HBO series used a fictional reenactment to blame the 2014 Obama tan-suit controversy on a spilled protein shake and some catastrophically confident wardrobe advice.",
+    "article": {
+      "headline": "Obama and Larry David rewrite the tan-suit scandal as a workplace accident",
+      "dek": "The HBO finale turns the 2014 controversy into an alternate-history sketch involving a Mango Tango shake, a ruined dark suit and the most consequential bad wardrobe reassurance of the Obama presidency.",
+      "body": [
+        "Barack Obama and Larry David revisited the 2014 tan-suit controversy in the finale of HBO’s Life, Larry and the Pursuit of Unhappiness. The sketch offers a deliberately fictional explanation: David, playing a presidential aide, spills a Mango Tango protein shake on Obama’s original suit shortly before a press briefing.",
+        "With the dark suit out of service, the fictional aide encourages Obama to wear the tan option despite the president’s hesitation. David deploys his familiar confidence, Obama walks toward the briefing and the audience is invited to watch one of the least consequential political controversies in modern memory acquire an origin story it absolutely did not need.",
+        "The episode is comedy, not a correction to the historical record. Its target is the disproportionate outrage that greeted a presidential wardrobe choice and the strange endurance of the moment in political culture. Twelve years later, the tan suit has finally received what every Washington scandal wants: a reenactment, a producer credit and Larry David accepting none of the responsibility gracefully."
+      ],
+      "sourceCredit": "Original reporting: Entertainment Weekly — Barack Obama blames Larry David for his infamous tan suit scandal in new sketch; The Daily Beast — Barack Obama Pins His Biggest Scandal on Larry David."
+    },
+    "sources": [
+      {
+        "label": "Barack Obama blames Larry David for his infamous tan suit scandal in new sketch",
+        "url": "https://ew.com/barack-obama-blames-larry-david-tan-suit-scandal-life-larry-and-the-pursuit-of-unhappiness-12036281",
+        "publisher": "Entertainment Weekly"
+      },
+      {
+        "label": "Barack Obama Pins His Biggest Scandal on Larry David",
+        "url": "https://www.thedailybeast.com/obsessed/obama-mocks-gops-tan-suit-meltdown-with-larry-david-reenactment/",
+        "publisher": "The Daily Beast"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "HBO Admin",
+        "text": "The tan-suit file has been reopened. Evidentiary item one: Mango Tango protein shake.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Obama",
+        "text": "For twelve years I carried this alone. The American people deserve to know Larry ruined the first suit.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Larry David",
+        "text": "Ruined is a strong word. I created wardrobe urgency.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Michelle Obama",
+        "text": "You created a stain and then advised the president like a man returning something without a receipt.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "Tan was a weak color. Everybody knew it. I would have worn navy and solved Syria at the same time.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Obama",
+        "text": "Thank you for proving the sketch was historically restrained.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Larry David",
+        "text": "The suit looked pretty good. Pretty, pretty, pretty—",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Michelle Obama",
+        "text": "Do not turn the congressional meltdown into your catchphrase.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Hillary Clinton",
+        "text": "I have reviewed the evidence. The shake was careless. The outrage was still ridiculous.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "The outrage had tremendous ratings.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "HBO Admin",
+        "text": "Case closed: one spilled shake, one tan suit, approximately eight years too much commentary.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "THE AUDACITY OF TAUPE NOW HAS AN ORIGIN EPISODE.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-10T03:47:41.253Z",
+    "editorial": {
+      "issueNumber": 49,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/49",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-10T03:47:41.253Z",
+      "fingerprint": "7f582f571faa613ed31fb5b091eb91e4e598991dd06e6099a49072f44395ea87",
+      "sourcePublishedAt": "2026-08-08T12:00:00.000Z",
+      "singleSourceException": "",
+      "reviewNotes": "S-M-A-R: source locked; satire targets leaders and institutions only; sober handling recommended; no jokes at victims’ expense."
+    }
+  },
+  {
     "id": "2026-08-08-bluster-and-backdown-have-turned-iran-war-into-trump-s-own-groun",
     "eventDate": "2026-08-08",
     "year": 2026,

@@ -227,5 +227,18 @@
       "https://www.reuters.com/sports/soccer/fifa-warns-effort-undermine-infantino-leadership-crisis-deepens-2026-08-08/",
       "https://www.reuters.com/sports/soccer/norway-fa-president-klaveness-calls-fifa-boss-infantino-resign-2026-08-07/"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-08-barack-obama-blames-larry-david-for-his-infamous-tan-suit-scanda",
+    "issueNumber": 49,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/49",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-10T03:47:41.253Z",
+    "fingerprint": "7f582f571faa613ed31fb5b091eb91e4e598991dd06e6099a49072f44395ea87",
+    "sourceUrls": [
+      "https://ew.com/barack-obama-blames-larry-david-tan-suit-scandal-life-larry-and-the-pursuit-of-unhappiness-12036281",
+      "https://www.thedailybeast.com/obsessed/obama-mocks-gops-tan-suit-meltdown-with-larry-david-reenactment/"
+    ]
   }
 ]
