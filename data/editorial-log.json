@@ -154,5 +154,17 @@
     "sourceUrls": [
       "https://www.theguardian.com/technology/2026/aug/07/white-house-ai"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-03-fresh-us-iran-talks-are-last-chance-for-tehran-to-avoid-war-esca",
+    "issueNumber": 57,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/57",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-10T03:36:54.984Z",
+    "fingerprint": "504b78b92d3228b860331b93fe002b87f6c4e2ba032cdd1c3efb61c31935c2cd",
+    "sourceUrls": [
+      "https://www.theguardian.com/world/2026/aug/03/iran-in-talks-with-oman-over-shipping-route-but-not-us-says-tehran"
+    ]
   }
 ]
