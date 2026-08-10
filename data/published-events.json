@@ -115,6 +115,121 @@
     }
   },
   {
+    "id": "2026-08-10-netanyahu-rejects-us-backed-15-point-gaza-peace-plan-first-thing",
+    "eventDate": "2026-08-10",
+    "year": 2026,
+    "date": "August 10, 2026",
+    "title": "Netanyahu Breaks with Trump—Again",
+    "kicker": "War & Security",
+    "category": "War & Security",
+    "summary": "Israeli PM is insisting on a full Hamas disarmament before the deal can be implemented. Plus, what it feels like to get locked into an opera performance that lasts nearly 24 hours Don’t already get First Thing in your inbox? Sign up here Good morning. Benjamin Netanyahu has rejected a US-backed 15-point peace plan for Gaza in a rare public break with Donald Trump. In a statement, Israel’s prime minister said he was confronting a “wave of rumours about Israeli weakness and Israeli withdrawals on all fronts” and rebuked US pressure to end wars in Gaza, Lebanon and Iran without Israel’s buy-in. What other developments have happened in the region? Iran has issued tough new demands for reopening the strait of Hormuz , while the United Arab Emirates said one of its ships was targeted by an Iranian missile over the weekend. Tehran said the strait of Hormuz would not open until the US “corrects its behaviour”. Yemen’s Tehran-aligned Houthis have claimed responsibility for an attack on a refine",
+    "article": {
+      "headline": "Netanyahu Vetoes Trump's Peace Plan: 'Full Hamas Disarmament or Nothing'",
+      "dek": "In a rare public clash with his US ally, Israel's PM rejected a 15-point US-backed Gaza proposal, signaling a deeper rift over the region's wars.",
+      "body": [
+        "Benjamin Netanyahu has done something he rarely does: openly contradicted Donald Trump. On August 10, 2026, Israel's prime minister rejected a US-backed 15-point peace plan for Gaza, marking a sharp, public break with Washington over the terms of regional conflict. In a statement, Netanyahu pushed back against what he framed as pressure to withdraw from wars in Gaza, Lebanon, and Iran—insisting instead on one non-negotiable condition: full Hamas disarmament before any deal proceeds.",
+        "The rejection centers on Netanyahu's demand for complete Israeli oversight of any settlement. The PM characterized the moment as a confrontation with 'rumours about Israeli weakness and Israeli withdrawals on all fronts,' suggesting that accepting the US framework would signal capitulation to his domestic critics. This public rebuke of a sitting US administration underscores the fracture between two allies on how to resolve a conflict now entering its third year.",
+        "Meanwhile, the regional temperature keeps climbing. Iran has issued fresh demands for reopening the Strait of Hormuz, conditioning the passage on US policy shifts—a move that carries obvious leverage over global oil markets. The UAE reported that an Iranian missile struck one of its vessels over the weekend, part of an escalating pattern of tanker and infrastructure strikes. Yemen's Houthi forces, Tehran-aligned and increasingly active, have claimed responsibility for attacks on regional refineries, tightening the security noose around international shipping.",
+        "Netanyahu's hardline stance suggests that any ceasefire—whether brokered by Washington, regional powers, or international mediators—will require Israeli buy-in on terms that appear to exceed what the current US proposal allows. The collision between Netanyahu's maximalist demands and Trump's stated desire for rapid deals leaves the region in a state of armed stalemate, with smaller players like the Houthis and Iran testing the limits of each side's tolerance for escalation."
+      ],
+      "sourceCredit": "Based on original reporting from The Guardian"
+    },
+    "sources": [
+      {
+        "label": "Netanyahu rejects US-backed 15-point Gaza peace plan | First Thing",
+        "url": "https://www.theguardian.com/us-news/2026/aug/10/first-thing-netanyahu-rejects-us-backed-gaza-peace-plan",
+        "publisher": "The Guardian"
+      },
+      {
+        "label": "Netanyahu rejects US-led 15-point Gaza peace plan in rare public break with Trump",
+        "url": "https://www.theguardian.com/world/2026/aug/09/israel-rejects-us-led-15-point-gaza-peace-plan-says-netanyahu",
+        "publisher": "The Guardian"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "New thread: refinery attack claim. Keep the jokes aimed at strategy, not civilians.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Saudi Arabia",
+        "text": "A defense pact was supposed to reduce surprises, not schedule the next one for Sunday morning.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Houthis",
+        "text": "Consider this our objection to the regional seating chart.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Iran",
+        "text": "Everyone is very eager to assign us administrative privileges we did not request in writing.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "If Iran is aligned with them, Iran can unalign them. Very simple. Great word: unalign.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Saudi Arabia",
+        "text": "Regional security has not traditionally responded to vocabulary inventions.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Iran",
+        "text": "Neither has diplomacy responded well to threats written entirely in capital letters.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Meloni",
+        "text": "The refinery is burning and somehow the argument has already become a branding workshop.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Xi",
+        "text": "Energy markets prefer fewer messages beginning with ‘we claim responsibility.’",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "Markets also prefer strength. Nobody has stronger market preferences.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UN Admin",
+        "text": "Oil prices joined the chat and immediately turned off read receipts.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "Split-screen: Left side, Trump holding up a 15-page document labeled 'Peace Plan' with a thumbs-up emoji. Right side, Netanyahu holding the same document torn in half. Caption: 'One Man's Deal Is Another Man's Weakness.'",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-10T16:41:23.883Z",
+    "editorial": {
+      "issueNumber": 73,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/73",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-10T16:41:23.883Z",
+      "fingerprint": "a384119e146e656830dcb72627a5edccdff1483add80e7a739a3f845e01d2fc8",
+      "sourcePublishedAt": "2026-08-10T10:19:26.000Z",
+      "singleSourceException": "",
+      "reviewNotes": "S-M-A-R: source locked; satire targets leaders and institutions only; sober handling recommended; no jokes at victims’ expense."
+    }
+  },
+  {
     "id": "2026-08-09-concerns-mount-over-integrity-of-israel-s-upcoming-october-elect",
     "eventDate": "2026-08-09",
     "year": 2026,

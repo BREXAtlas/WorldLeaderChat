@@ -367,5 +367,18 @@
     "sourceUrls": [
       "https://www.theguardian.com/us-news/2026/aug/10/francesca-hong-democratic-socialist-wisconsin-governor-race"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-10-netanyahu-rejects-us-backed-15-point-gaza-peace-plan-first-thing",
+    "issueNumber": 73,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/73",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-10T16:41:23.883Z",
+    "fingerprint": "a384119e146e656830dcb72627a5edccdff1483add80e7a739a3f845e01d2fc8",
+    "sourceUrls": [
+      "https://www.theguardian.com/us-news/2026/aug/10/first-thing-netanyahu-rejects-us-backed-gaza-peace-plan",
+      "https://www.theguardian.com/world/2026/aug/09/israel-rejects-us-led-15-point-gaza-peace-plan-says-netanyahu"
+    ]
   }
 ]
