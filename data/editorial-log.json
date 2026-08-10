@@ -118,5 +118,17 @@
     "sourceUrls": [
       "https://www.npr.org/2026/08/09/nx-s1-5926459/netanyahu-rejects-trump-gaza-peace-plan-israel-hamas"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-09-netanyahu-rejects-trump-backed-gaza-peace-plan",
+    "issueNumber": 63,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/63",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-10T03:26:48.735Z",
+    "fingerprint": "dbd19964939748f78c42ab1f1cd735e421e051762bc6a9ecbcf3e895a4576799",
+    "sourceUrls": [
+      "https://www.dw.com/en/netanyahu-rejects-trump-backed-gaza-peace-plan/a-78298282?maca=en-rss-en-top-1022-rdf"
+    ]
   }
 ]
