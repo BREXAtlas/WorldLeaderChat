@@ -130,5 +130,17 @@
     "sourceUrls": [
       "https://www.dw.com/en/netanyahu-rejects-trump-backed-gaza-peace-plan/a-78298282?maca=en-rss-en-top-1022-rdf"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-08-rest-assured-the-new-cdc-director-thinks-abortion-surveillance-i",
+    "issueNumber": 61,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/61",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-10T03:30:11.850Z",
+    "fingerprint": "82fc6176e5b8b835812c3eebf60bf85e63a1ad4437b87130563b030481c60183",
+    "sourceUrls": [
+      "https://www.theguardian.com/commentisfree/2026/aug/08/cdc-abortion-surveillance-schwartz-hawley"
+    ]
   }
 ]
