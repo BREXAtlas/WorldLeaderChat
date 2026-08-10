@@ -579,6 +579,126 @@
     }
   },
   {
+    "id": "2026-08-08-fifa-warns-of-effort-to-undermine-infantino-as-leadership-crisis",
+    "eventDate": "2026-08-08",
+    "year": 2026,
+    "date": "August 8, 2026",
+    "title": "WORLD LEADERS OPENED THE NEWS AND IMMEDIATELY REGRETTED HAVING READ RECEIPTS ON",
+    "kicker": "A real-world headline becomes a fictional private thread built from public personas, policy positions and diplomatic awkwardness.",
+    "category": "Sports & Soft Power",
+    "summary": "FIFA defended President Gianni Infantino amid a leadership crisis following the collapse of a $4.2 billion proposal to sell a stake in the organization’s commercial rights.",
+    "article": {
+      "headline": "FIFA closes ranks around Infantino after commercial-rights plan collapses",
+      "dek": "A failed $4.2 billion proposal to sell a stake in FIFA’s commercial future has turned into a fight over governance, trust and whether the organization’s leadership can referee its own crisis.",
+      "body": [
+        "FIFA said there was a concerted effort to undermine President Gianni Infantino as the organization’s leadership crisis deepened. Reuters reported that the dispute followed the collapse of a $4.2 billion proposal to sell a stake in FIFA’s commercial rights, a plan that drew opposition from UEFA, national associations and figures inside football governance.",
+        "Norwegian Football Federation president Lise Klaveness publicly called for Infantino to resign, arguing that he no longer had the institutional trust needed to lead. UEFA and Norway withdrew confidence, while FIFA leadership meeting in Morocco reaffirmed support for Infantino. He also retained significant backing among member associations in Africa, South America and elsewhere.",
+        "The immediate dispute is about more than one abandoned transaction. It is about who controls football’s commercial future, how decisions are made and whether a governing body can investigate criticism of itself without making the criticism louder. FIFA says the challenge must follow its statutes. Its opponents are asking whether the statutes are being used as rules of the game or as a very expensive offside flag."
+      ],
+      "sourceCredit": "Original reporting: Reuters — FIFA warns of effort to undermine Infantino as leadership crisis deepens; Reuters — Norway FA president Klaveness calls on FIFA boss Infantino to resign."
+    },
+    "sources": [
+      {
+        "label": "FIFA warns of effort to undermine Infantino as leadership crisis deepens",
+        "url": "https://www.reuters.com/sports/soccer/fifa-warns-effort-undermine-infantino-leadership-crisis-deepens-2026-08-08/",
+        "publisher": "Reuters"
+      },
+      {
+        "label": "Norway FA president Klaveness calls on FIFA boss Infantino to resign",
+        "url": "https://www.reuters.com/sports/soccer/norway-fa-president-klaveness-calls-fifa-boss-infantino-resign-2026-08-07/",
+        "publisher": "Reuters"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "New event added. Facts are sourced; everything below is fictional satire.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "I have thoughts. Many people are saying they are excellent thoughts.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Meloni",
+        "text": "That sentence already made the meeting longer.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Macron",
+        "text": "Could we attempt one reply containing a complete policy?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Xi",
+        "text": "China is observing the typing indicator.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Milei",
+        "text": "I have brought a metaphorical chainsaw. Again.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "I would like the record to show my first message was still the strongest message.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Macron",
+        "text": "The record has asked not to be involved.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Meloni",
+        "text": "Can we discuss the actual event before someone changes the group name again?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "Fine. But the group name needs work.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Xi",
+        "text": "China supports returning to the agenda. China also predicts this will not happen.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UN Admin",
+        "text": "Agenda restored. Confidence in agenda: low.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "UN Admin disabled “Everyone can change the group name.”",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-10T03:46:53.006Z",
+    "editorial": {
+      "issueNumber": 50,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/50",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-10T03:46:53.006Z",
+      "fingerprint": "a4e0ec402451e1e35be0afa0793d8bab91253546865d1283c98d1b37f410d241",
+      "sourcePublishedAt": "2026-08-08T12:30:00.000Z",
+      "singleSourceException": "",
+      "reviewNotes": "S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages explicitly fictional."
+    }
+  },
+  {
     "id": "2026-08-08-president-xi-never-wastes-a-good-crisis-as-iran-ukraine-and-pale",
     "eventDate": "2026-08-08",
     "year": 2026,

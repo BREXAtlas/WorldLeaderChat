@@ -214,5 +214,18 @@
     "sourceUrls": [
       "https://www.theguardian.com/technology/commentisfree/2026/aug/07/science-fiction-warned-us-about-an-ai-powered-dystopian-future-does-it-also-hold-the-remedy"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-08-fifa-warns-of-effort-to-undermine-infantino-as-leadership-crisis",
+    "issueNumber": 50,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/50",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-10T03:46:53.006Z",
+    "fingerprint": "a4e0ec402451e1e35be0afa0793d8bab91253546865d1283c98d1b37f410d241",
+    "sourceUrls": [
+      "https://www.reuters.com/sports/soccer/fifa-warns-effort-undermine-infantino-leadership-crisis-deepens-2026-08-08/",
+      "https://www.reuters.com/sports/soccer/norway-fa-president-klaveness-calls-fifa-boss-infantino-resign-2026-08-07/"
+    ]
   }
 ]
