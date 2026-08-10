@@ -1519,6 +1519,120 @@
     }
   },
   {
+    "id": "2026-08-06-easyjet-agrees-7-7-billion-takeover-by-apollo-as-castlelake-walk",
+    "eventDate": "2026-08-06",
+    "year": 2026,
+    "date": "August 6, 2026",
+    "title": "EASYJET SELLS THE AIRLINE; THE BAGGAGE FEE REMAINS INDEPENDENT",
+    "kicker": "Apollo bought the carrier. Europe kept a hand on the boarding pass.",
+    "category": "Business & Power",
+    "summary": "EasyJet agreed to a £5.7 billion takeover by Apollo Global Management after Castlelake withdrew, with the transaction structured around European airline ownership rules.",
+    "article": {
+      "headline": "Apollo agrees £5.7bn easyJet takeover after rival bidder exits",
+      "dek": "The deal offers a large premium and has the backing of easyJet’s board and founder, but European ownership rules mean private equity cannot simply buy the airline and walk straight through the gate.",
+      "body": [
+        "EasyJet agreed to a £5.7 billion takeover by U.S. private equity firm Apollo Global Management after rival Castlelake withdrew from the contest. Reuters reported that the cash offer represents an 81% premium to the airline’s share price before takeover interest became public, and that easyJet’s board and founder Stelios Haji-Ioannou support the transaction.",
+        "The deal is not a routine purchase. European rules require airlines operating within the European Union to remain majority EU-owned and controlled. The proposed structure limits Apollo’s direct holding and uses arrangements intended to preserve compliance while allowing existing shareholders, including the founder’s family, to remain invested.",
+        "Apollo says it will support easyJet’s existing strategy and growth, including its holidays business. The company gains a deep-pocketed owner and freedom from the daily performance theatre of the public market. Passengers gain no confirmed exemption from the ancient aviation tradition of discovering that the cheapest fare was only the opening bid."
+      ],
+      "sourceCredit": "Original reporting: Reuters — EasyJet agrees $7.7 billion takeover by Apollo as Castlelake walks away; The Guardian — EasyJet agrees to £5.7bn takeover by US private equity firm."
+    },
+    "sources": [
+      {
+        "label": "EasyJet agrees $7.7 billion takeover by Apollo as Castlelake walks away",
+        "url": "https://www.reuters.com/business/castlelake-walks-away-easyjet-pursuit-2026-08-06/",
+        "publisher": "Reuters"
+      },
+      {
+        "label": "EasyJet agrees to £5.7bn takeover by US private equity firm",
+        "url": "https://www.theguardian.com/business/2026/aug/06/easyjet-agrees-takeover-private-equity-firm-apollo-global-management",
+        "publisher": "The Guardian"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Deal Room Admin",
+        "text": "Apollo has agreed to acquire easyJet. Please keep all ownership structures in the overhead compartment.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Kenton Jarvis",
+        "text": "The offer gives the company long-term backing while keeping the strategy moving.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Apollo",
+        "text": "We see growth in the airline, the holidays business and the brand.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Stelios Haji-Ioannou",
+        "text": "The family is staying invested. I would like that entered before anyone starts planning a farewell party.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Starmer",
+        "text": "Another major British company is leaving the public market under an American owner.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "EU Commission",
+        "text": "And another buyer is about to discover that airline ownership has more conditions than a budget fare.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Michael O'Leary",
+        "text": "Seven-point-seven billion and they still have not bought the right to charge for standing near the plane.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Kenton Jarvis",
+        "text": "Thank you, Michael. Your unsolicited ancillary comment has been received.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Apollo",
+        "text": "We purchased the growth opportunity, not this group chat.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "American buyer, British airline, European rules. Fantastic deal, terrible paperwork.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Deal Room Admin",
+        "text": "Transaction confirmed. Cabin baggage remains subject to dimensions nobody memorized.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "THE AIRLINE WENT PRIVATE. THE BOARDING QUEUE REMAINED PUBLIC.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-10T03:48:26.213Z",
+    "editorial": {
+      "issueNumber": 48,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/48",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-10T03:48:26.213Z",
+      "fingerprint": "260d7e3794f56fc6431b72cce687e76e80b2fbf801dcb90d28fbfbbdc17203c7",
+      "sourcePublishedAt": "2026-08-06T12:30:00.000Z",
+      "singleSourceException": "",
+      "reviewNotes": "S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages explicitly fictional."
+    }
+  },
+  {
     "id": "2026-08-05-judge-signals-trump-s-defamation-lawsuit-against-wall-street-jou",
     "eventDate": "2026-08-05",
     "year": 2026,
