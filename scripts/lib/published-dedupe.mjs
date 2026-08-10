@@ -13,6 +13,15 @@ const MERGE_RULES = [
     ],
     summary: "Iranian President Masoud Pezeshkian urged a lasting agreement with the United States while Iran also considered restrictions and tolls for ships linked to hostile countries in the Strait of Hormuz, according to Al Jazeera and NPR.",
     reviewNote: "Merged the overlapping Iran-U.S. deadlock and Strait of Hormuz access coverage into one sourced Hormuz file instead of repeating the same chat premise."
+  },
+  {
+    canonicalId: "2026-08-09-israel-rejects-trump-s-15-point-plan-for-gaza",
+    duplicateIds: [
+      "2026-08-09-netanyahu-rejects-trump-backed-gaza-peace-plan",
+      "2026-08-09-netanyahu-rejects-trump-s-gaza-peace-plan-demands-hamas-disarm-f",
+      "2026-08-10-netanyahu-rejects-us-backed-15-point-gaza-peace-plan-first-thing"
+    ],
+    reviewNote: "Merged DW, NPR and later Guardian follow-up coverage of the same Gaza-plan rejection into the canonical multi-source file."
   }
 ];
 
@@ -40,7 +49,7 @@ function mergeEditorial(canonical, duplicates, rule, sourceCount) {
     canonical.id,
     ...duplicates.map((event) => event.id),
     ...records.flatMap((record) => record.mergedEventIds || [])
-  ]);
+  ]).sort();
   const reviewNotes = unique([
     ...records.map((record) => record.reviewNotes),
     rule.reviewNote
