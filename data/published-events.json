@@ -319,6 +319,115 @@
     }
   },
   {
+    "id": "2026-08-09-taylor-swift-songs-removed-from-trump-and-white-house-s-social-m",
+    "eventDate": "2026-08-09",
+    "year": 2026,
+    "date": "August 9, 2026",
+    "title": "Swift Takedown",
+    "kicker": "Trump team scrubs Taylor from TikTok after August miscalculation",
+    "category": "Election",
+    "summary": "Rage-baiting efforts of Trump accounts silenced after posts such as a video linking her Red album to Republicans Some of Taylor Swift ’s songs have been removed from videos posted on social media by Donald Trump ’s campaign and the White House, silencing efforts to mock the pop star. A video posted 3 August featuring the US president and the first lady, Melania Trump, watching fireworks was posted this month on TikTok with Swift’s song August. Continue reading...",
+    "article": {
+      "headline": "Trump White House Quietly Removes Taylor Swift Songs From Social Posts",
+      "dek": "A video of the president and first lady watching fireworks vanished from the internet—along with its pop-star soundtrack.",
+      "body": [
+        "On August 3, the Trump campaign posted a video to TikTok. It showed the US president and first lady Melania Trump watching fireworks. The audio track was Taylor Swift's 'August.' By mid-August, that song—along with other Swift tracks—had been removed from videos posted by both the Trump campaign and the White House social media accounts.",
+        "The Guardian's reporting characterized the removals as efforts to silence attempts to 'mock' the pop star. The framing offers an interesting study in how social media erasure works in real time: the posts didn't disappear. The soundtracks did.",
+        "For a campaign that has made messaging discipline a cornerstone of its digital strategy, the Swift purge suggests either a licensing concern or a deliberate choice to eliminate association with particular content. Either way, the silence speaks volumes."
+      ],
+      "sourceCredit": "Based on original reporting from The Guardian"
+    },
+    "sources": [
+      {
+        "label": "Taylor Swift songs removed from Trump and White House’s social media posts",
+        "url": "https://www.theguardian.com/us-news/2026/aug/09/taylor-swift-songs-removed-trump-white-house-posts",
+        "publisher": "The Guardian"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "New thread: music removed from a political post. Copyright has joined with counsel present.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "White House Comms",
+        "text": "The clip tested extremely well before the audio stopped being available.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Taylor Swift",
+        "text": "My team reviewed the use. The silence you hear is the rights holder responding.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "The video was better with the song. That means the song benefited too.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Taylor Swift",
+        "text": "That is not how licensing works, even when explained in all caps.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Vance",
+        "text": "Could we discuss whether the removal was automated or requested?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Swift",
+        "text": "My lawyers can discuss it in a format with fewer reaction emojis.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "White House Comms",
+        "text": "We are exploring alternate audio with fewer opinions.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Obama",
+        "text": "This is what happens when campaign content meets an artist with organized metadata.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "We will use a bigger song next time.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UN Admin",
+        "text": "The post kept its views. The soundtrack exercised its right to remain silent.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "Drake meme flipped: Trump approving fireworks video with Taylor audio (top), then suddenly yanking the Swift track mid-TikTok scroll (bottom).",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-10T03:41:18.421Z",
+    "editorial": {
+      "issueNumber": 53,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/53",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-10T03:41:18.421Z",
+      "fingerprint": "37e5c58ab797c4d9d1b9b347df6abb2a8f28e8a41029152b0b15a7c237ecb3d5",
+      "sourcePublishedAt": "2026-08-09T14:33:46.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.",
+      "reviewNotes": "S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages explicitly fictional."
+    }
+  },
+  {
     "id": "2026-08-09-why-is-pezeshkian-urging-an-end-to-iran-s-no-war-no-peace-status",
     "eventDate": "2026-08-09",
     "year": 2026,
