@@ -10,6 +10,7 @@ execFileSync(process.execPath, [resolve(root, "scripts/validate-repository.mjs")
 await rm(output, { recursive: true, force: true });
 await mkdir(resolve(output, "data"), { recursive: true });
 await mkdir(resolve(output, "editor"), { recursive: true });
+await mkdir(resolve(output, "assets"), { recursive: true });
 
 const publicHtml = await readFile(resolve(root, "index.html"), "utf8");
 const publicScripts = [
@@ -19,10 +20,22 @@ const publicScripts = [
   '  <script src="./recency-order.js?v=20260810"></script>',
   '  <script src="./rolling-archive.js?v=monthly-20260810"></script>'
 ];
+const brandMarkup = '<img class="brand-logo" src="./assets/world-leaders-chat-logo.webp" alt="World Leaders Chat — News. Analysis. Satire.">';
+const brandStyles = `
+<style id="world-leader-chat-brand">
+.brand-logo{display:block;width:min(390px,82vw);height:auto;margin:0 auto 8px;object-fit:contain}
+@media (max-width:800px){.brand-logo{width:min(330px,88vw);margin-top:2px}}
+</style>`;
+const faviconLinks = '<link rel="icon" type="image/webp" href="./assets/world-leaders-chat-favicon.webp"><link rel="shortcut icon" href="./assets/world-leaders-chat-favicon.webp">';
+
 let instrumentedHtml = publicHtml
   .replace(
     /<div class="satire-strip">[\s\S]*?<\/div>/,
     '<div class="satire-strip"><b>WORLD LEADER CHAT</b> • REAL EVENTS • ORIGINAL SOURCES • IMAGINED PRIVATE REACTIONS</div>'
+  )
+  .replace(
+    /<div class="eyebrow">THE LEAK THAT NEVER HAPPENED<\/div>\s*<h1>WORLD LEADER CHAT<\/h1>/,
+    brandMarkup
   )
   .replace(
     /<p class="mast-note">[\s\S]*?<\/p>/,
@@ -50,7 +63,7 @@ let instrumentedHtml = publicHtml
   )
   .replace(
     "</head>",
-    '<style id="newsroom-critical">#deskJump,.update-desk{display:none!important}</style>\n</head>'
+    `${faviconLinks}\n${brandStyles}\n<style id="newsroom-critical">#deskJump,.update-desk{display:none!important}</style>\n</head>`
   );
 
 for (const tag of publicScripts) {
@@ -70,6 +83,8 @@ await cp(resolve(root, "editor/app.js"), resolve(output, "editor/app.js"));
 await cp(resolve(root, "editor/published-data.js"), resolve(output, "editor/published-data.js"));
 await cp(resolve(root, "editor/conversation-upgrade.js"), resolve(output, "editor/conversation-upgrade.js"));
 await cp(resolve(root, "editor/newsroom-upgrade.js"), resolve(output, "editor/newsroom-upgrade.js"));
+await cp(resolve(root, "assets/world-leaders-chat-logo.webp"), resolve(output, "assets/world-leaders-chat-logo.webp"));
+await cp(resolve(root, "assets/world-leaders-chat-favicon.webp"), resolve(output, "assets/world-leaders-chat-favicon.webp"));
 await cp(resolve(root, "data/published-events.json"), resolve(output, "data/published-events.json"));
 
 const published = await readJson(resolve(root, "data/published-events.json"), []);
@@ -94,4 +109,6 @@ const appSize = (await readFile(resolve(output, "editor/app.js"))).byteLength;
 const publishedDataSize = (await readFile(resolve(output, "editor/published-data.js"))).byteLength;
 const conversationSize = (await readFile(resolve(output, "editor/conversation-upgrade.js"))).byteLength;
 const editorNewsroomSize = (await readFile(resolve(output, "editor/newsroom-upgrade.js"))).byteLength;
-console.log(`Built GitHub Pages artifact in _site (${htmlSize} byte index, ${socialSize} byte social tools, ${newsroomSize} byte newsroom UI, ${disclosureSize} byte disclosure polish, ${recencySize} byte recency order, ${rollingSize} byte monthly archive, ${editorSize} byte editor, ${appSize} byte editor app, ${publishedDataSize} byte canonical published adapter, ${conversationSize} byte conversation standard, ${editorNewsroomSize} byte article presentation, ${published.length} external event(s)).`);
+const logoSize = (await readFile(resolve(output, "assets/world-leaders-chat-logo.webp"))).byteLength;
+const faviconSize = (await readFile(resolve(output, "assets/world-leaders-chat-favicon.webp"))).byteLength;
+console.log(`Built GitHub Pages artifact in _site (${htmlSize} byte index, ${socialSize} byte social tools, ${newsroomSize} byte newsroom UI, ${disclosureSize} byte disclosure polish, ${recencySize} byte recency order, ${rollingSize} byte monthly archive, ${editorSize} byte editor, ${appSize} byte editor app, ${publishedDataSize} byte canonical published adapter, ${conversationSize} byte conversation standard, ${editorNewsroomSize} byte article presentation, ${logoSize} byte logo, ${faviconSize} byte favicon, ${published.length} external event(s)).`);
