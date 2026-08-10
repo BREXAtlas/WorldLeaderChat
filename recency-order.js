@@ -42,4 +42,4 @@
     return [...originalAllEvents()].sort(compareRecency);
   };
   global.WLC_compareRecency = compareRecency;
-})();
+})(globalThis);
