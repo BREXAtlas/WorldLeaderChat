@@ -1,4 +1,4 @@
-name: Cleanup published duplicates
+name: Clean and polish published newsroom
 
 on:
   push:
@@ -6,6 +6,8 @@ on:
     paths:
       - "scripts/cleanup-published-duplicates.mjs"
       - "scripts/lib/published-dedupe.mjs"
+      - "scripts/lib/published-polish.mjs"
+      - "scripts/lib/article-dialogue.mjs"
       - ".github/workflows/cleanup-published-duplicates.yml"
   workflow_dispatch:
 
@@ -15,7 +17,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: cleanup-published-duplicates
+  group: cleanup-published-newsroom
   cancel-in-progress: false
 
 jobs:
@@ -35,7 +37,7 @@ jobs:
           node-version: 24
           package-manager-cache: false
 
-      - name: Merge repeated published coverage into canonical files
+      - name: Merge repeated coverage and replace legacy stock chats
         run: node scripts/cleanup-published-duplicates.mjs
 
       - name: Validate and test
@@ -48,12 +50,12 @@ jobs:
         run: |
           set -euo pipefail
           if git diff --quiet -- data/published-events.json data/site-meta.json; then
-            echo "No duplicate data changes to commit."
+            echo "No published newsroom data changes to commit."
           else
             git config user.name "world-leader-chat-bot"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add data/published-events.json data/site-meta.json
-            git commit -m "Merge remaining duplicate published coverage"
+            git commit -m "Polish legacy chats and merge repeated Gaza coverage"
             git push origin HEAD:main
           fi
 
