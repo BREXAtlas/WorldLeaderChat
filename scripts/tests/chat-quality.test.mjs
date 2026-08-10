@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { dialogueProblems, dialogueSimilarity, stockMemeDetected } from "../lib/chat-quality.mjs";
-import { buildDirectDialogue, closingLineFor } from "../lib/newsroom-dialogue.mjs";
+import { buildDirectDialogue, closingLineFor } from "../lib/article-dialogue.mjs";
 
 function bundle({ title, summary, source, messages, meme = "The source stayed put while the spin changed seats." }) {
   return {
@@ -61,8 +61,8 @@ test("third-person reaction summaries and consecutive speakers are rejected", ()
     summary: "Netanyahu rejected a US-backed Gaza roadmap and refused withdrawal until Hamas disarms.",
     messages
   }));
-  assert.ok(problems.some((problem) => /commentary instead of a text message/i.test(problem)));
-  assert.ok(problems.some((problem) => /twice in a row/i.test(problem)));
+  assert.ok(problems.some((problem) => /describes a reaction instead of speaking/i.test(problem)));
+  assert.ok(problems.some((problem) => /consecutive turns/i.test(problem)));
 });
 
 test("named stock meme templates are rejected", () => {
