@@ -89,6 +89,121 @@
     }
   },
   {
+    "id": "2026-08-09-netanyahu-rejects-trump-s-gaza-peace-plan-demands-hamas-disarm-f",
+    "eventDate": "2026-08-09",
+    "year": 2026,
+    "date": "August 9, 2026",
+    "title": "THE 15-POINT GAZA PLAN GETS A 16TH POINT: EVERYONE HAS NOTES",
+    "kicker": "A U.S. Gaza proposal meets Israeli resistance, so the fictional leaders’ chat becomes a negotiation over what the word “plan” was supposed to mean.",
+    "category": "Diplomacy",
+    "summary": "Netanyahu's comments come just over a week after President Trump said his Board of Peace had reached a \"historic\" agreement with Hamas to give up its weapons.",
+    "article": {
+      "headline": "Days After Trump Touts 'Historic' Hamas Disarmament Deal, Netanyahu Says It's Not Enough",
+      "dek": "The Israeli Prime Minister demands Hamas lay down weapons before any ceasefire—a position that may upend the administration's carefully framed diplomatic victory.",
+      "body": [
+        "When President Trump's Board of Peace announced last week that it had struck a 'historic' agreement with Hamas to surrender its weapons, the headline seemed to suggest a breakthrough in a conflict that has defined Middle Eastern politics for decades. But Israeli Prime Minister Benjamin Netanyahu had a different read on the same piece of paper: not nearly good enough. In a sharp pivot from Washington's optimism, Netanyahu declared that Hamas must disarm first—before any agreement takes hold—a condition that inverts the sequence his American counterpart's team had apparently negotiated.",
+        "The timing is delicate. Trump's aides had framed the weapons agreement as a crown jewel of his Board of Peace initiative, evidence that diplomacy and Trump-style deal-making could crack the region's most intractable conflict. Yet Netanyahu's public rejection, coming just over a week after that announcement, underscores how fragile such agreements can be when the parties sitting at the table—or not at it—have fundamentally different definitions of victory. For Netanyahu, a Hamas that maintains any capability to fight is a Hamas that hasn't truly surrendered.",
+        "The gap between Washington's narrative and Jerusalem's demands now sets the stage for the next round of negotiations. Trump's Board of Peace will have to decide whether to reformulate the deal, pressure Israel to accept the Hamas agreement as negotiated, or try to square the circle by extracting more concessions from a militant organization that has already, according to the Trump administration, agreed to the core point: disarmament. What seemed like momentum has become a test of who really drives Middle East policy—and whether 'historic' agreements can survive their first real disagreement."
+      ],
+      "sourceCredit": "Based on original reporting from NPR"
+    },
+    "sources": [
+      {
+        "label": "Netanyahu rejects Trump's Gaza Peace Plan, demands Hamas disarm first",
+        "url": "https://www.npr.org/2026/08/09/nx-s1-5926459/netanyahu-rejects-trump-gaza-peace-plan-israel-hamas",
+        "publisher": "NPR"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "New thread: Gaza plan. Facts are sourced; private replies below are fictional satire.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "Fifteen points. Very complete. People love numbered plans because you can tell they have points.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Netanyahu",
+        "text": "I read all fifteen. I have notes. The first note is no withdrawal before disarmament.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Macron",
+        "text": "A plan is not yet an agreement. Europe has several binders proving this.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Meloni",
+        "text": "Can we get one geopolitical document where “final” survives contact with the participants?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Xi",
+        "text": "China notes that numbered plans have a tendency to acquire additional points after publication.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "Okay, but if point sixteen is just ‘no,’ I want credit for getting us to sixteen points.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Netanyahu",
+        "text": "You may have the numbering. I am keeping the conditions.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Macron",
+        "text": "This is not what diplomats mean when they ask the parties to narrow their differences.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Meloni",
+        "text": "At this rate the appendix will need its own ceasefire.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "We can rename it the seventeen-point plan. Seventeen is a very successful number.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Xi",
+        "text": "China recommends agreeing on the document before increasing the page count.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "UN Admin renamed the file: 15-POINT-PLAN_v7_FINAL_FINAL.pdf",
+    "quote": null,
+    "tone": "sober",
+    "publishedAt": "2026-08-10T03:25:42.392Z",
+    "editorial": {
+      "issueNumber": 64,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/64",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-10T03:25:42.392Z",
+      "fingerprint": "f1cb5e9aaa88ce1f6e813ab0a785604eaeb1d7e87d93c0b6343b31b34005b569",
+      "sourcePublishedAt": "2026-08-09T18:21:45.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.",
+      "reviewNotes": "S-M-A-R: source locked; satire targets leaders and institutions only; sober handling recommended; no jokes at victims’ expense."
+    }
+  },
+  {
     "id": "2026-08-09-why-is-pezeshkian-urging-an-end-to-iran-s-no-war-no-peace-status",
     "eventDate": "2026-08-09",
     "year": 2026,
