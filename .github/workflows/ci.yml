@@ -35,6 +35,7 @@ jobs:
           node --check recency-order.js
           node --check rolling-archive.js
           node --check editor/app.js
+          node --check editor/published-data.js
           node --check editor/conversation-upgrade.js
           node --check editor/newsroom-upgrade.js
           node --check scripts/draft-editorial-issues.mjs
@@ -46,6 +47,7 @@ jobs:
           node --check scripts/lib/newsroom-dialogue.mjs
           node --check scripts/lib/article-dialogue.mjs
           node --check scripts/lib/published-dedupe.mjs
+          node --check scripts/lib/published-polish.mjs
           node --check scripts/lib/validation.mjs
           node --check scripts/ingest-news.mjs
 
