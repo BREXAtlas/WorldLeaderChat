@@ -266,5 +266,18 @@
       "https://www.reuters.com/science/piece-spacex-rocket-will-crash-into-moon-wednesday-2026-08-04/",
       "https://www.skyatnightmagazine.com/news/space-x-falcon-9-upper-stage-moon-impact-august-2026"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-07-openai-flags-possible-critical-cybersecurity-risk-in-upcoming-mo",
+    "issueNumber": 46,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/46",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-10T03:50:53.469Z",
+    "fingerprint": "cfb11181d792f66ec60eb96325ba2ae929cb4fc773069ea66eb207ea379d5c37",
+    "sourceUrls": [
+      "https://www.reuters.com/legal/litigation/openai-flags-possible-critical-cybersecurity-risk-upcoming-model-tightens-2026-08-07/",
+      "https://www.theguardian.com/technology/2026/aug/08/openai-astra-security-concerns"
+    ]
   }
 ]
