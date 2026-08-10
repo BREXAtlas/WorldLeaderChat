@@ -202,5 +202,17 @@
     "sourceUrls": [
       "https://www.theguardian.com/commentisfree/2026/aug/08/president-xi-jinping-global-order-minorities-china"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-07-one-of-science-fiction-s-greatest-writers-warned-us-about-a-ai-d",
+    "issueNumber": 51,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/51",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-10T03:44:55.549Z",
+    "fingerprint": "82f1b699852183c3ca9d69cbd1c46647d33440e76564a79d172d1763917076b3",
+    "sourceUrls": [
+      "https://www.theguardian.com/technology/commentisfree/2026/aug/07/science-fiction-warned-us-about-an-ai-powered-dystopian-future-does-it-also-hold-the-remedy"
+    ]
   }
 ]

@@ -949,6 +949,116 @@
     }
   },
   {
+    "id": "2026-08-07-one-of-science-fiction-s-greatest-writers-warned-us-about-a-ai-d",
+    "eventDate": "2026-08-07",
+    "year": 2026,
+    "date": "August 7, 2026",
+    "title": "THE ROCKET LEAVES EARTH; THE BILLIONAIRES IMMEDIATELY ARGUE ABOUT WHO LEFT BETTER",
+    "kicker": "The launch or discovery is the news. The comic subtext is that national prestige, private capital and billionaire rivalry rarely stay in separate group chats for long.",
+    "category": "War & Security",
+    "summary": "What might a modern day equivalent of Isaac Asimov’s laws of robotics look like? Guided by the author, I propose the three laws of AI Tesla and SpaceX founder Elon Musk predicted in July that legions of AI-powered robots would dominate the physical world and that AI might not take orders from people any more. He also offered an alternative vision in which there would be agreement for a collective objective to make AI benign by imbuing it with a love of the truth and a desire for humanity to prosper, and that governments might have to enforce this objective. Governments around the world are belatedly starting to act on AI. In the US, President Trump’s administration is delaying and restricting the distribution of the most powerful frontier AI models from OpenAI and Anthropic. In the European Union, AI regulations promulgated in 2024 came into effect this year . However, these actions are a long way short of requiring the kind of guardrails that would imbue AIs with a desire for humanity",
+    "article": {
+      "headline": "THE ROCKET LEAVES EARTH; THE BILLIONAIRES IMMEDIATELY ARGUE ABOUT WHO LEFT BETTER",
+      "dek": "The launch or discovery is the news. The comic subtext is that national prestige, private capital and billionaire rivalry rarely stay in separate group chats for long.",
+      "body": [
+        "What might a modern day equivalent of Isaac Asimov’s laws of robotics look like? Guided by the author, I propose the three laws of AI Tesla and SpaceX founder Elon Musk predicted in July that legions of AI-powered robots would dominate the physical world and that AI might not take orders from people any more. He also offered an alternative vision in which there would be agreement for a collective objective to make AI benign by imbuing it with a love of the truth and a desire for humanity to prosper, and that governments might have to enforce this objective. Governments around the world are belatedly starting to act on AI. In the US, President Trump’s administration is delaying and restricting the distribution of the most powerful frontier AI models from OpenAI and Anthropic. In the European Union, AI regulations promulgated in 2024 came into effect this year . However, these actions are a long way short of requiring the kind of guardrails that would imbue AIs with a desire for humanity",
+        "The straight reading is the one in the original reporting: what might a modern day equivalent of Isaac Asimov’s laws of robotics look like? Guided by the author, I propose the three laws of AI Tesla and SpaceX founder Elon Musk predicted in July that legions of AI-powered robots would dominate the physical world and that AI might not take orders from people any more. He also offered an alternative vision in which there would be agreement for a collective objective to make AI benign by imbuing it with a love of the truth and a desire for humanity to prosper, and that governments might have to enforce this objective. Governments around the world are belatedly starting to act on AI. In the US, President Trump’s administration is delaying and restricting the distribution of the most powerful frontier AI models from OpenAI and Anthropic. In the European Union, AI regulations promulgated in 2024 came into effect this year . However, these actions are a long way short of requiring the kind of guardrails that would imbue AIs with a desire for humanity The sharper reading is not a different event; it is the same event with the public choreography left visible.",
+        "The launch or discovery is the news. The comic subtext is that national prestige, private capital and billionaire rivalry rarely stay in separate group chats for long.",
+        "That is where the group chat enters. Its messages are imagined, but the pressure points are not: public positions, familiar rivalries and the gap between what leaders announce and what everyone suspects the room sounded like."
+      ],
+      "sourceCredit": "Based on and credited to original reporting from The Guardian. Follow the source links for the full reporting."
+    },
+    "sources": [
+      {
+        "label": "One of science fiction’s greatest writers warned us about a AI. Does he also hold the remedy? | Alan Finkel",
+        "url": "https://www.theguardian.com/technology/commentisfree/2026/aug/07/science-fiction-warned-us-about-an-ai-powered-dystopian-future-does-it-also-hold-the-remedy",
+        "publisher": "The Guardian"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "New thread: launch successful. National prestige and billionaire pride are already exceeding payload limits.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Elon Musk",
+        "text": "The rocket landed. Reusability remains undefeated.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Jeff Bezos",
+        "text": "Congratulations. We will compare payload, altitude and adjectives after the data are public.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "American rockets. Beautiful rockets. Ours leave better than anybody’s.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Xi",
+        "text": "Space does not recognize campaign branding, although launch coverage apparently does.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Elon Musk",
+        "text": "The physics are neutral. The memes are not.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Bezos",
+        "text": "I have added humility to our next manifest. It has no listed mass.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "NASA",
+        "text": "Mission data are available. The subtweets are not part of the science package.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "NASA should post more. Great missions, very under-posted.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Musk",
+        "text": "Finally, a federal performance metric I understand.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UN Admin",
+        "text": "The comparison thread achieved orbit despite repeated attempts to decommission it.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "UN Admin muted the billionaire comparison thread. It achieved orbit anyway.",
+    "quote": null,
+    "tone": "sober",
+    "publishedAt": "2026-08-10T03:44:55.549Z",
+    "editorial": {
+      "issueNumber": 51,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/51",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-10T03:44:55.549Z",
+      "fingerprint": "82f1b699852183c3ca9d69cbd1c46647d33440e76564a79d172d1763917076b3",
+      "sourcePublishedAt": "2026-08-07T04:00:08.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.",
+      "reviewNotes": "S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages explicitly fictional."
+    }
+  },
+  {
     "id": "2026-08-07-the-white-house-s-plan-to-vet-potentially-dangerous-ai-is-cloake",
     "eventDate": "2026-08-07",
     "year": 2026,
