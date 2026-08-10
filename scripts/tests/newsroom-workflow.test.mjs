@@ -58,13 +58,17 @@ test("future publication requires article-to-source and chat-quality verificatio
   assert.match(publish, /existingBundles: published\.map/);
 });
 
-test("regenerate action runs the server drafting engine for one issue", async () => {
+test("Rewrite Chat preserves the article and replaces only dialogue", async () => {
   const workflow = await read(".github/workflows/editorial-regenerate.yml");
+  const rewrite = await read("scripts/rewrite-chat-only.mjs");
   assert.match(workflow, /github\.event\.label\.name == 'regenerate-requested'/);
   assert.match(workflow, /WLC_TARGET_ISSUE/);
-  assert.match(workflow, /WLC_FORCE_REWRITE: "1"/);
-  assert.match(workflow, /draft-editorial-issues\.mjs/);
-  assert.match(workflow, /refine-editorial-dialogue\.mjs/);
+  assert.match(workflow, /rewrite-chat-only\.mjs/);
+  assert.doesNotMatch(workflow, /copilot-requests|WLC_FORCE_REWRITE|draft-editorial-issues\.mjs/);
+  assert.match(rewrite, /const originalArticle = structuredClone/);
+  assert.match(rewrite, /bundle\.event\.article = originalArticle/);
+  assert.match(rewrite, /bundle\.event\.messages = buildDirectDialogue/);
+  assert.match(rewrite, /article and sources were preserved/);
 });
 
 test("failed publication unlocks the issue and successful publication clears active queue labels", async () => {
