@@ -94,5 +94,17 @@
       "2026-08-09-israel-rejects-trump-s-15-point-plan-for-gaza-netanyahu-says",
       "2026-08-09-middle-east-crisis-live-netanyahu-rejects-us-s-gaza-plan-and-vow"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-07-trump-imposes-15-tariff-on-key-chip-material-to-counter-china",
+    "issueNumber": 66,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/66",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-10T03:18:39.596Z",
+    "fingerprint": "2bf131e4d935336f1ff74d0c645e478b73b874359b5acad7af72e3cc7d9731c3",
+    "sourceUrls": [
+      "https://www.bbc.co.uk/news/articles/cdrvn686dljo?at_medium=RSS&at_campaign=rss"
+    ]
   }
 ]

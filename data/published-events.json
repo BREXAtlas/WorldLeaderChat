@@ -389,5 +389,121 @@
       "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.",
       "reviewNotes": "S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages labeled as satire."
     }
+  },
+  {
+    "id": "2026-08-07-trump-imposes-15-tariff-on-key-chip-material-to-counter-china",
+    "eventDate": "2026-08-07",
+    "year": 2026,
+    "date": "August 7, 2026",
+    "title": "AMERICA CLOSES CONSULATES; CHINA REPLIES “THANKS FOR THE OPEN DESK SPACE”",
+    "kicker": "Diplomatic cost-cutting becomes a fictional real-estate argument over who occupies the influence left behind.",
+    "category": "Trade & Economy",
+    "summary": "The move aims to protect US firms as they face increasing competition from China's chip industry.",
+    "article": {
+      "headline": "AMERICA CLOSES CONSULATES; CHINA REPLIES “THANKS FOR THE OPEN DESK SPACE”",
+      "dek": "The technology is real and consequential. The comedy is watching founders, regulators and governments all claim they are the responsible adult in the room.",
+      "body": [
+        "The move aims to protect US firms as they face increasing competition from China's chip industry.",
+        "The original reporting points to one factual conclusion. This version keeps that conclusion intact and leaves the public choreography visible: who is claiming credit, who is objecting and which part of the official language is doing the most work.",
+        "The technology is real and consequential. The comedy is watching founders, regulators and governments all claim they are the responsible adult in the room.",
+        "The conversation below is the imagined off-mic layer. It exaggerates recognizable reactions and rivalries, but it does not change the event, outcome or source record."
+      ],
+      "sourceCredit": "Based on original reporting from BBC News. Open the source links for the full reporting."
+    },
+    "sources": [
+      {
+        "label": "Trump imposes 15% tariff on key chip material to counter China",
+        "url": "https://www.bbc.co.uk/news/articles/cdrvn686dljo?at_medium=RSS&at_campaign=rss",
+        "publisher": "BBC News"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "Diplomatic footprint changes detected. Please stop calling embassies retail locations.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "We are cutting waste. Very efficient.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Xi",
+        "text": "Efficiency is admirable. We will efficiently schedule some meetings nearby.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Macron",
+        "text": "Influence has a curious habit of occupying vacant offices.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Meloni",
+        "text": "You cannot cancel diplomacy like a streaming subscription and act surprised when the plot continues.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Milei",
+        "text": "Have you considered replacing every consulate with a chainsaw emoji? Asking academically.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "Nobody is giving China our desks. We are simply not using the desks.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Xi",
+        "text": "That distinction is extremely convenient for the person interested in the desks.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Macron",
+        "text": "Diplomatic influence is not furniture, although apparently we are testing the theory.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Meloni",
+        "text": "Please tell me nobody put ‘soft power’ on Facebook Marketplace.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "If we did, we would get a fantastic price.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Xi",
+        "text": "China has saved the listing.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "Xi reacted 🏢 to “five locations now available.”",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-10T03:18:39.596Z",
+    "editorial": {
+      "issueNumber": 66,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/66",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-10T03:18:39.596Z",
+      "fingerprint": "2bf131e4d935336f1ff74d0c645e478b73b874359b5acad7af72e3cc7d9731c3",
+      "sourcePublishedAt": "2026-08-07T01:03:35.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.",
+      "reviewNotes": "S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages explicitly fictional."
+    }
   }
 ]
