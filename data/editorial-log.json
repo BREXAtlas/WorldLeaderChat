@@ -292,5 +292,19 @@
       "https://www.reuters.com/world/some-us-progressive-goals-win-support-independent-voters-reutersipsos-poll-finds-2026-08-07/",
       "https://www.reuters.com/world/us/democrats-lead-republicans-economy-trump-approval-falls-reutersipsos-poll-finds-2026-08-03/"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-09-costa-rican-diplomat-emerges-as-strong-contender-to-be-first-fem",
+    "issueNumber": 44,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/44",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-10T03:52:21.191Z",
+    "fingerprint": "64dbec2abfef8ea457966919e736997a7bf3c29fce7448667958b17b83619adc",
+    "sourceUrls": [
+      "https://www.theguardian.com/world/2026/aug/09/costa-rican-diplomat-rebeca-grynspan-contender-first-female-head-of-un",
+      "https://www.reuters.com/world/americas/denmark-targets-august-21-second-security-council-un-chief-poll-2026-08-03/",
+      "https://www.un.org/en/sg-selection-and-appointment"
+    ]
   }
 ]
