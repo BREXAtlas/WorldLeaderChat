@@ -190,5 +190,17 @@
     "sourceUrls": [
       "https://www.theguardian.com/us-news/2026/aug/09/taylor-swift-songs-removed-trump-white-house-posts"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-08-president-xi-never-wastes-a-good-crisis-as-iran-ukraine-and-pale",
+    "issueNumber": 52,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/52",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-10T03:43:10.159Z",
+    "fingerprint": "f1cf6ef544cd2eca5cc6306deda931d2669317bd8fce2fe33eaa26894cf1c451",
+    "sourceUrls": [
+      "https://www.theguardian.com/commentisfree/2026/aug/08/president-xi-jinping-global-order-minorities-china"
+    ]
   }
 ]
