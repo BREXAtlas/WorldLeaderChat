@@ -13,18 +13,30 @@ test("public site ships article, full-chat and social-copy controls", async () =
   assert.match(social, /THE SHORT REPORT/);
 });
 
-test("editor upgrades generated conversations to longer back-and-forth drafts", async () => {
+test("editor does not append generic stock conversations in the browser", async () => {
   const upgrade = await read("editor/conversation-upgrade.js");
   assert.match(upgrade, /targetMessageCount: "10-14"/);
-  assert.match(upgrade, /back-and-forth/);
-  assert.match(upgrade, /result\.event\.messages = \[\.\.\.result\.event\.messages, \.\.\.additions\]/);
+  assert.match(upgrade, /article-specific direct back-and-forth/);
+  assert.match(upgrade, /browserGeneratedDialogue: false/);
+  assert.doesNotMatch(upgrade, /result\.event\.messages = \[\.\.\.result\.event\.messages/);
+  assert.doesNotMatch(upgrade, /strongest message|record has asked not to be involved/i);
 });
 
-test("newsroom editor requires a sourced article before future approval", async () => {
+test("newsroom editor presents saved articles without synthesizing dialogue", async () => {
   const newsroomEditor = await read("editor/newsroom-upgrade.js");
-  assert.match(newsroomEditor, /articleMatchesSources/);
-  assert.match(newsroomEditor, /truth-first-sarcastic-news/);
+  assert.match(newsroomEditor, /never manufactures or rewrites dialogue/i);
   assert.match(newsroomEditor, /SHORT ARTICLE PREVIEW/);
+  assert.doesNotMatch(newsroomEditor, /fallbackSuggestion\s*=/);
+});
+
+test("editor blocks recycled stock lines and named meme templates", async () => {
+  const editor = await read("editor/app.js");
+  assert.match(editor, /strongest interpretation/);
+  assert.match(editor, /I have thoughts/i);
+  assert.match(editor, /STOCK_MEME/);
+  assert.match(editor, /Rewrite Chat/);
+  assert.match(editor, /regenerate-requested/);
+  assert.doesNotMatch(editor, /function fallbackSuggestion/);
 });
 
 test("public newsroom keeps three-column current coverage and older-year dropdowns", async () => {
