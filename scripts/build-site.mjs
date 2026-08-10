@@ -67,6 +67,7 @@ await cp(resolve(root, "recency-order.js"), resolve(output, "recency-order.js"))
 await cp(resolve(root, "rolling-archive.js"), resolve(output, "rolling-archive.js"));
 await cp(resolve(root, "editor/index.html"), resolve(output, "editor/index.html"));
 await cp(resolve(root, "editor/app.js"), resolve(output, "editor/app.js"));
+await cp(resolve(root, "editor/published-data.js"), resolve(output, "editor/published-data.js"));
 await cp(resolve(root, "editor/conversation-upgrade.js"), resolve(output, "editor/conversation-upgrade.js"));
 await cp(resolve(root, "editor/newsroom-upgrade.js"), resolve(output, "editor/newsroom-upgrade.js"));
 await cp(resolve(root, "data/published-events.json"), resolve(output, "data/published-events.json"));
@@ -90,6 +91,7 @@ const recencySize = (await readFile(resolve(output, "recency-order.js"))).byteLe
 const rollingSize = (await readFile(resolve(output, "rolling-archive.js"))).byteLength;
 const editorSize = (await readFile(resolve(output, "editor/index.html"))).byteLength;
 const appSize = (await readFile(resolve(output, "editor/app.js"))).byteLength;
+const publishedDataSize = (await readFile(resolve(output, "editor/published-data.js"))).byteLength;
 const conversationSize = (await readFile(resolve(output, "editor/conversation-upgrade.js"))).byteLength;
 const editorNewsroomSize = (await readFile(resolve(output, "editor/newsroom-upgrade.js"))).byteLength;
-console.log(`Built GitHub Pages artifact in _site (${htmlSize} byte index, ${socialSize} byte social tools, ${newsroomSize} byte newsroom UI, ${disclosureSize} byte disclosure polish, ${recencySize} byte recency order, ${rollingSize} byte monthly archive, ${editorSize} byte editor, ${appSize} byte editor app, ${conversationSize} byte conversation standard, ${editorNewsroomSize} byte article presentation, ${published.length} external event(s)).`);
+console.log(`Built GitHub Pages artifact in _site (${htmlSize} byte index, ${socialSize} byte social tools, ${newsroomSize} byte newsroom UI, ${disclosureSize} byte disclosure polish, ${recencySize} byte recency order, ${rollingSize} byte monthly archive, ${editorSize} byte editor, ${appSize} byte editor app, ${publishedDataSize} byte canonical published adapter, ${conversationSize} byte conversation standard, ${editorNewsroomSize} byte article presentation, ${published.length} external event(s)).`);
