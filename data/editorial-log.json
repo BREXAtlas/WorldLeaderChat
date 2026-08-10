@@ -166,5 +166,17 @@
     "sourceUrls": [
       "https://www.theguardian.com/world/2026/aug/03/iran-in-talks-with-oman-over-shipping-route-but-not-us-says-tehran"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-05-judge-signals-trump-s-defamation-lawsuit-against-wall-street-jou",
+    "issueNumber": 54,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/54",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-10T03:40:04.316Z",
+    "fingerprint": "63b49344da79b1b9d48ad1dd2ef63397f06035393bbd675677c89baff3bc5255",
+    "sourceUrls": [
+      "https://www.theguardian.com/media/2026/aug/05/trump-defamation-lawsuit-murdoch-dismissal"
+    ]
   }
 ]
