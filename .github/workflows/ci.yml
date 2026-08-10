@@ -40,6 +40,7 @@ jobs:
           node --check scripts/draft-editorial-issues.mjs
           node --check scripts/draft-editorial-issues-v2.mjs
           node --check scripts/refine-editorial-dialogue.mjs
+          node --check scripts/rewrite-chat-only.mjs
           node --check scripts/cleanup-published-duplicates.mjs
           node --check scripts/lib/chat-quality.mjs
           node --check scripts/lib/newsroom-dialogue.mjs
