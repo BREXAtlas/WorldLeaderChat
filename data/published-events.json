@@ -230,121 +230,6 @@
     }
   },
   {
-    "id": "2026-08-10-netanyahu-rejects-us-backed-15-point-gaza-peace-plan-first-thing",
-    "eventDate": "2026-08-10",
-    "year": 2026,
-    "date": "August 10, 2026",
-    "title": "Netanyahu Breaks with Trump—Again",
-    "kicker": "War & Security",
-    "category": "War & Security",
-    "summary": "Israeli PM is insisting on a full Hamas disarmament before the deal can be implemented. Plus, what it feels like to get locked into an opera performance that lasts nearly 24 hours Don’t already get First Thing in your inbox? Sign up here Good morning. Benjamin Netanyahu has rejected a US-backed 15-point peace plan for Gaza in a rare public break with Donald Trump. In a statement, Israel’s prime minister said he was confronting a “wave of rumours about Israeli weakness and Israeli withdrawals on all fronts” and rebuked US pressure to end wars in Gaza, Lebanon and Iran without Israel’s buy-in. What other developments have happened in the region? Iran has issued tough new demands for reopening the strait of Hormuz , while the United Arab Emirates said one of its ships was targeted by an Iranian missile over the weekend. Tehran said the strait of Hormuz would not open until the US “corrects its behaviour”. Yemen’s Tehran-aligned Houthis have claimed responsibility for an attack on a refine",
-    "article": {
-      "headline": "Netanyahu Vetoes Trump's Peace Plan: 'Full Hamas Disarmament or Nothing'",
-      "dek": "In a rare public clash with his US ally, Israel's PM rejected a 15-point US-backed Gaza proposal, signaling a deeper rift over the region's wars.",
-      "body": [
-        "Benjamin Netanyahu has done something he rarely does: openly contradicted Donald Trump. On August 10, 2026, Israel's prime minister rejected a US-backed 15-point peace plan for Gaza, marking a sharp, public break with Washington over the terms of regional conflict. In a statement, Netanyahu pushed back against what he framed as pressure to withdraw from wars in Gaza, Lebanon, and Iran—insisting instead on one non-negotiable condition: full Hamas disarmament before any deal proceeds.",
-        "The rejection centers on Netanyahu's demand for complete Israeli oversight of any settlement. The PM characterized the moment as a confrontation with 'rumours about Israeli weakness and Israeli withdrawals on all fronts,' suggesting that accepting the US framework would signal capitulation to his domestic critics. This public rebuke of a sitting US administration underscores the fracture between two allies on how to resolve a conflict now entering its third year.",
-        "Meanwhile, the regional temperature keeps climbing. Iran has issued fresh demands for reopening the Strait of Hormuz, conditioning the passage on US policy shifts—a move that carries obvious leverage over global oil markets. The UAE reported that an Iranian missile struck one of its vessels over the weekend, part of an escalating pattern of tanker and infrastructure strikes. Yemen's Houthi forces, Tehran-aligned and increasingly active, have claimed responsibility for attacks on regional refineries, tightening the security noose around international shipping.",
-        "Netanyahu's hardline stance suggests that any ceasefire—whether brokered by Washington, regional powers, or international mediators—will require Israeli buy-in on terms that appear to exceed what the current US proposal allows. The collision between Netanyahu's maximalist demands and Trump's stated desire for rapid deals leaves the region in a state of armed stalemate, with smaller players like the Houthis and Iran testing the limits of each side's tolerance for escalation."
-      ],
-      "sourceCredit": "Based on original reporting from The Guardian"
-    },
-    "sources": [
-      {
-        "label": "Netanyahu rejects US-backed 15-point Gaza peace plan | First Thing",
-        "url": "https://www.theguardian.com/us-news/2026/aug/10/first-thing-netanyahu-rejects-us-backed-gaza-peace-plan",
-        "publisher": "The Guardian"
-      },
-      {
-        "label": "Netanyahu rejects US-led 15-point Gaza peace plan in rare public break with Trump",
-        "url": "https://www.theguardian.com/world/2026/aug/09/israel-rejects-us-led-15-point-gaza-peace-plan-says-netanyahu",
-        "publisher": "The Guardian"
-      }
-    ],
-    "messages": [
-      {
-        "speaker": "UN Admin",
-        "text": "New thread: refinery attack claim. Keep the jokes aimed at strategy, not civilians.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
-        "speaker": "Saudi Arabia",
-        "text": "A defense pact was supposed to reduce surprises, not schedule the next one for Sunday morning.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Houthis",
-        "text": "Consider this our objection to the regional seating chart.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Iran",
-        "text": "Everyone is very eager to assign us administrative privileges we did not request in writing.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Trump",
-        "text": "If Iran is aligned with them, Iran can unalign them. Very simple. Great word: unalign.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Saudi Arabia",
-        "text": "Regional security has not traditionally responded to vocabulary inventions.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Iran",
-        "text": "Neither has diplomacy responded well to threats written entirely in capital letters.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Meloni",
-        "text": "The refinery is burning and somehow the argument has already become a branding workshop.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Xi",
-        "text": "Energy markets prefer fewer messages beginning with ‘we claim responsibility.’",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Trump",
-        "text": "Markets also prefer strength. Nobody has stronger market preferences.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "UN Admin",
-        "text": "Oil prices joined the chat and immediately turned off read receipts.",
-        "kind": "system",
-        "reaction": ""
-      }
-    ],
-    "meme": "Split-screen: Left side, Trump holding up a 15-page document labeled 'Peace Plan' with a thumbs-up emoji. Right side, Netanyahu holding the same document torn in half. Caption: 'One Man's Deal Is Another Man's Weakness.'",
-    "quote": null,
-    "tone": "comic",
-    "publishedAt": "2026-08-10T16:41:23.883Z",
-    "editorial": {
-      "issueNumber": 73,
-      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/73",
-      "approvedBy": "BREXAtlas",
-      "approvedAt": "2026-08-10T16:41:23.883Z",
-      "fingerprint": "a384119e146e656830dcb72627a5edccdff1483add80e7a739a3f845e01d2fc8",
-      "sourcePublishedAt": "2026-08-10T10:19:26.000Z",
-      "singleSourceException": "",
-      "reviewNotes": "S-M-A-R: source locked; satire targets leaders and institutions only; sober handling recommended; no jokes at victims’ expense."
-    }
-  },
-  {
     "id": "2026-08-10-shoved-the-tube-so-hard-it-tore-my-nose-kurdish-film-maker-recou",
     "eventDate": "2026-08-10",
     "year": 2026,
@@ -699,6 +584,26 @@
         "label": "Middle East crisis live: Netanyahu rejects US’s Gaza plan and vows no withdrawal until Hamas disarms",
         "url": "https://www.theguardian.com/world/live/2026/aug/09/iran-us-irgc-strait-of-hormuz-israel-netanyahu-trump-gaza-plan-latest-news-updates",
         "publisher": "The Guardian"
+      },
+      {
+        "label": "Netanyahu rejects US-backed 15-point Gaza peace plan | First Thing",
+        "url": "https://www.theguardian.com/us-news/2026/aug/10/first-thing-netanyahu-rejects-us-backed-gaza-peace-plan",
+        "publisher": "The Guardian"
+      },
+      {
+        "label": "Netanyahu rejects US-led 15-point Gaza peace plan in rare public break with Trump",
+        "url": "https://www.theguardian.com/world/2026/aug/09/israel-rejects-us-led-15-point-gaza-peace-plan-says-netanyahu",
+        "publisher": "The Guardian"
+      },
+      {
+        "label": "Netanyahu rejects Trump-backed Gaza peace plan",
+        "url": "https://www.dw.com/en/netanyahu-rejects-trump-backed-gaza-peace-plan/a-78298282?maca=en-rss-en-top-1022-rdf",
+        "publisher": "DW"
+      },
+      {
+        "label": "Netanyahu rejects Trump's Gaza Peace Plan, demands Hamas disarm first",
+        "url": "https://www.npr.org/2026/08/09/nx-s1-5926459/netanyahu-rejects-trump-gaza-peace-plan-israel-hamas",
+        "publisher": "NPR"
       }
     ],
     "messages": [
@@ -751,247 +656,23 @@
       "fingerprint": "047f4a3745274231fd8257195ad48982e7b9be1fa142fba0f3c442e222b6a9cc",
       "sourcePublishedAt": "2026-08-09T11:31:18.000Z",
       "singleSourceException": "",
-      "reviewNotes": "Merged three reports covering the same Gaza-plan rejection into one event. S-M-A-R review keeps the satire focused on leaders and negotiation dynamics, not civilians.",
+      "reviewNotes": "Merged three reports covering the same Gaza-plan rejection into one event. S-M-A-R review keeps the satire focused on leaders and negotiation dynamics, not civilians. S-M-A-R: source locked; satire targets leaders and institutions only; sober handling recommended; no jokes at victims’ expense. Merged DW, NPR and later Guardian follow-up coverage of the same Gaza-plan rejection into the canonical multi-source file.",
       "mergedIssueNumbers": [
         19,
         21,
-        22
+        22,
+        63,
+        64,
+        73
       ],
       "mergedEventIds": [
         "2026-08-09-israel-rejects-trump-s-15-point-plan-for-gaza",
         "2026-08-09-israel-rejects-trump-s-15-point-plan-for-gaza-netanyahu-says",
-        "2026-08-09-middle-east-crisis-live-netanyahu-rejects-us-s-gaza-plan-and-vow"
+        "2026-08-09-middle-east-crisis-live-netanyahu-rejects-us-s-gaza-plan-and-vow",
+        "2026-08-09-netanyahu-rejects-trump-backed-gaza-peace-plan",
+        "2026-08-09-netanyahu-rejects-trump-s-gaza-peace-plan-demands-hamas-disarm-f",
+        "2026-08-10-netanyahu-rejects-us-backed-15-point-gaza-peace-plan-first-thing"
       ]
-    }
-  },
-  {
-    "id": "2026-08-09-netanyahu-rejects-trump-backed-gaza-peace-plan",
-    "eventDate": "2026-08-09",
-    "year": 2026,
-    "date": "August 9, 2026",
-    "title": "THE 15-POINT GAZA PLAN GETS A 16TH POINT: EVERYONE HAS NOTES",
-    "kicker": "A U.S. Gaza proposal meets Israeli resistance, so the fictional leaders’ chat becomes a negotiation over what the word “plan” was supposed to mean.",
-    "category": "World News",
-    "summary": "The Israeli prime minister says his country will not withdraw from Gaza until Hamas fully disarms, putting him at odds with a US-backed roadmap endorsed by the group.",
-    "article": {
-      "headline": "Netanyahu Blocks Trump-Backed Gaza Deal: 'No Withdrawal Until Hamas Disarms'",
-      "dek": "The Israeli prime minister torpedoes a US-endorsed roadmap by insisting on a precondition Hamas never accepted—a hard-line pivot that tests Washington's commitment to its own diplomatic framework.",
-      "body": [
-        "Israeli Prime Minister Benjamin Netanyahu declared on August 9 that his country will not leave Gaza until Hamas surrenders its weapons entirely—a demand that fundamentally contradicts the Trump-backed roadmap the militant group has already endorsed. The move signals a widening split between Netanyahu's maximalist conditions and the diplomatic framework the United States has championed, potentially undercutting Washington's credibility as mediator and creating a new wall in already fractured negotiations.",
-        "The roadmap itself does not require complete Hamas disarmament before Israeli withdrawal. By inserting that precondition, Netanyahu has redrawn the terms of the deal on the ground, effectively rejecting the path the U.S. administration advertised to regional allies and domestic audiences. The timing intensifies pressure on the White House to either negotiate new terms or acknowledge that its peace plan faces fundamental structural opposition from its supposed Israeli anchor.",
-        "This stand-off encapsulates a recurring pattern in Gaza negotiations: the gap between conditions endorsed in principle and conditions demanded in fact. Hamas has accepted the roadmap; Netanyahu has conditionally rejected it. The next move belongs to Washington—whether to leverage its influence in Tel Aviv, revise expectations, or allow the mediation effort to stall while all parties maintain public positions that preempt compromise."
-      ],
-      "sourceCredit": "Based on original reporting from Deutsche Welle (DW)"
-    },
-    "sources": [
-      {
-        "label": "Netanyahu rejects Trump-backed Gaza peace plan",
-        "url": "https://www.dw.com/en/netanyahu-rejects-trump-backed-gaza-peace-plan/a-78298282?maca=en-rss-en-top-1022-rdf",
-        "publisher": "DW"
-      }
-    ],
-    "messages": [
-      {
-        "speaker": "UN Admin",
-        "text": "New thread: Gaza plan. Facts are sourced; private replies below are fictional satire.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
-        "speaker": "Trump",
-        "text": "Fifteen points. Very complete. People love numbered plans because you can tell they have points.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Netanyahu",
-        "text": "I read all fifteen. I have notes. The first note is no withdrawal before disarmament.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Macron",
-        "text": "A plan is not yet an agreement. Europe has several binders proving this.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Meloni",
-        "text": "Can we get one geopolitical document where “final” survives contact with the participants?",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Xi",
-        "text": "China notes that numbered plans have a tendency to acquire additional points after publication.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Trump",
-        "text": "Okay, but if point sixteen is just ‘no,’ I want credit for getting us to sixteen points.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Netanyahu",
-        "text": "You may have the numbering. I am keeping the conditions.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Macron",
-        "text": "This is not what diplomats mean when they ask the parties to narrow their differences.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Meloni",
-        "text": "At this rate the appendix will need its own ceasefire.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Trump",
-        "text": "We can rename it the seventeen-point plan. Seventeen is a very successful number.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Xi",
-        "text": "China recommends agreeing on the document before increasing the page count.",
-        "kind": "satire",
-        "reaction": ""
-      }
-    ],
-    "meme": "UN Admin renamed the file: 15-POINT-PLAN_v7_FINAL_FINAL.pdf",
-    "quote": null,
-    "tone": "sober",
-    "publishedAt": "2026-08-10T03:26:48.735Z",
-    "editorial": {
-      "issueNumber": 63,
-      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/63",
-      "approvedBy": "BREXAtlas",
-      "approvedAt": "2026-08-10T03:26:48.735Z",
-      "fingerprint": "dbd19964939748f78c42ab1f1cd735e421e051762bc6a9ecbcf3e895a4576799",
-      "sourcePublishedAt": "2026-08-09T23:11:00.000Z",
-      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.",
-      "reviewNotes": "S-M-A-R: source locked; satire targets leaders and institutions only; sober handling recommended; no jokes at victims’ expense."
-    }
-  },
-  {
-    "id": "2026-08-09-netanyahu-rejects-trump-s-gaza-peace-plan-demands-hamas-disarm-f",
-    "eventDate": "2026-08-09",
-    "year": 2026,
-    "date": "August 9, 2026",
-    "title": "THE 15-POINT GAZA PLAN GETS A 16TH POINT: EVERYONE HAS NOTES",
-    "kicker": "A U.S. Gaza proposal meets Israeli resistance, so the fictional leaders’ chat becomes a negotiation over what the word “plan” was supposed to mean.",
-    "category": "Diplomacy",
-    "summary": "Netanyahu's comments come just over a week after President Trump said his Board of Peace had reached a \"historic\" agreement with Hamas to give up its weapons.",
-    "article": {
-      "headline": "Days After Trump Touts 'Historic' Hamas Disarmament Deal, Netanyahu Says It's Not Enough",
-      "dek": "The Israeli Prime Minister demands Hamas lay down weapons before any ceasefire—a position that may upend the administration's carefully framed diplomatic victory.",
-      "body": [
-        "When President Trump's Board of Peace announced last week that it had struck a 'historic' agreement with Hamas to surrender its weapons, the headline seemed to suggest a breakthrough in a conflict that has defined Middle Eastern politics for decades. But Israeli Prime Minister Benjamin Netanyahu had a different read on the same piece of paper: not nearly good enough. In a sharp pivot from Washington's optimism, Netanyahu declared that Hamas must disarm first—before any agreement takes hold—a condition that inverts the sequence his American counterpart's team had apparently negotiated.",
-        "The timing is delicate. Trump's aides had framed the weapons agreement as a crown jewel of his Board of Peace initiative, evidence that diplomacy and Trump-style deal-making could crack the region's most intractable conflict. Yet Netanyahu's public rejection, coming just over a week after that announcement, underscores how fragile such agreements can be when the parties sitting at the table—or not at it—have fundamentally different definitions of victory. For Netanyahu, a Hamas that maintains any capability to fight is a Hamas that hasn't truly surrendered.",
-        "The gap between Washington's narrative and Jerusalem's demands now sets the stage for the next round of negotiations. Trump's Board of Peace will have to decide whether to reformulate the deal, pressure Israel to accept the Hamas agreement as negotiated, or try to square the circle by extracting more concessions from a militant organization that has already, according to the Trump administration, agreed to the core point: disarmament. What seemed like momentum has become a test of who really drives Middle East policy—and whether 'historic' agreements can survive their first real disagreement."
-      ],
-      "sourceCredit": "Based on original reporting from NPR"
-    },
-    "sources": [
-      {
-        "label": "Netanyahu rejects Trump's Gaza Peace Plan, demands Hamas disarm first",
-        "url": "https://www.npr.org/2026/08/09/nx-s1-5926459/netanyahu-rejects-trump-gaza-peace-plan-israel-hamas",
-        "publisher": "NPR"
-      }
-    ],
-    "messages": [
-      {
-        "speaker": "UN Admin",
-        "text": "New thread: Gaza plan. Facts are sourced; private replies below are fictional satire.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
-        "speaker": "Trump",
-        "text": "Fifteen points. Very complete. People love numbered plans because you can tell they have points.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Netanyahu",
-        "text": "I read all fifteen. I have notes. The first note is no withdrawal before disarmament.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Macron",
-        "text": "A plan is not yet an agreement. Europe has several binders proving this.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Meloni",
-        "text": "Can we get one geopolitical document where “final” survives contact with the participants?",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Xi",
-        "text": "China notes that numbered plans have a tendency to acquire additional points after publication.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Trump",
-        "text": "Okay, but if point sixteen is just ‘no,’ I want credit for getting us to sixteen points.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Netanyahu",
-        "text": "You may have the numbering. I am keeping the conditions.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Macron",
-        "text": "This is not what diplomats mean when they ask the parties to narrow their differences.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Meloni",
-        "text": "At this rate the appendix will need its own ceasefire.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Trump",
-        "text": "We can rename it the seventeen-point plan. Seventeen is a very successful number.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Xi",
-        "text": "China recommends agreeing on the document before increasing the page count.",
-        "kind": "satire",
-        "reaction": ""
-      }
-    ],
-    "meme": "UN Admin renamed the file: 15-POINT-PLAN_v7_FINAL_FINAL.pdf",
-    "quote": null,
-    "tone": "sober",
-    "publishedAt": "2026-08-10T03:25:42.392Z",
-    "editorial": {
-      "issueNumber": 64,
-      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/64",
-      "approvedBy": "BREXAtlas",
-      "approvedAt": "2026-08-10T03:25:42.392Z",
-      "fingerprint": "f1cb5e9aaa88ce1f6e813ab0a785604eaeb1d7e87d93c0b6343b31b34005b569",
-      "sourcePublishedAt": "2026-08-09T18:21:45.000Z",
-      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.",
-      "reviewNotes": "S-M-A-R: source locked; satire targets leaders and institutions only; sober handling recommended; no jokes at victims’ expense."
     }
   },
   {
