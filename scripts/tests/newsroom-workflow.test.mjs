@@ -4,11 +4,14 @@ import { readFile } from "node:fs/promises";
 
 const read = (path) => readFile(new URL(`../../${path}`, import.meta.url), "utf8");
 
-test("news ingestion runs four times daily and drafts before approval", async () => {
+test("news ingestion runs four times daily, balances eight desks and drafts before approval", async () => {
   const workflow = await read(".github/workflows/news-ingestion.yml");
   assert.match(workflow, /cron: "17 \*\/6 \* \* \*"/);
   assert.match(workflow, /copilot-requests: write/);
-  assert.match(workflow, /WLC_MAX_CANDIDATES:.*12/);
+  assert.match(workflow, /WLC_LOOKBACK_HOURS:.*168/);
+  assert.match(workflow, /WLC_MINIMUM_SCORE:.*4/);
+  assert.match(workflow, /WLC_MAX_CANDIDATES:.*20/);
+  assert.match(workflow, /War & Security, World News, Politics & Society, Technology & AI, Science & Space, Business & Power, Culture & Entertainment, Sports & Soft Power/);
   assert.match(workflow, /draft-editorial-issues\.mjs/);
   assert.match(workflow, /Nothing publishes without owner approval/);
 });
