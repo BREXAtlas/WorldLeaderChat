@@ -10,10 +10,24 @@ const POLISH = new Map([
     }
   ],
   [
+    "2026-08-10-shoved-the-tube-so-hard-it-tore-my-nose-kurdish-film-maker-recou",
+    {
+      title: "ICE CALLS IT MEDICAL CARE; THE FEEDING TUBE LEFT A DIFFERENT RECORD",
+      kicker: "A Kurdish filmmaker’s account of shackling, solitary confinement and force-feeding turns a detention-center medical procedure into a test of consent, oversight and accountability."
+    }
+  ],
+  [
     "2026-08-09-top-democrats-simulate-election-threats-as-trump-continues-assau",
     {
       title: "SENATE DEMOCRATS WARGAME ELECTION CHAOS; DEMOCRACY ASKS WHY THE REHEARSAL NOW HAS CATERING",
       kicker: "Senior Democratic senators and legal experts run through possible election-disruption scenarios because contingency planning has become another part of campaign season."
+    }
+  ],
+  [
+    "2026-08-09-taylor-swift-songs-removed-from-trump-and-white-house-s-social-m",
+    {
+      title: "TAYLOR SWIFT’S SONGS VANISH FROM TRUMP POSTS; COPYRIGHT FINDS THE MUTE BUTTON",
+      kicker: "Trump and White House social posts keep their political message while the Swift soundtrack disappears, leaving communications staff to discover that engagement does not include a music license."
     }
   ],
   [
@@ -42,6 +56,13 @@ const POLISH = new Map([
     {
       title: "ASIMOV LEFT THREE LAWS FOR ROBOTS; THE AI INDUSTRY OPENS A 94-PAGE TERMS-OF-SERVICE UPDATE",
       kicker: "A modern proposal for three laws of AI asks whether safety rules can survive systems built to optimize, persuade and act at global scale."
+    }
+  ],
+  [
+    "2026-08-07-the-white-house-s-plan-to-vet-potentially-dangerous-ai-is-cloake",
+    {
+      title: "WHITE HOUSE WRITES AI SAFETY RULES IN PRIVATE; THE PUBLIC GETS A PASSWORD SCREEN",
+      kicker: "A safety-testing framework shared with major AI companies but withheld from public view turns model oversight into a debate over secrecy, access and who gets to grade the exam."
     }
   ],
   [
