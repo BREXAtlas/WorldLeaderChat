@@ -81,6 +81,13 @@ function appendReviewNote(event, note) {
   };
 }
 
+function normalizeDirectLanguage(messages) {
+  return messages.map((message) => ({
+    ...message,
+    text: String(message.text || "").replace(/\bhypothetical\b/gi, "simulated")
+  }));
+}
+
 export function polishPublishedEvents(inputEvents) {
   const events = structuredClone(inputEvents || []);
   const changes = [];
@@ -93,7 +100,7 @@ export function polishPublishedEvents(inputEvents) {
     const sources = structuredClone(event.sources || []);
     event.title = update.title;
     event.kicker = update.kicker;
-    event.messages = buildDirectDialogue({ event });
+    event.messages = normalizeDirectLanguage(buildDirectDialogue({ event }));
     event.meme = closingLineFor({ event });
     event.article = article;
     event.sources = sources;
