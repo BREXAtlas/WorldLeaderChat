@@ -7,7 +7,6 @@ on:
 permissions:
   contents: read
   issues: write
-  copilot-requests: write
 
 concurrency:
   group: world-leader-chat-regenerate-${{ github.event.issue.number }}
@@ -17,10 +16,10 @@ jobs:
   regenerate:
     if: github.event.label.name == 'regenerate-requested'
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 10
 
     steps:
-      - name: Check out the production drafting engine
+      - name: Check out the production chat engine
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: main
@@ -31,20 +30,8 @@ jobs:
           node-version: 24
           package-manager-cache: false
 
-      - name: Install GitHub Copilot CLI
-        run: npm install --global @github/copilot
-
-      - name: Write a completely new article-specific chat
+      - name: Replace only the chat with article-specific direct dialogue
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WLC_TARGET_ISSUE: ${{ github.event.issue.number }}
-          WLC_FORCE_REWRITE: "1"
-          WLC_DRAFT_LIMIT: "1"
-        run: node scripts/draft-editorial-issues.mjs
-
-      - name: Apply final direct-dialogue and uniqueness checks
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WLC_TARGET_ISSUE: ${{ github.event.issue.number }}
-          WLC_REFINE_LIMIT: "1"
-        run: node scripts/refine-editorial-dialogue.mjs
+        run: node scripts/rewrite-chat-only.mjs
