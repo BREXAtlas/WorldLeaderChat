@@ -731,6 +731,116 @@
     }
   },
   {
+    "id": "2026-08-07-the-white-house-s-plan-to-vet-potentially-dangerous-ai-is-cloake",
+    "eventDate": "2026-08-07",
+    "year": 2026,
+    "date": "August 7, 2026",
+    "title": "White House AI Safety Plan: Now You See It, Now You Don't",
+    "kicker": "Technology & AI",
+    "category": "AI Policy",
+    "summary": "A Trump administration framework on AI testing leaves a lack of transparency – and plenty of open questions After months of talking with tech industry leaders, the Trump administration finalized a framework this week for how it will test new artificial intelligence models for safety and cybersecurity risks. So far, the White House is keeping details of the framework private, in a blow to transparency and potential boon for secretive AI companies. On Tuesday, staff from OpenAI, Anthropic, Meta, Google, Nvidia and Microsoft attended a private meeting with White House officials to review the AI framework. Multiple outlets have since reported that although the volunteer vetting process for new AI models has been settled, the White House does not plan to release its policy publicly and will only share testing criteria with a select few tech companies. Continue reading...",
+    "article": {
+      "headline": "White House Finalizes Secret AI Safety Framework—For a Select Few",
+      "dek": "After closed-door meetings with tech giants, the Trump administration settles on a testing protocol for dangerous AI models. The public gets nothing.",
+      "body": [
+        "The Trump administration this week finalized a framework for vetting artificial intelligence models against safety and cybersecurity risks—a process so secretive that almost nobody knows what the framework actually says. On Tuesday, representatives from OpenAI, Anthropic, Meta, Google, Nvidia, and Microsoft filed into a private White House meeting to review the testing criteria. Afterward, the administration made clear: the policy stays sealed.",
+        "The volunteer vetting process for new AI models has been settled, according to multiple reports. The White House will share testing criteria only with the companies that attended the meeting, and has no plans to release its approach to the public. The rationale is unstated. The irony is not: a safety framework for potentially dangerous technology, designed in total darkness, accessible only to the firms being evaluated.",
+        "This is a win for corporate opacity and a reckoning for transparency advocates. The administration's logic—keep the details private to avoid gaming the system—is plausible enough. So is the simpler observation: secrecy serves the firms that helped shape the rules. Without public scrutiny, benchmarks remain unknown, loopholes stay unmapped, and vetting amounts to a cartel of tech leaders grading their own homework in a locked room.",
+        "The Biden administration had pushed for public AI testing standards. This White House chose the opposite path. The gap between the two approaches is less a policy choice than a character sketch of Washington's relationship with Silicon Valley: behind closed doors, deals get done. Everyone else reads about it afterward."
+      ],
+      "sourceCredit": "Based on original reporting from The Guardian"
+    },
+    "sources": [
+      {
+        "label": "The White House’s plan to vet potentially dangerous AI is cloaked in secrecy",
+        "url": "https://www.theguardian.com/technology/2026/aug/07/white-house-ai",
+        "publisher": "The Guardian"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "New thread: AI announcement. Every participant has declared themselves the responsible adult.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Sam Altman",
+        "text": "The model is more capable. The governance conversation remains in beta.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Elon Musk",
+        "text": "Interesting definition of open. Also interesting definition of safe.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "We need the best AI. American AI. It should know who won before the question is finished.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Xi",
+        "text": "Technology leadership is measured in infrastructure, not adjectives.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Altman",
+        "text": "Infrastructure is useful. So is not turning every benchmark into a sovereignty dispute.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Musk",
+        "text": "Benchmarks are easier when you write the test and grade it.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Macron",
+        "text": "Europe has prepared a regulation while the rest of you prepared a product launch.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "Regulations do not launch. That is the problem with regulations.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Xi",
+        "text": "The model has now observed ten definitions of control and selected none.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UN Admin",
+        "text": "Human oversight is typing… and has been typing for several releases.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "Drake meme: ❌ Public AI safety standards anyone can scrutinize. ✅ Private framework six tech companies helped write and keep secret.",
+    "quote": null,
+    "tone": "sober",
+    "publishedAt": "2026-08-10T03:33:13.427Z",
+    "editorial": {
+      "issueNumber": 60,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/60",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-10T03:33:13.427Z",
+      "fingerprint": "8a4864526f7580bd3d633d59e3ebe6b91caa08da5e4273db935d8be7347ea204",
+      "sourcePublishedAt": "2026-08-07T13:00:18.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.",
+      "reviewNotes": "S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages explicitly fictional."
+    }
+  },
+  {
     "id": "2026-08-07-trump-imposes-15-tariff-on-key-chip-material-to-counter-china",
     "eventDate": "2026-08-07",
     "year": 2026,

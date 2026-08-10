@@ -142,5 +142,17 @@
     "sourceUrls": [
       "https://www.theguardian.com/commentisfree/2026/aug/08/cdc-abortion-surveillance-schwartz-hawley"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-07-the-white-house-s-plan-to-vet-potentially-dangerous-ai-is-cloake",
+    "issueNumber": 60,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/60",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-10T03:33:13.427Z",
+    "fingerprint": "8a4864526f7580bd3d633d59e3ebe6b91caa08da5e4273db935d8be7347ea204",
+    "sourceUrls": [
+      "https://www.theguardian.com/technology/2026/aug/07/white-house-ai"
+    ]
   }
 ]
