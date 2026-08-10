@@ -14,8 +14,9 @@ test("public disclosure uses the approved concise footer and contains no reposit
 test("dialogue refinement keeps disclosure at site level and chat notes in-world", async () => {
   const refinement = await read("scripts/refine-editorial-dialogue.mjs");
   assert.match(refinement, /site-level disclosure; chat notes stay in-world/);
-  assert.match(refinement, /The spreadsheet entered with notifications on/);
-  assert.match(refinement, /Fifteen points entered; the conditions are already typing/);
+  assert.match(refinement, /New thread: election confidence/);
+  assert.match(refinement, /New thread: Gaza roadmap/);
+  assert.doesNotMatch(refinement, /Fifteen points entered; the conditions are already typing/);
 });
 
 test("Pages packages and verifies the final disclosure layer", async () => {

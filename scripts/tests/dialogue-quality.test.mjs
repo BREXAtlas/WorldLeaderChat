@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { buildDirectDialogue, dialogueNeedsRefinement } from "../lib/newsroom-dialogue.mjs";
+import { buildDirectDialogue, dialogueNeedsRefinement } from "../lib/article-dialogue.mjs";
 
 function bundle(title, summary, messages = []) {
   return {

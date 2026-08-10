@@ -122,7 +122,7 @@ jobs:
     permissions:
       issues: write
     steps:
-      - name: Mark the editorial issue published
+      - name: Mark the editorial issue published and remove it from the active queue
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
@@ -133,7 +133,10 @@ jobs:
           gh issue edit "${ISSUE_NUMBER}" --repo "${GITHUB_REPOSITORY}" \
             --add-label published \
             --remove-label editorial-approved \
-            --remove-label needs-editor
+            --remove-label ready-for-approval \
+            --remove-label publication-failed \
+            --remove-label needs-editor \
+            --remove-label regenerate-requested
           gh issue close "${ISSUE_NUMBER}" --repo "${GITHUB_REPOSITORY}" \
             --comment "Published **${EVENT_ID}** from commit \`${COMMIT_SHA}\`. Live site: ${PAGE_URL}"
 
@@ -144,10 +147,17 @@ jobs:
     permissions:
       issues: write
     steps:
-      - name: Leave the issue open with retry instructions
+      - name: Unlock the failed approval instead of leaving it stuck on Publishing
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
         run: |
+          gh label create publication-failed --repo "${GITHUB_REPOSITORY}" \
+            --color d93f0b --description "Publication failed and is unlocked for retry or rewrite" --force
+          gh issue edit "${ISSUE_NUMBER}" --repo "${GITHUB_REPOSITORY}" \
+            --add-label publication-failed \
+            --add-label ready-for-approval \
+            --remove-label editorial-approved \
+            --remove-label fact-checked
           gh issue comment "${ISSUE_NUMBER}" --repo "${GITHUB_REPOSITORY}" --body \
-            "Publication failed validation or deployment. Open the failed **Editorial approval and publish** run, correct the issue JSON if needed, then remove and re-add the \`editorial-approved\` label. Nothing new was silently published by this failed run."
+            "Publication failed validation or deployment. The approval lock was removed automatically. Open the editor to **Retry Publish** or **Rewrite Chat**; do not repeatedly press Approve."

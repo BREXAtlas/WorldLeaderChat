@@ -8,6 +8,7 @@ on:
       - "social-tools.js"
       - "newsroom-site.js"
       - "disclosure-polish.js"
+      - "recency-order.js"
       - "rolling-archive.js"
       - "editor/**"
       - "data/published-events.json"
@@ -75,16 +76,18 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - name: Verify deployed monthly newsroom, archives, sharing tools, and editor
+      - name: Verify deployed newsroom order, unique-chat editor, archives and sharing tools
         env:
           PAGE_URL: ${{ needs.deploy.outputs.page_url }}
         run: |
           set -euo pipefail
           test -n "${PAGE_URL}"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
-            "${PAGE_URL}" | grep -F "rolling-archive.js"
+            "${PAGE_URL}" | grep -F "recency-order.js?v=20260810"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
-            "${PAGE_URL%/}/newsroom-site.js" | grep -F "CURRENT FILES"
+            "${PAGE_URL}" | grep -F "rolling-archive.js?v=monthly-20260810"
+          curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
+            "${PAGE_URL%/}/recency-order.js" | grep -F "compareRecency"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/rolling-archive.js" | grep -F "CURRENT MONTH"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
@@ -96,14 +99,14 @@ jobs:
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/social-tools.js" | grep -F "Copy Article + Chat"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
-            "${PAGE_URL%/}/editor/" | grep -F "newsroom-upgrade.js"
+            "${PAGE_URL%/}/editor/" | grep -F "app.js?v=unique-chat-20260810"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
-            "${PAGE_URL%/}/editor/app.js" | grep -F "Approval submitted"
+            "${PAGE_URL%/}/editor/app.js" | grep -F "Rewrite Chat"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
-            "${PAGE_URL%/}/editor/conversation-upgrade.js" | grep -F "targetMessageCount"
+            "${PAGE_URL%/}/editor/conversation-upgrade.js" | grep -F "browserGeneratedDialogue: false"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
-            "${PAGE_URL%/}/editor/newsroom-upgrade.js" | grep -F "articleMatchesSources"
-          echo "Verified live current-month newsroom, month archives, sharing tools and editor: ${PAGE_URL}"
+            "${PAGE_URL%/}/editor/newsroom-upgrade.js" | grep -F "never manufactures or rewrites dialogue"
+          echo "Verified newest-first current month, unique-chat editor, archives and sharing tools: ${PAGE_URL}"
 
   report:
     if: always()
@@ -123,7 +126,7 @@ jobs:
           set -euo pipefail
           if [[ "${BUILD_RESULT}" == "success" && "${DEPLOY_RESULT}" == "success" && "${VERIFY_RESULT}" == "success" ]]; then
             state="success"
-            description="Current-month newsroom, month archives and editor deployed"
+            description="Newest-first newsroom and unique-chat editor deployed"
           else
             state="failure"
             description="build=${BUILD_RESULT} deploy=${DEPLOY_RESULT} verify=${VERIFY_RESULT}"
