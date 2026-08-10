@@ -26,16 +26,20 @@ bundle.approval = {
   issueUrl: issue.html_url
 };
 
-const errors = validateApprovedBundle(bundle, policy, { labels, expectedFingerprint });
-assertValid(errors, `Editorial issue #${issue.number} is not publishable`);
-
 const publishedPath = resolve(root, "data/published-events.json");
 const logPath = resolve(root, "data/editorial-log.json");
 const metaPath = resolve(root, "data/site-meta.json");
 const published = await readJson(publishedPath, []);
 const log = await readJson(logPath, []);
-const fingerprint = bundle.ingestion.fingerprint;
 
+const errors = validateApprovedBundle(bundle, policy, {
+  labels,
+  expectedFingerprint,
+  existingBundles: published.map((event) => ({ event }))
+});
+assertValid(errors, `Editorial issue #${issue.number} is not publishable`);
+
+const fingerprint = bundle.ingestion.fingerprint;
 const existingByFingerprint = published.find((event) => event.editorial?.fingerprint === fingerprint);
 const existingById = published.find((event) => event.id === bundle.event.id);
 if (existingByFingerprint || (existingById && existingById.editorial?.fingerprint === fingerprint)) {
