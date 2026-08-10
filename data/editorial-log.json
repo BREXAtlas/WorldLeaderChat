@@ -392,5 +392,17 @@
     "sourceUrls": [
       "https://www.theguardian.com/us-news/2026/aug/10/ice-force-feeding-detention-gabar-choli"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-10-monday-briefing-how-the-new-phase-of-confrontation-at-al-aqsa-si",
+    "issueNumber": 69,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/69",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-10T16:44:01.937Z",
+    "fingerprint": "88cd7d0486b6ed70a0f85529cf4eb96b696edc4e7fa27f1ef3f0aac24ffc0b74",
+    "sourceUrls": [
+      "https://www.theguardian.com/world/2026/aug/10/monday-briefing-how-the-new-phase-of-confrontation-at-al-aqsa-signals-a-challenge-to-the-status-quo"
+    ]
   }
 ]
