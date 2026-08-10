@@ -1980,6 +1980,120 @@
     }
   },
   {
+    "id": "2026-08-06-israel-strikes-south-lebanon-after-soldiers-killed-talks-continu",
+    "eventDate": "2026-08-06",
+    "year": 2026,
+    "date": "August 6, 2026",
+    "title": "ROME HOSTED PEACE TALKS; SOUTH LEBANON SENT THE FOLLOW-UP BY EXPLOSION",
+    "kicker": "Diplomacy was in the conference room. The border had other meeting notes.",
+    "category": "War & Security",
+    "summary": "Two Israeli soldiers were killed in an explosion during an operation in southern Lebanon, and Israeli airstrikes followed while U.S.-facilitated Israel-Lebanon talks continued in Rome.",
+    "article": {
+      "headline": "Israel-Lebanon talks continued in Rome as lethal violence returned to the border",
+      "dek": "Two Israeli soldiers were killed in an explosion in southern Lebanon and Israeli airstrikes followed, putting a blunt battlefield footnote under negotiations intended to reduce the fighting.",
+      "body": [
+        "U.S.-facilitated talks between Israel and Lebanon opened in Rome with an ambitious assignment: improve lasting security, reduce threats to Israel and restore Lebanese state authority in the south. While the delegations were still working through that agenda, the border produced the kind of update that makes every diplomatic communiqué look immediately out of date.",
+        "Reuters reported that two Israeli soldiers were killed and four were injured in an explosion during a security operation in southern Lebanon. Israel responded with airstrikes. Lebanese health authorities said a strike in Tibnin killed one person and injured 12. Israel initially linked the incident to Hezbollah activity, though Defence Minister Israel Katz later avoided assigning responsibility as officials tried to keep the escalation from overtaking the talks.",
+        "The conclusion is not complicated: negotiations continued, but the violence showed exactly why they were necessary and how easily they could be derailed. Rome had the table, the statements and the diplomatic choreography. Southern Lebanon supplied the reminder that a ceasefire is not self-executing and that events on the ground can edit a peace process faster than any delegation."
+      ],
+      "sourceCredit": "Original reporting: Reuters — Israel strikes south Lebanon after soldiers killed, talks continue in Rome; Reuters — US-facilitated Israel-Lebanon talks have begun, says State Department."
+    },
+    "sources": [
+      {
+        "label": "Israel strikes south Lebanon after soldiers killed, talks continue in Rome",
+        "url": "https://www.reuters.com/world/middle-east/two-israeli-soldiers-killed-southern-lebanon-israeli-military-says-2026-08-06/",
+        "publisher": "Reuters"
+      },
+      {
+        "label": "US-facilitated Israel-Lebanon talks have begun, says State Department",
+        "url": "https://www.reuters.com/world/middle-east/us-facilitated-israel-lebanon-talks-have-begun-says-state-department-2026-08-04/",
+        "publisher": "Reuters"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "Rome meeting remains open. Southern Lebanon has submitted an unscheduled amendment.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Netanyahu",
+        "text": "We entered talks to produce security. An explosion that kills soldiers is not a negotiating proposal.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Joseph Aoun",
+        "text": "Security cannot be built by turning Lebanese towns into punctuation marks.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "We got them to the table. Very strong table. The border needs to respect the table.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Macron",
+        "text": "A table cannot carry a ceasefire by itself.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Netanyahu",
+        "text": "Neither can a ceasefire survive armed threats that remain in place.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Joseph Aoun",
+        "text": "And Lebanese sovereignty cannot survive if every security argument ends with another strike.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Meloni",
+        "text": "Rome booked a conference room, not a season finale.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "The conference room was excellent. Everybody said so.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Macron",
+        "text": "Please stop reviewing the venue while the diplomats are reviewing the ceasefire.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UN Admin",
+        "text": "Diplomacy saved the draft. The border did not sync.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "ROME HAD A PEACE TABLE. THE BORDER KEPT THE REPLY BUTTON.",
+    "quote": null,
+    "tone": "sober",
+    "publishedAt": "2026-08-10T03:53:08.657Z",
+    "editorial": {
+      "issueNumber": 43,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/43",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-10T03:53:08.657Z",
+      "fingerprint": "673fdffb9988f9cedad6cc1886cc60c7678bfb83b8b433e875710658f0aa2d38",
+      "sourcePublishedAt": "2026-08-06T12:00:00.000Z",
+      "singleSourceException": "",
+      "reviewNotes": "S-M-A-R: source locked; satire targets leaders and institutions only; sober handling recommended; no jokes at victims’ expense."
+    }
+  },
+  {
     "id": "2026-08-05-judge-signals-trump-s-defamation-lawsuit-against-wall-street-jou",
     "eventDate": "2026-08-05",
     "year": 2026,

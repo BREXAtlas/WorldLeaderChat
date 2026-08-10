@@ -306,5 +306,18 @@
       "https://www.reuters.com/world/americas/denmark-targets-august-21-second-security-council-un-chief-poll-2026-08-03/",
       "https://www.un.org/en/sg-selection-and-appointment"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-06-israel-strikes-south-lebanon-after-soldiers-killed-talks-continu",
+    "issueNumber": 43,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/43",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-10T03:53:08.657Z",
+    "fingerprint": "673fdffb9988f9cedad6cc1886cc60c7678bfb83b8b433e875710658f0aa2d38",
+    "sourceUrls": [
+      "https://www.reuters.com/world/middle-east/two-israeli-soldiers-killed-southern-lebanon-israeli-military-says-2026-08-06/",
+      "https://www.reuters.com/world/middle-east/us-facilitated-israel-lebanon-talks-have-begun-says-state-department-2026-08-04/"
+    ]
   }
 ]
