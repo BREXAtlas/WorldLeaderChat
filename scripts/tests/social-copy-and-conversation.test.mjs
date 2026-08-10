@@ -24,8 +24,9 @@ test("editor does not append generic stock conversations in the browser", async 
 
 test("newsroom editor presents saved articles without synthesizing dialogue", async () => {
   const newsroomEditor = await read("editor/newsroom-upgrade.js");
+  const app = await read("editor/app.js");
   assert.match(newsroomEditor, /never manufactures or rewrites dialogue/i);
-  assert.match(newsroomEditor, /SHORT ARTICLE PREVIEW/);
+  assert.match(app, /SHORT ARTICLE PREVIEW/);
   assert.doesNotMatch(newsroomEditor, /fallbackSuggestion\s*=/);
 });
 
