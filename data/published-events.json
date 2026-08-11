@@ -1,5 +1,132 @@
 [
   {
+    "id": "2026-08-11-trump-responds-broadly-when-asked-about-newly-publicized-fauci-phone-rec",
+    "eventDate": "2026-08-11",
+    "year": 2026,
+    "date": "August 11, 2026",
+    "title": "TRUMP GETS A FAUCI TEXT QUESTION AND OPENS THE BIDEN COMPLAINTS FOLDER",
+    "kicker": "Asked about one disputed medical allegation, Trump answered with a tour of the previous administration’s entire record.",
+    "category": "Politics & Society",
+    "summary": "A reporter asked President Trump about newly publicized records from Anthony Fauci’s government phone. Trump called the Biden administration a disaster without addressing the underlying medical claim in detail, as a Senate panel reviews tens of thousands of messages and hundreds of voicemails.",
+    "article": {
+      "headline": "Trump Answers a Fauci Text Question With the Entire Biden Complaints Folder",
+      "dek": "The Senate has a copy of Fauci’s government phone, commentators have conclusions, and Trump used one specific question to review the whole previous administration.",
+      "body": [
+        "A reporter asked President Donald Trump about newly publicized messages from Anthony Fauci’s government phone and an allegation that health officials knew of possible pregnancy complications during the COVID-19 vaccine rollout. A clip published August 10 by Professor Nez shows Trump declining to assess the messages or the medical inference in detail. He instead called the Biden administration a disaster and pivoted to several familiar complaints about its broader record — the presidential-answer equivalent of opening every saved tab because one question launched the browser.",
+        "There is a real records investigation underneath the political fireworks. NewsNation reported that Republican Sen. Ron Johnson said his Senate investigations panel has more than 34,000 text messages and more than 500 voicemails from Fauci’s government-issued phone, dating from roughly 2014 through December 2022. CNN had reported days earlier that the subcommittee obtained a copy of the iPhone as the Senate moved toward a contempt vote connected to Fauci’s refusal to answer questions.",
+        "A phone production, however, is a collection to examine — not a verdict with push notifications. Neither the submitted video nor the linked news reports independently establishes a causal relationship between COVID vaccination and miscarriage. This file therefore treats that medical claim as an allegation embedded in the reporter’s question, not as a proven finding. The verified event is narrower: senators obtained records, investigators are reviewing them, and Trump responded without resolving what the records demonstrate.",
+        "That gap is why the chat is worth opening. A question arrived asking for a reaction to specific evidence; the answer arrived carrying borders, sports policy, inflation and the rest of the Biden-era opposition playlist. Washington now has tens of thousands of messages to review and, before that review is complete, no shortage of people ready to explain what all of them mean."
+      ],
+      "sourceCredit": "Based on original reporting from Professor Nez (YouTube), NewsNation, and CNN."
+    },
+    "sources": [
+      {
+        "publisher": "Professor Nez (YouTube)",
+        "label": "Trump RESPONDS to Texts America was NEVER Supposed to See",
+        "url": "https://youtu.be/580LcDQ0dGI"
+      },
+      {
+        "publisher": "NewsNation",
+        "label": "34,000 texts found on Fauci’s COVID-era phone, Sen. Johnson says",
+        "url": "https://www.newsnationnow.com/katie-pavlich-tonight/fauci-covid-era-phone-texts-sen-johnson/"
+      },
+      {
+        "publisher": "CNN",
+        "label": "Senate subcommittee obtains Fauci’s phone ahead of contempt vote",
+        "url": "https://www.cnn.com/2026/08/05/politics/fauci-phone-obtained-senate-subcommittee"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "New attachment: one government iPhone, more than 34,000 texts, more than 500 voicemails and approximately zero short political interpretations.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Reporter",
+        "text": "Mr. President, I asked about one alleged Fauci exchange and whether officials withheld a pregnancy-related risk. What do you make of that specific record?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Donald Trump",
+        "text": "The Biden administration was a disaster in every way.",
+        "kind": "public",
+        "reaction": "",
+        "sourceUrl": "https://youtu.be/580LcDQ0dGI"
+      },
+      {
+        "speaker": "White House Comms",
+        "text": "The specific-record answer has been expanded to include borders, sports policy and inflation at no additional charge.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Ron Johnson",
+        "text": "My panel has the phone copy. We have tens of thousands of texts and hundreds of voicemails to review, which is why the record matters more than anyone’s thumbnail.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Senate Clerk",
+        "text": "I have created folders labeled obtained, reviewed, verified and politically announced. Only the first folder is currently overflowing.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Public Health Editor",
+        "text": "A message can be authentic while the medical conclusion attached to it is still unsupported. Please stop merging those two files.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Donald Trump",
+        "text": "I answered the question and several other questions the reporter was going to remember later.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Reporter",
+        "text": "You reviewed the entire Biden administration. I am still waiting on what the Fauci messages actually establish.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Ron Johnson",
+        "text": "Then let the investigators finish reading the messages. Thirty-four thousand texts are evidence to examine, not a single sentence already written for television.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Public Health Editor",
+        "text": "And until the underlying evidence supports a medical claim, the accurate word is allegation. It is less viral and considerably more useful.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UN Admin",
+        "text": "The phone was entered into the record. The conclusions entered the chat before security finished scanning the attachment.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "THE QUESTION ARRIVED WITH 34,000 TEXTS. THE ANSWER ARRIVED WITH EVERY BIDEN COMPLAINT EVER SAVED TO DRAFTS.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-11T13:32:16.000Z",
+    "editorial": {
+      "issueNumber": 128,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/128",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-11T13:32:16.000Z",
+      "fingerprint": "6a0c090628e13b846dc91836360cc24452d0b98af2dfd0ebc100ddeb765ab86f",
+      "sourcePublishedAt": "2026-08-11T05:30:00.000Z",
+      "singleSourceException": "",
+      "reviewNotes": "The report distinguishes the verified records investigation and Trump’s recorded response from an unproven medical allegation amplified by the submitted commentary video. Owner explicitly requested this submitted source be added to the live site after source-locked validation."
+    }
+  },
+  {
     "id": "2026-08-10-australia-to-buy-sophisticated-us-air-to-air-missiles",
     "eventDate": "2026-08-10",
     "year": 2026,
