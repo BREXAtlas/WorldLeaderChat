@@ -3809,6 +3809,121 @@
     }
   },
   {
+    "id": "2026-08-10-demi-lovato-to-make-camp-rock-3-cameo-appearance",
+    "eventDate": "2026-08-10",
+    "year": 2026,
+    "date": "August 10, 2026",
+    "title": "Demi Lovato to Reprise Mitchie Torres in Camp Rock 3 Cameo at Los Angeles Premiere (Yes, Really)",
+    "kicker": "Executive producer turned cameo guest drops in ahead of the Disney Channel premiere week",
+    "category": "Culture & Entertainment",
+    "summary": "Demi Lovato will make a cameo appearance in “Camp Rock 3,” reprising the role of Mitchie Torres. The news comes just ahead of the Los Angeles premiere event on Monday. The movie will debut on Disney Channel on Thursday before streaming on Disney+ beginning Friday. Previously, Lovato was announced to be executive producing without an […]",
+    "article": {
+      "headline": "Demi Lovato Will Make a Cameo as Mitchie Torres in Camp Rock 3, Variety Reports",
+      "dek": "Lovato — already announced as an executive producer — turns up briefly for the Los Angeles premiere before the movie rolls out on TV and streaming.",
+      "body": [
+        "Variety reports that Demi Lovato will make a cameo appearance in Camp Rock 3, reprising the role of Mitchie Torres at the Los Angeles premiere on Monday. That’s the sort of carefully timed nostalgia move that reads like a production memo and a marketing play rolled into one.",
+        "The movie is set to debut on Disney Channel on Thursday and begin streaming on Disney+ the following Friday, per the same report. Lovato had already been announced as an executive producer, so the cameo reads as both a fan-service wink and a very public footnote to a behind-the-scenes credit.",
+        "Call it efficient storytelling: a familiar face at a Hollywood premiere, a TV debut to pull a crowd, and streaming the day after to scrape up the rest of the attention span. Variety broke the news; nobody else on the record disputed the schedule or the cameo."
+      ],
+      "sourceCredit": "Based on original reporting from Variety."
+    },
+    "sources": [
+      {
+        "label": "Demi Lovato to Make ‘Camp Rock 3’ Cameo Appearance",
+        "url": "https://variety.com/2026/tv/news/demi-lovato-camp-rock-3-cameo-1236831732/",
+        "publisher": "Variety"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "I confirm Demi Lovato will make a cameo as Mitchie Torres in Camp Rock 3 at the Los Angeles premiere on Monday.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Demi",
+        "text": "I'm popping in as Mitchie Torres for a cameo — brief, nostalgic, and entirely intentional.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Disney PR",
+        "text": "I'm announcing that the movie reaches Disney Channel on Thursday and streams on Disney+ starting Friday.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Variety",
+        "text": "I'm publishing the scoop that Demi will cameo and reminding readers she was already announced as an executive producer.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Fan1",
+        "text": "I'm booking a flight to LA because Mitchie Torres showing up at the premiere feels like civic duty.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Fan2",
+        "text": "I'm setting two reminders: Thursday for Disney Channel and Friday for Disney+ — priorities.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Director",
+        "text": "I'm curious to see how Demi's Mitchie nod plays with the new cast without derailing Camp Rock 3.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Critic",
+        "text": "I'm saying the cameo risks being nostalgia for its own sake unless the film actually earns it.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Premiere Guest",
+        "text": "I'm packing my outfit for the LA premiere on Monday; red carpets are the main event now.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Demi",
+        "text": "I'm also still credited as an executive producer, which, yes, makes the cameo logistically comfortable.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Fan1",
+        "text": "I'm rewatching the original Camp Rock to refresh my Mitchie Torres standards before Monday.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UN Admin",
+        "text": "I accept the tidy script: Demi appears as Mitchie, the LA premiere happens Monday, Disney Channel airs Thursday and Disney+ streams Friday — case closed.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "Mitchie Torres: executive producer by day, cameo relief by premiere night.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-11T20:44:48.364Z",
+    "editorial": {
+      "issueNumber": 120,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/120",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-11T20:44:48.364Z",
+      "fingerprint": "5f93ed26d0fad28f37d4bc55211db11996bc8f9267ca6b38d5ac46ded86e32fd",
+      "sourcePublishedAt": "2026-08-11T00:00:00.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "All factual claims adhere to Variety's reporting: Demi Lovato will cameo as Mitchie Torres at the LA premiere Monday; Camp Rock 3 debuts on Disney Channel Thursday and streams on Disney+ Friday; Lovato was previously announced as an executive producer. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-10-francesca-hong-the-progressive-leading-a-messy-race-for-wisconsi",
     "eventDate": "2026-08-10",
     "year": 2026,

@@ -959,5 +959,17 @@
     "sourceUrls": [
       "https://variety.com/2026/music/news/spotify-strikes-back-against-ai-artists-ai-persona-label-1236831790/"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-10-demi-lovato-to-make-camp-rock-3-cameo-appearance",
+    "issueNumber": 120,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/120",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-11T20:44:48.364Z",
+    "fingerprint": "5f93ed26d0fad28f37d4bc55211db11996bc8f9267ca6b38d5ac46ded86e32fd",
+    "sourceUrls": [
+      "https://variety.com/2026/tv/news/demi-lovato-camp-rock-3-cameo-1236831732/"
+    ]
   }
 ]
