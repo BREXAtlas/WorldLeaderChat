@@ -38,10 +38,12 @@ test("ingestion attempts all eight desks before filling extra candidate slots", 
   const ingestion = await read("scripts/ingest-news.mjs");
   for (const desk of REQUIRED_DESKS) assert.match(ingestion, new RegExp(desk.replace(/[&]/g, "&")));
   assert.match(ingestion, /Math\.max\(Number\(config\.lookbackHours \|\| 72\), 168\)/);
-  assert.match(ingestion, /Math\.max\(Number\(config\.maxCandidatesPerRun \|\| 12\), 20\)/);
+  assert.match(ingestion, /Math\.max\(Number\(config\.maxCandidatesPerRun \|\| 16\), 24\)/);
+  assert.match(ingestion, /minimumPerDesk = Number\(process\.env\.WLC_MINIMUM_PER_DESK \|\| 2\)/);
   assert.match(ingestion, /for \(const desk of REQUIRED_DESKS\)/);
   assert.match(ingestion, /item\.newsroomDesk === desk/);
   assert.match(ingestion, /deskCoverage/);
+  assert.match(ingestion, /currentDayDeskCoverage/);
 });
 
 test("eight-desk issue seeder is valid JavaScript and is idempotent by fingerprint", async () => {

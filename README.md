@@ -19,7 +19,7 @@ The front page uses a dense, old-school headline layout. Every story opens into 
 
 **Automation may discover a story, but automation cannot publish a story.**
 
-Every six hours, the ingestion workflow scans configured feeds, ranks likely world-leader stories and creates deduplicated GitHub issues labeled `news-candidate` and `needs-editor`. It does not write satire into the live site and does not modify published data.
+Four times each day, ahead of the 8 AM, noon, 4 PM and 8 PM Central review windows, the ingestion workflow scans configured feeds, ranks likely world-leader stories and creates a category-balanced set of deduplicated GitHub issues labeled `news-candidate` and `needs-editor`. It does not write satire into the live site and does not modify published data.
 
 A story reaches the site only after a write-authorized repository editor:
 
@@ -40,7 +40,7 @@ See [Editorial Workflow](docs/EDITORIAL_WORKFLOW.md) for the exact procedure.
 | Workflow | Trigger | Purpose |
 |---|---|---|
 | `Validate repository` | Push, pull request, manual | Runs unit tests, policy validation and a static build. |
-| `News ingestion` | Every six hours, manual | Reads feeds, scores stories and opens editorial issues. Never publishes. |
+| `News ingestion` | Before 8 AM, noon, 4 PM and 8 PM Central; manual | Reads feeds, scores stories and opens a balanced editorial queue. Never publishes. |
 | `Editorial approval and publish` | `editorial-approved` issue label | Verifies labels and actor permission, validates the story, commits it and deploys it. |
 | `Deploy GitHub Pages` | Normal push to `main`, manual | Builds and deploys the current approved archive. |
 
@@ -55,7 +55,7 @@ The workflows use the repository-scoped `GITHUB_TOKEN`; no external API key is r
 
 The expected project-site URL is:
 
-`https://brexatlas.github.io/WorldLeaderChat/`
+`https://worldleaders.chat/`
 
 GitHub may preserve the repository-name capitalization in links while serving paths case-insensitively.
 

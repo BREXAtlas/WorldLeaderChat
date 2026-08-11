@@ -122,6 +122,11 @@ test("invalid source dates fall back to the ingestion date", () => {
   assert.equal(bundle.event.year, 2026);
 });
 
+test("late-evening Chicago stories keep the current local newsroom date", () => {
+  const bundle = createDraftBundle({ ...candidate, publishedAt: "2026-08-11T01:15:00.000Z" });
+  assert.equal(bundle.event.eventDate, "2026-08-10");
+});
+
 test("approval rejects a changed fingerprint, impossible date and unverified article", () => {
   const bundle = createDraftBundle(candidate, new Date("2026-08-08T13:00:00Z"));
   bundle.status = "approved";

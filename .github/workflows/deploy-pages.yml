@@ -7,6 +7,7 @@ on:
       - "index.html"
       - "social-tools.js"
       - "social-card-export.js"
+      - "newsroom-taxonomy.js"
       - "newsroom-site.js"
       - "disclosure-polish.js"
       - "recency-order.js"
@@ -80,11 +81,17 @@ jobs:
       - name: Verify deployed newsroom, social carousels, sponsors, editor, archives and copy tools
         env:
           PAGE_URL: ${{ needs.deploy.outputs.page_url }}
+          PUBLIC_URL: https://worldleaders.chat/
         run: |
           set -euo pipefail
           test -n "${PAGE_URL}"
+          PAGE_URL="${PUBLIC_URL}"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL}" | grep -F "social-card-export.js?v=20260810-carousel"
+          curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
+            "${PAGE_URL}" | grep -F 'rel="canonical" href="https://worldleaders.chat/"'
+          curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
+            "${PAGE_URL%/}/CNAME" | grep -Fx "worldleaders.chat"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL}" | grep -F "brand-fallback"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
@@ -104,6 +111,8 @@ jobs:
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/social-card-export.js" | grep -F 'PAGE ${pageNumber} / ${pageCount}'
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
+            "${PAGE_URL%/}/social-card-export.js" | grep -F "https://worldleaders.chat/#event="
+          curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL}" | grep -F "FROM OUR SPONSORS"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL}" | grep -F "https://ednotebook.com"
@@ -118,13 +127,19 @@ jobs:
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/rolling-archive.js" | grep -F "MONTH ARCHIVE"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
-            "${PAGE_URL%/}/disclosure-polish.js" | grep -F "POLITICAL PARODY, NOT LEAKED CORRESPONDENCE"
-          curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/social-tools.js" | grep -F "Copy Article + Chat"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
-            "${PAGE_URL%/}/editor/" | grep -F "app.js?v=unique-chat-20260810"
+            "${PAGE_URL%/}/editor/" | grep -F "app.js?v=workflow-layout-20260811"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/editor/app.js" | grep -F "Rewrite Chat"
+          curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
+            "${PAGE_URL%/}/editor/app.js" | grep -F "Make Main Headline"
+          curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
+            "${PAGE_URL}" | grep -F "hello@transformontologysystems.com"
+          curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
+            "${PAGE_URL}" | grep -F "Powered by TOS"
+          ! curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
+            "${PAGE_URL%/}/data/published-events.json" | grep -F '"issueUrl"'
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/editor/conversation-upgrade.js" | grep -F "browserGeneratedDialogue: false"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \

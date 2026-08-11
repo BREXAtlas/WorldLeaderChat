@@ -13,7 +13,8 @@ const config = await readJson(configPath);
 // science or culture cycle from disappearing behind a 72-hour wall of conflict.
 const lookbackHours = Number(process.env.WLC_LOOKBACK_HOURS || Math.max(Number(config.lookbackHours || 72), 168));
 const minimumScore = Number(process.env.WLC_MINIMUM_SCORE || Math.min(Number(config.minimumScore || 7), 4));
-const maxCandidates = Number(process.env.WLC_MAX_CANDIDATES || Math.max(Number(config.maxCandidatesPerRun || 12), 20));
+const maxCandidates = Number(process.env.WLC_MAX_CANDIDATES || Math.max(Number(config.maxCandidatesPerRun || 16), 24));
+const minimumPerDesk = Number(process.env.WLC_MINIMUM_PER_DESK || 2);
 const timeoutMs = Number(config.requestTimeoutMs || 20000);
 const cutoff = Date.now() - lookbackHours * 60 * 60 * 1000;
 const futureLimit = Date.now() + 48 * 60 * 60 * 1000;
@@ -29,6 +30,13 @@ const REQUIRED_DESKS = [
   "Sports & Soft Power"
 ];
 
+const COVERAGE_PRIORITY_DESKS = new Set([
+  "Science & Space",
+  "Business & Power",
+  "Culture & Entertainment",
+  "Sports & Soft Power"
+]);
+
 const stopwords = new Set([
   "a","an","and","are","as","at","be","by","for","from","has","have","in","is","it","its","of","on","s","says","say","the","to","us","with","after","amid","latest","live","news","update","updates","new","report"
 ]);
@@ -40,7 +48,7 @@ async function fetchFeed(source) {
     const response = await fetch(source.url, {
       headers: {
         accept: "application/rss+xml, application/atom+xml, application/xml, text/xml;q=0.9, */*;q=0.2",
-        "user-agent": "WorldLeaderChat-NewsDesk/3.0 (+https://github.com/BREXAtlas/WorldLeaderChat)"
+        "user-agent": "WorldLeaderChat-NewsDesk/3.0 (+https://worldleaders.chat/)"
       },
       redirect: "follow",
       signal: controller.signal
@@ -70,7 +78,21 @@ function normalizeNewsroomDesk(category, sourceDesk, text = "") {
   if (category === "Culture & Entertainment" || /culture|entertainment|music|song|album|film|movie|television|hbo|copyright/.test(combined)) return "Culture & Entertainment";
   if (category === "Sports & Soft Power" || /sport|olympics|world cup|championship|medal|fifa/.test(combined)) return "Sports & Soft Power";
   if (["Election", "Courts & Congress", "Health & Society"].includes(category) || sourceDesk === "US Politics & Society" || /election|congress|senate|court|immigration|border|civil rights|poll/.test(combined)) return "Politics & Society";
+  if (REQUIRED_DESKS.includes(sourceDesk)) return sourceDesk;
   return "World News";
+}
+
+function chicagoDateKey(value = Date.now()) {
+  const date = new Date(value);
+  if (Number.isNaN(date.valueOf())) return "";
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/Chicago",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit"
+  }).formatToParts(date);
+  const values = Object.fromEntries(parts.map((part) => [part.type, part.value]));
+  return `${values.year}-${values.month}-${values.day}`;
 }
 
 function hoursApart(a, b) {
@@ -115,19 +137,25 @@ function selectDiverseCandidates(clusters, limit) {
   const selectedIds = new Set();
   const categoryCounts = new Map();
   const deskCounts = new Map();
+  const today = chicagoDateKey();
   const sorted = [...clusters].sort((a, b) => {
+    const currentDayDifference = Number(chicagoDateKey(b.publishedAt) === today) - Number(chicagoDateKey(a.publishedAt) === today);
+    if (currentDayDifference) return currentDayDifference;
     if (b.relevanceScore !== a.relevanceScore) return b.relevanceScore - a.relevanceScore;
     return String(b.publishedAt ?? "").localeCompare(String(a.publishedAt ?? ""));
   });
 
-  // First pass: attempt one qualified current story for every public newsroom desk.
+  // First pass: prepare two recommendations for every public desk, preferring
+  // stories published today in Chicago for each editorial review window.
   for (const desk of REQUIRED_DESKS) {
-    const candidate = sorted.find((item) => item.newsroomDesk === desk && !selectedIds.has(item.fingerprint));
-    if (!candidate || selected.length >= limit) continue;
-    selected.push(candidate);
-    selectedIds.add(candidate.fingerprint);
-    categoryCounts.set(candidate.category, 1);
-    deskCounts.set(candidate.newsroomDesk, 1);
+    for (let slot = 0; slot < minimumPerDesk && selected.length < limit; slot += 1) {
+      const candidate = sorted.find((item) => item.newsroomDesk === desk && !selectedIds.has(item.fingerprint));
+      if (!candidate) break;
+      selected.push(candidate);
+      selectedIds.add(candidate.fingerprint);
+      categoryCounts.set(candidate.category, (categoryCounts.get(candidate.category) || 0) + 1);
+      deskCounts.set(candidate.newsroomDesk, (deskCounts.get(candidate.newsroomDesk) || 0) + 1);
+    }
   }
 
   // Second pass: fill by score while preventing one war or election cycle from
@@ -136,7 +164,7 @@ function selectDiverseCandidates(clusters, limit) {
     if (selected.length >= limit || selectedIds.has(candidate.fingerprint)) continue;
     const categoryCount = categoryCounts.get(candidate.category) || 0;
     const deskCount = deskCounts.get(candidate.newsroomDesk) || 0;
-    if (categoryCount >= 3 || deskCount >= 4) continue;
+    if (categoryCount >= 4 || deskCount >= 4) continue;
     selected.push(candidate);
     selectedIds.add(candidate.fingerprint);
     categoryCounts.set(candidate.category, categoryCount + 1);
@@ -162,7 +190,9 @@ for (const source of config.sources.filter((entry) => entry.enabled)) {
       if (publishedTime && (publishedTime < cutoff || publishedTime > futureLimit)) continue;
 
       const scored = scoreStory(item, config.relevance);
-      if (scored.score < minimumScore) continue;
+      const newsroomDesk = normalizeNewsroomDesk(scored.category, item.sourceDesk, `${item.title} ${item.excerpt}`);
+      const deskMinimum = COVERAGE_PRIORITY_DESKS.has(newsroomDesk) ? Math.min(minimumScore, 0) : minimumScore;
+      if (scored.score < deskMinimum) continue;
 
       const url = normalizeUrl(item.url);
       try {
@@ -182,7 +212,7 @@ for (const source of config.sources.filter((entry) => entry.enabled)) {
         topicTerms: topicTerms(`${title} ${excerpt}`),
         sourceId: item.sourceId,
         sourceDesk: item.sourceDesk,
-        newsroomDesk: normalizeNewsroomDesk(scored.category, item.sourceDesk, `${title} ${excerpt}`),
+        newsroomDesk,
         publisher: item.publisher,
         title,
         url,
@@ -190,7 +220,8 @@ for (const source of config.sources.filter((entry) => entry.enabled)) {
         excerpt,
         relevanceScore: scored.score,
         matchedKeywords: scored.matchedKeywords,
-        category: scored.category,
+        category: newsroomDesk,
+        topicCategory: scored.category,
         sources: []
       });
     }
@@ -225,11 +256,17 @@ const candidates = selectDiverseCandidates(clusters, maxCandidates)
   .map(({ topicTerms: _topicTerms, ...candidate }) => candidate);
 
 const deskCoverage = Object.fromEntries(REQUIRED_DESKS.map((desk) => [desk, candidates.filter((candidate) => candidate.newsroomDesk === desk).length]));
+const today = chicagoDateKey();
+const currentDayDeskCoverage = Object.fromEntries(REQUIRED_DESKS.map((desk) => [
+  desk,
+  candidates.filter((candidate) => candidate.newsroomDesk === desk && chicagoDateKey(candidate.publishedAt) === today).length
+]));
 const report = {
   schemaVersion: 3,
   generatedAt: new Date().toISOString(),
-  settings: { lookbackHours, minimumScore, maxCandidates, requiredDesks: REQUIRED_DESKS },
+  settings: { lookbackHours, minimumScore, maxCandidates, minimumPerDesk, currentDay: today, requiredDesks: REQUIRED_DESKS },
   deskCoverage,
+  currentDayDeskCoverage,
   sourceReports,
   candidates
 };
@@ -237,4 +274,5 @@ const report = {
 await writeJson(outputPath, report);
 console.log(`News ingestion produced ${candidates.length} candidate(s) from ${successfulSources} working source(s).`);
 console.log(`Desk coverage: ${JSON.stringify(deskCoverage)}`);
+console.log(`Current-day desk coverage (${today} Chicago): ${JSON.stringify(currentDayDeskCoverage)}`);
 console.log(`Output: ${outputPath}`);

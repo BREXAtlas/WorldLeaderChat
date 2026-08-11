@@ -8,6 +8,9 @@ const lanes = [['new','New'],['drafting','Drafting'],['ready','Ready for Approva
 let token = sessionStorage.getItem('wlc_editor_token') || '';
 let issues = [];
 let activeLane = 'ready';
+let editorQuery = '';
+let editorDesk = 'all';
+let editorDate = 'all';
 const busy = new Set();
 
 const BANNED_LINES = [
@@ -111,6 +114,47 @@ function laneOf(issue) {
   return 'new';
 }
 
+function eventOf(issue) {
+  return issue.publishedEvent || parseBundle(issue.body || '')?.event || null;
+}
+
+function deskOf(issue) {
+  const event = eventOf(issue);
+  return globalThis.WLC_NEWSROOM?.sectionFor(event) || event?.category || 'World News';
+}
+
+function chicagoDateKey(value = new Date()) {
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/Chicago', year: 'numeric', month: '2-digit', day: '2-digit'
+  }).formatToParts(new Date(value));
+  const values = Object.fromEntries(parts.map((part) => [part.type, part.value]));
+  return `${values.year}-${values.month}-${values.day}`;
+}
+
+function visibleInEditor(issue) {
+  const event = eventOf(issue);
+  if (editorDesk !== 'all' && deskOf(issue) !== editorDesk) return false;
+  if (editorDate === 'today' && event?.eventDate !== chicagoDateKey()) return false;
+  if (!editorQuery) return true;
+  return globalThis.WLC_NEWSROOM?.matchesSearch(event, editorQuery)
+    ?? normalize(`${issue.title} ${event?.title} ${event?.summary}`).includes(normalize(editorQuery));
+}
+
+function renderCoverage() {
+  const target = $('#coverage');
+  if (!target) return;
+  const today = chicagoDateKey();
+  const todayIssues = issues.filter((issue) => eventOf(issue)?.eventDate === today && laneOf(issue) !== 'published');
+  const desks = globalThis.WLC_NEWSROOM?.desks || [];
+  target.innerHTML = desks.map((desk) => {
+    const count = todayIssues.filter((issue) => deskOf(issue) === desk).length;
+    return `<span class="coverage-chip" data-desk="${esc(desk)}"><b>${count}</b>${esc(desk)}</span>`;
+  }).join('');
+  $('#coverageDate').textContent = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/Chicago', month: 'long', day: 'numeric', year: 'numeric'
+  }).format(new Date());
+}
+
 function smartText(bundle) {
   const text = `${bundle?.event?.title || ''} ${bundle?.event?.summary || ''}`;
   return /killed|dead|death|hostage|missile attack|civilian|gaza|war/i.test(text)
@@ -154,7 +198,7 @@ async function load() {
 }
 
 function render() {
-  const counts = Object.fromEntries(lanes.map(([key]) => [key, issues.filter((issue) => laneOf(issue) === key).length]));
+  const counts = Object.fromEntries(lanes.map(([key]) => [key, issues.filter((issue) => laneOf(issue) === key && visibleInEditor(issue)).length]));
   $('#tabs').innerHTML = lanes.map(([key,name]) => `<button class="tab ${key === activeLane ? 'active' : ''}" data-lane="${key}">${name}<span class="count">${counts[key]}</span></button>`).join('');
   $('#board').innerHTML = lanes.map(([key,name]) => `<section class="lane ${key === activeLane ? 'show' : ''}" data-lane="${key}"><h2>${name}</h2>${cards(key)}</section>`).join('');
   document.querySelectorAll('.tab').forEach((button) => button.onclick = () => {
@@ -162,24 +206,27 @@ function render() {
     render();
   });
   document.querySelectorAll('[data-action]').forEach((button) => button.onclick = () => act(button.dataset.action, Number(button.dataset.issue)));
+  renderCoverage();
 }
 
 function cards(lane) {
-  const set = issues.filter((issue) => laneOf(issue) === lane).sort((a,b) => Number(b.number) - Number(a.number));
+  const set = issues.filter((issue) => laneOf(issue) === lane && visibleInEditor(issue)).sort((a,b) => Number(b.number) - Number(a.number));
   if (!set.length) return '<div class="empty">Nothing here.</div>';
   return set.map((issue) => {
     const labels = labelSet(issue);
     const bundle = parseBundle(issue.body || '');
     const problems = bundle ? dialogueProblems(bundle) : ['Editorial JSON could not be read.'];
     const messages = (bundle?.event?.messages || []).map((message) => `<div class="msg ${message.kind === 'system' ? 'system' : ''}"><b>${esc(message.speaker)}</b>${esc(message.text)}</div>`).join('');
-    const source = bundle?.event?.sources?.[0];
+    const sources = bundle?.event?.sources || [];
     const article = bundle?.event?.article;
     const publishing = labels.has('editorial-approved') || busy.has(issue.number);
     const failed = labels.has('publication-failed');
     const regenerating = labels.has('regenerate-requested') || labels.has('drafting');
     const blocked = labels.has('needs-editor') || problems.length > 0;
 
-    let actions = '<span class="tag ready">Live</span>';
+    let actions = bundle?.event?.featured
+      ? '<span class="tag featured">Main headline</span>'
+      : `<button class="btn feature" data-action="feature" data-issue="${issue.number}" ${issue.number ? '' : 'disabled'}>Make Main Headline</button>`;
     if (lane !== 'published') {
       if (publishing) {
         actions = '<button class="btn pending" disabled>Publishing…</button><span class="action-note">Approval submitted once. No second tap is needed.</span>';
@@ -201,7 +248,9 @@ function cards(lane) {
       ? `<div class="smart" style="background:#fee2e2;border-color:#b91c1c"><b>CHAT NEEDS A REWRITE</b><br>${problems.map(esc).join('<br>')}</div>`
       : `<div class="smart"><b>S-M-A-R REVIEW</b><br>${esc(smartText(bundle))}<br><b>Chat quality:</b> article-specific, direct and ready.</div>`;
 
-    return `<article class="card"><div class="meta">ISSUE #${issue.number} • ${esc(bundle?.event?.date || '')}</div><span class="tag ${lane === 'ready' ? 'ready' : lane === 'new' ? 'new' : 'draft'}">${publishing ? 'Publishing' : failed ? 'Publication failed' : regenerating ? 'Regenerating' : lane}</span><span class="tag">${esc(bundle?.event?.category || 'World Affairs')}</span><h3>${esc(bundle?.event?.title || issue.title)}</h3><p class="summary">${esc(bundle?.event?.summary || '')}</p>${source ? `<a class="source" target="_blank" rel="noopener" href="${esc(source.url)}">Open source: ${esc(source.publisher)}</a>` : ''}${articlePreview}<div class="chat">${messages}</div><div class="meme">${esc(bundle?.event?.meme || '')}</div>${quality}<div class="actions">${actions}</div></article>`;
+    const sourceLinks = sources.map((source) => `<a class="source" target="_blank" rel="noopener" href="${esc(source.url)}">Open source: ${esc(source.publisher)}</a>`).join('');
+    const chatPreview = `<details class="chat-preview"><summary>Conversation (${(bundle?.event?.messages || []).length} messages)</summary><div class="chat">${messages}</div></details>`;
+    return `<article class="card" data-desk="${esc(deskOf(issue))}"><div class="meta">ISSUE #${issue.number} • ${esc(bundle?.event?.date || '')}</div><span class="tag ${lane === 'ready' ? 'ready' : lane === 'new' ? 'new' : 'draft'}">${publishing ? 'Publishing' : failed ? 'Publication failed' : regenerating ? 'Regenerating' : lane}</span><span class="tag desk-tag">${esc(deskOf(issue))}</span><h3>${esc(bundle?.event?.title || issue.title)}</h3><p class="summary">${esc(bundle?.event?.summary || '')}</p><div class="source-list">${sourceLinks}</div>${articlePreview}${chatPreview}<div class="meme"><b>LAST WORD</b>${esc(bundle?.event?.meme || '')}</div>${quality}<div class="actions">${actions}</div></article>`;
   }).join('');
 }
 
@@ -232,6 +281,20 @@ async function act(action, number) {
   try {
     const currentIssue = await api(`/repos/${OWNER}/${REPO}/issues/${number}`);
     const labels = labelSet(currentIssue);
+    if (action === 'feature') {
+      if (!confirm('Make this published article the main headline on World Leaders Chat?')) return;
+      busy.add(number); render();
+      let featureIssue = currentIssue;
+      if (labels.has('featured-headline')) {
+        featureIssue = await setIssueLabels(currentIssue, [], ['featured-headline']);
+      }
+      await setIssueLabels(featureIssue, ['featured-headline'], []);
+      busy.delete(number);
+      notice('Main-headline update queued. The public site will refresh after validation and deployment.', 'success');
+      await load();
+      return;
+    }
+
     if (currentIssue.state === 'closed' || labels.has('published')) {
       notice('Already published. The dashboard has been refreshed.', 'success');
       await load();
@@ -289,7 +352,8 @@ async function act(action, number) {
 
       await api(`/repos/${OWNER}/${REPO}/issues/${number}`, {method:'PATCH', body:JSON.stringify({body:replaceBundle(currentIssue.body, bundle)})});
       const updated = await api(`/repos/${OWNER}/${REPO}/issues/${number}`);
-      await setIssueLabels(updated, ['fact-checked','editorial-approved'], ['publication-failed','needs-editor','regenerate-requested','drafting']);
+      const checked = await setIssueLabels(updated, ['fact-checked'], ['editorial-approved','publication-failed','needs-editor','regenerate-requested','drafting']);
+      await setIssueLabels(checked, ['editorial-approved'], []);
 
       const result = await waitForPublish(number);
       busy.delete(number);
@@ -307,4 +371,7 @@ async function act(action, number) {
 
 $('#connect').onclick = connect;
 $('#logout').onclick = () => { sessionStorage.removeItem('wlc_editor_token'); location.reload(); };
+$('#editorSearch').addEventListener('input', (event) => { editorQuery = event.target.value.trim(); render(); });
+$('#editorDesk').addEventListener('change', (event) => { editorDesk = event.target.value; render(); });
+$('#editorDate').addEventListener('change', (event) => { editorDate = event.target.value; render(); });
 if (token) { $('#token').value = token; connect(); }

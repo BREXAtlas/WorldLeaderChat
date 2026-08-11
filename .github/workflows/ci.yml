@@ -31,6 +31,7 @@ jobs:
         run: |
           node --check social-tools.js
           node --check social-card-export.js
+          node --check newsroom-taxonomy.js
           node --check newsroom-site.js
           node --check disclosure-polish.js
           node --check recency-order.js
@@ -51,6 +52,7 @@ jobs:
           node --check scripts/lib/published-polish.mjs
           node --check scripts/lib/validation.mjs
           node --check scripts/ingest-news.mjs
+          node --check scripts/set-featured-story.mjs
 
       - name: Run unit tests
         run: npm test

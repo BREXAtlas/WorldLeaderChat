@@ -14,6 +14,7 @@ await mkdir(resolve(output, "assets"), { recursive: true });
 
 const publicHtml = await readFile(resolve(root, "index.html"), "utf8");
 const publicScripts = [
+  '  <script src="./newsroom-taxonomy.js?v=20260811"></script>',
   '  <script src="./social-tools.js"></script>',
   '  <script src="./social-card-export.js?v=20260810-carousel"></script>',
   '  <script src="./newsroom-site.js"></script>',
@@ -49,24 +50,12 @@ let instrumentedHtml = publicHtml
     '<p class="mast-note">The day’s real headlines, rewritten with a sharper edge. Open any file for the short report, the original sources and the conversation the room might have sounded like.</p>'
   )
   .replace(
-    /<button class="btn" id="modeBtn" type="button">[\s\S]*?<\/button>/,
-    '<button class="btn" id="modeBtn" type="button">Switch to Report Mode</button>'
-  )
-  .replace(
-    /<div class="mode-note" id="modeNote">[\s\S]*?<\/div>/,
-    '<div class="mode-note" id="modeNote">HEADLINE MODE: scan the sharpest line, then open any file for the report, sources and conversation.</div>'
-  )
-  .replace(
     /<b>WORLD LEADER CHAT \/\/ FICTIONAL TRANSCRIPT VIEWER<\/b>/,
     '<b>WORLD LEADER CHAT // THE FILE</b>'
   )
   .replace(
     /<p>End-to-end fictional • public record excerpts highlighted in yellow<\/p>/,
     '<p>Sourced event • imagined off-mic reactions • public-record excerpts highlighted in yellow</p>'
-  )
-  .replace(
-    /<footer>[\s\S]*?<\/footer>/,
-    '<footer><strong>POLITICAL PARODY, NOT LEAKED CORRESPONDENCE.</strong><br>No private message on this page is authentic. Public-record excerpts are brief, visibly labeled and paired with source links.</footer>'
   )
   .replace(
     "</head>",
@@ -80,6 +69,7 @@ for (const tag of publicScripts) {
 }
 await writeFile(resolve(output, "index.html"), instrumentedHtml, "utf8");
 await writeFile(resolve(output, "404.html"), instrumentedHtml, "utf8");
+await cp(resolve(root, "newsroom-taxonomy.js"), resolve(output, "newsroom-taxonomy.js"));
 await cp(resolve(root, "social-tools.js"), resolve(output, "social-tools.js"));
 await cp(resolve(root, "social-card-export.js"), resolve(output, "social-card-export.js"));
 await cp(resolve(root, "newsroom-site.js"), resolve(output, "newsroom-site.js"));
@@ -93,9 +83,16 @@ await cp(resolve(root, "editor/conversation-upgrade.js"), resolve(output, "edito
 await cp(resolve(root, "editor/newsroom-upgrade.js"), resolve(output, "editor/newsroom-upgrade.js"));
 await cp(resolve(root, "assets/world-leaders-chat-logo.webp"), resolve(output, "assets/world-leaders-chat-logo.webp"));
 await cp(resolve(root, "assets/world-leaders-chat-favicon.webp"), resolve(output, "assets/world-leaders-chat-favicon.webp"));
-await cp(resolve(root, "data/published-events.json"), resolve(output, "data/published-events.json"));
-
 const published = await readJson(resolve(root, "data/published-events.json"), []);
+const publicPublished = published.map((event) => {
+  const publicEvent = structuredClone(event);
+  if (publicEvent.editorial) {
+    const { issueUrl, approvedBy, fingerprint, ...publicEditorial } = publicEvent.editorial;
+    publicEvent.editorial = publicEditorial;
+  }
+  return publicEvent;
+});
+await writeFile(resolve(output, "data/published-events.json"), `${JSON.stringify(publicPublished, null, 2)}\n`, "utf8");
 const siteMeta = {
   schemaVersion: 1,
   generatedAt: new Date().toISOString(),
@@ -104,9 +101,11 @@ const siteMeta = {
 };
 await writeFile(resolve(output, "data/site-meta.json"), `${JSON.stringify(siteMeta, null, 2)}\n`, "utf8");
 await writeFile(resolve(output, ".nojekyll"), "", "utf8");
+await writeFile(resolve(output, "CNAME"), "worldleaders.chat\n", "utf8");
 await writeFile(resolve(output, "robots.txt"), "User-agent: *\nAllow: /\nDisallow: /editor/\n", "utf8");
 
 const htmlSize = (await readFile(resolve(output, "index.html"))).byteLength;
+const taxonomySize = (await readFile(resolve(output, "newsroom-taxonomy.js"))).byteLength;
 const socialSize = (await readFile(resolve(output, "social-tools.js"))).byteLength;
 const socialCardSize = (await readFile(resolve(output, "social-card-export.js"))).byteLength;
 const newsroomSize = (await readFile(resolve(output, "newsroom-site.js"))).byteLength;
@@ -120,4 +119,4 @@ const conversationSize = (await readFile(resolve(output, "editor/conversation-up
 const editorNewsroomSize = (await readFile(resolve(output, "editor/newsroom-upgrade.js"))).byteLength;
 const logoSize = (await readFile(resolve(output, "assets/world-leaders-chat-logo.webp"))).byteLength;
 const faviconSize = (await readFile(resolve(output, "assets/world-leaders-chat-favicon.webp"))).byteLength;
-console.log(`Built GitHub Pages artifact in _site (${htmlSize} byte index, ${socialSize} byte social copy tools, ${socialCardSize} byte social PNG exporter, ${newsroomSize} byte newsroom UI, ${disclosureSize} byte disclosure polish, ${recencySize} byte recency order, ${rollingSize} byte monthly archive, ${editorSize} byte editor, ${appSize} byte editor app, ${publishedDataSize} byte canonical published adapter, ${conversationSize} byte conversation standard, ${editorNewsroomSize} byte article presentation, ${logoSize} byte logo, ${faviconSize} byte favicon, ${published.length} external event(s)).`);
+console.log(`Built GitHub Pages artifact in _site (${htmlSize} byte index, ${taxonomySize} byte newsroom taxonomy, ${socialSize} byte social copy tools, ${socialCardSize} byte social PNG exporter, ${newsroomSize} byte newsroom UI, ${disclosureSize} byte disclosure polish, ${recencySize} byte recency order, ${rollingSize} byte monthly archive, ${editorSize} byte editor, ${appSize} byte editor app, ${publishedDataSize} byte canonical published adapter, ${conversationSize} byte conversation standard, ${editorNewsroomSize} byte article presentation, ${logoSize} byte logo, ${faviconSize} byte favicon, ${published.length} external event(s)).`);

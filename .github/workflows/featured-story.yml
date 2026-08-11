@@ -1,0 +1,84 @@
+name: Select featured headline
+
+on:
+  issues:
+    types: [labeled]
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: world-leader-chat-main-writes
+  cancel-in-progress: false
+  queue: max
+
+jobs:
+  feature:
+    if: github.event.label.name == 'featured-headline'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      event_id: ${{ steps.select.outputs.event_id }}
+    steps:
+      - name: Verify the selecting actor has write permission
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          permission="$(gh api "repos/${GITHUB_REPOSITORY}/collaborators/${GITHUB_ACTOR}/permission" --jq '.permission')"
+          case "${permission}" in
+            admin|maintain|write) ;;
+            *) echo "Only a repository writer, maintainer or administrator may select the main headline." >&2; exit 1 ;;
+          esac
+
+      - name: Check out main
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Use Node.js 24
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Fast-forward to the latest main
+        run: git pull --ff-only origin main
+
+      - name: Select the published article
+        id: select
+        run: node scripts/set-featured-story.mjs
+
+      - name: Validate and build
+        run: |
+          npm test
+          npm run validate
+          npm run build
+
+      - name: Commit the main-headline selection
+        env:
+          EVENT_ID: ${{ steps.select.outputs.event_id }}
+        run: |
+          if ! git diff --quiet -- data/published-events.json; then
+            git config user.name "world-leader-chat-bot"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/published-events.json
+            git commit -m "Feature ${EVENT_ID}"
+            git push origin HEAD:main
+          fi
+
+      - name: Keep the featured label on only the selected issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          EVENT_ID: ${{ steps.select.outputs.event_id }}
+        run: |
+          gh api --paginate "repos/${GITHUB_REPOSITORY}/issues?state=all&labels=featured-headline&per_page=100" \
+            --jq '.[].number' | while read -r number; do
+              if [[ "${number}" != "${ISSUE_NUMBER}" ]]; then
+                gh api --method DELETE "repos/${GITHUB_REPOSITORY}/issues/${number}/labels/featured-headline" >/dev/null || true
+              fi
+            done
+          gh issue comment "${ISSUE_NUMBER}" --repo "${GITHUB_REPOSITORY}" --body \
+            "Selected **${EVENT_ID}** as the main headline. The public site deployment is now queued."

@@ -11,8 +11,9 @@ permissions:
   id-token: write
 
 concurrency:
-  group: world-leader-chat-editorial-publish
+  group: world-leader-chat-main-writes
   cancel-in-progress: false
+  queue: max
 
 jobs:
   publish:
@@ -130,13 +131,17 @@ jobs:
           COMMIT_SHA: ${{ needs.publish.outputs.commit_sha }}
           PAGE_URL: ${{ needs.deploy.outputs.page_url }}
         run: |
-          gh issue edit "${ISSUE_NUMBER}" --repo "${GITHUB_REPOSITORY}" \
-            --add-label published \
-            --remove-label editorial-approved \
-            --remove-label ready-for-approval \
-            --remove-label publication-failed \
-            --remove-label needs-editor \
-            --remove-label regenerate-requested
+          labels_json="$(gh api "repos/${GITHUB_REPOSITORY}/issues/${ISSUE_NUMBER}" --jq '
+            [.labels[].name
+              | select(. != "editorial-approved")
+              | select(. != "ready-for-approval")
+              | select(. != "publication-failed")
+              | select(. != "needs-editor")
+              | select(. != "regenerate-requested")
+              | select(. != "drafting")]
+            + ["published"] | unique')"
+          printf '{"labels":%s}\n' "${labels_json}" |
+            gh api --method PUT "repos/${GITHUB_REPOSITORY}/issues/${ISSUE_NUMBER}/labels" --input -
           gh issue close "${ISSUE_NUMBER}" --repo "${GITHUB_REPOSITORY}" \
             --comment "Published **${EVENT_ID}** from commit \`${COMMIT_SHA}\`. Live site: ${PAGE_URL}"
 

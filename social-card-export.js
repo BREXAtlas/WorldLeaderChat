@@ -67,7 +67,7 @@
   }
 
   function eventUrl(event) {
-    return `${location.origin}${location.pathname}#event=${encodeURIComponent(event.id)}`;
+    return `https://worldleaders.chat/#event=${encodeURIComponent(event.id)}`;
   }
 
   function articleHeadline(event) {
@@ -1194,11 +1194,7 @@
       }
     );
 
-    const note = document.createElement("span");
-    note.className = "social-export-note";
-    note.textContent = "Branded background, headline, chat excerpt, source credit and full-file link are built into every image. Carousel ZIPs contain the complete chat in numbered PNG slides; native multi-file sharing is used when supported.";
-
-    wrapper.append(formatLabel, format, save, share, saveCarousel, shareCarousel, note);
+    wrapper.append(formatLabel, format, save, share, saveCarousel, shareCarousel);
     actions.appendChild(wrapper);
   }
 
