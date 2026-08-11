@@ -814,5 +814,17 @@
     "sourceUrls": [
       "https://science.nasa.gov/blog/curiosity-blog-sols-4968-4974-rock-climbing-towards-the-discontinuity/"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-11-trump-says-it-would-be-terrible-mistake-to-remove-infantino",
+    "issueNumber": 144,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/144",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-11T20:35:44.213Z",
+    "fingerprint": "79adca13fa8ddf637f4017103e99bd29660479d62ab10ade7c23a2274838dc2c",
+    "sourceUrls": [
+      "https://www.bbc.co.uk/sport/football/articles/cg7m3nk013mo?at_medium=RSS&at_campaign=rss"
+    ]
   }
 ]

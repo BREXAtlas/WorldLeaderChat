@@ -1467,6 +1467,133 @@
     }
   },
   {
+    "id": "2026-08-11-trump-says-it-would-be-terrible-mistake-to-remove-infantino",
+    "eventDate": "2026-08-11",
+    "year": 2026,
+    "date": "August 11, 2026",
+    "title": "Trump Defends FIFA's Infantino Against Ouster Pressure",
+    "kicker": "The U.S. president issues surprise backing for embattled FIFA chief",
+    "category": "Sports & Soft Power",
+    "summary": "US President Donald Trump says it would be a \"terrible mistake\" if under-pressure Fifa president Gianni Infantino was ousted.",
+    "article": {
+      "headline": "Trump Says Removing Infantino Would Be 'Terrible Mistake'",
+      "dek": "U.S. President Donald Trump has issued unexpected support for FIFA President Gianni Infantino, who faces mounting pressure over his tenure.",
+      "body": [
+        "U.S. President Donald Trump weighed in on FIFA's internal turmoil Tuesday, declaring it would be a 'terrible mistake' to remove Gianni Infantino as the soccer federation's president. The statement places Trump, who has routinely avoided sports governance issues, squarely behind the embattled Infantino amid reported efforts to unseat him.",
+        "Infantino has faced sustained pressure within FIFA's leadership, though the specific grievances remain contested. Trump's endorsement is notable given the U.S. president's past indifference to soccer governance and his historical focus on North American sports. The intervention suggests geopolitical or business considerations rather than technical sporting merit—a tacit signal that removal discussions have acquired higher-order significance.",
+        "The timing reflects FIFA's vulnerability to external pressure from major economic powers. Infantino's survival as president now depends partly on avoiding isolation from the U.S., a relationship that carries weight in FIFA's election politics and commercial licensing. Trump's statement reframes Infantino's tenure not as a soccer administration question but as a stability issue—a framing that may insulate the FIFA chief from immediate challenge but does nothing to address the underlying institutional tensions driving calls for his removal."
+      ],
+      "sourceCredit": "Based on original reporting from BBC Sport."
+    },
+    "sources": [
+      {
+        "label": "Trump says it would be 'terrible mistake' to remove Infantino",
+        "url": "https://www.bbc.co.uk/sport/football/articles/cg7m3nk013mo?at_medium=RSS&at_campaign=rss",
+        "publisher": "BBC Sport"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "FIFA Governance",
+        "text": "Breaking: Trump issues statement backing Infantino, calls ouster 'terrible mistake.' Thread 🧵",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "UEFA Vice President",
+        "text": "Did not see that coming. Trump doesn't usually touch this stuff. What does he know that we don't?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "US Soccer Admin",
+        "text": "lol the White House actually cares about FIFA infighting now? This timeline is unreal.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "FIFA Governance",
+        "text": "Infantino just posted thanking Trump 'for understanding the work.' Already weaponizing this.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "South African FA Director",
+        "text": "So when the U.S. president defends your job, you know you've got real problems in the room.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UEFA Vice President",
+        "text": "The irony is Trump basically just confirmed the pressure is real. You don't defend someone unless the knife is out.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Sports Law Analyst",
+        "text": "This is FIFA's new power map in a nutshell: you survive if the big economies say you survive. Governance is theater.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "US Soccer Admin",
+        "text": "Wait, did Trump consult with Ussf first or just... tweet-decide Infantino was worth saving?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UEFA Vice President",
+        "text": "Does it matter? The optics are done. Infantino is now the U.S. president's guy. That's the whole story.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "South African FA Director",
+        "text": "This is what soft power looks like when nobody's being subtle about it anymore.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Sports Law Analyst",
+        "text": "The real question: who asked Trump? Because FIFA presidents don't survive on U.S. goodwill by accident.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "FIFA Governance",
+        "text": "internal memo just dropped: 'Any further ouster discussions will be flagged to the White House.' We're living in the weirdest timeline.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "US Soccer Admin",
+        "text": "Infantino bought himself a whole administration with that Trump endorsement. Not bad for a Tuesday.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UEFA Vice President",
+        "text": "It's wild that FIFA governance now depends on whether the sitting U.S. president has time to notice.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "FIFA's succession crisis got solved the same way tech CEOs settle board disputes: presidential tweet.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-11T20:35:44.213Z",
+    "editorial": {
+      "issueNumber": 144,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/144",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-11T20:35:44.213Z",
+      "fingerprint": "79adca13fa8ddf637f4017103e99bd29660479d62ab10ade7c23a2274838dc2c",
+      "sourcePublishedAt": "2026-08-11T05:30:03.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Factually grounded in Trump's single quoted statement and Infantino's confirmed pressure; chat centers on FIFA officials, UEFA, U.S. sports admin and legal analysts naturally positioned to discuss this event. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-11-trump-wants-to-split-the-mmr-vaccine-experts-say-that-s-unlikely",
     "eventDate": "2026-08-11",
     "year": 2026,
