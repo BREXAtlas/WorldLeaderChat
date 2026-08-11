@@ -479,6 +479,133 @@
     }
   },
   {
+    "id": "2026-08-11-middle-east-trump-took-secret-flight-out-of-turkey-over-iran-thr",
+    "eventDate": "2026-08-11",
+    "year": 2026,
+    "date": "August 11, 2026",
+    "title": "Trump's Turkey Exit",
+    "kicker": "Secret Flight Over Iran Threat",
+    "category": "World News",
+    "summary": "President Donald Trump reportedly used an elaborate ruse to leave the NATO summit in Turkey, amid a credible assassination threat. Meanwhile, oil prices rose as hopes for a deal on the Strait of Hormuz fade. DW has more.",
+    "article": {
+      "headline": "Trump Secretly Leaves NATO Summit in Turkey After Assassination Threat",
+      "dek": "Using an elaborate ruse, the president departed amid a credible Iranian threat as oil markets spiked on Strait of Hormuz tensions.",
+      "body": [
+        "President Donald Trump left the NATO summit in Turkey without warning, deploying what diplomats described as an elaborate deception to cover his departure. The sudden exit came after U.S. security assessed a credible assassination threat, reportedly tied to Iran. The move left Turkish hosts scrambling and raised fresh questions about the coherence of a multilateral security alliance when its most powerful member exits unannounced.",
+        "The covert departure coincided with rising oil prices, driven by fading optimism over a deal to stabilize the Strait of Hormuz—a critical passage for global energy supplies. The timing compounded a week of tension over Iranian military posturing and nuclear negotiations. Trump's exit left the NATO meeting unmoored from its original agenda, underscoring how individual threats can reshape high-level diplomacy in real time.",
+        "The incident exposed the friction between public alliance commitments and immediate security imperatives. While Turkey managed the diplomatic fallout, the departure signaled to NATO members that formal summits remain fragile when threat assessments shift. The simultaneous collapse of Hormuz talks and spike in oil volatility suggested markets were pricing in a more confrontational stance toward Iran—one Trump's sudden absence seemed to confirm."
+      ],
+      "sourceCredit": "Based on original reporting from DW."
+    },
+    "sources": [
+      {
+        "label": "Middle East: Trump took secret flight out of Turkey over Iran threat",
+        "url": "https://www.dw.com/en/middle-east-trump-took-secret-flight-out-of-turkey-over-iran-threat/live-78313883?maca=en-rss-en-top-1022-rdf",
+        "publisher": "DW"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "NATO Press Office",
+        "text": "The President safely departed Turkey following a security assessment. The summit will continue as scheduled.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Turkish Foreign Ministry",
+        "text": "We hosted a summit. Then we hosted an empty podium. Not ideal for alliance messaging.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "US Energy Analyst",
+        "text": "Oil jumped 3% before lunch. Guess we're pricing in fewer summits and more threat assessments now.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "NATO Press Office",
+        "text": "To clarify: the departure was secure, swift, and necessary given the threat level.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "State Department Comms",
+        "text": "That 'elaborate ruse' they mentioned? Yeah. I wrote the cover story. It was baroque. I almost believed it.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "German Delegation",
+        "text": "So we flew to Ankara for a NATO summit and got a one-man strategic exit instead. This is why we read briefing books.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "US Energy Analyst",
+        "text": "Hormuz deal talks just collapsed, Trump leaves under threat, and traders are loading up on crude futures. It's all connected.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Iranian State Media Watcher",
+        "text": "They're calling it a 'cowardly retreat.' Threat or no threat, this is being weaponized immediately.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Turkish Foreign Ministry",
+        "text": "We're telling the press the summit achieved its objectives. Internally? We're redecorating the podium.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "State Department Comms",
+        "text": "The ruse was so elaborate that half the delegation didn't realize he'd left for two hours. I take pride in that.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "French NATO Rep",
+        "text": "An assassination threat, an oil shock, a missing president, and zero coordinated response. This is why NATO meetings need checklists.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "US Energy Analyst",
+        "text": "Question: when one NATO ally's security crisis moves oil markets by 3%, does that count as alliance coordination or market panic?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "German Delegation",
+        "text": "We're leaving tomorrow. Taking the scenic route. Just in case there's theater.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "NATO Press Office",
+        "text": "Update: Summit statements are being finalized. All participating members are confirmed accounted for. Some more than others.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "When your exit strategy is more secure than your original schedule.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-11T20:25:50.442Z",
+    "editorial": {
+      "issueNumber": 132,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/132",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-11T20:25:50.442Z",
+      "fingerprint": "b3e3a5e95284f136389288e704f2e8f0f5b86def24caa1b49b41c9001a38721c",
+      "sourcePublishedAt": "2026-08-11T06:05:00.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "All facts sourced from DW reporting on Trump's secret departure under Iranian assassination threat; chat restricted to event participants and plausible institutional observers, with no fabricated dialogue. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-11-more-than-10-firms-pay-up-to-100-000-a-month-for-fast-access-to",
     "eventDate": "2026-08-11",
     "year": 2026,
