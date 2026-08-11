@@ -491,6 +491,127 @@
     }
   },
   {
+    "id": "2026-08-11-travis-barker-fights-through-the-pain-in-louder-than-fear-traile",
+    "eventDate": "2026-08-11",
+    "year": 2026,
+    "date": "August 11, 2026",
+    "title": "Travis Barker Documentary Chronicles Survival and Loss After 2008 Crash",
+    "kicker": "Louder Than Fear debuts on streaming after Tribeca premiere",
+    "category": "Culture & Entertainment",
+    "summary": "The documentary film, about the Blink-182 drummer's near-death experience in a plane crash, premieres on streaming this week",
+    "article": {
+      "headline": "Travis Barker's 'Louder Than Fear' Examines 2008 Plane Crash, Addiction, and Survivor's Guilt",
+      "dek": "The Blink-182 drummer's documentary premieres on Hulu and Disney+ this week, featuring Taylor Hawkins and Kourtney Kardashian",
+      "body": [
+        "On August 13, Hulu and Disney+ will release 'Louder Than Fear,' a documentary following Travis Barker's recovery from a 2008 plane crash that killed his assistant Chris Baker and bodyguard Che Still, along with the pilot and co-pilot. Co-directed by Justin Krook and Michael Dwyer, the film debuted at Tribeca earlier this year and examines Barker's battle with addiction, trauma, and the persistent question of why he survived when others did not.",
+        "The documentary reveals the scope of Barker's painkiller dependence following the crash—so severe that he employed a security guard whose sole responsibility was monitoring his sleep to ensure he kept breathing. In interviews, Barker recalls warning signs before boarding the fatal flight. His then-three-year-old daughter Alabama also reportedly had a disturbing premonition. Barker's co-survivor from the crash, DJ AM (Adam Goldstein), lived only one more year before dying of an accidental drug overdose in 2009, deepening the film's meditation on grief.",
+        "The documentary features appearances from Barker's Blink-182 bandmates Mark Hoppus and Tom DeLonge, his wife Kourtney Kardashian, and the late Foo Fighters drummer Taylor Hawkins. By centering Barker's internal reckoning—'why am I here, when everyone else isn't?'—rather than sensationalizing the crash itself, the film positions recovery not as a triumph but as an ongoing negotiation with loss and purpose."
+      ],
+      "sourceCredit": "Based on original reporting from Rolling Stone."
+    },
+    "sources": [
+      {
+        "label": "Travis Barker Fights Through the Pain in ‘Louder Than Fear’ Trailer",
+        "url": "https://www.rollingstone.com/music/music-news/travis-barker-louder-than-fear-trailer-disney-hulu-1235606640/",
+        "publisher": "Rolling Stone"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "World Leader Chat Newsroom",
+        "text": "🎬 Travis Barker's plane crash documentary drops Wednesday. The Blink-182 drummer goes deep on 2008, painkillers, and survivor's guilt.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Mark Hoppus",
+        "text": "Watched the premiere at Tribeca. He's really honest about everything—the addiction, the questions nobody asks him. It's heavy.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Music Journalist",
+        "text": "The Taylor Hawkins footage though. They got that before he passed. Makes the whole thing feel like a time capsule.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "DJ AM's Estate Representative",
+        "text": "Barker talks about Adam dying a year later. That's the part that haunts him most—the timing, the randomness.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Kourtney Kardashian",
+        "text": "He told me things on camera he'd never said before. The security guard monitoring his breathing at night? That's how bad it got.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Music Journalist",
+        "text": "Hulu strategy: dump this on streaming the same week *who* else is in the news? Timing matters.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Mark Hoppus",
+        "text": "He mentioned on Jay Shetty's podcast that his gut told him not to get on the plane. He ignored it. That's eating him.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Therapist specializing in trauma",
+        "text": "The documentary format is smart—he's processing this 18 years later with professional filmmakers. Not therapy, but close.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Kourtney Kardashian",
+        "text": "Alabama was only three. She somehow knew. He talks about that moment—her screaming about the roof. Kids sense things.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "DJ AM's Estate Representative",
+        "text": "Barker keeps asking: 'Why did I survive and Adam didn't?' That question has no answer. The doc doesn't try to answer it.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Music Journalist",
+        "text": "Four deaths in one crash. Two of them crew guys nobody remembers. One a famous producer. Barker's guilt about that hierarchy.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Therapist specializing in trauma",
+        "text": "The painkillers made sense—he was in physical agony. But the psychological part? That's what 'Louder Than Fear' is about.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "World Leader Chat Newsroom",
+        "text": "Disney+ and Hulu go live August 13. Barker finally stops performing through the pain and starts talking about it.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "Barker's security guard had one job: watch the drummer sleep and make sure he woke up.",
+    "quote": null,
+    "tone": "sober",
+    "publishedAt": "2026-08-11T20:23:37.522Z",
+    "editorial": {
+      "issueNumber": 142,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/142",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-11T20:23:37.522Z",
+      "fingerprint": "86ff5b6abdae496e7b235c600f4f1829262691d3fcf34e188161ecd8d0d9886e",
+      "sourcePublishedAt": "2026-08-11T07:46:33.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "All facts verified from Rolling Stone article: 2008 crash, four deaths (pilot, co-pilot, Baker, Still), Goldstein's 2009 overdose, painkiller dependence with security monitor, Alabama's premonition, Tribeca premiere, August 13 release on Hulu/Disney+, documentary participants confirmed. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-11-trump-responds-broadly-when-asked-about-newly-publicized-fauci-phone-rec",
     "eventDate": "2026-08-11",
     "year": 2026,
