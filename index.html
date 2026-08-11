@@ -96,6 +96,19 @@
     body.fact-mode .story .summary{display:block}
     body.fact-mode .story .meme{display:none}
     .empty{font:900 24px var(--sans);text-align:center;padding:50px}
+    .sponsors{
+      margin:34px 0 4px;padding:12px 0 16px;border-top:7px double var(--line);border-bottom:1px solid var(--line)
+    }
+    .sponsors h2{font:900 12px var(--sans);letter-spacing:.16em;color:var(--red);margin:0 0 10px}
+    .sponsor-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+    .sponsor-card{
+      display:grid;gap:6px;align-content:center;min-height:132px;padding:17px 18px;border:1px solid #8d887e;
+      border-left:6px solid var(--red);background:#f8f3e8;color:var(--ink);text-decoration:none
+    }
+    .sponsor-card:hover{background:#fff;border-color:var(--ink)}
+    .sponsor-name{font:900 23px/1 var(--serif);letter-spacing:-.02em}
+    .sponsor-tagline{font:700 15px/1.35 var(--serif)}
+    .sponsor-cta{font:900 11px var(--sans);letter-spacing:.065em;text-transform:uppercase;color:var(--red)}
     footer{border-top:7px double var(--line);margin-top:30px;padding-top:12px;text-align:center;font:12px/1.5 var(--sans)}
     footer strong{color:var(--red)}
     dialog{
@@ -172,6 +185,8 @@
       .chat-panel{min-height:48vh}
       .form-grid{grid-template-columns:1fr}
       .form-grid .wide{grid-column:auto}
+      .sponsor-list{grid-template-columns:1fr}
+      .sponsor-card{min-height:116px}
     }
     @media print{
       .satire-strip,.controls,.yearbar,.mode-note,.update-desk,.chat-controls,.close{display:none!important}
@@ -212,6 +227,22 @@
 
     <section class="topline" id="topline"></section>
     <main class="archive" id="archive" aria-live="polite"></main>
+
+    <section class="sponsors" aria-labelledby="sponsorsTitle">
+      <h2 id="sponsorsTitle">FROM OUR SPONSORS</h2>
+      <div class="sponsor-list">
+        <a class="sponsor-card" href="https://ednotebook.com" aria-label="Explore EdNotebook — It’s your semester, own it.">
+          <span class="sponsor-name">EdNotebook</span>
+          <span class="sponsor-tagline">It’s your semester, own it.</span>
+          <span class="sponsor-cta">Explore EdNotebook →</span>
+        </a>
+        <a class="sponsor-card" href="https://brexatlas.github.io/emergingoutbreaks/" aria-label="Open Outbreak Tracker to track current outbreaks">
+          <span class="sponsor-name">Outbreak Tracker</span>
+          <span class="sponsor-tagline">Track outbreaks, timelines and public-health developments.</span>
+          <span class="sponsor-cta">Open Outbreak Tracker →</span>
+        </a>
+      </div>
+    </section>
 
     <details class="update-desk" id="updateDesk">
       <summary>UPDATE DESK — ADD THE NEXT WORLD EVENT</summary>

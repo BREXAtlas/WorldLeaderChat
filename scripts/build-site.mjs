@@ -15,7 +15,7 @@ await mkdir(resolve(output, "assets"), { recursive: true });
 const publicHtml = await readFile(resolve(root, "index.html"), "utf8");
 const publicScripts = [
   '  <script src="./social-tools.js"></script>',
-  '  <script src="./social-card-export.js?v=20260810"></script>',
+  '  <script src="./social-card-export.js?v=20260810-carousel"></script>',
   '  <script src="./newsroom-site.js"></script>',
   '  <script src="./disclosure-polish.js"></script>',
   '  <script src="./recency-order.js?v=20260810"></script>',

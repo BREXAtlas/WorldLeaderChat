@@ -77,14 +77,14 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - name: Verify deployed newsroom order, social PNGs, editor, archives and copy tools
+      - name: Verify deployed newsroom, social carousels, sponsors, editor, archives and copy tools
         env:
           PAGE_URL: ${{ needs.deploy.outputs.page_url }}
         run: |
           set -euo pipefail
           test -n "${PAGE_URL}"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
-            "${PAGE_URL}" | grep -F "social-card-export.js?v=20260810"
+            "${PAGE_URL}" | grep -F "social-card-export.js?v=20260810-carousel"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL}" | grep -F "recency-order.js?v=20260810"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
@@ -95,6 +95,18 @@ jobs:
             "${PAGE_URL%/}/social-card-export.js" | grep -F "WLC_SOCIAL_EXPORT"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/social-card-export.js" | grep -F "Story / TikTok (9:16)"
+          curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
+            "${PAGE_URL%/}/social-card-export.js" | grep -F "Save Social Carousel"
+          curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
+            "${PAGE_URL%/}/social-card-export.js" | grep -F "Share Social Carousel"
+          curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
+            "${PAGE_URL%/}/social-card-export.js" | grep -F 'PAGE ${pageNumber} / ${pageCount}'
+          curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
+            "${PAGE_URL}" | grep -F "FROM OUR SPONSORS"
+          curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
+            "${PAGE_URL}" | grep -F "https://ednotebook.com"
+          curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
+            "${PAGE_URL}" | grep -F "https://brexatlas.github.io/emergingoutbreaks/"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/recency-order.js" | grep -F "compareRecency"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
@@ -115,7 +127,7 @@ jobs:
             "${PAGE_URL%/}/editor/conversation-upgrade.js" | grep -F "browserGeneratedDialogue: false"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/editor/newsroom-upgrade.js" | grep -F "never manufactures or rewrites dialogue"
-          echo "Verified social PNG exports, newest-first newsroom, editor, archives and copy tools: ${PAGE_URL}"
+          echo "Verified social PNG and carousel exports, sponsors, newest-first newsroom, editor, archives and copy tools: ${PAGE_URL}"
 
   report:
     if: always()
@@ -135,7 +147,7 @@ jobs:
           set -euo pipefail
           if [[ "${BUILD_RESULT}" == "success" && "${DEPLOY_RESULT}" == "success" && "${VERIFY_RESULT}" == "success" ]]; then
             state="success"
-            description="Social PNGs, newsroom and editor deployed"
+            description="Social carousels, sponsors and newsroom deployed"
           else
             state="failure"
             description="build=${BUILD_RESULT} deploy=${DEPLOY_RESULT} verify=${VERIFY_RESULT}"

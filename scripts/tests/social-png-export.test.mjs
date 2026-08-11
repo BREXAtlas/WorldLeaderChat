@@ -42,7 +42,7 @@ test("Pages build ships the exporter after existing copy tools", async () => {
   const copyIndex = build.indexOf("social-tools.js");
   const pngIndex = build.indexOf("social-card-export.js");
   assert.ok(copyIndex >= 0 && pngIndex > copyIndex);
-  assert.match(build, /social-card-export\.js\?v=20260810/);
+  assert.match(build, /social-card-export\.js\?v=20260810-carousel/);
   assert.match(build, /cp\(resolve\(root, "social-card-export\.js"\)/);
   assert.match(build, /social PNG exporter/);
 });
