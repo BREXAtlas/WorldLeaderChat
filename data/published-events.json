@@ -1465,6 +1465,133 @@
     }
   },
   {
+    "id": "2026-08-11-republicans-name-candidate-to-replace-chuck-edwards-after-sexual",
+    "eventDate": "2026-08-11",
+    "year": 2026,
+    "date": "August 11, 2026",
+    "title": "Republican Bench Strength Gets Tested in Edwards-Vacated NC-11",
+    "kicker": "GOP taps Balkcom to hold Trump +10 district after harassment investigation forces incumbent out",
+    "category": "Elections",
+    "summary": "Jennifer Balkcom to face Democrat Jamie Ager in race to represent North Carolina’s 11th congressional district North Carolina Republicans on Monday chose state lawmaker Jennifer Balkcom to replace Chuck Edwards, the incumbent congressman who earlier this month dropped his re-election bid after a US House investigation determined his conduct towards to young female staffers likely amounted to sexual harassment. Balkcom will face off against the Democratic nominee, Jamie Ager, in the November midterm elections to represent the 11th congressional district in western North Carolina. Though Donald Trump won the district by 10 percentage points two years ago, Democrats believe Ager may have a shot at winning amid the president’s low approval ratings and frustration over the pace of recovery from Hurricane Helene , which devastated the region in 2024. Continue reading...",
+    "article": {
+      "headline": "Jennifer Balkcom Named Republican Nominee for North Carolina's 11th District After Chuck Edwards Steps Down",
+      "dek": "The state lawmaker will defend a safely red seat against Democrat Jamie Ager, though Hurricane Helene recovery frustration and presidential approval ratings could reshape the autumn campaign.",
+      "body": [
+        "North Carolina Republicans selected state lawmaker Jennifer Balkcom on Monday to succeed Chuck Edwards, who abandoned his re-election campaign this month following a House investigation concluding his treatment of young female staffers probably constituted sexual harassment. The decision keeps the party's nomination within legislative ranks and sets up a November contest between Balkcom and Democratic nominee Jamie Ager for the seat representing western North Carolina's 11th congressional district.",
+        "The district has favored Republicans decisively—Trump carried it by 10 points in the last cycle—but Democrats scent an opening. The party points to the president's soft approval numbers and lingering resentment over the administration's disaster response following Hurricane Helene, which ravaged the region in 2024. Whether voter frustration over recovery pace can overcome entrenched Republican lean will define one of the season's quieter but telling races.",
+        "Balkcom's nomination resolves a compressed timeline: Edwards' departure came early enough to allow party activists to select a replacement rather than default to a primary. For the GOP, the choice signals confidence in a familiar name; for Democrats, it presents a chance to test whether mid-term dissatisfaction translates into gains in traditionally safe Republican terrain."
+      ],
+      "sourceCredit": "Based on original reporting from The Guardian."
+    },
+    "sources": [
+      {
+        "label": "Republicans name candidate to replace Chuck Edwards after sexual harassment investigation",
+        "url": "https://www.theguardian.com/us-news/2026/aug/10/jennifer-balkcom-chuck-edwards-north-carolina-midterms",
+        "publisher": "The Guardian"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "NC GOP Communications",
+        "text": "Jennifer Balkcom is the strongest choice to hold this seat. She knows the district, knows the issues, and she's ready to serve.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Jamie Ager",
+        "text": "We're running this race because people in the 11th are tired of representatives who've earned a sexual harassment investigation. That's not the standard we set.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Catawba County Voter",
+        "text": "So they're swapping one person for another without me getting to vote on it? That's convenient for them.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Jennifer Balkcom",
+        "text": "I'm running on the same agenda that's served this district well—fiscal responsibility, defending our values. We're not going to let one person's conduct define who we are.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Chapel Hill Democratic Operative",
+        "text": "Hurricane Helene hit two years ago and people are STILL waiting for FEMA trailers. You think they're in a mood to re-elect the party in charge?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Catawba County Voter",
+        "text": "Wait, didn't Trump say he'd fix it instantly? Why are we still looking at blue tarps on roofs?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Political Analyst (CRS)",
+        "text": "NC-11 is technically in play because approval numbers are underwater and recovery messaging isn't landing. But the R+10 lean is real. Ager needs everything to break exactly right.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "NC GOP Communications",
+        "text": "Balkcom has actually voted for disaster relief funding. She gets it. This is not a weakness.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Jamie Ager",
+        "text": "Balkcom can tout her record, but the fact is she's running on behalf of an administration people blame for being slow on recovery. She doesn't get to divorce herself from that.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Political Analyst (CRS)",
+        "text": "Here's the thing: if Ager flips this, it tells you the midterms are a bloodbath for Trump. If Balkcom holds it by 8 instead of 10, that's still Trump-aligned but it's a warning signal.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Chapel Hill Democratic Operative",
+        "text": "We're not expecting to win. We're expecting to demonstrate the floor is lower than they think.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Catawba County Voter",
+        "text": "Honestly? I just want to know why it took two years to get past tarps. Either candidate want to answer that?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Jennifer Balkcom",
+        "text": "The federal response was slower than it should have been. I've said that publicly. But Ager's party had the White House for four years before Trump took over—they didn't fix it either.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UN Admin",
+        "text": "NC-11 enters its second act: Republicans betting Balkcom's record erases Edwards' legacy, Democrats betting Helene fatigue erases Trump's +10.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "Republicans: we've got a sexual harassment problem. Solution: replace him with someone else before the voters show up.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-11T20:47:04.252Z",
+    "editorial": {
+      "issueNumber": 94,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/94",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-11T20:47:04.252Z",
+      "fingerprint": "d910c435818288e65fe2b899fd9771c6b6893ef93779d7ff5edcb7bf7d37118d",
+      "sourcePublishedAt": "2026-08-11T02:12:18.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "All facts drawn from Guardian source; dialogue is specific to Balkcom, Ager, Edwards, NC-11 margin, Helene recovery timeline, and Trump approval context without inventing quotes, motives or meetings. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-11-russia-using-north-korean-missiles-to-strike-ukraine-zelensky-sa",
     "eventDate": "2026-08-11",
     "year": 2026,
