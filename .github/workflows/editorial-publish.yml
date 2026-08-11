@@ -138,6 +138,7 @@ jobs:
               | select(. != "publication-failed")
               | select(. != "needs-editor")
               | select(. != "regenerate-requested")
+              | select(. != "redraft-requested")
               | select(. != "drafting")]
             + ["published"] | unique')"
           printf '{"labels":%s}\n' "${labels_json}" |

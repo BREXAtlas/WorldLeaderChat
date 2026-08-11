@@ -2,20 +2,28 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { mergePublishedDuplicates } from "../lib/published-dedupe.mjs";
+import vm from "node:vm";
 
 const read = (path) => readFile(new URL(`../../${path}`, import.meta.url), "utf8");
 
-test("current newsroom shows the entire Chicago current month", async () => {
+test("current newsroom keeps eight inclusive Chicago calendar days", async () => {
   const source = await read("rolling-archive.js");
+  const contractSource = await read("newsroom-contract.js");
+  const context = vm.createContext({});
+  vm.runInContext(contractSource, context);
+  assert.equal(context.WLC_ARTICLE_STANDARD.recentCutoffISO("2026-08-11"), "2026-08-04");
+  assert.equal(context.WLC_ARTICLE_STANDARD.isRecentDate("2026-08-03", "2026-08-11"), false);
+  assert.equal(context.WLC_ARTICLE_STANDARD.isRecentDate("2026-08-04", "2026-08-11"), true);
+  assert.equal(context.WLC_ARTICLE_STANDARD.isRecentDate("2026-08-11", "2026-08-11"), true);
   assert.match(source, /MINIMUM_VISIBLE_FILES = 10/);
   assert.match(source, /const currentMonthIndex = today\.getUTCMonth\(\)/);
-  assert.match(source, /const currentMonthEvents = eventsInMonth\(currentYearEvents, currentYear, currentMonthIndex\)/);
-  assert.match(source, /CURRENT MONTH/);
+  assert.match(source, /WLC_ARTICLE_STANDARD\?\.isRecentDate/);
+  assert.match(source, /LATEST.*DAYS \/\/ CURRENT NEWSROOM/);
   assert.match(source, /1 FEATURED ABOVE/);
-  assert.doesNotMatch(source, /DAYS_BEFORE_TODAY/);
+  assert.doesNotMatch(source, /CURRENT MONTH/);
 });
 
-test("2026 archives directly by month without day sub-archives", async () => {
+test("2026 archive includes the rolled-off current month grouped by day", async () => {
   const source = await read("rolling-archive.js");
   assert.match(source, /MONTH ARCHIVE/);
   assert.match(source, /class="month-archive/);
@@ -23,7 +31,9 @@ test("2026 archives directly by month without day sub-archives", async () => {
   assert.match(source, /visible < MINIMUM_VISIBLE_FILES/);
   assert.match(source, /class="historic-archive"/);
   assert.match(source, /ARCHIVE \/\//);
-  assert.doesNotMatch(source, /class="day-archive"/);
+  assert.match(source, /class="day-archive"/);
+  assert.match(source, /for \(let monthIndex = currentMonthIndex; monthIndex >= 0/);
+  assert.match(source, /Files roll into this archive one Chicago calendar day at a time/);
   assert.match(source, /grid-template-columns:repeat\(3,minmax\(0,1fr\)\)/);
 });
 

@@ -26,7 +26,8 @@ test("newsroom editor presents saved articles without synthesizing dialogue", as
   const newsroomEditor = await read("editor/newsroom-upgrade.js");
   const app = await read("editor/app.js");
   assert.match(newsroomEditor, /never manufactures or rewrites dialogue/i);
-  assert.match(app, /SHORT ARTICLE PREVIEW/);
+  assert.match(app, /COMPLETE SHORT REPORT/);
+  assert.match(app, /article\.body.*map/);
   assert.doesNotMatch(newsroomEditor, /fallbackSuggestion\s*=/);
 });
 
@@ -61,6 +62,7 @@ test("current files own the full page width before stacked archive dropdowns", a
 
 test("Pages build includes social, newsroom, rolling archive and editor assets", async () => {
   const build = await read("scripts/build-site.mjs");
+  assert.match(build, /newsroom-contract\.js/);
   assert.match(build, /social-tools\.js/);
   assert.match(build, /newsroom-site\.js/);
   assert.match(build, /rolling-archive\.js/);

@@ -2,6 +2,7 @@ name: Validate repository
 
 on:
   pull_request:
+    types: [opened, synchronize, reopened, labeled]
   push:
     branches: [main]
   workflow_dispatch:
@@ -20,6 +21,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
 
       - name: Use Node.js 24
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
@@ -29,6 +32,7 @@ jobs:
 
       - name: Check newsroom and editor JavaScript syntax
         run: |
+          node --check newsroom-contract.js
           node --check social-tools.js
           node --check social-card-export.js
           node --check newsroom-taxonomy.js
@@ -51,8 +55,19 @@ jobs:
           node --check scripts/lib/published-dedupe.mjs
           node --check scripts/lib/published-polish.mjs
           node --check scripts/lib/validation.mjs
+          node --check scripts/lib/article-standard.mjs
+          node --check scripts/repair-editorial-articles.mjs
+          node --check scripts/check-newsroom-structure-approval.mjs
           node --check scripts/ingest-news.mjs
           node --check scripts/set-featured-story.mjs
+
+      - name: Require owner approval for newsroom structure changes
+        env:
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+          WLC_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          WLC_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+          WLC_PR_LABELS: ${{ toJSON(github.event.pull_request.labels.*.name) }}
+        run: node scripts/check-newsroom-structure-approval.mjs
 
       - name: Run unit tests
         run: npm test

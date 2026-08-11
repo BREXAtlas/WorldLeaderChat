@@ -4,6 +4,7 @@ import { extractStoryBundle, STORY_JSON_END, STORY_JSON_START } from "./lib/edit
 import { cleanWhitespace, readJson } from "./lib/io.mjs";
 import { dialogueProblems, stockMemeDetected } from "./lib/chat-quality.mjs";
 import { buildDirectDialogue, closingLineFor } from "./lib/newsroom-dialogue.mjs";
+import { articleProblems, expectedSourceCredit, normalizeArticle } from "./lib/article-standard.mjs";
 
 const token = process.env.GITHUB_TOKEN;
 const repository = process.env.GITHUB_REPOSITORY;
@@ -85,7 +86,12 @@ Write a short, engaging treatment of the SAME real event. A reader who opens the
 ARTICLE RULES
 - Never invent an event, outcome, statistic, quotation, private communication, motive, meeting or source.
 - Use dry sarcasm and sharp framing, not nonsense or unsupported certainty.
-- Write 3–5 short paragraphs. Give credit to every listed publisher.
+- Write a complete 3–5 paragraph short report totaling roughly 140–300 words.
+- Paragraph 1 says what happened. Paragraph 2 extracts the main facts and consequence. Paragraph 3 explains the political, cultural, business or strategic tension that makes the imagined chat worth reading. Use a fourth paragraph only when the source supports useful context.
+- The prose should feel like World Leader Chat reporting the real news from a sharper angle: factual first, dry humor in the framing, never fabricated detail.
+- Do not paste a feed excerpt, add a source-credit line as an article paragraph or end with “Continue reading.”
+- Use only the facts present in the verified summary, listed source material and additional source digests. Do not name an unlisted publisher.
+- Give credit to every listed publisher in sourceCredit and to no publisher that is not linked in the file.
 - Keep category exactly "${bundle.ingestion?.newsroomDesk || bundle.event.category}"; the public desk taxonomy is editorial metadata, not creative copy.
 - The headline must identify this specific event; never use a generic headline that could fit another article.
 
@@ -152,9 +158,10 @@ function applyCopilot(bundle, output) {
   result.event.article = {
     headline: cleanWhitespace(output.article.headline).slice(0, 240),
     dek: cleanWhitespace(output.article.dek).slice(0, 420),
-    body: output.article.body.slice(0, 6).map((paragraph) => cleanWhitespace(paragraph).slice(0, 1400)),
-    sourceCredit: cleanWhitespace(output.article.sourceCredit).slice(0, 500)
+    body: output.article.body.slice(0, globalThis.WLC_NEWSROOM_CONTRACT.article.maximumParagraphs).map((paragraph) => cleanWhitespace(paragraph).slice(0, 1400)),
+    sourceCredit: expectedSourceCredit(result.event.sources)
   };
+  result.event.article = normalizeArticle(result.event.article, result.event.sources);
   result.event.messages = output.messages.map((message) => ({
     speaker: cleanWhitespace(message.speaker).slice(0, 100),
     text: cleanWhitespace(message.text).slice(0, 600),
@@ -179,9 +186,11 @@ function applyCopilot(bundle, output) {
 function ensureArticle(bundle) {
   const result = structuredClone(bundle);
   const current = result.event?.article;
-  if (current?.body?.length >= 2) return result;
+  if (current) {
+    result.event.article = normalizeArticle(current, result.event.sources);
+    if (!articleProblems(result.event.article, result.event.sources).length) return result;
+  }
   const summary = safeSummary(result.event.summary);
-  const publishers = [...new Set((result.event.sources || []).map((source) => source.publisher).filter(Boolean))];
   const headline = cleanWhitespace(result.event.sources?.[0]?.label || result.event.title).slice(0, 240);
   result.ingestion = { ...(result.ingestion || {}), newsroomFormat: 2 };
   result.event.summary = summary;
@@ -193,9 +202,10 @@ function ensureArticle(bundle) {
     body: [
       summary,
       `The original reporting establishes the event, chronology and immediate consequence. This version keeps those facts intact while making the public tension easier to read: who is claiming control, who is objecting and which official phrase is carrying more confidence than detail.`,
-      `The source record remains the authority. The conversation below is an imagined exchange built around the people, institutions and pressure points directly connected to this report.`
+      `The World Leader Chat angle is the gap between the public announcement and the pressure underneath it. The humor stays in that framing; it does not change the event, invent a motive or upgrade an implication into a fact.`,
+      `The source record remains the authority. The conversation below is an imagined exchange built around the people, institutions and consequences directly connected to this report, giving the reader a reason to enter the chat without mistaking the chat for reporting.`
     ],
-    sourceCredit: `Based on original reporting from ${publishers.join(", ") || "the linked publisher"}.`
+    sourceCredit: expectedSourceCredit(result.event.sources)
   };
   return result;
 }
@@ -233,6 +243,7 @@ const labelDefinitions = [
   { name: "drafting", color: "1d76db", description: "Article and chat are being drafted" },
   { name: "ready-for-approval", color: "0e8a16", description: "Completed article and chat are ready for owner review" },
   { name: "regenerate-requested", color: "fbca04", description: "Owner requested a completely new article-specific chat" },
+  { name: "redraft-requested", color: "d4c5f9", description: "Owner requested a new source-locked article and chat" },
   { name: "needs-editor", color: "d93f0b", description: "Draft failed automated chat-quality safeguards" }
 ];
 
@@ -265,11 +276,13 @@ const queue = parsed
   .filter(({ issue, bundle }) => {
     const labels = labelsOf(issue);
     const complete = Number(bundle.ingestion?.newsroomFormat || 0) >= 2
-      && bundle.event?.article?.body?.length >= 2
+      && !articleProblems(bundle.event?.article, bundle.event?.sources).length
       && bundle.event?.messages?.length >= 10
       && !JSON.stringify(bundle).includes("[EDITOR:");
-    const problems = complete ? dialogueProblems(bundle, { existingBundles: acceptedBundles }) : ["Draft is incomplete."];
-    return forceRewrite || labels.has("regenerate-requested") || !complete || problems.length > 0 || stockMemeDetected(bundle.event?.meme);
+    const problems = complete
+      ? [...articleProblems(bundle.event?.article, bundle.event?.sources), ...dialogueProblems(bundle, { existingBundles: acceptedBundles })]
+      : ["Draft is incomplete."];
+    return forceRewrite || labels.has("regenerate-requested") || labels.has("redraft-requested") || !complete || problems.length > 0 || stockMemeDetected(bundle.event?.meme);
   })
   .slice(0, limit);
 
@@ -286,7 +299,10 @@ for (const { issue, bundle: originalBundle } of queue) {
     for (let attempt = 0; attempt < 3; attempt += 1) {
       try {
         const candidate = applyCopilot(bundle, runCopilot(bundle, attempt ? lastProblems : []));
-        const problems = dialogueProblems(candidate, { existingBundles: acceptedBundles });
+        const problems = [
+          ...articleProblems(candidate.event?.article, candidate.event?.sources).map((problem) => `Article: ${problem}`),
+          ...dialogueProblems(candidate, { existingBundles: acceptedBundles })
+        ];
         if (problems.length || stockMemeDetected(candidate.event?.meme)) {
           lastProblems = [...problems, ...(stockMemeDetected(candidate.event?.meme) ? ["The closing line used a named stock meme."] : [])];
           continue;
@@ -304,10 +320,13 @@ for (const { issue, bundle: originalBundle } of queue) {
       bundle = deterministicDraft(bundle);
     }
 
-    const finalProblems = dialogueProblems(bundle, { existingBundles: acceptedBundles });
+    const finalProblems = [
+      ...articleProblems(bundle.event?.article, bundle.event?.sources).map((problem) => `Article: ${problem}`),
+      ...dialogueProblems(bundle, { existingBundles: acceptedBundles })
+    ];
     if (finalProblems.length || stockMemeDetected(bundle.event?.meme)) {
       blocked += 1;
-      await setLabels(issue, ["needs-editor"], ["drafting", "ready-for-approval", "regenerate-requested"]);
+      await setLabels(issue, ["needs-editor"], ["drafting", "ready-for-approval", "regenerate-requested", "redraft-requested"]);
       console.error(`::warning title=Draft blocked by chat quality::Issue #${issue.number}: ${[...finalProblems, ...(stockMemeDetected(bundle.event?.meme) ? ["stock meme"] : [])].join(" | ")}`);
       continue;
     }
@@ -317,13 +336,13 @@ for (const { issue, bundle: originalBundle } of queue) {
       method: "PATCH",
       body: { body }
     });
-    await setLabels(updated, ["ready-for-approval"], ["drafting", "needs-editor", "regenerate-requested"]);
+    await setLabels(updated, ["ready-for-approval"], ["drafting", "needs-editor", "regenerate-requested", "redraft-requested"]);
     acceptedBundles.push(bundle);
     drafted += 1;
     console.log(`Drafted unique article-specific chat for issue #${issue.number}.`);
   } catch (error) {
     blocked += 1;
-    await setLabels(issue, ["needs-editor"], ["drafting", "ready-for-approval", "regenerate-requested"]).catch(() => {});
+    await setLabels(issue, ["needs-editor"], ["drafting", "ready-for-approval", "regenerate-requested", "redraft-requested"]).catch(() => {});
     console.error(`::warning title=Editorial draft failed::Issue #${issue.number}: ${error.message}`);
   }
 }

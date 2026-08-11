@@ -103,14 +103,20 @@ function dialogueProblems(bundle) {
   return [...new Set(problems)];
 }
 
+function articleProblems(bundle) {
+  const standard = globalThis.WLC_ARTICLE_STANDARD;
+  if (!standard) return ['Article rules did not load. Refresh the editor before approving.'];
+  return standard.articleProblems(bundle?.event?.article, bundle?.event?.sources);
+}
+
 function laneOf(issue) {
   const labels = labelSet(issue);
   if (labels.has('published')) return 'published';
   if (issue.state === 'closed') return null;
-  if (labels.has('editorial-approved') || labels.has('publication-failed') || labels.has('regenerate-requested') || labels.has('drafting') || labels.has('needs-editor')) return 'drafting';
+  if (labels.has('editorial-approved') || labels.has('publication-failed') || labels.has('regenerate-requested') || labels.has('redraft-requested') || labels.has('drafting') || labels.has('needs-editor')) return 'drafting';
   if (labels.has('ready-for-approval')) return 'ready';
   const bundle = parseBundle(issue.body || '');
-  if (bundle && bundle.event?.article?.body?.length >= 2 && !JSON.stringify(bundle).includes('[EDITOR:') && !dialogueProblems(bundle).length) return 'ready';
+  if (bundle && !JSON.stringify(bundle).includes('[EDITOR:') && !articleProblems(bundle).length && !dialogueProblems(bundle).length) return 'ready';
   return 'new';
 }
 
@@ -217,13 +223,17 @@ function cards(lane) {
   return set.map((issue) => {
     const labels = labelSet(issue);
     const bundle = parseBundle(issue.body || '');
-    const problems = bundle ? dialogueProblems(bundle) : ['Editorial JSON could not be read.'];
+    const articleIssues = bundle ? articleProblems(bundle) : [];
+    const chatIssues = bundle ? dialogueProblems(bundle) : [];
+    const problems = bundle
+      ? [...articleIssues.map((problem) => `Article: ${problem}`), ...chatIssues]
+      : ['Editorial JSON could not be read.'];
     const messages = (bundle?.event?.messages || []).map((message) => `<div class="msg ${message.kind === 'system' ? 'system' : ''}"><b>${esc(message.speaker)}</b>${esc(message.text)}</div>`).join('');
     const sources = bundle?.event?.sources || [];
     const article = bundle?.event?.article;
     const publishing = labels.has('editorial-approved') || busy.has(issue.number);
     const failed = labels.has('publication-failed');
-    const regenerating = labels.has('regenerate-requested') || labels.has('drafting');
+    const regenerating = labels.has('regenerate-requested') || labels.has('redraft-requested') || labels.has('drafting');
     const blocked = labels.has('needs-editor') || problems.length > 0;
 
     let actions = bundle?.event?.featured
@@ -235,19 +245,19 @@ function cards(lane) {
       } else if (regenerating && !failed) {
         actions = '<button class="btn pending" disabled>Regenerating…</button><span class="action-note">A new article-specific chat is being written.</span>';
       } else if (failed) {
-        actions = `<button class="btn success" data-action="retry" data-issue="${issue.number}" ${blocked ? 'disabled' : ''}>Retry Publish</button><button class="btn ghost" data-action="regenerate" data-issue="${issue.number}">Rewrite Chat</button><button class="btn danger" data-action="reject" data-issue="${issue.number}">Reject</button>`;
+        actions = `<button class="btn success" data-action="retry" data-issue="${issue.number}" ${blocked ? 'disabled' : ''}>Retry Publish</button><button class="btn ghost" data-action="${articleIssues.length ? 'redraft' : 'regenerate'}" data-issue="${issue.number}">${articleIssues.length ? 'Regenerate Article + Chat' : 'Rewrite Chat'}</button><button class="btn danger" data-action="reject" data-issue="${issue.number}">Reject</button>`;
       } else if (blocked) {
-        actions = `<button class="btn ghost" data-action="regenerate" data-issue="${issue.number}">Rewrite Chat</button><button class="btn danger" data-action="reject" data-issue="${issue.number}">Reject</button>`;
+        actions = `<button class="btn ghost" data-action="${articleIssues.length ? 'redraft' : 'regenerate'}" data-issue="${issue.number}">${articleIssues.length ? 'Regenerate Article + Chat' : 'Rewrite Chat'}</button><button class="btn danger" data-action="reject" data-issue="${issue.number}">Reject</button>`;
       } else {
         actions = `<button class="btn success" data-action="approve" data-issue="${issue.number}">Approve & Publish</button><button class="btn ghost" data-action="regenerate" data-issue="${issue.number}">Rewrite Chat</button><button class="btn danger" data-action="reject" data-issue="${issue.number}">Reject</button>`;
       }
     }
 
     const articlePreview = article
-      ? `<div class="article-preview"><b>SHORT ARTICLE PREVIEW</b><strong>${esc(article.headline)}</strong><p>${esc(article.dek)}</p></div>`
+      ? `<div class="article-preview"><div class="article-preview-label"><b>COMPLETE SHORT REPORT</b><span>${(article.body || []).length} paragraphs • ${globalThis.WLC_ARTICLE_STANDARD?.wordCount(article.body || []) || 0} words</span></div><strong>${esc(article.headline)}</strong><p class="article-dek">${esc(article.dek)}</p>${(article.body || []).map((paragraph) => `<p>${esc(paragraph)}</p>`).join('')}<div class="article-credit">${esc(article.sourceCredit || '')}</div></div>`
       : '';
     const quality = problems.length
-      ? `<div class="smart" style="background:#fee2e2;border-color:#b91c1c"><b>CHAT NEEDS A REWRITE</b><br>${problems.map(esc).join('<br>')}</div>`
+      ? `<div class="smart" style="background:#fee2e2;border-color:#b91c1c"><b>FILE NEEDS ATTENTION</b><br>${problems.map(esc).join('<br>')}</div>`
       : `<div class="smart"><b>S-M-A-R REVIEW</b><br>${esc(smartText(bundle))}<br><b>Chat quality:</b> article-specific, direct and ready.</div>`;
 
     const sourceLinks = sources.map((source) => `<a class="source" target="_blank" rel="noopener" href="${esc(source.url)}">Open source: ${esc(source.publisher)}</a>`).join('');
@@ -315,6 +325,15 @@ async function act(action, number) {
       return;
     }
 
+    if (action === 'redraft') {
+      busy.add(number); render();
+      await setIssueLabels(currentIssue, ['redraft-requested'], ['ready-for-approval','editorial-approved','fact-checked','publication-failed','needs-editor','regenerate-requested']);
+      busy.delete(number);
+      notice('A new source-locked short report and article-specific chat have been queued.', 'success');
+      await load();
+      return;
+    }
+
     if (action === 'reject') {
       if (!confirm('Reject this candidate? It will be closed without publishing.')) return;
       busy.add(number); render();
@@ -326,13 +345,9 @@ async function act(action, number) {
     }
 
     if (action === 'approve' || action === 'retry') {
-      const problems = dialogueProblems(bundle);
+      const problems = [...articleProblems(bundle).map((problem) => `Article: ${problem}`), ...dialogueProblems(bundle)];
       if (problems.length) {
-        notice(`This chat cannot publish yet: ${problems[0]} Tap Rewrite Chat.`, 'error');
-        return;
-      }
-      if (!bundle.event?.article?.body?.length) {
-        notice('This candidate has no completed short article. Tap Rewrite Chat.', 'error');
+        notice(`This file cannot publish yet: ${problems[0]}`, 'error');
         return;
       }
       if (!confirm(action === 'retry' ? 'Retry publication of this approved article and chat?' : 'Approve this completed article-specific chat and publish it?')) return;
@@ -354,7 +369,7 @@ async function act(action, number) {
 
       await api(`/repos/${OWNER}/${REPO}/issues/${number}`, {method:'PATCH', body:JSON.stringify({body:replaceBundle(currentIssue.body, bundle)})});
       const updated = await api(`/repos/${OWNER}/${REPO}/issues/${number}`);
-      const checked = await setIssueLabels(updated, ['fact-checked'], ['editorial-approved','publication-failed','needs-editor','regenerate-requested','drafting']);
+      const checked = await setIssueLabels(updated, ['fact-checked'], ['editorial-approved','publication-failed','needs-editor','regenerate-requested','redraft-requested','drafting']);
       await setIssueLabels(checked, ['editorial-approved'], []);
 
       const result = await waitForPublish(number);
