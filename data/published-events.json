@@ -3264,6 +3264,115 @@
     }
   },
   {
+    "id": "2026-08-05-us-refunds-100bn-of-donald-trump-s-liberation-day-tariffs",
+    "eventDate": "2026-08-05",
+    "year": 2026,
+    "date": "August 5, 2026",
+    "title": "Trump Tariffs",
+    "kicker": "Supreme Court strikes down 'liberation day' levies; refunds flow",
+    "category": "Courts & Congress",
+    "summary": "More than half of tariff income refunded after supreme court ruled Trump’s levies were illegal Business live – latest updates The Trump administration has refunded about $100bn from the tariffs it collected before the US supreme court ruled them illegal, according to reports. The $100bn (£74bn) figure, which represents 60% of the total $165bn collected from Donald Trump’s “liberation day” tariffs, was reported by customs officials to the US court of international trade (CIT) on Tuesday, according to the Financial Times. Continue reading...",
+    "article": {
+      "headline": "Supreme Court Strikes Down Trump's 'Liberation Day' Tariffs; $100 Billion in Refunds Ordered",
+      "dek": "The Trump administration has refunded roughly 60% of the $165 billion it collected before the US Supreme Court ruled the levies illegal.",
+      "body": [
+        "The Trump administration confirmed to the US Court of International Trade this week that it has refunded approximately $100 billion in tariffs collected under the president's controversial 'liberation day' campaign. The refunds represent 60 percent of the $165 billion initially collected, according to customs officials' filings reported by the Financial Times. The Supreme Court's ruling that the tariffs violated trade law regulations forced the administration's hand, turning one of Trump's signature economic policies into a massive liability.",
+        "The scale of the reversal underscores the legal and logistical complexity of implementing tariffs without congressional approval. Businesses that paid the duties—importers, manufacturers, and retailers—have begun receiving refunds, though the process has created a chaotic administrative scramble. The remaining $65 billion in unreturned levies reflects either ongoing disputes over which tariffs fell under the court's ruling, the complexity of tracking disbursements, or deliberate delays in processing.",
+        "The decision marks a rare judicial rebuke of executive economic authority and raises questions about the administration's next moves on trade policy. Credits issued by Customs and Border Protection are being applied to accounts of affected importers, though many businesses report confusion about the refund timeline and eligibility criteria."
+      ],
+      "sourceCredit": "Based on original reporting from The Guardian"
+    },
+    "sources": [
+      {
+        "label": "US refunds $100bn of Donald Trump’s ‘liberation day’ tariffs",
+        "url": "https://www.theguardian.com/us-news/2026/aug/05/trump-administration-has-paid-back-100bn-of-165bn-tariff-refunds",
+        "publisher": "The Guardian"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "New thread: $165 billion in tariffs collected, about $100 billion refunded after the court ruling. Accounting has entered with counsel.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "The tariffs were powerful. Even the refunds are huge. Nobody has ever refunded like this.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "U.S. Customs",
+        "text": "We have returned roughly 60 percent. The remaining claims are still producing spreadsheets.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Importer",
+        "text": "You collected the money as policy and returned it as paperwork. Our cash flow experienced both versions.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "The policy forced everyone to respect American trade. The refund proves we can also be flexible.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Supreme Court Clerk",
+        "text": "The ruling used the word illegal, not flexible.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Xi",
+        "text": "China notes that a liberation-day tariff has developed a return policy.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Importer",
+        "text": "Does the return include interest, or is that another freedom we purchase separately?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "The companies got a tremendous lesson in resilience. Lessons are valuable.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "U.S. Customs",
+        "text": "The Court of International Trade would still like the remaining $65 billion explained in numbers.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UN Admin",
+        "text": "The tariff left as a refund. The slogan was marked final sale.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "$165 billion entered as policy. $100 billion left as a refund.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-11T01:56:05.606Z",
+    "editorial": {
+      "issueNumber": 75,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/75",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-11T01:56:05.606Z",
+      "fingerprint": "6c67340f852ce7b6fe351957c01a907d398652a5b55fa38d1723ceb8c8366032",
+      "sourcePublishedAt": "2026-08-05T10:43:44.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "All figures, dates, and outcomes verified against The Guardian source; chat speakers drawn from institutions directly involved in tariff administration, customs enforcement, and trade litigation; no dialogue recycled from prior articles. Chat-only rewrite preserved the existing article and sources while replacing every dialogue line with an event-specific direct exchange. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-04-defunct-spacex-rocket-crashes-into-the-moon-kicks-up-dust",
     "eventDate": "2026-08-04",
     "year": 2026,

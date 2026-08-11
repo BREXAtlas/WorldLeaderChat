@@ -464,5 +464,17 @@
     "sourceUrls": [
       "https://www.theguardian.com/world/live/2026/aug/10/ukraine-drones-russia-oil-facilities-europe-heat-drought-latest-updates-news"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-05-us-refunds-100bn-of-donald-trump-s-liberation-day-tariffs",
+    "issueNumber": 75,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/75",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-11T01:56:05.606Z",
+    "fingerprint": "6c67340f852ce7b6fe351957c01a907d398652a5b55fa38d1723ceb8c8366032",
+    "sourceUrls": [
+      "https://www.theguardian.com/us-news/2026/aug/05/trump-administration-has-paid-back-100bn-of-165bn-tariff-refunds"
+    ]
   }
 ]
