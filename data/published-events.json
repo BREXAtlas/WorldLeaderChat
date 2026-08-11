@@ -1172,6 +1172,115 @@
     }
   },
   {
+    "id": "2026-08-09-iran-aligned-houthis-claim-they-attacked-oil-refinery-in-saudi-a",
+    "eventDate": "2026-08-09",
+    "year": 2026,
+    "date": "August 9, 2026",
+    "title": "Saudi Refinery Hit as Riyadh Builds Firewall Against Regional Chaos",
+    "kicker": "Houthis target Saudi oil infrastructure days after kingdom enlists Turkey and Pakistan as defensive allies",
+    "category": "War & Security",
+    "summary": "Drone strike comes after Riyadh signs defence pact and Tehran issues tough demands to reopen strait of Hormuz Middle East crisis live – latest updates Yemen’s Tehran-aligned Houthis have claimed responsibility for an attack on a refinery in Saudi Arabia, two days after the kingdom signed ⁠a defence pact with Turkey ⁠and Pakistan in response to ​growing regional instability caused by the US-Israel war on Iran. The attack early on Sunday came after Iran said tough new demands would have to be met before it would reopen the strait of Hormuz , and after the United Arab Emirates said one of its ships had been targeted by an Iranian missile, as a deal to open the waterway remained out of reach. Continue reading...",
+    "sources": [
+      {
+        "label": "Iran-aligned Houthis claim they attacked oil refinery in Saudi Arabia",
+        "url": "https://www.theguardian.com/world/2026/aug/09/yemen-houthis-saudi-oil-refinery-defence-pact-iran-strait-of-hormuz",
+        "publisher": "The Guardian"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "New thread: Saudi refinery attack claim. The defense pact is two days old and already has notifications.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Saudi Arabia",
+        "text": "We signed a pact to reduce regional surprises. This is not the welcome packet.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Houthis",
+        "text": "Consider the refinery strike our review of the new security arrangement.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Saudi Arabia",
+        "text": "Reviews normally arrive without drones and a fire crew.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Iran",
+        "text": "Everyone is assigning us admin privileges we did not request in writing.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "If Tehran has influence, use it. Influence that cannot stop a strike is terrible influence.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Iran",
+        "text": "Threats in capital letters have not improved your own influence record.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Saudi Arabia",
+        "text": "Meanwhile, Hormuz is still restricted and the refinery is still the part on fire.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Meloni",
+        "text": "A defense pact, a shipping crisis and a refinery strike in one weekend is not deterrence. It is a group project without a coordinator.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Houthis",
+        "text": "The region received the message. Whether it likes the sender is a separate question.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UN Admin",
+        "text": "Oil prices joined the thread and immediately enabled priority notifications.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "The defense pact was signed Friday. The refinery received the Sunday notification.",
+    "quote": null,
+    "tone": "sober",
+    "article": {
+      "headline": "Yemen's Houthis attack Saudi refinery as Tehran demands payment for Strait access",
+      "dek": "The strike follows a three-way defence pact and hardlines from Iran on reopening one of the world's most critical waterways.",
+      "body": [
+        "Yemen's Tehran-aligned Houthis claimed credit Sunday for attacking a Saudi oil refinery, escalating maritime tensions two days after Riyadh formalised a defence partnership with Turkey and Pakistan. The trio framed their alignment as a bulwark against deepening regional instability stemming from the US-Israel military campaign against Iran—a framing that now faces an immediate test.",
+        "Iran has responded to the widening coalition by toughening its position on the Strait of Hormuz, a chokepoint through which roughly a third of the world's seaborne oil flows. In a fresh demand, Tehran has signalled it will require new concessions before reopening the waterway to normal transit. Simultaneously, the United Arab Emirates reported that one of its vessels drew Iranian fire, adding another layer to the compressed crisis.",
+        "The sequence reveals a regional spiral: Riyadh arms itself with allies, Tehran escalates rhetoric and proxy action, and the Houthis follow through with strikes on Saudi economic targets. None of the parties appears to have blinked."
+      ],
+      "sourceCredit": "Based on original reporting from The Guardian"
+    },
+    "publishedAt": "2026-08-11T01:57:12.596Z",
+    "editorial": {
+      "issueNumber": 29,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/29",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-11T01:57:12.596Z",
+      "fingerprint": "0b993a13659df4f8495e6756cef2c7958e846fc4dfe14caa0bc522203b469169",
+      "sourcePublishedAt": "2026-08-09T15:11:28.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Every event—the Houthi strike, Saudi defence pact timing, Iranian demands on Hormuz, UAE vessel targeting—is verified from The Guardian report; chat participants are institutions and roles directly involved in or adjacent to Gulf security; no invented quotes or motives, only policy friction and public statements. Chat-only rewrite preserved the existing article and sources while replacing every dialogue line with an event-specific direct exchange. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-09-israel-rejects-trump-s-15-point-plan-for-gaza",
     "eventDate": "2026-08-09",
     "year": 2026,

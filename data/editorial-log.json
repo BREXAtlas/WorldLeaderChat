@@ -476,5 +476,17 @@
     "sourceUrls": [
       "https://www.theguardian.com/us-news/2026/aug/05/trump-administration-has-paid-back-100bn-of-165bn-tariff-refunds"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-09-iran-aligned-houthis-claim-they-attacked-oil-refinery-in-saudi-a",
+    "issueNumber": 29,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/29",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-11T01:57:12.596Z",
+    "fingerprint": "0b993a13659df4f8495e6756cef2c7958e846fc4dfe14caa0bc522203b469169",
+    "sourceUrls": [
+      "https://www.theguardian.com/world/2026/aug/09/yemen-houthis-saudi-oil-refinery-defence-pact-iran-strait-of-hormuz"
+    ]
   }
 ]
