@@ -108,7 +108,7 @@ jobs:
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL}" | grep -F "https://ednotebook.com"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
-            "${PAGE_URL}" | grep -F "https://brexatlas.github.io/emergingoutbreaks/"
+            "${PAGE_URL}" | grep -F "https://outbreak-atlas-cyclospora.magazinebeaucoup.chatgpt.site/"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/recency-order.js" | grep -F "compareRecency"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \

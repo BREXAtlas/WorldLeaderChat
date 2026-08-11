@@ -242,7 +242,7 @@ test("sponsors follow newsroom content with exact EdNotebook copy and live-site 
   assert.match(sponsorBlock, /FROM OUR SPONSORS/);
   assert.match(sponsorBlock, /It’s your semester, own it\./);
   assert.match(sponsorBlock, /href="https:\/\/ednotebook\.com"/);
-  assert.match(sponsorBlock, /href="https:\/\/brexatlas\.github\.io\/emergingoutbreaks\/"/);
+  assert.match(sponsorBlock, /href="https:\/\/outbreak-atlas-cyclospora\.magazinebeaucoup\.chatgpt\.site\/"/);
   assert.doesNotMatch(sponsorBlock, /github\.com|repositor(?:y|ies)/i);
 });
 
@@ -256,7 +256,7 @@ test("Pages packages and smoke-checks carousel code, sponsors and both public UR
   assert.match(workflow, /PAGE \$\{pageNumber\} \/ \$\{pageCount\}/);
   assert.match(workflow, /FROM OUR SPONSORS/);
   assert.match(workflow, /https:\/\/ednotebook\.com/);
-  assert.match(workflow, /https:\/\/brexatlas\.github\.io\/emergingoutbreaks\//);
+  assert.match(workflow, /https:\/\/outbreak-atlas-cyclospora\.magazinebeaucoup\.chatgpt\.site\//);
 });
 
 test("existing article/chat copy and social-copy controls are preserved", async () => {
