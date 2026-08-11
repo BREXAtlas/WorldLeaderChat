@@ -16,7 +16,7 @@
   }
 
   function eventUrl(event) {
-    return `${location.origin}${location.pathname}#event=${encodeURIComponent(event.id)}`;
+    return `https://worldleaders.chat/#event=${encodeURIComponent(event.id)}`;
   }
 
   function transcriptText(event) {

@@ -4,6 +4,7 @@
   const newsroom = { category: "all" };
 
   function sectionFor(event) {
+    if (globalThis.WLC_NEWSROOM) return globalThis.WLC_NEWSROOM.sectionFor(event);
     const text = `${event.category || ""} ${event.title || ""} ${event.summary || ""}`.toLowerCase();
     if (/technology|artificial intelligence|\bai\b|cyber|tiktok|openai|chip|semiconductor/.test(text)) return "Technology & AI";
     if (/science|space|rocket|nasa|spacex|moon|mars|telescope|discovery/.test(text)) return "Science & Space";
@@ -42,7 +43,6 @@
       .article-report .dek{font:700 16px/1.28 Georgia,serif;margin:0 0 11px}
       .article-report p{font:15px/1.52 Georgia,serif;margin:0 0 11px}
       .article-report .credit{font:700 11px/1.4 Arial,sans-serif;color:#555;border-left:4px solid #c40000;padding-left:8px}
-      .story .tag::after{content:" • " attr(data-section);color:#555}
       @media(max-width:900px){.current-columns,.archive-year-grid{grid-template-columns:1fr}.current-column+.current-column{border-left:0;padding-left:0}.current-news-title h2{font-size:27px}}
     `;
     document.head.appendChild(style);
@@ -72,8 +72,6 @@
     if (dialogHead) dialogHead.textContent = "WORLD LEADER CHAT // THE FILE";
     const chatNote = document.querySelector(".chat-top p");
     if (chatNote) chatNote.textContent = "Sourced event • imagined off-mic reactions • public-record excerpts labeled";
-    const footer = document.querySelector("footer");
-    if (footer) footer.innerHTML = "<strong>SATIRICAL NEWS FORMAT, NOT LEAKED CORRESPONDENCE.</strong><br>Events and public quotations are sourced. Private reactions are imagined. Open any file to view the original reporting.";
     updateSideboxLanguage();
   }
 
@@ -86,7 +84,7 @@
       nav.setAttribute("aria-label", "Filter by news desk");
       document.getElementById("yearbar")?.insertAdjacentElement("afterend", nav);
     }
-    const categories = ["all", "World News", "Politics & Society", "Technology & AI", "Science & Space", "Business & Power", "Culture & Entertainment", "Sports & Soft Power"];
+    const categories = ["all", ...(globalThis.WLC_NEWSROOM?.desks || ["War & Security", "World News", "Politics & Society", "Technology & AI", "Science & Space", "Business & Power", "Culture & Entertainment", "Sports & Soft Power"])];
     nav.innerHTML = categories.map((category) => `<button type="button" data-newsroom-category="${esc(category)}" class="${newsroom.category === category ? "active" : ""}">${category === "all" ? "All Desks" : esc(category)}</button>`).join("");
     nav.querySelectorAll("button").forEach((button) => {
       button.addEventListener("click", () => {

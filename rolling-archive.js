@@ -61,6 +61,7 @@
   }
 
   function sectionFor(event) {
+    if (globalThis.WLC_NEWSROOM) return globalThis.WLC_NEWSROOM.sectionFor(event);
     const text = `${event.category || ""} ${event.title || ""} ${event.summary || ""}`.toLowerCase();
     if (/technology|artificial intelligence|\bai\b|cyber|tiktok|openai|chip|semiconductor/.test(text)) return "Technology & AI";
     if (/science|space|rocket|nasa|spacex|moon|mars|telescope|discovery/.test(text)) return "Science & Space";
@@ -72,6 +73,7 @@
   }
 
   function visualDesk(event) {
+    if (globalThis.WLC_NEWSROOM) return globalThis.WLC_NEWSROOM.sectionFor(event);
     const text = `${event.category || ""} ${event.title || ""} ${event.summary || ""}`.toLowerCase();
     if (/war|security|airstrike|missile|attack|hostage|gaza|ukraine|russia|iran|hormuz|israel|military/.test(text)) return "War & Security";
     if (/science|space|rocket|nasa|spacex|moon|mars|telescope|discovery/.test(text)) return "Science & Space";
@@ -249,6 +251,7 @@
       .current-year-heading{color:#111}
       .story[data-desk]{--desk:#3f4650;border-top:4px solid var(--desk);padding-top:8px}
       .story[data-desk] h3 button{color:var(--desk);text-decoration-color:var(--desk)}
+      .story[data-desk] .tag,.lead[data-desk] .tag{color:var(--desk)}
       .story[data-desk="War & Security"],.lead[data-desk="War & Security"]{--desk:#a30d16}
       .story[data-desk="Science & Space"],.lead[data-desk="Science & Space"]{--desk:#006b63}
       .story[data-desk="Technology & AI"],.lead[data-desk="Technology & AI"]{--desk:#5d2a91}
@@ -258,6 +261,7 @@
       .story[data-desk="Sports & Soft Power"],.lead[data-desk="Sports & Soft Power"]{--desk:#26723a}
       .story[data-desk="World News"],.lead[data-desk="World News"]{--desk:#364552}
       .lead[data-desk] h2 button{color:var(--desk)}
+      #newsroomFilter button[data-newsroom-category="War & Security"]{border-color:#a30d16;color:#a30d16}
       #newsroomFilter button[data-newsroom-category="World News"]{border-color:#364552;color:#364552}
       #newsroomFilter button[data-newsroom-category="Politics & Society"]{border-color:#153e75;color:#153e75}
       #newsroomFilter button[data-newsroom-category="Technology & AI"]{border-color:#5d2a91;color:#5d2a91}
@@ -279,7 +283,7 @@
     const all = dedupeEvents(allEvents());
     const filtered = all.filter((event) => matches(event) && deskMatches(event));
     renderTopline(filtered);
-    colorLead(filtered[0] || all[0]);
+    colorLead(typeof leadEvent === "function" ? leadEvent(filtered) : (filtered[0] || all[0]));
 
     const archive = document.getElementById("archive");
     if (!archive) return;

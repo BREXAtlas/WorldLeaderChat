@@ -13,6 +13,19 @@ function isCalendarDate(value) {
     && date.getUTCDate() === day;
 }
 
+function dateKeyInTimeZone(value, timeZone = "America/Chicago") {
+  const date = new Date(value);
+  if (Number.isNaN(date.valueOf())) return "";
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit"
+  }).formatToParts(date);
+  const values = Object.fromEntries(parts.map((part) => [part.type, part.value]));
+  return `${values.year}-${values.month}-${values.day}`;
+}
+
 export function sanitizeUntrustedText(value) {
   return cleanWhitespace(value)
     .replaceAll(STORY_JSON_START, "[machine marker removed]")
@@ -51,8 +64,9 @@ function candidateSources(candidate, sourceTitle, publisher) {
 }
 
 export function createDraftBundle(candidate, now = new Date()) {
-  const candidateDate = String(candidate.publishedAt ?? "").slice(0, 10);
-  const eventDate = isCalendarDate(candidateDate) ? candidateDate : now.toISOString().slice(0, 10);
+  const candidateDate = dateKeyInTimeZone(candidate.publishedAt);
+  const today = dateKeyInTimeZone(now);
+  const eventDate = isCalendarDate(candidateDate) ? candidateDate : today;
   const year = Number(eventDate.slice(0, 4));
   const sourceTitle = sanitizeUntrustedText(candidate.title);
   const sourceExcerpt = sanitizeUntrustedText(candidate.excerpt || sourceTitle).slice(0, 1200);
@@ -70,6 +84,7 @@ export function createDraftBundle(candidate, now = new Date()) {
       matchedKeywords: candidate.matchedKeywords,
       sourceId: candidate.sourceId,
       sourceDesk: candidate.sourceDesk || "World News",
+      newsroomDesk: candidate.newsroomDesk || candidate.category || candidate.sourceDesk || "World News",
       sourcePublishedAt: candidate.publishedAt,
       newsroomFormat: 2,
       coveragePublishers: candidate.coveragePublishers || sources.map((source) => source.publisher)
@@ -81,7 +96,7 @@ export function createDraftBundle(candidate, now = new Date()) {
       date: formatHumanDate(eventDate),
       title: `[EDITOR: REWRITE AS A TRUTHFUL, SHARP HEADLINE] ${sourceTitle.toUpperCase()}`,
       kicker: "[EDITOR: Write one engaging line that frames the real event with a dry, sarcastic edge.]",
-      category: candidate.category || candidate.sourceDesk || "World News",
+      category: candidate.newsroomDesk || candidate.category || candidate.sourceDesk || "World News",
       summary: sourceExcerpt,
       article: {
         headline: "[EDITOR: Write a catchy factual article headline.]",

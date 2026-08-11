@@ -37,6 +37,8 @@ const labelDefinitions = [
   { name: "fact-checked", color: "1d76db", description: "Editor confirms the factual fields and sources were checked" },
   { name: "editorial-approved", color: "0e8a16", description: "Authorized editor approves publication" },
   { name: "published", color: "5319e7", description: "Published to World Leader Chat" },
+  { name: "publication-failed", color: "d93f0b", description: "Publication failed and is unlocked for retry or rewrite" },
+  { name: "featured-headline", color: "f4d34f", description: "Selected as the public main headline" },
   { name: "rejected", color: "6a737d", description: "Editorially rejected; retained for deduplication" }
 ];
 

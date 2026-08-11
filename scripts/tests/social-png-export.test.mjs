@@ -34,7 +34,8 @@ test("social cards use a consistent branded background and source attribution", 
   assert.match(source, /SOURCE CREDIT:/);
   assert.match(source, /MORE MESSAGES IN THE FULL FILE/);
   assert.match(source, /eventUrl\(event\)/);
-  assert.match(source, /Branded background, headline, chat excerpt, source credit and full-file link/);
+  assert.match(source, /https:\/\/worldleaders\.chat\/#event=/);
+  assert.doesNotMatch(source, /Branded background, headline, chat excerpt, source credit and full-file link/);
 });
 
 test("Pages build ships the exporter after existing copy tools", async () => {

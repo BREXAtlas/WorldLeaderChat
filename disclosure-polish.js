@@ -1,13 +1,6 @@
 "use strict";
 
 (function polishWorldLeaderChatSite() {
-  function applyDisclosure() {
-    const footer = document.querySelector("footer");
-    if (footer) {
-      footer.innerHTML = "<strong>POLITICAL PARODY, NOT LEAKED CORRESPONDENCE.</strong><br>No private message on this page is authentic. Public-record excerpts are brief, visibly labeled and paired with source links.";
-    }
-  }
-
   function applyLayout() {
     if (document.getElementById("newsroom-layout-fix")) return;
 
@@ -53,7 +46,6 @@
   }
 
   function apply() {
-    applyDisclosure();
     applyLayout();
   }
 

@@ -6,11 +6,14 @@ const read = (path) => readFile(new URL(`../../${path}`, import.meta.url), "utf8
 
 test("news ingestion runs four times daily, balances eight desks and drafts before approval", async () => {
   const workflow = await read(".github/workflows/news-ingestion.yml");
-  assert.match(workflow, /cron: "17 \*\/6 \* \* \*"/);
+  assert.match(workflow, /cron: "20 7,11,15,19 \* \* \*"/);
+  assert.match(workflow, /timezone: "America\/Chicago"/);
   assert.match(workflow, /copilot-requests: write/);
   assert.match(workflow, /WLC_LOOKBACK_HOURS:.*168/);
   assert.match(workflow, /WLC_MINIMUM_SCORE:.*4/);
-  assert.match(workflow, /WLC_MAX_CANDIDATES:.*20/);
+  assert.match(workflow, /WLC_MAX_CANDIDATES:.*24/);
+  assert.match(workflow, /WLC_MINIMUM_PER_DESK: "2"/);
+  assert.match(workflow, /queue: max/);
   assert.match(workflow, /War & Security, World News, Politics & Society, Technology & AI, Science & Space, Business & Power, Culture & Entertainment, Sports & Soft Power/);
   assert.match(workflow, /draft-editorial-issues\.mjs/);
   assert.match(workflow, /refine-editorial-dialogue\.mjs/);
@@ -71,10 +74,22 @@ test("Rewrite Chat preserves the article and replaces only dialogue", async () =
   assert.match(rewrite, /article and sources were preserved/);
 });
 
-test("failed publication unlocks the issue and successful publication clears active queue labels", async () => {
+test("publication serializes main writes and finalizes labels without assuming optional labels exist", async () => {
   const workflow = await read(".github/workflows/editorial-publish.yml");
-  assert.match(workflow, /--remove-label ready-for-approval/);
+  assert.match(workflow, /group: world-leader-chat-main-writes/);
+  assert.match(workflow, /queue: max/);
+  assert.match(workflow, /labels_json=.*gh api/);
+  assert.match(workflow, /select\(\. != "publication-failed"\)/);
+  assert.match(workflow, /--method PUT "repos\/\$\{GITHUB_REPOSITORY\}\/issues\/\$\{ISSUE_NUMBER\}\/labels"/);
+  assert.match(workflow, /gh issue close/);
   assert.match(workflow, /--add-label publication-failed/);
   assert.match(workflow, /--remove-label editorial-approved/);
   assert.match(workflow, /Retry Publish/);
+});
+
+test("editor adds fact-check first and approval second so only one publish event can win the race", async () => {
+  const editor = await read("editor/app.js");
+  const factCheckCall = editor.indexOf("setIssueLabels(updated, ['fact-checked']");
+  const approvalCall = editor.indexOf("setIssueLabels(checked, ['editorial-approved']");
+  assert.ok(factCheckCall >= 0 && approvalCall > factCheckCall);
 });

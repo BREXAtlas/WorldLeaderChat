@@ -99,10 +99,10 @@ function installExporter(navigatorValue = {}) {
     console,
     document,
     location: {
-      href: "https://brexatlas.github.io/WorldLeaderChat/",
-      origin: "https://brexatlas.github.io",
-      pathname: "/WorldLeaderChat/",
-      host: "brexatlas.github.io",
+      href: "https://worldleaders.chat/",
+      origin: "https://worldleaders.chat",
+      pathname: "/",
+      host: "worldleaders.chat",
       hash: ""
     },
     navigator: navigatorValue,
@@ -233,12 +233,13 @@ test("unsupported multi-file sharing downloads one ZIP containing sorted PNG nam
   assert.match(downloads.at(-1), /-feed-carousel\.zip$/);
 });
 
-test("sponsors follow newsroom content with exact EdNotebook copy and live-site destinations", async () => {
+test("sponsors live in the sidebar below How to read with exact public-site copy", async () => {
   const html = await read("index.html");
-  const archiveIndex = html.indexOf('<main class="archive"');
   const sponsorsIndex = html.indexOf('<section class="sponsors"');
   const sponsorBlock = html.slice(sponsorsIndex, html.indexOf("</section>", sponsorsIndex) + 10);
-  assert.ok(sponsorsIndex > archiveIndex);
+  const topline = html.slice(html.indexOf("function renderTopline"), html.indexOf("function renderGrid"));
+  assert.match(topline, /<aside class="sidebox">[\s\S]*HOW TO READ THE LEAK[\s\S]*\$\{sponsorHTML\(\)\}[\s\S]*<\/aside>/);
+  assert.equal((html.match(/<section class="sponsors"/g) || []).length, 1);
   assert.match(sponsorBlock, /FROM OUR SPONSORS/);
   assert.match(sponsorBlock, /It’s your semester, own it\./);
   assert.match(sponsorBlock, /href="https:\/\/ednotebook\.com"/);

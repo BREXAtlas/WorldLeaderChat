@@ -86,6 +86,7 @@ ARTICLE RULES
 - Never invent an event, outcome, statistic, quotation, private communication, motive, meeting or source.
 - Use dry sarcasm and sharp framing, not nonsense or unsupported certainty.
 - Write 3–5 short paragraphs. Give credit to every listed publisher.
+- Keep category exactly "${bundle.ingestion?.newsroomDesk || bundle.event.category}"; the public desk taxonomy is editorial metadata, not creative copy.
 - The headline must identify this specific event; never use a generic headline that could fit another article.
 
 CHAT RULES — THESE ARE STRICT
@@ -147,7 +148,7 @@ function applyCopilot(bundle, output) {
   result.event.summary = safeSummary(result.event.summary);
   result.event.title = cleanWhitespace(output.title).slice(0, 240);
   result.event.kicker = cleanWhitespace(output.kicker).slice(0, 320);
-  result.event.category = cleanWhitespace(output.category || result.event.category).slice(0, 80);
+  result.event.category = cleanWhitespace(result.ingestion?.newsroomDesk || result.event.category || "World News").slice(0, 80);
   result.event.article = {
     headline: cleanWhitespace(output.article.headline).slice(0, 240),
     dek: cleanWhitespace(output.article.dek).slice(0, 420),

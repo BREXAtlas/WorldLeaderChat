@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "lookbackHours": 72,
   "minimumScore": 7,
-  "maxCandidatesPerRun": 12,
+  "maxCandidatesPerRun": 24,
   "requestTimeoutMs": 20000,
   "sources": [
     {
@@ -99,6 +99,14 @@
       "url": "https://www.theguardian.com/sport/rss",
       "enabled": true,
       "weight": 0,
+      "desk": "Sports & Soft Power"
+    },
+    {
+      "id": "bbc-sport",
+      "publisher": "BBC Sport",
+      "url": "https://feeds.bbci.co.uk/sport/rss.xml",
+      "enabled": true,
+      "weight": 1,
       "desk": "Sports & Soft Power"
     },
     {
