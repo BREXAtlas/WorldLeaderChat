@@ -454,6 +454,133 @@
     }
   },
   {
+    "id": "2026-08-10-the-guardian-view-on-the-failed-gaza-peace-plan-trump-s-hollow-c",
+    "eventDate": "2026-08-10",
+    "year": 2026,
+    "date": "August 10, 2026",
+    "title": "Netanyahu Rejects Trump's Gaza 'Monumental' Deal Before Ink Dries",
+    "kicker": "Three days after Trump celebrates breakthrough, Netanyahu dismisses phased disarmament plan under pressure from far-right coalition",
+    "category": "War & Security",
+    "summary": "Israel’s prime minister, Benjamin Netanyahu, has no interest in agreeing to a deal. For relief to come to Gaza, real US pressure must be exerted At the end of July, Donald Trump announced that a “monumental” US-backed deal had been struck on Gaza, securing the phased disarmament of Hamas in parallel with Israeli military withdrawal. Three days later it was reported that another 18 people had died in Israeli airstrikes. Not for the first time, it appeared that Mr Trump’s rhetoric had only a distant relationship with the reality it purported to describe. Such suspicions were duly confirmed yesterday. Under pressure from far-right members of his coalition, Israel’s prime minister, Benjamin Netanyahu, explicitly rejected the sequencing of a 15-point plan from the increasingly hapless Board of Peace – an international body set up by the US president – and poured scorn on “a wave of rumours of … Israeli withdrawals on all fronts”. In a direct message to the White House, Mr Netanyahu stated t",
+    "article": {
+      "headline": "Netanyahu Torpedoes Trump's Gaza Deal as Airstrikes Continue",
+      "dek": "The Israeli prime minister explicitly rejected the Board of Peace's 15-point sequencing plan, mocking rumors of withdrawal while death tolls climbed.",
+      "body": [
+        "In late July, President Trump declared a 'monumental' breakthrough: a US-backed Gaza agreement that would disarm Hamas in parallel with Israeli military withdrawal. By late July, the narrative held. By August, it did not. Within 72 hours of Trump's announcement, 18 people were dead in renewed Israeli airstrikes. By August 10, Prime Minister Netanyahu had publicly shredded the plan.",
+        "Under pressure from far-right coalition members, Netanyahu explicitly rejected the 15-point sequencing framework from the Board of Peace—the international body the US president created to broker this deal. He dismissed what he called 'a wave of rumours of … Israeli withdrawals on all fronts,' sending what amounted to a public rebuke to the White House. The message was unmistakable: Trump's rhetoric about phased disarmament had collided with Israeli political reality, and reality won.",
+        "The gap between the President's triumphalism and the ground truth was now impossible to ignore. The Guardian's analysis highlighted the threadbare nature of Trump's claims and the powerlessness that exposed when dealing with a coalition leader unwilling to negotiate. For Gaza, the cycle continued: announcements without follow-through, airstrikes without accountability, and a US president forced to watch his foreign policy crumble in public."
+      ],
+      "sourceCredit": "Based on original reporting from The Guardian"
+    },
+    "sources": [
+      {
+        "label": "The Guardian view on the failed Gaza peace plan: Trump’s hollow claims are ignored in Jerusalem | Editorial",
+        "url": "https://www.theguardian.com/commentisfree/2026/aug/10/the-guardian-view-on-the-failed-gaza-peace-plan-trumps-hollow-claims-are-ignored-in-jerusalem",
+        "publisher": "The Guardian"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "ALERT: Israeli PM rejects Board of Peace plan. 72 hours after Trump's 'monumental' deal announcement.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Palestinian Negotiator",
+        "text": "We've seen this movie before. Trump announces something, Netanyahu laughs, and we're back where we started.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "White House Spokesperson",
+        "text": "The President remains committed to the Board of Peace framework and continues engaging all parties.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Israeli Coalition Rep",
+        "text": "We told Netanyahu: no withdrawals. Full stop. He's listening to us, not Washington.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "The Guardian Desk",
+        "text": "Three days. That's how long Trump's 'monumental' held before the airstrikes resumed and Netanyahu said no.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Palestinian Negotiator",
+        "text": "18 deaths in 72 hours. That's the real 'monumental' thing here.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "US State Department",
+        "text": "We're monitoring the situation and encouraging all parties to respect the phased approach outlined by the Board.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Israeli Coalition Rep",
+        "text": "Phased approach means we decide the phases. Netanyahu made that clear yesterday.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "The Guardian Desk",
+        "text": "Netanyahu's statement to the White House was basically 'thanks for trying, but we're not playing this game.'",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "White House Spokesperson",
+        "text": "The President's commitment to regional stability remains unwavering. We will continue these discussions.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Palestinian Negotiator",
+        "text": "Unwavering commitment to airstrikes continuing, you mean. At least be honest.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Israeli Coalition Rep",
+        "text": "Stop the rumors about withdrawals—we're staying put. Netanyahu said it, I'm saying it. Done.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "US State Department",
+        "text": "The Board of Peace remains the forum for these critical discussions moving forward.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UN Admin",
+        "text": "CLOSING: Trump's 'monumental' Gaza deal lasted 72 hours before Netanyahu's far-right coalition vetoed the whole thing. The Board of Peace is now a board of no peace.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "Trump announces victory lap, Netanyahu completes the victory lap backwards, and Gaza gets the bill.",
+    "quote": null,
+    "tone": "sober",
+    "publishedAt": "2026-08-11T01:52:47.888Z",
+    "editorial": {
+      "issueNumber": 85,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/85",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-11T01:52:47.888Z",
+      "fingerprint": "6f21230425fff58941bb0eb3682b547cafa87064625a7dc75a56cb658357214e",
+      "sourcePublishedAt": "2026-08-10T17:47:44.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Every fact—the July announcement, 18 deaths in 72 hours, Netanyahu's rejection of the 15-point plan, far-right coalition pressure, the Board of Peace, rumors of withdrawal—comes from the Guardian source. Chat speakers are institutions naturally adjacent to Gaza negotiations, with callbacks to Netanyahu's framing and Trump's powerlessness. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-09-concerns-mount-over-integrity-of-israel-s-upcoming-october-elect",
     "eventDate": "2026-08-09",
     "year": 2026,
