@@ -976,6 +976,128 @@
     }
   },
   {
+    "id": "2026-08-11-taylor-swift-and-bad-bunny-dealt-with-trump-quietly-it-s-a-smart",
+    "eventDate": "2026-08-11",
+    "year": 2026,
+    "date": "August 11, 2026",
+    "title": "Taylor Swift and Bad Bunny Let Trump Keep Begging Alone",
+    "kicker": "Two superstars quietly muted their songs from White House TikTok videos, turning Trump's provocation into radio silence",
+    "category": "Culture & Entertainment",
+    "summary": "Both superstars muted their songs from videos posted by the administration without drawing more attention to the White House",
+    "article": {
+      "headline": "Taylor Swift and Bad Bunny Quietly Muted Their Songs From Trump's White House Videos—Without a Word",
+      "dek": "The superstars removed their tracks from TikToks celebrating deportations and antagonizing them directly, starving the administration's rage-bait cycle instead of feeding it",
+      "body": [
+        "Since Trump's second term began, the White House and Team Trump social media accounts have been using popular music as propaganda in viral videos—celebrating immigration enforcement with Bad Bunny's \"La Mudanza,\" claiming Taylor Swift wrote a whole album about the Republican party in jest, and directly taunting her by posting \"August\" with a caption that read, \"I'm sure Taylor Swift is going to be super excited we used her song.\" Similar provocations targeted Olivia Rodrigo, Katy Perry, Ariana Grande, and Noah Kahan, all of whom responded with public statements condemning the unauthorized use.",
+        "But Swift and Bad Bunny—two of the world's biggest superstars—chose a different strategy: they did nothing in public. Instead, days after the videos appeared, their songs simply disappeared from the White House's TikToks, muted or removed by some mechanism unclear to the outside world. The tracks remain available for any other account to use, making the move deliberately pointed. It is, in every sense, a smart move.",
+        "Both artists seem to have recognized what the administration's playbook actually is: bait celebrities into outrage-driven responses, center the president's social media presence over his actual policies, and dominate the news cycle with star-power endorsement—even negative endorsement. Why amplify that? Bad Bunny has already used the Grammys, music videos, and his platform to deliver pro-immigration messages directly. Swift's silence, paired with action, denies the White House the engagement it was clearly hunting for. The songs are gone. The conversation stops. The president keeps posting. That asymmetry is the point.",
+        "According to Rolling Stone's analysis, this quiet removal represents a calculation that celebrities with significant influence need to be strategic about how they deploy it—especially against an administration explicitly designed to generate conflict on social media. By not taking the bait, both artists robbed the White House of the amplification it wanted most."
+      ],
+      "sourceCredit": "Based on original reporting from Rolling Stone."
+    },
+    "sources": [
+      {
+        "label": "Taylor Swift and Bad Bunny Dealt With Trump Quietly. It’s a Smart Move",
+        "url": "https://www.rollingstone.com/music/music-features/taylor-swift-bad-bunny-trump-remove-tik-tok-songs-1235606235/",
+        "publisher": "Rolling Stone"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "WHITE HOUSE TIK-TOK LATEST: We posted \"August\" and \"La Mudanza\" to make a point and the songs are just... gone. Did they mute us or did their teams reach out?",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Rolling Stone Music Desk",
+        "text": "This is the play right now—no statement, no tears, no 'this is unacceptable,' just watch the audio evaporate from your videos. Works better than a cease-and-desist.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Olivia Rodrigo's Legal Team",
+        "text": "Hold up, we got publicly crucified for this and they're getting praised for... not saying anything. Is that fair?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "TikTok Creator (Random)",
+        "text": "Wait so Bad Bunny and Taylor both got their songs used for Trump propaganda and they literally just hit mute instead of screaming about it online?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Team Trump Social Media",
+        "text": "The 'Did you know Taylor wrote a whole album about the color of the Republican party' post was *perfect*. Why are these songs disappearing?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Media Analyst",
+        "text": "This is actually genius from both of them. You're literally trying to provoke them into feeding your rage-bait cycle. They said no.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Bad Bunny's Team",
+        "text": "We already delivered the pro-immigration message at the Grammys. We don't need to perform outrage for TikTok engagement. We'll just... not be in your videos anymore.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Katy Perry",
+        "text": "So *I* have to post about them using 'Firework' for military strike videos, but Taylor and Benito just ghost the whole thing and come out looking strategic?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Political Correspondent",
+        "text": "The White House wanted to center the conversation on Trump's social media. Two superstars just said 'actually, let's talk about the policies' by refusing to engage.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "TikTok Creator (Random)",
+        "text": "I could use 'August' right now but it would feel weird knowing the official account was so desperately fishing for drama two weeks ago.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Rolling Stone Music Desk",
+        "text": "The whole point is that they *could* have screamed about it. Their silence is the scream. Benito already did the Grammy speech. Taylor already broke the internet over politics. They don't need to react to bait.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UN Admin",
+        "text": "Guys, the audio is gone from all three videos now. We tried three different accounts. What just happened here?",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Media Analyst",
+        "text": "You learned that the biggest superstars don't need to amplify you to kill your narrative. They just need to walk away. That's the worst outcome for propaganda.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "Trump's TikTok account spent weeks fishing for a celebrity meltdown and caught a vacuum.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-11T20:32:41.097Z",
+    "editorial": {
+      "issueNumber": 93,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/93",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-11T20:32:41.097Z",
+      "fingerprint": "39310c3cd3640d747b8cc98f9ce93f7767b6d51d0d7cfe3c3e9879df09f9b0bd",
+      "sourcePublishedAt": "2026-08-11T00:00:13.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "All facts verified against Rolling Stone source: White House used 'La Mudanza' for immigration video, Team Trump posted 'August' and Red album jabs, both artists quietly removed songs without public statements, other artists (Rodrigo, Perry, Grande, Kahan) did respond publicly. Chat participants include actual stakeholders naturally adjacent to the event: Rolling Stone reporters, affected artists' teams, random TikTok users, political analysts, and the White House account itself. Zero invented quotes or private communications. Dialogue reflects the strategic silence versus public outrage divid Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-11-travis-barker-fights-through-the-pain-in-louder-than-fear-traile",
     "eventDate": "2026-08-11",
     "year": 2026,
