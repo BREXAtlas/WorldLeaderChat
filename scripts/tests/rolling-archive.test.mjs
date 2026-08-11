@@ -19,7 +19,9 @@ test("current newsroom keeps eight inclusive Chicago calendar days", async () =>
   assert.match(source, /const currentMonthIndex = today\.getUTCMonth\(\)/);
   assert.match(source, /WLC_ARTICLE_STANDARD\?\.isRecentDate/);
   assert.match(source, /LATEST.*DAYS \/\/ CURRENT NEWSROOM/);
-  assert.match(source, /1 FEATURED ABOVE/);
+  assert.match(source, /featuredCurrentCount/);
+  assert.match(source, /FEATURED ABOVE/);
+  assert.match(source, /tickerHTML\(recentEvents\)/);
   assert.doesNotMatch(source, /CURRENT MONTH/);
 });
 

@@ -90,7 +90,9 @@ test("article failures can request a complete source-locked redraft", async () =
 
 test("publication serializes main writes and finalizes labels without assuming optional labels exist", async () => {
   const workflow = await read(".github/workflows/editorial-publish.yml");
-  assert.match(workflow, /group: world-leader-chat-main-writes/);
+  const featured = await read(".github/workflows/featured-story.yml");
+  assert.match(workflow, /github\.event\.label\.name == 'editorial-approved'[\s\S]*'world-leader-chat-main-writes' \|\| github\.run_id/);
+  assert.match(featured, /github\.event\.label\.name == 'featured-headline'[\s\S]*'world-leader-chat-main-writes' \|\| github\.run_id/);
   assert.match(workflow, /queue: max/);
   assert.match(workflow, /labels_json=.*gh api/);
   assert.match(workflow, /select\(\. != "publication-failed"\)/);
@@ -103,6 +105,8 @@ test("publication serializes main writes and finalizes labels without assuming o
 
 test("editor adds fact-check first and approval second so only one publish event can win the race", async () => {
   const editor = await read("editor/app.js");
+  assert.match(editor, /Summary must be 50–1200 characters/);
+  assert.match(editor, /eventProblems\(bundle\)/);
   assert.match(editor, /articleProblems\(bundle\)/);
   assert.match(editor, /This file cannot publish yet/);
   const factCheckCall = editor.indexOf("setIssueLabels(updated, ['fact-checked']");

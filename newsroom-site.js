@@ -170,7 +170,8 @@
           sourceCredit: `Original reporting credited below to ${(event.sources || []).map((source) => source.publisher).filter(Boolean).join(", ")}.`
         };
     const label = event.article ? "THE SHORT REPORT" : "NEWS BRIEF";
-    panel.innerHTML = `<div class="article-label">${label}</div><h3>${esc(article.headline || event.title)}</h3><div class="dek">${esc(article.dek || event.kicker)}</div>${(article.body || []).map((paragraph) => `<p>${esc(paragraph)}</p>`).join("")}<div class="credit">${esc(article.sourceCredit || "Original sources linked below.")}</div>`;
+    const sourceAudit = globalThis.WLC_SOURCE_AUDIT?.badgeHTML(event, "article-source-mix") || "";
+    panel.innerHTML = `<div class="article-label">${label}</div><h3>${esc(article.headline || event.title)}</h3>${sourceAudit}<div class="dek">${esc(article.dek || event.kicker)}</div>${(article.body || []).map((paragraph) => `<p>${esc(paragraph)}</p>`).join("")}<div class="credit">${esc(article.sourceCredit || "Original sources linked below.")}</div>`;
     const summary = document.getElementById("dialogSummary");
     if (summary) summary.hidden = true;
   }

@@ -37,6 +37,8 @@ jobs:
           node --check social-tools.js
           node --check social-card-export.js
           node --check newsroom-taxonomy.js
+          node --check source-audit.js
+          node --check newsroom-experience.js
           node --check newsroom-site.js
           node --check disclosure-polish.js
           node --check recency-order.js

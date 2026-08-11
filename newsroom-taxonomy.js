@@ -63,7 +63,8 @@
       ...(article.body || []),
       ...(event?.sources || []).flatMap((source) => [source.publisher, source.label]),
       ...(event?.messages || []).flatMap((message) => [message.speaker, message.text]),
-      event?.editorial?.issueNumber ? `issue ${event.editorial.issueNumber}` : ""
+      event?.editorial?.issueNumber ? `issue ${event.editorial.issueNumber}` : "",
+      global.WLC_SOURCE_AUDIT?.searchTermsFor(event) || ""
     ].join(" "));
   }
 

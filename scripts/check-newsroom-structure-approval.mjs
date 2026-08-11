@@ -24,6 +24,8 @@ const exact = new Set([
   "newsroom-contract.js",
   "newsroom-site.js",
   "newsroom-taxonomy.js",
+  "source-audit.js",
+  "newsroom-experience.js",
   "rolling-archive.js",
   "social-card-export.js",
   "social-tools.js",

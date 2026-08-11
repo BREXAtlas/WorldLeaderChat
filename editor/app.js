@@ -3,7 +3,7 @@ const REPO = 'WorldLeaderChat';
 const API = 'https://api.github.com';
 const START = '<!-- WLC_STORY_JSON_START -->';
 const END = '<!-- WLC_STORY_JSON_END -->';
-const lanes = [['new','New'],['drafting','Drafting'],['ready','Ready for Approval'],['published','Published']];
+const lanes = [['new','New'],['drafting','Drafting'],['ready','Ready for Approval'],['publishing','Publishing'],['published','Published']];
 
 let token = sessionStorage.getItem('wlc_editor_token') || '';
 let issues = [];
@@ -109,14 +109,22 @@ function articleProblems(bundle) {
   return standard.articleProblems(bundle?.event?.article, bundle?.event?.sources);
 }
 
+function eventProblems(bundle) {
+  const summaryLength = String(bundle?.event?.summary || '').trim().length;
+  return summaryLength >= 50 && summaryLength <= 1200
+    ? []
+    : [`Summary must be 50–1200 characters; this file has ${summaryLength}.`];
+}
+
 function laneOf(issue) {
   const labels = labelSet(issue);
   if (labels.has('published')) return 'published';
   if (issue.state === 'closed') return null;
-  if (labels.has('editorial-approved') || labels.has('publication-failed') || labels.has('regenerate-requested') || labels.has('redraft-requested') || labels.has('drafting') || labels.has('needs-editor')) return 'drafting';
+  if (busy.has(issue.number) || labels.has('editorial-approved')) return 'publishing';
+  if (labels.has('publication-failed') || labels.has('regenerate-requested') || labels.has('redraft-requested') || labels.has('drafting') || labels.has('needs-editor')) return 'drafting';
   if (labels.has('ready-for-approval')) return 'ready';
   const bundle = parseBundle(issue.body || '');
-  if (bundle && !JSON.stringify(bundle).includes('[EDITOR:') && !articleProblems(bundle).length && !dialogueProblems(bundle).length) return 'ready';
+  if (bundle && !JSON.stringify(bundle).includes('[EDITOR:') && !eventProblems(bundle).length && !articleProblems(bundle).length && !dialogueProblems(bundle).length) return 'ready';
   return 'new';
 }
 
@@ -155,8 +163,9 @@ function renderCoverage() {
   target.innerHTML = desks.map((desk) => {
     const deskIssues = todayIssues.filter((issue) => deskOf(issue) === desk);
     const publishedCount = deskIssues.filter((issue) => laneOf(issue) === 'published').length;
-    const reviewCount = deskIssues.length - publishedCount;
-    return `<span class="coverage-chip" data-desk="${esc(desk)}"><b>${deskIssues.length}</b><span>${esc(desk)}<small>${reviewCount} to review • ${publishedCount} published</small></span></span>`;
+    const publishingCount = deskIssues.filter((issue) => laneOf(issue) === 'publishing').length;
+    const reviewCount = deskIssues.length - publishedCount - publishingCount;
+    return `<span class="coverage-chip" data-desk="${esc(desk)}"><b>${deskIssues.length}</b><span>${esc(desk)}<small>${reviewCount} to review • ${publishingCount} publishing • ${publishedCount} published</small></span></span>`;
   }).join('');
   $('#coverageDate').textContent = new Intl.DateTimeFormat('en-US', {
     timeZone: 'America/Chicago', month: 'long', day: 'numeric', year: 'numeric'
@@ -201,7 +210,7 @@ async function load() {
   ]);
   issues = [...open.filter((item) => !item.pull_request), ...closed.filter((item) => !item.pull_request)];
   const available = new Set(issues.map(laneOf).filter(Boolean));
-  if (!available.has(activeLane)) activeLane = ['ready','drafting','new','published'].find((lane) => available.has(lane)) || 'new';
+  if (!available.has(activeLane)) activeLane = ['publishing','ready','drafting','new','published'].find((lane) => available.has(lane)) || 'new';
   render();
 }
 
@@ -223,10 +232,11 @@ function cards(lane) {
   return set.map((issue) => {
     const labels = labelSet(issue);
     const bundle = parseBundle(issue.body || '');
+    const eventIssues = bundle ? eventProblems(bundle) : [];
     const articleIssues = bundle ? articleProblems(bundle) : [];
     const chatIssues = bundle ? dialogueProblems(bundle) : [];
     const problems = bundle
-      ? [...articleIssues.map((problem) => `Article: ${problem}`), ...chatIssues]
+      ? [...eventIssues.map((problem) => `File: ${problem}`), ...articleIssues.map((problem) => `Article: ${problem}`), ...chatIssues]
       : ['Editorial JSON could not be read.'];
     const messages = (bundle?.event?.messages || []).map((message) => `<div class="msg ${message.kind === 'system' ? 'system' : ''}"><b>${esc(message.speaker)}</b>${esc(message.text)}</div>`).join('');
     const sources = bundle?.event?.sources || [];
@@ -235,19 +245,21 @@ function cards(lane) {
     const failed = labels.has('publication-failed');
     const regenerating = labels.has('regenerate-requested') || labels.has('redraft-requested') || labels.has('drafting');
     const blocked = labels.has('needs-editor') || problems.length > 0;
+    const needsRedraft = eventIssues.length > 0 || articleIssues.length > 0;
+    const cardDesk = deskOf(issue);
 
     let actions = bundle?.event?.featured
-      ? '<span class="tag featured">Main headline</span>'
-      : `<button class="btn feature" data-action="feature" data-issue="${issue.number}" ${issue.number ? '' : 'disabled'}>Make Main Headline</button>`;
+      ? `<span class="tag featured">Featured in ${esc(cardDesk)}</span>`
+      : `<button class="btn feature" data-action="feature" data-issue="${issue.number}" ${issue.number ? '' : 'disabled'}>Feature in ${esc(cardDesk)} Carousel</button>`;
     if (lane !== 'published') {
       if (publishing) {
         actions = '<button class="btn pending" disabled>Publishing…</button><span class="action-note">Approval submitted once. No second tap is needed.</span>';
       } else if (regenerating && !failed) {
         actions = '<button class="btn pending" disabled>Regenerating…</button><span class="action-note">A new article-specific chat is being written.</span>';
       } else if (failed) {
-        actions = `<button class="btn success" data-action="retry" data-issue="${issue.number}" ${blocked ? 'disabled' : ''}>Retry Publish</button><button class="btn ghost" data-action="${articleIssues.length ? 'redraft' : 'regenerate'}" data-issue="${issue.number}">${articleIssues.length ? 'Regenerate Article + Chat' : 'Rewrite Chat'}</button><button class="btn danger" data-action="reject" data-issue="${issue.number}">Reject</button>`;
+        actions = `<button class="btn success" data-action="retry" data-issue="${issue.number}" ${blocked ? 'disabled' : ''}>Retry Publish</button><button class="btn ghost" data-action="${needsRedraft ? 'redraft' : 'regenerate'}" data-issue="${issue.number}">${needsRedraft ? 'Regenerate Article + Chat' : 'Rewrite Chat'}</button><button class="btn danger" data-action="reject" data-issue="${issue.number}">Reject</button>`;
       } else if (blocked) {
-        actions = `<button class="btn ghost" data-action="${articleIssues.length ? 'redraft' : 'regenerate'}" data-issue="${issue.number}">${articleIssues.length ? 'Regenerate Article + Chat' : 'Rewrite Chat'}</button><button class="btn danger" data-action="reject" data-issue="${issue.number}">Reject</button>`;
+        actions = `<button class="btn ghost" data-action="${needsRedraft ? 'redraft' : 'regenerate'}" data-issue="${issue.number}">${needsRedraft ? 'Regenerate Article + Chat' : 'Rewrite Chat'}</button><button class="btn danger" data-action="reject" data-issue="${issue.number}">Reject</button>`;
       } else {
         actions = `<button class="btn success" data-action="approve" data-issue="${issue.number}">Approve & Publish</button><button class="btn ghost" data-action="regenerate" data-issue="${issue.number}">Rewrite Chat</button><button class="btn danger" data-action="reject" data-issue="${issue.number}">Reject</button>`;
       }
@@ -262,7 +274,8 @@ function cards(lane) {
 
     const sourceLinks = sources.map((source) => `<a class="source" target="_blank" rel="noopener" href="${esc(source.url)}">Open source: ${esc(source.publisher)}</a>`).join('');
     const chatPreview = `<details class="chat-preview"><summary>Conversation (${(bundle?.event?.messages || []).length} messages)</summary><div class="chat">${messages}</div></details>`;
-    return `<article class="card" data-desk="${esc(deskOf(issue))}"><div class="meta">ISSUE #${issue.number} • ${esc(bundle?.event?.date || '')}</div><span class="tag ${lane === 'ready' ? 'ready' : lane === 'new' ? 'new' : 'draft'}">${publishing ? 'Publishing' : failed ? 'Publication failed' : regenerating ? 'Regenerating' : lane}</span><span class="tag desk-tag">${esc(deskOf(issue))}</span><h3>${esc(bundle?.event?.title || issue.title)}</h3><p class="summary">${esc(bundle?.event?.summary || '')}</p><div class="source-list">${sourceLinks}</div>${articlePreview}${chatPreview}<div class="meme"><b>LAST WORD</b>${esc(bundle?.event?.meme || '')}</div>${quality}<div class="actions">${actions}</div></article>`;
+    const laneTag = lane === 'ready' ? 'ready' : lane === 'new' ? 'new' : lane === 'publishing' ? 'publishing' : 'draft';
+    return `<article class="card" data-desk="${esc(cardDesk)}"><div class="meta">ISSUE #${issue.number} • ${esc(bundle?.event?.date || '')}</div><span class="tag ${laneTag}">${publishing ? 'Publishing' : failed ? 'Publication failed' : regenerating ? 'Regenerating' : lane}</span><span class="tag desk-tag">${esc(cardDesk)}</span><h3>${esc(bundle?.event?.title || issue.title)}</h3><p class="summary">${esc(bundle?.event?.summary || '')}</p><div class="source-list">${sourceLinks}</div>${articlePreview}${chatPreview}<div class="meme"><b>LAST WORD</b>${esc(bundle?.event?.meme || '')}</div>${quality}<div class="actions">${actions}</div></article>`;
   }).join('');
 }
 
@@ -294,7 +307,8 @@ async function act(action, number) {
     const currentIssue = await api(`/repos/${OWNER}/${REPO}/issues/${number}`);
     const labels = labelSet(currentIssue);
     if (action === 'feature') {
-      if (!confirm('Make this published article the main headline on World Leaders Chat?')) return;
+      const featureDesk = deskOf(currentIssue);
+      if (!confirm(`Feature this published article in the ${featureDesk} carousel slot? Other desk selections will stay in place.`)) return;
       busy.add(number); render();
       let featureIssue = currentIssue;
       if (labels.has('featured-headline')) {
@@ -302,7 +316,7 @@ async function act(action, number) {
       }
       await setIssueLabels(featureIssue, ['featured-headline'], []);
       busy.delete(number);
-      notice('Main-headline update queued. The public site will refresh after validation and deployment.', 'success');
+      notice(`${featureDesk} carousel update queued. The other desk features will stay in place.`, 'success');
       await load();
       return;
     }
@@ -336,7 +350,10 @@ async function act(action, number) {
 
     if (action === 'reject') {
       if (!confirm('Reject this candidate? It will be closed without publishing.')) return;
-      busy.add(number); render();
+      busy.add(number);
+      issues = issues.filter((issue) => issue.number !== number);
+      render();
+      notice('Removing the rejected candidate from the approval queue…', 'info');
       await api(`/repos/${OWNER}/${REPO}/issues/${number}`, {method:'PATCH', body:JSON.stringify({state:'closed', state_reason:'not_planned', labels:['news-candidate','rejected']})});
       busy.delete(number);
       notice('Candidate rejected. Nothing was published.', 'success');
@@ -345,15 +362,17 @@ async function act(action, number) {
     }
 
     if (action === 'approve' || action === 'retry') {
-      const problems = [...articleProblems(bundle).map((problem) => `Article: ${problem}`), ...dialogueProblems(bundle)];
+      const problems = [...eventProblems(bundle).map((problem) => `File: ${problem}`), ...articleProblems(bundle).map((problem) => `Article: ${problem}`), ...dialogueProblems(bundle)];
       if (problems.length) {
         notice(`This file cannot publish yet: ${problems[0]}`, 'error');
         return;
       }
       if (!confirm(action === 'retry' ? 'Retry publication of this approved article and chat?' : 'Approve this completed article-specific chat and publish it?')) return;
 
-      busy.add(number); render();
-      notice('Approval submitted once. Publishing has started and the button is locked.', 'info');
+      busy.add(number);
+      activeLane = 'publishing';
+      render();
+      notice('Moved to Publishing. Approval was submitted once and the button is locked.', 'info');
 
       bundle.status = 'approved';
       bundle.approval = {...(bundle.approval || {}), reviewNotes: `${bundle.approval?.reviewNotes || ''} Owner approved the article-specific direct conversation after the chat-quality gate passed.`.trim()};
