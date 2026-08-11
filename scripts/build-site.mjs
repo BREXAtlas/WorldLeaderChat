@@ -21,11 +21,17 @@ const publicScripts = [
   '  <script src="./recency-order.js?v=20260810"></script>',
   '  <script src="./rolling-archive.js?v=monthly-20260810"></script>'
 ];
-const brandMarkup = '<img class="brand-logo" src="./assets/world-leaders-chat-logo.webp" alt="World Leaders Chat — News. Analysis. Satire.">';
+const brandMarkup = '<div class="brand-lockup"><img class="brand-logo" src="./assets/world-leaders-chat-logo.webp" alt="World Leaders Chat — News. Analysis. Satire." onerror="this.hidden=true;this.nextElementSibling.hidden=false"><div class="brand-fallback" role="img" aria-label="World Leaders Chat — News. Analysis. Satire." hidden><span>WORLD LEADERS</span><b>CHAT</b><small>NEWS. ANALYSIS. SATIRE.</small></div></div>';
 const brandStyles = `
 <style id="world-leader-chat-brand">
+.brand-lockup{display:grid;place-items:center;margin:0 auto 8px}
 .brand-logo{display:block;width:min(390px,82vw);height:auto;margin:0 auto 8px;object-fit:contain}
-@media (max-width:800px){.brand-logo{width:min(330px,88vw);margin-top:2px}}
+.brand-logo[hidden],.brand-fallback[hidden]{display:none}
+.brand-fallback{display:grid;place-items:center;line-height:.82;margin:4px auto 10px;color:#101214}
+.brand-fallback span{font:900 clamp(30px,4.8vw,66px)/.82 Georgia,"Times New Roman",serif;letter-spacing:-.055em}
+.brand-fallback b{font:900 clamp(34px,5.4vw,74px)/.82 Georgia,"Times New Roman",serif;letter-spacing:-.055em;color:#c40000}
+.brand-fallback small{margin-top:11px;font:900 clamp(9px,1.1vw,13px)/1 Arial,Helvetica,sans-serif;letter-spacing:.18em}
+@media (max-width:800px){.brand-logo{width:min(330px,88vw);margin-top:2px}.brand-fallback{margin-top:2px}}
 </style>`;
 const faviconLinks = '<link rel="icon" type="image/webp" href="./assets/world-leaders-chat-favicon.webp"><link rel="shortcut icon" href="./assets/world-leaders-chat-favicon.webp">';
 

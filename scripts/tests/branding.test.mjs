@@ -12,6 +12,10 @@ test("Pages build installs the selected World Leader Chat masthead logo", async 
   assert.match(build, /world-leaders-chat-logo\.webp/);
   assert.match(build, /class=\"brand-logo\"/);
   assert.match(build, /News\. Analysis\. Satire\./);
+  assert.match(build, /onerror=\"this\.hidden=true;this\.nextElementSibling\.hidden=false\"/);
+  assert.match(build, /class=\"brand-fallback\"/);
+  assert.match(build, /WORLD LEADERS/);
+  assert.match(build, /\.brand-logo\[hidden\],\.brand-fallback\[hidden\]\{display:none\}/);
 });
 
 test("Pages build installs the selected second-logo mark as favicon", async () => {
