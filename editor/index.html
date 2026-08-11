@@ -12,10 +12,12 @@
 </style>
 <style>
 .article-preview{margin:14px 0;padding:14px;border:2px solid #111;border-left:6px solid var(--desk);background:#fffdf7}.article-preview-label{display:flex;justify-content:space-between;gap:8px;margin-bottom:9px;font-size:10px;letter-spacing:.08em}.article-preview-label span{color:var(--muted);font-weight:800}.article-preview>strong{display:block;font:900 22px/1.08 Georgia,serif;margin-bottom:7px}.article-preview p{font:15px/1.5 Georgia,serif;margin:9px 0}.article-preview .article-dek{font-family:Arial,sans-serif;font-weight:800;color:#444}.article-credit{border-top:1px solid #aaa;padding-top:8px;margin-top:10px;font-size:11px;font-weight:800;color:#555}@media(max-width:520px){.article-preview-label{display:grid}}
+.custom-generator{background:#fff;border:2px solid #111;border-left:8px solid var(--red);box-shadow:4px 4px 0 #d9d1c3;margin:14px 0}.custom-generator>summary{cursor:pointer;padding:14px 16px;font:900 20px Georgia,serif}.custom-generator>summary span{display:block;margin-top:4px;font:800 10px Arial,sans-serif;color:var(--muted);letter-spacing:.07em;text-transform:uppercase}.custom-form{display:grid;grid-template-columns:2fr 1fr;gap:12px;padding:0 16px 16px}.custom-form label{font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}.custom-form input,.custom-form textarea,.custom-form select{display:block;width:100%;margin-top:5px;padding:11px;border:2px solid #111;background:#fff;font:15px/1.35 Arial,sans-serif}.custom-form textarea{min-height:100px;resize:vertical}.custom-form .wide,.custom-form .custom-help,.custom-form .custom-actions{grid-column:1/-1}.custom-help{margin:0;color:#555;font:12px/1.45 Arial,sans-serif}.custom-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.custom-status{font-size:12px;font-weight:800}@media(max-width:900px){.custom-form{grid-template-columns:1fr}.custom-form>*{grid-column:1!important}}
 </style>
 <script src="../newsroom-contract.js?v=20260811" defer></script>
 <script src="../newsroom-taxonomy.js?v=20260811" defer></script>
-<script src="./app.js?v=article-standard-20260811" defer></script>
+<script src="../custom-submission.js?v=20260811" defer></script>
+<script src="./app.js?v=custom-generator-20260811" defer></script>
 <script src="./published-data.js?v=canonical-20260810" defer></script>
 <script src="./conversation-upgrade.js?v=unique-chat-20260810" defer></script>
 <script src="./newsroom-upgrade.js?v=unique-chat-20260810" defer></script>
@@ -37,6 +39,28 @@
     <b>DAILY NEWS WINDOWS</b>
     <span>Recommendations are prepared for review by 8:00 AM • 12:00 PM • 4:00 PM • 8:00 PM Central</span>
   </section>
+  <details class="custom-generator" id="customGenerator">
+    <summary>Generate a custom article from links<span>Submit something you found outside the scheduled news sweep</span></summary>
+    <form id="customArticleForm" class="custom-form">
+      <label class="wide">Story or topic
+        <input id="customTopic" maxlength="180" required placeholder="What happened, and who is involved?">
+      </label>
+      <label>News desk
+        <select id="customDesk" required><option>Politics &amp; Society</option><option>War &amp; Security</option><option>World News</option><option>Technology &amp; AI</option><option>Science &amp; Space</option><option>Business &amp; Power</option><option>Culture &amp; Entertainment</option><option>Sports &amp; Soft Power</option></select>
+      </label>
+      <label>Public source links — one per line
+        <textarea id="customUrls" required inputmode="url" placeholder="https://youtu.be/...&#10;https://news-site.example/article"></textarea>
+      </label>
+      <label class="wide">Verified facts and context from those sources
+        <textarea id="customNotes" minlength="40" maxlength="2400" required placeholder="Paste the key facts, names, dates, quotations or transcript details the generator should verify and explain."></textarea>
+      </label>
+      <p class="custom-help">The generator reads safe public page metadata and uses your notes as source-checking guidance. It creates a complete report and chat in Drafting, then returns it to Ready for Approval. It never publishes automatically.</p>
+      <div class="custom-actions">
+        <button id="customSubmit" class="btn primary" type="submit">Generate Article + Chat</button>
+        <span id="customStatus" class="custom-status" role="status" aria-live="polite"></span>
+      </div>
+    </form>
+  </details>
   <div class="editor-tools" aria-label="Editor filters">
     <label>Search articles and leaders<input id="editorSearch" type="search" placeholder="Search crisis, event, leader or source"></label>
     <label>News desk<select id="editorDesk"><option value="all">All desks</option><option>War &amp; Security</option><option>World News</option><option>Politics &amp; Society</option><option>Technology &amp; AI</option><option>Science &amp; Space</option><option>Business &amp; Power</option><option>Culture &amp; Entertainment</option><option>Sports &amp; Soft Power</option></select></label>

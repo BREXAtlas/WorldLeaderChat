@@ -5,6 +5,7 @@
 /.github/workflows/ @BREXAtlas
 /index.html @BREXAtlas
 /newsroom-contract.js @BREXAtlas
+/custom-submission.js @BREXAtlas
 /newsroom-site.js @BREXAtlas
 /newsroom-taxonomy.js @BREXAtlas
 /rolling-archive.js @BREXAtlas

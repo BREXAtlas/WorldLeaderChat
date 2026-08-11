@@ -386,9 +386,55 @@ async function act(action, number) {
   }
 }
 
+async function submitCustomArticle(event) {
+  event.preventDefault();
+  const button = $('#customSubmit');
+  const status = $('#customStatus');
+  if (!globalThis.WLC_CUSTOM_SUBMISSION) {
+    status.textContent = 'The custom generator did not load. Refresh the editor and try again.';
+    return;
+  }
+
+  button.disabled = true;
+  button.textContent = 'Queuing…';
+  status.textContent = 'Creating the source-locked editorial file…';
+  try {
+    const bundle = await globalThis.WLC_CUSTOM_SUBMISSION.createBundle({
+      topic: $('#customTopic').value,
+      desk: $('#customDesk').value,
+      urls: $('#customUrls').value,
+      notes: $('#customNotes').value
+    });
+    const issue = await api(`/repos/${OWNER}/${REPO}/issues`, {
+      method: 'POST',
+      body: JSON.stringify({
+        title: `CUSTOM ARTICLE: ${bundle.ingestion.customTopic}`.slice(0, 240),
+        body: globalThis.WLC_CUSTOM_SUBMISSION.issueBody(bundle),
+        labels: ['news-candidate']
+      })
+    });
+    await api(`/repos/${OWNER}/${REPO}/issues/${issue.number}`, {
+      method: 'PATCH',
+      body: JSON.stringify({ labels: ['news-candidate', 'redraft-requested'] })
+    });
+
+    $('#customArticleForm').reset();
+    status.innerHTML = `Generator queued as <a target="_blank" rel="noopener" href="${esc(issue.html_url)}">issue #${issue.number}</a>. It will return here for approval.`;
+    activeLane = 'drafting';
+    notice(`Custom article #${issue.number} is being generated from the submitted sources.`, 'success');
+    await load();
+  } catch (error) {
+    status.textContent = `Could not queue the custom article: ${error.message}`;
+  } finally {
+    button.disabled = false;
+    button.textContent = 'Generate Article + Chat';
+  }
+}
+
 $('#connect').onclick = connect;
 $('#logout').onclick = () => { sessionStorage.removeItem('wlc_editor_token'); location.reload(); };
 $('#editorSearch').addEventListener('input', (event) => { editorQuery = event.target.value.trim(); render(); });
 $('#editorDesk').addEventListener('change', (event) => { editorDesk = event.target.value; render(); });
 $('#editorDate').addEventListener('change', (event) => { editorDate = event.target.value; render(); });
+$('#customArticleForm').addEventListener('submit', submitCustomArticle);
 if (token) { $('#token').value = token; connect(); }

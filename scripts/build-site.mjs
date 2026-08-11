@@ -71,6 +71,7 @@ for (const tag of publicScripts) {
 await writeFile(resolve(output, "index.html"), instrumentedHtml, "utf8");
 await writeFile(resolve(output, "404.html"), instrumentedHtml, "utf8");
 await cp(resolve(root, "newsroom-contract.js"), resolve(output, "newsroom-contract.js"));
+await cp(resolve(root, "custom-submission.js"), resolve(output, "custom-submission.js"));
 await cp(resolve(root, "newsroom-taxonomy.js"), resolve(output, "newsroom-taxonomy.js"));
 await cp(resolve(root, "social-tools.js"), resolve(output, "social-tools.js"));
 await cp(resolve(root, "social-card-export.js"), resolve(output, "social-card-export.js"));
@@ -108,6 +109,7 @@ await writeFile(resolve(output, "robots.txt"), "User-agent: *\nAllow: /\nDisallo
 
 const htmlSize = (await readFile(resolve(output, "index.html"))).byteLength;
 const contractSize = (await readFile(resolve(output, "newsroom-contract.js"))).byteLength;
+const customSubmissionSize = (await readFile(resolve(output, "custom-submission.js"))).byteLength;
 const taxonomySize = (await readFile(resolve(output, "newsroom-taxonomy.js"))).byteLength;
 const socialSize = (await readFile(resolve(output, "social-tools.js"))).byteLength;
 const socialCardSize = (await readFile(resolve(output, "social-card-export.js"))).byteLength;
@@ -122,4 +124,4 @@ const conversationSize = (await readFile(resolve(output, "editor/conversation-up
 const editorNewsroomSize = (await readFile(resolve(output, "editor/newsroom-upgrade.js"))).byteLength;
 const logoSize = (await readFile(resolve(output, "assets/world-leaders-chat-logo.webp"))).byteLength;
 const faviconSize = (await readFile(resolve(output, "assets/world-leaders-chat-favicon.webp"))).byteLength;
-console.log(`Built GitHub Pages artifact in _site (${htmlSize} byte index, ${contractSize} byte newsroom contract, ${taxonomySize} byte newsroom taxonomy, ${socialSize} byte social copy tools, ${socialCardSize} byte social PNG exporter, ${newsroomSize} byte newsroom UI, ${disclosureSize} byte disclosure polish, ${recencySize} byte recency order, ${rollingSize} byte rolling archive, ${editorSize} byte editor, ${appSize} byte editor app, ${publishedDataSize} byte canonical published adapter, ${conversationSize} byte conversation standard, ${editorNewsroomSize} byte article presentation, ${logoSize} byte logo, ${faviconSize} byte favicon, ${published.length} external event(s)).`);
+console.log(`Built GitHub Pages artifact in _site (${htmlSize} byte index, ${contractSize} byte newsroom contract, ${customSubmissionSize} byte custom submission generator, ${taxonomySize} byte newsroom taxonomy, ${socialSize} byte social copy tools, ${socialCardSize} byte social PNG exporter, ${newsroomSize} byte newsroom UI, ${disclosureSize} byte disclosure polish, ${recencySize} byte recency order, ${rollingSize} byte rolling archive, ${editorSize} byte editor, ${appSize} byte editor app, ${publishedDataSize} byte canonical published adapter, ${conversationSize} byte conversation standard, ${editorNewsroomSize} byte article presentation, ${logoSize} byte logo, ${faviconSize} byte favicon, ${published.length} external event(s)).`);

@@ -13,6 +13,7 @@ on:
       - "recency-order.js"
       - "rolling-archive.js"
       - "newsroom-contract.js"
+      - "custom-submission.js"
       - "editor/**"
       - "data/published-events.json"
       - "data/site-meta.json"
@@ -138,7 +139,13 @@ jobs:
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/social-tools.js" | grep -F "Copy Article + Chat"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
-            "${PAGE_URL%/}/editor/" | grep -F "app.js?v=article-standard-20260811"
+            "${PAGE_URL%/}/editor/" | grep -F "app.js?v=custom-generator-20260811"
+          curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
+            "${PAGE_URL%/}/editor/" | grep -F "Generate a custom article from links"
+          curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
+            "${PAGE_URL%/}/editor/" | grep -F "custom-submission.js?v=20260811"
+          curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
+            "${PAGE_URL%/}/custom-submission.js" | grep -F "WLC_CUSTOM_SUBMISSION"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/editor/app.js" | grep -F "COMPLETE SHORT REPORT"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
