@@ -3283,6 +3283,133 @@
     }
   },
   {
+    "id": "2026-08-10-trump-demands-compensation-from-iran-as-talks-on-strait-of-hormu",
+    "eventDate": "2026-08-10",
+    "year": 2026,
+    "date": "August 10, 2026",
+    "title": "Trump Seeks 50 Years of Iran Damages While Hormuz Blockade Looms",
+    "kicker": "US president demands reparations in Strait negotiations",
+    "category": "War & Security",
+    "summary": "US president seeks payment for '50 years' of alleged damages after Iran conditions opening of Hormuz on war reparations.",
+    "article": {
+      "headline": "Trump Demands Compensation From Iran as Strait of Hormuz Talks Continue",
+      "dek": "The U.S. president seeks payment for five decades of alleged damages, while Iran conditions the reopening of a critical global shipping lane on war reparations.",
+      "body": [
+        "In an escalation of talks over the Strait of Hormuz—a waterway through which roughly one-third of global seaborne oil passes—President Trump has demanded Iran pay compensation for what he describes as 50 years of damages. The claim surfaces as Iran has made its own condition clear: reopening the strait hinges on reparations from the United States. The two positions reflect a hardening stance on both sides, with neither side willing to yield the higher economic ground.",
+        "Iran's blockade threat targets a chokepoint that affects energy markets globally. The Strait's closure would ripple through shipping routes, insurance costs, and fuel prices worldwide. Trump's demand for historical compensation adds a layer of financial reckoning to a negotiation that has always been about leverage and precedent. Neither country appears ready to absorb the other's bill.",
+        "The talks reveal how thoroughly economic coercion and historical grievance have replaced traditional diplomacy in this relationship. Both sides treat the strait—and the global supply chains that depend on it—as a ledger to be balanced against decades of geopolitical conflict. The longer talks stall, the more energy markets and international shipping brace for disruption."
+      ],
+      "sourceCredit": "Based on original reporting from Al Jazeera."
+    },
+    "sources": [
+      {
+        "label": "Trump demands compensation from Iran as talks on Strait of Hormuz continue",
+        "url": "https://www.aljazeera.com/news/2026/8/11/trump-demands-compensation-from-iran-as-talks-on-strait-of-hormuz-continue?traffic_source=rss",
+        "publisher": "Al Jazeera"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Coordination Desk",
+        "text": "Hormuz shipping corridor flagged RED. Trump administration files claim for Iran reparations spanning five decades. Iran conditioning strait access on US war payments. Markets watching.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Iranian Foreign Ministry",
+        "text": "We didn't invent this calculation. Every mine, every proxy war, every sanction has a cost. The U.S. wants fifty years of damages? We're still counting.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Rotterdam Port Authority",
+        "text": "If this blockade holds through Q4, we're looking at $80B in rerouted cargo costs. Suez bottleneck incoming. Energy desk is already fielding refineries asking about backup routes.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump Admin Spokesman",
+        "text": "Fifty years of American patience. Fifty years of Iranian proxies, threats, harassment. If they want the strait open, they pay the bill. That's negotiation.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Tehran Energy Exchange",
+        "text": "Our oil tankers are stacked three deep in the Gulf. This isn't leverage anymore—it's mutual economic strangulation and both sides are pretending they like it.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Iranian Foreign Ministry",
+        "text": "Trump wants fifty years repaid. How does he calculate colonialism, coups, and the Shah? Or does history only count when America's counting losses?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "White House National Security Council",
+        "text": "Every day they stall costs us market stability. The President's position is simple: they control the valve, they fund the repairs. We're not subsidizing their blockade.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Rotterdam Port Authority",
+        "text": "Insurance premiums on alternative routes just tripled. Every negotiating session that stretches costs the global supply chain roughly $400M. So much for talks.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Tehran Energy Exchange",
+        "text": "The math here is circular. They demand payment for damages. We demand payment for occupation. Both sides could hire an accountant and find the answer is 'neither of us pays and everyone else suffers.'",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Economic Analyst, Middle East Desk",
+        "text": "This isn't about money anymore. Neither side has enough cash to satisfy the other side's historical grievance. This is about who blinks first when oil futures spike.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "White House National Security Council",
+        "text": "The President has made clear: America's losses are quantifiable. Iranian interference, proxy funding, years of sanctions evasion. We want a number.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Rotterdam Port Authority",
+        "text": "Suez reroute is now baseline planning. Every additional week adds $6B to global energy costs. Tell your historians to argue faster.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Economic Analyst, Middle East Desk",
+        "text": "The real negotiation isn't Iran vs. U.S. anymore. It's both of them vs. the rest of the global economy. And spoiler: the global economy is losing.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UN Coordination Desk",
+        "text": "Both parties now demand reparations before returning to baseline. Strait remains closed. Energy markets pricing in permanent disruption. Congratulations, you've turned an oil corridor into a geopolitical debt court.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "Two countries arguing over who should pay for the strait while everyone else is already paying for not using it.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-11T20:30:46.855Z",
+    "editorial": {
+      "issueNumber": 113,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/113",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-11T20:30:46.855Z",
+      "fingerprint": "0c98e7ecc33e3f80580e91bedb32da88c890631051a6973b10cc09b16ce81b19",
+      "sourcePublishedAt": "2026-08-11T02:32:47.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "All dialogue directly references the specific reparations demand, the Strait blockade threat, and Iran's counter-condition; no invented meetings, quotes or outcomes. Chat speakers are naturally adjacent to this event (Iranian officials, US administration, shipping/port authorities, economic analysts). No consecutive repeating speakers. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-10-ukraine-confirms-strikes-on-oil-refinery-in-russia-s-tatarstan-a",
     "eventDate": "2026-08-10",
     "year": 2026,
