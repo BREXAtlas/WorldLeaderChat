@@ -1,6 +1,6 @@
 "use strict";
 
-(function installMonthlyWorldLeaderChatArchive() {
+(function installRollingWorldLeaderChatArchive() {
   const TIME_ZONE = "America/Chicago";
   const MINIMUM_VISIBLE_FILES = 10;
 
@@ -58,6 +58,16 @@
       year: "numeric",
       timeZone: "UTC"
     }).format(new Date(Date.UTC(year, monthIndex, 1))).toUpperCase();
+  }
+
+  function formatDay(date) {
+    return new Intl.DateTimeFormat("en-US", {
+      weekday: "long",
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+      timeZone: "UTC"
+    }).format(date).toUpperCase();
   }
 
   function sectionFor(event) {
@@ -167,7 +177,7 @@
     let visible = currentMonthCount;
     if (state.query || activeDesk() !== "all") return open;
 
-    for (let monthIndex = currentMonthIndex - 1; monthIndex >= 0 && visible < MINIMUM_VISIBLE_FILES; monthIndex -= 1) {
+    for (let monthIndex = currentMonthIndex; monthIndex >= 0 && visible < MINIMUM_VISIBLE_FILES; monthIndex -= 1) {
       const count = eventsInMonth(events, year, monthIndex).length;
       if (!count) continue;
       open.add(monthIndex);
@@ -176,17 +186,37 @@
     return open;
   }
 
+  function renderDayGroups(events) {
+    const groups = new Map();
+    for (const event of events) {
+      const date = parseEventDate(event);
+      const key = isoDate(date);
+      if (!date || !key) continue;
+      if (!groups.has(key)) groups.set(key, { date, events: [] });
+      groups.get(key).events.push(event);
+    }
+
+    return [...groups.entries()]
+      .sort(([a], [b]) => b.localeCompare(a))
+      .map(([, group]) => `<section class="day-archive">
+        <h3>${esc(formatDay(group.date))}<span>${group.events.length} FILE${group.events.length === 1 ? "" : "S"}</span></h3>
+        <div class="month-grid">${balancedColumns(group.events, 3, "month-column")}</div>
+      </section>`)
+      .join("");
+  }
+
   function renderMonthArchive(events, year, currentMonthIndex, currentMonthCount) {
     const autoOpen = automaticOpenMonths(events, year, currentMonthIndex, currentMonthCount);
     const showEmptyMonths = !state.query && activeDesk() === "all";
     const monthBlocks = [];
 
-    for (let monthIndex = currentMonthIndex - 1; monthIndex >= 0; monthIndex -= 1) {
+    for (let monthIndex = currentMonthIndex; monthIndex >= 0; monthIndex -= 1) {
       const monthEvents = eventsInMonth(events, year, monthIndex);
+      if (monthIndex === currentMonthIndex && !monthEvents.length) continue;
       if (!monthEvents.length && !showEmptyMonths) continue;
       const shouldOpen = Boolean(state.query || autoOpen.has(monthIndex));
       const content = monthEvents.length
-        ? `<div class="month-grid">${balancedColumns(monthEvents, 3, "month-column")}</div>`
+        ? renderDayGroups(monthEvents)
         : '<div class="month-empty">NO FILES PUBLISHED FOR THIS MONTH.</div>';
       monthBlocks.push(`<details class="month-archive${monthEvents.length ? "" : " empty-month"}" ${shouldOpen ? "open" : ""}>
         <summary>${esc(formatMonth(year, monthIndex))}<span>${monthEvents.length} FILE${monthEvents.length === 1 ? "" : "S"}${shouldOpen && monthEvents.length ? " • OPEN" : ""}</span></summary>
@@ -197,7 +227,7 @@
     if (!monthBlocks.length) return "";
     return `<section class="current-year-archive">
       <div class="archive-heading current-year-heading">${year} MONTH ARCHIVE</div>
-      <p class="archive-explainer">Earlier months are organized below. The newest month boxes open automatically until at least ${MINIMUM_VISIBLE_FILES} current-year files are visible, when enough files exist.</p>
+      <p class="archive-explainer">Files roll into this archive one Chicago calendar day at a time. Month boxes open automatically until at least ${MINIMUM_VISIBLE_FILES} current-year files are visible, when enough files exist.</p>
       ${monthBlocks.join("")}
     </section>`;
   }
@@ -228,9 +258,9 @@
   }
 
   function injectStyles() {
-    if (document.getElementById("monthly-archive-style")) return;
+    if (document.getElementById("rolling-archive-style")) return;
     const style = document.createElement("style");
-    style.id = "monthly-archive-style";
+    style.id = "rolling-archive-style";
     style.textContent = `
       .current-month-title{border-top:7px double #111;border-bottom:2px solid #111;padding:8px 0 6px;margin:18px 0 0;display:flex;justify-content:space-between;align-items:flex-end;gap:18px}
       .current-month-title h2{font:900 34px/1 Georgia,serif;margin:0}.current-month-title span{font:900 11px/1.35 Arial,sans-serif;color:#c40000;letter-spacing:.08em;text-align:right}
@@ -246,6 +276,9 @@
       details.month-archive[open]>summary{border-bottom:2px solid #111}
       details.month-archive.empty-month>summary{color:#888;border-color:#bbb}
       .month-empty{padding:13px 8px 18px;font:800 11px Arial,sans-serif;color:#777}
+      .day-archive{border-top:1px solid #aaa;padding-top:10px}.day-archive:first-of-type{border-top:0}
+      .day-archive>h3{display:flex;justify-content:space-between;gap:12px;margin:0;padding:4px 0 2px;font:900 14px/1.2 Arial,sans-serif;letter-spacing:.04em}
+      .day-archive>h3 span{color:#c40000;font-size:10px;letter-spacing:.08em}
       .month-grid,.archive-year-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;padding:8px 0 18px;width:100%}
       .month-column,.archive-year-column{min-width:0}.month-column+.month-column,.archive-year-column+.archive-year-column{border-left:1px solid #bbb;padding-left:18px}
       .current-year-heading{color:#111}
@@ -282,12 +315,10 @@
   function monthlyRender() {
     const all = dedupeEvents(allEvents());
     const filtered = all.filter((event) => matches(event) && deskMatches(event));
-    renderTopline(filtered);
-    colorLead(typeof leadEvent === "function" ? leadEvent(filtered) : (filtered[0] || all[0]));
-
     const archive = document.getElementById("archive");
     if (!archive) return;
     if (!filtered.length) {
+      renderTopline([]);
       archive.innerHTML = '<div class="empty">NO MATCHES. EVEN THE GROUP CHAT COULD NOT MANUFACTURE A CROSSTAB.</div>';
       bindOpeners();
       return;
@@ -296,35 +327,48 @@
     const today = chicagoToday();
     const currentYear = today.getUTCFullYear();
     const currentMonthIndex = today.getUTCMonth();
+    const todayISO = isoDate(today);
+    const cutoffISO = globalThis.WLC_ARTICLE_STANDARD?.recentCutoffISO(todayISO) || todayISO;
+    const recentEvents = filtered.filter((event) => globalThis.WLC_ARTICLE_STANDARD?.isRecentDate(isoDate(parseEventDate(event)), todayISO));
     const selectedYear = state.year === "all" ? null : Number(state.year);
     const showHistoricOnly = selectedYear && selectedYear < currentYear;
     let html = "";
 
     if (!showHistoricOnly) {
       const currentYearEvents = filtered.filter((event) => Number(event.year) === currentYear);
-      const currentMonthEvents = eventsInMonth(currentYearEvents, currentYear, currentMonthIndex);
-      const leadId = filtered[0]?.id;
-      const leadIsCurrent = currentMonthEvents.some((event) => event.id === leadId);
-      const gridEvents = currentMonthEvents.filter((event) => !leadIsCurrent || event.id !== leadId);
+      const archivedCurrentYearEvents = currentYearEvents.filter((event) => {
+        const eventISO = isoDate(parseEventDate(event));
+        return eventISO && eventISO < cutoffISO;
+      });
+      renderTopline(recentEvents);
+      const lead = typeof leadEvent === "function" ? leadEvent(recentEvents) : recentEvents[0];
+      colorLead(lead);
+      const leadId = lead?.id;
+      const leadIsCurrent = recentEvents.some((event) => event.id === leadId);
+      const gridEvents = recentEvents.filter((event) => !leadIsCurrent || event.id !== leadId);
       const belowCount = gridEvents.length;
 
       html += `<section class="current-news">
         <div class="current-month-title">
-          <h2>${esc(formatMonth(currentYear, currentMonthIndex))} // CURRENT MONTH</h2>
-          <span>${currentMonthEvents.length} FILE${currentMonthEvents.length === 1 ? "" : "S"}${leadIsCurrent ? ` • 1 FEATURED ABOVE • ${belowCount} BELOW` : ""}</span>
+          <h2>LATEST ${globalThis.WLC_NEWSROOM_CONTRACT?.recentNewsroomDays || 8} DAYS // CURRENT NEWSROOM</h2>
+          <span>${recentEvents.length} FILE${recentEvents.length === 1 ? "" : "S"}${leadIsCurrent ? ` • 1 FEATURED ABOVE • ${belowCount} BELOW` : ""}</span>
         </div>
         ${gridEvents.length
           ? `<div class="current-columns">${balancedColumns(gridEvents, 3)}</div>`
           : leadIsCurrent
-            ? '<div class="empty">THE CURRENT MONTH’S FEATURED FILE IS ABOVE.</div>'
-            : '<div class="empty">NO CURRENT-MONTH FILES MATCH THIS VIEW.</div>'}
+            ? '<div class="empty">THE CURRENT NEWSROOM’S FEATURED FILE IS ABOVE.</div>'
+            : '<div class="empty">NO RECENT FILES MATCH THIS VIEW.</div>'}
       </section>`;
 
-      html += renderMonthArchive(currentYearEvents, currentYear, currentMonthIndex, currentMonthEvents.length);
+      html += renderMonthArchive(archivedCurrentYearEvents, currentYear, currentMonthIndex, recentEvents.length);
+    } else {
+      renderTopline(filtered);
+      colorLead(typeof leadEvent === "function" ? leadEvent(filtered) : filtered[0]);
     }
 
     if (!selectedYear || selectedYear < currentYear) {
-      html += renderOlderYearArchive(filtered, currentYear, selectedYear);
+      const archivedEvents = filtered.filter((event) => !globalThis.WLC_ARTICLE_STANDARD?.isRecentDate(isoDate(parseEventDate(event)), todayISO));
+      html += renderOlderYearArchive(archivedEvents, currentYear, selectedYear);
     }
 
     archive.innerHTML = html || '<div class="empty">NO ARCHIVED FILES MATCH THIS VIEW.</div>';

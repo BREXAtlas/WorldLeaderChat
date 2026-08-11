@@ -29,7 +29,7 @@ function completeArticle(bundle) {
       "The sharper reading is not a different event. It is the same event with the choreography left visible: leaders celebrate the framework while aides begin opening documents labeled implementation, monitoring and exceptions.",
       "The imagined conversation below exaggerates those familiar pressures without changing the announcement, its participants or its unresolved details."
     ],
-    sourceCredit: "Based on original reporting from Test News and the Foreign Ministry. The original sources are linked below."
+    sourceCredit: "Based on original reporting from Test News and Foreign Ministry."
   };
 }
 

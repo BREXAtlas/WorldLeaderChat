@@ -1,0 +1,42 @@
+name: Regenerate editorial article and chat
+
+on:
+  issues:
+    types: [labeled]
+
+permissions:
+  contents: read
+  issues: write
+  copilot-requests: write
+
+concurrency:
+  group: world-leader-chat-redraft-${{ github.event.issue.number }}
+  cancel-in-progress: true
+
+jobs:
+  redraft:
+    if: github.event.label.name == 'redraft-requested'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out the production drafting engine
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+
+      - name: Use Node.js 24
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Install GitHub Copilot CLI
+        run: npm install --global @github/copilot
+
+      - name: Regenerate this source-locked article and chat
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WLC_TARGET_ISSUE: ${{ github.event.issue.number }}
+          WLC_FORCE_REWRITE: "1"
+          WLC_DRAFT_LIMIT: "1"
+        run: node scripts/draft-editorial-issues.mjs

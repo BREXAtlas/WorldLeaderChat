@@ -59,7 +59,8 @@ test("future publication requires article-to-source and chat-quality verificatio
   const validation = await read("scripts/lib/validation.mjs");
   const publish = await read("scripts/publish-from-issue.mjs");
   assert.match(validation, /articleMatchesSources must be true/);
-  assert.match(validation, /event\.article\.body must contain 2–6 short paragraphs/);
+  assert.match(validation, /articleProblems\(event\.article, event\.sources\)/);
+  assert.match(validation, /Article standard:/);
   assert.match(validation, /Chat quality:/);
   assert.match(publish, /existingBundles: published\.map/);
 });
@@ -77,6 +78,16 @@ test("Rewrite Chat preserves the article and replaces only dialogue", async () =
   assert.match(rewrite, /article and sources were preserved/);
 });
 
+test("article failures can request a complete source-locked redraft", async () => {
+  const workflow = await read(".github/workflows/editorial-redraft.yml");
+  const editor = await read("editor/app.js");
+  assert.match(workflow, /github\.event\.label\.name == 'redraft-requested'/);
+  assert.match(workflow, /copilot-requests: write/);
+  assert.match(workflow, /WLC_FORCE_REWRITE: "1"/);
+  assert.match(editor, /Regenerate Article \+ Chat/);
+  assert.match(editor, /\['redraft-requested'\]/);
+});
+
 test("publication serializes main writes and finalizes labels without assuming optional labels exist", async () => {
   const workflow = await read(".github/workflows/editorial-publish.yml");
   assert.match(workflow, /group: world-leader-chat-main-writes/);
@@ -92,6 +103,8 @@ test("publication serializes main writes and finalizes labels without assuming o
 
 test("editor adds fact-check first and approval second so only one publish event can win the race", async () => {
   const editor = await read("editor/app.js");
+  assert.match(editor, /articleProblems\(bundle\)/);
+  assert.match(editor, /This file cannot publish yet/);
   const factCheckCall = editor.indexOf("setIssueLabels(updated, ['fact-checked']");
   const approvalCall = editor.indexOf("setIssueLabels(checked, ['editorial-approved']");
   assert.ok(factCheckCall >= 0 && approvalCall > factCheckCall);

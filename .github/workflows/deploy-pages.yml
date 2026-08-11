@@ -12,6 +12,7 @@ on:
       - "disclosure-polish.js"
       - "recency-order.js"
       - "rolling-archive.js"
+      - "newsroom-contract.js"
       - "editor/**"
       - "data/published-events.json"
       - "data/site-meta.json"
@@ -97,7 +98,9 @@ jobs:
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL}" | grep -F "recency-order.js?v=20260810"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
-            "${PAGE_URL}" | grep -F "rolling-archive.js?v=monthly-20260810"
+            "${PAGE_URL}" | grep -F "rolling-archive.js?v=rolling-8-day-20260811"
+          curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
+            "${PAGE_URL}" | grep -F "newsroom-contract.js?v=20260811"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/social-card-export.js" | grep -F "Save Social PNG"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
@@ -121,15 +124,23 @@ jobs:
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/recency-order.js" | grep -F "compareRecency"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
-            "${PAGE_URL%/}/rolling-archive.js" | grep -F "CURRENT MONTH"
+            "${PAGE_URL%/}/rolling-archive.js" | grep -F "LATEST"
+          curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
+            "${PAGE_URL%/}/rolling-archive.js" | grep -F 'class="day-archive"'
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/rolling-archive.js" | grep -F "MINIMUM_VISIBLE_FILES = 10"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/rolling-archive.js" | grep -F "MONTH ARCHIVE"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
+            "${PAGE_URL%/}/newsroom-contract.js" | grep -F "recentNewsroomDays: 8"
+          curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
+            "${PAGE_URL%/}/newsroom-contract.js" | grep -F "minimumParagraphs: 3"
+          curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/social-tools.js" | grep -F "Copy Article + Chat"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
-            "${PAGE_URL%/}/editor/" | grep -F "app.js?v=workflow-layout-20260811-coverage"
+            "${PAGE_URL%/}/editor/" | grep -F "app.js?v=article-standard-20260811"
+          curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
+            "${PAGE_URL%/}/editor/app.js" | grep -F "COMPLETE SHORT REPORT"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/editor/app.js" | grep -F "Rewrite Chat"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
@@ -144,7 +155,7 @@ jobs:
             "${PAGE_URL%/}/editor/conversation-upgrade.js" | grep -F "browserGeneratedDialogue: false"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/editor/newsroom-upgrade.js" | grep -F "never manufactures or rewrites dialogue"
-          echo "Verified social PNG and carousel exports, sponsors, newest-first newsroom, editor, archives and copy tools: ${PAGE_URL}"
+          echo "Verified social PNG and carousel exports, sponsors, eight-day newsroom, day archives, editor and copy tools: ${PAGE_URL}"
 
   report:
     if: always()

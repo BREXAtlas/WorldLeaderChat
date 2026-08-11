@@ -4,3 +4,13 @@
 /scripts/ @BREXAtlas
 /.github/workflows/ @BREXAtlas
 /index.html @BREXAtlas
+/newsroom-contract.js @BREXAtlas
+/newsroom-site.js @BREXAtlas
+/newsroom-taxonomy.js @BREXAtlas
+/rolling-archive.js @BREXAtlas
+/social-card-export.js @BREXAtlas
+/social-tools.js @BREXAtlas
+/editor/ @BREXAtlas
+/scripts/build-site.mjs @BREXAtlas
+/scripts/lib/validation.mjs @BREXAtlas
+/docs/NEWSROOM_RULES.md @BREXAtlas

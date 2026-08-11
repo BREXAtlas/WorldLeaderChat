@@ -14,13 +14,14 @@ await mkdir(resolve(output, "assets"), { recursive: true });
 
 const publicHtml = await readFile(resolve(root, "index.html"), "utf8");
 const publicScripts = [
+  '  <script src="./newsroom-contract.js?v=20260811"></script>',
   '  <script src="./newsroom-taxonomy.js?v=20260811"></script>',
   '  <script src="./social-tools.js"></script>',
   '  <script src="./social-card-export.js?v=20260810-carousel"></script>',
   '  <script src="./newsroom-site.js"></script>',
   '  <script src="./disclosure-polish.js"></script>',
   '  <script src="./recency-order.js?v=20260810"></script>',
-  '  <script src="./rolling-archive.js?v=monthly-20260810"></script>'
+  '  <script src="./rolling-archive.js?v=rolling-8-day-20260811"></script>'
 ];
 const brandMarkup = '<div class="brand-lockup"><img class="brand-logo" src="./assets/world-leaders-chat-logo.webp" alt="World Leaders Chat — News. Analysis. Satire." onerror="this.hidden=true;this.nextElementSibling.hidden=false"><div class="brand-fallback" role="img" aria-label="World Leaders Chat — News. Analysis. Satire." hidden><span>WORLD LEADERS</span><b>CHAT</b><small>NEWS. ANALYSIS. SATIRE.</small></div></div>';
 const brandStyles = `
@@ -69,6 +70,7 @@ for (const tag of publicScripts) {
 }
 await writeFile(resolve(output, "index.html"), instrumentedHtml, "utf8");
 await writeFile(resolve(output, "404.html"), instrumentedHtml, "utf8");
+await cp(resolve(root, "newsroom-contract.js"), resolve(output, "newsroom-contract.js"));
 await cp(resolve(root, "newsroom-taxonomy.js"), resolve(output, "newsroom-taxonomy.js"));
 await cp(resolve(root, "social-tools.js"), resolve(output, "social-tools.js"));
 await cp(resolve(root, "social-card-export.js"), resolve(output, "social-card-export.js"));
@@ -105,6 +107,7 @@ await writeFile(resolve(output, "CNAME"), "worldleaders.chat\n", "utf8");
 await writeFile(resolve(output, "robots.txt"), "User-agent: *\nAllow: /\nDisallow: /editor/\n", "utf8");
 
 const htmlSize = (await readFile(resolve(output, "index.html"))).byteLength;
+const contractSize = (await readFile(resolve(output, "newsroom-contract.js"))).byteLength;
 const taxonomySize = (await readFile(resolve(output, "newsroom-taxonomy.js"))).byteLength;
 const socialSize = (await readFile(resolve(output, "social-tools.js"))).byteLength;
 const socialCardSize = (await readFile(resolve(output, "social-card-export.js"))).byteLength;
@@ -119,4 +122,4 @@ const conversationSize = (await readFile(resolve(output, "editor/conversation-up
 const editorNewsroomSize = (await readFile(resolve(output, "editor/newsroom-upgrade.js"))).byteLength;
 const logoSize = (await readFile(resolve(output, "assets/world-leaders-chat-logo.webp"))).byteLength;
 const faviconSize = (await readFile(resolve(output, "assets/world-leaders-chat-favicon.webp"))).byteLength;
-console.log(`Built GitHub Pages artifact in _site (${htmlSize} byte index, ${taxonomySize} byte newsroom taxonomy, ${socialSize} byte social copy tools, ${socialCardSize} byte social PNG exporter, ${newsroomSize} byte newsroom UI, ${disclosureSize} byte disclosure polish, ${recencySize} byte recency order, ${rollingSize} byte monthly archive, ${editorSize} byte editor, ${appSize} byte editor app, ${publishedDataSize} byte canonical published adapter, ${conversationSize} byte conversation standard, ${editorNewsroomSize} byte article presentation, ${logoSize} byte logo, ${faviconSize} byte favicon, ${published.length} external event(s)).`);
+console.log(`Built GitHub Pages artifact in _site (${htmlSize} byte index, ${contractSize} byte newsroom contract, ${taxonomySize} byte newsroom taxonomy, ${socialSize} byte social copy tools, ${socialCardSize} byte social PNG exporter, ${newsroomSize} byte newsroom UI, ${disclosureSize} byte disclosure polish, ${recencySize} byte recency order, ${rollingSize} byte rolling archive, ${editorSize} byte editor, ${appSize} byte editor app, ${publishedDataSize} byte canonical published adapter, ${conversationSize} byte conversation standard, ${editorNewsroomSize} byte article presentation, ${logoSize} byte logo, ${faviconSize} byte favicon, ${published.length} external event(s)).`);

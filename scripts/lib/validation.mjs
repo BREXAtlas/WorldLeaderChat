@@ -1,4 +1,5 @@
 import { dialogueProblems } from "./chat-quality.mjs";
+import { articleProblems } from "./article-standard.mjs";
 
 function add(errors, condition, message) {
   if (!condition) errors.push(message);
@@ -44,19 +45,6 @@ function validateArticle(article, policy, context = "") {
   if (!isObject(article)) return errors;
   add(errors, stringLengthBetween(article.headline, 10, 240), `${context}event.article.headline must be 10–240 characters.`);
   add(errors, stringLengthBetween(article.dek, 20, 420), `${context}event.article.dek must be 20–420 characters.`);
-  add(errors, Array.isArray(article.body) && article.body.length >= 2 && article.body.length <= 6,
-    `${context}event.article.body must contain 2–6 short paragraphs.`);
-  if (Array.isArray(article.body)) {
-    article.body.forEach((paragraph, index) => {
-      add(errors, stringLengthBetween(paragraph, 45, 1400),
-        `${context}event.article.body paragraph ${index + 1} must be 45–1400 characters.`);
-    });
-    const total = article.body.join(" ").trim().length;
-    add(errors, total >= 250 && total <= 6500,
-      `${context}event.article.body must total 250–6500 characters.`);
-  }
-  add(errors, stringLengthBetween(article.sourceCredit, 10, 500),
-    `${context}event.article.sourceCredit must be 10–500 characters.`);
   add(errors, !containsPlaceholder(article, policy), `${context}event.article still contains an editorial placeholder.`);
   return errors;
 }
@@ -91,6 +79,7 @@ export function validateEvent(event, policy, options = {}) {
 
   if (options.requireArticle || event.article !== undefined) {
     errors.push(...validateArticle(event.article, policy, context));
+    errors.push(...articleProblems(event.article, event.sources).map((problem) => `${context}Article standard: ${problem}`));
   }
 
   add(errors, Array.isArray(event.sources) && event.sources.length >= 1, `${context}event.sources must contain at least one source.`);
