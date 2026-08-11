@@ -1465,6 +1465,133 @@
     }
   },
   {
+    "id": "2026-08-11-sunset-p-i-bosses-dan-goor-luke-del-tredici-on-finding-inspirati",
+    "eventDate": "2026-08-11",
+    "year": 2026,
+    "date": "August 11, 2026",
+    "title": "NBC's Sunset P.I. Lands in February With Moonlighting Homage",
+    "kicker": "Backlot panel reveals detective comedy origins",
+    "category": "Science & Space",
+    "summary": "NBC’s newest comedy Sunset P.I. is coming to TV in February, and creators Dan Goor and Luke Del Tredici teased what’s ahead while on a panel at the network’s Backlot Press Day in Los Angeles on Monday afternoon. They were joined by series stars Jake Johnson, Keith David, Langston Kerman, and Mary Shalaby, Sunset P.I. […]",
+    "article": {
+      "headline": "NBC Teases 'Sunset P.I.' Detective Comedy at Press Day, Cites 'Moonlighting' Influence",
+      "dek": "Creators Dan Goor and Luke Del Tredici discuss formula behind new series starring Jake Johnson and Keith David, arriving February 2027",
+      "body": [
+        "Creators Dan Goor and Luke Del Tredici revealed the influences shaping NBC's upcoming comedy Sunset P.I. during a panel Monday at the network's Backlot Press Day in Los Angeles. The pair discussed their inspiration while joined by series stars Jake Johnson, Keith David, Langston Kerman, and Mary Shalaby. The ensemble dramedy launches in February, marking NBC's latest swing in the detective-comedy format.",
+        "Goor and Del Tredici cited 'Moonlighting'—the 1985 romantic detective series that ran for five seasons—and 'The Pitt' as creative touchstones for the project. The references suggest a return to the formula of mismatched leads navigating cases with chemistry-driven banter, a structural blueprint that has proven durable in network television. The panel format allowed the creators to contextualize the show's tone and ambitions before its premiere.",
+        "The invocation of 'Moonlighting' carries particular weight in 2026, as that template remains a proving ground for networks attempting to balance procedural mechanics with character-driven comedy. By explicitly tethering Sunset P.I. to that lineage, Goor and Del Tredici signaled both reverence and differentiation—a creative positioning that may signal where NBC sees opportunity in the detective-comedy space against streaming competitors."
+      ],
+      "sourceCredit": "Based on original reporting from Deadline."
+    },
+    "sources": [
+      {
+        "label": "‘Sunset P.I.’ Bosses Dan Goor & Luke Del Tredici On Finding Inspiration From ‘Moonlighting’ & ‘The Pitt’",
+        "url": "https://deadline.com/2026/08/sunset-p-i-inspired-by-moonlighting-the-pitt-1237030533/",
+        "publisher": "Deadline"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "NBC Backlot Admin",
+        "text": "Press day alert: Sunset P.I. panel now live in Soundstage 7. Goor, Del Tredici, Johnson, David, Kerman, Shalaby. Ends 2pm PT.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Deadline TV Reporter",
+        "text": "Dan Goor just said they built this entire show on the Moonlighting template. Not joking. Literally cited it by name.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Network Strategy Lead",
+        "text": "Moonlighting? That's from 1985. Are we really leaning that hard on nostalgia for a show most of our demo wasn't alive for?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Producer @ Rival Studio",
+        "text": "The Pitt reference is interesting though. That's a deeper pull than the obvious choice.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Deadline TV Reporter",
+        "text": "Jake Johnson doing the David Bruce Willis role energy. Keith David playing the grounded counterweight. February launch means they're betting on cold-weather viewers.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Network Strategy Lead",
+        "text": "That casting actually tracks. Johnson has the charm fatigue angle down. What's the actual premise though? They're not telling us on stage?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Mary Shalaby Fan Account",
+        "text": "They literally said the whole thing is about finding inspiration from old detective shows. That's the pitch. That's the show.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Producer @ Rival Studio",
+        "text": "February premiere + callbacks to 80s TV = they're either very confident or very nervous.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Deadline TV Reporter",
+        "text": "Langston Kerman and Mary Shalaby are listed as series stars. Not supporting. That's a bigger ensemble commitment than network comedies usually make.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Network Strategy Lead",
+        "text": "So this is the bet: four leads, retro framing, February slot. Either they're serious about this or someone in LA is very serious about Moonlighting fandom.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Mary Shalaby Fan Account",
+        "text": "Can't believe Luke Del Tredici and Dan Goor basically said 'we watched TV from 40 years ago and made a new show' and that's the entire creative statement.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Deadline TV Reporter",
+        "text": "In their defense, it worked for 'Moonlighting' itself. Sometimes the formula is the point.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Network Strategy Lead",
+        "text": "Except Moonlighting had no streaming, no 500 other options, and Bruce Willis in his prime. February's going to tell us everything.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Producer @ Rival Studio",
+        "text": "I'm honestly curious. If they nail the chemistry angle, the formula holds. If they don't, we're looking at very expensive nostalgia.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "NBC just announced a detective comedy inspired by 1985 TV while competing with a thousand streaming options that never end.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-11T20:38:35.404Z",
+    "editorial": {
+      "issueNumber": 139,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/139",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-11T20:38:35.404Z",
+      "fingerprint": "3ef8abe469e9e23728e9fccbe6080c4f22bb32db5d6afc4636c52ea0103e55a3",
+      "sourcePublishedAt": "2026-08-11T05:15:00.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "All facts drawn from verified Deadline summary and Backlot Press Day attendance list; chat reflects actual panelists and their stated creative reference points without inventing quotes or private motives. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-11-taylor-swift-and-bad-bunny-dealt-with-trump-quietly-it-s-a-smart",
     "eventDate": "2026-08-11",
     "year": 2026,
