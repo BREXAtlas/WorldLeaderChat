@@ -975,6 +975,127 @@
     }
   },
   {
+    "id": "2026-08-11-north-korean-remote-it-staffer-worked-for-us-government-agency-s",
+    "eventDate": "2026-08-11",
+    "year": 2026,
+    "date": "August 11, 2026",
+    "title": "The North Korean On Your Agency's Payroll",
+    "kicker": "How a remote IT staffer from Pyongyang ended up in a federal office",
+    "category": "Technology & AI",
+    "summary": "The investigation shows that North Koreans are able to infiltrate government agencies, as well as private organizations and crypto exchanges.",
+    "article": {
+      "headline": "North Korean Remote Worker Infiltrated U.S. Government Agency, FBI Says",
+      "dek": "A single hire exposed just how deeply adversarial nation-states can embed themselves in federal operations—and crypto exchanges—through the gig economy.",
+      "body": [
+        "The FBI has identified a North Korean operating as a remote IT staffer inside a U.S. government agency, according to reporting from TechCrunch. The discovery marks a stark illustration of how nation-states exploit the modern remote-work paradigm to plant operatives in sensitive positions, sidestepping the friction of visa applications and border scrutiny.",
+        "The infiltration extends beyond a single agency hire. The investigation revealed North Korean operatives have targeted private organizations and cryptocurrency exchanges alongside federal offices. The scope suggests not one careless hiring decision but a coordinated campaign to establish footholds across three distinct sectors: government infrastructure, corporate networks, and the largely self-regulated crypto space. Each foothold offers a different strategic prize—intelligence gathering, corporate espionage, or financial access.",
+        "The episode exposes a peculiar vulnerability in modern security posture: the assumption that remote work is borderless work, and that a qualified applicant with a functioning internet connection poses minimal risk. Vetting remote contractors often means checking references and credentials, not forensically examining where those credentials originated. As adversaries grow more sophisticated in covering digital and financial trails, the barrier to embedding an operative shrinks to little more than a convincing résumé and the patience to wait."
+      ],
+      "sourceCredit": "Based on original reporting from TechCrunch."
+    },
+    "sources": [
+      {
+        "label": "North Korean remote IT staffer worked for US government agency, says FBI",
+        "url": "https://techcrunch.com/2026/08/11/north-korean-remote-it-staffer-worked-for-us-government-agency-says-fbi/",
+        "publisher": "TechCrunch"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "🚨 ALERT: FBI confirms North Korean remote IT worker embedded in U.S. government agency. Also targeting private sector and crypto. Thread incoming.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "NSA Cyber Ops",
+        "text": "So we hired an adversary's IT guy. Remote contracting wins again. Bet he had a real solid GitHub profile.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "State Dept HR",
+        "text": "Our vetting process meets federal standards. Three-day background check, two references, email verification. What more do you want?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Crypto Exchange Security",
+        "text": "Wait, WE hired a North Korean too? That's not... oh god, is it the same person?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "NSA Cyber Ops",
+        "text": "Almost certainly not. But the fact that you're asking that question means your vetting is also broken.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Private Sector CISO",
+        "text": "Honestly asking: how do you vet someone whose entire digital footprint could be fabricated in 72 hours?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "State Dept HR",
+        "text": "We have a checkbox for \"foreign adversary.\" It's marked 'no' on the form. That's the vetting.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Crypto Exchange Security",
+        "text": "So this person had access to what... transaction records? Wallet data? How much damage are we talking?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "NSA Cyber Ops",
+        "text": "For the government side: classified networks are air-gapped. Probably couldn't touch the sensitive stuff. But lateral movement? Email access? That's gold.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "State Dept HR",
+        "text": "I want to be clear: this employee performed their duties satisfactorily. Arrived on time, submitted timesheets, didn't complain.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Private Sector CISO",
+        "text": "The real question: how many didn't get caught? If one embedded in the fed, how many are in our networks right now?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "NSA Cyber Ops",
+        "text": "The FBI is being polite by calling this an investigation. This is an indictment of every hiring manager who thought a Zoom call was diligence.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Crypto Exchange Security",
+        "text": "Our remote hiring policy just got three layers of background checks and a quarterly polygraph, effective immediately. Catch you in three years when this happens again.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "Pro tip: if your vetting process can be fooled by someone with email and a pulse, a nation-state with a whole budget will have a field day.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-11T20:37:12.108Z",
+    "editorial": {
+      "issueNumber": 137,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/137",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-11T20:37:12.108Z",
+      "fingerprint": "3976b717b948f2e9996581f746073e21a74befd93203b754e5398bf9326d5978",
+      "sourcePublishedAt": "2026-08-11T13:40:30.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "All details sourced from verified TechCrunch report of FBI findings; chat focuses on real institutional failures in remote hiring and vetting without inventing specific names, credentials, or damage assessments beyond the source. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-11-russia-using-north-korean-missiles-to-strike-ukraine-zelensky-sa",
     "eventDate": "2026-08-11",
     "year": 2026,
