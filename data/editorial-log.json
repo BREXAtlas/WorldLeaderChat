@@ -947,5 +947,17 @@
     "sourceUrls": [
       "https://www.npr.org/2026/08/10/nx-s1-5921306/why-russia-and-ukraine-cant-stop-each-others-air-attacks"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-11-spotify-strikes-back-against-ai-artists-with-ai-persona-label",
+    "issueNumber": 136,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/136",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-11T20:44:05.648Z",
+    "fingerprint": "18af48e82fbb9b11f7ed8f07521dd16f28759f638138aa3c432a629182ad2b83",
+    "sourceUrls": [
+      "https://variety.com/2026/music/news/spotify-strikes-back-against-ai-artists-ai-persona-label-1236831790/"
+    ]
   }
 ]
