@@ -4,6 +4,11 @@
   "minimumScore": 7,
   "maxCandidatesPerRun": 24,
   "requestTimeoutMs": 20000,
+  "sourceDiversity": {
+    "minimumPublishersPerRun": 8,
+    "minimumPublishersPerDesk": 2,
+    "maximumCandidatesPerPublisher": 4
+  },
   "sources": [
     {
       "id": "bbc-world",
@@ -62,9 +67,41 @@
       "desk": "US Politics & Society"
     },
     {
+      "id": "npr-politics",
+      "publisher": "NPR",
+      "url": "https://feeds.npr.org/1014/rss.xml",
+      "enabled": true,
+      "weight": 1,
+      "desk": "Politics & Society"
+    },
+    {
+      "id": "bbc-politics",
+      "publisher": "BBC News",
+      "url": "https://feeds.bbci.co.uk/news/politics/rss.xml",
+      "enabled": true,
+      "weight": 1,
+      "desk": "Politics & Society"
+    },
+    {
       "id": "guardian-technology",
       "publisher": "The Guardian",
       "url": "https://www.theguardian.com/technology/rss",
+      "enabled": true,
+      "weight": 1,
+      "desk": "Technology & AI"
+    },
+    {
+      "id": "the-verge",
+      "publisher": "The Verge",
+      "url": "https://www.theverge.com/rss/index.xml",
+      "enabled": true,
+      "weight": 1,
+      "desk": "Technology & AI"
+    },
+    {
+      "id": "techcrunch",
+      "publisher": "TechCrunch",
+      "url": "https://techcrunch.com/feed/",
       "enabled": true,
       "weight": 1,
       "desk": "Technology & AI"
@@ -78,9 +115,41 @@
       "desk": "Science & Space"
     },
     {
+      "id": "nasa-news-releases",
+      "publisher": "NASA",
+      "url": "https://www.nasa.gov/news-release/feed/",
+      "enabled": true,
+      "weight": 2,
+      "desk": "Science & Space"
+    },
+    {
+      "id": "npr-science",
+      "publisher": "NPR",
+      "url": "https://feeds.npr.org/1007/rss.xml",
+      "enabled": true,
+      "weight": 1,
+      "desk": "Science & Space"
+    },
+    {
       "id": "guardian-business",
       "publisher": "The Guardian",
       "url": "https://www.theguardian.com/business/rss",
+      "enabled": true,
+      "weight": 1,
+      "desk": "Business & Power"
+    },
+    {
+      "id": "npr-business",
+      "publisher": "NPR",
+      "url": "https://feeds.npr.org/1006/rss.xml",
+      "enabled": true,
+      "weight": 1,
+      "desk": "Business & Power"
+    },
+    {
+      "id": "cnbc-business",
+      "publisher": "CNBC",
+      "url": "https://www.cnbc.com/id/10001147/device/rss/rss.html",
       "enabled": true,
       "weight": 1,
       "desk": "Business & Power"
@@ -94,11 +163,51 @@
       "desk": "Culture & Entertainment"
     },
     {
+      "id": "variety",
+      "publisher": "Variety",
+      "url": "https://variety.com/feed/",
+      "enabled": true,
+      "weight": 1,
+      "desk": "Culture & Entertainment"
+    },
+    {
+      "id": "deadline",
+      "publisher": "Deadline",
+      "url": "https://deadline.com/feed/",
+      "enabled": true,
+      "weight": 1,
+      "desk": "Culture & Entertainment"
+    },
+    {
+      "id": "npr-arts-life",
+      "publisher": "NPR",
+      "url": "https://feeds.npr.org/1008/rss.xml",
+      "enabled": true,
+      "weight": 1,
+      "desk": "Culture & Entertainment"
+    },
+    {
       "id": "guardian-sport",
       "publisher": "The Guardian",
       "url": "https://www.theguardian.com/sport/rss",
       "enabled": true,
       "weight": 0,
+      "desk": "Sports & Soft Power"
+    },
+    {
+      "id": "espn",
+      "publisher": "ESPN",
+      "url": "https://www.espn.com/espn/rss/news",
+      "enabled": true,
+      "weight": 1,
+      "desk": "Sports & Soft Power"
+    },
+    {
+      "id": "cbs-sports",
+      "publisher": "CBS Sports",
+      "url": "https://www.cbssports.com/rss/headlines/",
+      "enabled": true,
+      "weight": 1,
       "desk": "Sports & Soft Power"
     },
     {
@@ -121,7 +230,7 @@
       "id": "jpl-news",
       "publisher": "NASA Jet Propulsion Laboratory",
       "url": "https://www.jpl.nasa.gov/feeds/news/",
-      "enabled": true,
+      "enabled": false,
       "weight": 2,
       "desk": "Science & Space"
     },
@@ -156,6 +265,30 @@
       "enabled": true,
       "weight": 1,
       "desk": "World News"
+    },
+    {
+      "id": "defense-news",
+      "publisher": "Defense News",
+      "url": "https://www.defensenews.com/arc/outboundfeeds/rss/?outputType=xml",
+      "enabled": true,
+      "weight": 1,
+      "desk": "War & Security"
+    },
+    {
+      "id": "military-times",
+      "publisher": "Military Times",
+      "url": "https://www.militarytimes.com/arc/outboundfeeds/rss/?outputType=xml",
+      "enabled": true,
+      "weight": 1,
+      "desk": "War & Security"
+    },
+    {
+      "id": "un-peace-security",
+      "publisher": "UN News",
+      "url": "https://news.un.org/feed/subscribe/en/news/topic/peace-and-security/feed/rss.xml",
+      "enabled": true,
+      "weight": 2,
+      "desk": "War & Security"
     }
   ],
   "relevance": {

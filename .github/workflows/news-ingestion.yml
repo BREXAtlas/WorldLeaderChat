@@ -41,6 +41,9 @@ jobs:
       WLC_MINIMUM_SCORE: ${{ inputs.minimum_score || '4' }}
       WLC_MAX_CANDIDATES: ${{ inputs.max_candidates || '24' }}
       WLC_MINIMUM_PER_DESK: "2"
+      WLC_MINIMUM_PUBLISHERS: "8"
+      WLC_MINIMUM_PUBLISHERS_PER_DESK: "2"
+      WLC_MAXIMUM_PER_PUBLISHER: "4"
 
     steps:
       - name: Check out repository
@@ -85,8 +88,10 @@ jobs:
             echo "- Sweep begins forty minutes before each window so drafting can finish before review"
             echo "- Lookback: seven days, so quieter desks are not crowded out by the latest conflict cycle"
             echo "- Required first pass: two recommendations each for War & Security, World News, Politics & Society, Technology & AI, Science & Space, Business & Power, Culture & Entertainment, Sports & Soft Power"
+            echo "- Publisher guard: use at least two publishers per desk and eight across the daily slate whenever current feed coverage permits"
             echo "- New editorial issues: ${{ steps.queue.outputs.issues_created }}"
             echo "- Existing candidates skipped: ${{ steps.queue.outputs.issues_skipped }}"
             echo "- New candidates receive a sourced short article and a 10–14-message direct conversation before owner approval."
             echo "- Nothing publishes without owner approval."
           } >> "$GITHUB_STEP_SUMMARY"
+          node scripts/report-ingestion-summary.mjs

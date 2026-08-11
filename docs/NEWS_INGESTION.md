@@ -4,7 +4,7 @@ The news-ingestion service is a GitHub Actions workflow and a set of dependency-
 
 ## Schedule
 
-`.github/workflows/news-ingestion.yml` runs at minute 17 every six hours in UTC and can also be launched manually.
+`.github/workflows/news-ingestion.yml` starts forty minutes before the 8 AM, noon, 4 PM and 8 PM America/Chicago review windows and can also be launched manually.
 
 Default manual inputs:
 
@@ -25,7 +25,7 @@ The initial configuration includes world or top-news feeds from:
 - UN News; and
 - NPR World.
 
-Feeds are configured in `config/news-sources.json`. Feed inclusion means only that a headline may enter the review queue. It is not an editorial endorsement, and the editor must independently assess source quality and framing.
+Feeds are configured in `config/news-sources.json`. Every public topic desk has a multi-publisher source pool, including broad entertainment, arts, film, television and music coverage for Culture & Entertainment. The selector prefers at least two publishers per desk and eight across a run, and the run summary shows the actual mix. Feed inclusion means only that a headline may enter the review queue. It is not an editorial endorsement, and the editor must independently assess source quality and framing.
 
 ## Parsing
 

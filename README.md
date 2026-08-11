@@ -19,7 +19,7 @@ The front page uses a dense, old-school headline layout. Every story opens into 
 
 **Automation may discover a story, but automation cannot publish a story.**
 
-Four times each day, ahead of the 8 AM, noon, 4 PM and 8 PM Central review windows, the ingestion workflow scans configured feeds, ranks likely world-leader stories and creates a category-balanced set of deduplicated GitHub issues labeled `news-candidate` and `needs-editor`. It does not write satire into the live site and does not modify published data.
+Four times each day, ahead of the 8 AM, noon, 4 PM and 8 PM Central review windows, the ingestion workflow scans configured feeds, ranks likely world-leader stories and creates a category- and publisher-balanced set of deduplicated GitHub issues labeled `news-candidate` and `needs-editor`. Each topic desk has its own multi-publisher feed pool; the selector prefers at least two publishers per desk and eight across a run, while every matching source remains in the article's `sources` array. It does not write satire into the live site and does not modify published data.
 
 A story reaches the site only after a write-authorized repository editor:
 
@@ -76,7 +76,7 @@ The build output is written to `_site/`. Only the public HTML, published event d
 
 ## Adding or removing feeds
 
-Edit `config/news-sources.json`. A source must use HTTPS and provide RSS, Atom or RDF-style items. The parser accepts common RSS and Atom fields, including `pubDate`, `published`, `updated`, `dc:date`, `description`, `summary` and `content:encoded`.
+Edit `config/news-sources.json`. A source must use HTTPS and provide RSS, Atom or RDF-style items. Keep at least three independent publishers configured for every public topic desk. The parser accepts common RSS and Atom fields, including `pubDate`, `published`, `updated`, `dc:date`, `description`, `summary` and `content:encoded`.
 
 After changing feeds:
 
