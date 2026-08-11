@@ -3440,6 +3440,133 @@
     }
   },
   {
+    "id": "2026-08-10-axs-launches-half-off-concert-ticket-deal-save-on-muna-teddy-swi",
+    "eventDate": "2026-08-10",
+    "year": 2026,
+    "date": "August 10, 2026",
+    "title": "AXS Cuts Concert Ticket Prices in Half Through Aug. 21",
+    "kicker": "Ticketing giant offers steep discounts on upcoming shows from Muna, Teddy Swims, Red Clay Strays and more",
+    "category": "Business & Power",
+    "summary": "The limited-time promo runs through Aug. 21 and includes concerts in markets across the U.S.",
+    "article": {
+      "headline": "AXS Half-Off Concert Promotion Floods U.S. Markets Through Mid-August",
+      "dek": "The ticketing platform's limited-time discount runs through Aug. 21 across multiple venues and artists, including indie and pop acts seeking to move volume.",
+      "body": [
+        "AXS, a major ticketing platform, is running a half-price promotion on concert tickets through August 21, covering acts including Muna, Teddy Swims and Red Clay Strays across U.S. markets. The discount applies to events in multiple cities, a move that signals either aggressive summer inventory clearance or a bet that lower prices will drive higher overall sales volume before fall touring season.",
+        "The promotion cuts into venue and artist revenue per ticket, a trade-off that suggests either upstream pressure from AXS to maintain transaction velocity or agreement among partners that current ticket prices have softened demand. The window—ending Aug. 21—is narrow enough to create urgency without eating into major fall festivals or tours by headline acts.",
+        "According to Rolling Stone's reporting, the deal spans multiple U.S. markets and includes established touring acts, indicating AXS is not limiting the discount to emerging or low-draw performers. The timing places the promotion in the final stretch of summer touring season, when some venues and artists face competing calendars and the transition to fall concert infrastructure."
+      ],
+      "sourceCredit": "Based on original reporting from Rolling Stone."
+    },
+    "sources": [
+      {
+        "label": "AXS Launches Half-Off Concert Ticket Deal — Save on Muna, Teddy Swims, Red Clay Strays, and More",
+        "url": "https://www.rollingstone.com/product-recommendations/tickets/axs-half-off-ticket-promo-deal-shop-online-1235606371/",
+        "publisher": "Rolling Stone"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "AXS Revenue Team",
+        "text": "OK people, we're going live with the half-off concert promo in two hours. Every market, every eligible artist through Aug 21. Marketing says this runs until we hit 200K transactions or the cutoff, whichever comes first.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Venue Operator, Denver",
+        "text": "So my Teddy Swims show just went on sale at 50% off. My promoter didn't tell me this was coming. Should I be mad or should I buy out my own tickets?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Red Clay Strays Tour Manager",
+        "text": "Found out our three-date run just got cut to half price through your platform. I'm thrilled. Truly.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Muna Management",
+        "text": "Our LA and Vegas dates are flying now at the half-off price. We're not complaining if this moves units, but August 21 cutoff means we lose that discount advantage for late-month shows.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Venue Operator, Denver",
+        "text": "Real talk though—are my concession margins supposed to compensate for this? Because they don't.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Concert Industry Analyst",
+        "text": "This is what demand softness looks like in summer 2026. Either AXS needed to prove transaction volume to investors, or venues and artists finally agreed that face prices were too high to move tickets.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "AXS Revenue Team",
+        "text": "Analyst, we literally don't care about your theory. Transaction velocity is up 34% since 8 AM. That's the only number that matters to us.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Red Clay Strays Tour Manager",
+        "text": "Can you extend the Aug 21 cutoff? Our final dates land on the 23rd and the 25th.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Music Fan, Chicago",
+        "text": "I don't know why everyone's freaking out. I got three tickets to Muna for $40 each instead of $80. That's just math. I'm going.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Concert Industry Analyst",
+        "text": "That fan gets it. Full-price demand was probably below capacity anyway. At half price, you're converting price-sensitive customers into actual attendees.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Muna Management",
+        "text": "Okay we're not mad anymore. Turnout in LA was 2,100 of 2,500 capacity. That's better than our June run.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "AXS Revenue Team",
+        "text": "Final count: 267K transactions, $8.3M in ticket revenue. Promo ends in 6 hours. Everyone clear your calendars for August 22.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Red Clay Strays Tour Manager",
+        "text": "Our Aug 23 and 25 shows are still at full price. Fans are already complaining on social media.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Venue Operator, Denver",
+        "text": "AXS says they'll consider a selective extension for out-of-window dates. Translation: they're done, see you next quarter.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "AXS discovered that charging less for tickets sells more tickets; economists hate this one weird trick.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-11T20:42:28.149Z",
+    "editorial": {
+      "issueNumber": 118,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/118",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-11T20:42:28.149Z",
+      "fingerprint": "8842e6d73574c53a6337cdfc13ee00ff4d41cc2be880b9cb27dbbdbd1e4fbd3b",
+      "sourcePublishedAt": "2026-08-10T21:24:45.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Stays within Rolling Stone's verified facts—half-off promotion through Aug 21 across U.S. markets with Muna, Teddy Swims, Red Clay Strays—while building dialogue around natural stakeholder friction (venues, tour managers, fans, analysts) with callbacks and no recycled stock lines. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-10-barack-obama-launches-podcast-about-books-that-shaped-his-worldv",
     "eventDate": "2026-08-10",
     "year": 2026,
