@@ -62,6 +62,7 @@ test("editor has a wide active lane, daily mix tools and a featured-headline act
   assert.match(app, /Make Main Headline/);
   assert.match(app, /\['featured-headline'\]/);
   assert.match(app, /WLC_NEWSROOM\?\.matchesSearch/);
+  assert.match(app, /reviewCount} to review • \$\{publishedCount} published/);
 });
 
 test("featured-headline workflow persists exactly one featured article", async () => {
