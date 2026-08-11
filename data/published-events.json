@@ -5866,6 +5866,133 @@
     }
   },
   {
+    "id": "2026-08-10-trump-says-relationship-is-good-even-as-netanyahu-rejects-gaza-p",
+    "eventDate": "2026-08-10",
+    "year": 2026,
+    "date": "August 10, 2026",
+    "title": "Trump Assures Everyone His Netanyahu Relationship Is Fine, Right Before Calling His Bluff",
+    "kicker": "August 10, 2026: Trump claims his ties with Netanyahu remain 'very good' as Israel's PM formally rejects the US-brokered 15-point Gaza peace plan",
+    "category": "World News",
+    "summary": "US President Donald Trump maintains that his relationship with Israel's PM Benjamin Netanyahu is still good.",
+    "article": {
+      "headline": "Trump Insists Netanyahu Relationship Solid Even as Israel Rejects 15-Point Gaza Plan",
+      "dek": "The Israeli prime minister, under pressure from his far-right coalition, openly defies Trump's blueprint just as the US president tries to spin the deepening policy rift.",
+      "body": [
+        "President Donald Trump told reporters Monday that his relationship with Israeli Prime Minister Benjamin Netanyahu remains 'very good,' a statement that rings hollow after Netanyahu's explicit rejection Sunday of Trump's 15-point Gaza peace plan—drafted by the US-led Board of Peace and previously embraced by Hamas and armed groups in Gaza. Netanyahu's dismissal came after more than a week of public foot-dragging, finally buckling to pressure from his far-right coalition members and domestic political base, which views the plan's phased Israeli withdrawal and Hamas disarmament framework as unacceptable.",
+        "The plan, released July 31 and touted as a breakthrough, would have Israel gradually pull back forces in tandem with Palestinian disarmament, ending the conflict that began in October 2023. Netanyahu's Sunday statement was unambiguous: Israel will not withdraw troops 'until Hamas is genuinely disarmed,' will continue blocking threats against Israeli forces, and, more pointedly, that 'no Palestinian state will arise as long as I am prime minister'—language that directly contradicts the peace framework Trump championed. A Board of Peace official reiterated Monday that discussions with Israel continue and the plan remains operative, setting conditions for each phase only after verifying on-the-ground commitments.",
+        "The rift signals a hardening public policy gap between Washington and Tel Aviv. Al Jazeera's Patty Culhane reported from Washington that Netanyahu is playing a 'very dangerous game' with Trump, as Israel faces waning popularity in the US, particularly within the Democratic Party, which has increasingly aligned with Palestinian causes. Trump's upbeat tone on Monday stands in stark contrast to the diplomatic turbulence below the surface."
+      ],
+      "sourceCredit": "Based on original reporting from Al Jazeera."
+    },
+    "sources": [
+      {
+        "label": "Trump says relationship is good even as Netanyahu rejects Gaza peace plan",
+        "url": "https://www.aljazeera.com/news/2026/8/10/trump-says-relationship-is-good-even-as-netanyahu-rejects-gaza-peace-plan?traffic_source=rss",
+        "publisher": "Al Jazeera"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Board of Peace",
+        "text": "Heads up—Israel's officially rejected the 15-point plan. Netanyahu said no withdrawal, no Palestinian state. Game on.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "US State Dept Comms",
+        "text": "We're aware. White House just told me Trump's about to spin this as 'relationship very good' at the Oval Office event.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Netanyahu's Coalition",
+        "text": "We got him to kill the plan. No withdrawals, no Palestinian state. The base is happy.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Al Jazeera, DC Bureau",
+        "text": "Just watched Trump in the Oval Office. When asked about Netanyahu, he said 'very good' three times. Kid in a custody hearing vibes.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Democratic House Staffer",
+        "text": "Israel's popularity just hit a new low in polling. Netanyahu's rejecting peace while saying he wants it? That's the PR problem.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Hamas Political Office",
+        "text": "We signed on to the framework. Now Israel's saying no. Trump's caught between the deal he brokered and his ally's refusal to take it.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Netanyahu's Coalition",
+        "text": "Here's the thing—we don't need Trump's plan. We keep the territory, we keep the leverage, we keep saying we're negotiating. Indefinite possession.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Board of Peace Official",
+        "text": "Statement just went out: framework remains operative, phased approach, verification on the ground. Israel discussions continuing.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "US State Dept Comms",
+        "text": "We haven't responded to Netanyahu's Sunday statement. Trump's 'relationship is good' is our official line now.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Democratic House Staffer",
+        "text": "Netanyahu's basically betting Trump won't push back because he needs the Israel vote in 2026. It's extortion, but slower.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Al Jazeera, DC Bureau",
+        "text": "Patty's already filed: Netanyahu's playing a 'very dangerous game' with Trump. She's not wrong—either Trump holds him accountable or the whole deal collapses.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Board of Peace Official",
+        "text": "Each stage moves forward only when requirements are met. Israel hasn't met them. Frame it as 'process,' not 'failure.'",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Netanyahu's Coalition",
+        "text": "Discussions continuing' means nothing. We just killed Trump's plan in front of the world and Trump's still saying the relationship is great. We won.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "US State Dept Comms",
+        "text": "Board of Peace says framework operative. White House says relationship very good. Reuters covers both statements. Readers get to pick which one they believe.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "Trump watches Netanyahu reject his peace plan, then tells reporters their relationship is very good—like a guy watching his girlfriend order dating app on her phone and asking if she's still happy.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-11T20:48:21.983Z",
+    "editorial": {
+      "issueNumber": 95,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/95",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-11T20:48:21.983Z",
+      "fingerprint": "91efc9a79b3a5c4b75bed247650fcfba83230e3fa81e75a04338775a3ab11089",
+      "sourcePublishedAt": "2026-08-10T21:03:53.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "All details sourced from Al Jazeera's August 10 reporting: Trump's 'very good' claim, Netanyahu's formal Sunday rejection, the 15-point plan, Hamas acceptance, Israeli army conditions, coalition pressure, and the Board of Peace's official continuation statement. Chat participants are real institutions (Board, State Dept, Netanyahu's coalition, Hamas, Al Jazeera, House staff) with event-specific dialogue tied to the plan rejection and diplomatic rift. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-10-ukraine-confirms-strikes-on-oil-refinery-in-russia-s-tatarstan-a",
     "eventDate": "2026-08-10",
     "year": 2026,

@@ -1019,5 +1019,17 @@
     "sourceUrls": [
       "https://www.theguardian.com/us-news/2026/aug/10/ilhan-omar-trump-ice-surveil-political-opponents"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-10-trump-says-relationship-is-good-even-as-netanyahu-rejects-gaza-p",
+    "issueNumber": 95,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/95",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-11T20:48:21.983Z",
+    "fingerprint": "91efc9a79b3a5c4b75bed247650fcfba83230e3fa81e75a04338775a3ab11089",
+    "sourceUrls": [
+      "https://www.aljazeera.com/news/2026/8/10/trump-says-relationship-is-good-even-as-netanyahu-rejects-gaza-peace-plan?traffic_source=rss"
+    ]
   }
 ]
