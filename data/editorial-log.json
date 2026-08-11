@@ -562,5 +562,17 @@
     "sourceUrls": [
       "https://www.cnbc.com/2026/08/11/mmr-vaccine-trump-wants-to-split-childhood-shot-up.html"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-11-claude-will-apply-invisible-watermarks-to-ai-text-and-images",
+    "issueNumber": 153,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/153",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-11T19:30:39.848Z",
+    "fingerprint": "f87f090260bd03cedc8f26f713b8e56578ba949f0f7f8c0bf0a2fca853ffe46c",
+    "sourceUrls": [
+      "https://www.theverge.com/ai-artificial-intelligence/977823/anthropic-claude-ai-watermarks-c2pa-text-images"
+    ]
   }
 ]
