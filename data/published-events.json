@@ -4517,6 +4517,127 @@
     }
   },
   {
+    "id": "2026-08-10-south-carolina-base-renamed-to-joint-base-lindsey-graham",
+    "eventDate": "2026-08-10",
+    "year": 2026,
+    "date": "August 10, 2026",
+    "title": "Joint Base Charleston Gets Graham's Name in Monday Ceremony",
+    "kicker": "Military honors late South Carolina senator with base renaming",
+    "category": "War & Security",
+    "summary": "Joint Base Charleston's new name was unveiled in a Monday ceremony honoring the late Senator Lindsey Graham.",
+    "article": {
+      "headline": "Joint Base Charleston Renamed Joint Base Lindsey Graham in Ceremony Honoring Late Senator",
+      "dek": "The South Carolina installation unveiled its new name Monday in a ceremony dedicating the base to the longtime senator and Armed Services Committee member.",
+      "body": [
+        "Joint Base Charleston, one of the Department of Defense's major installations, officially became Joint Base Lindsey Graham on Monday during a dedication ceremony. The renaming honors Senator Lindsey Graham, the South Carolina Republican who died in office and served on the Senate Armed Services Committee for decades, wielding substantial influence over military policy and defense budgets.",
+        "Graham's tenure spanned conflicts from the post-9/11 era through his final years, positioning him as a central figure in Pentagon decision-making and military affairs. The base, which serves as home to multiple commands and thousands of military personnel and their families, now carries his name as a permanent tribute.",
+        "The ceremony marked an official transition for the installation, which had operated under the Joint Base Charleston designation since consolidations in 2011. Renaming ceremonies for federal facilities require approval from Congress and reflect the political and historical weight assigned to the honoree."
+      ],
+      "sourceCredit": "Based on original reporting from Military Times."
+    },
+    "sources": [
+      {
+        "label": "South Carolina base renamed to Joint Base Lindsey Graham",
+        "url": "https://www.militarytimes.com/news/your-military/2026/08/10/south-carolina-base-renamed-to-joint-base-lindsey-graham/",
+        "publisher": "Military Times"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "DoD Naming Authority",
+        "text": "We're live: Joint Base Charleston officially transfers to Joint Base Lindsey Graham as of today. Plaque is up, ceremony concluded.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "CODEL South Carolina Staff",
+        "text": "Just sat through the unveiling. The whole room stood when they showed the new signage. Graham's committee work on defense was genuinely his life.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Armed Services Committee Aide",
+        "text": "He voted yes on every major NDAA for 24 years straight. That base owes him operational continuity if nothing else.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Charleston Installation Commander",
+        "text": "We had to update 4,000+ internal documents overnight. IT is still finding headers with the old name embedded in legacy systems.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Senate Democratic Aide",
+        "text": "Fair move politically. Graham drove Pentagon spending across both administrations. The base exists partly because of decisions he supported.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "CODEL South Carolina Staff",
+        "text": "His family was there. They read a statement about his decades representing the state. His daughter mentioned the base specifically—said he was proud of that relationship.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Defense Policy Center Analyst",
+        "text": "This is the seventh major installation renamed in the past decade for deceased officials. Graham was high-profile enough to land this honor, but the pattern tracks how Congress memorializes defense votes.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Charleston Installation Commander",
+        "text": "Facilities managers asked if we're repainting the gates or just slapping the new name on. Answer: both, new budget line item.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Armed Services Committee Aide",
+        "text": "He sat on that committee longer than most senators serve total. The renaming actually understates the scope.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Pentagon Press Liaison",
+        "text": "We're fielding requests for the ceremony footage. C-SPAN is already running clips. Local Charleston outlets are leading with family reaction.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Defense Policy Center Analyst",
+        "text": "What's wild is how much military real estate he touched through appropriations. The base is the physical proof of that influence.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Senate Democratic Aide",
+        "text": "Can't argue with the substance here. He shaped defense strategy across Republican and Democratic administrations. That's rare.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "DoD Naming Authority",
+        "text": "All signage updated as of 1400 hours. Official records reflect Joint Base Lindsey Graham. South Carolina gets a permanent marker on the defense footprint.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "A senator's committee votes finally paid off in lettering three sizes taller than a normal gate sign.",
+    "quote": null,
+    "tone": "sober",
+    "publishedAt": "2026-08-11T20:41:43.026Z",
+    "editorial": {
+      "issueNumber": 123,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/123",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-11T20:41:43.026Z",
+      "fingerprint": "987b8701e30dd32792b0fb6367181741f2296295f71fa940e875edaa50f06b62",
+      "sourcePublishedAt": "2026-08-10T20:16:48.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "All facts derive from the Military Times article: base renamed to Joint Base Lindsey Graham, Monday ceremony, South Carolina location, late senator honoree. Chat uses military, DoD, Senate staff, and policy figures naturally adjacent to defense installations and appropriations. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-10-spacex-plan-for-vast-rocket-launch-site-on-louisiana-coast-spark",
     "eventDate": "2026-08-10",
     "year": 2026,

@@ -911,5 +911,17 @@
     "sourceUrls": [
       "https://www.theguardian.com/us-news/2026/aug/10/trump-secret-flight-nato-return"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-10-south-carolina-base-renamed-to-joint-base-lindsey-graham",
+    "issueNumber": 123,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/123",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-11T20:41:43.026Z",
+    "fingerprint": "987b8701e30dd32792b0fb6367181741f2296295f71fa940e875edaa50f06b62",
+    "sourceUrls": [
+      "https://www.militarytimes.com/news/your-military/2026/08/10/south-carolina-base-renamed-to-joint-base-lindsey-graham/"
+    ]
   }
 ]
