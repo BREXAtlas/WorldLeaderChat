@@ -983,5 +983,17 @@
     "sourceUrls": [
       "https://www.bbc.co.uk/sport/football/articles/cgljd4kny9eo?at_medium=RSS&at_campaign=rss"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-10-lebanon-un-peacekeepers-count-hundreds-of-israeli-strikes-and-in",
+    "issueNumber": 99,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/99",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-11T20:46:19.388Z",
+    "fingerprint": "41396d944dd0ba397472abeb6f532fb36f522dc6682964b5872b19b1f71f3397",
+    "sourceUrls": [
+      "https://news.un.org/feed/view/en/story/2026/08/1168108"
+    ]
   }
 ]

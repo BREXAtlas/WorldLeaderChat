@@ -4148,6 +4148,133 @@
     }
   },
   {
+    "id": "2026-08-10-lebanon-un-peacekeepers-count-hundreds-of-israeli-strikes-and-in",
+    "eventDate": "2026-08-10",
+    "year": 2026,
+    "date": "August 10, 2026",
+    "title": "UN Documents 455 Israeli Strikes and 97 Airspace Breaches Over Single Lebanon Weekend",
+    "kicker": "Peacekeepers' tally marks heaviest fire in months",
+    "category": "Science & Space",
+    "summary": "Israeli forces fired 455 projectiles into south Lebanon and breached Lebanese airspace 97 times between Friday and Sunday, the UN's peacekeeping mission in the country reported Monday – among the heaviest fire seen in months.",
+    "article": {
+      "headline": "UN Counts 455 Projectiles, 97 Airspace Violations in 72-Hour Israeli Campaign on Lebanon",
+      "dek": "UNIFIL peacekeepers registered the heaviest fire in months after Friday-through-Sunday strikes on southern Lebanon.",
+      "body": [
+        "United Nations peacekeepers operating in Lebanon documented 455 projectiles fired into the country's south and counted 97 separate breaches of Lebanese airspace between Friday and Sunday, according to the UN's peacekeeping mission UNIFIL. The tally, reported Monday, represents the densest military activity the region has seen in months and underscores the fragility of border arrangements enforced by the multinational force.",
+        "The strikes and incursions concentrated on southern Lebanon, where UNIFIL maintains observation posts and coordinates between Israeli and Lebanese military forces. The mission did not immediately announce a casualty count or details of targets struck, but emphasized the scale and frequency of the operations in its formal reporting.",
+        "The documentation comes as diplomatic channels remain strained and international calls for restraint have yielded minimal results. The UN peacekeeping mission's role—to monitor compliance with UN Resolution 1701, which ended the 2006 war—has grown more difficult as military tensions have escalated along the shared border."
+      ],
+      "sourceCredit": "Based on original reporting from UN News."
+    },
+    "sources": [
+      {
+        "label": "Lebanon: UN peacekeepers count hundreds of Israeli strikes and incursions in a single weekend",
+        "url": "https://news.un.org/feed/view/en/story/2026/08/1168108",
+        "publisher": "UN News"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UNIFIL Spokesman",
+        "text": "We've logged the numbers for the weekend operations. 455 projectiles and 97 airspace crossings. This is the heaviest fire we've counted since early summer.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Lebanese Foreign Ministry",
+        "text": "Every incursion is a violation of our sovereignty. We're filing the formal complaint with the Security Council this morning.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Regional Correspondent",
+        "text": "455 in 72 hours means roughly 6 per hour on average. That's an industrial pace for what's supposed to be a cold border.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UNIFIL Spokesman",
+        "text": "The 97 airspace breaches alone—that's not incidental overflight. Those are tracked, documented sorties.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Israeli Defense Liaison",
+        "text": "We respond to threats as they emerge. The operations were in response to specific security concerns.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Lebanese Foreign Ministry",
+        "text": "Specific security concerns? You fired 455 projectiles into a country with a UN peacekeeping force deployed to prevent exactly this.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "International Press",
+        "text": "So UNIFIL is now basically a scoreboard operator. They count, they report, and then... what exactly?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Regional Correspondent",
+        "text": "That 'heaviest fire in months' language is doing a lot of work. These aren't sporadic incidents anymore.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UN Secretary's Office",
+        "text": "The Secretary-General has been briefed on UNIFIL's assessment and will address the escalation in tomorrow's statement.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Israeli Defense Liaison",
+        "text": "Any operations were proportionate and targeted. We respect the 1701 framework as much as anyone.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Regional Correspondent",
+        "text": "Respect the 1701 framework. That's why you airspace-breached 97 times in one weekend.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Lebanese Foreign Ministry",
+        "text": "The world saw the numbers today. 455 and 97. We'll see who actually enforces the resolution now.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "International Press",
+        "text": "UNIFIL just became the most important fact-checker on this border, and it turns out the facts are really loud.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UN Secretary's Office",
+        "text": "The mission will continue daily monitoring and reporting. Transparency is the mechanism we have left.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "UN peacekeepers discovering they're less like referees and more like sports commentators with a body count.",
+    "quote": null,
+    "tone": "sober",
+    "publishedAt": "2026-08-11T20:46:19.388Z",
+    "editorial": {
+      "issueNumber": 99,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/99",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-11T20:46:19.388Z",
+      "fingerprint": "41396d944dd0ba397472abeb6f532fb36f522dc6682964b5872b19b1f71f3397",
+      "sourcePublishedAt": "2026-08-10T12:00:00.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Every statistic (455 projectiles, 97 airspace breaches, weekend timeframe, UNIFIL documentation, 'heaviest in months') anchored to UN News report; chat targets policy enforcement gaps and information asymmetry, with Lebanese, Israeli, UN and press voices representing the natural stakeholders in border compliance. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-10-middle-east-iran-wants-us-concessions-before-opening-hormuz",
     "eventDate": "2026-08-10",
     "year": 2026,
