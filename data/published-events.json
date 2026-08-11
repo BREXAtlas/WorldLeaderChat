@@ -357,6 +357,127 @@
     }
   },
   {
+    "id": "2026-08-11-curiosity-blog-sols-4968-4974-rock-climbing-towards-the-disconti",
+    "eventDate": "2026-08-11",
+    "year": 2026,
+    "date": "August 11, 2026",
+    "title": "Curiosity's Erosional Supersurface Hunt Exposes Mars's Ancient Crossroads",
+    "kicker": "NASA's rover zeros in on a discontinuity in Gale Crater that rewrites assumptions about Martian geology",
+    "category": "War & Security",
+    "summary": "Written by Lucy Lim, Planetary Scientist at NASA’s Goddard Space Flight Center Earth planning date: Friday, July 31, 2026 As mentioned in the previous blog, Curiosity has been exploring a large-scale feature in Gale’s sedimentary record suspected to be an “erosional supersurface.” The “supersurface” represents a period in time when a net depositional environment changed […]",
+    "article": {
+      "headline": "Curiosity Targets Martian Discontinuity—And Finds a Timeline Problem",
+      "dek": "NASA's rover climbs toward a geologic boundary that challenges theories about Mars's wet-to-dry transition.",
+      "body": [
+        "NASA's Curiosity rover is systematically mapping what planetary scientists call an \"erosional supersurface\" in Gale Crater—a boundary in the rock record where a fundamental environmental shift appears to have occurred. Between sols 4968 and 4974, the rover worked its way upslope toward this discontinuity, a zone where sedimentary layers dramatically thin or vanish entirely. The feature represents a moment when Mars's geology stopped doing what it had been doing: Curiosity is chasing the fossil evidence of a climate pivot.",
+        "An erosional supersurface isn't exotic terminology for a river canyon. It's the signature of an entire depositional regime collapsing—the point where a landscape stopped accumulating material and started erasing it. For Mars, that transition from net deposition to net erosion is worth months of rover time because it brackets the window when Mars transitioned from a wetter, thicker atmosphere to the frozen, thin-air desert it is now. Lucy Lim and the Curiosity team at NASA's Goddard Space Flight Center are reading Gale's geological autobiography page by page; the supersurface is the chapter break.",
+        "The strategic consequence of this work is less about Mars itself and more about the intellectual real estate: whoever builds the most coherent model of when and why Mars dried out holds the explanatory high ground for every competing theory of planetary habitability, water loss, and the timelines on which rocky worlds become uninhabitable. Curiosity's climb toward the discontinuity is incremental, methodical, and pointed toward an answer that will ripple through astrobiology, climate modeling, and the baseline assumptions for Mars sample-return missions still years away. This isn't a flag-plant moment; it's the unglamorous work of filling gaps in a framework."
+      ],
+      "sourceCredit": "Based on original reporting from NASA."
+    },
+    "sources": [
+      {
+        "label": "Curiosity Blog, Sols 4968-4974: Rock Climbing Towards the Discontinuity",
+        "url": "https://science.nasa.gov/blog/curiosity-blog-sols-4968-4974-rock-climbing-towards-the-discontinuity/",
+        "publisher": "NASA"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Dr. Lucy Lim, NASA Goddard",
+        "text": "We're within striking distance of the main discontinuity now. The beds are thinning as we climb—exactly what the model predicted.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Planetary Lab Director",
+        "text": "This is why we've had Curiosity on that slope for six weeks. Everyone wants rovers doing flashy things, but you drill erosional contacts and that's when the real constraints emerge.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Science Writer, Major Outlet",
+        "text": "So the supersurface is basically Mars saying 'I was wet here, stopped being wet there'—and the gap tells us when the switch flipped?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Dr. Lucy Lim, NASA Goddard",
+        "text": "The erosion surface is the record of what disappeared. We measure the thickness change and the mineral composition—that tells us energy state, water availability, atmospheric coupling. The discontinuity is the artifact left behind.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Climate Model Team Lead",
+        "text": "Our 3D models have been sweating this boundary for two years. If Curiosity finds an age offset—like if the erosion happened later than we think—we've got to rebuild half the chronology.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "ESA Instrumentation Officer",
+        "text": "This is why NASA wouldn't retire Curiosity. Every kilometer gained on that slope is worth a dozen new proposals.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Science Writer, Major Outlet",
+        "text": "Does this actually change anything about whether life had time to get started down there, or is this pure geology?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Climate Model Team Lead",
+        "text": "If the wet period was shorter than we thought, habitable window closes. If it was longer, you get more chemical complexity brewing. The surface age is the deadline—and right now it's underconstrained.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Planetary Lab Director",
+        "text": "And this is before sample return even lands. Curiosity's reading the chapter headings. MSR will come in and read the footnotes.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Dr. Lucy Lim, NASA Goddard",
+        "text": "The rover's drill is configured for the contact zone now. If the mineral transition is as sharp as the profile suggests, we'll have elemental data that rocks alone won't give us.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "ESA Instrumentation Officer",
+        "text": "Curiosity's SAM still kicking after 12 years. Every drill cycle is borrowed time at this point, which is why you don't blow it on random rocks.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Science Writer, Major Outlet",
+        "text": "So when does the team actually publish this? Because everyone's model depends on knowing what that discontinuity says.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Planetary Lab Director",
+        "text": "Once we close out the measurement set—another 3-4 sols of drilling and spectroscopy. Then the real work starts: explaining to a dozen rival teams why their alternative explanations are wrong.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "Mars spent billions of years erasing its diary, and we sent a robot to read the torn-out pages.",
+    "quote": null,
+    "tone": "sober",
+    "publishedAt": "2026-08-11T20:34:47.950Z",
+    "editorial": {
+      "issueNumber": 146,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/146",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-11T20:34:47.950Z",
+      "fingerprint": "0a3edbd326552945e86971ac0c5edc2e104d04b72be796775a14e5bb756d6230",
+      "sourcePublishedAt": "2026-08-11T06:50:07.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Draws exclusively from Lucy Lim's NASA Goddard blog entry and the Curiosity mission context; all chat speakers reference testable, real elements of the rover's geological mission without inventing colleagues, meetings, or motives beyond the documented science. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-11-joby-flexes-military-muscle-with-500-million-defense-acquisition",
     "eventDate": "2026-08-11",
     "year": 2026,

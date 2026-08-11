@@ -802,5 +802,17 @@
     "sourceUrls": [
       "https://www.dw.com/en/vietnam-s-vinspace-taps-spacex-for-first-satellite-launches/a-78315984?maca=en-rss-en-top-1022-rdf"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-11-curiosity-blog-sols-4968-4974-rock-climbing-towards-the-disconti",
+    "issueNumber": 146,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/146",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-11T20:34:47.950Z",
+    "fingerprint": "0a3edbd326552945e86971ac0c5edc2e104d04b72be796775a14e5bb756d6230",
+    "sourceUrls": [
+      "https://science.nasa.gov/blog/curiosity-blog-sols-4968-4974-rock-climbing-towards-the-discontinuity/"
+    ]
   }
 ]
