@@ -568,6 +568,10 @@
     catch{ location.hash = ""; }
   }
 
+  function isDialogBackdropClick(event){
+    return event.target === event.currentTarget;
+  }
+
   function adjacent(direction){
     const list = allEvents().filter(matches);
     const index = list.findIndex(e => e.id === state.currentId);
@@ -703,8 +707,7 @@
   });
   $("#closeDialog").addEventListener("click", closeEvent);
   $("#storyDialog").addEventListener("click", e => {
-    const r = e.currentTarget.getBoundingClientRect();
-    if(e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) closeEvent();
+    if(isDialogBackdropClick(e)) closeEvent();
   });
   $("#prevBtn").addEventListener("click",()=>adjacent(-1));
   $("#nextBtn").addEventListener("click",()=>adjacent(1));

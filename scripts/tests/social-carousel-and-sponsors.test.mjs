@@ -185,7 +185,7 @@ test("every rendered slide has the existing logo and PAGE X / Y numbering", asyn
   });
 });
 
-test("the final slide includes Last Word, source publishers, article URL and disclosure", async () => {
+test("the final slide includes Last Word, source publishers, short domain and disclosure", async () => {
   const { api } = await installExporter();
   const canvases = await api.renderSocialCarousel(fixtureEvent(), "story");
   const text = canvases.at(-1).context.texts.map((entry) => entry.text).join("\n");
@@ -193,8 +193,36 @@ test("the final slide includes Last Word, source publishers, article URL and dis
   assert.match(text, /THE LAST WORD REMAINS/);
   assert.match(text, /SOURCE PUBLISHERS/);
   assert.match(text, /Reuters.*Associated Press/);
-  assert.match(text, /#event=future-article-fixture/);
+  assert.match(text, /worldleaders\.chat/);
+  assert.doesNotMatch(text, /#event=|future-article-fixture/);
   assert.match(text, /REAL EVENT • ORIGINAL SOURCES • IMAGINED REACTIONS/);
+});
+
+test("single images and every carousel format print only the stable short domain", async () => {
+  const { api } = await installExporter();
+  for (const format of ["feed", "story", "landscape"]) {
+    const single = await api.renderSocialCanvas(fixtureEvent(), format);
+    const singleText = single.context.texts.map(({ text }) => text).join("\n");
+    assert.match(singleText, /worldleaders\.chat/);
+    assert.doesNotMatch(singleText, /#event=|future-article-fixture|github\.io|BREXAtlas/i);
+
+    const slides = await api.renderSocialCarousel(fixtureEvent(), format);
+    const carouselText = slides.flatMap((canvas) => canvas.context.texts.map(({ text }) => text)).join("\n");
+    assert.match(carouselText, /worldleaders\.chat/);
+    assert.doesNotMatch(carouselText, /#event=|future-article-fixture|github\.io|BREXAtlas/i);
+  }
+});
+
+test("archived and future event ids share the same short-domain renderer", async () => {
+  const { api } = await installExporter();
+  for (const id of ["2020-pandemic-declared", "future-approved-event-fixture"]) {
+    const event = { ...fixtureEvent(10), id };
+    const single = await api.renderSocialCanvas(event, "feed");
+    const slides = await api.renderSocialCarousel(event, "landscape");
+    const renderedText = [single, ...slides].flatMap((canvas) => canvas.context.texts.map(({ text }) => text)).join("\n");
+    assert.match(renderedText, /worldleaders\.chat/);
+    assert.doesNotMatch(renderedText, new RegExp(`${id}|#event=`));
+  }
 });
 
 test("single-image overflow, Last Word and footer occupy ordered non-overlapping zones", async () => {
@@ -250,7 +278,7 @@ test("sponsors live in the sidebar below How to read with exact public-site copy
 test("Pages packages and smoke-checks carousel code, sponsors and both public URLs", async () => {
   const build = await read("scripts/build-site.mjs");
   const workflow = await read(".github/workflows/deploy-pages.yml");
-  assert.match(build, /social-card-export\.js\?v=20260810-carousel/);
+  assert.match(build, /social-card-export\.js\?v=20260811-social-export-fix/);
   assert.match(build, /cp\(resolve\(root, "social-card-export\.js"\)/);
   assert.match(workflow, /Save Social Carousel/);
   assert.match(workflow, /Share Social Carousel/);

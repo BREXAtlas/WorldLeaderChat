@@ -55,6 +55,8 @@
   const LOGO_URL = new URL("./assets/world-leaders-chat-logo.webp", location.href).href;
   const MARK_URL = new URL("./assets/world-leaders-chat-favicon.webp", location.href).href;
   const DISCLOSURE = "REAL EVENT • ORIGINAL SOURCES • IMAGINED REACTIONS";
+  const SOCIAL_IMAGE_URL = "worldleaders.chat";
+  let selectedFormat = "feed";
 
   function currentEvent() {
     try {
@@ -66,8 +68,13 @@
     }
   }
 
-  function eventUrl(event) {
-    return `https://worldleaders.chat/#event=${encodeURIComponent(event.id)}`;
+  function socialImageUrl() {
+    return SOCIAL_IMAGE_URL;
+  }
+
+  function retainSelectedFormat(value) {
+    selectedFormat = Object.hasOwn(PRESETS, value) ? value : "feed";
+    return selectedFormat;
   }
 
   function articleHeadline(event) {
@@ -361,7 +368,7 @@
     if (publisherText) ctx.fillText(`SOURCE CREDIT: ${publisherText}`, x, y + 46);
     ctx.font = `600 ${Math.max(14, fontSize - 3)}px Arial, Helvetica, sans-serif`;
     ctx.fillStyle = COLORS.muted;
-    drawWrappedText(ctx, eventUrl(event), {
+    drawWrappedText(ctx, socialImageUrl(), {
       x,
       y: y + 72,
       maxWidth: width,
@@ -750,7 +757,7 @@
     const detailLineHeight = Math.round(detailSize * 1.28);
     ctx.font = `700 ${detailSize}px Arial, Helvetica, sans-serif`;
     const publisherLines = wrapLines(ctx, sourcePublishers(event).join(" • ") || "Original sources linked in the article", width);
-    const urlLines = wrapLines(ctx, eventUrl(event), width);
+    const urlLines = wrapLines(ctx, socialImageUrl(), width);
     const height = 4 + 15 + 21 + lastWordLines.length * lastWordLineHeight + 14 + 20
       + publisherLines.length * detailLineHeight + 10 + urlLines.length * detailLineHeight + 13 + 22;
     return { width, lastWordSize, lastWordLineHeight, lastWordLines, detailSize, detailLineHeight, publisherLines, urlLines, height };
@@ -1144,6 +1151,10 @@
       option.textContent = preset.label;
       format.appendChild(option);
     });
+    format.value = selectedFormat;
+    format.addEventListener("change", () => {
+      format.value = retainSelectedFormat(format.value);
+    });
 
     const save = actionButton(
       "saveSocialPngBtn",
@@ -1152,7 +1163,7 @@
       "Save single social PNG",
       () => {
         const event = currentEvent();
-        if (event) runExportAction(save, "Rendering PNG…", "PNG Saved ✓", () => saveSocialPng(event, format.value));
+        if (event) runExportAction(save, "Rendering PNG…", "PNG Saved ✓", () => saveSocialPng(event, selectedFormat));
       }
     );
 
@@ -1163,7 +1174,7 @@
       "Share single social PNG",
       () => {
         const event = currentEvent();
-        if (event) runExportAction(share, "Preparing…", (result) => result.shared ? "Share Ready ✓" : "PNG Saved ✓", () => shareSocialPng(event, format.value));
+        if (event) runExportAction(share, "Preparing…", (result) => result.shared ? "Share Ready ✓" : "PNG Saved ✓", () => shareSocialPng(event, selectedFormat));
       }
     );
 
@@ -1174,7 +1185,7 @@
       "Save complete social carousel as a ZIP of PNG slides",
       () => {
         const event = currentEvent();
-        if (event) runExportAction(saveCarousel, "Rendering Slides…", "Carousel Saved ✓", () => saveSocialCarousel(event, format.value));
+        if (event) runExportAction(saveCarousel, "Rendering Slides…", "Carousel Saved ✓", () => saveSocialCarousel(event, selectedFormat));
       }
     );
 
@@ -1189,7 +1200,7 @@
           shareCarousel,
           "Preparing Slides…",
           (result) => result.shared ? "Share Ready ✓" : "Carousel Saved ✓",
-          () => shareSocialCarousel(event, format.value)
+          () => shareSocialCarousel(event, selectedFormat)
         );
       }
     );
@@ -1207,6 +1218,7 @@
     renderSocialCarousel,
     createCarouselPlan,
     createCarouselFiles,
+    selectedFormat: () => selectedFormat,
     saveSocialPng,
     shareSocialPng,
     saveSocialCarousel,

@@ -33,8 +33,9 @@ test("social cards use a consistent branded background and source attribution", 
   assert.match(source, /REAL EVENT • ORIGINAL SOURCES • IMAGINED REACTIONS/);
   assert.match(source, /SOURCE CREDIT:/);
   assert.match(source, /MORE MESSAGES IN THE FULL FILE/);
-  assert.match(source, /eventUrl\(event\)/);
-  assert.match(source, /https:\/\/worldleaders\.chat\/#event=/);
+  assert.match(source, /const SOCIAL_IMAGE_URL = "worldleaders\.chat"/);
+  assert.match(source, /socialImageUrl\(\)/);
+  assert.doesNotMatch(source, /#event=|encodeURIComponent\(event\.id\)/);
   assert.doesNotMatch(source, /Branded background, headline, chat excerpt, source credit and full-file link/);
 });
 
@@ -43,7 +44,7 @@ test("Pages build ships the exporter after existing copy tools", async () => {
   const copyIndex = build.indexOf("social-tools.js");
   const pngIndex = build.indexOf("social-card-export.js");
   assert.ok(copyIndex >= 0 && pngIndex > copyIndex);
-  assert.match(build, /social-card-export\.js\?v=20260810-carousel/);
+  assert.match(build, /social-card-export\.js\?v=20260811-social-export-fix/);
   assert.match(build, /cp\(resolve\(root, "social-card-export\.js"\)/);
   assert.match(build, /social PNG exporter/);
 });

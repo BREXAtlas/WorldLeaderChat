@@ -89,7 +89,7 @@ jobs:
           test -n "${PAGE_URL}"
           PAGE_URL="${PUBLIC_URL}"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
-            "${PAGE_URL}" | grep -F "social-card-export.js?v=20260810-carousel"
+            "${PAGE_URL}" | grep -F "social-card-export.js?v=20260811-social-export-fix"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL}" | grep -F 'rel="canonical" href="https://worldleaders.chat/"'
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
@@ -115,7 +115,11 @@ jobs:
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/social-card-export.js" | grep -F 'PAGE ${pageNumber} / ${pageCount}'
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
-            "${PAGE_URL%/}/social-card-export.js" | grep -F "https://worldleaders.chat/#event="
+            "${PAGE_URL%/}/social-card-export.js" | grep -F 'const SOCIAL_IMAGE_URL = "worldleaders.chat"'
+          ! curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
+            "${PAGE_URL%/}/social-card-export.js" | grep -F "#event="
+          curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
+            "${PAGE_URL}" | grep -F "if(isDialogBackdropClick(e)) closeEvent();"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL}" | grep -F "FROM OUR SPONSORS"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \

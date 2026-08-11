@@ -93,7 +93,8 @@ test("public and social article links use the custom domain", async () => {
   const build = await read("scripts/build-site.mjs");
   assert.match(html, /rel="canonical" href="https:\/\/worldleaders\.chat\/"/);
   assert.match(social, /https:\/\/worldleaders\.chat\/#event=/);
-  assert.match(exporter, /https:\/\/worldleaders\.chat\/#event=/);
+  assert.match(exporter, /const SOCIAL_IMAGE_URL = "worldleaders\.chat"/);
+  assert.doesNotMatch(exporter, /#event=/);
   assert.match(build, /writeFile\(resolve\(output, "CNAME"\), "worldleaders\.chat\\n"/);
   assert.match(build, /const \{ issueUrl, approvedBy, fingerprint, \.\.\.publicEditorial \}/);
   assert.doesNotMatch(`${html}\n${social}\n${exporter}`, /brexatlas\.github\.io/i);

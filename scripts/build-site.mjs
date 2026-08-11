@@ -17,7 +17,7 @@ const publicScripts = [
   '  <script src="./newsroom-contract.js?v=20260811"></script>',
   '  <script src="./newsroom-taxonomy.js?v=20260811"></script>',
   '  <script src="./social-tools.js"></script>',
-  '  <script src="./social-card-export.js?v=20260810-carousel"></script>',
+  '  <script src="./social-card-export.js?v=20260811-social-export-fix"></script>',
   '  <script src="./newsroom-site.js"></script>',
   '  <script src="./disclosure-polish.js"></script>',
   '  <script src="./recency-order.js?v=20260810"></script>',
