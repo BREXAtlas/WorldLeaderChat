@@ -875,5 +875,17 @@
     "sourceUrls": [
       "https://deadline.com/2026/08/sunset-p-i-inspired-by-moonlighting-the-pitt-1237030533/"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-11-pakistan-administered-kashmir-holds-elections-amid-calls-for-a-b",
+    "issueNumber": 134,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/134",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-11T20:39:24.675Z",
+    "fingerprint": "7dea4fba1fc31249e5d674a83d4d8251d5066d613751bb27566248fe71f90b92",
+    "sourceUrls": [
+      "https://www.npr.org/2026/08/11/nx-s1-5927084/pakistan-administered-kashmir-holds-elections-amid-calls-for-a-boycott"
+    ]
   }
 ]
