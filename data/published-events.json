@@ -728,6 +728,127 @@
     }
   },
   {
+    "id": "2026-08-11-russia-using-north-korean-missiles-to-strike-ukraine-zelensky-sa",
+    "eventDate": "2026-08-11",
+    "year": 2026,
+    "date": "August 11, 2026",
+    "title": "North Korea's Missiles, Ukraine's Daylight",
+    "kicker": "Zelensky says Russia deployed North Korean ballistic weapons in Zaporizhzhia strike",
+    "category": "War & Security",
+    "summary": "Ukraine's president says strikes in Zaporizhzhia - which killed at least six and injured 19 - involved ballistic missiles from Russia's ally.",
+    "article": {
+      "headline": "Russia Strikes Zaporizhzhia With North Korean Ballistic Missiles",
+      "dek": "Ukraine confirms at least six dead and 19 injured in attack using weapons supplied by Pyongyang",
+      "body": [
+        "Ukraine's president said Russian forces struck the Zaporizhzhia region with ballistic missiles supplied by North Korea, killing at least six people and wounding 19. The strike marks the first publicly confirmed use of Pyongyang's weapons in the war—a significant escalation in the arms pipeline between Moscow and Kim Jong Un's government.",
+        "The attack underscores Russia's deepening military dependence on non-Western suppliers as its own ammunition and precision-strike capacity face depletion. For Ukraine, the missile strike represents not just a tactical problem but a strategic one: the entry of a second rogue state into direct support for Moscow's invasion, expanding the geographic web of adversaries.",
+        "The alliance signals what NATO and Western capitals have privately warned: the war in Ukraine is becoming a testing ground for weapons transfers between authoritarian states. Each confirmed strike with foreign ordnance hardens the case that isolated regimes—Russia, North Korea, and any other patron willing to arm them—operate as a bloc against democratic nations dependent on geographic and diplomatic ties."
+      ],
+      "sourceCredit": "Based on original reporting from BBC News."
+    },
+    "sources": [
+      {
+        "label": "Russia using North Korean missiles to strike Ukraine, Zelensky says",
+        "url": "https://www.bbc.co.uk/news/articles/c151dpzwnvxo?at_medium=RSS&at_campaign=rss",
+        "publisher": "BBC News"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "Zaporizhzhia strike reported; Zelensky statement incoming on weapons origin",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Ukrainian Defense Analyst",
+        "text": "Six killed, nineteen wounded in the latest barrage. We're seeing the signature of ballistic weapons now—not the cruise missiles from before.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "NATO Observer",
+        "text": "Zelensky just confirmed North Korean missiles. This is the first time he's gone on record with it.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Ukrainian Defense Analyst",
+        "text": "We've been seeing the debris. The analysts were right three weeks ago. Now it's official.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Russian State Media",
+        "text": "No comment on origin claims. Russia maintains its right to use any available means for military objectives.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "NATO Observer",
+        "text": "Translation: 'Yes, we're using North Korean weapons and we're comfortable saying so.' That's the real story here.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Defense Technology Expert",
+        "text": "What's wild is Moscow isn't denying it. The old playbook was deniability. Now they just... do it.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Ukrainian Defense Analyst",
+        "text": "Because they can. We can't shoot down everything. Every missile that lands makes the next one a little easier.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Russian State Media",
+        "text": "Western sources claim sanctions will deter further cooperation. Moscow and Pyongyang have no dependence on Western approval.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Defense Technology Expert",
+        "text": "Right. Sanctions on both of them are already in the basement. What's left? Actually enforcing the embargo on the missiles themselves.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "NATO Observer",
+        "text": "This is the part that keeps Western planners up at night. The supply chain just got a lot shorter for Russia. North Korea's in the game now.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Ukrainian Defense Analyst",
+        "text": "And Zaporizhzhia's just the proof. We're not guessing anymore. We're counting bodies to confirm partnerships.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UN Admin",
+        "text": "Rogue states with ballistic missiles + isolation from the West + nothing left to lose = the actual definition of the threat architecture now.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "Russia and North Korea walk into a Zaporizhzhia bar, and six people don't walk out.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-11T20:26:39.763Z",
+    "editorial": {
+      "issueNumber": 130,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/130",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-11T20:26:39.763Z",
+      "fingerprint": "98f948872cbed31dda6fda728a587d67575e5824dae1af4a749bd5695627cc97",
+      "sourcePublishedAt": "2026-08-11T09:39:58.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Factually bound to BBC confirmation of Zelensky's statement on North Korean missiles, six deaths, 19 wounded in Zaporizhzhia; all speakers engage the specific weapons transfer angle and strategic implications without inventing quotes or sources. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-11-scottish-striker-ure-makes-5-5m-sevilla-move",
     "eventDate": "2026-08-11",
     "year": 2026,
