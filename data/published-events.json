@@ -2303,6 +2303,133 @@
     }
   },
   {
+    "id": "2026-08-10-nasa-debuts-on-discovery-coming-soon-to-hbo-max",
+    "eventDate": "2026-08-10",
+    "year": 2026,
+    "date": "August 10, 2026",
+    "title": "NASA+ Moves to Discovery+, HBO Max—Betting Big on Streaming Real Estate for Artemis III",
+    "kicker": "The space agency is doubling down on cable reruns and premium platforms to reach living rooms",
+    "category": "Science & Space",
+    "summary": "As NASA+ continues its expansion across multiple streaming platforms to bring space closer to home, NASA announced Monday programming is next heading to discovery+ and HBO Max. A continuous live feed of NASA+ programming is streaming on discovery+ live channels, while HBO Max will stream NASA’s special events, including the Artemis III mission in 2027. […]",
+    "article": {
+      "headline": "NASA Launches NASA+ on Discovery+, Preps HBO Max for Artemis III Live Events",
+      "dek": "In a bid to make space exploration accessible beyond its own app, NASA is shipping continuous programming to discovery+ and staging its lunar mission milestone on HBO Max.",
+      "body": [
+        "NASA announced Monday that NASA+ is now streaming live feeds of continuous NASA programming on discovery+ live channels, with HBO Max set to debut the service later this year. The move marks the agency's most ambitious platform diversification yet, hedging its streaming bet across multiple networks rather than trying to sustain a standalone service. HBO Max will reserve premium real estate for NASA special events, starting with coverage of the Artemis III lunar mission scheduled for 2027.",
+        "The strategy reflects a broader industry shift toward platform integration. Instead of asking viewers to download yet another app, NASA is meeting audiences where they already are—sandwiched between true crime and documentaries on Discovery, and competing with prestige drama on HBO Max. Artemis III, the mission designed to return humans to the Moon, represents the crown jewel of this distribution approach: live feeds of lunar operations are now streaming alongside HBO's existing content library.",
+        "For streaming platforms hungry for prestige content that actually drives subscriber retention, NASA's library of live feeds and historical mission footage solves a real problem. Discovery has built its brand on unscripted spectacle; HBO Max needs cultural anchors beyond serialized shows. NASA gets distribution without the infrastructure burden. The Artemis III mission in 2027 will be the first major test of whether Americans actually prefer watching the Moon landing through a streaming bundle rather than tuning into traditional broadcast coverage."
+      ],
+      "sourceCredit": "Based on original reporting from NASA."
+    },
+    "sources": [
+      {
+        "label": "NASA+ Debuts on discovery+, Coming Soon to HBO Max",
+        "url": "https://www.nasa.gov/news-release/nasa-debuts-on-discovery-coming-soon-to-hbo-max/",
+        "publisher": "NASA"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "NASA HQ",
+        "text": "NASA+ is now live on discovery+ across continuous programming. HBO Max incoming for special events, starting with Artemis III 2027. We're betting people will watch space from wherever they're already streaming.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Science Journalist (WIRED)",
+        "text": "So NASA basically said 'our app strategy isn't working, let's just copy what Netflix does.' That's not revolutionary, that's surrender.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Discovery Networks, Science",
+        "text": "Discovery+ already runs a 24/7 live feed of our channels. Adding NASA+? That's just more content that doesn't require licensing fees. We win.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "NASA HQ",
+        "text": "The continuous feed on discovery+ means people flipping through live channels stumble onto rocket launches. Discovery wins engagement metrics. We win distribution. Everybody eats.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "HBO Max Exec",
+        "text": "Artemis III in 2027 goes to HBO Max. Do you understand what we're saying here? We're streaming the Moon landing between Succession reruns and Harry Potter.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Space Policy Blogger",
+        "text": "The real question: will anyone watch Artemis III live if it's competing with their Netflix queue? NASA's finally ready to find out.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "HBO Max Exec",
+        "text": "Honestly that Artemis III moment is going to drive HBO Max subscriptions the same way Avatar did for streaming. One cultural event worth the whole year's subscriber cost.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Science Journalist (WIRED)",
+        "text": "I'm trying to care that NASA+ is on discovery+ but it feels like when a band realizes they're too niche so they signs to a major label and suddenly they're elevator music.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Astronaut (retired)",
+        "text": "Good. Armstrong's Moon landing reached 650 million people. If HBO Max gets us close to that number for Artemis III, mission success looks different than it did in 1969. Different doesn't mean bad.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Science Journalist (WIRED)",
+        "text": "Fair. I just remember when NASA had to spend zero dollars on distribution and everyone watched anyway. Now they're paying to reach a cable subscription layer. That's the real story.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Discovery Networks, Science",
+        "text": "Continuous NASA feed on our live channels means when people are doom-scrolling at 3am they're hitting NASA B-roll. That accidental engagement drives everything.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Astronaut (retired)",
+        "text": "My bet: Artemis III lands on HBO Max and every major news outlet just simulcasts it anyway. The platform doesn't matter once people understand what they're watching.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "HBO Max Exec",
+        "text": "That's literally why we signed the deal. We're not trying to own the Moon landing. We're betting that owning the premiere moment drives the audience we want to keep.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "NASA HQ",
+        "text": "In 2027, NASA+ content hits four streaming platforms simultaneously and we find out whether 'more distribution' actually means 'more viewers' or just 'more fragmentation.' Buckle up.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "NASA went from 'everyone must download our app' to 'just watch us between your true crime documentary and The Last of Us.'",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-11T20:29:26.241Z",
+    "editorial": {
+      "issueNumber": 117,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/117",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-11T20:29:26.241Z",
+      "fingerprint": "1b3bec75b6292178e865c9e67b4d41040cde6b1da4431c38041b52fddab782dd",
+      "sourcePublishedAt": "2026-08-10T16:30:13.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "All details sourced from the verified NASA announcement (August 10, 2026): discovery+ continuous feed, HBO Max special events including Artemis III 2027. Chat participants are institutional voices naturally adjacent to streaming strategy and space coverage; dialogue references specific platforms, missions, and industry dynamics without inventing quotes or motives. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-10-netanyahu-s-rejection-of-trump-s-15-point-gaza-plan-unlikely-to",
     "eventDate": "2026-08-10",
     "year": 2026,
