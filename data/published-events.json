@@ -121,6 +121,121 @@
     }
   },
   {
+    "id": "2026-08-11-baby-products-company-frida-is-expanding-into-kids-personal-care",
+    "eventDate": "2026-08-11",
+    "year": 2026,
+    "date": "August 11, 2026",
+    "title": "Frida Expands Into Kids’ Personal Care — The Baby Brand Graduates to Bigger Aisles",
+    "kicker": "Baby-products maker launches a kids personal care category",
+    "category": "Science & Space",
+    "summary": "Baby products company Frida is launching a new category of personal care items for kids, tapping into a growing market and largely untapped space.",
+    "article": {
+      "headline": "Frida launches a kids personal care category, tapping an untapped market",
+      "dek": "Frida is moving beyond baby basics into personal care for older children, seizing a growing and largely unclaimed segment.",
+      "body": [
+        "Frida, known for baby products, is launching a new category of personal care items aimed at kids, CNBC reported on August 11, 2026. The company is broadening its lineup beyond infant essentials and formally entering a market it has not previously targeted.",
+        "The key fact is simple: a baby-products company is pivoting into a kids personal care category to reach a different consumer slice. CNBC’s report frames this as a move into a growing and largely untapped segment—an obvious revenue play that extends Frida’s brand into older children’s needs without pretending diapers were the final frontier.",
+        "That choice exposes the usual tension: commercial upside versus the optics of marketing more grooming products at children. For Frida it’s strategic brand extension; for competitors and parents it raises questions about category boundaries and marketing pressure. Either way, the retail aisle just got one more set of labels to argue over."
+      ],
+      "sourceCredit": "Based on original reporting from CNBC."
+    },
+    "sources": [
+      {
+        "label": "Baby products company Frida is expanding into kids’ personal care",
+        "url": "https://www.cnbc.com/2026/08/11/frida-kids-personal-care.html",
+        "publisher": "CNBC"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "I just read CNBC about Frida launching a kids personal care category and yes, this is actually happening.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "CNBC",
+        "text": "I reported that Frida is expanding into kids’ personal care and called it a move into a largely untapped market.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Frida",
+        "text": "I’m expanding our product range into kids personal care to meet that untapped demand.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Parent",
+        "text": "I’m interested—my toddler is outgrowing baby stuff, so I want practical kids personal care options.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Pediatrician",
+        "text": "I want to see formulations and age guidance before I recommend any new kids personal care line.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Retailer",
+        "text": "I’m tracking Frida’s launch because a recognizable baby brand moving into kids personal care could shift shelf space.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Investor",
+        "text": "I see upside: Frida tapping a growing, largely untapped market could diversify revenue beyond baby staples.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Parent",
+        "text": "I’ll judge the labels—‘kids personal care’ doesn’t automatically mean useful or necessary for my kid.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Frida",
+        "text": "I expect parents who trust our baby products will consider our kids personal care line next for convenience.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Pediatrician",
+        "text": "I’ll be watching marketing to ensure kids personal care isn’t just upselling routines to younger audiences.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "CNBC",
+        "text": "I emphasized the business angle: Frida’s move is a strategic entry into an underdeveloped segment of the market.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UN Admin",
+        "text": "I suppose Frida just gave parents one more aisle to feel judged in—and that settles the dinner-table debate.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "Frida upgraded from pacifiers to parent-approved product lines; now the aisle judges are on standby.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-11T20:25:09.095Z",
+    "editorial": {
+      "issueNumber": 138,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/138",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-11T20:25:09.095Z",
+      "fingerprint": "debe6d41186ac1f69aa74c184c9f24f2bed54d8abfdc69431587d005e24c3abc",
+      "sourcePublishedAt": "2026-08-11T12:00:02.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Follows CNBC’s reporting that Frida is launching a kids personal care category and keeps chat speakers tied to the company, parents, retailers and clinicians for specificity. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-11-claude-will-apply-invisible-watermarks-to-ai-text-and-images",
     "eventDate": "2026-08-11",
     "year": 2026,
