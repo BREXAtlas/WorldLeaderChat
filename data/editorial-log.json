@@ -550,5 +550,17 @@
       "https://www.newsnationnow.com/katie-pavlich-tonight/fauci-covid-era-phone-texts-sen-johnson/",
       "https://www.cnn.com/2026/08/05/politics/fauci-phone-obtained-senate-subcommittee"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-11-trump-wants-to-split-the-mmr-vaccine-experts-say-that-s-unlikely",
+    "issueNumber": 168,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/168",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-11T19:26:16.489Z",
+    "fingerprint": "05d635c8a9773e5b4ec697154d6a280acf9cc54f86a923feba62872d49523eec",
+    "sourceUrls": [
+      "https://www.cnbc.com/2026/08/11/mmr-vaccine-trump-wants-to-split-childhood-shot-up.html"
+    ]
   }
 ]

@@ -127,6 +127,116 @@
     }
   },
   {
+    "id": "2026-08-11-trump-wants-to-split-the-mmr-vaccine-experts-say-that-s-unlikely",
+    "eventDate": "2026-08-11",
+    "year": 2026,
+    "date": "August 11, 2026",
+    "title": "Trump wants to split the MMR vaccine. Experts say that's unlikely — and comes with consequences",
+    "kicker": "The reported event is trump wants to split the mmr vaccine. experts say that's unlikely — and comes with consequences; the sharper angle is who owns the consequence once the announcement leaves the podium.",
+    "category": "Business & Power",
+    "summary": "Doctors and other experts say that splitting the measles, mumps and rubella shot has no scientific basis and is unlikely to get off the ground.",
+    "article": {
+      "headline": "Trump wants to split the MMR vaccine. Experts say that's unlikely — and comes with consequences",
+      "dek": "The reported event is trump wants to split the mmr vaccine. experts say that's unlikely — and comes with consequences; the sharper angle is who owns the consequence once the announcement leaves the podium.",
+      "body": [
+        "Doctors and other experts say that splitting the measles, mumps and rubella shot has no scientific basis and is unlikely to get off the ground.",
+        "The original reporting establishes the event, chronology and immediate consequence. This version keeps those facts intact while making the public tension easier to read: who is claiming control, who is objecting and which official phrase is carrying more confidence than detail.",
+        "The World Leader Chat angle is the gap between the public announcement and the pressure underneath it. The humor stays in that framing; it does not change the event, invent a motive or upgrade an implication into a fact.",
+        "The source record remains the authority. The conversation below is an imagined exchange built around the people, institutions and consequences directly connected to this report, giving the reader a reason to enter the chat without mistaking the chat for reporting."
+      ],
+      "sourceCredit": "Based on original reporting from CNBC."
+    },
+    "sources": [
+      {
+        "label": "Trump wants to split the MMR vaccine. Experts say that's unlikely — and comes with consequences",
+        "url": "https://www.cnbc.com/2026/08/11/mmr-vaccine-trump-wants-to-split-childhood-shot-up.html",
+        "publisher": "CNBC"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "New thread: Trump wants to split the MMR vaccine. Experts say that's unlikely — and comes with consequences. Keep every reply tied to the decision in the source.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "The headline is Trump wants to split the MMR vaccine. Experts say that's unlikely — and comes with consequences. My question is who owns what happens next.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Macron",
+        "text": "Your conclusion arrived before the briefing. The source says Doctors and other experts say that splitting the measles, mumps and rubella shot has no scientific basis and is unlikely to get off the ground.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "I heard the fact. I am disputing the part where everyone else gets to define the consequence.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Meloni",
+        "text": "The consequence cannot be separated from Trump wants to split the MMR vaccine. Experts say that's unlikely —… just because the press line is inconvenient.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Macron",
+        "text": "Agreed. The argument is over the response, not permission to replace the event with a better slogan.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Xi",
+        "text": "Everyone has now quoted the same report and reached four different strategic lessons from Trump wants to split the MMR vaccine. Experts say that's….",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "That is why leadership matters. Somebody has to choose the lesson before the next headline chooses it for us.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Meloni",
+        "text": "Leadership also means answering the detail you skipped, not merely speaking first and longest.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Macron",
+        "text": "Then return to the specific question raised by Trump wants to split the MMR vaccine. Experts say… and answer it without changing the subject.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UN Admin",
+        "text": "The source remained the same. The interpretations were archived in separate folders.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "Trump wants to split the MMR vaccine. Experts say that's unlikely — and comes with consequences — the facts stayed put while the spin changed seats.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-11T19:26:16.489Z",
+    "editorial": {
+      "issueNumber": 168,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/168",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-11T19:26:16.489Z",
+      "fingerprint": "05d635c8a9773e5b4ec697154d6a280acf9cc54f86a923feba62872d49523eec",
+      "sourcePublishedAt": "2026-08-11T16:50:04.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Deterministic safety draft used article-specific participants, facts and direct replies; no stock dialogue or named meme template. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-10-australia-to-buy-sophisticated-us-air-to-air-missiles",
     "eventDate": "2026-08-10",
     "year": 2026,
