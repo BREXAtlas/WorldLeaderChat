@@ -826,5 +826,18 @@
     "sourceUrls": [
       "https://www.bbc.co.uk/sport/football/articles/cg7m3nk013mo?at_medium=RSS&at_campaign=rss"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-11-ari-emanuel-s-mari-agrees-deal-to-buy-atg-owner-of-theater-venue",
+    "issueNumber": 141,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/141",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-11T20:36:33.661Z",
+    "fingerprint": "1e7dec6b570e089fdee7fdd072bacab618f8cb16de5e5292cf2867679ad8cbd3",
+    "sourceUrls": [
+      "https://deadline.com/2026/08/ari-emanuel-mari-to-buy-atg-theater-1237030966/",
+      "https://variety.com/2026/biz/global/ari-emanuel-mari-acquires-atg-entertainment-theater-venue-giant-1236832004/"
+    ]
   }
 ]
