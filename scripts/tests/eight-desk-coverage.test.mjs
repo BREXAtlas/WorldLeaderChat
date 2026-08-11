@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { gunzipSync } from "node:zlib";
 import { readFile } from "node:fs/promises";
 import { spawnSync } from "node:child_process";
+import { fileURLToPath } from "node:url";
 
 const read = (path) => readFile(new URL(`../../${path}`, import.meta.url), "utf8");
 const REQUIRED_DESKS = [
@@ -45,7 +46,7 @@ test("ingestion attempts all eight desks before filling extra candidate slots", 
 
 test("eight-desk issue seeder is valid JavaScript and is idempotent by fingerprint", async () => {
   const scriptPath = new URL("../seed-eight-desk-issues.mjs", import.meta.url);
-  const check = spawnSync(process.execPath, ["--check", scriptPath.pathname], { encoding: "utf8" });
+  const check = spawnSync(process.execPath, ["--check", fileURLToPath(scriptPath)], { encoding: "utf8" });
   assert.equal(check.status, 0, check.stderr);
   const source = await read("scripts/seed-eight-desk-issues.mjs");
   assert.match(source, /existingFingerprints/);
