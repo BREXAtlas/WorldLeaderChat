@@ -20,6 +20,7 @@ const changed = execFileSync("git", ["diff", "--name-only", `${base}...${head}`]
 
 const exact = new Set([
   "index.html",
+  "custom-submission.js",
   "newsroom-contract.js",
   "newsroom-site.js",
   "newsroom-taxonomy.js",
@@ -41,4 +42,3 @@ if (!labels.has(approvalLabel)) {
   throw new Error(`Protected newsroom structure changed without ${approvalLabel}:\n- ${protectedChanges.join("\n- ")}`);
 }
 console.log(`Owner approval confirmed for ${protectedChanges.length} protected newsroom file(s).`);
-

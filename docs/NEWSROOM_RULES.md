@@ -23,3 +23,8 @@ The following behavior is required: the owner-selected main headline, newsroom c
 
 Automated article publication may update approved event data. It may not change page structure, editor behavior, archive rules, branding, sponsor placement, exports or required actions. Pull requests that change protected newsroom structure must carry the `owner-approved-structure` label and receive the repository owner’s review. CI enforces the label; CODEOWNERS identifies the responsible owner.
 
+## Owner-submitted sources
+
+- The private editor may accept 1–5 public HTTPS links, a newsroom desk, a topic and verified source notes for a custom article.
+- Submission creates an editorial file in Drafting. Safe public metadata is enriched in the existing GitHub workflow; private, local-network and credential-bearing URLs are rejected.
+- The generator must create the same complete source-locked report and article-specific chat required of scheduled recommendations. It may not publish automatically. The owner reviews the full result and uses the normal Approve & Publish action.

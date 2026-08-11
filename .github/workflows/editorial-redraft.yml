@@ -33,6 +33,12 @@ jobs:
       - name: Install GitHub Copilot CLI
         run: npm install --global @github/copilot
 
+      - name: Enrich owner-submitted public source links
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WLC_TARGET_ISSUE: ${{ github.event.issue.number }}
+        run: node scripts/enrich-custom-submission.mjs
+
       - name: Regenerate this source-locked article and chat
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

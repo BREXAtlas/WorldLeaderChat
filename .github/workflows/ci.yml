@@ -33,6 +33,7 @@ jobs:
       - name: Check newsroom and editor JavaScript syntax
         run: |
           node --check newsroom-contract.js
+          node --check custom-submission.js
           node --check social-tools.js
           node --check social-card-export.js
           node --check newsroom-taxonomy.js
@@ -58,6 +59,7 @@ jobs:
           node --check scripts/lib/article-standard.mjs
           node --check scripts/repair-editorial-articles.mjs
           node --check scripts/check-newsroom-structure-approval.mjs
+          node --check scripts/enrich-custom-submission.mjs
           node --check scripts/ingest-news.mjs
           node --check scripts/set-featured-story.mjs
 
