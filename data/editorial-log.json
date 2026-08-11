@@ -452,5 +452,17 @@
     "sourceUrls": [
       "https://www.theguardian.com/books/2026/aug/10/barack-obama-launches-podcast-about-books-that-shaped-his-worldview"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-10-ukraine-confirms-strikes-on-oil-refinery-in-russia-s-tatarstan-a",
+    "issueNumber": 82,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/82",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-11T01:55:32.596Z",
+    "fingerprint": "c04e82c00a71623cdcaa7beea136e4f69f1786d620ca38ed247c3f710a95428d",
+    "sourceUrls": [
+      "https://www.theguardian.com/world/live/2026/aug/10/ukraine-drones-russia-oil-facilities-europe-heat-drought-latest-updates-news"
+    ]
   }
 ]

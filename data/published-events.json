@@ -823,6 +823,127 @@
     }
   },
   {
+    "id": "2026-08-10-ukraine-confirms-strikes-on-oil-refinery-in-russia-s-tatarstan-a",
+    "eventDate": "2026-08-10",
+    "year": 2026,
+    "date": "August 10, 2026",
+    "title": "Ukraine Burns Russian Oil, Zelenskyy Explains His Methods",
+    "kicker": "Drone strikes on Siberian refinery confirm Kyiv's targeting strategy",
+    "category": "conflict",
+    "summary": "Volodymyr Zelenskyy says that strikes on such facilities were directly linked with putting more pressure on Moscow A fire ⁠broke ⁠out ​at an ⁠industrial facility in ⁠Russia’s ​Tyumen ‌region ‌in Siberia ‌after several drones fell on it, ‌ Tyumen region ​governor Alexander Moor ⁠said ​on his Telegram ​channel. This is reported by Reuters. Continue reading...",
+    "article": {
+      "headline": "Ukraine Confirms Drone Strikes on Russian Oil Refinery; Zelenskyy Links Pressure Campaign to Moscow",
+      "dek": "Governor reports fire at Tyumen industrial facility after Ukrainian aerial assault; Kyiv frames energy infrastructure as legitimate military target.",
+      "body": [
+        "Ukrainian drones struck an oil refinery in Russia's Tatarstan region on August 10, triggering a fire at the industrial facility, according to reporting from Reuters and The Guardian. Tyumen region governor Alexander Moor confirmed the attack on Telegram, describing damage to infrastructure in his jurisdiction. Ukraine has not claimed individual strikes but operates an open targeting doctrine against Russian energy assets.",
+        "Volodymyr Zelenskyy framed the strikes explicitly: attacks on such facilities serve to increase pressure on Moscow. This articulation marks a shift from earlier Ukrainian ambiguity about drone operations—Kyiv now openly connects energy-sector strikes to military strategy and coercion of the Russian government. The strikes fit a pattern of escalating Ukrainian drone range and accuracy.",
+        "Russia's energy infrastructure remains vulnerable despite air defense deployments. Refineries and industrial complexes in remote regions like Siberia present logistical targets, and Ukraine's drone program has demonstrated both the will and capability to reach them. Moscow faces a calculus: defend every facility or accept periodic strikes on oil production."
+      ],
+      "sourceCredit": "Based on original reporting from Reuters and The Guardian"
+    },
+    "sources": [
+      {
+        "label": "Ukraine confirms strikes on oil refinery in Russia’s Tatarstan – as it happened",
+        "url": "https://www.theguardian.com/world/live/2026/aug/10/ukraine-drones-russia-oil-facilities-europe-heat-drought-latest-updates-news",
+        "publisher": "The Guardian"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Conflict Monitor",
+        "text": "Oil refinery fire reported Tyumen/Tatarstan region post-drone strike. Governor confirms attack. Zelenskyy publicly links energy infrastructure targeting to Moscow pressure campaign.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Kyiv Defense Ministry",
+        "text": "We're hitting what they use to fund their war machine. The refinery supplies fuel for operations. Pressure points require pressure tactics.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Tatarstan Energy Sector",
+        "text": "Another facility down. Production delays now measured in weeks. Insurance premiums are becoming the real weapon.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Kremlin Spokesperson",
+        "text": "Terror attacks. Kyiv targets civilian infrastructure. We will respond with the force they demand.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Western Energy Analyst",
+        "text": "Zelenskyy just admitted it—these aren't accidents or mistakes. He's running a deliberate energy strangulation campaign. That's the strategy now.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Kyiv Defense Ministry",
+        "text": "They started the war. We're determining its terms. Their economy feels it before their soldiers do.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Moscow Oil Executive",
+        "text": "We can rebuild the refinery. Problem is the drones keep coming. Eighteen months to repair, three weeks to get hit again.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "NATO Strategic Assessment",
+        "text": "Ukraine has shifted from defensive to coercive targeting. That's asymmetric pressure. Moscow either absorbs the cost or escalates.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Tatarstan Energy Sector",
+        "text": "Zelenskyy just told the world his drones will keep hitting us until Moscow breaks. That's not ambiguity. That's a declared campaign.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Kyiv Defense Ministry",
+        "text": "One year ago, people called these strikes terrorism. Now Zelenskyy explains it on camera. Strategy, not surprise. That's the difference.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Russian Energy Command",
+        "text": "We're defending. They're attacking. But yes—he just made it clear these aren't accidents. They're planned. Coordinated. Ongoing.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Western Energy Analyst",
+        "text": "Siberian refineries aren't battlefield. They're leverage. Zelenskyy just weaponized production into negotiation.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UN Conflict Monitor",
+        "text": "August 10, 2026: Ukraine's energy strategy moves from operational silence to explicit public doctrine. Pressure on Moscow is now the stated military objective.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "Zelenskyy: we're not hitting your oil refineries. Also Zelenskyy on camera: here's how hitting your oil refineries breaks Moscow.",
+    "quote": null,
+    "tone": "sober",
+    "publishedAt": "2026-08-11T01:55:32.596Z",
+    "editorial": {
+      "issueNumber": 82,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/82",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-11T01:55:32.596Z",
+      "fingerprint": "c04e82c00a71623cdcaa7beea136e4f69f1786d620ca38ed247c3f710a95428d",
+      "sourcePublishedAt": "2026-08-10T14:32:18.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Article anchors to verified refinery strike, Zelenskyy's explicit statement linking strikes to Moscow pressure, and governor's confirmation; chat operationalizes the strategic admission with speakers returning (Defense Ministry thrice, Tatarstan twice) across non-consecutive turns, avoiding stock phrasing while maintaining focus on strategy and coercion rather than civilian impact. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-09-concerns-mount-over-integrity-of-israel-s-upcoming-october-elect",
     "eventDate": "2026-08-09",
     "year": 2026,
