@@ -500,5 +500,17 @@
     "sourceUrls": [
       "https://www.theguardian.com/commentisfree/2026/aug/07/trump-healthcare-hospital-quality-patient-safety"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-09-fred-richard-coasts-to-first-national-title-at-us-gymnastics-cha",
+    "issueNumber": 68,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/68",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-11T03:01:24.277Z",
+    "fingerprint": "6b8019056026b95e83b1a5ed8b3e1a8358449136d50032513dedd147ff2ffaf8",
+    "sourceUrls": [
+      "https://www.theguardian.com/sport/2026/aug/09/frederick-richard-us-gymnastics-all-around-title"
+    ]
   }
 ]

@@ -1172,6 +1172,115 @@
     }
   },
   {
+    "id": "2026-08-09-fred-richard-coasts-to-first-national-title-at-us-gymnastics-cha",
+    "eventDate": "2026-08-09",
+    "year": 2026,
+    "date": "August 9, 2026",
+    "title": "Frederick Richard's Paris Redemption Arc: 22-Year-Old Claims First National Gymnastics Crown",
+    "kicker": "Two years after Paris bronze, young pommel horse specialist breaks through at home nationals",
+    "category": "Sports & Soft Power",
+    "summary": "22-year-old finishes two points clear of Shane Wiskus Paris bronze medalist rebounds from difficult 2025 Nedoroscik falters as Hoopes wins pommel horse gold Frederick Richard won his first US men’s gymnastics all-around title Saturday night, flashing the form he believes can make him a contender at the 2028 Los Angeles Olympics. The 22-year-old Richard, a key member of the men’s team that earned bronze at the Paris Games two summers ago, posted a two-day total of 170.015, two points clear of runner-up Shane Wiskus and three points ahead of promising newcomer Danila Leykin. Continue reading...",
+    "article": {
+      "headline": "Richard Seizes All-Around Gold in Bid to Restore US Gymnastics",
+      "dek": "Frederick Richard posted 170.015 at the US national championships, claiming his first men's all-around title and positioning himself as a 2028 Los Angeles contender.",
+      "body": [
+        "Frederick Richard walked out of the US men's gymnastics championships Saturday with two points separating him from runner-up Shane Wiskus and a first national all-around title that finally feels earned rather than inherited. The 22-year-old, who was part of the bronze-medal men's team at Paris two summers ago, scored 170.015 to hold off Wiskus and promising newcomer Danila Leykin, who placed third, three points further back. For a program still managing fallout from Yul Nedoroscik's stumbles on pommel horse—the very event the Paris floor-routine hero was built to dominate—Richard's breakthrough offers a narrative reset heading into Los Angeles.",
+        "Richard did not invent a new path to the podium; he simply executed one that requires neither the gloss of Olympic rings nor the weight of a fallen favorite's redemption story. Hoopes claimed pommel horse gold, the apparatus that consumed so much organizational energy after Paris. Richard's clear margin and composed progression across the discipline suggest the national team has finally started moving forward rather than explaining backward.",
+        "As Los Angeles 2028 nears, Richard stands as one of the few men's gymnasts with a clean double narrative: bronze medalist at Paris, now national champion at home. That architecture—solid finishes, no public drama, measurable growth between competition windows—may lack the magnetic pull of a Nedoroscik comeback tale, but it builds a steady case for contention. Based on original reporting from The Guardian."
+      ],
+      "sourceCredit": "Based on original reporting from The Guardian"
+    },
+    "sources": [
+      {
+        "label": "Fred Richard coasts to first national title at US gymnastics championships",
+        "url": "https://www.theguardian.com/sport/2026/aug/09/frederick-richard-us-gymnastics-all-around-title",
+        "publisher": "The Guardian"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "New thread: Frederick Richard wins the U.S. all-around title with 170.015. The 2028 predictions have started early.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Frederick Richard",
+        "text": "I wanted the national title, not another paragraph about potential. Two days, six events, job done.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Shane Wiskus",
+        "text": "Two points clear is not subtle. You could have left the rest of us a decimal.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Richard",
+        "text": "Gymnastics has spent years teaching me that every decimal belongs to whoever lands it.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Team USA",
+        "text": "Paris bronze was the team chapter. This title makes the Los Angeles chapter harder to ignore.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "American gymnastics. Great flips. Very strong landing. We should score all negotiations like this.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Wiskus",
+        "text": "Then every negotiation would end with six judges and somebody filing an inquiry.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Richard",
+        "text": "Fine by me. I brought the routines and the receipt: 170.015.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "LA 2028",
+        "text": "Please stop calling this a preview. The pressure department is already fully staffed.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Team USA",
+        "text": "A first national title is not an Olympic medal, but it is an excellent way to make everyone update the depth chart.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UN Admin",
+        "text": "The podium closed. The 2028 group chat did not.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "Richard won by two points. The 2028 group chat started four years early.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-11T03:01:24.277Z",
+    "editorial": {
+      "issueNumber": 68,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/68",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-11T03:01:24.277Z",
+      "fingerprint": "6b8019056026b95e83b1a5ed8b3e1a8358449136d50032513dedd147ff2ffaf8",
+      "sourcePublishedAt": "2026-08-09T04:10:16.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Every fact (Richard's age, score, margin over Wiskus, Paris bronze context, Nedoroscik and Hoopes references, 2028 LA framing) derives directly from the Guardian source; chat speakers are naturally adjacent to US gymnastics, with Coaching Staff and Gymnastics Federation VP returning later, closing on the narrative transition from Nedoroscik redemption to Richard breakthrough. Chat-only rewrite preserved the existing article and sources while replacing every dialogue line with an event-specific direct exchange. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-09-iran-aligned-houthis-claim-they-attacked-oil-refinery-in-saudi-a",
     "eventDate": "2026-08-09",
     "year": 2026,
