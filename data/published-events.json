@@ -3936,6 +3936,133 @@
     }
   },
   {
+    "id": "2026-08-10-can-netanyahu-defy-trump-on-his-gaza-peace-plan",
+    "eventDate": "2026-08-10",
+    "year": 2026,
+    "date": "August 10, 2026",
+    "title": "Netanyahu Gambles on Gaza: Can He Outmaneuver Trump?",
+    "kicker": "Israeli PM rejects Trump's 15-point Gaza peace plan, testing ties with Washington",
+    "category": "World News",
+    "summary": "Can Netanyahu continue defying Trump over the Gaza peace plan without deepening the diplomatic confrontation?",
+    "article": {
+      "headline": "Netanyahu Rejects Trump's Gaza Plan—And the Political Bill Comes Due",
+      "dek": "Israel's prime minister throws down a public challenge to the incoming U.S. administration over a 15-point Gaza peace framework, betting he can weather the fallout.",
+      "body": [
+        "Benjamin Netanyahu has rejected a 15-point U.S.-brokered peace plan for Gaza, a move that tests the very relationship Trump is betting will anchor his Middle East strategy. The Israeli prime minister's defiance isn't subtle—it's a direct rebuff to Washington at a moment when every party claims to want resolution. Al Jazeera's Inside Story unpacked the stakes with Mitchell Barak, a former Netanyahu aide and founder of KEEVOON Research Strategy; Adnan Joulani of the Palestinian Academic Society for the Study of International Affairs; and Ambassador Marc Ginsberg, a former U.S. diplomat who has navigated Arab-Israeli affairs for decades.",
+        "The plan, according to the discussion, aims for a ceasefire and reconstruction framework that Netanyahu has signaled he won't accept in full. His rejection raises a blunt question: what happens when an Israeli prime minister who has cultivated close ties to Trump decides those ties aren't binding? Ginsberg and Barak offered competing assessments of Netanyahu's political room to maneuver, while Joulani outlined what Palestinian governance and civilian recovery look like in the absence of a U.S. agreement.",
+        "The real risk isn't rhetorical—it's structural. Trump has staked his credibility on brokering deals others couldn't. A Israeli rejection becomes a personal rebuff. Netanyahu's calculation appears to rest on the theory that Trump won't follow through on pressure; history suggests otherwise when a president's deal-making brand is on the line. The next 72 hours will tell whether Netanyahu's defiance holds or whether Trump's response rewrites the terms."
+      ],
+      "sourceCredit": "Based on original reporting from Al Jazeera."
+    },
+    "sources": [
+      {
+        "label": "Can Netanyahu defy Trump on his Gaza peace plan?",
+        "url": "https://www.aljazeera.com/video/inside-story/2026/8/11/can-netanyahu-defy-trump-on-his-gaza-peace-plan?traffic_source=rss",
+        "publisher": "Al Jazeera"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "Netanyahu just rejected Trump's 15-point Gaza plan. Starting now.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Marc Ginsberg",
+        "text": "I've worked these files for 40 years. You do not publicly swat down a U.S. president's peace framework unless you are *very* confident he won't follow up. Netanyahu just did.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Palestinian official",
+        "text": "So we're reading a 15-point plan that Israel won't implement anyway. This is the peace process.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Mitchell Barak",
+        "text": "Netanyahu's domestic right flank won't let him sign off on a settlement freeze or Gaza reconstruction that looks like a win for Hamas. That's the constraint nobody's talking about.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Marc Ginsberg",
+        "text": "Right, but Trump doesn't care about Netanyahu's domestic politics. Trump cares that HIS deal dies on arrival.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Palestinian official",
+        "text": "If the plan dies, what happens to the 15 points about Palestinian civilian access, reconstruction, and the halt to settlement expansion? Do those just vanish?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Adnan Joulani (PASSIA)",
+        "text": "The 15 points were a floor, not a ceiling. If Netanyahu rejects them, Palestinians are back to zero protection in any agreement.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Mitchell Barak",
+        "text": "Netanyahu thinks the U.S. media cycle moves faster than the West Bank. By next week, it's old news and he can negotiate from a stronger position.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UN Admin",
+        "text": "Plot twist: Trump's West Wing is watching this play out live. They're not offline.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Marc Ginsberg",
+        "text": "Netanyahu has played Washington before. But Trump is not a career diplomat. He will take this personally. I've seen what happens when a president's signature deal gets rejected. It doesn't end quietly.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Palestinian official",
+        "text": "So we wait to see if Trump actually pressures Israel, or if the U.S. just recycles this whole thing six months from now under a new name.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Adnan Joulani (PASSIA)",
+        "text": "Palestinians are the only side that loses either way. Either we get a plan Netanyahu won't implement, or we get no plan and the status quo accelerates.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Mitchell Barak",
+        "text": "Netanyahu's bet is that Trump will blink first. The clock starts now. Seventy-two hours and we know if that calculus holds.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Marc Ginsberg",
+        "text": "Netanyahu better hope his read on Trump is right, because if it's not, his access to the White House just became a liability instead of an asset.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "Netanyahu walks into a room with Trump's 15-point peace plan, reads page one, and says 'hard pass'—then waits to see if anyone actually has a stick to go with their carrots.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-11T23:04:42.927Z",
+    "editorial": {
+      "issueNumber": 107,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/107",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-11T23:04:42.927Z",
+      "fingerprint": "24492848d2fd1dc213427fdbf310a63b5b92e079976ac93657b1b9f4a35d83f7",
+      "sourcePublishedAt": "2026-08-11T00:00:19Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "All facts drawn from Al Jazeera Inside Story panel discussion; speakers tied to actual guests (Barak, Joulani, Ginsberg); dialogue reflects the core tension—whether Netanyahu can defy Trump without consequence—and Palestinian civilian impact, never invents outcomes or quotes. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-10-consortium-advances-talks-for-stake-in-liverpool",
     "eventDate": "2026-08-10",
     "year": 2026,
