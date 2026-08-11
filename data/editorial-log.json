@@ -610,5 +610,17 @@
     "sourceUrls": [
       "https://www.npr.org/2026/08/11/g-s1-138162/turkey-kurdish-militants"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-11-vietnam-s-vinspace-announces-deal-with-spacex-to-launch-first-sa",
+    "issueNumber": 149,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/149",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-11T20:21:59.870Z",
+    "fingerprint": "61a7a8316bbc406baf511322d01ddd958decf50178dcdf67333574354c14cad6",
+    "sourceUrls": [
+      "https://www.aljazeera.com/economy/2026/8/11/vietnams-vinspace-announces-deal-with-spacex-to-launch-first-satellite?traffic_source=rss"
+    ]
   }
 ]
