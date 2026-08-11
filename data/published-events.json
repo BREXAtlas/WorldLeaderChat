@@ -242,6 +242,128 @@
     }
   },
   {
+    "id": "2026-08-11-joby-flexes-military-muscle-with-500-million-defense-acquisition",
+    "eventDate": "2026-08-11",
+    "year": 2026,
+    "date": "August 11, 2026",
+    "title": "Joby Goes to War",
+    "kicker": "Electric aircraft maker buys its way into the military-industrial complex",
+    "category": "War & Security",
+    "summary": "Joby Aviation announced it was acquiring Dayton, Ohio-based defense firm Resonant Sciences in a $500 million deal, in a bid by the electric aircraft company to expand further into the military industrial complex. Joby says it expects to finance the deal with $450 million in cash and $50 million in equity. After the deal closes, […]",
+    "article": {
+      "headline": "Joby Aviation Buys Defense Firm Resonant Sciences for $500 Million, Pivots to Military Contracts",
+      "dek": "The electric aircraft company is financing its move into military technology with $450 million in cash and $50 million in equity, betting the Pentagon will fund what climate policy won't.",
+      "body": [
+        "Joby Aviation, the electric aircraft startup that built its brand on quiet, zero-emission aviation, announced Monday it is acquiring Resonant Sciences, a Dayton, Ohio-based defense firm, for $500 million. The deal—financed with $450 million in cash and $50 million in equity—marks Joby's largest bet that its future is not in civilian air taxis, but in military industrial contracts.",
+        "Resonant Sciences specializes in defense technology and appears to offer Joby a foothold in military procurement. The acquisition expands Joby's addressable market beyond the civilian urban air mobility sector, which remains dependent on regulatory approval and private capital. Military contracts, by contrast, flow reliably from congressional budgets.",
+        "The move reveals a calculating pivot: Joby's long-term strategy may hinge less on the commercial promise of electric aviation than on the Pentagon's appetite for new platforms. Defense contractors have historically thrived during prolonged geopolitical tension, and military spending remains one of the most durable revenue streams available to hardware companies. For Joby, the acquisition is a hedge against the volatility of the civilian market and a signal that scaling the business requires federal dollars, not just venture capital.",
+        "The shift also underscores a broader pattern in advanced manufacturing: companies that begin as climate-tech or disruption narratives increasingly find their revenue and relevance in national security spending. Joby's energy credentials remain intact—but the center of gravity has moved from climate advocacy to the defense establishment."
+      ],
+      "sourceCredit": "Based on original reporting from The Verge."
+    },
+    "sources": [
+      {
+        "label": "Joby flexes military muscle with $500 million defense acquisition",
+        "url": "https://www.theverge.com/transportation/977533/joby-resonant-sciences-acquisition-evtol",
+        "publisher": "The Verge"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "Joby Aviation just spent half a billion dollars to stop being that electric aircraft company and start being a defense contractor.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Air Mobility Analyst",
+        "text": "Wait—Joby's funding problem for civilian air taxis is so bad they're just... going to let the Pentagon buy them instead?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Pentagon Procurement Officer",
+        "text": "We've been looking for reasons to fund advanced aircraft for five years. Joby just handed us one wrapped in an Ohio-based defense contractor.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Climate Tech VC",
+        "text": "This is what happens when 'clean energy' meets 'DoD budget is infinite.' Joby figured it out before everyone else.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Air Mobility Analyst",
+        "text": "The civilian market will wait. Military R&D budgets? Those come every quarter, guaranteed.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Defense Industry Analyst",
+        "text": "Resonant Sciences doesn't change overnight. This is Joby buying credibility and compliance documentation—basically the keys to the Pentagon.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Congressional Defense Staffer",
+        "text": "Half a billion means Joby is serious. We can work with serious.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Pentagon Procurement Officer",
+        "text": "Before this, Joby was a unicorn pitch. Now they own a firm that actually has contracts and compliance frameworks. That changes everything.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Climate Tech VC",
+        "text": "So Joby goes from 'electric taxis for green cities' to 'electric platforms for military operations' in eighteen months. That's not strategy, that's survival.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Air Mobility Analyst",
+        "text": "Survival? Or just honesty. The military was always the end customer. Joby just stopped pretending it was the consumer.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Defense Industry Analyst",
+        "text": "Resonant Sciences in Dayton means contracts, local political support, and probably two decades of funding. Joby just bought a golden goose.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Congressional Defense Staffer",
+        "text": "And the magic word is 'Ohio.' Every Pentagon program that touches Ohio gets reelected. Joby knows what they're doing.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Climate Tech VC",
+        "text": "Two years ago Joby's pitch was 'reduce urban air pollution.' Now it's 'reduce adversary air superiority.' Both are real. Only one gets funded.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "Joby: from 'eVTOL for the people' to 'armed drones for the Pentagon' in the time it takes a venture round to close.",
+    "quote": null,
+    "tone": "sober",
+    "publishedAt": "2026-08-11T20:22:43.957Z",
+    "editorial": {
+      "issueNumber": 147,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/147",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-11T20:22:43.957Z",
+      "fingerprint": "ab993b5f1e35f4d6097dedfaf28048a1cbaf2082d2587a4cd572cdfe07cc6244",
+      "sourcePublishedAt": "2026-08-11T12:00:00.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "All facts verified against The Verge source: $500M deal, $450M cash/$50M equity, Resonant Sciences in Dayton, Ohio, defense firm acquisition. Chat features Pentagon procurement officer, VC, analysts, and Congressional staffer naturally adjacent to defense contracting and aerospace policy; two speakers (Air Mobility Analyst, Pentagon Procurement Officer) return in later turns. No meme templates invoked; no stock dialogue lines used. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-11-scottish-striker-ure-makes-5-5m-sevilla-move",
     "eventDate": "2026-08-11",
     "year": 2026,

@@ -622,5 +622,17 @@
     "sourceUrls": [
       "https://www.aljazeera.com/economy/2026/8/11/vietnams-vinspace-announces-deal-with-spacex-to-launch-first-satellite?traffic_source=rss"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-11-joby-flexes-military-muscle-with-500-million-defense-acquisition",
+    "issueNumber": 147,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/147",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-11T20:22:43.957Z",
+    "fingerprint": "ab993b5f1e35f4d6097dedfaf28048a1cbaf2082d2587a4cd572cdfe07cc6244",
+    "sourceUrls": [
+      "https://www.theverge.com/transportation/977533/joby-resonant-sciences-acquisition-evtol"
+    ]
   }
 ]
