@@ -144,11 +144,13 @@ function renderCoverage() {
   const target = $('#coverage');
   if (!target) return;
   const today = chicagoDateKey();
-  const todayIssues = issues.filter((issue) => eventOf(issue)?.eventDate === today && laneOf(issue) !== 'published');
+  const todayIssues = issues.filter((issue) => eventOf(issue)?.eventDate === today);
   const desks = globalThis.WLC_NEWSROOM?.desks || [];
   target.innerHTML = desks.map((desk) => {
-    const count = todayIssues.filter((issue) => deskOf(issue) === desk).length;
-    return `<span class="coverage-chip" data-desk="${esc(desk)}"><b>${count}</b>${esc(desk)}</span>`;
+    const deskIssues = todayIssues.filter((issue) => deskOf(issue) === desk);
+    const publishedCount = deskIssues.filter((issue) => laneOf(issue) === 'published').length;
+    const reviewCount = deskIssues.length - publishedCount;
+    return `<span class="coverage-chip" data-desk="${esc(desk)}"><b>${deskIssues.length}</b><span>${esc(desk)}<small>${reviewCount} to review • ${publishedCount} published</small></span></span>`;
   }).join('');
   $('#coverageDate').textContent = new Intl.DateTimeFormat('en-US', {
     timeZone: 'America/Chicago', month: 'long', day: 'numeric', year: 'numeric'

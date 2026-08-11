@@ -129,7 +129,7 @@ jobs:
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/social-tools.js" | grep -F "Copy Article + Chat"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
-            "${PAGE_URL%/}/editor/" | grep -F "app.js?v=workflow-layout-20260811"
+            "${PAGE_URL%/}/editor/" | grep -F "app.js?v=workflow-layout-20260811-coverage"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/editor/app.js" | grep -F "Rewrite Chat"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
