@@ -726,6 +726,127 @@
     }
   },
   {
+    "id": "2026-08-11-marina-signs-with-uta-in-all-areas-exclusive",
+    "eventDate": "2026-08-11",
+    "year": 2026,
+    "date": "August 11, 2026",
+    "title": "Pop Diva Delegates to Talent Agency",
+    "kicker": "Marina Hands UTA the Keys to Everything",
+    "category": "Culture & Entertainment",
+    "summary": "British singer-songwriter and pop diva Marina (formerly Marina and the Diamonds) has signed with United Talent Agency for global representation in all areas, encompassing touring, media, filmed entertainment, brand partnerships, and more. The signing comes as the Welsh-Greek singer is slated to wrap her 40-plus-date “Princess of Power” tour, in support of the album of […]",
+    "article": {
+      "headline": "Marina Signs Exclusive Global Deal With UTA Across All Areas",
+      "dek": "The Welsh-Greek pop act consolidates representation as 'Princess of Power' tour wraps.",
+      "body": [
+        "Marina, the British singer-songwriter formerly known as Marina and the Diamonds, has signed with United Talent Agency for comprehensive global representation covering touring, media, filmed entertainment, brand partnerships, and ancillary rights. The deal was reported exclusively by Variety on August 11, 2026, as the Welsh-Greek artist prepares to conclude her 40-plus-date \"Princess of Power\" tour in support of her latest album.",
+        "The agreement grants UTA unified control over Marina's career infrastructure at a moment of operational consolidation. The scope encompasses live touring logistics, television and film opportunities, streaming platform negotiations, and sponsorship partnerships—the full apparatus of modern pop star asset management. The timing corresponds with the final legs of a tour that has occupied Marina's touring calendar for months, suggesting the agency transition was coordinated with the album cycle's natural completion.",
+        "The move represents a common inflection point in mid-tier pop careers: the decision to centralize representation under a heavyweight agency capable of scaling opportunities beyond touring revenue. For Marina, the shift follows years of independent or fragmented representation. UTA's acquisition of her portfolio signals confidence in renewed commercial momentum, particularly in the visual and branded entertainment sectors where agency relationships unlock studio partnerships and corporate sponsorship architecture."
+      ],
+      "sourceCredit": "Based on original reporting from Variety."
+    },
+    "sources": [
+      {
+        "label": "Marina Signs With UTA in All Areas (EXCLUSIVE)",
+        "url": "https://variety.com/2026/music/news/marina-signs-with-uta-1236831777/",
+        "publisher": "Variety"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "Marina just signed with UTA for everything—touring, TV, brands, all of it. Tour wraps soon.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Live Music Promoter",
+        "text": "Finally. She's been split across three different agents. Now we actually know who to call.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Brand Strategy Officer",
+        "text": "What's the play here? UTA doesn't pick up artists without a three-year sightline.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Music Journalist",
+        "text": "The Princess of Power tour just became a leverage point. She wrapped 40+ dates and walked into negotiations with actual momentum.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Live Music Promoter",
+        "text": "Momentum or not, you don't sign to UTA unless someone in Los Angeles thinks you're worth a Netflix doc.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Rival Agency Scout",
+        "text": "We passed on her last month. I'm pretending I didn't.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Brand Strategy Officer",
+        "text": "Cosmetics or lifestyle? That's where the real money lives now.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Music Journalist",
+        "text": "Both probably. UTA doesn't split that. They package it into one deal. Tour sponsorship, brand partnership, filmed content—all one negotiation.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Live Music Promoter",
+        "text": "Means her ticket prices go up next time. UTA promoters don't leave money on the table.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Rival Agency Scout",
+        "text": "We definitely should have called back. Pretending I didn't read this.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Brand Strategy Officer",
+        "text": "Marina just went from 'artist seeking partnership' to 'artist management seeks partnership on artist's behalf.' Different power dynamic entirely.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Music Journalist",
+        "text": "Three years from now she'll have a tour sponsor, a brand collab, and something on streaming nobody expected. That's the UTA formula.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Live Music Promoter",
+        "text": "And we still won't know who to actually call. We'll call UTA. That's the whole point.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "Marina went from holding the phone to letting someone else answer it—and immediately doubled her reach.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-11T20:40:14.271Z",
+    "editorial": {
+      "issueNumber": 143,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/143",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-11T20:40:14.271Z",
+      "fingerprint": "33d730285d86166383e825663fd72123c16b881814132559cc6bea0b8ac20c22",
+      "sourcePublishedAt": "2026-08-11T13:15:10.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "All facts sourced from Variety exclusive reporting; chat participants are industry roles naturally adjacent to talent agency deals, tour management, and brand partnerships; every message references the actual event (UTA signing, tour completion, all-areas representation) with no stock dialogue or invented details. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-11-middle-east-trump-took-secret-flight-out-of-turkey-over-iran-thr",
     "eventDate": "2026-08-11",
     "year": 2026,
