@@ -428,5 +428,17 @@
     "sourceUrls": [
       "https://www.theguardian.com/commentisfree/2026/aug/10/the-guardian-view-on-the-failed-gaza-peace-plan-trumps-hollow-claims-are-ignored-in-jerusalem"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-10-spacex-plan-for-vast-rocket-launch-site-on-louisiana-coast-spark",
+    "issueNumber": 84,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/84",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-11T01:53:46.702Z",
+    "fingerprint": "10a88118b2db2ff497cecdaace1a914ae4143624aedb158659caecaa5f7fb49a",
+    "sourceUrls": [
+      "https://www.theguardian.com/us-news/2026/aug/10/spacex-rocket-launch-site-louisiana-backlash"
+    ]
   }
 ]
