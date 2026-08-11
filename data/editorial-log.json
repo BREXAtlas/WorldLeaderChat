@@ -512,5 +512,17 @@
     "sourceUrls": [
       "https://www.theguardian.com/sport/2026/aug/09/frederick-richard-us-gymnastics-all-around-title"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-10-australia-to-buy-sophisticated-us-air-to-air-missiles",
+    "issueNumber": 122,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/122",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-11T03:58:32.919Z",
+    "fingerprint": "6e0bb7703182a42884fd5d19592f091cca4a217defcc21b04c0e022eb2e7d1fb",
+    "sourceUrls": [
+      "https://www.defensenews.com/global/asia-pacific/2026/08/10/australia-to-buy-sophisticated-us-air-to-air-missiles/"
+    ]
   }
 ]

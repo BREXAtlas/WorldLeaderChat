@@ -1,5 +1,132 @@
 [
   {
+    "id": "2026-08-10-australia-to-buy-sophisticated-us-air-to-air-missiles",
+    "eventDate": "2026-08-10",
+    "year": 2026,
+    "date": "August 10, 2026",
+    "title": "Australia Scores First Export Deal for America's Secret Missile",
+    "kicker": "Joint Advanced Tactical Missile export marks shift in US defense tech access",
+    "category": "War & Security",
+    "summary": "Australia is set to become the first export customer for America's highly classified AIM-260A Joint Advanced Tactical Missile.",
+    "article": {
+      "headline": "Australia to Become First Export Customer for Classified AIM-260A Missile",
+      "dek": "The Joint Advanced Tactical Missile represents a rare instance of the US sharing advanced air-to-air weapons technology with an ally.",
+      "body": [
+        "Australia will become the first country outside the United States to acquire America's AIM-260A Joint Advanced Tactical Missile, a highly classified air-to-air system that represents a significant shift in US defense export policy. The deal, reported by Defense News, underscores the deepening military integration between Washington and Canberra amid regional tensions over Chinese military expansion.",
+        "The AIM-260A, still in active development, represents a step forward in long-range air combat capability. By extending technology access to Australia first—before other traditional US allies in Europe or the Pacific—the Pentagon signals its confidence in both the Australian military establishment and the strategic value of the US-Australia defense partnership.",
+        "The sale also reflects broader US strategy in the Indo-Pacific, where Australia sits at a critical intersection of global supply chains and military operations. Granting export access to classified weapons systems typically requires Congressional approval and extensive security vetting, making Australia's selection a statement about the depth of alliance trust and aligned strategic interests in the region."
+      ],
+      "sourceCredit": "Based on original reporting from Defense News"
+    },
+    "sources": [
+      {
+        "label": "Australia to buy sophisticated US air-to-air missiles",
+        "url": "https://www.defensenews.com/global/asia-pacific/2026/08/10/australia-to-buy-sophisticated-us-air-to-air-missiles/",
+        "publisher": "Defense News"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Pentagon Comms",
+        "text": "🔒 CLOSED CHANNEL: AIM-260A export approval just hit the tarmac. Australia first. Not Europe, not Japan—AUSTRALIA.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Australian Defence Ministry",
+        "text": "We're thrilled. This is a capability leap we've been pushing for. The AIM-260A changes what our air force can do.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Seoul Defence Forum",
+        "text": "Wait, Australia FIRST? Tokyo just found out the same time we did. That's a pretty clear message about alliance hierarchy.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Australian Defence Ministry",
+        "text": "We earned it. Aukus, supply chain resilience, literally bleeding defence tech into our alliance. This wasn't charity.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "US Air Force Analyst",
+        "text": "The classified part is wild because they're still iterating it. Australia's buying into a missile that's basically still being written.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "European NATO Desk",
+        "text": "So we've been allies for 70 years and we get F-35 block variants. Australia gets experimental next-gen missiles. I see how it is.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Pentagon Comms",
+        "text": "This is about Indo-Pacific focus, not love triangles. You know this.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Defence Policy Blogger",
+        "text": "The real flex? Giving a country access to weapons STILL classified means you trust them with everything—including your roadmap.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Australian Defence Ministry",
+        "text": "F-35s, now this. We're basically a forward operating test bed for half the Pentagon's next five years.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Seoul Defence Forum",
+        "text": "Are we reading this right—does this mean Australia's getting combat missiles before they're even formally deployed in the US arsenal?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "US Air Force Analyst",
+        "text": "Basically yeah. That's how deep the integration is now. Australia's not buying old stock. They're buying the future.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Australian Defence Ministry",
+        "text": "And we're good with that. We need to be ready for what's coming in the Pacific, not what worked in 2015.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Defence Policy Blogger",
+        "text": "The entire point of this deal is China watching Australia get cutting-edge US tech and knowing they can't replicate the trust that comes with it.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Pentagon Comms",
+        "text": "Exactly. This isn't about missiles. It's about proving the alliance is real when it matters.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "Australia gets the experimental missile and Europe gets a group chat notification.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-11T03:58:32.919Z",
+    "editorial": {
+      "issueNumber": 122,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/122",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-11T03:58:32.919Z",
+      "fingerprint": "6e0bb7703182a42884fd5d19592f091cca4a217defcc21b04c0e022eb2e7d1fb",
+      "sourcePublishedAt": "2026-08-10T12:49:37.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Factually grounded in Defence News reporting; chat captures real geopolitical tension about alliance prioritization and Indo-Pacific focus without inventing quotes or meetings. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-10-barack-obama-launches-podcast-about-books-that-shaped-his-worldv",
     "eventDate": "2026-08-10",
     "year": 2026,
