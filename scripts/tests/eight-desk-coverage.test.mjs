@@ -36,12 +36,13 @@ test("desk-fill package contains one complete current recommendation per newsroo
 
 test("ingestion attempts all eight desks before filling extra candidate slots", async () => {
   const ingestion = await read("scripts/ingest-news.mjs");
+  const selection = await read("scripts/lib/candidate-selection.mjs");
   for (const desk of REQUIRED_DESKS) assert.match(ingestion, new RegExp(desk.replace(/[&]/g, "&")));
   assert.match(ingestion, /Math\.max\(Number\(config\.lookbackHours \|\| 72\), 168\)/);
   assert.match(ingestion, /Math\.max\(Number\(config\.maxCandidatesPerRun \|\| 16\), 24\)/);
   assert.match(ingestion, /minimumPerDesk = Number\(process\.env\.WLC_MINIMUM_PER_DESK \|\| 2\)/);
-  assert.match(ingestion, /for \(const desk of REQUIRED_DESKS\)/);
-  assert.match(ingestion, /item\.newsroomDesk === desk/);
+  assert.match(selection, /for \(const desk of requiredDesks\)/);
+  assert.match(ingestion, /selectDiverseCandidates/);
   assert.match(ingestion, /deskCoverage/);
   assert.match(ingestion, /currentDayDeskCoverage/);
 });
