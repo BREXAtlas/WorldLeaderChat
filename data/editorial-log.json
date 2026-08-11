@@ -935,5 +935,17 @@
     "sourceUrls": [
       "https://www.rollingstone.com/product-recommendations/tickets/axs-half-off-ticket-promo-deal-shop-online-1235606371/"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-10-why-russia-and-ukraine-can-t-stop-each-other-s-air-attacks",
+    "issueNumber": 114,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/114",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-11T20:43:14.469Z",
+    "fingerprint": "e8a747d8a0488be19c3ce38193a3bede588ae89641a14a617d30fcf124950272",
+    "sourceUrls": [
+      "https://www.npr.org/2026/08/10/nx-s1-5921306/why-russia-and-ukraine-cant-stop-each-others-air-attacks"
+    ]
   }
 ]
