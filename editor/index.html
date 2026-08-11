@@ -14,10 +14,11 @@
 .article-preview{margin:14px 0;padding:14px;border:2px solid #111;border-left:6px solid var(--desk);background:#fffdf7}.article-preview-label{display:flex;justify-content:space-between;gap:8px;margin-bottom:9px;font-size:10px;letter-spacing:.08em}.article-preview-label span{color:var(--muted);font-weight:800}.article-preview>strong{display:block;font:900 22px/1.08 Georgia,serif;margin-bottom:7px}.article-preview p{font:15px/1.5 Georgia,serif;margin:9px 0}.article-preview .article-dek{font-family:Arial,sans-serif;font-weight:800;color:#444}.article-credit{border-top:1px solid #aaa;padding-top:8px;margin-top:10px;font-size:11px;font-weight:800;color:#555}@media(max-width:520px){.article-preview-label{display:grid}}
 .custom-generator{background:#fff;border:2px solid #111;border-left:8px solid var(--red);box-shadow:4px 4px 0 #d9d1c3;margin:14px 0}.custom-generator>summary{cursor:pointer;padding:14px 16px;font:900 20px Georgia,serif}.custom-generator>summary span{display:block;margin-top:4px;font:800 10px Arial,sans-serif;color:var(--muted);letter-spacing:.07em;text-transform:uppercase}.custom-form{display:grid;grid-template-columns:2fr 1fr;gap:12px;padding:0 16px 16px}.custom-form label{font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}.custom-form input,.custom-form textarea,.custom-form select{display:block;width:100%;margin-top:5px;padding:11px;border:2px solid #111;background:#fff;font:15px/1.35 Arial,sans-serif}.custom-form textarea{min-height:100px;resize:vertical}.custom-form .wide,.custom-form .custom-help,.custom-form .custom-actions{grid-column:1/-1}.custom-help{margin:0;color:#555;font:12px/1.45 Arial,sans-serif}.custom-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.custom-status{font-size:12px;font-weight:800}@media(max-width:900px){.custom-form{grid-template-columns:1fr}.custom-form>*{grid-column:1!important}}
 </style>
+<style>.tag.publishing{background:#fef3c7;color:#92400e;border:1px solid #d97706}</style>
 <script src="../newsroom-contract.js?v=20260811" defer></script>
 <script src="../newsroom-taxonomy.js?v=20260811" defer></script>
 <script src="../custom-submission.js?v=20260811" defer></script>
-<script src="./app.js?v=custom-generator-20260811" defer></script>
+<script src="./app.js?v=queue-transitions-20260811" defer></script>
 <script src="./published-data.js?v=canonical-20260810" defer></script>
 <script src="./conversation-upgrade.js?v=unique-chat-20260810" defer></script>
 <script src="./newsroom-upgrade.js?v=unique-chat-20260810" defer></script>
@@ -26,7 +27,7 @@
 <div class="top"><b>PRIVATE EDITOR</b> • SOURCED ARTICLE + ARTICLE-SPECIFIC CHAT • HUMAN APPROVAL REQUIRED <button id="logout" class="logout" hidden>Sign out</button></div>
 <div class="wrap">
 <div class="mast">WORLD LEADER<br>CHAT EDITOR</div>
-<div class="sub">NEW → DRAFTING → READY FOR APPROVAL → PUBLISHED</div>
+<div class="sub">NEW → DRAFTING → READY FOR APPROVAL → PUBLISHING → PUBLISHED</div>
 <section id="auth" class="auth">
   <b>Connect your GitHub editor token</b>
   <p>This page never stores the token in the repository. It remains in this browser tab only.</p>

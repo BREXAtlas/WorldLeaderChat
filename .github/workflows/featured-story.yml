@@ -1,4 +1,4 @@
-name: Select featured headline
+name: Select featured desk story
 
 on:
   issues:
@@ -9,7 +9,7 @@ permissions:
   issues: write
 
 concurrency:
-  group: world-leader-chat-main-writes
+  group: ${{ github.event.label.name == 'featured-headline' && 'world-leader-chat-main-writes' || github.run_id }}
   cancel-in-progress: false
   queue: max
 
@@ -20,6 +20,7 @@ jobs:
     timeout-minutes: 10
     outputs:
       event_id: ${{ steps.select.outputs.event_id }}
+      desk: ${{ steps.select.outputs.desk }}
     steps:
       - name: Verify the selecting actor has write permission
         env:
@@ -28,7 +29,7 @@ jobs:
           permission="$(gh api "repos/${GITHUB_REPOSITORY}/collaborators/${GITHUB_ACTOR}/permission" --jq '.permission')"
           case "${permission}" in
             admin|maintain|write) ;;
-            *) echo "Only a repository writer, maintainer or administrator may select the main headline." >&2; exit 1 ;;
+            *) echo "Only a repository writer, maintainer or administrator may select a featured desk story." >&2; exit 1 ;;
           esac
 
       - name: Check out main
@@ -56,7 +57,7 @@ jobs:
           npm run validate
           npm run build
 
-      - name: Commit the main-headline selection
+      - name: Commit the featured desk selection
         env:
           EVENT_ID: ${{ steps.select.outputs.event_id }}
         run: |
@@ -68,17 +69,16 @@ jobs:
             git push origin HEAD:main
           fi
 
-      - name: Keep the featured label on only the selected issue
+      - name: Keep one featured label in the selected desk
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
           EVENT_ID: ${{ steps.select.outputs.event_id }}
+          DESK: ${{ steps.select.outputs.desk }}
+          REPLACED_ISSUE_NUMBERS: ${{ steps.select.outputs.replaced_issue_numbers }}
         run: |
-          gh api --paginate "repos/${GITHUB_REPOSITORY}/issues?state=all&labels=featured-headline&per_page=100" \
-            --jq '.[].number' | while read -r number; do
-              if [[ "${number}" != "${ISSUE_NUMBER}" ]]; then
-                gh api --method DELETE "repos/${GITHUB_REPOSITORY}/issues/${number}/labels/featured-headline" >/dev/null || true
-              fi
-            done
+          for number in ${REPLACED_ISSUE_NUMBERS}; do
+            gh api --method DELETE "repos/${GITHUB_REPOSITORY}/issues/${number}/labels/featured-headline" >/dev/null || true
+          done
           gh issue comment "${ISSUE_NUMBER}" --repo "${GITHUB_REPOSITORY}" --body \
-            "Selected **${EVENT_ID}** as the main headline. The public site deployment is now queued."
+            "Selected **${EVENT_ID}** for the **${DESK}** featured-carousel slot. Other desk selections remain in place. The public site deployment is now queued."

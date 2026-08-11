@@ -16,12 +16,14 @@ const publicHtml = await readFile(resolve(root, "index.html"), "utf8");
 const publicScripts = [
   '  <script src="./newsroom-contract.js?v=20260811"></script>',
   '  <script src="./newsroom-taxonomy.js?v=20260811"></script>',
+  '  <script src="./source-audit.js?v=20260811-source-audit"></script>',
+  '  <script src="./newsroom-experience.js?v=20260811-newsroom-experience"></script>',
   '  <script src="./social-tools.js"></script>',
   '  <script src="./social-card-export.js?v=20260811-social-export-fix"></script>',
-  '  <script src="./newsroom-site.js"></script>',
+  '  <script src="./newsroom-site.js?v=20260811-source-audit"></script>',
   '  <script src="./disclosure-polish.js"></script>',
   '  <script src="./recency-order.js?v=20260810"></script>',
-  '  <script src="./rolling-archive.js?v=rolling-8-day-20260811"></script>'
+  '  <script src="./rolling-archive.js?v=20260811-newsroom-experience"></script>'
 ];
 const brandMarkup = '<div class="brand-lockup"><img class="brand-logo" src="./assets/world-leaders-chat-logo.webp" alt="World Leaders Chat — News. Analysis. Satire." onerror="this.hidden=true;this.nextElementSibling.hidden=false"><div class="brand-fallback" role="img" aria-label="World Leaders Chat — News. Analysis. Satire." hidden><span>WORLD LEADERS</span><b>CHAT</b><small>NEWS. ANALYSIS. SATIRE.</small></div></div>';
 const brandStyles = `
@@ -73,6 +75,8 @@ await writeFile(resolve(output, "404.html"), instrumentedHtml, "utf8");
 await cp(resolve(root, "newsroom-contract.js"), resolve(output, "newsroom-contract.js"));
 await cp(resolve(root, "custom-submission.js"), resolve(output, "custom-submission.js"));
 await cp(resolve(root, "newsroom-taxonomy.js"), resolve(output, "newsroom-taxonomy.js"));
+await cp(resolve(root, "source-audit.js"), resolve(output, "source-audit.js"));
+await cp(resolve(root, "newsroom-experience.js"), resolve(output, "newsroom-experience.js"));
 await cp(resolve(root, "social-tools.js"), resolve(output, "social-tools.js"));
 await cp(resolve(root, "social-card-export.js"), resolve(output, "social-card-export.js"));
 await cp(resolve(root, "newsroom-site.js"), resolve(output, "newsroom-site.js"));
@@ -111,6 +115,8 @@ const htmlSize = (await readFile(resolve(output, "index.html"))).byteLength;
 const contractSize = (await readFile(resolve(output, "newsroom-contract.js"))).byteLength;
 const customSubmissionSize = (await readFile(resolve(output, "custom-submission.js"))).byteLength;
 const taxonomySize = (await readFile(resolve(output, "newsroom-taxonomy.js"))).byteLength;
+const sourceAuditSize = (await readFile(resolve(output, "source-audit.js"))).byteLength;
+const newsroomExperienceSize = (await readFile(resolve(output, "newsroom-experience.js"))).byteLength;
 const socialSize = (await readFile(resolve(output, "social-tools.js"))).byteLength;
 const socialCardSize = (await readFile(resolve(output, "social-card-export.js"))).byteLength;
 const newsroomSize = (await readFile(resolve(output, "newsroom-site.js"))).byteLength;
@@ -124,4 +130,4 @@ const conversationSize = (await readFile(resolve(output, "editor/conversation-up
 const editorNewsroomSize = (await readFile(resolve(output, "editor/newsroom-upgrade.js"))).byteLength;
 const logoSize = (await readFile(resolve(output, "assets/world-leaders-chat-logo.webp"))).byteLength;
 const faviconSize = (await readFile(resolve(output, "assets/world-leaders-chat-favicon.webp"))).byteLength;
-console.log(`Built GitHub Pages artifact in _site (${htmlSize} byte index, ${contractSize} byte newsroom contract, ${customSubmissionSize} byte custom submission generator, ${taxonomySize} byte newsroom taxonomy, ${socialSize} byte social copy tools, ${socialCardSize} byte social PNG exporter, ${newsroomSize} byte newsroom UI, ${disclosureSize} byte disclosure polish, ${recencySize} byte recency order, ${rollingSize} byte rolling archive, ${editorSize} byte editor, ${appSize} byte editor app, ${publishedDataSize} byte canonical published adapter, ${conversationSize} byte conversation standard, ${editorNewsroomSize} byte article presentation, ${logoSize} byte logo, ${faviconSize} byte favicon, ${published.length} external event(s)).`);
+console.log(`Built GitHub Pages artifact in _site (${htmlSize} byte index, ${contractSize} byte newsroom contract, ${customSubmissionSize} byte custom submission generator, ${taxonomySize} byte newsroom taxonomy, ${sourceAuditSize} byte source audit, ${newsroomExperienceSize} byte newsroom experience, ${socialSize} byte social copy tools, ${socialCardSize} byte social PNG exporter, ${newsroomSize} byte newsroom UI, ${disclosureSize} byte disclosure polish, ${recencySize} byte recency order, ${rollingSize} byte rolling archive, ${editorSize} byte editor, ${appSize} byte editor app, ${publishedDataSize} byte canonical published adapter, ${conversationSize} byte conversation standard, ${editorNewsroomSize} byte article presentation, ${logoSize} byte logo, ${faviconSize} byte favicon, ${published.length} external event(s)).`);

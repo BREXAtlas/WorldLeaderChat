@@ -29,8 +29,10 @@ test("one shared eight-desk taxonomy drives category color and newsroom search",
 test("homepage uses featured selection, category colors, sidebar sponsors and requested footer", async () => {
   const html = await read("index.html");
   const rolling = await read("rolling-archive.js");
-  assert.match(html, /filtered\.find\(\(event\) => event\.featured\)/);
-  assert.match(html, /MAIN HEADLINE/);
+  const experience = await read("newsroom-experience.js");
+  assert.match(experience, /function featuredEvents/);
+  assert.match(experience, /FEATURED ACROSS THE NEWSROOM/);
+  assert.match(experience, /candidates\.find\(\(event\) => event\.featured\) \|\| candidates\[0\]/);
   assert.match(html, /globalThis\.WLC_NEWSROOM\.matchesSearch/);
   assert.match(rolling, /data-desk="War & Security"[\s\S]*#a30d16/);
   assert.match(rolling, /data-desk="Culture & Entertainment"[\s\S]*#9b175c/);
@@ -50,7 +52,7 @@ test("public controls have no unexplained meme/fact mode or verbose exporter dis
   assert.doesNotMatch(exporter, /Carousel ZIPs contain the complete chat/);
 });
 
-test("editor has a wide active lane, daily mix tools and a featured-headline action", async () => {
+test("editor has a wide active lane, daily mix tools, publishing status and a desk-carousel feature action", async () => {
   const html = await read("editor/index.html");
   const app = await read("editor/app.js");
   assert.match(html, /\.lane\.show\{display:grid;grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/);
@@ -59,21 +61,29 @@ test("editor has a wide active lane, daily mix tools and a featured-headline act
   assert.match(html, /id="editorDate"/);
   assert.match(html, /Today’s editorial mix/);
   assert.match(html, /8:00 AM • 12:00 PM • 4:00 PM • 8:00 PM Central/);
-  assert.match(app, /Make Main Headline/);
+  assert.match(app, /Feature in \$\{esc\(cardDesk\)\} Carousel/);
   assert.match(app, /\['featured-headline'\]/);
   assert.match(app, /WLC_NEWSROOM\?\.matchesSearch/);
-  assert.match(app, /reviewCount} to review • \$\{publishedCount} published/);
+  assert.match(app, /reviewCount} to review • \$\{publishingCount} publishing • \$\{publishedCount} published/);
+  assert.match(app, /\['publishing','Publishing'\]/);
+  assert.match(app, /busy\.has\(issue\.number\) \|\| labels\.has\('editorial-approved'\)[\s\S]*return 'publishing'/);
+  assert.match(app, /busy\.add\(number\);[\s\S]*activeLane = 'publishing';[\s\S]*render\(\)/);
+  assert.match(app, /if \(action === 'reject'\)[\s\S]*issues = issues\.filter\(\(issue\) => issue\.number !== number\);[\s\S]*Removing the rejected candidate/);
+  assert.match(html, /READY FOR APPROVAL → PUBLISHING → PUBLISHED/);
+  assert.match(html, /\.tag\.publishing\{/);
 });
 
-test("featured-headline workflow persists exactly one featured article", async () => {
+test("featured-headline workflow persists one selected article per news desk", async () => {
   const workflow = await read(".github/workflows/featured-story.yml");
   const selector = await read("scripts/set-featured-story.mjs");
   assert.match(workflow, /github\.event\.label\.name == 'featured-headline'/);
-  assert.match(workflow, /group: world-leader-chat-main-writes/);
+  assert.match(workflow, /github\.event\.label\.name == 'featured-headline'[\s\S]*'world-leader-chat-main-writes' \|\| github\.run_id/);
   assert.match(workflow, /queue: max/);
   assert.match(workflow, /node scripts\/set-featured-story\.mjs/);
   assert.match(selector, /event\.featured = true/);
-  assert.match(selector, /delete event\.featured/);
+  assert.match(selector, /deskFor\(event\) === selectedDesk/);
+  assert.match(selector, /replaced_issue_numbers/);
+  assert.match(workflow, /Other desk selections remain in place/);
   assert.match(selector, /editorial\?\.issueNumber/);
 });
 

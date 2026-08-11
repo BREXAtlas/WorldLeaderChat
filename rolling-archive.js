@@ -314,13 +314,15 @@
 
   function monthlyRender() {
     const all = dedupeEvents(allEvents());
-    const filtered = all.filter((event) => matches(event) && deskMatches(event));
+    const matching = all.filter((event) => matches(event) && deskMatches(event));
+    const filtered = globalThis.WLC_NEWSROOM_EXPERIENCE?.collapseRelated(matching, all) || matching;
     const archive = document.getElementById("archive");
     if (!archive) return;
     if (!filtered.length) {
       renderTopline([]);
       archive.innerHTML = '<div class="empty">NO MATCHES. EVEN THE GROUP CHAT COULD NOT MANUFACTURE A CROSSTAB.</div>';
       bindOpeners();
+      globalThis.WLC_NEWSROOM_EXPERIENCE?.bind();
       return;
     }
 
@@ -341,22 +343,24 @@
         return eventISO && eventISO < cutoffISO;
       });
       renderTopline(recentEvents);
-      const lead = typeof leadEvent === "function" ? leadEvent(recentEvents) : recentEvents[0];
+      const featured = globalThis.WLC_NEWSROOM_EXPERIENCE?.featuredEvents(recentEvents) || [typeof leadEvent === "function" ? leadEvent(recentEvents) : recentEvents[0]].filter(Boolean);
+      const lead = featured[0];
       colorLead(lead);
-      const leadId = lead?.id;
-      const leadIsCurrent = recentEvents.some((event) => event.id === leadId);
-      const gridEvents = recentEvents.filter((event) => !leadIsCurrent || event.id !== leadId);
+      const featuredIds = new Set(featured.map((event) => event.id));
+      const featuredCurrentCount = recentEvents.filter((event) => featuredIds.has(event.id)).length;
+      const gridEvents = recentEvents.filter((event) => !featuredIds.has(event.id));
       const belowCount = gridEvents.length;
 
       html += `<section class="current-news">
+        ${globalThis.WLC_NEWSROOM_EXPERIENCE?.tickerHTML(recentEvents) || ""}
         <div class="current-month-title">
           <h2>LATEST ${globalThis.WLC_NEWSROOM_CONTRACT?.recentNewsroomDays || 8} DAYS // CURRENT NEWSROOM</h2>
-          <span>${recentEvents.length} FILE${recentEvents.length === 1 ? "" : "S"}${leadIsCurrent ? ` • 1 FEATURED ABOVE • ${belowCount} BELOW` : ""}</span>
+          <span>${recentEvents.length} EVENT${recentEvents.length === 1 ? "" : "S"}${featuredCurrentCount ? ` • ${featuredCurrentCount} FEATURED ABOVE • ${belowCount} BELOW` : ""}</span>
         </div>
         ${gridEvents.length
           ? `<div class="current-columns">${balancedColumns(gridEvents, 3)}</div>`
-          : leadIsCurrent
-            ? '<div class="empty">THE CURRENT NEWSROOM’S FEATURED FILE IS ABOVE.</div>'
+          : featuredCurrentCount
+            ? '<div class="empty">THE CURRENT NEWSROOM’S FEATURED FILES ARE ABOVE.</div>'
             : '<div class="empty">NO RECENT FILES MATCH THIS VIEW.</div>'}
       </section>`;
 
@@ -373,6 +377,7 @@
 
     archive.innerHTML = html || '<div class="empty">NO ARCHIVED FILES MATCH THIS VIEW.</div>';
     bindOpeners();
+    globalThis.WLC_NEWSROOM_EXPERIENCE?.bind();
   }
 
   injectStyles();
