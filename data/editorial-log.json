@@ -1007,5 +1007,17 @@
     "sourceUrls": [
       "https://www.theguardian.com/us-news/2026/aug/10/jennifer-balkcom-chuck-edwards-north-carolina-midterms"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-10-ilhan-omar-questions-whether-trump-administration-has-used-ice-t",
+    "issueNumber": 106,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/106",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-11T20:47:43.599Z",
+    "fingerprint": "22310c03b125fd1d2e0a8bfb96f8fd4c6b9521cbedda688fd94516c7f624e0ab",
+    "sourceUrls": [
+      "https://www.theguardian.com/us-news/2026/aug/10/ilhan-omar-trump-ice-surveil-political-opponents"
+    ]
   }
 ]
