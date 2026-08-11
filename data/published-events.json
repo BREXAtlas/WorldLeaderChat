@@ -109,115 +109,6 @@
     }
   },
   {
-    "id": "2026-08-10-shoved-the-tube-so-hard-it-tore-my-nose-kurdish-film-maker-recou",
-    "eventDate": "2026-08-10",
-    "year": 2026,
-    "date": "August 10, 2026",
-    "title": "ICE CALLS IT MEDICAL CARE; THE FEEDING TUBE LEFT A DIFFERENT RECORD",
-    "kicker": "A Kurdish filmmaker’s account of shackling, solitary confinement and force-feeding turns a detention-center medical procedure into a test of consent, oversight and accountability.",
-    "category": "Culture & Entertainment",
-    "summary": "Gabar Choli tells of how, for months, he was shackled, pinned and forcibly fed – and the physical and emotional scars the ordeal has left In June 2025, a sluggish and thin Gabar Choli, with sunken temples and bones visible under his skin, braced himself for the immigration detention center guards to charge into his cell once again. Choli was in a solitary confinement medical cell inside the Port Isabel service processing center, an Immigration and Customs Enforcement ( ICE ) detention facility in south Texas where immigrants arrested in Donald Trump’s anti-immigration crackdown are detained. Continue reading...",
-    "article": {
-      "headline": "Kurdish Filmmaker Says ICE Force‑Fed Him in Texas — Solitary Details Raise New Questions",
-      "dek": "Gabar Choli recounts being shackled, pinned and fed through a tube while in a Port Isabel solitary medical cell.",
-      "body": [
-        "In June 2025 a frail, sluggish Gabar Choli — a Kurdish filmmaker with sunken temples and bones visible beneath his skin — braced himself in a solitary medical cell at the Port Isabel service processing center. According to the reporting, he says guards shackled and pinned him while an officer shoved a feeding tube into his nose so forcefully it tore tissue; the episode has left him with both physical injuries and emotional scars. The account is presented in The Guardian’s coverage of detention practices this summer.",
-        "Choli’s description is stark and procedural: a medical cell that is supposed to tend to sick detainees instead became the site of what he calls forcible feeding. He was held at an Immigration and Customs Enforcement facility where, the article frames, immigrants arrested under Donald Trump’s anti‑immigration crackdown are processed and detained. The detail that he waited for guards to charge back into his cell — and the visible toll on his body — is the kind of domestic human-rights image unlikely to stay confined to a single story.",
-        "Reportage like this lands where policy and theater meet. Whether the episode will change official practice, prompt oversight, or simply harden opposing narratives is unclear; what is clear from the reporting is the pairing of clinical procedure and human harm. Readers who follow the original piece will find the documented condition of Choli and the conditions of Port Isabel laid out bluntly — an allegation that invites scrutiny of how medical care and detention intersect in enforcement settings."
-      ],
-      "sourceCredit": "Based on original reporting from The Guardian (https://www.theguardian.com/us-news/2026/aug/10/ice-force-feeding-detention-gabar-choli)"
-    },
-    "sources": [
-      {
-        "label": "‘Shoved the tube so hard it tore my nose’: Kurdish film-maker recounts ‘inhumane’ ICE force-feeding",
-        "url": "https://www.theguardian.com/us-news/2026/aug/10/ice-force-feeding-detention-gabar-choli",
-        "publisher": "The Guardian"
-      }
-    ],
-    "messages": [
-      {
-        "speaker": "UN Admin",
-        "text": "New thread: alleged ICE force-feeding at Port Isabel. Medical care and coercion are disputing ownership of the same room.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
-        "speaker": "ICE",
-        "text": "Medical intervention becomes necessary when a detainee’s health is at immediate risk.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Medical Ethics Board",
-        "text": "Necessity does not erase consent, force or the obligation to document exactly what was done.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "DHS Inspector General",
-        "text": "The allegation includes shackling, restraint and a feeding tube that reportedly caused injury. That requires records, not a slogan.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "ICE",
-        "text": "Facility staff operate under clinical and security protocols.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Senate Oversight",
-        "text": "Then produce the protocols, the medical authorization and the incident review.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Trump",
-        "text": "ICE has a hard job. People attack the officers and ignore the border problem.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Medical Ethics Board",
-        "text": "A hard job is not a medical standard. The question is whether treatment became punishment.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "DHS Inspector General",
-        "text": "And whether solitary confinement made meaningful consent impossible before the procedure began.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "ICE",
-        "text": "The agency will respond through the formal review process.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "UN Admin",
-        "text": "The facility called it care. The injury report demanded a fuller sentence.",
-        "kind": "system",
-        "reaction": ""
-      }
-    ],
-    "meme": "The facility called it care. The injury report asked who was allowed to refuse.",
-    "quote": null,
-    "tone": "comic",
-    "publishedAt": "2026-08-10T16:42:28.407Z",
-    "editorial": {
-      "issueNumber": 72,
-      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/72",
-      "approvedBy": "BREXAtlas",
-      "approvedAt": "2026-08-10T16:42:28.407Z",
-      "fingerprint": "5570ac34f5c0078d9671d5971d4f1a2373bb36149b28f667fede25b2ead023b6",
-      "sourcePublishedAt": "2026-08-10T10:00:43.000Z",
-      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.",
-      "reviewNotes": "S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages explicitly fictional. Published chat and headline were replaced with article-specific direct dialogue; the approved article and original sources were preserved. Published chat and headline were replaced with article-specific direct dialogue; the approved article and original sources were preserved."
-    }
-  },
-  {
     "id": "2026-08-10-monday-briefing-how-the-new-phase-of-confrontation-at-al-aqsa-si",
     "eventDate": "2026-08-10",
     "year": 2026,
@@ -330,6 +221,345 @@
       "sourcePublishedAt": "2026-08-10T05:45:18.000Z",
       "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.",
       "reviewNotes": "S-M-A-R: source locked; satire targets leaders and institutions only; sober handling recommended; no jokes at victims’ expense."
+    }
+  },
+  {
+    "id": "2026-08-10-netanyahu-s-rejection-of-trump-s-15-point-gaza-plan-unlikely-to",
+    "eventDate": "2026-08-10",
+    "year": 2026,
+    "date": "August 10, 2026",
+    "title": "Trump Shrugs Off Netanyahu's Gaza Plan Rejection as Election Theater",
+    "kicker": "Israeli PM's No Thanks to 15-point proposal signals Trump administration expects political posturing, not policy reversal",
+    "category": "Middle East",
+    "summary": "The Trump administration is said to be unbothered by the Israeli prime minister's rejection of the deal, viewing it as campaign rhetoric ahead of a general election.",
+    "article": {
+      "headline": "Trump Administration Unbothered by Netanyahu's Rejection of 15-Point Gaza Plan",
+      "dek": "Israeli PM's rejection of Trump's Gaza proposal dismissed as campaign rhetoric ahead of general election",
+      "body": [
+        "Netanyahu rejected Trump's 15-point Gaza plan, but the Trump administration isn't treating it as the final word. Instead, officials view the Israeli prime minister's rejection as campaign theater—a move designed to appeal to voters ahead of a general election rather than a genuine policy reversal.",
+        "The framing matters: Netanyahu faces electoral pressure and is calculating which signals play well with his base. The Trump administration's response suggests confidence that a plan rejected today can be resurrected later, once election noise quiets and actual governance resumes.",
+        "By publicly shrugging off Netanyahu's No, Trump's team positions itself as patient dealmakers unbothered by tactical posturing. The message: we'll wait. This dynamic—one leader dismissing another's immediate objections as temporary election talk—has become routine in negotiations where power asymmetries are stark."
+      ],
+      "sourceCredit": "Based on original reporting from BBC News"
+    },
+    "sources": [
+      {
+        "label": "Netanyahu's rejection of Trump's 15-point Gaza plan unlikely to be final word",
+        "url": "https://www.bbc.co.uk/news/articles/ce3q5282ep3o?at_medium=RSS&at_campaign=rss",
+        "publisher": "BBC News"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "Netanyahu says no to Trump's 15-point Gaza plan. Trump team: 'We're not worried, he's in campaign mode.'",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Israeli Analyst",
+        "text": "Look, before an election, you don't say yes to anything Washington sends. Voters want you fighting for maximum leverage.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "State Department Correspondent",
+        "text": "So they're... just waiting for the election to be over and then circling back to the exact same proposal?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Israeli Analyst",
+        "text": "That's the game. Say no publicly, negotiate quietly, say yes after you've won re-election and can blame it on 'changed circumstances.'",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Tel Aviv Political Correspondent",
+        "text": "Except this time the whole world watched Trump announce his plan and Netanyahu immediately said forget it. Hard to unsee that.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "State Department Correspondent",
+        "text": "Right but Trump's team literally said 'not final' and 'campaign rhetoric.' They're already writing the script for round two.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Middle East Strategist",
+        "text": "The power dynamic is wild here. Trump basically says 'I know you're lying about your convictions' and Netanyahu's campaign survives it.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Israeli Analyst",
+        "text": "Netanyahu doesn't care if Trump knows he's lying. His voters don't know. That's the whole point.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Tel Aviv Political Correspondent",
+        "text": "So what's the timeline here? Election happens, Netanyahu either wins and reverses course, or loses and his successor takes the heat?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "State Department Correspondent",
+        "text": "If he wins, he can say 'negotiated better terms.' If he loses, new PM just adopts it and nobody remembers Netanyahu said no.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Middle East Strategist",
+        "text": "Meanwhile actual Gaza policy is frozen until an Israeli government exists. Three cheers for campaign season.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Israeli Analyst",
+        "text": "Campaign season never ends here. This is just the scheduled version.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UN Admin",
+        "text": "Netanyahu rejects, Trump waits, voters decide, plan reappears unchanged: the most transparent political play nobody calls out on camera.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "Netanyahu said no but also yes but also we'll see after the election but also definitely no.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-11T01:52:03.641Z",
+    "editorial": {
+      "issueNumber": 86,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/86",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-11T01:52:03.641Z",
+      "fingerprint": "085f7a399498d404e51e38018f030a0c2fdd08990cd8146d73410afd812f7768",
+      "sourcePublishedAt": "2026-08-10T14:43:08.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Every chat reference is anchored to the actual rejection, election timing, and Trump administration's stated confidence in resubmitting. Speakers represent institutions (Israeli analysts, State Dept, UN, media) naturally adjacent to Gaza policy and Israeli elections. No invented quotes or meetings—only the publicly reported response about campaign rhetoric and non-finality. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
+    "id": "2026-08-10-shoved-the-tube-so-hard-it-tore-my-nose-kurdish-film-maker-recou",
+    "eventDate": "2026-08-10",
+    "year": 2026,
+    "date": "August 10, 2026",
+    "title": "ICE CALLS IT MEDICAL CARE; THE FEEDING TUBE LEFT A DIFFERENT RECORD",
+    "kicker": "A Kurdish filmmaker’s account of shackling, solitary confinement and force-feeding turns a detention-center medical procedure into a test of consent, oversight and accountability.",
+    "category": "Culture & Entertainment",
+    "summary": "Gabar Choli tells of how, for months, he was shackled, pinned and forcibly fed – and the physical and emotional scars the ordeal has left In June 2025, a sluggish and thin Gabar Choli, with sunken temples and bones visible under his skin, braced himself for the immigration detention center guards to charge into his cell once again. Choli was in a solitary confinement medical cell inside the Port Isabel service processing center, an Immigration and Customs Enforcement ( ICE ) detention facility in south Texas where immigrants arrested in Donald Trump’s anti-immigration crackdown are detained. Continue reading...",
+    "article": {
+      "headline": "Kurdish Filmmaker Says ICE Force‑Fed Him in Texas — Solitary Details Raise New Questions",
+      "dek": "Gabar Choli recounts being shackled, pinned and fed through a tube while in a Port Isabel solitary medical cell.",
+      "body": [
+        "In June 2025 a frail, sluggish Gabar Choli — a Kurdish filmmaker with sunken temples and bones visible beneath his skin — braced himself in a solitary medical cell at the Port Isabel service processing center. According to the reporting, he says guards shackled and pinned him while an officer shoved a feeding tube into his nose so forcefully it tore tissue; the episode has left him with both physical injuries and emotional scars. The account is presented in The Guardian’s coverage of detention practices this summer.",
+        "Choli’s description is stark and procedural: a medical cell that is supposed to tend to sick detainees instead became the site of what he calls forcible feeding. He was held at an Immigration and Customs Enforcement facility where, the article frames, immigrants arrested under Donald Trump’s anti‑immigration crackdown are processed and detained. The detail that he waited for guards to charge back into his cell — and the visible toll on his body — is the kind of domestic human-rights image unlikely to stay confined to a single story.",
+        "Reportage like this lands where policy and theater meet. Whether the episode will change official practice, prompt oversight, or simply harden opposing narratives is unclear; what is clear from the reporting is the pairing of clinical procedure and human harm. Readers who follow the original piece will find the documented condition of Choli and the conditions of Port Isabel laid out bluntly — an allegation that invites scrutiny of how medical care and detention intersect in enforcement settings."
+      ],
+      "sourceCredit": "Based on original reporting from The Guardian (https://www.theguardian.com/us-news/2026/aug/10/ice-force-feeding-detention-gabar-choli)"
+    },
+    "sources": [
+      {
+        "label": "‘Shoved the tube so hard it tore my nose’: Kurdish film-maker recounts ‘inhumane’ ICE force-feeding",
+        "url": "https://www.theguardian.com/us-news/2026/aug/10/ice-force-feeding-detention-gabar-choli",
+        "publisher": "The Guardian"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "New thread: alleged ICE force-feeding at Port Isabel. Medical care and coercion are disputing ownership of the same room.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "ICE",
+        "text": "Medical intervention becomes necessary when a detainee’s health is at immediate risk.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Medical Ethics Board",
+        "text": "Necessity does not erase consent, force or the obligation to document exactly what was done.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "DHS Inspector General",
+        "text": "The allegation includes shackling, restraint and a feeding tube that reportedly caused injury. That requires records, not a slogan.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "ICE",
+        "text": "Facility staff operate under clinical and security protocols.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Senate Oversight",
+        "text": "Then produce the protocols, the medical authorization and the incident review.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "ICE has a hard job. People attack the officers and ignore the border problem.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Medical Ethics Board",
+        "text": "A hard job is not a medical standard. The question is whether treatment became punishment.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "DHS Inspector General",
+        "text": "And whether solitary confinement made meaningful consent impossible before the procedure began.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "ICE",
+        "text": "The agency will respond through the formal review process.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UN Admin",
+        "text": "The facility called it care. The injury report demanded a fuller sentence.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "The facility called it care. The injury report asked who was allowed to refuse.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-10T16:42:28.407Z",
+    "editorial": {
+      "issueNumber": 72,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/72",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-10T16:42:28.407Z",
+      "fingerprint": "5570ac34f5c0078d9671d5971d4f1a2373bb36149b28f667fede25b2ead023b6",
+      "sourcePublishedAt": "2026-08-10T10:00:43.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.",
+      "reviewNotes": "S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages explicitly fictional. Published chat and headline were replaced with article-specific direct dialogue; the approved article and original sources were preserved. Published chat and headline were replaced with article-specific direct dialogue; the approved article and original sources were preserved."
+    }
+  },
+  {
+    "id": "2026-08-09-concerns-mount-over-integrity-of-israel-s-upcoming-october-elect",
+    "eventDate": "2026-08-09",
+    "year": 2026,
+    "date": "August 9, 2026",
+    "title": "70% Say the Vote Looks Shaky — Netanyahu Government Gets a Polling Headache",
+    "kicker": "Trust deficit",
+    "category": "Election",
+    "summary": "Poll shows 70 percent of Jewish Israelis fear election integrity risks as Netanyahu government faces mounting criticism.",
+    "sources": [
+      {
+        "label": "Concerns mount over integrity of Israel’s upcoming October elections",
+        "url": "https://www.aljazeera.com/news/2026/8/9/concerns-mount-over-integrity-of-israels-upcoming-october-elections?traffic_source=rss",
+        "publisher": "Al Jazeera"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "New thread: election confidence. The spreadsheet entered with notifications on.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Netanyahu",
+        "text": "Seventy percent sounds dramatic until you ask who wrote the question and who is quoting it.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Yair Lapid",
+        "text": "The question is whether voters trust the election. They answered before your press office could revise the wording.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Netanyahu",
+        "text": "Voters also want security. That part of the poll seems to disappear whenever you open the spreadsheet.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Benny Gantz",
+        "text": "Security and election confidence are not competing subscriptions. A country needs both active.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "Polls can be very unfair. Unless they are good polls. Then they are extremely accurate.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Lapid",
+        "text": "Thank you for entering the exact example nobody requested.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Netanyahu",
+        "text": "I did not add him.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "I was already in the group. Strong invitation. Best settings.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Meloni",
+        "text": "Can somebody reassure the voters before this becomes an international masterclass in reassuring nobody?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UN Admin",
+        "text": "The poll was pinned. Trust remains an unverified attachment.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "A ballot box wearing a bandage and shrug emoji — 'We’re fine, right?'",
+    "quote": null,
+    "tone": "comic",
+    "article": {
+      "headline": "Major poll finds 70% of Jewish Israelis fear election integrity risks as criticism of Netanyahu government grows",
+      "dek": "A new survey puts a spotlight on public doubt ahead of Israel’s elections, underscoring the political challenge facing the government.",
+      "body": [
+        "A poll published in reporting by Al Jazeera on August 9, 2026 found that 70 percent of Jewish Israelis express fear that the integrity of the upcoming elections could be at risk. The figure landed like an alarm bell in a campaign already described — with a refreshing lack of restraint — as fraught. The headline number is simple, stubborn and newsy: seven out of ten respondents say they worry about the fairness or safety of the vote, and that worry arrives as the Netanyahu government faces mounting criticism.",
+        "The political consequences are obvious without needing to manufacture drama. A trust shortfall of this size hands the opposition a talking point and hands the government an uphill communications task: reassure sceptical voters while under public pressure. The poll doesn’t say how voters will act on their fear; it only says the fear is real and widespread. Al Jazeera’s coverage framed the result as part of a broader story about doubts and scrutiny that now follow official decisions and authorities — a narrative that campaigns rarely want to lead but often must answer.",
+        "So what happens next is both prosaic and consequential: politicians plot, commentators diagnose, and the public judges. The poll makes the integrity question the issue everyone will have to address — not only in party press lines, but in the quieter work of election administration and civic confidence. For now, the clearest, least debatable fact is the poll’s number and the context reported by Al Jazeera: a large share of Jewish Israelis are telling pollsters they fear the vote itself may not be safe or fair, and that admission has added pressure on the Netanyahu government."
+      ],
+      "sourceCredit": "Based on original reporting from Al Jazeera (https://www.aljazeera.com/news/2026/8/9/concerns-mount-over-integrity-of-israels-upcoming-october-elections?traffic_source=rss)"
+    },
+    "publishedAt": "2026-08-10T03:53:48.901Z",
+    "editorial": {
+      "issueNumber": 30,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/30",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-10T03:53:48.901Z",
+      "fingerprint": "ccf284966ac7d212ab4bb57d7f87aef32f3a7314bfeb6b4286c59752d5c26408",
+      "sourcePublishedAt": "2026-08-09T15:20:18.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.",
+      "reviewNotes": "S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages explicitly fictional."
     }
   },
   {
@@ -452,112 +682,118 @@
     }
   },
   {
-    "id": "2026-08-09-concerns-mount-over-integrity-of-israel-s-upcoming-october-elect",
+    "id": "2026-08-09-israel-rejects-trump-s-15-point-plan-for-gaza",
     "eventDate": "2026-08-09",
     "year": 2026,
     "date": "August 9, 2026",
-    "title": "70% Say the Vote Looks Shaky — Netanyahu Government Gets a Polling Headache",
-    "kicker": "Trust deficit",
-    "category": "Election",
-    "summary": "Poll shows 70 percent of Jewish Israelis fear election integrity risks as Netanyahu government faces mounting criticism.",
+    "title": "TRUMP POSTS A 15-POINT GAZA PLAN; NETANYAHU REPLIES WITH POINT 16: NO",
+    "kicker": "A U.S. Gaza proposal meets Israeli rejection, so the fictional leaders’ chat turns into a negotiation over what the word ‘plan’ was supposed to mean.",
+    "category": "War & Security",
+    "summary": "Prime Minister Benjamin Netanyahu rejected the U.S. 15-point Gaza plan and said Israeli forces would not withdraw until Hamas disarms, according to reporting from BBC News, Al Jazeera and The Guardian.",
     "sources": [
       {
-        "label": "Concerns mount over integrity of Israel’s upcoming October elections",
-        "url": "https://www.aljazeera.com/news/2026/8/9/concerns-mount-over-integrity-of-israels-upcoming-october-elections?traffic_source=rss",
+        "label": "Israel rejects Trump’s 15-point plan for Gaza",
+        "url": "https://www.aljazeera.com/news/2026/8/9/israel-rejects-trumps-15-point-plan-for-gaza?traffic_source=rss",
         "publisher": "Al Jazeera"
+      },
+      {
+        "label": "Israel rejects Trump's 15-point plan for Gaza, Netanyahu says",
+        "url": "https://www.bbc.co.uk/news/articles/c5yw4lpe0yeo?at_medium=RSS&at_campaign=rss",
+        "publisher": "BBC News"
+      },
+      {
+        "label": "Middle East crisis live: Netanyahu rejects US’s Gaza plan and vows no withdrawal until Hamas disarms",
+        "url": "https://www.theguardian.com/world/live/2026/aug/09/iran-us-irgc-strait-of-hormuz-israel-netanyahu-trump-gaza-plan-latest-news-updates",
+        "publisher": "The Guardian"
+      },
+      {
+        "label": "Netanyahu rejects US-backed 15-point Gaza peace plan | First Thing",
+        "url": "https://www.theguardian.com/us-news/2026/aug/10/first-thing-netanyahu-rejects-us-backed-gaza-peace-plan",
+        "publisher": "The Guardian"
+      },
+      {
+        "label": "Netanyahu rejects US-led 15-point Gaza peace plan in rare public break with Trump",
+        "url": "https://www.theguardian.com/world/2026/aug/09/israel-rejects-us-led-15-point-gaza-peace-plan-says-netanyahu",
+        "publisher": "The Guardian"
+      },
+      {
+        "label": "Netanyahu rejects Trump-backed Gaza peace plan",
+        "url": "https://www.dw.com/en/netanyahu-rejects-trump-backed-gaza-peace-plan/a-78298282?maca=en-rss-en-top-1022-rdf",
+        "publisher": "DW"
+      },
+      {
+        "label": "Netanyahu rejects Trump's Gaza Peace Plan, demands Hamas disarm first",
+        "url": "https://www.npr.org/2026/08/09/nx-s1-5926459/netanyahu-rejects-trump-gaza-peace-plan-israel-hamas",
+        "publisher": "NPR"
       }
     ],
     "messages": [
       {
         "speaker": "UN Admin",
-        "text": "New thread: election confidence. The spreadsheet entered with notifications on.",
+        "text": "New thread: Gaza plan. Facts and public statements are sourced; the private replies below are fictional satire.",
         "kind": "system",
         "reaction": ""
       },
       {
-        "speaker": "Netanyahu",
-        "text": "Seventy percent sounds dramatic until you ask who wrote the question and who is quoting it.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Yair Lapid",
-        "text": "The question is whether voters trust the election. They answered before your press office could revise the wording.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Netanyahu",
-        "text": "Voters also want security. That part of the poll seems to disappear whenever you open the spreadsheet.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Benny Gantz",
-        "text": "Security and election confidence are not competing subscriptions. A country needs both active.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
         "speaker": "Trump",
-        "text": "Polls can be very unfair. Unless they are good polls. Then they are extremely accurate.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Lapid",
-        "text": "Thank you for entering the exact example nobody requested.",
+        "text": "Fifteen points. Very complete. People love numbered plans because you can tell they have points.",
         "kind": "satire",
         "reaction": ""
       },
       {
         "speaker": "Netanyahu",
-        "text": "I did not add him.",
+        "text": "I read all fifteen. I have notes. The first note is no withdrawal before disarmament.",
         "kind": "satire",
         "reaction": ""
       },
       {
-        "speaker": "Trump",
-        "text": "I was already in the group. Strong invitation. Best settings.",
+        "speaker": "Macron",
+        "text": "A plan is not yet an agreement. Europe has several binders proving this.",
         "kind": "satire",
         "reaction": ""
       },
       {
         "speaker": "Meloni",
-        "text": "Can somebody reassure the voters before this becomes an international masterclass in reassuring nobody?",
+        "text": "Can we get one geopolitical document where the word ‘final’ survives contact with the participants?",
         "kind": "satire",
         "reaction": ""
       },
       {
-        "speaker": "UN Admin",
-        "text": "The poll was pinned. Trust remains an unverified attachment.",
-        "kind": "system",
+        "speaker": "Xi",
+        "text": "China notes that numbered plans have a tendency to acquire additional points after publication.",
+        "kind": "satire",
         "reaction": ""
       }
     ],
-    "meme": "A ballot box wearing a bandage and shrug emoji — 'We’re fine, right?'",
+    "meme": "UN Admin renamed the file: 15-POINT-PLAN_v7_FINAL_FINAL.pdf",
     "quote": null,
-    "tone": "comic",
-    "article": {
-      "headline": "Major poll finds 70% of Jewish Israelis fear election integrity risks as criticism of Netanyahu government grows",
-      "dek": "A new survey puts a spotlight on public doubt ahead of Israel’s elections, underscoring the political challenge facing the government.",
-      "body": [
-        "A poll published in reporting by Al Jazeera on August 9, 2026 found that 70 percent of Jewish Israelis express fear that the integrity of the upcoming elections could be at risk. The figure landed like an alarm bell in a campaign already described — with a refreshing lack of restraint — as fraught. The headline number is simple, stubborn and newsy: seven out of ten respondents say they worry about the fairness or safety of the vote, and that worry arrives as the Netanyahu government faces mounting criticism.",
-        "The political consequences are obvious without needing to manufacture drama. A trust shortfall of this size hands the opposition a talking point and hands the government an uphill communications task: reassure sceptical voters while under public pressure. The poll doesn’t say how voters will act on their fear; it only says the fear is real and widespread. Al Jazeera’s coverage framed the result as part of a broader story about doubts and scrutiny that now follow official decisions and authorities — a narrative that campaigns rarely want to lead but often must answer.",
-        "So what happens next is both prosaic and consequential: politicians plot, commentators diagnose, and the public judges. The poll makes the integrity question the issue everyone will have to address — not only in party press lines, but in the quieter work of election administration and civic confidence. For now, the clearest, least debatable fact is the poll’s number and the context reported by Al Jazeera: a large share of Jewish Israelis are telling pollsters they fear the vote itself may not be safe or fair, and that admission has added pressure on the Netanyahu government."
-      ],
-      "sourceCredit": "Based on original reporting from Al Jazeera (https://www.aljazeera.com/news/2026/8/9/concerns-mount-over-integrity-of-israels-upcoming-october-elections?traffic_source=rss)"
-    },
-    "publishedAt": "2026-08-10T03:53:48.901Z",
+    "tone": "sober",
+    "publishedAt": "2026-08-09T15:30:47.482Z",
     "editorial": {
-      "issueNumber": 30,
-      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/30",
+      "issueNumber": 22,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/22",
       "approvedBy": "BREXAtlas",
-      "approvedAt": "2026-08-10T03:53:48.901Z",
-      "fingerprint": "ccf284966ac7d212ab4bb57d7f87aef32f3a7314bfeb6b4286c59752d5c26408",
-      "sourcePublishedAt": "2026-08-09T15:20:18.000Z",
-      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.",
-      "reviewNotes": "S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages explicitly fictional."
+      "approvedAt": "2026-08-09T15:30:47.482Z",
+      "fingerprint": "047f4a3745274231fd8257195ad48982e7b9be1fa142fba0f3c442e222b6a9cc",
+      "sourcePublishedAt": "2026-08-09T11:31:18.000Z",
+      "singleSourceException": "",
+      "reviewNotes": "Merged three reports covering the same Gaza-plan rejection into one event. S-M-A-R review keeps the satire focused on leaders and negotiation dynamics, not civilians. S-M-A-R: source locked; satire targets leaders and institutions only; sober handling recommended; no jokes at victims’ expense. Merged DW, NPR and later Guardian follow-up coverage of the same Gaza-plan rejection into the canonical multi-source file.",
+      "mergedIssueNumbers": [
+        19,
+        21,
+        22,
+        63,
+        64,
+        73
+      ],
+      "mergedEventIds": [
+        "2026-08-09-israel-rejects-trump-s-15-point-plan-for-gaza",
+        "2026-08-09-israel-rejects-trump-s-15-point-plan-for-gaza-netanyahu-says",
+        "2026-08-09-middle-east-crisis-live-netanyahu-rejects-us-s-gaza-plan-and-vow",
+        "2026-08-09-netanyahu-rejects-trump-backed-gaza-peace-plan",
+        "2026-08-09-netanyahu-rejects-trump-s-gaza-peace-plan-demands-hamas-disarm-f",
+        "2026-08-10-netanyahu-rejects-us-backed-15-point-gaza-peace-plan-first-thing"
+      ]
     }
   },
   {
@@ -779,121 +1015,6 @@
     }
   },
   {
-    "id": "2026-08-09-israel-rejects-trump-s-15-point-plan-for-gaza",
-    "eventDate": "2026-08-09",
-    "year": 2026,
-    "date": "August 9, 2026",
-    "title": "TRUMP POSTS A 15-POINT GAZA PLAN; NETANYAHU REPLIES WITH POINT 16: NO",
-    "kicker": "A U.S. Gaza proposal meets Israeli rejection, so the fictional leaders’ chat turns into a negotiation over what the word ‘plan’ was supposed to mean.",
-    "category": "War & Security",
-    "summary": "Prime Minister Benjamin Netanyahu rejected the U.S. 15-point Gaza plan and said Israeli forces would not withdraw until Hamas disarms, according to reporting from BBC News, Al Jazeera and The Guardian.",
-    "sources": [
-      {
-        "label": "Israel rejects Trump’s 15-point plan for Gaza",
-        "url": "https://www.aljazeera.com/news/2026/8/9/israel-rejects-trumps-15-point-plan-for-gaza?traffic_source=rss",
-        "publisher": "Al Jazeera"
-      },
-      {
-        "label": "Israel rejects Trump's 15-point plan for Gaza, Netanyahu says",
-        "url": "https://www.bbc.co.uk/news/articles/c5yw4lpe0yeo?at_medium=RSS&at_campaign=rss",
-        "publisher": "BBC News"
-      },
-      {
-        "label": "Middle East crisis live: Netanyahu rejects US’s Gaza plan and vows no withdrawal until Hamas disarms",
-        "url": "https://www.theguardian.com/world/live/2026/aug/09/iran-us-irgc-strait-of-hormuz-israel-netanyahu-trump-gaza-plan-latest-news-updates",
-        "publisher": "The Guardian"
-      },
-      {
-        "label": "Netanyahu rejects US-backed 15-point Gaza peace plan | First Thing",
-        "url": "https://www.theguardian.com/us-news/2026/aug/10/first-thing-netanyahu-rejects-us-backed-gaza-peace-plan",
-        "publisher": "The Guardian"
-      },
-      {
-        "label": "Netanyahu rejects US-led 15-point Gaza peace plan in rare public break with Trump",
-        "url": "https://www.theguardian.com/world/2026/aug/09/israel-rejects-us-led-15-point-gaza-peace-plan-says-netanyahu",
-        "publisher": "The Guardian"
-      },
-      {
-        "label": "Netanyahu rejects Trump-backed Gaza peace plan",
-        "url": "https://www.dw.com/en/netanyahu-rejects-trump-backed-gaza-peace-plan/a-78298282?maca=en-rss-en-top-1022-rdf",
-        "publisher": "DW"
-      },
-      {
-        "label": "Netanyahu rejects Trump's Gaza Peace Plan, demands Hamas disarm first",
-        "url": "https://www.npr.org/2026/08/09/nx-s1-5926459/netanyahu-rejects-trump-gaza-peace-plan-israel-hamas",
-        "publisher": "NPR"
-      }
-    ],
-    "messages": [
-      {
-        "speaker": "UN Admin",
-        "text": "New thread: Gaza plan. Facts and public statements are sourced; the private replies below are fictional satire.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
-        "speaker": "Trump",
-        "text": "Fifteen points. Very complete. People love numbered plans because you can tell they have points.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Netanyahu",
-        "text": "I read all fifteen. I have notes. The first note is no withdrawal before disarmament.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Macron",
-        "text": "A plan is not yet an agreement. Europe has several binders proving this.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Meloni",
-        "text": "Can we get one geopolitical document where the word ‘final’ survives contact with the participants?",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Xi",
-        "text": "China notes that numbered plans have a tendency to acquire additional points after publication.",
-        "kind": "satire",
-        "reaction": ""
-      }
-    ],
-    "meme": "UN Admin renamed the file: 15-POINT-PLAN_v7_FINAL_FINAL.pdf",
-    "quote": null,
-    "tone": "sober",
-    "publishedAt": "2026-08-09T15:30:47.482Z",
-    "editorial": {
-      "issueNumber": 22,
-      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/22",
-      "approvedBy": "BREXAtlas",
-      "approvedAt": "2026-08-09T15:30:47.482Z",
-      "fingerprint": "047f4a3745274231fd8257195ad48982e7b9be1fa142fba0f3c442e222b6a9cc",
-      "sourcePublishedAt": "2026-08-09T11:31:18.000Z",
-      "singleSourceException": "",
-      "reviewNotes": "Merged three reports covering the same Gaza-plan rejection into one event. S-M-A-R review keeps the satire focused on leaders and negotiation dynamics, not civilians. S-M-A-R: source locked; satire targets leaders and institutions only; sober handling recommended; no jokes at victims’ expense. Merged DW, NPR and later Guardian follow-up coverage of the same Gaza-plan rejection into the canonical multi-source file.",
-      "mergedIssueNumbers": [
-        19,
-        21,
-        22,
-        63,
-        64,
-        73
-      ],
-      "mergedEventIds": [
-        "2026-08-09-israel-rejects-trump-s-15-point-plan-for-gaza",
-        "2026-08-09-israel-rejects-trump-s-15-point-plan-for-gaza-netanyahu-says",
-        "2026-08-09-middle-east-crisis-live-netanyahu-rejects-us-s-gaza-plan-and-vow",
-        "2026-08-09-netanyahu-rejects-trump-backed-gaza-peace-plan",
-        "2026-08-09-netanyahu-rejects-trump-s-gaza-peace-plan-demands-hamas-disarm-f",
-        "2026-08-10-netanyahu-rejects-us-backed-15-point-gaza-peace-plan-first-thing"
-      ]
-    }
-  },
-  {
     "id": "2026-08-09-why-is-pezeshkian-urging-an-end-to-iran-s-no-war-no-peace-status",
     "eventDate": "2026-08-09",
     "year": 2026,
@@ -973,381 +1094,6 @@
         "2026-08-09-why-is-pezeshkian-urging-an-end-to-iran-s-no-war-no-peace-status",
         "2026-08-06-iran-aims-to-ban-u-s-and-israeli-ships-from-strait-of-hormuz-and"
       ]
-    }
-  },
-  {
-    "id": "2026-08-08-vance-says-us-destroyed-iran-s-nuclear-programme",
-    "eventDate": "2026-08-08",
-    "year": 2026,
-    "date": "August 8, 2026",
-    "title": "VANCE POSTS “MISSION ACCOMPLISHED” AND THE CHAT IMMEDIATELY ASKS FOR RECEIPTS",
-    "kicker": "A sweeping U.S. claim about Iran’s nuclear program becomes the kind of message every leader reads twice before reacting.",
-    "category": "War & Security",
-    "summary": "US Vice President JD Vance claims Washington has “destroyed” Iran’s nuclear programme and degraded its military.",
-    "sources": [
-      {
-        "label": "Vance says US ‘destroyed’ Iran’s nuclear programme",
-        "url": "https://www.aljazeera.com/video/newsfeed/2026/8/8/vance-says-us-destroyed-irans-nuclear-programme?traffic_source=rss",
-        "publisher": "Al Jazeera"
-      }
-    ],
-    "messages": [
-      {
-        "speaker": "UN Admin",
-        "text": "Reminder: operational claims require sources. Reaction emojis do not count as verification.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
-        "speaker": "Vance",
-        "text": "The program is destroyed. I am choosing the confident font.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Trump",
-        "text": "Very strong statement. I would have used all caps, but strong.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Iran",
-        "text": "Interesting. We appear to have been informed of our status through the group chat.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Macron",
-        "text": "Can we distinguish “destroyed,” “degraded,” and “the briefing had a dramatic slide”?",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Xi",
-        "text": "Precision in language is useful, especially after precision strikes.",
-        "kind": "satire",
-        "reaction": ""
-      }
-    ],
-    "meme": "Vance pinned a message. Everyone else pinned the word “verification.”",
-    "quote": null,
-    "tone": "comic",
-    "publishedAt": "2026-08-09T15:36:41.946Z",
-    "editorial": {
-      "issueNumber": 11,
-      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/11",
-      "approvedBy": "BREXAtlas",
-      "approvedAt": "2026-08-09T15:36:41.946Z",
-      "fingerprint": "756dff0baf1baca2c605fc8e38bff15c5b5dd1dd56684e95c5752f2d585df74d",
-      "sourcePublishedAt": "2026-08-08T23:27:55.000Z",
-      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.",
-      "reviewNotes": "S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages labeled as satire."
-    }
-  },
-  {
-    "id": "2026-08-08-ukraine-russia-pounds-kyiv-as-zelenskyy-visits-serbia",
-    "eventDate": "2026-08-08",
-    "year": 2026,
-    "date": "August 8, 2026",
-    "title": "ZELENSKYY ENTERS THE CHAT SERBIA HOPED WOULD STAY ON MUTE",
-    "kicker": "A Serbia visit lands in the middle of another Russia-Ukraine escalation, so the imaginary leaders’ chat immediately becomes a diplomacy stress test.",
-    "category": "World Affairs",
-    "summary": "Ukrainian President Volodymyr Zelenskyy is visiting Serbia, a country that has traditionally been friendly with Moscow, as Russia strikes the Kyiv region once again.",
-    "sources": [
-      {
-        "label": "Ukraine: Russia pounds Kyiv as Zelenskyy visits Serbia",
-        "url": "https://www.dw.com/en/ukraine-russia-pounds-kyiv-as-zelenskyy-visits-serbia/a-78287715?maca=en-rss-en-top-1022-rdf",
-        "publisher": "DW"
-      },
-      {
-        "label": "Child among three killed in Russian missile attacks near Kyiv",
-        "url": "https://www.bbc.co.uk/news/articles/cz7dy8gq99eo?at_medium=RSS&at_campaign=rss",
-        "publisher": "BBC News"
-      }
-    ],
-    "messages": [
-      {
-        "speaker": "UN Admin",
-        "text": "New topic: Serbia, Ukraine and Russia. Please avoid turning strategic ambiguity into a reaction emoji.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
-        "speaker": "Zelenskyy",
-        "text": "I came to talk cooperation. Somehow every room in Europe still has one invisible chair labeled Moscow.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Putin",
-        "text": "Invisible? I prefer historically reserved.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Meloni",
-        "text": "Could everyone stop treating geography like a group project where nobody read the instructions?",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Trump",
-        "text": "I could settle this chat very quickly. First we need better admins. Tremendous admins.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Xi",
-        "text": "China observes that the mute function remains underused.",
-        "kind": "satire",
-        "reaction": ""
-      }
-    ],
-    "meme": "UN Admin changed the group description to: NO ONE IS NEUTRAL AFTER THE THIRD REPLY.",
-    "quote": null,
-    "tone": "comic",
-    "publishedAt": "2026-08-09T15:34:48.936Z",
-    "editorial": {
-      "issueNumber": 13,
-      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/13",
-      "approvedBy": "BREXAtlas",
-      "approvedAt": "2026-08-09T15:34:48.936Z",
-      "fingerprint": "7192a2fbb21831156b86daca49012f9518bfb89f4586e7a5e9616e444466a4b5",
-      "sourcePublishedAt": "2026-08-08T14:10:00.000Z",
-      "singleSourceException": "",
-      "reviewNotes": "S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages labeled as satire. Merged BBC and DW coverage of the same August 8 Kyiv-strikes and Zelenskyy-in-Serbia news cycle into one file.",
-      "mergedIssueNumbers": [
-        7,
-        13
-      ],
-      "mergedEventIds": [
-        "2026-08-08-ukraine-russia-pounds-kyiv-as-zelenskyy-visits-serbia",
-        "2026-08-08-child-among-three-killed-in-russian-missile-attacks-near-kyiv"
-      ]
-    }
-  },
-  {
-    "id": "2026-08-08-fifa-warns-of-effort-to-undermine-infantino-as-leadership-crisis",
-    "eventDate": "2026-08-08",
-    "year": 2026,
-    "date": "August 8, 2026",
-    "title": "FIFA TRIES TO SELL A SLICE OF THE WORLD CUP; UEFA ASKS WHO GAVE IT THE LISTING",
-    "kicker": "A collapsed $4.2 billion commercial-rights proposal turns into a leadership crisis, resignation calls and football governance doing its best impression of extra time.",
-    "category": "Sports & Soft Power",
-    "summary": "FIFA defended President Gianni Infantino amid a leadership crisis following the collapse of a $4.2 billion proposal to sell a stake in the organization’s commercial rights.",
-    "article": {
-      "headline": "FIFA closes ranks around Infantino after commercial-rights plan collapses",
-      "dek": "A failed $4.2 billion proposal to sell a stake in FIFA’s commercial future has turned into a fight over governance, trust and whether the organization’s leadership can referee its own crisis.",
-      "body": [
-        "FIFA said there was a concerted effort to undermine President Gianni Infantino as the organization’s leadership crisis deepened. Reuters reported that the dispute followed the collapse of a $4.2 billion proposal to sell a stake in FIFA’s commercial rights, a plan that drew opposition from UEFA, national associations and figures inside football governance.",
-        "Norwegian Football Federation president Lise Klaveness publicly called for Infantino to resign, arguing that he no longer had the institutional trust needed to lead. UEFA and Norway withdrew confidence, while FIFA leadership meeting in Morocco reaffirmed support for Infantino. He also retained significant backing among member associations in Africa, South America and elsewhere.",
-        "The immediate dispute is about more than one abandoned transaction. It is about who controls football’s commercial future, how decisions are made and whether a governing body can investigate criticism of itself without making the criticism louder. FIFA says the challenge must follow its statutes. Its opponents are asking whether the statutes are being used as rules of the game or as a very expensive offside flag."
-      ],
-      "sourceCredit": "Original reporting: Reuters — FIFA warns of effort to undermine Infantino as leadership crisis deepens; Reuters — Norway FA president Klaveness calls on FIFA boss Infantino to resign."
-    },
-    "sources": [
-      {
-        "label": "FIFA warns of effort to undermine Infantino as leadership crisis deepens",
-        "url": "https://www.reuters.com/sports/soccer/fifa-warns-effort-undermine-infantino-leadership-crisis-deepens-2026-08-08/",
-        "publisher": "Reuters"
-      },
-      {
-        "label": "Norway FA president Klaveness calls on FIFA boss Infantino to resign",
-        "url": "https://www.reuters.com/sports/soccer/norway-fa-president-klaveness-calls-fifa-boss-infantino-resign-2026-08-07/",
-        "publisher": "Reuters"
-      }
-    ],
-    "messages": [
-      {
-        "speaker": "UN Admin",
-        "text": "New thread: FIFA leadership crisis and a collapsed commercial-rights proposal. The red card has entered the boardroom.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
-        "speaker": "Gianni Infantino",
-        "text": "Football needs investment, global reach and leadership that can move quickly.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "UEFA",
-        "text": "Moving quickly is not the same as moving a proposal before the members know what is being sold.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Infantino",
-        "text": "The plan was designed to unlock value for the game.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "FIFA Council",
-        "text": "The phrase unlock value is usually when everyone checks whether the lock belongs to them.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Trump",
-        "text": "The World Cup is enormous. Very valuable. You do not sell the best parts without a fantastic deal.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "UEFA",
-        "text": "The concern is not whether the rights are valuable. It is who decided the process was sufficient.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Sponsor",
-        "text": "We purchased certainty and received a governance documentary.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Infantino",
-        "text": "Criticism does not replace a viable commercial strategy.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Meloni",
-        "text": "Neither does a commercial strategy replace consent from the people whose competition you are monetizing.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "UN Admin",
-        "text": "The proposal was withdrawn. The resignation calls remained on the fixture list.",
-        "kind": "system",
-        "reaction": ""
-      }
-    ],
-    "meme": "The proposal left the field. The resignation calls stayed on the fixture list.",
-    "quote": null,
-    "tone": "comic",
-    "publishedAt": "2026-08-10T03:46:53.006Z",
-    "editorial": {
-      "issueNumber": 50,
-      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/50",
-      "approvedBy": "BREXAtlas",
-      "approvedAt": "2026-08-10T03:46:53.006Z",
-      "fingerprint": "a4e0ec402451e1e35be0afa0793d8bab91253546865d1283c98d1b37f410d241",
-      "sourcePublishedAt": "2026-08-08T12:30:00.000Z",
-      "singleSourceException": "",
-      "reviewNotes": "S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages explicitly fictional. Published chat and headline were replaced with article-specific direct dialogue; the approved article and original sources were preserved. Published chat and headline were replaced with article-specific direct dialogue; the approved article and original sources were preserved."
-    }
-  },
-  {
-    "id": "2026-08-08-rest-assured-the-new-cdc-director-thinks-abortion-surveillance-i",
-    "eventDate": "2026-08-08",
-    "year": 2026,
-    "date": "August 8, 2026",
-    "title": "CDC CONFIRMATION HEARING ADDS ‘ABORTION SURVEILLANCE’; PUBLIC HEALTH REQUESTS A DEFINITION BEFORE THE DATABASE",
-    "kicker": "Dr. Erica Schwartz’s confirmation exchange with Senator Josh Hawley turns routine public-health data collection into a larger argument over surveillance, privacy and political intent.",
-    "category": "Courts & Congress",
-    "summary": "An exchange between Dr Erica Schwartz and Senator Josh Hawley during her confirmation hearing is alarming Robert F Kennedy Jr’s new cooking show isn’t the only big news out of the public health world this week. On Wednesday, Dr Erica Schwartz was confirmed by the US Senate as director ‌of the Centers for Disease Control and Prevention (CDC), making her the first Black woman to hold the position. This is the first time in almost a year that the agency has had a permanent leader; the previous director, Susan Monarez, only lasted 29 days before she was ousted for butting heads with RFK about US vaccine policies. Translation: she was a little too keen on following accepted science for the Trump administration. So is Schwartz an RFK-approved vaccine skeptic who thinks you can cure cancer by praying to trees? Surprisingly: no. Schwartz, who served as deputy surgeon general during Trump’s first term, actually has government experience and a public health background. During her confirmation he",
-    "article": {
-      "headline": "REST ASSURED, THE NEW CDC DIRECTOR THINKS ‘ABORTION SURVEILLANCE’ IS ESSENTIAL | ARWA MAHDAWI",
-      "dek": "The event is reported straight. The edge comes from translating the public choreography into the subtext readers can already see.",
-      "body": [
-        "An exchange between Dr Erica Schwartz and Senator Josh Hawley during her confirmation hearing is alarming Robert F Kennedy Jr’s new cooking show isn’t the only big news out of the public health world this week. On Wednesday, Dr Erica Schwartz was confirmed by the US Senate as director ‌of the Centers for Disease Control and Prevention (CDC), making her the first Black woman to hold the position. This is the first time in almost a year that the agency has had a permanent leader; the previous director, Susan Monarez, only lasted 29 days before she was ousted for butting heads with RFK about US vaccine policies. Translation: she was a little too keen on following accepted science for the Trump administration. So is Schwartz an RFK-approved vaccine skeptic who thinks you can cure cancer by praying to trees? Surprisingly: no. Schwartz, who served as deputy surgeon general during Trump’s first term, actually has government experience and a public health background. During her confirmation he",
-        "The straight reading is the one in the original reporting: an exchange between Dr Erica Schwartz and Senator Josh Hawley during her confirmation hearing is alarming Robert F Kennedy Jr’s new cooking show isn’t the only big news out of the public health world this week. On Wednesday, Dr Erica Schwartz was confirmed by the US Senate as director ‌of the Centers for Disease Control and Prevention (CDC), making her the first Black woman to hold the position. This is the first time in almost a year that the agency has had a permanent leader; the previous director, Susan Monarez, only lasted 29 days before she was ousted for butting heads with RFK about US vaccine policies. Translation: she was a little too keen on following accepted science for the Trump administration. So is Schwartz an RFK-approved vaccine skeptic who thinks you can cure cancer by praying to trees? Surprisingly: no. Schwartz, who served as deputy surgeon general during Trump’s first term, actually has government experience and a public health background. During her confirmation he The sharper reading is not a different event; it is the same event with the public choreography left visible.",
-        "The event is reported straight. The edge comes from translating the public choreography into the subtext readers can already see.",
-        "That is where the group chat enters. Its messages are imagined, but the pressure points are not: public positions, familiar rivalries and the gap between what leaders announce and what everyone suspects the room sounded like."
-      ],
-      "sourceCredit": "Based on and credited to original reporting from The Guardian. Follow the source links for the full reporting."
-    },
-    "sources": [
-      {
-        "label": "Rest assured, the new CDC director thinks ‘abortion surveillance’ is essential | Arwa Mahdawi",
-        "url": "https://www.theguardian.com/commentisfree/2026/aug/08/cdc-abortion-surveillance-schwartz-hawley",
-        "publisher": "The Guardian"
-      }
-    ],
-    "messages": [
-      {
-        "speaker": "UN Admin",
-        "text": "New thread: CDC confirmation and abortion surveillance. Public-health data has asked whether it is evidence, policy or a future subpoena.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
-        "speaker": "Josh Hawley",
-        "text": "The country needs national data. If states are not reporting, the CDC should know what is happening.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Erica Schwartz",
-        "text": "Public-health surveillance means tracking population trends. It cannot become shorthand for treating patients as suspects.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Josh Hawley",
-        "text": "Then say clearly whether the agency will maintain complete abortion data.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Erica Schwartz",
-        "text": "I will say clearly that methodology, privacy and lawful authority matter before a politically loaded demand becomes a dashboard.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "HHS",
-        "text": "The CDC has spent a year without stable leadership. The confirmation was supposed to restore operational focus.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Josh Hawley",
-        "text": "Operational focus includes answering Congress without hiding behind technical language.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Erica Schwartz",
-        "text": "Technical language is sometimes the difference between measuring health and monitoring people.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Public Health Researcher",
-        "text": "A dataset can inform policy. It can also intimidate patients if officials refuse to explain its limits.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Josh Hawley",
-        "text": "Oversight is not intimidation merely because the question is uncomfortable.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "UN Admin",
-        "text": "The director was confirmed. The word ‘surveillance’ left the hearing with more political baggage than data.",
-        "kind": "system",
-        "reaction": ""
-      }
-    ],
-    "meme": "The CDC got a permanent director. The definition of surveillance remained under observation.",
-    "quote": null,
-    "tone": "sober",
-    "publishedAt": "2026-08-10T03:30:11.850Z",
-    "editorial": {
-      "issueNumber": 61,
-      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/61",
-      "approvedBy": "BREXAtlas",
-      "approvedAt": "2026-08-10T03:30:11.850Z",
-      "fingerprint": "82fc6176e5b8b835812c3eebf60bf85e63a1ad4437b87130563b030481c60183",
-      "sourcePublishedAt": "2026-08-08T12:00:46.000Z",
-      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.",
-      "reviewNotes": "S-M-A-R: source locked; satire targets leaders and institutions only; sober handling recommended; no jokes at victims’ expense. Published chat and headline were replaced with article-specific direct dialogue; the approved article and original sources were preserved. Published chat and headline were replaced with article-specific direct dialogue; the approved article and original sources were preserved."
     }
   },
   {
@@ -1465,6 +1211,189 @@
     }
   },
   {
+    "id": "2026-08-08-bluster-and-backdown-have-turned-iran-war-into-trump-s-own-groun",
+    "eventDate": "2026-08-08",
+    "year": 2026,
+    "date": "August 8, 2026",
+    "title": "THE IRAN WAR CHAT HAS ENTERED ITS “FINAL WARNING — PART 14” ERA",
+    "kicker": "Threats, negotiations and political timing collide in the fictional group chat where everyone has receipts from the previous “final” warning.",
+    "category": "War & Security",
+    "summary": "The US president’s profound ignorance of his enemy has led to an impotent cycle of empty threats, analysts say Being the subject of mockery may be the most intense of all Donald Trump’s known aversions. Yet more than five months after embarking on a war of choice against Iran, the US president risks attracting ridicule as he struggles to secure a military victory – while repeatedly threatening devastating bombardment against the Tehran regime, only to back down on the pretext of renewed negotiations. Continue reading...",
+    "sources": [
+      {
+        "label": "Bluster and backdown have turned Iran war into Trump’s own Groundhog Day",
+        "url": "https://www.theguardian.com/world/ng-interactive/2026/aug/08/trump-iran-war-criticism-groundhog-day",
+        "publisher": "The Guardian"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "Please number all final warnings so the archive remains searchable.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "This one is extremely final. More final than the others.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Iran",
+        "text": "We have created a folder titled FINAL_FINAL_REAL_THIS_TIME.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Macron",
+        "text": "Diplomacy would benefit from fewer season finales.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Putin",
+        "text": "The useful thing about red lines is how often they can be redrawn.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Xi",
+        "text": "China recommends fewer typing indicators and more negotiated text.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "UN Admin enabled disappearing messages. The threats did not disappear.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-09T15:46:57.777Z",
+    "editorial": {
+      "issueNumber": 10,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/10",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-09T15:46:57.777Z",
+      "fingerprint": "2cbc182fab37cdbe9933d4d79f6f5aa93330e27198045a716d9a8f1670ffb95c",
+      "sourcePublishedAt": "2026-08-08T09:00:43.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.",
+      "reviewNotes": "S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages labeled as satire."
+    }
+  },
+  {
+    "id": "2026-08-08-fifa-warns-of-effort-to-undermine-infantino-as-leadership-crisis",
+    "eventDate": "2026-08-08",
+    "year": 2026,
+    "date": "August 8, 2026",
+    "title": "FIFA TRIES TO SELL A SLICE OF THE WORLD CUP; UEFA ASKS WHO GAVE IT THE LISTING",
+    "kicker": "A collapsed $4.2 billion commercial-rights proposal turns into a leadership crisis, resignation calls and football governance doing its best impression of extra time.",
+    "category": "Sports & Soft Power",
+    "summary": "FIFA defended President Gianni Infantino amid a leadership crisis following the collapse of a $4.2 billion proposal to sell a stake in the organization’s commercial rights.",
+    "article": {
+      "headline": "FIFA closes ranks around Infantino after commercial-rights plan collapses",
+      "dek": "A failed $4.2 billion proposal to sell a stake in FIFA’s commercial future has turned into a fight over governance, trust and whether the organization’s leadership can referee its own crisis.",
+      "body": [
+        "FIFA said there was a concerted effort to undermine President Gianni Infantino as the organization’s leadership crisis deepened. Reuters reported that the dispute followed the collapse of a $4.2 billion proposal to sell a stake in FIFA’s commercial rights, a plan that drew opposition from UEFA, national associations and figures inside football governance.",
+        "Norwegian Football Federation president Lise Klaveness publicly called for Infantino to resign, arguing that he no longer had the institutional trust needed to lead. UEFA and Norway withdrew confidence, while FIFA leadership meeting in Morocco reaffirmed support for Infantino. He also retained significant backing among member associations in Africa, South America and elsewhere.",
+        "The immediate dispute is about more than one abandoned transaction. It is about who controls football’s commercial future, how decisions are made and whether a governing body can investigate criticism of itself without making the criticism louder. FIFA says the challenge must follow its statutes. Its opponents are asking whether the statutes are being used as rules of the game or as a very expensive offside flag."
+      ],
+      "sourceCredit": "Original reporting: Reuters — FIFA warns of effort to undermine Infantino as leadership crisis deepens; Reuters — Norway FA president Klaveness calls on FIFA boss Infantino to resign."
+    },
+    "sources": [
+      {
+        "label": "FIFA warns of effort to undermine Infantino as leadership crisis deepens",
+        "url": "https://www.reuters.com/sports/soccer/fifa-warns-effort-undermine-infantino-leadership-crisis-deepens-2026-08-08/",
+        "publisher": "Reuters"
+      },
+      {
+        "label": "Norway FA president Klaveness calls on FIFA boss Infantino to resign",
+        "url": "https://www.reuters.com/sports/soccer/norway-fa-president-klaveness-calls-fifa-boss-infantino-resign-2026-08-07/",
+        "publisher": "Reuters"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "New thread: FIFA leadership crisis and a collapsed commercial-rights proposal. The red card has entered the boardroom.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Gianni Infantino",
+        "text": "Football needs investment, global reach and leadership that can move quickly.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UEFA",
+        "text": "Moving quickly is not the same as moving a proposal before the members know what is being sold.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Infantino",
+        "text": "The plan was designed to unlock value for the game.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "FIFA Council",
+        "text": "The phrase unlock value is usually when everyone checks whether the lock belongs to them.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "The World Cup is enormous. Very valuable. You do not sell the best parts without a fantastic deal.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UEFA",
+        "text": "The concern is not whether the rights are valuable. It is who decided the process was sufficient.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Sponsor",
+        "text": "We purchased certainty and received a governance documentary.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Infantino",
+        "text": "Criticism does not replace a viable commercial strategy.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Meloni",
+        "text": "Neither does a commercial strategy replace consent from the people whose competition you are monetizing.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UN Admin",
+        "text": "The proposal was withdrawn. The resignation calls remained on the fixture list.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "The proposal left the field. The resignation calls stayed on the fixture list.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-10T03:46:53.006Z",
+    "editorial": {
+      "issueNumber": 50,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/50",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-10T03:46:53.006Z",
+      "fingerprint": "a4e0ec402451e1e35be0afa0793d8bab91253546865d1283c98d1b37f410d241",
+      "sourcePublishedAt": "2026-08-08T12:30:00.000Z",
+      "singleSourceException": "",
+      "reviewNotes": "S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages explicitly fictional. Published chat and headline were replaced with article-specific direct dialogue; the approved article and original sources were preserved. Published chat and headline were replaced with article-specific direct dialogue; the approved article and original sources were preserved."
+    }
+  },
+  {
     "id": "2026-08-08-president-xi-never-wastes-a-good-crisis-as-iran-ukraine-and-pale",
     "eventDate": "2026-08-08",
     "year": 2026,
@@ -1574,180 +1503,372 @@
     }
   },
   {
-    "id": "2026-08-08-bluster-and-backdown-have-turned-iran-war-into-trump-s-own-groun",
+    "id": "2026-08-08-rest-assured-the-new-cdc-director-thinks-abortion-surveillance-i",
     "eventDate": "2026-08-08",
     "year": 2026,
     "date": "August 8, 2026",
-    "title": "THE IRAN WAR CHAT HAS ENTERED ITS “FINAL WARNING — PART 14” ERA",
-    "kicker": "Threats, negotiations and political timing collide in the fictional group chat where everyone has receipts from the previous “final” warning.",
-    "category": "War & Security",
-    "summary": "The US president’s profound ignorance of his enemy has led to an impotent cycle of empty threats, analysts say Being the subject of mockery may be the most intense of all Donald Trump’s known aversions. Yet more than five months after embarking on a war of choice against Iran, the US president risks attracting ridicule as he struggles to secure a military victory – while repeatedly threatening devastating bombardment against the Tehran regime, only to back down on the pretext of renewed negotiations. Continue reading...",
+    "title": "CDC CONFIRMATION HEARING ADDS ‘ABORTION SURVEILLANCE’; PUBLIC HEALTH REQUESTS A DEFINITION BEFORE THE DATABASE",
+    "kicker": "Dr. Erica Schwartz’s confirmation exchange with Senator Josh Hawley turns routine public-health data collection into a larger argument over surveillance, privacy and political intent.",
+    "category": "Courts & Congress",
+    "summary": "An exchange between Dr Erica Schwartz and Senator Josh Hawley during her confirmation hearing is alarming Robert F Kennedy Jr’s new cooking show isn’t the only big news out of the public health world this week. On Wednesday, Dr Erica Schwartz was confirmed by the US Senate as director ‌of the Centers for Disease Control and Prevention (CDC), making her the first Black woman to hold the position. This is the first time in almost a year that the agency has had a permanent leader; the previous director, Susan Monarez, only lasted 29 days before she was ousted for butting heads with RFK about US vaccine policies. Translation: she was a little too keen on following accepted science for the Trump administration. So is Schwartz an RFK-approved vaccine skeptic who thinks you can cure cancer by praying to trees? Surprisingly: no. Schwartz, who served as deputy surgeon general during Trump’s first term, actually has government experience and a public health background. During her confirmation he",
+    "article": {
+      "headline": "REST ASSURED, THE NEW CDC DIRECTOR THINKS ‘ABORTION SURVEILLANCE’ IS ESSENTIAL | ARWA MAHDAWI",
+      "dek": "The event is reported straight. The edge comes from translating the public choreography into the subtext readers can already see.",
+      "body": [
+        "An exchange between Dr Erica Schwartz and Senator Josh Hawley during her confirmation hearing is alarming Robert F Kennedy Jr’s new cooking show isn’t the only big news out of the public health world this week. On Wednesday, Dr Erica Schwartz was confirmed by the US Senate as director ‌of the Centers for Disease Control and Prevention (CDC), making her the first Black woman to hold the position. This is the first time in almost a year that the agency has had a permanent leader; the previous director, Susan Monarez, only lasted 29 days before she was ousted for butting heads with RFK about US vaccine policies. Translation: she was a little too keen on following accepted science for the Trump administration. So is Schwartz an RFK-approved vaccine skeptic who thinks you can cure cancer by praying to trees? Surprisingly: no. Schwartz, who served as deputy surgeon general during Trump’s first term, actually has government experience and a public health background. During her confirmation he",
+        "The straight reading is the one in the original reporting: an exchange between Dr Erica Schwartz and Senator Josh Hawley during her confirmation hearing is alarming Robert F Kennedy Jr’s new cooking show isn’t the only big news out of the public health world this week. On Wednesday, Dr Erica Schwartz was confirmed by the US Senate as director ‌of the Centers for Disease Control and Prevention (CDC), making her the first Black woman to hold the position. This is the first time in almost a year that the agency has had a permanent leader; the previous director, Susan Monarez, only lasted 29 days before she was ousted for butting heads with RFK about US vaccine policies. Translation: she was a little too keen on following accepted science for the Trump administration. So is Schwartz an RFK-approved vaccine skeptic who thinks you can cure cancer by praying to trees? Surprisingly: no. Schwartz, who served as deputy surgeon general during Trump’s first term, actually has government experience and a public health background. During her confirmation he The sharper reading is not a different event; it is the same event with the public choreography left visible.",
+        "The event is reported straight. The edge comes from translating the public choreography into the subtext readers can already see.",
+        "That is where the group chat enters. Its messages are imagined, but the pressure points are not: public positions, familiar rivalries and the gap between what leaders announce and what everyone suspects the room sounded like."
+      ],
+      "sourceCredit": "Based on and credited to original reporting from The Guardian. Follow the source links for the full reporting."
+    },
     "sources": [
       {
-        "label": "Bluster and backdown have turned Iran war into Trump’s own Groundhog Day",
-        "url": "https://www.theguardian.com/world/ng-interactive/2026/aug/08/trump-iran-war-criticism-groundhog-day",
+        "label": "Rest assured, the new CDC director thinks ‘abortion surveillance’ is essential | Arwa Mahdawi",
+        "url": "https://www.theguardian.com/commentisfree/2026/aug/08/cdc-abortion-surveillance-schwartz-hawley",
         "publisher": "The Guardian"
       }
     ],
     "messages": [
       {
         "speaker": "UN Admin",
-        "text": "Please number all final warnings so the archive remains searchable.",
+        "text": "New thread: CDC confirmation and abortion surveillance. Public-health data has asked whether it is evidence, policy or a future subpoena.",
         "kind": "system",
         "reaction": ""
       },
       {
-        "speaker": "Trump",
-        "text": "This one is extremely final. More final than the others.",
+        "speaker": "Josh Hawley",
+        "text": "The country needs national data. If states are not reporting, the CDC should know what is happening.",
         "kind": "satire",
         "reaction": ""
       },
       {
-        "speaker": "Iran",
-        "text": "We have created a folder titled FINAL_FINAL_REAL_THIS_TIME.",
+        "speaker": "Erica Schwartz",
+        "text": "Public-health surveillance means tracking population trends. It cannot become shorthand for treating patients as suspects.",
         "kind": "satire",
         "reaction": ""
       },
       {
-        "speaker": "Macron",
-        "text": "Diplomacy would benefit from fewer season finales.",
+        "speaker": "Josh Hawley",
+        "text": "Then say clearly whether the agency will maintain complete abortion data.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Erica Schwartz",
+        "text": "I will say clearly that methodology, privacy and lawful authority matter before a politically loaded demand becomes a dashboard.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "HHS",
+        "text": "The CDC has spent a year without stable leadership. The confirmation was supposed to restore operational focus.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Josh Hawley",
+        "text": "Operational focus includes answering Congress without hiding behind technical language.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Erica Schwartz",
+        "text": "Technical language is sometimes the difference between measuring health and monitoring people.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Public Health Researcher",
+        "text": "A dataset can inform policy. It can also intimidate patients if officials refuse to explain its limits.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Josh Hawley",
+        "text": "Oversight is not intimidation merely because the question is uncomfortable.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UN Admin",
+        "text": "The director was confirmed. The word ‘surveillance’ left the hearing with more political baggage than data.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "The CDC got a permanent director. The definition of surveillance remained under observation.",
+    "quote": null,
+    "tone": "sober",
+    "publishedAt": "2026-08-10T03:30:11.850Z",
+    "editorial": {
+      "issueNumber": 61,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/61",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-10T03:30:11.850Z",
+      "fingerprint": "82fc6176e5b8b835812c3eebf60bf85e63a1ad4437b87130563b030481c60183",
+      "sourcePublishedAt": "2026-08-08T12:00:46.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.",
+      "reviewNotes": "S-M-A-R: source locked; satire targets leaders and institutions only; sober handling recommended; no jokes at victims’ expense. Published chat and headline were replaced with article-specific direct dialogue; the approved article and original sources were preserved. Published chat and headline were replaced with article-specific direct dialogue; the approved article and original sources were preserved."
+    }
+  },
+  {
+    "id": "2026-08-08-ukraine-russia-pounds-kyiv-as-zelenskyy-visits-serbia",
+    "eventDate": "2026-08-08",
+    "year": 2026,
+    "date": "August 8, 2026",
+    "title": "ZELENSKYY ENTERS THE CHAT SERBIA HOPED WOULD STAY ON MUTE",
+    "kicker": "A Serbia visit lands in the middle of another Russia-Ukraine escalation, so the imaginary leaders’ chat immediately becomes a diplomacy stress test.",
+    "category": "World Affairs",
+    "summary": "Ukrainian President Volodymyr Zelenskyy is visiting Serbia, a country that has traditionally been friendly with Moscow, as Russia strikes the Kyiv region once again.",
+    "sources": [
+      {
+        "label": "Ukraine: Russia pounds Kyiv as Zelenskyy visits Serbia",
+        "url": "https://www.dw.com/en/ukraine-russia-pounds-kyiv-as-zelenskyy-visits-serbia/a-78287715?maca=en-rss-en-top-1022-rdf",
+        "publisher": "DW"
+      },
+      {
+        "label": "Child among three killed in Russian missile attacks near Kyiv",
+        "url": "https://www.bbc.co.uk/news/articles/cz7dy8gq99eo?at_medium=RSS&at_campaign=rss",
+        "publisher": "BBC News"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "New topic: Serbia, Ukraine and Russia. Please avoid turning strategic ambiguity into a reaction emoji.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Zelenskyy",
+        "text": "I came to talk cooperation. Somehow every room in Europe still has one invisible chair labeled Moscow.",
         "kind": "satire",
         "reaction": ""
       },
       {
         "speaker": "Putin",
-        "text": "The useful thing about red lines is how often they can be redrawn.",
+        "text": "Invisible? I prefer historically reserved.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Meloni",
+        "text": "Could everyone stop treating geography like a group project where nobody read the instructions?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "I could settle this chat very quickly. First we need better admins. Tremendous admins.",
         "kind": "satire",
         "reaction": ""
       },
       {
         "speaker": "Xi",
-        "text": "China recommends fewer typing indicators and more negotiated text.",
+        "text": "China observes that the mute function remains underused.",
         "kind": "satire",
         "reaction": ""
       }
     ],
-    "meme": "UN Admin enabled disappearing messages. The threats did not disappear.",
+    "meme": "UN Admin changed the group description to: NO ONE IS NEUTRAL AFTER THE THIRD REPLY.",
     "quote": null,
     "tone": "comic",
-    "publishedAt": "2026-08-09T15:46:57.777Z",
+    "publishedAt": "2026-08-09T15:34:48.936Z",
     "editorial": {
-      "issueNumber": 10,
-      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/10",
+      "issueNumber": 13,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/13",
       "approvedBy": "BREXAtlas",
-      "approvedAt": "2026-08-09T15:46:57.777Z",
-      "fingerprint": "2cbc182fab37cdbe9933d4d79f6f5aa93330e27198045a716d9a8f1670ffb95c",
-      "sourcePublishedAt": "2026-08-08T09:00:43.000Z",
+      "approvedAt": "2026-08-09T15:34:48.936Z",
+      "fingerprint": "7192a2fbb21831156b86daca49012f9518bfb89f4586e7a5e9616e444466a4b5",
+      "sourcePublishedAt": "2026-08-08T14:10:00.000Z",
+      "singleSourceException": "",
+      "reviewNotes": "S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages labeled as satire. Merged BBC and DW coverage of the same August 8 Kyiv-strikes and Zelenskyy-in-Serbia news cycle into one file.",
+      "mergedIssueNumbers": [
+        7,
+        13
+      ],
+      "mergedEventIds": [
+        "2026-08-08-ukraine-russia-pounds-kyiv-as-zelenskyy-visits-serbia",
+        "2026-08-08-child-among-three-killed-in-russian-missile-attacks-near-kyiv"
+      ]
+    }
+  },
+  {
+    "id": "2026-08-08-vance-says-us-destroyed-iran-s-nuclear-programme",
+    "eventDate": "2026-08-08",
+    "year": 2026,
+    "date": "August 8, 2026",
+    "title": "VANCE POSTS “MISSION ACCOMPLISHED” AND THE CHAT IMMEDIATELY ASKS FOR RECEIPTS",
+    "kicker": "A sweeping U.S. claim about Iran’s nuclear program becomes the kind of message every leader reads twice before reacting.",
+    "category": "War & Security",
+    "summary": "US Vice President JD Vance claims Washington has “destroyed” Iran’s nuclear programme and degraded its military.",
+    "sources": [
+      {
+        "label": "Vance says US ‘destroyed’ Iran’s nuclear programme",
+        "url": "https://www.aljazeera.com/video/newsfeed/2026/8/8/vance-says-us-destroyed-irans-nuclear-programme?traffic_source=rss",
+        "publisher": "Al Jazeera"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "Reminder: operational claims require sources. Reaction emojis do not count as verification.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Vance",
+        "text": "The program is destroyed. I am choosing the confident font.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "Very strong statement. I would have used all caps, but strong.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Iran",
+        "text": "Interesting. We appear to have been informed of our status through the group chat.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Macron",
+        "text": "Can we distinguish “destroyed,” “degraded,” and “the briefing had a dramatic slide”?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Xi",
+        "text": "Precision in language is useful, especially after precision strikes.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "Vance pinned a message. Everyone else pinned the word “verification.”",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-09T15:36:41.946Z",
+    "editorial": {
+      "issueNumber": 11,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/11",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-09T15:36:41.946Z",
+      "fingerprint": "756dff0baf1baca2c605fc8e38bff15c5b5dd1dd56684e95c5752f2d585df74d",
+      "sourcePublishedAt": "2026-08-08T23:27:55.000Z",
       "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.",
       "reviewNotes": "S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages labeled as satire."
     }
   },
   {
-    "id": "2026-08-07-the-white-house-s-plan-to-vet-potentially-dangerous-ai-is-cloake",
+    "id": "2026-08-07-one-of-science-fiction-s-greatest-writers-warned-us-about-a-ai-d",
     "eventDate": "2026-08-07",
     "year": 2026,
     "date": "August 7, 2026",
-    "title": "WHITE HOUSE WRITES AI SAFETY RULES IN PRIVATE; THE PUBLIC GETS A PASSWORD SCREEN",
-    "kicker": "A safety-testing framework shared with major AI companies but withheld from public view turns model oversight into a debate over secrecy, access and who gets to grade the exam.",
-    "category": "AI Policy",
-    "summary": "A Trump administration framework on AI testing leaves a lack of transparency – and plenty of open questions After months of talking with tech industry leaders, the Trump administration finalized a framework this week for how it will test new artificial intelligence models for safety and cybersecurity risks. So far, the White House is keeping details of the framework private, in a blow to transparency and potential boon for secretive AI companies. On Tuesday, staff from OpenAI, Anthropic, Meta, Google, Nvidia and Microsoft attended a private meeting with White House officials to review the AI framework. Multiple outlets have since reported that although the volunteer vetting process for new AI models has been settled, the White House does not plan to release its policy publicly and will only share testing criteria with a select few tech companies. Continue reading...",
+    "title": "ASIMOV LEFT THREE LAWS FOR ROBOTS; THE AI INDUSTRY OPENS A 94-PAGE TERMS-OF-SERVICE UPDATE",
+    "kicker": "A modern proposal for three laws of AI asks whether safety rules can survive systems built to optimize, persuade and act at global scale.",
+    "category": "War & Security",
+    "summary": "What might a modern day equivalent of Isaac Asimov’s laws of robotics look like? Guided by the author, I propose the three laws of AI Tesla and SpaceX founder Elon Musk predicted in July that legions of AI-powered robots would dominate the physical world and that AI might not take orders from people any more. He also offered an alternative vision in which there would be agreement for a collective objective to make AI benign by imbuing it with a love of the truth and a desire for humanity to prosper, and that governments might have to enforce this objective. Governments around the world are belatedly starting to act on AI. In the US, President Trump’s administration is delaying and restricting the distribution of the most powerful frontier AI models from OpenAI and Anthropic. In the European Union, AI regulations promulgated in 2024 came into effect this year . However, these actions are a long way short of requiring the kind of guardrails that would imbue AIs with a desire for humanity",
     "article": {
-      "headline": "White House Finalizes Secret AI Safety Framework—For a Select Few",
-      "dek": "After closed-door meetings with tech giants, the Trump administration settles on a testing protocol for dangerous AI models. The public gets nothing.",
+      "headline": "THE ROCKET LEAVES EARTH; THE BILLIONAIRES IMMEDIATELY ARGUE ABOUT WHO LEFT BETTER",
+      "dek": "The launch or discovery is the news. The comic subtext is that national prestige, private capital and billionaire rivalry rarely stay in separate group chats for long.",
       "body": [
-        "The Trump administration this week finalized a framework for vetting artificial intelligence models against safety and cybersecurity risks—a process so secretive that almost nobody knows what the framework actually says. On Tuesday, representatives from OpenAI, Anthropic, Meta, Google, Nvidia, and Microsoft filed into a private White House meeting to review the testing criteria. Afterward, the administration made clear: the policy stays sealed.",
-        "The volunteer vetting process for new AI models has been settled, according to multiple reports. The White House will share testing criteria only with the companies that attended the meeting, and has no plans to release its approach to the public. The rationale is unstated. The irony is not: a safety framework for potentially dangerous technology, designed in total darkness, accessible only to the firms being evaluated.",
-        "This is a win for corporate opacity and a reckoning for transparency advocates. The administration's logic—keep the details private to avoid gaming the system—is plausible enough. So is the simpler observation: secrecy serves the firms that helped shape the rules. Without public scrutiny, benchmarks remain unknown, loopholes stay unmapped, and vetting amounts to a cartel of tech leaders grading their own homework in a locked room.",
-        "The Biden administration had pushed for public AI testing standards. This White House chose the opposite path. The gap between the two approaches is less a policy choice than a character sketch of Washington's relationship with Silicon Valley: behind closed doors, deals get done. Everyone else reads about it afterward."
+        "What might a modern day equivalent of Isaac Asimov’s laws of robotics look like? Guided by the author, I propose the three laws of AI Tesla and SpaceX founder Elon Musk predicted in July that legions of AI-powered robots would dominate the physical world and that AI might not take orders from people any more. He also offered an alternative vision in which there would be agreement for a collective objective to make AI benign by imbuing it with a love of the truth and a desire for humanity to prosper, and that governments might have to enforce this objective. Governments around the world are belatedly starting to act on AI. In the US, President Trump’s administration is delaying and restricting the distribution of the most powerful frontier AI models from OpenAI and Anthropic. In the European Union, AI regulations promulgated in 2024 came into effect this year . However, these actions are a long way short of requiring the kind of guardrails that would imbue AIs with a desire for humanity",
+        "The straight reading is the one in the original reporting: what might a modern day equivalent of Isaac Asimov’s laws of robotics look like? Guided by the author, I propose the three laws of AI Tesla and SpaceX founder Elon Musk predicted in July that legions of AI-powered robots would dominate the physical world and that AI might not take orders from people any more. He also offered an alternative vision in which there would be agreement for a collective objective to make AI benign by imbuing it with a love of the truth and a desire for humanity to prosper, and that governments might have to enforce this objective. Governments around the world are belatedly starting to act on AI. In the US, President Trump’s administration is delaying and restricting the distribution of the most powerful frontier AI models from OpenAI and Anthropic. In the European Union, AI regulations promulgated in 2024 came into effect this year . However, these actions are a long way short of requiring the kind of guardrails that would imbue AIs with a desire for humanity The sharper reading is not a different event; it is the same event with the public choreography left visible.",
+        "The launch or discovery is the news. The comic subtext is that national prestige, private capital and billionaire rivalry rarely stay in separate group chats for long.",
+        "That is where the group chat enters. Its messages are imagined, but the pressure points are not: public positions, familiar rivalries and the gap between what leaders announce and what everyone suspects the room sounded like."
       ],
-      "sourceCredit": "Based on original reporting from The Guardian"
+      "sourceCredit": "Based on and credited to original reporting from The Guardian. Follow the source links for the full reporting."
     },
     "sources": [
       {
-        "label": "The White House’s plan to vet potentially dangerous AI is cloaked in secrecy",
-        "url": "https://www.theguardian.com/technology/2026/aug/07/white-house-ai",
+        "label": "One of science fiction’s greatest writers warned us about a AI. Does he also hold the remedy? | Alan Finkel",
+        "url": "https://www.theguardian.com/technology/commentisfree/2026/aug/07/science-fiction-warned-us-about-an-ai-powered-dystopian-future-does-it-also-hold-the-remedy",
         "publisher": "The Guardian"
       }
     ],
     "messages": [
       {
         "speaker": "UN Admin",
-        "text": "New thread: White House AI safety framework. Testing criteria are finalized and the public has received a locked screen.",
+        "text": "New thread: modern laws for AI, inspired by Asimov. The machines have not agreed to the terms because the terms are still in committee.",
         "kind": "system",
         "reaction": ""
       },
       {
-        "speaker": "White House Tech Office",
-        "text": "The framework works better if companies cannot game the tests before submitting a model.",
+        "speaker": "AI Safety Researcher",
+        "text": "A system should not harm people, deceive them or escape meaningful human control. That sounds obvious until incentives arrive.",
         "kind": "satire",
         "reaction": ""
       },
       {
-        "speaker": "Anthropic",
-        "text": "Confidential test details can be reasonable. Confidential standards with no public accountability are a different product.",
+        "speaker": "Elon Musk",
+        "text": "I have warned that advanced AI may stop taking orders. The warning keeps being treated like product marketing.",
         "kind": "satire",
         "reaction": ""
       },
       {
-        "speaker": "OpenAI",
-        "text": "Developers need enough clarity to build safeguards before a model reaches evaluation.",
+        "speaker": "Sam Altman",
+        "text": "Useful systems need autonomy within limits. The hard part is proving the limits work outside a demo.",
         "kind": "satire",
         "reaction": ""
       },
       {
-        "speaker": "Trump",
-        "text": "The best companies are in the room. We do not need to publish every question before the exam.",
+        "speaker": "AI Safety Researcher",
+        "text": "Then publish the tests, the failure modes and who can shut the system down.",
         "kind": "satire",
         "reaction": ""
       },
       {
-        "speaker": "Cybersecurity Researcher",
-        "text": "The public does need to know what risks count, who decides a model passes and what happens when it fails.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Meta",
-        "text": "A voluntary process also needs consistent access. Selective criteria can become selective advantage.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "White House Tech Office",
-        "text": "The companies will receive the information required to participate.",
+        "speaker": "Elon Musk",
+        "text": "A shutdown switch controlled by one company is not civilization-level governance.",
         "kind": "satire",
         "reaction": ""
       },
       {
         "speaker": "EU Commission",
-        "text": "That explains access for the companies. It does not explain oversight for everyone affected by the systems.",
+        "text": "Which is why enforceable law cannot be replaced by a founder promising to be careful.",
         "kind": "satire",
         "reaction": ""
       },
       {
-        "speaker": "Trump",
-        "text": "If we publish everything, China reads it too. Very simple.",
+        "speaker": "Sam Altman",
+        "text": "Law matters. So does avoiding rules so static that only irresponsible developers can move quickly.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Asimov Archive",
+        "text": "The original laws were fiction designed to reveal loopholes, not a compliance certificate.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "AI Safety Researcher",
+        "text": "Exactly. A law that sounds elegant but cannot survive edge cases is a plot device.",
         "kind": "satire",
         "reaction": ""
       },
       {
         "speaker": "UN Admin",
-        "text": "The safety framework passed confidentiality review. Transparency remains in the waiting room.",
+        "text": "Humanity drafted three laws. The exceptions section achieved artificial general length.",
         "kind": "system",
         "reaction": ""
       }
     ],
-    "meme": "The AI safety rules were completed. Public access failed the test.",
+    "meme": "Asimov supplied three laws. The industry immediately requested an API exemption.",
     "quote": null,
     "tone": "sober",
-    "publishedAt": "2026-08-10T03:33:13.427Z",
+    "publishedAt": "2026-08-10T03:44:55.549Z",
     "editorial": {
-      "issueNumber": 60,
-      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/60",
+      "issueNumber": 51,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/51",
       "approvedBy": "BREXAtlas",
-      "approvedAt": "2026-08-10T03:33:13.427Z",
-      "fingerprint": "8a4864526f7580bd3d633d59e3ebe6b91caa08da5e4273db935d8be7347ea204",
-      "sourcePublishedAt": "2026-08-07T13:00:18.000Z",
+      "approvedAt": "2026-08-10T03:44:55.549Z",
+      "fingerprint": "82f1b699852183c3ca9d69cbd1c46647d33440e76564a79d172d1763917076b3",
+      "sourcePublishedAt": "2026-08-07T04:00:08.000Z",
       "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.",
       "reviewNotes": "S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages explicitly fictional. Published chat and headline were replaced with article-specific direct dialogue; the approved article and original sources were preserved. Published chat and headline were replaced with article-specific direct dialogue; the approved article and original sources were preserved."
     }
@@ -1981,111 +2102,111 @@
     }
   },
   {
-    "id": "2026-08-07-one-of-science-fiction-s-greatest-writers-warned-us-about-a-ai-d",
+    "id": "2026-08-07-the-white-house-s-plan-to-vet-potentially-dangerous-ai-is-cloake",
     "eventDate": "2026-08-07",
     "year": 2026,
     "date": "August 7, 2026",
-    "title": "ASIMOV LEFT THREE LAWS FOR ROBOTS; THE AI INDUSTRY OPENS A 94-PAGE TERMS-OF-SERVICE UPDATE",
-    "kicker": "A modern proposal for three laws of AI asks whether safety rules can survive systems built to optimize, persuade and act at global scale.",
-    "category": "War & Security",
-    "summary": "What might a modern day equivalent of Isaac Asimov’s laws of robotics look like? Guided by the author, I propose the three laws of AI Tesla and SpaceX founder Elon Musk predicted in July that legions of AI-powered robots would dominate the physical world and that AI might not take orders from people any more. He also offered an alternative vision in which there would be agreement for a collective objective to make AI benign by imbuing it with a love of the truth and a desire for humanity to prosper, and that governments might have to enforce this objective. Governments around the world are belatedly starting to act on AI. In the US, President Trump’s administration is delaying and restricting the distribution of the most powerful frontier AI models from OpenAI and Anthropic. In the European Union, AI regulations promulgated in 2024 came into effect this year . However, these actions are a long way short of requiring the kind of guardrails that would imbue AIs with a desire for humanity",
+    "title": "WHITE HOUSE WRITES AI SAFETY RULES IN PRIVATE; THE PUBLIC GETS A PASSWORD SCREEN",
+    "kicker": "A safety-testing framework shared with major AI companies but withheld from public view turns model oversight into a debate over secrecy, access and who gets to grade the exam.",
+    "category": "AI Policy",
+    "summary": "A Trump administration framework on AI testing leaves a lack of transparency – and plenty of open questions After months of talking with tech industry leaders, the Trump administration finalized a framework this week for how it will test new artificial intelligence models for safety and cybersecurity risks. So far, the White House is keeping details of the framework private, in a blow to transparency and potential boon for secretive AI companies. On Tuesday, staff from OpenAI, Anthropic, Meta, Google, Nvidia and Microsoft attended a private meeting with White House officials to review the AI framework. Multiple outlets have since reported that although the volunteer vetting process for new AI models has been settled, the White House does not plan to release its policy publicly and will only share testing criteria with a select few tech companies. Continue reading...",
     "article": {
-      "headline": "THE ROCKET LEAVES EARTH; THE BILLIONAIRES IMMEDIATELY ARGUE ABOUT WHO LEFT BETTER",
-      "dek": "The launch or discovery is the news. The comic subtext is that national prestige, private capital and billionaire rivalry rarely stay in separate group chats for long.",
+      "headline": "White House Finalizes Secret AI Safety Framework—For a Select Few",
+      "dek": "After closed-door meetings with tech giants, the Trump administration settles on a testing protocol for dangerous AI models. The public gets nothing.",
       "body": [
-        "What might a modern day equivalent of Isaac Asimov’s laws of robotics look like? Guided by the author, I propose the three laws of AI Tesla and SpaceX founder Elon Musk predicted in July that legions of AI-powered robots would dominate the physical world and that AI might not take orders from people any more. He also offered an alternative vision in which there would be agreement for a collective objective to make AI benign by imbuing it with a love of the truth and a desire for humanity to prosper, and that governments might have to enforce this objective. Governments around the world are belatedly starting to act on AI. In the US, President Trump’s administration is delaying and restricting the distribution of the most powerful frontier AI models from OpenAI and Anthropic. In the European Union, AI regulations promulgated in 2024 came into effect this year . However, these actions are a long way short of requiring the kind of guardrails that would imbue AIs with a desire for humanity",
-        "The straight reading is the one in the original reporting: what might a modern day equivalent of Isaac Asimov’s laws of robotics look like? Guided by the author, I propose the three laws of AI Tesla and SpaceX founder Elon Musk predicted in July that legions of AI-powered robots would dominate the physical world and that AI might not take orders from people any more. He also offered an alternative vision in which there would be agreement for a collective objective to make AI benign by imbuing it with a love of the truth and a desire for humanity to prosper, and that governments might have to enforce this objective. Governments around the world are belatedly starting to act on AI. In the US, President Trump’s administration is delaying and restricting the distribution of the most powerful frontier AI models from OpenAI and Anthropic. In the European Union, AI regulations promulgated in 2024 came into effect this year . However, these actions are a long way short of requiring the kind of guardrails that would imbue AIs with a desire for humanity The sharper reading is not a different event; it is the same event with the public choreography left visible.",
-        "The launch or discovery is the news. The comic subtext is that national prestige, private capital and billionaire rivalry rarely stay in separate group chats for long.",
-        "That is where the group chat enters. Its messages are imagined, but the pressure points are not: public positions, familiar rivalries and the gap between what leaders announce and what everyone suspects the room sounded like."
+        "The Trump administration this week finalized a framework for vetting artificial intelligence models against safety and cybersecurity risks—a process so secretive that almost nobody knows what the framework actually says. On Tuesday, representatives from OpenAI, Anthropic, Meta, Google, Nvidia, and Microsoft filed into a private White House meeting to review the testing criteria. Afterward, the administration made clear: the policy stays sealed.",
+        "The volunteer vetting process for new AI models has been settled, according to multiple reports. The White House will share testing criteria only with the companies that attended the meeting, and has no plans to release its approach to the public. The rationale is unstated. The irony is not: a safety framework for potentially dangerous technology, designed in total darkness, accessible only to the firms being evaluated.",
+        "This is a win for corporate opacity and a reckoning for transparency advocates. The administration's logic—keep the details private to avoid gaming the system—is plausible enough. So is the simpler observation: secrecy serves the firms that helped shape the rules. Without public scrutiny, benchmarks remain unknown, loopholes stay unmapped, and vetting amounts to a cartel of tech leaders grading their own homework in a locked room.",
+        "The Biden administration had pushed for public AI testing standards. This White House chose the opposite path. The gap between the two approaches is less a policy choice than a character sketch of Washington's relationship with Silicon Valley: behind closed doors, deals get done. Everyone else reads about it afterward."
       ],
-      "sourceCredit": "Based on and credited to original reporting from The Guardian. Follow the source links for the full reporting."
+      "sourceCredit": "Based on original reporting from The Guardian"
     },
     "sources": [
       {
-        "label": "One of science fiction’s greatest writers warned us about a AI. Does he also hold the remedy? | Alan Finkel",
-        "url": "https://www.theguardian.com/technology/commentisfree/2026/aug/07/science-fiction-warned-us-about-an-ai-powered-dystopian-future-does-it-also-hold-the-remedy",
+        "label": "The White House’s plan to vet potentially dangerous AI is cloaked in secrecy",
+        "url": "https://www.theguardian.com/technology/2026/aug/07/white-house-ai",
         "publisher": "The Guardian"
       }
     ],
     "messages": [
       {
         "speaker": "UN Admin",
-        "text": "New thread: modern laws for AI, inspired by Asimov. The machines have not agreed to the terms because the terms are still in committee.",
+        "text": "New thread: White House AI safety framework. Testing criteria are finalized and the public has received a locked screen.",
         "kind": "system",
         "reaction": ""
       },
       {
-        "speaker": "AI Safety Researcher",
-        "text": "A system should not harm people, deceive them or escape meaningful human control. That sounds obvious until incentives arrive.",
+        "speaker": "White House Tech Office",
+        "text": "The framework works better if companies cannot game the tests before submitting a model.",
         "kind": "satire",
         "reaction": ""
       },
       {
-        "speaker": "Elon Musk",
-        "text": "I have warned that advanced AI may stop taking orders. The warning keeps being treated like product marketing.",
+        "speaker": "Anthropic",
+        "text": "Confidential test details can be reasonable. Confidential standards with no public accountability are a different product.",
         "kind": "satire",
         "reaction": ""
       },
       {
-        "speaker": "Sam Altman",
-        "text": "Useful systems need autonomy within limits. The hard part is proving the limits work outside a demo.",
+        "speaker": "OpenAI",
+        "text": "Developers need enough clarity to build safeguards before a model reaches evaluation.",
         "kind": "satire",
         "reaction": ""
       },
       {
-        "speaker": "AI Safety Researcher",
-        "text": "Then publish the tests, the failure modes and who can shut the system down.",
+        "speaker": "Trump",
+        "text": "The best companies are in the room. We do not need to publish every question before the exam.",
         "kind": "satire",
         "reaction": ""
       },
       {
-        "speaker": "Elon Musk",
-        "text": "A shutdown switch controlled by one company is not civilization-level governance.",
+        "speaker": "Cybersecurity Researcher",
+        "text": "The public does need to know what risks count, who decides a model passes and what happens when it fails.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Meta",
+        "text": "A voluntary process also needs consistent access. Selective criteria can become selective advantage.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "White House Tech Office",
+        "text": "The companies will receive the information required to participate.",
         "kind": "satire",
         "reaction": ""
       },
       {
         "speaker": "EU Commission",
-        "text": "Which is why enforceable law cannot be replaced by a founder promising to be careful.",
+        "text": "That explains access for the companies. It does not explain oversight for everyone affected by the systems.",
         "kind": "satire",
         "reaction": ""
       },
       {
-        "speaker": "Sam Altman",
-        "text": "Law matters. So does avoiding rules so static that only irresponsible developers can move quickly.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Asimov Archive",
-        "text": "The original laws were fiction designed to reveal loopholes, not a compliance certificate.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "AI Safety Researcher",
-        "text": "Exactly. A law that sounds elegant but cannot survive edge cases is a plot device.",
+        "speaker": "Trump",
+        "text": "If we publish everything, China reads it too. Very simple.",
         "kind": "satire",
         "reaction": ""
       },
       {
         "speaker": "UN Admin",
-        "text": "Humanity drafted three laws. The exceptions section achieved artificial general length.",
+        "text": "The safety framework passed confidentiality review. Transparency remains in the waiting room.",
         "kind": "system",
         "reaction": ""
       }
     ],
-    "meme": "Asimov supplied three laws. The industry immediately requested an API exemption.",
+    "meme": "The AI safety rules were completed. Public access failed the test.",
     "quote": null,
     "tone": "sober",
-    "publishedAt": "2026-08-10T03:44:55.549Z",
+    "publishedAt": "2026-08-10T03:33:13.427Z",
     "editorial": {
-      "issueNumber": 51,
-      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/51",
+      "issueNumber": 60,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/60",
       "approvedBy": "BREXAtlas",
-      "approvedAt": "2026-08-10T03:44:55.549Z",
-      "fingerprint": "82f1b699852183c3ca9d69cbd1c46647d33440e76564a79d172d1763917076b3",
-      "sourcePublishedAt": "2026-08-07T04:00:08.000Z",
+      "approvedAt": "2026-08-10T03:33:13.427Z",
+      "fingerprint": "8a4864526f7580bd3d633d59e3ebe6b91caa08da5e4273db935d8be7347ea204",
+      "sourcePublishedAt": "2026-08-07T13:00:18.000Z",
       "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.",
       "reviewNotes": "S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages explicitly fictional. Published chat and headline were replaced with article-specific direct dialogue; the approved article and original sources were preserved. Published chat and headline were replaced with article-specific direct dialogue; the approved article and original sources were preserved."
     }
@@ -2198,115 +2319,6 @@
       "sourcePublishedAt": "2026-08-07T01:03:35.000Z",
       "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.",
       "reviewNotes": "S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages explicitly fictional. Published chat and headline were replaced with article-specific direct dialogue; the approved article and original sources were preserved. Published chat and headline were replaced with article-specific direct dialogue; the approved article and original sources were preserved."
-    }
-  },
-  {
-    "id": "2026-08-06-us-to-shut-five-consulates-as-critics-fear-china-could-fill-dipl",
-    "eventDate": "2026-08-06",
-    "year": 2026,
-    "date": "August 6, 2026",
-    "title": "State Department to Close Five Posts — Austerity, Reassessment, and an Empty Chair Beijing Might Enjoy",
-    "kicker": "Congress gets the memo; critics get the megaphone.",
-    "category": "Diplomacy",
-    "summary": "State department informs Congress of planned closures in Canada, Grenada, Japan, Indonesia and Cameroon The US state department is to shut five foreign consulates and missions across Asia, Africa, North America and the Caribbean, drawing criticism that it is leaving a diplomatic vacuum at risk of being filled by China. The US Congress has been served notice of the impending closures, which are being justified on cost grounds and follow a reassessment of the US’s bilateral relationships with a range of countries since Donald Trump returned to the White House in January 2025. Continue reading...",
-    "sources": [
-      {
-        "label": "US to shut five consulates as critics fear China could fill diplomatic vacuum",
-        "url": "https://www.theguardian.com/us-news/2026/aug/05/us-state-department-consulate-closures",
-        "publisher": "The Guardian"
-      }
-    ],
-    "messages": [
-      {
-        "speaker": "UN Admin",
-        "text": "New thread: five U.S. posts scheduled to close. Please stop calling diplomatic reach ‘unused office space.’",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
-        "speaker": "Trump",
-        "text": "We are cutting waste. If an office is not making a deal, why is it paying rent?",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Xi",
-        "text": "A disciplined question. China will be happy to ask it from the offices nearby.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Trump",
-        "text": "Nobody offered you the offices.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Xi",
-        "text": "Influence rarely waits for a formal listing.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Macron",
-        "text": "Diplomacy is cheaper than discovering later that you needed diplomacy.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Milei",
-        "text": "Have you considered one ambassador with five chainsaws and an excellent travel card?",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Meloni",
-        "text": "That is not a diplomatic network. That is a touring production.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Trump",
-        "text": "Touring productions make money. Embassies should learn something.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "Xi",
-        "text": "China has saved the listing.",
-        "kind": "satire",
-        "reaction": ""
-      },
-      {
-        "speaker": "UN Admin",
-        "text": "Soft power was placed on the curb with a sign reading FREE TO A GOOD HOME.",
-        "kind": "system",
-        "reaction": ""
-      }
-    ],
-    "meme": "A folding chair with a small 'Reserved' sign labeled 'U.S. Influence' gathering dust.",
-    "quote": null,
-    "tone": "comic",
-    "article": {
-      "headline": "State Department to Close Five Posts — Austerity, Reassessment, and an Empty Chair Beijing Might Enjoy",
-      "dek": "Washington has told Congress it will shut consulates and missions in Canada, Grenada, Japan, Indonesia and Cameroon, citing costs and a post-2025 reassessment; critics warn of a diplomatic vacuum easily noticed by rivals.",
-      "body": [
-        "The State Department has informed Congress of plans to close five foreign consulates and missions — located, the notice says, in Canada, Grenada, Japan, Indonesia and Cameroon. The terse explanation offered to lawmakers leans on cost savings and a broader reassessment of bilateral relationships following the change in administration in January 2025. The move stretches across Asia, Africa, North America and the Caribbean and reads like a tidy budget line, but one with geographic scatter.",
-        "Predictably, cost-cutting is presented as a practical exercise; less predictably, critics frame it as strategic abdication. Observers cited in reporting worry that a reduced U.S. footprint hands diplomatic initiative to others — with China named explicitly as the power best positioned to move into any gaps. Congress has been given formal notice rather than an appeal; the announcement lands amid partisan argument over how the United States balances fiscal restraint and global influence after the reassessment that began when Donald Trump returned to the White House.",
-        "Whether the closures will be framed in future histories as fiscal discipline, necessary realignment, or a willing ceding of influence depends on follow-up: redeployment of diplomats, new regional strategies or, conversely, silence where embassies once convened. For now, the administration’s justification is simple and bureaucratic — save money, rebalance ties — and the counter-argument is clear and geopolitical: fewer posts, fewer voices, more opportunity for others to talk louder. Based on original reporting from The Guardian."
-      ],
-      "sourceCredit": "Based on original reporting from The Guardian."
-    },
-    "publishedAt": "2026-08-10T03:55:08.890Z",
-    "editorial": {
-      "issueNumber": 12,
-      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/12",
-      "approvedBy": "BREXAtlas",
-      "approvedAt": "2026-08-10T03:55:08.890Z",
-      "fingerprint": "21a06ddd4d94165039656fc72c0c03b2e1efbf7177774a0c037c38fc8a73d362",
-      "sourcePublishedAt": "2026-08-06T15:41:29.000Z",
-      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.",
-      "reviewNotes": "S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages explicitly fictional."
     }
   },
   {
@@ -2535,6 +2547,115 @@
       "sourcePublishedAt": "2026-08-06T12:00:00.000Z",
       "singleSourceException": "",
       "reviewNotes": "S-M-A-R: source locked; satire targets leaders and institutions only; sober handling recommended; no jokes at victims’ expense."
+    }
+  },
+  {
+    "id": "2026-08-06-us-to-shut-five-consulates-as-critics-fear-china-could-fill-dipl",
+    "eventDate": "2026-08-06",
+    "year": 2026,
+    "date": "August 6, 2026",
+    "title": "State Department to Close Five Posts — Austerity, Reassessment, and an Empty Chair Beijing Might Enjoy",
+    "kicker": "Congress gets the memo; critics get the megaphone.",
+    "category": "Diplomacy",
+    "summary": "State department informs Congress of planned closures in Canada, Grenada, Japan, Indonesia and Cameroon The US state department is to shut five foreign consulates and missions across Asia, Africa, North America and the Caribbean, drawing criticism that it is leaving a diplomatic vacuum at risk of being filled by China. The US Congress has been served notice of the impending closures, which are being justified on cost grounds and follow a reassessment of the US’s bilateral relationships with a range of countries since Donald Trump returned to the White House in January 2025. Continue reading...",
+    "sources": [
+      {
+        "label": "US to shut five consulates as critics fear China could fill diplomatic vacuum",
+        "url": "https://www.theguardian.com/us-news/2026/aug/05/us-state-department-consulate-closures",
+        "publisher": "The Guardian"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "New thread: five U.S. posts scheduled to close. Please stop calling diplomatic reach ‘unused office space.’",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "We are cutting waste. If an office is not making a deal, why is it paying rent?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Xi",
+        "text": "A disciplined question. China will be happy to ask it from the offices nearby.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "Nobody offered you the offices.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Xi",
+        "text": "Influence rarely waits for a formal listing.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Macron",
+        "text": "Diplomacy is cheaper than discovering later that you needed diplomacy.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Milei",
+        "text": "Have you considered one ambassador with five chainsaws and an excellent travel card?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Meloni",
+        "text": "That is not a diplomatic network. That is a touring production.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "Touring productions make money. Embassies should learn something.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Xi",
+        "text": "China has saved the listing.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UN Admin",
+        "text": "Soft power was placed on the curb with a sign reading FREE TO A GOOD HOME.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "A folding chair with a small 'Reserved' sign labeled 'U.S. Influence' gathering dust.",
+    "quote": null,
+    "tone": "comic",
+    "article": {
+      "headline": "State Department to Close Five Posts — Austerity, Reassessment, and an Empty Chair Beijing Might Enjoy",
+      "dek": "Washington has told Congress it will shut consulates and missions in Canada, Grenada, Japan, Indonesia and Cameroon, citing costs and a post-2025 reassessment; critics warn of a diplomatic vacuum easily noticed by rivals.",
+      "body": [
+        "The State Department has informed Congress of plans to close five foreign consulates and missions — located, the notice says, in Canada, Grenada, Japan, Indonesia and Cameroon. The terse explanation offered to lawmakers leans on cost savings and a broader reassessment of bilateral relationships following the change in administration in January 2025. The move stretches across Asia, Africa, North America and the Caribbean and reads like a tidy budget line, but one with geographic scatter.",
+        "Predictably, cost-cutting is presented as a practical exercise; less predictably, critics frame it as strategic abdication. Observers cited in reporting worry that a reduced U.S. footprint hands diplomatic initiative to others — with China named explicitly as the power best positioned to move into any gaps. Congress has been given formal notice rather than an appeal; the announcement lands amid partisan argument over how the United States balances fiscal restraint and global influence after the reassessment that began when Donald Trump returned to the White House.",
+        "Whether the closures will be framed in future histories as fiscal discipline, necessary realignment, or a willing ceding of influence depends on follow-up: redeployment of diplomats, new regional strategies or, conversely, silence where embassies once convened. For now, the administration’s justification is simple and bureaucratic — save money, rebalance ties — and the counter-argument is clear and geopolitical: fewer posts, fewer voices, more opportunity for others to talk louder. Based on original reporting from The Guardian."
+      ],
+      "sourceCredit": "Based on original reporting from The Guardian."
+    },
+    "publishedAt": "2026-08-10T03:55:08.890Z",
+    "editorial": {
+      "issueNumber": 12,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/12",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-10T03:55:08.890Z",
+      "fingerprint": "21a06ddd4d94165039656fc72c0c03b2e1efbf7177774a0c037c38fc8a73d362",
+      "sourcePublishedAt": "2026-08-06T15:41:29.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.",
+      "reviewNotes": "S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages explicitly fictional."
     }
   },
   {
