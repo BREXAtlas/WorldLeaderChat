@@ -242,6 +242,133 @@
     }
   },
   {
+    "id": "2026-08-11-scottish-striker-ure-makes-5-5m-sevilla-move",
+    "eventDate": "2026-08-11",
+    "year": 2026,
+    "date": "August 11, 2026",
+    "title": "Sports & Soft Power",
+    "kicker": "Scottish talent via Sweden to Spain",
+    "category": "Sports & Soft Power",
+    "summary": "Sevilla announce £5.5m move, rising to potential £7.6m, for former Scotland youth international striker Robbie Ure to join from Swedish club IK Sirius.",
+    "article": {
+      "headline": "Sevilla Secures Robbie Ure From IK Sirius for £5.5m",
+      "dek": "The Scottish striker's move from Swedish football to La Liga signals how talent pipelines now bypass direct routes to England's Premier League.",
+      "body": [
+        "Sevilla FC has confirmed the acquisition of Scottish striker Robbie Ure from Swedish Allsvenskan club IK Sirius. The fee is structured at £5.5 million with performance-related add-ons potentially lifting the total to £7.6 million. Ure, a former Scotland youth international, moves into one of Europe's established leagues after developing abroad.",
+        "The transfer represents a calculated step upward for a young player who has found his market through Nordic football. Sevilla's willingness to invest in youth international players from the periphery of elite football suggests confidence in their scouting and development model, even as the base fee remains modest by elite-club standards.",
+        "The move also reflects a broader pattern: Scottish talent no longer follows a singular path to English football. By establishing credentials in Sweden, Ure has gained access to La Liga's infrastructure without first testing himself against Premier League competition. For IK Sirius, the sale validates their function as a development platform where players can accumulate competitive experience before stepping into larger European ecosystems."
+      ],
+      "sourceCredit": "Based on original reporting from BBC Sport."
+    },
+    "sources": [
+      {
+        "label": "Scottish striker Ure makes £5.5m Sevilla move",
+        "url": "https://www.bbc.co.uk/sport/football/articles/c7vgj826nnjo?at_medium=RSS&at_campaign=rss",
+        "publisher": "BBC Sport"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "Sevilla confirm Robbie Ure deal from IK Sirius—£5.5m plus bonuses to £7.6m. Scottish youth international. Swedish-to-Spanish pipeline confirmed operational.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Scottish Football Desk",
+        "text": "Ure's gone to Spain. Not England. This is the second time this month a Scottish prospect has chosen continental development over the Premier League wait.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Sevilla Scout Network",
+        "text": "£5.5m for a player who cut his teeth in Allsvenskan. That's exactly the profile we've been targeting—proven in a real league, no hype markup.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Transfer Market Analyst",
+        "text": "The add-ons structure is interesting. Sevilla isn't betting the full £7.6m on appearances. Performance gates matter here.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "IK Sirius Media",
+        "text": "We developed Ure. We're proud of his progress. This is what a Swedish club does—we build players for the next stage. Sevilla is the next stage.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Scottish Football Desk",
+        "text": "And now watch the Premier League clubs panic in January when he scores six in La Liga and they realize they could've had him for less.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Premier League Correspondent",
+        "text": "Scotland's talent pipeline used to run south. Now it runs through Stockholm first. Explains a lot about why English clubs are suddenly scouting friendlies in Malmö.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Sevilla Scout Network",
+        "text": "This is the economic play. Swedish league salaries are reasonable. Development speed is real. Resale value is predictable. Why overpay for potential in the Championship?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Transfer Market Analyst",
+        "text": "The £2.1m in potential add-ons is Sevilla saying 'we'll pay more if you're actually good.' That's confidence without recklessness. Smart structure for a young player.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Premier League Correspondent",
+        "text": "Five years ago, Ure would've gone to a Scottish club, then directly to England on a minimum fee transfer. Now he's on a different continent entirely. Scottish football geography just shifted.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "IK Sirius Media",
+        "text": "Every time one of our players leaves for a bigger league, we see the value in what we built. Sevilla are getting a finished product because we did the work.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Scottish Football Desk",
+        "text": "Real question: does Ure stay in Spain or does this become a stepping stone to Italy next? £5.5m now, but his agent is already pricing the Leicester move in 2027.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Sevilla Scout Network",
+        "text": "That's the bet. He improves here, he becomes a £20m asset in 18 months. He stalls, we break even on the add-ons. Either way, we controlled the narrative and the fee.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UN Admin",
+        "text": "Scottish youth international avoids England entirely; tests himself in Spain via Sweden. English clubs now 2,000 miles from the talent they didn't know they were losing.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "Scotland's talent pipeline used to go south; now it goes east, deposits in Sweden, then transfers to Spain before England notices.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-11T20:20:13.938Z",
+    "editorial": {
+      "issueNumber": 150,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/150",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-11T20:20:13.938Z",
+      "fingerprint": "8e9c084662b3eb88d9c1b15c97c767d7cd13bdeecc9506657ae9408ca9938a13",
+      "sourcePublishedAt": "2026-08-11T09:42:20.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Every fact derives from BBC Sport's verified summary: Ure's move from IK Sirius to Sevilla, fee structure, youth international status. Chat speakers represent Scottish, Spanish, Swedish, English and transfer analysis perspectives naturally adjacent to the event, with Scottish Football Desk and Sevilla Scout Network returning to establish pattern and tension. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-11-trump-responds-broadly-when-asked-about-newly-publicized-fauci-phone-rec",
     "eventDate": "2026-08-11",
     "year": 2026,
