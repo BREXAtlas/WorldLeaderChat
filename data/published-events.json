@@ -1,5 +1,126 @@
 [
   {
+    "id": "2026-08-10-barack-obama-launches-podcast-about-books-that-shaped-his-worldv",
+    "eventDate": "2026-08-10",
+    "year": 2026,
+    "date": "August 10, 2026",
+    "title": "Barack Obama Audible Podcast: Six Episodes of Presidential Book Club",
+    "kicker": "Former president hosts September debut of 'A Great Book with Barack Obama'",
+    "category": "Culture & Entertainment",
+    "summary": "The former US president will host six episodes of A Great Book for Audible, discussing work from Toni Morrison and John le Carré to James Baldwin Barack Obama is set to host a podcast about books that have “profoundly shaped his worldview and our society”, from Song of Solomon by Toni Morrison to Tinker Tailor Soldier Spy by John le Carré. The podcast, called A Great Book with Barack Obama, will launch on Audible on 24 September. Continue reading...",
+    "article": {
+      "headline": "Barack Obama to Host Audible Podcast on Books That 'Shaped His Worldview'",
+      "dek": "Six-episode series launches September 24, featuring classics from Toni Morrison and John le Carré",
+      "body": [
+        "Barack Obama will host six episodes of a new Audible podcast titled 'A Great Book with Barack Obama,' discussing works that have, as the official description phrases it, 'profoundly shaped his worldview and our society.' The series launches September 24 on Amazon's audiobook platform. This marks Obama's latest media venture into literature, a domain considerably less crowded than presidential memoir space.",
+        "The podcast will feature discussion of Song of Solomon by Toni Morrison and Tinker Tailor Soldier Spy by John le Carré, among other titles. The former president's approach to curating intellectual content has demonstrated consistent interest in canonical and contemporary fiction. By hosting rather than writing this time, Obama adopts the podcast format that has become a standard vehicle for public figures seeking intimate audience connection.",
+        "Based on original reporting from The Guardian."
+      ],
+      "sourceCredit": "Based on original reporting from The Guardian"
+    },
+    "sources": [
+      {
+        "label": "Barack Obama launches podcast about books that ‘shaped his worldview’",
+        "url": "https://www.theguardian.com/books/2026/aug/10/barack-obama-launches-podcast-about-books-that-shaped-his-worldview",
+        "publisher": "The Guardian"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "📢 AUDIBLE ALERT: Obama book podcast lands Sept 24. Six episodes. Toni Morrison. John le Carré. Worldview shaping confirmed.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Audible Editorial",
+        "text": "We're genuinely thrilled about this one. Presidential book taste actually holds up—nobody's forcing a beach read situation here.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Publishing Digest",
+        "text": "Song of Solomon sales spike incoming. Le Carré's been on the throne for 50 years anyway. This is just confirmation bias for the literary establishment.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Audible Editorial",
+        "text": "Six episodes feels right. Long enough to actually dig in, short enough to not turn into a lecture series nobody finishes.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Media Studies",
+        "text": "The 'shaped my worldview' framing is doing a lot of work here. He's not reviewing books, he's claiming they matter. Big difference.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Publishing Digest",
+        "text": "Morrison's 40 years dead and still outselling live authors. That's not a book discussion, that's a monument.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Random Listener",
+        "text": "Wait, six episodes? So I have to commit to this or I miss his actual thoughts? That's old media energy right there.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Audible Editorial",
+        "text": "Bingo. Six is the Goldilocks number. Not YouTube rabbit-hole territory. Not a two-minute TikTok either.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Media Studies",
+        "text": "I want to know if he's actually challenging himself or just validating canonical preferences. Morrison and le Carré aren't risks.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Lit Agent",
+        "text": "Every book mentioned here just got a five-figure spike in audiobook buys. Obama's basically a literary economy stimulus check.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Random Listener",
+        "text": "If I listen to this am I gonna pretend I understood Tinker Tailor Soldier Spy or just accept confusion as the experience?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Lit Agent",
+        "text": "Confusion is the entire point of le Carré. Obama's not simplifying it. Audible's just giving you permission to spend time there.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UN Admin",
+        "text": "CLOSING: So a former president is using Amazon's infrastructure to justify why dead authors matter. Somehow that's less dystopian than expected.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "Former president discovers six books actually do fit on Audible's servers.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-11T01:54:54.959Z",
+    "editorial": {
+      "issueNumber": 83,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/83",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-11T01:54:54.959Z",
+      "fingerprint": "95d82cb7ed1a7330cd29f48a4dd335012f48c3d9440e8d501a8eedc70bec56eb",
+      "sourcePublishedAt": "2026-08-10T16:59:13.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Every factual detail (6 episodes, Sept 24 launch, Toni Morrison/le Carré titles, Audible platform, 'shaped his worldview' phrasing) drawn from Guardian report; chat voices exclusively reference books, publishing economics, and podcast format—no invented policy positions or private communications. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-10-francesca-hong-the-progressive-leading-a-messy-race-for-wisconsi",
     "eventDate": "2026-08-10",
     "year": 2026,
