@@ -3809,6 +3809,121 @@
     }
   },
   {
+    "id": "2026-08-10-consortium-advances-talks-for-stake-in-liverpool",
+    "eventDate": "2026-08-10",
+    "year": 2026,
+    "date": "August 10, 2026",
+    "title": "Bezos-linked group advances talks to buy about 30% of Liverpool, BBC Sport reports — yes, really",
+    "kicker": "A high-profile consortium circles Anfield with a roughly 30% offer in advanced talks",
+    "category": "Business & Power",
+    "summary": "A group including Amazon founder Jeff Bezos advances its talks to buy about a 30% stake in Liverpool, BBC Sport has been told.",
+    "article": {
+      "headline": "Consortium including Jeff Bezos advances talks for roughly 30% stake in Liverpool, BBC Sport reports",
+      "dek": "BBC Sport named Jeff Bezos among investors in advanced talks to buy about 30% of Liverpool — it's negotiation season at Anfield.",
+      "body": [
+        "BBC Sport reported on August 10, 2026 that a group including Amazon founder Jeff Bezos has advanced talks to buy about a 30% stake in Liverpool. The figure—about 30%—is specific; the deal is not.",
+        "If Fenway Sports Group entertains a minority sale, the change would be about boardroom arithmetic at Anfield rather than an immediate overhaul of matchdays. BBC News is the source; no paperwork or filings were presented as fact in the report.",
+        "Advanced talks look dramatic in headlines but require due diligence, contracts and possible regulatory steps before any ownership change is real. For now, the story is a named-investor negotiation that may or may not end at the transfer window of corporate paperwork."
+      ],
+      "sourceCredit": "Based on original reporting from BBC News."
+    },
+    "sources": [
+      {
+        "label": "Consortium advances talks for stake in Liverpool",
+        "url": "https://www.bbc.co.uk/sport/football/articles/cgljd4kny9eo?at_medium=RSS&at_campaign=rss",
+        "publisher": "BBC News"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Admin",
+        "text": "I just flagged BBC Sport reporting that a group including Jeff Bezos has advanced talks to buy about a 30% stake in Liverpool.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "BBC Sport",
+        "text": "I published the scoop naming a consortium and the roughly 30% figure linked to Anfield on August 10, 2026.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Liverpool FC Supporter",
+        "text": "I heard Bezos's name and I'm wondering what a 30% stake actually means for Anfield and weekend rituals.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Fenway Sports Group",
+        "text": "I noted that the current owners might be in talks over a 30% sale, and the report attributes that development to BBC Sport.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Financial Analyst",
+        "text": "I see 'about 30%' and I think governance, voting thresholds and who controls transfer coffers at Liverpool.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Amazon Observer",
+        "text": "I read the BBC article and I will only restate what it says: a group including Jeff Bezos is reported to be in advanced talks.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Anfield Local",
+        "text": "I worry aloud that selling roughly 30% could shift priorities for stadium upgrades at Anfield, even if talks are still advanced and informal.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Sports Lawyer",
+        "text": "I look at a proposed 30% purchase and I say contracts, due diligence and possible filings will have to follow before any ownership change.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Consortium Watcher",
+        "text": "I track high-profile bids and a reported Bezos-included group moving on about 30% at Liverpool is exactly the kind of headline I catalogue.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "BBC Sport",
+        "text": "I want to remind readers that our story says 'consortium advances talks' for about a 30% stake — reporting, not a closed transaction.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Liverpool FC Supporter",
+        "text": "I remain anxious and curious about what 'about 30%' will mean in practice for transfers and who sits at the boardroom table.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UN Admin",
+        "text": "I close with a dry note: BBC reports Bezos is named and talks are advanced; until signatures appear, it's negotiation theatre, not new ownership.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "Bezos eyes a third of the boardroom; fans keep the chants.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-11T20:45:24.945Z",
+    "editorial": {
+      "issueNumber": 101,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/101",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-11T20:45:24.945Z",
+      "fingerprint": "2555e0a34fdc21e5f77d03aee7faa9af4b4c0e6c177a75bed680ccb33b90fa65",
+      "sourcePublishedAt": "2026-08-10T13:16:51.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "All claims adhere to the BBC Sport report (Aug 10, 2026); chat lines reference named parties, the ~30% figure, Anfield and Fenway without inventing private quotes or outcomes. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-10-demi-lovato-to-make-camp-rock-3-cameo-appearance",
     "eventDate": "2026-08-10",
     "year": 2026,

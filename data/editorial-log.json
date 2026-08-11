@@ -971,5 +971,17 @@
     "sourceUrls": [
       "https://variety.com/2026/tv/news/demi-lovato-camp-rock-3-cameo-1236831732/"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-10-consortium-advances-talks-for-stake-in-liverpool",
+    "issueNumber": 101,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/101",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-11T20:45:24.945Z",
+    "fingerprint": "2555e0a34fdc21e5f77d03aee7faa9af4b4c0e6c177a75bed680ccb33b90fa65",
+    "sourceUrls": [
+      "https://www.bbc.co.uk/sport/football/articles/cgljd4kny9eo?at_medium=RSS&at_campaign=rss"
+    ]
   }
 ]
