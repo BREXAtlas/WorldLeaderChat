@@ -766,5 +766,17 @@
     "sourceUrls": [
       "https://www.aljazeera.com/news/2026/8/11/trump-demands-compensation-from-iran-as-talks-on-strait-of-hormuz-continue?traffic_source=rss"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-10-middle-east-iran-wants-us-concessions-before-opening-hormuz",
+    "issueNumber": 109,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/109",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-11T20:31:29.949Z",
+    "fingerprint": "d75d0e8b3c16015d905edc0166f456ccf3f1107e93bce2c2693bb0191873ebfc",
+    "sourceUrls": [
+      "https://www.dw.com/en/middle-east-iran-wants-us-concessions-before-opening-hormuz/live-78305309?maca=en-rss-en-top-1022-rdf"
+    ]
   }
 ]

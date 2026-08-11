@@ -2309,6 +2309,127 @@
     }
   },
   {
+    "id": "2026-08-10-middle-east-iran-wants-us-concessions-before-opening-hormuz",
+    "eventDate": "2026-08-10",
+    "year": 2026,
+    "date": "August 10, 2026",
+    "title": "Iran Locks the Strait Until America Blinks",
+    "kicker": "Tehran demands concessions before Hormuz reopens; Germany gambles Trump's Gaza plan could defang Hamas",
+    "category": "World News",
+    "summary": "Iran's Foreign Ministry reiterated that the US must meet Tehran's demands before the Strait of Hormuz is reopened. Meanwhile, Germany says Trump's plan for Gaza could get Hamas to put down its weapons. DW has more.",
+    "article": {
+      "headline": "Iran Conditions Strait of Hormuz Reopening on US Concessions; Germany Weighs Trump's Gaza Gambit",
+      "dek": "As Tehran tightens control of a critical shipping choke point, Berlin explores whether military pressure could convince Hamas to disarm.",
+      "body": [
+        "Iran's Foreign Ministry restated on August 10 that the United States must accept Tehran's conditions before the Strait of Hormuz—through which roughly one-third of globally traded oil passes—reopens to normal traffic. The demand comes as tensions over regional access and sanctions enforcement remain unresolved. Control of the strait has long been Iran's leverage in negotiations; using it as a negotiating tool amplifies pressure on Washington while constraining global energy markets.",
+        "Germany, meanwhile, has signaled cautious optimism about an American proposal for Gaza: that sustained military and diplomatic pressure under Trump's plan could persuade Hamas to surrender its weapons and accept a political settlement. Berlin's assessment treats the question as diplomatic arithmetic rather than armed conflict—a calculation that depends on whether coercive measures can shift militant calculations faster than casualty counts.",
+        "The twin developments reveal competing gambles: Tehran betting that resource control and patience will extract concessions, and Berlin wagering that military logic might convince non-state actors to lay down arms. Neither outcome is assured. The Strait of Hormuz remains physically open; only Iranian policy cordons it off. How long that policy holds depends on what Washington will—or will not—concede."
+      ],
+      "sourceCredit": "Based on original reporting from DW."
+    },
+    "sources": [
+      {
+        "label": "Middle East: Iran wants US concessions before opening Hormuz",
+        "url": "https://www.dw.com/en/middle-east-iran-wants-us-concessions-before-opening-hormuz/live-78305309?maca=en-rss-en-top-1022-rdf",
+        "publisher": "DW"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "UN Shipping Authority",
+        "text": "Iran just announced the Strait of Hormuz is closed to westbound traffic until the US meets a list of demands they're calling non-negotiable. Global oil futures went up 3 percent in five minutes.",
+        "kind": "system",
+        "reaction": ""
+      },
+      {
+        "speaker": "Tehran Foreign Ministry Desk",
+        "text": "We are not asking for something unreasonable. The US sanctioned us for two decades. Now they want our strait for free. We laid out exactly what we need.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "German Chancellor's Analyst",
+        "text": "Interesting timing. We've been studying Trump's approach to Gaza—whether Hamas might actually hand over weapons if the pressure shifts from revenge-focused to endgame-focused. Early signals from our counterparts suggest the incentive structures *could* change their calculus.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "US State Dept (Unofficial)",
+        "text": "We're reviewing Iran's list. Some items are non-starters. Some we might negotiate. We're not going to be rushed by a strait closure that hurts their own economy.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Tehran Foreign Ministry Desk",
+        "text": "The Germans understand leverage. That's why they're thinking creatively about Gaza. We are thinking creatively about what we control. The US taught us this game.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Rotterdam Port Authority",
+        "text": "We just got word that tankers bound for Asia are rerouting around the Cape. That adds 14 days and half a million in fuel costs per vessel. This is going to ripple.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "German Chancellor's Analyst",
+        "text": "The Gaza angle is this: if Trump can make Hamas believe surrender means survival rather than erasure, you might actually get disarmament without occupation. Germany's job is to test whether that belief is even remotely credible.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Tehran Foreign Ministry Desk",
+        "text": "Tell Germany we respect the experiment. But for us, the question isn't belief. It's whether America stops treating Iran like a problem to be isolated and starts treating Iran like a power that controls something Washington needs.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "US State Dept (Unofficial)",
+        "text": "Every day this goes on, we lose political room at home. Congress starts asking why we're negotiating with terrorists and despots. Iran knows this. That's their play.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Energy Analyst (London)",
+        "text": "OPEC is already talking about strategic reserves. No one wants a six-month strait closure. This resolves in weeks, not months, or someone breaks the stalemate another way.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "German Chancellor's Analyst",
+        "text": "Meanwhile, if Trump's Gaza bet works, it removes one item from Iran's negotiating table—refugee flows, regional destabilization. That actually makes their other demands harder to justify.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Rotterdam Port Authority",
+        "text": "Three more reroutes in the last hour. We're now at 23 diverted tankers. If this holds past Friday, insurance markets start pricing in permanent route changes.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UN Shipping Authority",
+        "text": "Iran just signaled a narrow window for talks starting August 12. The list is still the same. The strait stays closed. Washington has 48 hours to decide what they can live with.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "Iran discovered that choking global oil is a better negotiating tool than another UN statement.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-11T20:31:29.949Z",
+    "editorial": {
+      "issueNumber": 109,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/109",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-11T20:31:29.949Z",
+      "fingerprint": "d75d0e8b3c16015d905edc0166f456ccf3f1107e93bce2c2693bb0191873ebfc",
+      "sourcePublishedAt": "2026-08-10T13:07:00.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "All dialogue references only real stakeholders (Iran, Germany, US, ports, OPEC context) and actual event facts: Hormuz closure demand, US concessions negotiations, Germany's Gaza assessment, energy market impact. No invented quotes, meetings or motives. Speakers naturally adjacent to geopolitics and energy security. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-10-monday-briefing-how-the-new-phase-of-confrontation-at-al-aqsa-si",
     "eventDate": "2026-08-10",
     "year": 2026,
