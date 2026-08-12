@@ -2,6 +2,12 @@ name: Draft current editorial queue
 
 on:
   workflow_dispatch:
+    inputs:
+      today_only:
+        description: "Finish only today's newsroom files"
+        required: false
+        default: true
+        type: boolean
   pull_request:
     types: [opened, reopened]
     branches: [main]
@@ -11,7 +17,6 @@ on:
 permissions:
   contents: read
   issues: write
-  copilot-requests: write
 
 concurrency:
   group: world-leader-chat-editorial-production
@@ -26,7 +31,7 @@ jobs:
         startsWith(github.event.pull_request.head.ref, 'agent/run-editorial-draft')
       )
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 150
 
     steps:
       - name: Check out the published drafting engine
@@ -40,13 +45,21 @@ jobs:
           node-version: 24
           package-manager-cache: false
 
-      - name: Install GitHub Copilot CLI
-        run: npm install --global @github/copilot
+      - name: Restore the no-credit local newsroom writer
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: ${{ runner.tool_cache }}/world-leader-chat-writer
+          key: wlc-local-writer-qwen25-3b-b10375-${{ runner.os }}
+
+      - name: Start the no-credit local newsroom writer
+        run: bash scripts/start-local-newsroom-writer.sh
 
       - name: Create complete truth-first editorial suggestions
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WLC_DRAFT_LIMIT: 50
+          WLC_DRAFT_LIMIT: 100
+          WLC_TODAY_ONLY: ${{ inputs.today_only && '1' || '0' }}
+          WLC_MAX_ATTEMPTS: "2"
         run: node scripts/draft-editorial-issues.mjs
 
       - name: Replace meta narration with direct recurring-speaker dialogue
@@ -54,3 +67,17 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WLC_REFINE_LIMIT: 50
         run: node scripts/refine-editorial-dialogue.mjs
+
+      - name: Automatically retry unfinished writing
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WLC_DRAFT_LIMIT: 100
+          WLC_TODAY_ONLY: ${{ inputs.today_only && '1' || '0' }}
+          WLC_MAX_ATTEMPTS: "2"
+        run: node scripts/draft-editorial-issues.mjs
+
+      - name: Require the selected queue to reach review
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WLC_TODAY_ONLY: ${{ inputs.today_only && '1' || '0' }}
+        run: node scripts/assert-editorial-readiness.mjs

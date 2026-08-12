@@ -1,9 +1,9 @@
-import { spawnSync } from "node:child_process";
 import { resolve } from "node:path";
 import { extractStoryBundle, STORY_JSON_END, STORY_JSON_START } from "./lib/editorial.mjs";
 import { cleanWhitespace, readJson } from "./lib/io.mjs";
 import { dialogueProblems, stockMemeDetected } from "./lib/chat-quality.mjs";
 import { articleProblems, normalizeArticle } from "./lib/article-standard.mjs";
+import { runNewsroomJson } from "./lib/newsroom-model.mjs";
 
 const token = process.env.GITHUB_TOKEN;
 const repository = process.env.GITHUB_REPOSITORY;
@@ -11,6 +11,8 @@ const apiBase = process.env.GITHUB_API_URL || "https://api.github.com";
 const limit = Number(process.env.WLC_DRAFT_LIMIT || 20);
 const targetIssue = Number(process.env.WLC_TARGET_ISSUE || 0);
 const forceRewrite = process.env.WLC_FORCE_REWRITE === "1";
+const todayOnly = process.env.WLC_TODAY_ONLY === "1" || process.env.WLC_TODAY_ONLY === "true";
+const maximumAttempts = Number(process.env.WLC_MAX_ATTEMPTS || (targetIssue ? 5 : 3));
 
 if (!token) throw new Error("GITHUB_TOKEN is required.");
 if (!repository || !repository.includes("/")) throw new Error("GITHUB_REPOSITORY must be owner/name.");
@@ -50,15 +52,6 @@ function safeSummary(value) {
     .replace(/\bContinue reading\.?$/i, "")
     .replace(/\bFollow [A-Z][A-Za-z .'-]+ for more\.?$/i, "")
     .slice(0, 1200);
-}
-
-function extractJson(text) {
-  const cleaned = String(text || "").trim().replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/i, "");
-  try { return JSON.parse(cleaned); } catch {}
-  const first = cleaned.indexOf("{");
-  const last = cleaned.lastIndexOf("}");
-  if (first >= 0 && last > first) return JSON.parse(cleaned.slice(first, last + 1));
-  throw new Error("Copilot response did not contain valid JSON.");
 }
 
 function promptFor(bundle, feedback = []) {
@@ -132,26 +125,20 @@ Return this exact JSON shape:
   "meme": "original event-specific one-sentence punch line",
   "tone": "comic or sober",
   "reviewNotes": "one sentence explaining factual fidelity and chat specificity"
-}`;
 }
 
-function runCopilot(bundle, feedback = []) {
-  const result = spawnSync("copilot", ["--yolo", "-p", promptFor(bundle, feedback)], {
-    encoding: "utf8",
-    timeout: 180000,
-    maxBuffer: 2 * 1024 * 1024,
-    env: process.env
-  });
-  if (result.error) throw result.error;
-  if (result.status !== 0) throw new Error(result.stderr || `Copilot exited ${result.status}`);
-  const output = extractJson(result.stdout);
+The two message objects above show the field structure only. Your returned messages array MUST contain 10–14 complete, original message objects. A two-message array is invalid.`;
+}
+
+async function runWriter(bundle, feedback = []) {
+  const output = await runNewsroomJson(promptFor(bundle, feedback));
   if (!output.article || !Array.isArray(output.article.body) || !Array.isArray(output.messages)) {
-    throw new Error("Copilot JSON is missing article or messages.");
+    throw new Error("Local writer JSON is missing article or messages.");
   }
   return output;
 }
 
-function applyCopilot(bundle, output) {
+function applyGeneratedDraft(bundle, output) {
   const result = structuredClone(bundle);
   result.ingestion = { ...(result.ingestion || {}), newsroomFormat: 2 };
   result.event.summary = safeSummary(result.event.summary);
@@ -230,8 +217,21 @@ const parsed = issues
     catch { return { issue, bundle: null }; }
   });
 
+function chicagoDateKey(value = Date.now()) {
+  const date = new Date(value);
+  if (Number.isNaN(date.valueOf())) return "";
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/Chicago", year: "numeric", month: "2-digit", day: "2-digit"
+  }).formatToParts(date);
+  const values = Object.fromEntries(parts.map((part) => [part.type, part.value]));
+  return `${values.year}-${values.month}-${values.day}`;
+}
+
+const newsroomToday = chicagoDateKey();
+
 const queue = parsed
   .filter(({ issue, bundle }) => bundle)
+  .filter(({ bundle }) => !todayOnly || bundle.event?.eventDate === newsroomToday)
   .filter(({ issue }) => {
     const labels = labelsOf(issue);
     if (targetIssue && issue.number !== targetIssue) return false;
@@ -258,13 +258,13 @@ for (const { issue, bundle: originalBundle } of queue) {
     await setLabels(issue, ["drafting"], ["needs-editor", "ready-for-approval"]);
     let bundle = originalBundle;
     let lastProblems = ["A new article-specific draft was requested."];
-    let copilotWorked = false;
+    let writerWorked = false;
     let bestArticleCandidate = null;
     let bestProblemCount = Number.POSITIVE_INFINITY;
 
-    for (let attempt = 0; attempt < 3; attempt += 1) {
+    for (let attempt = 0; attempt < maximumAttempts; attempt += 1) {
       try {
-        const candidate = applyCopilot(bundle, runCopilot(bundle, attempt ? lastProblems : []));
+        const candidate = applyGeneratedDraft(bundle, await runWriter(bundle, attempt ? lastProblems : []));
         const candidateArticleProblems = articleProblems(candidate.event?.article, candidate.event?.sources);
         const problems = [
           ...candidateArticleProblems.map((problem) => `Article: ${problem}`),
@@ -279,14 +279,14 @@ for (const { issue, bundle: originalBundle } of queue) {
           continue;
         }
         bundle = candidate;
-        copilotWorked = true;
+        writerWorked = true;
         break;
       } catch (error) {
         lastProblems = [error.message];
       }
     }
 
-    if (!copilotWorked) {
+    if (!writerWorked) {
       generationFailureCount += 1;
       // Never promote fill-in-the-headline copy as a safety fallback. Preserve the
       // best source-locked attempt for a future automated retry, but let the quality
@@ -300,8 +300,14 @@ for (const { issue, bundle: originalBundle } of queue) {
     ];
     if (finalProblems.length || stockMemeDetected(bundle.event?.meme)) {
       blocked += 1;
+      if (bestArticleCandidate) {
+        await github(`/repos/${repository}/issues/${issue.number}`, {
+          method: "PATCH",
+          body: { body: replaceBundle(issue.body || "", bundle) }
+        });
+      }
       await setLabels(issue, ["needs-editor"], ["drafting", "ready-for-approval", "regenerate-requested", "redraft-requested"]);
-      console.error(`::warning title=Draft blocked by chat quality::Issue #${issue.number}: ${[...finalProblems, ...(stockMemeDetected(bundle.event?.meme) ? ["stock meme"] : [])].join(" | ")}`);
+      console.error(`::warning title=Draft blocked by chat quality::Issue #${issue.number}: ${[...lastProblems.map((problem) => `Generation: ${problem}`), ...finalProblems, ...(stockMemeDetected(bundle.event?.meme) ? ["stock meme"] : [])].join(" | ")}`);
       continue;
     }
 
@@ -322,3 +328,4 @@ for (const { issue, bundle: originalBundle } of queue) {
 }
 
 console.log(`Editorial drafting complete: ${drafted} ready, ${generationFailureCount} generation failure(s) kept out of review, ${blocked} blocked.`);
+if (targetIssue && blocked) process.exitCode = 1;

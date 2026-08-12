@@ -3,7 +3,7 @@ const REPO = 'WorldLeaderChat';
 const API = 'https://api.github.com';
 const START = '<!-- WLC_STORY_JSON_START -->';
 const END = '<!-- WLC_STORY_JSON_END -->';
-const lanes = [['new','New'],['drafting','Drafting'],['ready','Ready for Approval'],['publishing','Publishing'],['published','Published'],['trash','🗑 Trash']];
+const lanes = [['new','New'],['drafting','Draft Recovery'],['ready','Ready for Approval'],['publishing','Publishing'],['published','Published'],['trash','🗑 Trash']];
 
 let token = sessionStorage.getItem('wlc_editor_token') || '';
 let issues = [];
@@ -279,7 +279,7 @@ function cards(lane) {
     const article = bundle?.event?.article;
     const publishing = labels.has('editorial-approved') || busy.has(issue.number);
     const failed = labels.has('publication-failed');
-    const regenerating = labels.has('regenerate-requested') || labels.has('redraft-requested') || labels.has('drafting') || labels.has('needs-editor');
+    const regenerating = labels.has('regenerate-requested') || labels.has('redraft-requested') || labels.has('drafting');
     const blocked = labels.has('needs-editor') || problems.length > 0;
     const needsRedraft = eventIssues.length > 0 || articleIssues.length > 0;
     const cardDesk = deskOf(issue);
@@ -297,7 +297,7 @@ function cards(lane) {
       } else if (failed) {
         actions = `<button class="btn success" data-action="retry" data-issue="${issue.number}" ${blocked ? 'disabled' : ''}>Retry Publish</button><button class="btn ghost" data-action="${needsRedraft ? 'redraft' : 'regenerate'}" data-issue="${issue.number}">${needsRedraft ? 'Regenerate Article + Chat' : 'Rewrite Chat'}</button><button class="btn danger" data-action="reject" data-issue="${issue.number}">Reject</button>`;
       } else if (blocked) {
-        actions = `<button class="btn ghost" data-action="${needsRedraft ? 'redraft' : 'regenerate'}" data-issue="${issue.number}">${needsRedraft ? 'Regenerate Article + Chat' : 'Rewrite Chat'}</button><button class="btn danger" data-action="reject" data-issue="${issue.number}">Reject</button>`;
+        actions = `<button class="btn ghost" data-action="${needsRedraft ? 'redraft' : 'regenerate'}" data-issue="${issue.number}">Finish Draft</button><button class="btn danger" data-action="reject" data-issue="${issue.number}">Reject</button><span class="action-note">This restarts the automated writer; you do not need to write or edit it.</span>`;
       } else {
         actions = `<button class="btn success" data-action="approve" data-issue="${issue.number}">Approve & Publish</button><button class="btn ghost" data-action="regenerate" data-issue="${issue.number}">Rewrite Chat</button><button class="btn danger" data-action="reject" data-issue="${issue.number}">Reject</button>`;
       }
@@ -308,6 +308,8 @@ function cards(lane) {
       : '';
     const quality = regenerating
       ? '<div class="smart"><b>NEWSROOM PRODUCTION IN PROGRESS</b><br>The automated desk is finishing this file. It will move to Ready for Approval only after the headline, report and chat pass validation.</div>'
+      : labels.has('needs-editor')
+      ? `<div class="smart" style="background:#fee2e2;border-color:#b91c1c"><b>AUTOMATIC DRAFT RECOVERY NEEDED</b><br>The writer did not finish this file. The next newsroom sweep retries it automatically, or Finish Draft can restart it now.<br>${problems.map(esc).join('<br>')}</div>`
       : problems.length
       ? `<div class="smart" style="background:#fee2e2;border-color:#b91c1c"><b>FILE NEEDS ATTENTION</b><br>${problems.map(esc).join('<br>')}</div>`
       : `<div class="smart"><b>S-M-A-R REVIEW</b><br>${esc(smartText(bundle))}<br><b>Chat quality:</b> article-specific, direct and ready.</div>`;
@@ -315,7 +317,7 @@ function cards(lane) {
     const sourceLinks = sources.map((source) => `<a class="source" target="_blank" rel="noopener" href="${esc(source.url)}">Open source: ${esc(source.publisher)}</a>`).join('');
     const chatPreview = `<details class="chat-preview"><summary>Conversation (${(bundle?.event?.messages || []).length} messages)</summary><div class="chat">${messages}</div></details>`;
     const laneTag = lane === 'ready' ? 'ready' : lane === 'new' ? 'new' : lane === 'publishing' ? 'publishing' : lane === 'trash' ? 'trash' : 'draft';
-    const statusText = lane === 'trash' ? 'Rejected' : publishing ? 'Publishing' : failed ? 'Publication failed' : regenerating ? 'Regenerating' : lane;
+    const statusText = lane === 'trash' ? 'Rejected' : publishing ? 'Publishing' : failed ? 'Publication failed' : regenerating ? 'Writing' : labels.has('needs-editor') ? 'Recovery needed' : lane;
     return `<article class="card" data-desk="${esc(cardDesk)}"><div class="meta">ISSUE #${issue.number} • ${esc(bundle?.event?.date || '')}</div><span class="tag ${laneTag}">${statusText}</span><span class="tag desk-tag">${esc(cardDesk)}</span><h3>${esc(bundle?.event?.title || issue.title)}</h3><p class="summary">${esc(bundle?.event?.summary || '')}</p><div class="source-list">${sourceLinks}</div>${articlePreview}${chatPreview}<div class="meme"><b>LAST WORD</b>${esc(bundle?.event?.meme || '')}</div>${quality}<div class="actions">${actions}</div></article>`;
   }).join('');
 }
@@ -325,6 +327,34 @@ async function setIssueLabels(issue, additions = [], removals = []) {
   additions.forEach((label) => labels.add(label));
   removals.forEach((label) => labels.delete(label));
   return api(`/repos/${OWNER}/${REPO}/issues/${issue.number}`, {method:'PATCH', body:JSON.stringify({labels:[...labels]})});
+}
+
+async function finishTodaysDrafts() {
+  const button = $('#finishToday');
+  const today = chicagoDateKey();
+  const unfinished = issues.filter((issue) => eventOf(issue)?.eventDate === today
+    && ['new', 'drafting'].includes(laneOf(issue)));
+  if (!unfinished.length) {
+    notice('Every current-day article is already ready, publishing, published or rejected.', 'success');
+    return;
+  }
+
+  button.disabled = true;
+  button.textContent = 'Starting writer…';
+  try {
+    await api(`/repos/${OWNER}/${REPO}/actions/workflows/draft-editorial-queue-now.yml/dispatches`, {
+      method: 'POST',
+      body: JSON.stringify({ref:'main', inputs:{today_only:'true'}})
+    });
+    activeLane = 'drafting';
+    render();
+    notice(`The automated writer is finishing ${unfinished.length} current-day article${unfinished.length === 1 ? '' : 's'}. Completed files will move to Ready for Approval.`, 'success');
+  } catch (error) {
+    notice(`The batch writer could not be started: ${error.message}`, 'error');
+  } finally {
+    button.disabled = false;
+    button.textContent = 'Finish Today’s Drafts';
+  }
 }
 
 async function waitForPublish(number) {
@@ -564,5 +594,6 @@ $('#logout').onclick = () => { sessionStorage.removeItem('wlc_editor_token'); lo
 $('#editorSearch').addEventListener('input', (event) => { editorQuery = event.target.value.trim(); render(); });
 $('#editorDesk').addEventListener('change', (event) => { editorDesk = event.target.value; render(); });
 $('#editorDate').addEventListener('change', (event) => { editorDate = event.target.value; render(); });
+$('#finishToday').addEventListener('click', finishTodaysDrafts);
 $('#customArticleForm').addEventListener('submit', submitCustomArticle);
 if (token) { $('#token').value = token; connect(); }
