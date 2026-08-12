@@ -2629,6 +2629,109 @@
     }
   },
   {
+    "id": "2026-08-11-trump-cheers-alito-staying-for-another-supreme-court-term-one-of",
+    "eventDate": "2026-08-11",
+    "year": 2026,
+    "date": "August 11, 2026",
+    "title": "Trump Celebrates Alito’s Decision to Remain on the Supreme Court",
+    "kicker": "The president praised the conservative justice after Alito chose to stay for another term, keeping retirement speculation outside the courtroom for now.",
+    "category": "Politics & Society",
+    "summary": "President Donald Trump praised Associate Justice Samuel Alito's decision to stay on the U.S. Supreme Court in a social media post on Truth Social.",
+    "article": {
+      "headline": "Trump Celebrates Alito’s Decision to Remain on the Supreme Court",
+      "dek": "The president praised the conservative justice after Alito chose to stay for another term, keeping retirement speculation outside the courtroom for now.",
+      "body": [
+        "President Donald Trump welcomed Justice Samuel Alito’s decision to remain on the U.S. Supreme Court for another term. Fox News reports that Trump used Truth Social to praise Alito in emphatic terms, making clear that the president views the justice’s continued service as politically and judicially significant.",
+        "Alito’s choice closes off, at least for the coming term, the possibility of a vacancy and a new confirmation battle over his seat. The public celebration also underlines how openly presidents and political movements now discuss the personnel of a formally independent court. A justice staying in place can generate nearly as much partisan attention as a justice leaving.",
+        "The immediate fact is straightforward: Alito is not retiring and Trump is pleased. The longer argument concerns the court’s composition, its legitimacy and the political expectations attached to lifetime appointments. No nomination is pending, but Washington can still hold the entire confirmation debate in imaginary form—complete with victory statements before there is a vacancy."
+      ],
+      "sourceCredit": "Based on original reporting from Fox News."
+    },
+    "sources": [
+      {
+        "label": "Trump cheers Alito staying for another Supreme Court term: 'One of the greatest of all time'",
+        "url": "https://www.foxnews.com/politics/trump-cheers-alito-staying-another-supreme-court-term-one-greatest-all-time",
+        "publisher": "Fox News"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Senate Judiciary Committee",
+        "text": "There is no Supreme Court vacancy, yet Washington has already prepared victory speeches and imaginary confirmation questions.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Donald Trump",
+        "text": "A great justice stays. That is excellent news for the Court and for the country.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Senate Judiciary Committee",
+        "text": "There is no nomination before us, which has not prevented anyone from preparing opening statements.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Supreme Court Press Office",
+        "text": "The calendar contains cases. Retirement speculation is not listed as an argument date.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Donald Trump",
+        "text": "People are allowed to celebrate a strong decision.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Court Reform Coalition",
+        "text": "They are also allowed to notice how quickly judicial independence becomes a campaign trophy.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Senate Judiciary Committee",
+        "text": "Please save the hearing theatrics for an actual hearing. We ration those poorly enough already.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Supreme Court Press Office",
+        "text": "Justice Alito will continue his work. That is the operational update.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Donald Trump",
+        "text": "Operational update: one of the best is still there.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Court Reform Coalition",
+        "text": "And the debate about lifetime power is still here. Nobody appears to be retiring from that.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "No Supreme Court seat opened, but Washington still managed to fill the room with a confirmation battle.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-12T21:14:20.086Z",
+    "editorial": {
+      "issueNumber": 187,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/187",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-12T21:14:20.086Z",
+      "fingerprint": "202b94c04de3e75ca1858b15a6484761fdab5f20793350ee265ad0364afb5aa7",
+      "sourcePublishedAt": "2026-08-11T17:43:47.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Rewritten from the source summary after the queue-wide recycled-template audit. No headline recitation or shared dialogue skeleton remains. Opening narrator removed; the conversation now starts with a direct event participant. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-11-trump-reportedly-hid-in-catering-container-to-board-secret-fligh",
     "eventDate": "2026-08-11",
     "year": 2026,
