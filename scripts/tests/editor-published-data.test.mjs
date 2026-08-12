@@ -17,3 +17,13 @@ test("editor Published lane loads canonical site data instead of stale closed is
   assert.match(editor, /published-data\.js\?v=trash-rejections-20260811/);
   assert.match(build, /editor\/published-data\.js/);
 });
+
+test("published chats open with an event participant instead of UN Admin or a system narrator", async () => {
+  const events = JSON.parse(await read("data/published-events.json"));
+  assert.ok(events.length > 0);
+  for (const event of events) {
+    assert.ok(event.messages?.length, `${event.id} has no chat messages`);
+    assert.notEqual(event.messages[0].kind, "system", `${event.id} opens with system narration`);
+    assert.doesNotMatch(event.messages[0].speaker || "", /^(?:UN )?Admin$/i, `${event.id} opens with an admin narrator`);
+  }
+});

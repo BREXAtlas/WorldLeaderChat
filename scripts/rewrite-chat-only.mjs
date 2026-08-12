@@ -67,12 +67,12 @@ Sources: ${(event.sources || []).map((source) => `${source.publisher}: ${source.
 Source facts: ${sourceFacts || "No additional digest."}
 ${failures}
 
-Write 10–14 messages that feel like an organic group chat among people or institutions naturally connected to this exact event. Start in the middle of a reaction—a position, challenge, contradiction, pointed question or joke. Use direct first-person replies, interruptions and callbacks; at least two speakers must return. Every line must respond to the actual people, act, number, place, object or consequence in this article.
+Write 10–14 messages that feel like an organic group chat among people or institutions naturally connected to this exact event. Start in the middle of a reaction—a position, challenge, contradiction, pointed question or joke. The first message must be a direct participant message, never UN Admin, Admin, a narrator or a system message. Use direct first-person replies, interruptions and callbacks; at least two speakers must return. Every line must respond to the actual people, act, number, place, object or consequence in this article.
 
 Never write “I read [headline]”. Never paste, recite or lightly trim the article or source headline in a message. Never use “the verified event is pinned”, “fact pattern”, “reported detail”, “answer the file”, “on the record”, “official line is shorter than the consequence”, “spin requested a longer deadline” or other newsroom-process filler. Do not reuse a conversation skeleton with swapped speakers. Do not invent factual claims, quotations or private conduct. For victims, war, death or illness, aim satire at power, policy and messaging.
 
 JSON shape:
-{"messages":[{"speaker":"UN Admin","text":"event-specific opening that does not repeat the headline","kind":"system","reaction":""},{"speaker":"natural participant","text":"direct organic reply","kind":"satire","reaction":""}],"meme":"one original event-specific closing line","reviewNotes":"why this chat is unique to this article"}`;
+{"messages":[{"speaker":"natural participant","text":"direct event-specific opening position","kind":"satire","reaction":""},{"speaker":"another natural participant","text":"direct organic reply","kind":"satire","reaction":""}],"meme":"one original event-specific closing line","reviewNotes":"why this chat is unique to this article"}`;
 }
 
 function runCopilot(bundle, feedback = []) {

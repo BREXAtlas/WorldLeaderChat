@@ -98,6 +98,7 @@ CHAT RULES — THESE ARE STRICT
 - Create 10–14 messages that sound like people texting each other, with replies, interruptions and callbacks.
 - Every line must be unique to THIS article and mention or respond to its actual people, decision, number, place, object or consequence.
 - Start in the middle of the reaction: a position, challenge, joke, contradiction or pointed question. Never write “I read [headline]”.
+- The first message must come from a person or institution directly involved in the event. Never open with UN Admin, Admin, a narrator or a system message.
 - Never paste, recite or lightly trim the article headline or source headline inside a message. People discuss what happened; they do not read headlines to one another.
 - Do not use newsroom-process filler such as “the verified event is pinned”, “fact pattern”, “reported detail”, “answer the file”, “on the record”, “official line is shorter than the consequence” or “spin requested a longer deadline”.
 - At least two speakers must return later. Never place the same speaker in consecutive turns.
@@ -125,8 +126,8 @@ Return this exact JSON shape:
     "sourceCredit": "Based on original reporting from every listed publisher"
   },
   "messages": [
-    {"speaker":"UN Admin","text":"event-specific opening","kind":"system","reaction":""},
-    {"speaker":"Name or institution","text":"direct first-person reply","kind":"satire","reaction":""}
+    {"speaker":"Name or institution directly involved","text":"direct first-person opening position","kind":"satire","reaction":""},
+    {"speaker":"Another involved person or institution","text":"direct first-person reply","kind":"satire","reaction":""}
   ],
   "meme": "original event-specific one-sentence punch line",
   "tone": "comic or sober",
