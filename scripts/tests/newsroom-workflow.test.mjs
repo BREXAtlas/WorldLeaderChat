@@ -11,13 +11,13 @@ test("news ingestion runs four times daily, balances eight desks and drafts befo
   assert.doesNotMatch(workflow, /copilot|models\.github/i);
   assert.match(workflow, /WLC_LOOKBACK_HOURS:.*168/);
   assert.match(workflow, /WLC_MINIMUM_SCORE:.*4/);
-  assert.match(workflow, /WLC_MAX_CANDIDATES:.*24/);
-  assert.match(workflow, /WLC_MINIMUM_PER_DESK: "2"/);
+  assert.match(workflow, /WLC_MAX_CANDIDATES:.*8/);
+  assert.match(workflow, /WLC_MINIMUM_PER_DESK: "1"/);
   assert.match(workflow, /WLC_MINIMUM_PUBLISHERS: "8"/);
   assert.match(workflow, /WLC_MINIMUM_PUBLISHERS_PER_DESK: "2"/);
   assert.match(workflow, /WLC_MAXIMUM_PER_PUBLISHER: "4"/);
   assert.match(workflow, /queue: max/);
-  assert.match(workflow, /War & Security, World News, Politics & Society, Technology & AI, Science & Space, Business & Power, Culture & Entertainment, Sports & Soft Power/);
+  assert.match(workflow, /one current recommendation from every desk/);
   assert.match(workflow, /run-drafting-batches\.mjs/);
   assert.match(workflow, /refine-editorial-dialogue\.mjs/);
   assert.match(workflow, /Nothing publishes without owner approval/);

@@ -19,7 +19,7 @@ on:
       max_candidates:
         description: "Maximum new editorial issues in this run"
         required: false
-        default: "24"
+        default: "8"
 
 permissions:
   contents: read
@@ -38,8 +38,8 @@ jobs:
       INGESTION_OUTPUT: tmp/ingestion-candidates.json
       WLC_LOOKBACK_HOURS: ${{ inputs.lookback_hours || '168' }}
       WLC_MINIMUM_SCORE: ${{ inputs.minimum_score || '4' }}
-      WLC_MAX_CANDIDATES: ${{ inputs.max_candidates || '24' }}
-      WLC_MINIMUM_PER_DESK: "2"
+      WLC_MAX_CANDIDATES: ${{ inputs.max_candidates || '8' }}
+      WLC_MINIMUM_PER_DESK: "1"
       WLC_MINIMUM_PUBLISHERS: "8"
       WLC_MINIMUM_PUBLISHERS_PER_DESK: "2"
       WLC_MAXIMUM_PER_PUBLISHER: "4"
@@ -113,7 +113,7 @@ jobs:
             echo "- Review windows: 8 AM, noon, 4 PM and 8 PM America/Chicago"
             echo "- Sweep begins forty minutes before each window so drafting can finish before review"
             echo "- Lookback: seven days, so quieter desks are not crowded out by the latest conflict cycle"
-            echo "- Required first pass: two recommendations each for War & Security, World News, Politics & Society, Technology & AI, Science & Space, Business & Power, Culture & Entertainment, Sports & Soft Power"
+            echo "- Each sweep opens at most eight files and seeks one current recommendation from every desk before adding extras"
             echo "- Publisher guard: use at least two publishers per desk and eight across the daily slate whenever current feed coverage permits"
             echo "- Viewpoint-source guard: the monitored partisan pool is equal left/right, and each slate targets at least four distinct publishers per side with no more than a one-publisher difference when usable coverage permits"
             echo "- New editorial issues: ${{ steps.queue.outputs.issues_created }}"
