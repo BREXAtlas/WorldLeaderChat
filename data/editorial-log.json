@@ -1286,5 +1286,17 @@
       "https://www.aljazeera.com/news/2026/8/11/trump-faces-lawsuit-over-push-to-limit-birthright-citizenship?traffic_source=rss",
       "https://www.supremecourt.gov/opinions/25pdf/25-365_4hdj.pdf"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-11-colombia-earthquake-international-teams-standing-by",
+    "issueNumber": 164,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/164",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-12T21:31:03.040Z",
+    "fingerprint": "84a826341224d0657450a01d9cc2bd3ddd2e4decbeec57707c207a58544e6c26",
+    "sourceUrls": [
+      "https://news.un.org/feed/view/en/story/2026/08/1168112"
+    ]
   }
 ]

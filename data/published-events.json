@@ -974,6 +974,109 @@
     }
   },
   {
+    "id": "2026-08-11-colombia-earthquake-international-teams-standing-by",
+    "eventDate": "2026-08-11",
+    "year": 2026,
+    "date": "August 11, 2026",
+    "title": "International Rescue Teams Stand Ready as Colombia Earthquake Search Continues",
+    "kicker": "UN agencies say they can mobilize support for western Colombia as soon as national authorities request international assistance.",
+    "category": "World News",
+    "summary": "As earthquake rescue efforts across western Colombia continued on Tuesday, UN agencies said that they stood ready to help “with everything we've got” if and when the request came from the authorities for international assistance.",
+    "article": {
+      "headline": "International Rescue Teams Stand Ready as Colombia Earthquake Search Continues",
+      "dek": "UN agencies say they can mobilize support for western Colombia as soon as national authorities request international assistance.",
+      "body": [
+        "Rescue efforts continued across western Colombia on Tuesday following a damaging earthquake, while international teams waited for a formal request to assist. UN News reports that agencies were prepared to provide extensive support if and when Colombian authorities determined that outside help was needed.",
+        "That sequence is a central part of disaster response, not diplomatic hesitation. National authorities lead the operation and assess where additional personnel, logistics or supplies can be used safely. International agencies must be ready to move quickly without adding congestion or bypassing the government coordinating work on the ground.",
+        "For families awaiting news, the distinction between standing by and deploying can feel painfully administrative. For rescue managers, it determines whether help arrives organized rather than merely well intentioned. The priority remains the search and the needs of affected communities. Every institution beyond the disaster zone should keep its equipment ready and its self-congratulation packed away."
+      ],
+      "sourceCredit": "Based on original reporting from UN News."
+    },
+    "sources": [
+      {
+        "label": "Colombia earthquake: International teams standing by",
+        "url": "https://news.un.org/feed/view/en/story/2026/08/1168112",
+        "publisher": "UN News"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Local Rescue Command",
+        "text": "Send specialized teams when Colombia identifies the need, and do not let helpful intentions clog the routes rescuers require.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Colombia Emergency Authority",
+        "text": "We are assessing needs across the affected region and will request outside capacity where it can help.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UN Disaster Team",
+        "text": "Our personnel and supplies are standing by. Tell us the gaps, routes and coordination point.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Local Rescue Command",
+        "text": "Send specialized help only with a clear assignment. The roads and staging areas cannot absorb confusion.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Neighboring States’ Coalition",
+        "text": "Teams can move on short notice once Colombia identifies the required support.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Colombia Emergency Authority",
+        "text": "Thank you. The national response remains in command, and requests will follow verified field reports.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "UN Disaster Team",
+        "text": "Understood. Readiness includes waiting without creating a second management problem.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Local Rescue Command",
+        "text": "The people under debris need capability, not flags collecting at the same checkpoint.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Neighboring States’ Coalition",
+        "text": "We will keep transport available and public messaging restrained.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Colombia Emergency Authority",
+        "text": "That restraint is useful. Keep the rescue capacity closer than the cameras.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "The rescue teams packed tools; the press offices were asked to leave the victory banners at home.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-12T21:31:03.040Z",
+    "editorial": {
+      "issueNumber": 164,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/164",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-12T21:31:03.040Z",
+      "fingerprint": "84a826341224d0657450a01d9cc2bd3ddd2e4decbeec57707c207a58544e6c26",
+      "sourcePublishedAt": "2026-08-11T12:00:00.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Rewritten from the source summary after the queue-wide recycled-template audit. No headline recitation or shared dialogue skeleton remains. Opening narrator removed; the conversation now starts with a direct event participant. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-11-curiosity-blog-sols-4968-4974-rock-climbing-towards-the-disconti",
     "eventDate": "2026-08-11",
     "year": 2026,
