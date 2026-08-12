@@ -1335,5 +1335,17 @@
     "sourceUrls": [
       "https://www.cbssports.com/mlb/news/adley-rutschman-red-sox-debut/"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-11-the-office-star-lucy-davis-reveals-she-has-incurable-cancer",
+    "issueNumber": 158,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/158",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-12T21:33:32.813Z",
+    "fingerprint": "7c1491fcfe95f57bd2364de29a00c37a9e8b938ef1a0017fc1ae5888d22d6eff",
+    "sourceUrls": [
+      "https://deadline.com/2026/08/the-office-lucy-davis-incurable-cancer-1237031189/"
+    ]
   }
 ]
