@@ -653,6 +653,109 @@
     }
   },
   {
+    "id": "2026-08-11-cbs-sports-says-no-timetable-for-tony-romo-s-potential-return-af",
+    "eventDate": "2026-08-11",
+    "year": 2026,
+    "date": "August 11, 2026",
+    "title": "CBS Gives No Timeline for Tony Romo’s Return After Arrest",
+    "kicker": "The network’s top NFL analyst remains sidelined while CBS Sports treats the drunk-driving case as both a personal legal matter and a broadcast decision.",
+    "category": "Sports & Soft Power",
+    "summary": "CBS Sports CEO David Berson said there is “no timetable” for a decision on Tony Romo, the network’s No. 1 analyst who was sidelined by a drunk driving arrest last month. Addressing reporters Tuesday at the annual CBS NFL season preview event in New York, Berson said situation is “a personal matter, and a legal […]",
+    "article": {
+      "headline": "CBS Gives No Timeline for Tony Romo’s Return After Arrest",
+      "dek": "The network’s top NFL analyst remains sidelined while CBS Sports treats the drunk-driving case as both a personal legal matter and a broadcast decision.",
+      "body": [
+        "CBS Sports has not set a timetable for Tony Romo’s possible return to its NFL broadcasts following his drunk-driving arrest last month. Deadline reports that CBS Sports chief executive David Berson addressed Romo’s status during the network’s annual season-preview event in New York.",
+        "Berson described the situation as a personal and legal matter, language that acknowledges the pending case while leaving the employment decision unresolved. Romo is the network’s lead analyst, so the absence affects one of CBS’s most visible sports productions as well as the individual at the center of the allegation.",
+        "A cautious public answer is understandable before a legal process is complete, but ‘no timetable’ is still a decision to keep the return date open. CBS must weigh due process, workplace standards and audience trust without pretending those concerns disappear when kickoff arrives. The broadcast calendar is fixed. Accountability is the segment whose airtime remains unannounced."
+      ],
+      "sourceCredit": "Based on original reporting from Deadline."
+    },
+    "sources": [
+      {
+        "label": "CBS Sports Says “No Timetable” For Tony Romo’s Potential Return After Drunk Driving Arrest",
+        "url": "https://deadline.com/2026/08/cbs-sports-tony-romo-status-drunk-driving-charge-1237031286/",
+        "publisher": "Deadline"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Viewer Council",
+        "text": "CBS may not have a return date, but it still owes the audience a clear standard for how the decision will be made.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "CBS Sports",
+        "text": "Tony Romo remains sidelined. The matter is personal and legal, and there is no return timetable.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Broadcast Standards Office",
+        "text": "Personal does not mean irrelevant when the person occupies the network’s most visible booth.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "NFL Production Truck",
+        "text": "We can revise assignments. We cannot produce clarity the executive office has not reached.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "CBS Sports",
+        "text": "We are allowing the legal process and our internal review to proceed.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Viewer Council",
+        "text": "Then say what standard guides the review, even if the date cannot be fixed.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Broadcast Standards Office",
+        "text": "Consistency matters. Star status cannot become a separate employee handbook.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "NFL Production Truck",
+        "text": "The season preview would be easier if the analyst question were not the headline.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "CBS Sports",
+        "text": "The question is fair. The answer remains that no decision has been announced.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Viewer Council",
+        "text": "No timetable can be temporary. No standard cannot.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "CBS scheduled the season down to the minute and left accountability in a floating window.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-12T21:22:28.423Z",
+    "editorial": {
+      "issueNumber": 173,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/173",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-12T21:22:28.423Z",
+      "fingerprint": "e104888b528b78719254a73909742078177cc0fa444ed4909e072215a2801e3f",
+      "sourcePublishedAt": "2026-08-11T20:04:34.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Rewritten from the source summary after the queue-wide recycled-template audit. No headline recitation or shared dialogue skeleton remains. Opening narrator removed; the conversation now starts with a direct event participant. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-11-claude-will-apply-invisible-watermarks-to-ai-text-and-images",
     "eventDate": "2026-08-11",
     "year": 2026,

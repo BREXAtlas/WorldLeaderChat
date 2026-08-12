@@ -1211,5 +1211,17 @@
     "sourceUrls": [
       "https://www.rollingstone.com/product-recommendations/lifestyle/best-masterclass-deal-sale-promo-1090815/"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-11-cbs-sports-says-no-timetable-for-tony-romo-s-potential-return-af",
+    "issueNumber": 173,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/173",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-12T21:22:28.423Z",
+    "fingerprint": "e104888b528b78719254a73909742078177cc0fa444ed4909e072215a2801e3f",
+    "sourceUrls": [
+      "https://deadline.com/2026/08/cbs-sports-tony-romo-status-drunk-driving-charge-1237031286/"
+    ]
   }
 ]
