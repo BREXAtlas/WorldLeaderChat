@@ -1127,5 +1127,17 @@
     "sourceUrls": [
       "https://nypost.com/2026/08/11/us-news/californias-billionaire-tax-is-a-national-campaign-says-labor-leader/"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-11-california-democratic-gubernatorial-nominee-xavier-becerra-says",
+    "issueNumber": 188,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/188",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-12T21:11:02.997Z",
+    "fingerprint": "b8dd93af3c249dc2ed17f22fbd8cc0f523e5e3f9b1733b179cb72ef8dbcf0456",
+    "sourceUrls": [
+      "https://deadline.com/2026/08/xavier-becerra-paramount-warner-bros-lawsuit-1237031600/"
+    ]
   }
 ]
