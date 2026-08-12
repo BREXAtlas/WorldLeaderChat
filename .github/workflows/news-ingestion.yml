@@ -19,12 +19,11 @@ on:
       max_candidates:
         description: "Maximum new editorial issues in this run"
         required: false
-        default: "24"
+        default: "8"
 
 permissions:
   contents: read
   issues: write
-  copilot-requests: write
 
 concurrency:
   group: world-leader-chat-editorial-production
@@ -34,18 +33,19 @@ concurrency:
 jobs:
   ingest:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 90
     env:
       INGESTION_OUTPUT: tmp/ingestion-candidates.json
       WLC_LOOKBACK_HOURS: ${{ inputs.lookback_hours || '168' }}
       WLC_MINIMUM_SCORE: ${{ inputs.minimum_score || '4' }}
-      WLC_MAX_CANDIDATES: ${{ inputs.max_candidates || '24' }}
-      WLC_MINIMUM_PER_DESK: "2"
+      WLC_MAX_CANDIDATES: ${{ inputs.max_candidates || '8' }}
+      WLC_MINIMUM_PER_DESK: "1"
       WLC_MINIMUM_PUBLISHERS: "8"
       WLC_MINIMUM_PUBLISHERS_PER_DESK: "2"
       WLC_MAXIMUM_PER_PUBLISHER: "4"
       WLC_MINIMUM_PUBLISHERS_PER_ORIENTATION: "4"
       WLC_MAXIMUM_ORIENTATION_DIFFERENCE: "1"
+      WLC_DAILY_CANDIDATE_LIMIT: "30"
 
     steps:
       - name: Check out repository
@@ -66,20 +66,36 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/open-editorial-issues.mjs
 
-      - name: Install GitHub Copilot CLI
-        run: npm install --global @github/copilot
+      - name: Restore the no-credit local newsroom writer
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: ${{ runner.tool_cache }}/world-leader-chat-writer
+          key: wlc-local-writer-qwen25-3b-b10375-v2-${{ runner.os }}
+
+      - name: Start the no-credit local newsroom writer
+        run: bash scripts/start-local-newsroom-writer.sh
 
       - name: Draft truth-first short articles and back-and-forth chats
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WLC_DRAFT_LIMIT: 30
-        run: node scripts/draft-editorial-issues.mjs
+          WLC_DRAFT_BATCH_SIZE: "10"
+          WLC_DAILY_DRAFT_LIMIT: "30"
+          WLC_TODAY_ONLY: "1"
+          WLC_MAX_ATTEMPTS: "2"
+        run: node scripts/run-drafting-batches.mjs
 
       - name: Enforce direct first-person dialogue
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WLC_REFINE_LIMIT: 60
         run: node scripts/refine-editorial-dialogue.mjs
+
+      - name: Report the files retained for later writing batches
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WLC_TODAY_ONLY: "1"
+          WLC_ALLOW_BACKLOG: "1"
+        run: node scripts/assert-editorial-readiness.mjs
 
       - name: Write run summary
         run: |
@@ -89,11 +105,13 @@ jobs:
             echo "- Review windows: 8 AM, noon, 4 PM and 8 PM America/Chicago"
             echo "- Sweep begins forty minutes before each window so drafting can finish before review"
             echo "- Lookback: seven days, so quieter desks are not crowded out by the latest conflict cycle"
-            echo "- Required first pass: two recommendations each for War & Security, World News, Politics & Society, Technology & AI, Science & Space, Business & Power, Culture & Entertainment, Sports & Soft Power"
+            echo "- Each sweep opens at most eight files and seeks one current recommendation from every desk before adding extras"
             echo "- Publisher guard: use at least two publishers per desk and eight across the daily slate whenever current feed coverage permits"
             echo "- Viewpoint-source guard: the monitored partisan pool is equal left/right, and each slate targets at least four distinct publishers per side with no more than a one-publisher difference when usable coverage permits"
             echo "- New editorial issues: ${{ steps.queue.outputs.issues_created }}"
             echo "- Existing candidates skipped: ${{ steps.queue.outputs.issues_skipped }}"
+            echo "- Daily article ceiling: 30; candidates beyond the ceiling in this sweep: ${{ steps.queue.outputs.issues_daily_limit }}"
+            echo "- Writing batch size: one batch of at most 10 articles per sweep; each file is validated before it reaches review"
             echo "- New candidates receive a sourced short article and a 10–14-message direct conversation before owner approval."
             echo "- Nothing publishes without owner approval."
           } >> "$GITHUB_STEP_SUMMARY"

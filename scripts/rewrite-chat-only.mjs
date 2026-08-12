@@ -1,8 +1,8 @@
-import { spawnSync } from "node:child_process";
 import { resolve } from "node:path";
 import { extractStoryBundle, STORY_JSON_END, STORY_JSON_START } from "./lib/editorial.mjs";
 import { cleanWhitespace, readJson } from "./lib/io.mjs";
 import { dialogueProblems } from "./lib/chat-quality.mjs";
+import { chatDraftSchema, runNewsroomJson } from "./lib/newsroom-model.mjs";
 
 const token = process.env.GITHUB_TOKEN;
 const repository = process.env.GITHUB_REPOSITORY;
@@ -43,15 +43,6 @@ function replaceBundle(body, bundle) {
   return body.slice(0, start) + block + body.slice(end + STORY_JSON_END.length);
 }
 
-function extractJson(text) {
-  const cleaned = String(text || "").trim().replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/i, "");
-  try { return JSON.parse(cleaned); } catch {}
-  const first = cleaned.indexOf("{");
-  const last = cleaned.lastIndexOf("}");
-  if (first >= 0 && last > first) return JSON.parse(cleaned.slice(first, last + 1));
-  throw new Error("Copilot response did not contain valid JSON.");
-}
-
 function chatPrompt(bundle, feedback = []) {
   const event = bundle.event;
   const sourceFacts = (bundle.ingestion?.sourceDigests || []).map((item) => `${item.publisher}: ${item.excerpt}`).join("\n");
@@ -67,21 +58,18 @@ Sources: ${(event.sources || []).map((source) => `${source.publisher}: ${source.
 Source facts: ${sourceFacts || "No additional digest."}
 ${failures}
 
-Write 10–14 messages that feel like an organic group chat among people or institutions naturally connected to this exact event. Start in the middle of a reaction—a position, challenge, contradiction, pointed question or joke. The first message must be a direct participant message, never UN Admin, Admin, a narrator or a system message. Use direct first-person replies, interruptions and callbacks; at least two speakers must return. Every line must respond to the actual people, act, number, place, object or consequence in this article.
+Write 10–14 messages that feel like an organic group chat among people or institutions naturally connected to this exact event. Keep every message concise at 10–35 words. Before writing, choose only 3–5 real people or institutions naturally connected to the event; every chosen speaker must appear at least twice. Alternate them throughout the chat, with no consecutive or one-line-only speaker. Start in the middle of a reaction—a position, challenge, contradiction, pointed question or joke. The first message must be a direct participant message, never UN Admin, Admin, a narrator or a system message. Use direct first-person replies, interruptions and callbacks. Every line must respond to the actual people, act, number, place, object or consequence in this article.
 
 Never write “I read [headline]”. Never paste, recite or lightly trim the article or source headline in a message. Never use “the verified event is pinned”, “fact pattern”, “reported detail”, “answer the file”, “on the record”, “official line is shorter than the consequence”, “spin requested a longer deadline” or other newsroom-process filler. Do not reuse a conversation skeleton with swapped speakers. Do not invent factual claims, quotations or private conduct. For victims, war, death or illness, aim satire at power, policy and messaging.
 
 JSON shape:
-{"messages":[{"speaker":"natural participant","text":"direct event-specific opening position","kind":"satire","reaction":""},{"speaker":"another natural participant","text":"direct organic reply","kind":"satire","reaction":""}],"meme":"one original event-specific closing line","reviewNotes":"why this chat is unique to this article"}`;
+{"messages":[{"speaker":"natural participant","text":"direct event-specific opening position","kind":"satire","reaction":""},{"speaker":"another natural participant","text":"direct organic reply","kind":"satire","reaction":""}],"meme":"one original event-specific closing line","reviewNotes":"why this chat is unique to this article"}
+
+The two message objects above show the field structure only. Your returned messages array MUST contain 10–14 complete, original message objects. A two-message array is invalid.`;
 }
 
-function runCopilot(bundle, feedback = []) {
-  const result = spawnSync("copilot", ["--yolo", "-p", chatPrompt(bundle, feedback)], {
-    encoding: "utf8", timeout: 180000, maxBuffer: 2 * 1024 * 1024, env: process.env
-  });
-  if (result.error) throw result.error;
-  if (result.status !== 0) throw new Error(result.stderr || `Copilot exited ${result.status}`);
-  return extractJson(result.stdout);
+async function runWriter(bundle, feedback = []) {
+  return runNewsroomJson(chatPrompt(bundle, feedback), { schema: chatDraftSchema });
 }
 
 function applyChat(bundle, output) {
@@ -140,7 +128,7 @@ let feedback = ["The owner requested a completely new, organic article-specific 
 let generated = null;
 for (let attempt = 0; attempt < 3; attempt += 1) {
   try {
-    const candidate = applyChat(bundle, runCopilot(bundle, attempt ? feedback : []));
+    const candidate = applyChat(bundle, await runWriter(bundle, attempt ? feedback : []));
     const candidateProblems = dialogueProblems(candidate, { existingBundles });
     if (!candidateProblems.length) { generated = candidate; break; }
     feedback = candidateProblems;

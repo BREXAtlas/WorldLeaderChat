@@ -61,6 +61,9 @@ test("editor has a wide active lane, daily mix tools, publishing status and a de
   assert.match(html, /id="editorDate"/);
   assert.match(html, /Today’s editorial mix/);
   assert.match(html, /8:00 AM • 12:00 PM • 4:00 PM • 8:00 PM Central/);
+  assert.match(html, /id="finishToday"/);
+  assert.match(app, /Finish Draft/);
+  assert.match(app, /AUTOMATIC DRAFT RECOVERY NEEDED/);
   assert.match(app, /Feature in \$\{esc\(cardDesk\)\} Carousel/);
   assert.match(app, /\['featured-headline'\]/);
   assert.match(app, /WLC_NEWSROOM\?\.matchesSearch/);

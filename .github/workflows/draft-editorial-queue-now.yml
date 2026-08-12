@@ -2,6 +2,17 @@ name: Draft current editorial queue
 
 on:
   workflow_dispatch:
+    inputs:
+      today_only:
+        description: "Finish only today's newsroom files"
+        required: false
+        default: true
+        type: boolean
+      target_issue:
+        description: "Optional single issue number for a focused recovery"
+        required: false
+        default: ""
+        type: string
   pull_request:
     types: [opened, reopened]
     branches: [main]
@@ -11,7 +22,6 @@ on:
 permissions:
   contents: read
   issues: write
-  copilot-requests: write
 
 concurrency:
   group: world-leader-chat-editorial-production
@@ -26,13 +36,13 @@ jobs:
         startsWith(github.event.pull_request.head.ref, 'agent/run-editorial-draft')
       )
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 150
 
     steps:
       - name: Check out the published drafting engine
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: main
+          ref: ${{ github.event_name == 'workflow_dispatch' && github.ref || 'main' }}
 
       - name: Use Node.js 24
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
@@ -40,17 +50,42 @@ jobs:
           node-version: 24
           package-manager-cache: false
 
-      - name: Install GitHub Copilot CLI
-        run: npm install --global @github/copilot
+      - name: Restore the no-credit local newsroom writer
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: ${{ runner.tool_cache }}/world-leader-chat-writer
+          key: wlc-local-writer-qwen25-3b-b10375-v2-${{ runner.os }}
+
+      - name: Start the no-credit local newsroom writer
+        run: bash scripts/start-local-newsroom-writer.sh
+
+      - name: Refresh the selected custom article source
+        if: inputs.target_issue != ''
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WLC_TARGET_ISSUE: ${{ inputs.target_issue }}
+        run: node scripts/enrich-custom-submission.mjs
 
       - name: Create complete truth-first editorial suggestions
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WLC_DRAFT_LIMIT: 50
-        run: node scripts/draft-editorial-issues.mjs
+          WLC_DRAFT_BATCH_SIZE: "10"
+          WLC_DAILY_DRAFT_LIMIT: "30"
+          WLC_TODAY_ONLY: ${{ inputs.target_issue && '0' || (inputs.today_only && '1' || '0') }}
+          WLC_TARGET_ISSUE: ${{ inputs.target_issue || '' }}
+          WLC_MAX_ATTEMPTS: ${{ inputs.target_issue && '3' || '2' }}
+        run: node scripts/run-drafting-batches.mjs
 
       - name: Replace meta narration with direct recurring-speaker dialogue
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WLC_REFINE_LIMIT: 50
         run: node scripts/refine-editorial-dialogue.mjs
+
+      - name: Confirm the selected file or report the later-batch backlog
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WLC_TODAY_ONLY: ${{ inputs.target_issue && '0' || (inputs.today_only && '1' || '0') }}
+          WLC_TARGET_ISSUE: ${{ inputs.target_issue || '' }}
+          WLC_ALLOW_BACKLOG: ${{ inputs.target_issue && '0' || '1' }}
+        run: node scripts/assert-editorial-readiness.mjs

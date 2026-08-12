@@ -8,17 +8,17 @@ test("news ingestion runs four times daily, balances eight desks and drafts befo
   const workflow = await read(".github/workflows/news-ingestion.yml");
   assert.match(workflow, /cron: "20 7,11,15,19 \* \* \*"/);
   assert.match(workflow, /timezone: "America\/Chicago"/);
-  assert.match(workflow, /copilot-requests: write/);
+  assert.doesNotMatch(workflow, /copilot|models\.github/i);
   assert.match(workflow, /WLC_LOOKBACK_HOURS:.*168/);
   assert.match(workflow, /WLC_MINIMUM_SCORE:.*4/);
-  assert.match(workflow, /WLC_MAX_CANDIDATES:.*24/);
-  assert.match(workflow, /WLC_MINIMUM_PER_DESK: "2"/);
+  assert.match(workflow, /WLC_MAX_CANDIDATES:.*8/);
+  assert.match(workflow, /WLC_MINIMUM_PER_DESK: "1"/);
   assert.match(workflow, /WLC_MINIMUM_PUBLISHERS: "8"/);
   assert.match(workflow, /WLC_MINIMUM_PUBLISHERS_PER_DESK: "2"/);
   assert.match(workflow, /WLC_MAXIMUM_PER_PUBLISHER: "4"/);
   assert.match(workflow, /queue: max/);
-  assert.match(workflow, /War & Security, World News, Politics & Society, Technology & AI, Science & Space, Business & Power, Culture & Entertainment, Sports & Soft Power/);
-  assert.match(workflow, /draft-editorial-issues\.mjs/);
+  assert.match(workflow, /one current recommendation from every desk/);
+  assert.match(workflow, /run-drafting-batches\.mjs/);
   assert.match(workflow, /refine-editorial-dialogue\.mjs/);
   assert.match(workflow, /Nothing publishes without owner approval/);
 });
@@ -53,7 +53,11 @@ test("drafting prompt preserves factual conclusions and forbids recycled stock c
   assert.match(draft, /Do not default to Trump, Macron, Meloni and Xi/);
   assert.match(draft, /Never mention Drake/);
   assert.match(draft, /dialogueProblems/);
+  assert.match(draft, /import \{ articleProblems, expectedSourceCredit, normalizeArticle \}/);
   assert.match(draft, /bestArticleCandidate/);
+  assert.match(draft, /articleOnlySchema/);
+  assert.match(draft, /chatDraftSchema/);
+  assert.match(draft, /acceptedArticleOutput/);
   assert.match(draft, /Never promote fill-in-the-headline copy as a safety fallback/);
 });
 
@@ -63,7 +67,40 @@ test("failed machine drafts stay newsroom work instead of becoming owner writing
   assert.match(editor, /No owner writing is needed/);
   assert.match(editor, /labels\.has\('needs-editor'\)/);
   assert.match(editor, /NEWSROOM PRODUCTION IN PROGRESS/);
-  assert.match(queueWorkflow, /WLC_DRAFT_LIMIT: 50/);
+  assert.match(editor, /Finish Today’s Drafts/);
+  assert.match(editor, /draft-editorial-queue-now\.yml\/dispatches/);
+  assert.match(queueWorkflow, /WLC_DRAFT_BATCH_SIZE: "10"/);
+  assert.match(queueWorkflow, /WLC_DAILY_DRAFT_LIMIT: "30"/);
+  assert.match(queueWorkflow, /run-drafting-batches\.mjs/);
+  assert.match(queueWorkflow, /target_issue/);
+  assert.match(queueWorkflow, /WLC_TARGET_ISSUE/);
+  assert.match(queueWorkflow, /Refresh the selected custom article source/);
+  assert.match(queueWorkflow, /enrich-custom-submission\.mjs/);
+  assert.match(queueWorkflow, /Confirm the selected file or report the later-batch backlog/);
+  assert.match(queueWorkflow, /assert-editorial-readiness\.mjs/);
+});
+
+test("every scheduled sweep finishes and verifies the entire current-day writing queue", async () => {
+  const workflow = await read(".github/workflows/news-ingestion.yml");
+  const draft = await read("scripts/draft-editorial-issues-v2.mjs");
+  const opening = await read("scripts/open-editorial-issues.mjs");
+  const batches = await read("scripts/run-drafting-batches.mjs");
+  const readiness = await read("scripts/assert-editorial-readiness.mjs");
+  assert.match(workflow, /WLC_DRAFT_BATCH_SIZE: "10"/);
+  assert.match(workflow, /WLC_DAILY_DRAFT_LIMIT: "30"/);
+  assert.match(workflow, /WLC_DAILY_CANDIDATE_LIMIT: "30"/);
+  assert.match(workflow, /WLC_TODAY_ONLY: "1"/);
+  assert.match(workflow, /Report the files retained for later writing batches/);
+  assert.match(workflow, /WLC_ALLOW_BACKLOG: "1"/);
+  assert.match(draft, /todayOnly/);
+  assert.match(draft, /daily-overflow/);
+  assert.match(opening, /WLC_DAILY_CANDIDATE_LIMIT \|\| 30/);
+  assert.match(opening, /dailyCounts/);
+  assert.match(batches, /WLC_DRAFT_BATCH_SIZE \|\| 10/);
+  assert.match(batches, /WLC_DAILY_DRAFT_LIMIT \|\| 30/);
+  assert.match(batches, /Starting one newsroom writing batch/);
+  assert.match(readiness, /remain outside Ready for Approval for later batches/);
+  assert.match(readiness, /daily-overflow/);
 });
 
 test("all editorial drafting workflows share one non-cancelling production lock", async () => {
@@ -76,6 +113,8 @@ test("all editorial drafting workflows share one non-cancelling production lock"
   for (const workflow of workflows) {
     assert.match(workflow, /group: world-leader-chat-editorial-production/);
     assert.match(workflow, /cancel-in-progress: false/);
+    assert.match(workflow, /start-local-newsroom-writer\.sh/);
+    assert.doesNotMatch(workflow, /copilot|models\.github/i);
   }
 });
 
@@ -95,12 +134,12 @@ test("Rewrite Chat preserves the article and replaces only dialogue", async () =
   assert.match(workflow, /github\.event\.label\.name == 'regenerate-requested'/);
   assert.match(workflow, /WLC_TARGET_ISSUE/);
   assert.match(workflow, /rewrite-chat-only\.mjs/);
-  assert.match(workflow, /copilot-requests: write/);
-  assert.match(workflow, /Install GitHub Copilot CLI/);
+  assert.match(workflow, /start-local-newsroom-writer\.sh/);
+  assert.doesNotMatch(workflow, /copilot|models\.github/i);
   assert.doesNotMatch(workflow, /WLC_FORCE_REWRITE|draft-editorial-issues\.mjs/);
   assert.match(rewrite, /const originalArticle = structuredClone/);
   assert.match(rewrite, /bundle\.event\.article = originalArticle/);
-  assert.match(rewrite, /runCopilot/);
+  assert.match(rewrite, /runNewsroomJson/);
   assert.match(rewrite, /Never write “I read \[headline\]”/);
   assert.doesNotMatch(rewrite, /buildDirectDialogue/);
   assert.match(rewrite, /article and sources were preserved/);
@@ -119,7 +158,8 @@ test("article failures can request a complete source-locked redraft", async () =
   const workflow = await read(".github/workflows/editorial-redraft.yml");
   const editor = await read("editor/app.js");
   assert.match(workflow, /github\.event\.label\.name == 'redraft-requested'/);
-  assert.match(workflow, /copilot-requests: write/);
+  assert.match(workflow, /start-local-newsroom-writer\.sh/);
+  assert.doesNotMatch(workflow, /copilot|models\.github/i);
   assert.match(workflow, /WLC_FORCE_REWRITE: "1"/);
   assert.match(editor, /Regenerate Article \+ Chat/);
   assert.match(editor, /\['redraft-requested'\]/);

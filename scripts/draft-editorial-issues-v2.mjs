@@ -1,9 +1,9 @@
-import { spawnSync } from "node:child_process";
 import { resolve } from "node:path";
 import { extractStoryBundle, STORY_JSON_END, STORY_JSON_START } from "./lib/editorial.mjs";
 import { cleanWhitespace, readJson } from "./lib/io.mjs";
 import { dialogueProblems, stockMemeDetected } from "./lib/chat-quality.mjs";
-import { articleProblems, normalizeArticle } from "./lib/article-standard.mjs";
+import { articleProblems, expectedSourceCredit, normalizeArticle } from "./lib/article-standard.mjs";
+import { articleOnlySchema, chatDraftSchema, runNewsroomJson } from "./lib/newsroom-model.mjs";
 
 const token = process.env.GITHUB_TOKEN;
 const repository = process.env.GITHUB_REPOSITORY;
@@ -11,6 +11,8 @@ const apiBase = process.env.GITHUB_API_URL || "https://api.github.com";
 const limit = Number(process.env.WLC_DRAFT_LIMIT || 20);
 const targetIssue = Number(process.env.WLC_TARGET_ISSUE || 0);
 const forceRewrite = process.env.WLC_FORCE_REWRITE === "1";
+const todayOnly = process.env.WLC_TODAY_ONLY === "1" || process.env.WLC_TODAY_ONLY === "true";
+const maximumAttempts = Number(process.env.WLC_MAX_ATTEMPTS || (targetIssue ? 5 : 3));
 
 if (!token) throw new Error("GITHUB_TOKEN is required.");
 if (!repository || !repository.includes("/")) throw new Error("GITHUB_REPOSITORY must be owner/name.");
@@ -52,15 +54,6 @@ function safeSummary(value) {
     .slice(0, 1200);
 }
 
-function extractJson(text) {
-  const cleaned = String(text || "").trim().replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/i, "");
-  try { return JSON.parse(cleaned); } catch {}
-  const first = cleaned.indexOf("{");
-  const last = cleaned.lastIndexOf("}");
-  if (first >= 0 && last > first) return JSON.parse(cleaned.slice(first, last + 1));
-  throw new Error("Copilot response did not contain valid JSON.");
-}
-
 function promptFor(bundle, feedback = []) {
   const sources = (bundle.event.sources || [])
     .map((source, index) => `${index + 1}. ${source.publisher}: ${source.label} — ${source.url}`)
@@ -95,13 +88,14 @@ ARTICLE RULES
 - The headline must identify this specific event; never use a generic headline that could fit another article.
 
 CHAT RULES — THESE ARE STRICT
-- Create 10–14 messages that sound like people texting each other, with replies, interruptions and callbacks.
+- Create 10–14 messages that sound like people texting each other, with replies, interruptions and callbacks. Keep every message concise at 10–35 words.
 - Every line must be unique to THIS article and mention or respond to its actual people, decision, number, place, object or consequence.
 - Start in the middle of the reaction: a position, challenge, joke, contradiction or pointed question. Never write “I read [headline]”.
 - The first message must come from a person or institution directly involved in the event. Never open with UN Admin, Admin, a narrator or a system message.
 - Never paste, recite or lightly trim the article headline or source headline inside a message. People discuss what happened; they do not read headlines to one another.
 - Do not use newsroom-process filler such as “the verified event is pinned”, “fact pattern”, “reported detail”, “answer the file”, “on the record”, “official line is shorter than the consequence” or “spin requested a longer deadline”.
-- At least two speakers must return later. Never place the same speaker in consecutive turns.
+- Before writing the messages, choose only 3–5 real people or institutions naturally connected to this event. Every chosen speaker must appear at least twice.
+- Alternate those speakers throughout the chat. Never place the same speaker in consecutive turns, and never introduce a one-line speaker who does not return.
 - A speaker's text must be direct first-person dialogue. Never write narration such as “frames the stance”, “signals irritation”, “calls for”, “notes”, “observes”, “emphasizes”, “suggests”, “underlines”, “sees” or “warns”.
 - Do not recycle stock lines about “the strongest interpretation”, “I have thoughts”, “the facts are doing well”, “the personality test”, “the agenda”, “typing indicators” or changing the group name.
 - Do not default to Trump, Macron, Meloni and Xi for unrelated stories. At least half the participants must be people or institutions naturally adjacent to this event.
@@ -132,26 +126,41 @@ Return this exact JSON shape:
   "meme": "original event-specific one-sentence punch line",
   "tone": "comic or sober",
   "reviewNotes": "one sentence explaining factual fidelity and chat specificity"
-}`;
 }
 
-function runCopilot(bundle, feedback = []) {
-  const result = spawnSync("copilot", ["--yolo", "-p", promptFor(bundle, feedback)], {
-    encoding: "utf8",
-    timeout: 180000,
-    maxBuffer: 2 * 1024 * 1024,
-    env: process.env
-  });
-  if (result.error) throw result.error;
-  if (result.status !== 0) throw new Error(result.stderr || `Copilot exited ${result.status}`);
-  const output = extractJson(result.stdout);
+The two message objects above show the field structure only. Your returned messages array MUST contain 10–14 complete, original message objects. A two-message array is invalid.`;
+}
+
+async function runWriter(bundle, feedback = [], acceptedArticleOutput = null) {
+  const articlePrompt = `${promptFor(bundle, feedback).split("CHAT RULES — THESE ARE STRICT")[0]}
+Return only this JSON object: {"title":"specific truthful headline","kicker":"event angle","category":"${bundle.ingestion?.newsroomDesk || bundle.event.category}","article":{"headline":"specific factual headline","dek":"factual deck","body":["paragraph 1","paragraph 2","paragraph 3"],"sourceCredit":"credit every listed publisher"},"reviewNotes":"factual fidelity note"}`;
+  const articleOutput = acceptedArticleOutput
+    || await runNewsroomJson(articlePrompt, { schema: articleOnlySchema, maxTokens: 900 });
+  const chatPrompt = `Return only valid JSON with messages, meme and reviewNotes.
+
+SOURCE-LOCKED ARTICLE
+Headline: ${articleOutput.article?.headline}
+Dek: ${articleOutput.article?.dek}
+Report: ${(articleOutput.article?.body || []).join("\n")}
+Verified summary: ${safeSummary(bundle.event.summary)}
+Source facts: ${(bundle.ingestion?.sourceDigests || []).map((item) => `${item.publisher}: ${item.excerpt}`).join("\n") || "None"}
+${feedback.length ? `Previous chat failures:\n- ${feedback.join("\n- ")}` : ""}
+
+Write 10–14 concise, original messages about this exact event. Choose only 3–5 real people or institutions naturally connected to it; every chosen speaker appears at least twice. Alternate speakers, never repeat a speaker in consecutive turns, and never use a one-line-only speaker. Start with a direct participant, never UN Admin, Admin, narration or a system message. Use first-person replies, interruptions and callbacks. Never write “I read [headline]”, recite the headline, invent facts or quotations, or use newsroom-process filler. Every line must depend on this event's actual person, decision, number, place, object or consequence.`;
+  const chatOutput = await runNewsroomJson(chatPrompt, { schema: chatDraftSchema, maxTokens: 900 });
+  const output = {
+    ...articleOutput,
+    ...chatOutput,
+    tone: "comic",
+    reviewNotes: `${articleOutput.reviewNotes || ""} ${chatOutput.reviewNotes || ""}`.trim()
+  };
   if (!output.article || !Array.isArray(output.article.body) || !Array.isArray(output.messages)) {
-    throw new Error("Copilot JSON is missing article or messages.");
+    throw new Error("Local writer JSON is missing article or messages.");
   }
-  return output;
+  return { output, articleOutput };
 }
 
-function applyCopilot(bundle, output) {
+function applyGeneratedDraft(bundle, output) {
   const result = structuredClone(bundle);
   result.ingestion = { ...(result.ingestion || {}), newsroomFormat: 2 };
   result.event.summary = safeSummary(result.event.summary);
@@ -230,12 +239,25 @@ const parsed = issues
     catch { return { issue, bundle: null }; }
   });
 
+function chicagoDateKey(value = Date.now()) {
+  const date = new Date(value);
+  if (Number.isNaN(date.valueOf())) return "";
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/Chicago", year: "numeric", month: "2-digit", day: "2-digit"
+  }).formatToParts(date);
+  const values = Object.fromEntries(parts.map((part) => [part.type, part.value]));
+  return `${values.year}-${values.month}-${values.day}`;
+}
+
+const newsroomToday = chicagoDateKey();
+
 const queue = parsed
   .filter(({ issue, bundle }) => bundle)
+  .filter(({ bundle }) => !todayOnly || bundle.event?.eventDate === newsroomToday)
   .filter(({ issue }) => {
     const labels = labelsOf(issue);
     if (targetIssue && issue.number !== targetIssue) return false;
-    return !labels.has("published") && !labels.has("editorial-approved") && !labels.has("rejected");
+    return !labels.has("published") && !labels.has("editorial-approved") && !labels.has("rejected") && !labels.has("daily-overflow");
   })
   .filter(({ issue, bundle }) => {
     const labels = labelsOf(issue);
@@ -258,14 +280,17 @@ for (const { issue, bundle: originalBundle } of queue) {
     await setLabels(issue, ["drafting"], ["needs-editor", "ready-for-approval"]);
     let bundle = originalBundle;
     let lastProblems = ["A new article-specific draft was requested."];
-    let copilotWorked = false;
+    let writerWorked = false;
+    let acceptedArticleOutput = null;
     let bestArticleCandidate = null;
     let bestProblemCount = Number.POSITIVE_INFINITY;
 
-    for (let attempt = 0; attempt < 3; attempt += 1) {
+    for (let attempt = 0; attempt < maximumAttempts; attempt += 1) {
       try {
-        const candidate = applyCopilot(bundle, runCopilot(bundle, attempt ? lastProblems : []));
+        const generated = await runWriter(bundle, attempt ? lastProblems : [], acceptedArticleOutput);
+        const candidate = applyGeneratedDraft(bundle, generated.output);
         const candidateArticleProblems = articleProblems(candidate.event?.article, candidate.event?.sources);
+        acceptedArticleOutput = candidateArticleProblems.length ? null : generated.articleOutput;
         const problems = [
           ...candidateArticleProblems.map((problem) => `Article: ${problem}`),
           ...dialogueProblems(candidate, { existingBundles: acceptedBundles })
@@ -279,18 +304,17 @@ for (const { issue, bundle: originalBundle } of queue) {
           continue;
         }
         bundle = candidate;
-        copilotWorked = true;
+        writerWorked = true;
         break;
       } catch (error) {
         lastProblems = [error.message];
       }
     }
 
-    if (!copilotWorked) {
+    if (!writerWorked) {
       generationFailureCount += 1;
-      // Never promote fill-in-the-headline copy as a safety fallback. Preserve the
-      // best source-locked attempt for a future automated retry, but let the quality
-      // gate keep the file out of Ready for Approval until original writing succeeds.
+      // Never promote fill-in-the-headline copy as a safety fallback. Keep the best
+      // attempt in memory for diagnostics, but do not save a failed draft to the issue.
       bundle = bestArticleCandidate || bundle;
     }
 
@@ -301,7 +325,7 @@ for (const { issue, bundle: originalBundle } of queue) {
     if (finalProblems.length || stockMemeDetected(bundle.event?.meme)) {
       blocked += 1;
       await setLabels(issue, ["needs-editor"], ["drafting", "ready-for-approval", "regenerate-requested", "redraft-requested"]);
-      console.error(`::warning title=Draft blocked by chat quality::Issue #${issue.number}: ${[...finalProblems, ...(stockMemeDetected(bundle.event?.meme) ? ["stock meme"] : [])].join(" | ")}`);
+      console.error(`::warning title=Draft blocked by chat quality::Issue #${issue.number}: ${[...lastProblems.map((problem) => `Generation: ${problem}`), ...finalProblems, ...(stockMemeDetected(bundle.event?.meme) ? ["stock meme"] : [])].join(" | ")}`);
       continue;
     }
 
@@ -322,3 +346,4 @@ for (const { issue, bundle: originalBundle } of queue) {
 }
 
 console.log(`Editorial drafting complete: ${drafted} ready, ${generationFailureCount} generation failure(s) kept out of review, ${blocked} blocked.`);
+if (targetIssue && blocked) process.exitCode = 1;

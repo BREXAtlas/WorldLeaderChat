@@ -7,7 +7,6 @@ on:
 permissions:
   contents: read
   issues: write
-  copilot-requests: write
 
 concurrency:
   group: world-leader-chat-editorial-production
@@ -17,7 +16,7 @@ jobs:
   redraft:
     if: github.event.label.name == 'redraft-requested'
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
     steps:
       - name: Check out the production drafting engine
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -30,8 +29,14 @@ jobs:
           node-version: 24
           package-manager-cache: false
 
-      - name: Install GitHub Copilot CLI
-        run: npm install --global @github/copilot
+      - name: Restore the no-credit local newsroom writer
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: ${{ runner.tool_cache }}/world-leader-chat-writer
+          key: wlc-local-writer-qwen25-3b-b10375-v2-${{ runner.os }}
+
+      - name: Start the no-credit local newsroom writer
+        run: bash scripts/start-local-newsroom-writer.sh
 
       - name: Enrich owner-submitted public source links
         env:
@@ -45,4 +50,11 @@ jobs:
           WLC_TARGET_ISSUE: ${{ github.event.issue.number }}
           WLC_FORCE_REWRITE: "1"
           WLC_DRAFT_LIMIT: "1"
+          WLC_MAX_ATTEMPTS: "3"
         run: node scripts/draft-editorial-issues.mjs
+
+      - name: Confirm this article returned to Ready for Approval
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WLC_TARGET_ISSUE: ${{ github.event.issue.number }}
+        run: node scripts/assert-editorial-readiness.mjs
