@@ -100,6 +100,19 @@ export const articleDraftSchema = {
   additionalProperties: false
 };
 
+export const articleOnlySchema = {
+  type: "object",
+  properties: {
+    title: articleDraftSchema.properties.title,
+    kicker: articleDraftSchema.properties.kicker,
+    category: articleDraftSchema.properties.category,
+    article: articleDraftSchema.properties.article,
+    reviewNotes: articleDraftSchema.properties.reviewNotes
+  },
+  required: ["title", "kicker", "category", "article", "reviewNotes"],
+  additionalProperties: false
+};
+
 export async function runNewsroomJson(prompt, options = {}) {
   const endpoint = options.endpoint || process.env.WLC_WRITER_ENDPOINT || "http://127.0.0.1:8080/v1/chat/completions";
   const request = options.fetch || globalThis.fetch;

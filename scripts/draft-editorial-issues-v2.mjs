@@ -3,7 +3,7 @@ import { extractStoryBundle, STORY_JSON_END, STORY_JSON_START } from "./lib/edit
 import { cleanWhitespace, readJson } from "./lib/io.mjs";
 import { dialogueProblems, stockMemeDetected } from "./lib/chat-quality.mjs";
 import { articleProblems, expectedSourceCredit, normalizeArticle } from "./lib/article-standard.mjs";
-import { articleDraftSchema, runNewsroomJson } from "./lib/newsroom-model.mjs";
+import { articleOnlySchema, chatDraftSchema, runNewsroomJson } from "./lib/newsroom-model.mjs";
 
 const token = process.env.GITHUB_TOKEN;
 const repository = process.env.GITHUB_REPOSITORY;
@@ -131,12 +131,33 @@ Return this exact JSON shape:
 The two message objects above show the field structure only. Your returned messages array MUST contain 10–14 complete, original message objects. A two-message array is invalid.`;
 }
 
-async function runWriter(bundle, feedback = []) {
-  const output = await runNewsroomJson(promptFor(bundle, feedback), { schema: articleDraftSchema });
+async function runWriter(bundle, feedback = [], acceptedArticleOutput = null) {
+  const articlePrompt = `${promptFor(bundle, feedback).split("CHAT RULES — THESE ARE STRICT")[0]}
+Return only this JSON object: {"title":"specific truthful headline","kicker":"event angle","category":"${bundle.ingestion?.newsroomDesk || bundle.event.category}","article":{"headline":"specific factual headline","dek":"factual deck","body":["paragraph 1","paragraph 2","paragraph 3"],"sourceCredit":"credit every listed publisher"},"reviewNotes":"factual fidelity note"}`;
+  const articleOutput = acceptedArticleOutput
+    || await runNewsroomJson(articlePrompt, { schema: articleOnlySchema, maxTokens: 900 });
+  const chatPrompt = `Return only valid JSON with messages, meme and reviewNotes.
+
+SOURCE-LOCKED ARTICLE
+Headline: ${articleOutput.article?.headline}
+Dek: ${articleOutput.article?.dek}
+Report: ${(articleOutput.article?.body || []).join("\n")}
+Verified summary: ${safeSummary(bundle.event.summary)}
+Source facts: ${(bundle.ingestion?.sourceDigests || []).map((item) => `${item.publisher}: ${item.excerpt}`).join("\n") || "None"}
+${feedback.length ? `Previous chat failures:\n- ${feedback.join("\n- ")}` : ""}
+
+Write 10–14 concise, original messages about this exact event. Choose only 3–5 real people or institutions naturally connected to it; every chosen speaker appears at least twice. Alternate speakers, never repeat a speaker in consecutive turns, and never use a one-line-only speaker. Start with a direct participant, never UN Admin, Admin, narration or a system message. Use first-person replies, interruptions and callbacks. Never write “I read [headline]”, recite the headline, invent facts or quotations, or use newsroom-process filler. Every line must depend on this event's actual person, decision, number, place, object or consequence.`;
+  const chatOutput = await runNewsroomJson(chatPrompt, { schema: chatDraftSchema, maxTokens: 900 });
+  const output = {
+    ...articleOutput,
+    ...chatOutput,
+    tone: "comic",
+    reviewNotes: `${articleOutput.reviewNotes || ""} ${chatOutput.reviewNotes || ""}`.trim()
+  };
   if (!output.article || !Array.isArray(output.article.body) || !Array.isArray(output.messages)) {
     throw new Error("Local writer JSON is missing article or messages.");
   }
-  return output;
+  return { output, articleOutput };
 }
 
 function applyGeneratedDraft(bundle, output) {
@@ -260,13 +281,16 @@ for (const { issue, bundle: originalBundle } of queue) {
     let bundle = originalBundle;
     let lastProblems = ["A new article-specific draft was requested."];
     let writerWorked = false;
+    let acceptedArticleOutput = null;
     let bestArticleCandidate = null;
     let bestProblemCount = Number.POSITIVE_INFINITY;
 
     for (let attempt = 0; attempt < maximumAttempts; attempt += 1) {
       try {
-        const candidate = applyGeneratedDraft(bundle, await runWriter(bundle, attempt ? lastProblems : []));
+        const generated = await runWriter(bundle, attempt ? lastProblems : [], acceptedArticleOutput);
+        const candidate = applyGeneratedDraft(bundle, generated.output);
         const candidateArticleProblems = articleProblems(candidate.event?.article, candidate.event?.sources);
+        acceptedArticleOutput = candidateArticleProblems.length ? null : generated.articleOutput;
         const problems = [
           ...candidateArticleProblems.map((problem) => `Article: ${problem}`),
           ...dialogueProblems(candidate, { existingBundles: acceptedBundles })
