@@ -111,9 +111,27 @@ test("article-specific builders create different conversations for different eve
 
   assert.equal(dialogueProblems(health).length, 0);
   assert.equal(dialogueProblems(sport).length, 0);
+  assert.notEqual(health.event.messages[0].kind, "system");
+  assert.notEqual(sport.event.messages[0].kind, "system");
+  assert.notEqual(health.event.messages[0].speaker, "UN Admin");
+  assert.notEqual(sport.event.messages[0].speaker, "UN Admin");
   const similarity = dialogueSimilarity(health.event.messages, sport.event.messages);
   assert.equal(similarity.exactOverlap, 0);
   assert.notDeepEqual(health.event.messages.map((message) => message.speaker), sport.event.messages.map((message) => message.speaker));
+});
+
+test("UN Admin or any system narrator is rejected as the first chat message", () => {
+  const messages = buildDirectDialogue(bundle({
+    title: "AHRQ patient-safety research agency faces cuts",
+    summary: "AHRQ funded a national ICU checklist effort that reduced infections and saved lives."
+  }));
+  messages.unshift({ speaker: "UN Admin", text: "The patient-safety argument has entered the room.", kind: "system", reaction: "" });
+  const problems = dialogueProblems(bundle({
+    title: "AHRQ patient-safety research agency faces cuts",
+    summary: "AHRQ funded a national ICU checklist effort that reduced infections and saved lives.",
+    messages
+  }));
+  assert.ok(problems.some((problem) => /must open with a direct event participant/i.test(problem)));
 });
 
 test("cross-article reuse of two or more lines is rejected", () => {

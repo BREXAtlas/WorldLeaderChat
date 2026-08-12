@@ -159,6 +159,10 @@ export function dialogueProblems(bundle, options = {}) {
   const messages = bundle?.event?.messages;
   if (!Array.isArray(messages)) return ["Chat messages are missing."];
   if (messages.length < 10 || messages.length > 14) problems.push(`Chat must contain 10–14 messages; found ${messages.length}.`);
+  const opening = messages[0];
+  if (opening?.kind === "system" || /^(?:un\s+)?admin$/i.test(String(opening?.speaker || "").trim())) {
+    problems.push("Chat must open with a direct event participant, not UN Admin, Admin, narration or a system message.");
+  }
 
   const normalizedLines = new Set();
   const counts = new Map();

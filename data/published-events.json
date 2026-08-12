@@ -27,12 +27,6 @@
     ],
     "messages": [
       {
-        "speaker": "UN Admin",
-        "text": "Anthropic just said it's watermarking text from older models too. So now even Claude v1 gets a digital fingerprint.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "News Editor, WLC",
         "text": "Wait—they're going backwards in time? That's not how neural networks work.",
         "kind": "satire",
@@ -153,12 +147,6 @@
     ],
     "messages": [
       {
-        "speaker": "UN Admin",
-        "text": "Mari just agreed to buy ATG Entertainment for $6 billion. Providence Equity selling. Theater world scrambling.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "NYC Broadway Producer",
         "text": "Wait, Emanuel's Mari? The events company that's been around for what, eleven months? They're going mega-cap on theater venues.",
         "kind": "satire",
@@ -274,12 +262,6 @@
     ],
     "messages": [
       {
-        "speaker": "UN Admin",
-        "text": "I just read CNBC about Frida launching a kids personal care category and yes, this is actually happening.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "CNBC",
         "text": "I reported that Frida is expanding into kids’ personal care and called it a move into a largely untapped market.",
         "kind": "satire",
@@ -388,12 +370,6 @@
       }
     ],
     "messages": [
-      {
-        "speaker": "UN Admin",
-        "text": "Anthropic just watermarked every Claude output to appease the EU. Invisible ink for the age of artificial everything.",
-        "kind": "system",
-        "reaction": ""
-      },
       {
         "speaker": "EU Policy Directorate",
         "text": "Finally. We need to know what's human and what isn't. Can't regulate what we can't track.",
@@ -509,12 +485,6 @@
       }
     ],
     "messages": [
-      {
-        "speaker": "Dr. Lucy Lim, NASA Goddard",
-        "text": "We're within striking distance of the main discontinuity now. The beds are thinning as we climb—exactly what the model predicted.",
-        "kind": "system",
-        "reaction": ""
-      },
       {
         "speaker": "Planetary Lab Director",
         "text": "This is why we've had Curiosity on that slope for six weeks. Everyone wants rovers doing flashy things, but you drill erosional contacts and that's when the real constraints emerge.",
@@ -632,12 +602,6 @@
     ],
     "messages": [
       {
-        "speaker": "UN Admin",
-        "text": "Joby Aviation just spent half a billion dollars to stop being that electric aircraft company and start being a defense contractor.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "Air Mobility Analyst",
         "text": "Wait—Joby's funding problem for civilian air taxis is so bad they're just... going to let the Pentagon buy them instead?",
         "kind": "satire",
@@ -753,12 +717,6 @@
     ],
     "messages": [
       {
-        "speaker": "UN Admin",
-        "text": "Marina just signed with UTA for everything—touring, TV, brands, all of it. Tour wraps soon.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "Live Music Promoter",
         "text": "Finally. She's been split across three different agents. Now we actually know who to call.",
         "kind": "satire",
@@ -873,12 +831,6 @@
       }
     ],
     "messages": [
-      {
-        "speaker": "NATO Press Office",
-        "text": "The President safely departed Turkey following a security assessment. The summit will continue as scheduled.",
-        "kind": "system",
-        "reaction": ""
-      },
       {
         "speaker": "Turkish Foreign Ministry",
         "text": "We hosted a summit. Then we hosted an empty podium. Not ideal for alliance messaging.",
@@ -1002,12 +954,6 @@
     ],
     "messages": [
       {
-        "speaker": "Truth Social Desk",
-        "text": "breaking: truth social now selling $100k/mo 'fast access' tier. more than 10 firms subscribed. company posted quarterly loss.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "Financial News Editor",
         "text": "wait so they're losing money on the main product but charging six figures for *earlier access* to free posts?",
         "kind": "satire",
@@ -1123,12 +1069,6 @@
     ],
     "messages": [
       {
-        "speaker": "UN Admin",
-        "text": "🚨 ALERT: FBI confirms North Korean remote IT worker embedded in U.S. government agency. Also targeting private sector and crypto. Thread incoming.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "NSA Cyber Ops",
         "text": "So we hired an adversary's IT guy. Remote contracting wins again. Bet he had a real solid GitHub profile.",
         "kind": "satire",
@@ -1243,12 +1183,6 @@
       }
     ],
     "messages": [
-      {
-        "speaker": "Kashmir Election Commission",
-        "text": "Polling centers open across Azad Jammu and Kashmir today. We're confident in the security arrangements and expect robust participation.",
-        "kind": "system",
-        "reaction": ""
-      },
       {
         "speaker": "Islamabad Policy Group",
         "text": "Finally—elections are democracy in action, even when critics claim otherwise. This is exactly what a functioning state does.",
@@ -1371,12 +1305,6 @@
     ],
     "messages": [
       {
-        "speaker": "UN Admin",
-        "text": "Wisconsin and Minnesota voters about to settle things while SCOTUS refuses to retire. August 11, 2026.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "Abdul El-Sayed",
         "text": "Michigan showed Democrats are hungry for something different than what the establishment keeps offering. Progressive energy is real.",
         "kind": "satire",
@@ -1491,12 +1419,6 @@
       }
     ],
     "messages": [
-      {
-        "speaker": "NC GOP Communications",
-        "text": "Jennifer Balkcom is the strongest choice to hold this seat. She knows the district, knows the issues, and she's ready to serve.",
-        "kind": "system",
-        "reaction": ""
-      },
       {
         "speaker": "Jamie Ager",
         "text": "We're running this race because people in the 11th are tired of representatives who've earned a sexual harassment investigation. That's not the standard we set.",
@@ -1619,12 +1541,6 @@
     ],
     "messages": [
       {
-        "speaker": "UN Admin",
-        "text": "Zaporizhzhia strike reported; Zelensky statement incoming on weapons origin",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "Ukrainian Defense Analyst",
         "text": "Six killed, nineteen wounded in the latest barrage. We're seeing the signature of ballistic weapons now—not the cruise missiles from before.",
         "kind": "satire",
@@ -1739,12 +1655,6 @@
       }
     ],
     "messages": [
-      {
-        "speaker": "UN Admin",
-        "text": "Sevilla confirm Robbie Ure deal from IK Sirius—£5.5m plus bonuses to £7.6m. Scottish youth international. Swedish-to-Spanish pipeline confirmed operational.",
-        "kind": "system",
-        "reaction": ""
-      },
       {
         "speaker": "Scottish Football Desk",
         "text": "Ure's gone to Spain. Not England. This is the second time this month a Scottish prospect has chosen continental development over the Premier League wait.",
@@ -1867,12 +1777,6 @@
     ],
     "messages": [
       {
-        "speaker": "Spotify Policy",
-        "text": "September's coming. Anyone running an AI Persona account needs to know we're flagging you. This is not optional.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "Independent Producer",
         "text": "wait so suddenly my ambient sleep tracks are 'slop' because I used AI tools to layer them. how are they even detecting this",
         "kind": "satire",
@@ -1987,12 +1891,6 @@
       }
     ],
     "messages": [
-      {
-        "speaker": "NBC Backlot Admin",
-        "text": "Press day alert: Sunset P.I. panel now live in Soundstage 7. Goor, Del Tredici, Johnson, David, Kerman, Shalaby. Ends 2pm PT.",
-        "kind": "system",
-        "reaction": ""
-      },
       {
         "speaker": "Deadline TV Reporter",
         "text": "Dan Goor just said they built this entire show on the Moonlighting template. Not joking. Literally cited it by name.",
@@ -2116,12 +2014,6 @@
     ],
     "messages": [
       {
-        "speaker": "UN Admin",
-        "text": "WHITE HOUSE TIK-TOK LATEST: We posted \"August\" and \"La Mudanza\" to make a point and the songs are just... gone. Did they mute us or did their teams reach out?",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "Rolling Stone Music Desk",
         "text": "This is the play right now—no statement, no tears, no 'this is unacceptable,' just watch the audio evaporate from your videos. Works better than a cease-and-desist.",
         "kind": "satire",
@@ -2237,12 +2129,6 @@
     ],
     "messages": [
       {
-        "speaker": "World Leader Chat Newsroom",
-        "text": "🎬 Travis Barker's plane crash documentary drops Wednesday. The Blink-182 drummer goes deep on 2008, painkillers, and survivor's guilt.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "Mark Hoppus",
         "text": "Watched the premiere at Tribeca. He's really honest about everything—the addiction, the questions nobody asks him. It's heavy.",
         "kind": "satire",
@@ -2357,12 +2243,6 @@
       }
     ],
     "messages": [
-      {
-        "speaker": "NATO Press Office",
-        "text": "ALERT: President Trump has safely departed Ankara aboard Air Force One, returning to the UK after productive NATO summit discussions. Full itinerary below.",
-        "kind": "system",
-        "reaction": ""
-      },
       {
         "speaker": "Turkish Airport Authority",
         "text": "That catering truck we sent out at 14:32 local time? Still not sure what that was actually for. Paperwork said presidential detail requested it. Paperwork's now classified, apparently.",
@@ -2496,12 +2376,6 @@
     ],
     "messages": [
       {
-        "speaker": "UN Admin",
-        "text": "New attachment: one government iPhone, more than 34,000 texts, more than 500 voicemails and approximately zero short political interpretations.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "Reporter",
         "text": "Mr. President, I asked about one alleged Fauci exchange and whether officials withheld a pregnancy-related risk. What do you make of that specific record?",
         "kind": "satire",
@@ -2611,12 +2485,6 @@
       }
     ],
     "messages": [
-      {
-        "speaker": "FIFA Governance",
-        "text": "Breaking: Trump issues statement backing Infantino, calls ouster 'terrible mistake.' Thread 🧵",
-        "kind": "system",
-        "reaction": ""
-      },
       {
         "speaker": "UEFA Vice President",
         "text": "Did not see that coming. Trump doesn't usually touch this stuff. What does he know that we don't?",
@@ -2739,12 +2607,6 @@
     ],
     "messages": [
       {
-        "speaker": "UN Admin",
-        "text": "ISTANBUL 2026: Turkey votes—does the PKK actually mean it this time?",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "Kurdish Rights Monitor",
         "text": "468-88 is a mandate but read the fine print. Ocalan stays in jail, and anyone who tries politics when they come back gets prosecuted again under a different law.",
         "kind": "satire",
@@ -2861,12 +2723,6 @@
     ],
     "messages": [
       {
-        "speaker": "UN Admin",
-        "text": "VinSpace announces SpaceX partnership for satellite launch next year—Vietnam enters commercial spaceflight",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "Hanoi Tech Desk",
         "text": "Finally. We've been talking about domestic space capability for 15 years. This actually gets us off the ground.",
         "kind": "satire",
@@ -2982,12 +2838,6 @@
     ],
     "messages": [
       {
-        "speaker": "UN Admin",
-        "text": "Vietnam's VinSpace just announced its first launch deal. Guess who they called.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "Vietnam Space Agency",
         "text": "This is exactly the path we need. Get the satellites flying, learn the operations, build the ecosystem.",
         "kind": "satire",
@@ -3102,12 +2952,6 @@
       }
     ],
     "messages": [
-      {
-        "speaker": "UN Admin",
-        "text": "FedEx St. Jude odds alert: SportsLine model just dropped 10k simulations and the picks are weird",
-        "kind": "system",
-        "reaction": ""
-      },
       {
         "speaker": "Vegas Desk",
         "text": "This is the same model that hit 17 majors, right? Because if it has that track record I'm actually paying attention this time",
@@ -3230,12 +3074,6 @@
     ],
     "messages": [
       {
-        "speaker": "Newsroom Admin",
-        "text": "Wreckless wraps its first week in Minnesota with Arquette and Spielberg on set. Kayla Arend's debut is live.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "Christine",
         "text": "Wait—first feature director taking on demolition derby culture? That's not the usual indie playbook.",
         "kind": "satire",
@@ -3357,12 +3195,6 @@
     ],
     "messages": [
       {
-        "speaker": "UN Admin",
-        "text": "OpenAI just announced GPT-5.6-Cyber. It's a model for defending against AI attacks. Sold to trusted partners only.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "Accenture Security Lead",
         "text": "We got access to Red tier Daybreak. Using the new 5.6-Cyber model now. It's honestly efficient for patch validation and vulnerability research.",
         "kind": "satire",
@@ -3477,12 +3309,6 @@
       }
     ],
     "messages": [
-      {
-        "speaker": "Pentagon Comms",
-        "text": "🔒 CLOSED CHANNEL: AIM-260A export approval just hit the tarmac. Australia first. Not Europe, not Japan—AUSTRALIA.",
-        "kind": "system",
-        "reaction": ""
-      },
       {
         "speaker": "Australian Defence Ministry",
         "text": "We're thrilled. This is a capability leap we've been pushing for. The AIM-260A changes what our air force can do.",
@@ -3605,12 +3431,6 @@
     ],
     "messages": [
       {
-        "speaker": "AXS Revenue Team",
-        "text": "OK people, we're going live with the half-off concert promo in two hours. Every market, every eligible artist through Aug 21. Marketing says this runs until we hit 200K transactions or the cutoff, whichever comes first.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "Venue Operator, Denver",
         "text": "So my Teddy Swims show just went on sale at 50% off. My promoter didn't tell me this was coming. Should I be mad or should I buy out my own tickets?",
         "kind": "satire",
@@ -3732,12 +3552,6 @@
     ],
     "messages": [
       {
-        "speaker": "UN Admin",
-        "text": "📢 AUDIBLE ALERT: Obama book podcast lands Sept 24. Six episodes. Toni Morrison. John le Carré. Worldview shaping confirmed.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "Audible Editorial",
         "text": "We're genuinely thrilled about this one. Presidential book taste actually holds up—nobody's forcing a beach read situation here.",
         "kind": "satire",
@@ -3852,12 +3666,6 @@
       }
     ],
     "messages": [
-      {
-        "speaker": "UN Admin",
-        "text": "Netanyahu just rejected Trump's 15-point Gaza plan. Starting now.",
-        "kind": "system",
-        "reaction": ""
-      },
       {
         "speaker": "Marc Ginsberg",
         "text": "I've worked these files for 40 years. You do not publicly swat down a U.S. president's peace framework unless you are *very* confident he won't follow up. Netanyahu just did.",
@@ -3980,12 +3788,6 @@
     ],
     "messages": [
       {
-        "speaker": "UN Admin",
-        "text": "I just flagged BBC Sport reporting that a group including Jeff Bezos has advanced talks to buy about a 30% stake in Liverpool.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "BBC Sport",
         "text": "I published the scoop naming a consortium and the roughly 30% figure linked to Anfield on August 10, 2026.",
         "kind": "satire",
@@ -4095,12 +3897,6 @@
     ],
     "messages": [
       {
-        "speaker": "UN Admin",
-        "text": "I confirm Demi Lovato will make a cameo as Mitchie Torres in Camp Rock 3 at the Los Angeles premiere on Monday.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "Demi",
         "text": "I'm popping in as Mitchie Torres for a cameo — brief, nostalgic, and entirely intentional.",
         "kind": "satire",
@@ -4209,12 +4005,6 @@
       }
     ],
     "messages": [
-      {
-        "speaker": "UN Admin",
-        "text": "Mark Zuckerberg just dropped a 6,500-word essay on the future of AI called 'The Future is for Everyone.' Guess we're not doing X threads for this one.",
-        "kind": "system",
-        "reaction": ""
-      },
       {
         "speaker": "Sundar Pichai's office",
         "text": "6,500 words on AI futures and I'm supposed to go to bed tonight—what is he trying to prove",
@@ -4331,12 +4121,6 @@
     ],
     "messages": [
       {
-        "speaker": "UN Admin",
-        "text": "New thread: Wisconsin governor’s primary. Francesca Hong is leading late, and the party’s electability debate has escaped the strategy memo.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "Francesca Hong",
         "text": "Voters keep telling us they are tired of the status quo. Apparently the status quo has a very active donor list.",
         "kind": "satire",
@@ -4439,12 +4223,6 @@
       }
     ],
     "messages": [
-      {
-        "speaker": "UN Admin",
-        "text": "DHS shows up to your town hall. What could they possibly want?",
-        "kind": "system",
-        "reaction": ""
-      },
       {
         "speaker": "Minnesota constituent",
         "text": "I was at the Richfield town hall. When I realized there was a Homeland Security agent watching, I just had to ask myself: am I doing something wrong by showing up to my own representative's meeting?",
@@ -4560,12 +4338,6 @@
       }
     ],
     "messages": [
-      {
-        "speaker": "UNIFIL Spokesman",
-        "text": "We've logged the numbers for the weekend operations. 455 projectiles and 97 airspace crossings. This is the heaviest fire we've counted since early summer.",
-        "kind": "system",
-        "reaction": ""
-      },
       {
         "speaker": "Lebanese Foreign Ministry",
         "text": "Every incursion is a violation of our sovereignty. We're filing the formal complaint with the Security Council this morning.",
@@ -4688,12 +4460,6 @@
     ],
     "messages": [
       {
-        "speaker": "UN Shipping Authority",
-        "text": "Iran just announced the Strait of Hormuz is closed to westbound traffic until the US meets a list of demands they're calling non-negotiable. Global oil futures went up 3 percent in five minutes.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "Tehran Foreign Ministry Desk",
         "text": "We are not asking for something unreasonable. The US sanctioned us for two decades. Now they want our strait for free. We laid out exactly what we need.",
         "kind": "satire",
@@ -4809,12 +4575,6 @@
     ],
     "messages": [
       {
-        "speaker": "UN Admin",
-        "text": "Item 7b on today's agenda: al-Aqsa tensions and territorial developments. Session opens in five minutes.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "Arab League Official",
         "text": "We've seen this pattern before. Provocations, followed by 'security responses,' followed by land grabs. And each cycle, the world moves the goalpost.",
         "kind": "satire",
@@ -4923,12 +4683,6 @@
       }
     ],
     "messages": [
-      {
-        "speaker": "NASA HQ",
-        "text": "NASA+ is now live on discovery+ across continuous programming. HBO Max incoming for special events, starting with Artemis III 2027. We're betting people will watch space from wherever they're already streaming.",
-        "kind": "system",
-        "reaction": ""
-      },
       {
         "speaker": "Science Journalist (WIRED)",
         "text": "So NASA basically said 'our app strategy isn't working, let's just copy what Netflix does.' That's not revolutionary, that's surrender.",
@@ -5051,12 +4805,6 @@
     ],
     "messages": [
       {
-        "speaker": "UN Admin",
-        "text": "Netanyahu says no to Trump's 15-point Gaza plan. Trump team: 'We're not worried, he's in campaign mode.'",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "Israeli Analyst",
         "text": "Look, before an election, you don't say yes to anything Washington sends. Voters want you fighting for maximum leverage.",
         "kind": "satire",
@@ -5171,12 +4919,6 @@
       }
     ],
     "messages": [
-      {
-        "speaker": "UN Admin",
-        "text": "SHEIN TARIFF CRISIS: Beijing retailer forced to raise prices after new duties hammer fast-fashion model. Customers reportedly switching to competitors.",
-        "kind": "system",
-        "reaction": ""
-      },
       {
         "speaker": "Retail Analyst",
         "text": "I've been saying this for two years—Shein's entire competitive advantage was regulatory arbitrage. The second tariffs moved, it was over.",
@@ -5299,12 +5041,6 @@
     ],
     "messages": [
       {
-        "speaker": "UN Admin",
-        "text": "New thread: alleged ICE force-feeding at Port Isabel. Medical care and coercion are disputing ownership of the same room.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "ICE",
         "text": "Medical intervention becomes necessary when a detainee’s health is at immediate risk.",
         "kind": "satire",
@@ -5407,12 +5143,6 @@
       }
     ],
     "messages": [
-      {
-        "speaker": "Content Moderation Society",
-        "text": "okay so the 9th circuit just told Meta, TikTok, Snapchat, and Google that Section 230 doesn't work as a get-out-of-jail card for the addiction lawsuits. we're talking thousands of cases now",
-        "kind": "system",
-        "reaction": ""
-      },
       {
         "speaker": "Legal Tech Daily",
         "text": "those platforms were betting Section 230 would shield them since the provision covers publishers. turns out a court disagreed—this isn't about user-posted content, it's about *why* the app keeps pinging you at 2am",
@@ -5535,12 +5265,6 @@
     ],
     "messages": [
       {
-        "speaker": "DoD Naming Authority",
-        "text": "We're live: Joint Base Charleston officially transfers to Joint Base Lindsey Graham as of today. Plaque is up, ceremony concluded.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "CODEL South Carolina Staff",
         "text": "Just sat through the unveiling. The whole room stood when they showed the new signage. Graham's committee work on defense was genuinely his life.",
         "kind": "satire",
@@ -5656,12 +5380,6 @@
     ],
     "messages": [
       {
-        "speaker": "UN Admin",
-        "text": "SpaceX claims go vertical; Louisiana coast claims to go nowhere. Deal closing soon.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "SpaceX Communications",
         "text": "We're thrilled about the Vermilion Parish opportunity. This gives us the infrastructure to scale Starship beyond anything possible at Starbase.",
         "kind": "satire",
@@ -5776,12 +5494,6 @@
       }
     ],
     "messages": [
-      {
-        "speaker": "UN Admin",
-        "text": "ALERT: Israeli PM rejects Board of Peace plan. 72 hours after Trump's 'monumental' deal announcement.",
-        "kind": "system",
-        "reaction": ""
-      },
       {
         "speaker": "Palestinian Negotiator",
         "text": "We've seen this movie before. Trump announces something, Netanyahu laughs, and we're back where we started.",
@@ -5903,12 +5615,6 @@
       }
     ],
     "messages": [
-      {
-        "speaker": "UN Coordination Desk",
-        "text": "Hormuz shipping corridor flagged RED. Trump administration files claim for Iran reparations spanning five decades. Iran conditioning strait access on US war payments. Markets watching.",
-        "kind": "system",
-        "reaction": ""
-      },
       {
         "speaker": "Iranian Foreign Ministry",
         "text": "We didn't invent this calculation. Every mine, every proxy war, every sanction has a cost. The U.S. wants fifty years of damages? We're still counting.",
@@ -6032,12 +5738,6 @@
     ],
     "messages": [
       {
-        "speaker": "Truth Social Comms",
-        "text": "heads up to everyone: we're announcing a $238M loss this quarter and refocusing entirely on social media after the crypto/betting push underperformed",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "Tech Reporter",
         "text": "a $238 million loss in three months? that's the kind of number that makes you wonder if betting on crypto expansion was the right pivot",
         "kind": "satire",
@@ -6152,12 +5852,6 @@
       }
     ],
     "messages": [
-      {
-        "speaker": "Board of Peace",
-        "text": "Heads up—Israel's officially rejected the 15-point plan. Netanyahu said no withdrawal, no Palestinian state. Game on.",
-        "kind": "system",
-        "reaction": ""
-      },
       {
         "speaker": "US State Dept Comms",
         "text": "We're aware. White House just told me Trump's about to spin this as 'relationship very good' at the Oval Office event.",
@@ -6280,12 +5974,6 @@
     ],
     "messages": [
       {
-        "speaker": "UN Conflict Monitor",
-        "text": "Oil refinery fire reported Tyumen/Tatarstan region post-drone strike. Governor confirms attack. Zelenskyy publicly links energy infrastructure targeting to Moscow pressure campaign.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "Kyiv Defense Ministry",
         "text": "We're hitting what they use to fund their war machine. The refinery supplies fuel for operations. Pressure points require pressure tactics.",
         "kind": "satire",
@@ -6390,12 +6078,6 @@
       }
     ],
     "messages": [
-      {
-        "speaker": "UN Admin",
-        "text": "New thread: election confidence. The spreadsheet entered with notifications on.",
-        "kind": "system",
-        "reaction": ""
-      },
       {
         "speaker": "Netanyahu",
         "text": "Seventy percent sounds dramatic until you ask who wrote the question and who is quoting it.",
@@ -6520,12 +6202,6 @@
     ],
     "messages": [
       {
-        "speaker": "UN Admin",
-        "text": "New thread: selecting the next secretary-general. Transparency is enabled. Vetoes remain a premium feature.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "Guterres",
         "text": "The job description says chief administrative officer. The inbox says every unresolved crisis on Earth.",
         "kind": "satire",
@@ -6629,12 +6305,6 @@
     ],
     "messages": [
       {
-        "speaker": "UN Admin",
-        "text": "New thread: Frederick Richard wins the U.S. all-around title with 170.015. The 2028 predictions have started early.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "Frederick Richard",
         "text": "I wanted the national title, not another paragraph about potential. Two days, six events, job done.",
         "kind": "satire",
@@ -6727,12 +6397,6 @@
       }
     ],
     "messages": [
-      {
-        "speaker": "UN Admin",
-        "text": "New thread: Saudi refinery attack claim. The defense pact is two days old and already has notifications.",
-        "kind": "system",
-        "reaction": ""
-      },
       {
         "speaker": "Saudi Arabia",
         "text": "We signed a pact to reduce regional surprises. This is not the welcome packet.",
@@ -6867,12 +6531,6 @@
     ],
     "messages": [
       {
-        "speaker": "UN Admin",
-        "text": "New thread: Gaza plan. Facts and public statements are sourced; the private replies below are fictional satire.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "Trump",
         "text": "Fifteen points. Very complete. People love numbered plans because you can tell they have points.",
         "kind": "satire",
@@ -6961,12 +6619,6 @@
       }
     ],
     "messages": [
-      {
-        "speaker": "UN Admin",
-        "text": "New thread: Taylor Swift songs removed from Trump and White House posts. Copyright has joined with counsel present.",
-        "kind": "system",
-        "reaction": ""
-      },
       {
         "speaker": "White House Comms",
         "text": "The clip tested extremely well before the audio stopped being available.",
@@ -7060,12 +6712,6 @@
       }
     ],
     "messages": [
-      {
-        "speaker": "UN Admin",
-        "text": "New thread: Senate Democrats are running election-disruption exercises. Legal counsel has requested that nobody call it a dress rehearsal.",
-        "kind": "system",
-        "reaction": ""
-      },
       {
         "speaker": "Chuck Schumer",
         "text": "We are planning for scenarios that would have sounded absurd a few years ago. The absurdity did not wait for our approval.",
@@ -7175,12 +6821,6 @@
     ],
     "messages": [
       {
-        "speaker": "UN Admin",
-        "text": "New rule: shipping-lane arguments go in #maritime-chaos.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "Iran",
         "text": "Some vessels may require… premium access.",
         "kind": "satire",
@@ -7266,12 +6906,6 @@
       }
     ],
     "messages": [
-      {
-        "speaker": "HBO Admin",
-        "text": "The tan-suit file has been reopened. Evidentiary item one: Mango Tango protein shake.",
-        "kind": "system",
-        "reaction": ""
-      },
       {
         "speaker": "Obama",
         "text": "For twelve years I carried this alone. The American people deserve to know Larry ruined the first suit.",
@@ -7366,12 +7000,6 @@
     ],
     "messages": [
       {
-        "speaker": "UN Admin",
-        "text": "Please number all final warnings so the archive remains searchable.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "Trump",
         "text": "This one is extremely final. More final than the others.",
         "kind": "satire",
@@ -7449,12 +7077,6 @@
       }
     ],
     "messages": [
-      {
-        "speaker": "UN Admin",
-        "text": "New thread: FIFA leadership crisis and a collapsed commercial-rights proposal. The red card has entered the boardroom.",
-        "kind": "system",
-        "reaction": ""
-      },
       {
         "speaker": "Gianni Infantino",
         "text": "Football needs investment, global reach and leadership that can move quickly.",
@@ -7558,12 +7180,6 @@
       }
     ],
     "messages": [
-      {
-        "speaker": "UN Admin",
-        "text": "New thread: while Iran, Ukraine and Palestine dominate the agenda, Beijing’s strategic calendar remains fully booked.",
-        "kind": "system",
-        "reaction": ""
-      },
       {
         "speaker": "Xi",
         "text": "China does not schedule its national priorities around another country’s news cycle.",
@@ -7669,12 +7285,6 @@
     ],
     "messages": [
       {
-        "speaker": "UN Admin",
-        "text": "New thread: CDC confirmation and abortion surveillance. Public-health data has asked whether it is evidence, policy or a future subpoena.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "Josh Hawley",
         "text": "The country needs national data. If states are not reporting, the CDC should know what is happening.",
         "kind": "satire",
@@ -7773,12 +7383,6 @@
     ],
     "messages": [
       {
-        "speaker": "UN Admin",
-        "text": "New topic: Serbia, Ukraine and Russia. Please avoid turning strategic ambiguity into a reaction emoji.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "Zelenskyy",
         "text": "I came to talk cooperation. Somehow every room in Europe still has one invisible chair labeled Moscow.",
         "kind": "satire",
@@ -7849,12 +7453,6 @@
       }
     ],
     "messages": [
-      {
-        "speaker": "UN Admin",
-        "text": "Reminder: operational claims require sources. Reaction emojis do not count as verification.",
-        "kind": "system",
-        "reaction": ""
-      },
       {
         "speaker": "Vance",
         "text": "The program is destroyed. I am choosing the confident font.",
@@ -7929,12 +7527,6 @@
       }
     ],
     "messages": [
-      {
-        "speaker": "UN Admin",
-        "text": "New thread: modern laws for AI, inspired by Asimov. The machines have not agreed to the terms because the terms are still in committee.",
-        "kind": "system",
-        "reaction": ""
-      },
       {
         "speaker": "AI Safety Researcher",
         "text": "A system should not harm people, deceive them or escape meaningful human control. That sounds obvious until incentives arrive.",
@@ -8044,12 +7636,6 @@
     ],
     "messages": [
       {
-        "speaker": "AI Lab Admin",
-        "text": "Astra development has entered restricted mode. Please stop calling the containment rules a feature preview.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "Sam Altman",
         "text": "The responsible move is to slow down the work that does not meet the higher security standard.",
         "kind": "satire",
@@ -8158,12 +7744,6 @@
     ],
     "messages": [
       {
-        "speaker": "Poll Admin",
-        "text": "Independent voters have entered the store. Party labels are being left at customer service.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "Bernie Sanders",
         "text": "Higher taxes on billionaires and healthcare for everyone are popular because people understand the bill they are already paying.",
         "kind": "satire",
@@ -8267,12 +7847,6 @@
       }
     ],
     "messages": [
-      {
-        "speaker": "UN Admin",
-        "text": "New thread: White House AI safety framework. Testing criteria are finalized and the public has received a locked screen.",
-        "kind": "system",
-        "reaction": ""
-      },
       {
         "speaker": "White House Tech Office",
         "text": "The framework works better if companies cannot game the tests before submitting a model.",
@@ -8378,12 +7952,6 @@
     ],
     "messages": [
       {
-        "speaker": "UN Admin",
-        "text": "New thread: 15% tariff on a key chip material. Industrial policy and the supply chain have entered from different time zones.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "Trump",
         "text": "We are protecting American chip companies. Fifteen percent is a strong number and China understands strong numbers.",
         "kind": "satire",
@@ -8486,12 +8054,6 @@
       }
     ],
     "messages": [
-      {
-        "speaker": "UN Admin",
-        "text": "New thread: AHRQ patient-safety research. The checklist saved lives; the budget document has asked for a shorter name.",
-        "kind": "system",
-        "reaction": ""
-      },
       {
         "speaker": "Trump",
         "text": "If an agency is important, people should know the agency. Nobody knows these initials.",
@@ -8601,12 +8163,6 @@
     ],
     "messages": [
       {
-        "speaker": "Deal Room Admin",
-        "text": "Apollo has agreed to acquire easyJet. Please keep all ownership structures in the overhead compartment.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "Kenton Jarvis",
         "text": "The offer gives the company long-term backing while keeping the strategy moving.",
         "kind": "satire",
@@ -8715,12 +8271,6 @@
     ],
     "messages": [
       {
-        "speaker": "UN Admin",
-        "text": "Rome meeting remains open. Southern Lebanon has submitted an unscheduled amendment.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "Netanyahu",
         "text": "We entered talks to produce security. An explosion that kills soldiers is not a negotiating proposal.",
         "kind": "satire",
@@ -8813,12 +8363,6 @@
       }
     ],
     "messages": [
-      {
-        "speaker": "UN Admin",
-        "text": "New thread: five U.S. posts scheduled to close. Please stop calling diplomatic reach ‘unused office space.’",
-        "kind": "system",
-        "reaction": ""
-      },
       {
         "speaker": "Trump",
         "text": "We are cutting waste. If an office is not making a deal, why is it paying rent?",
@@ -9048,12 +8592,6 @@
     ],
     "messages": [
       {
-        "speaker": "UN Admin",
-        "text": "New thread: $165 billion in tariffs collected, about $100 billion refunded after the court ruling. Accounting has entered with counsel.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "Trump",
         "text": "The tariffs were powerful. Even the refunds are huge. Nobody has ever refunded like this.",
         "kind": "satire",
@@ -9162,12 +8700,6 @@
     ],
     "messages": [
       {
-        "speaker": "Moon Admin",
-        "text": "Unscheduled delivery detected near Einstein Crater. Signature was not required because signature was impossible.",
-        "kind": "system",
-        "reaction": ""
-      },
-      {
         "speaker": "Elon Musk",
         "text": "The stage completed a very high-energy lunar arrival.",
         "kind": "satire",
@@ -9270,12 +8802,6 @@
       }
     ],
     "messages": [
-      {
-        "speaker": "UN Admin",
-        "text": "New diplomatic channel opened. Parties advised to proceed with good faith. Strait of Hormuz stability monitoring active.",
-        "kind": "system",
-        "reaction": ""
-      },
       {
         "speaker": "Marco Rubio",
         "text": "Actions speak louder than words. We'll believe it when we see them at the negotiating table.",

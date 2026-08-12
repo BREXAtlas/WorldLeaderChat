@@ -109,9 +109,9 @@ export function createDraftBundle(candidate, now = new Date()) {
       sources,
       messages: [
         {
-          speaker: "UN Admin",
-          text: "[EDITOR: Write the opening system message that names the real event without inventing a new one.]",
-          kind: "system",
+          speaker: "[EDITOR: Name a person or institution directly involved]",
+          text: "[EDITOR: Open with that participant's direct position, challenge or reaction to the real event.]",
+          kind: "satire",
           reaction: ""
         },
         {

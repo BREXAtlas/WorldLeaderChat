@@ -72,7 +72,7 @@ test("a fully edited article-and-chat bundle passes the approval gate", () => {
   });
   completeArticle(bundle);
   bundle.event.messages = [
-    { speaker: "UN Admin", text: "Group name changed to: CEASEFIRE, SUBJECT TO FOOTNOTES", kind: "system", reaction: "" },
+    { speaker: "Mediator", text: "We have a ceasefire framework. Now I need both parties to stop treating unresolved brackets as a victory statement.", kind: "satire", reaction: "" },
     { speaker: "Leader One", text: "We welcome the framework and the cameras positioned beside it.", kind: "satire", reaction: "" },
     { speaker: "Leader Two", text: "The framework is historic. The implementation meeting is Tuesday.", kind: "satire", reaction: "" },
     { speaker: "Mediator", text: "Please stop calling every unresolved bracket historic.", kind: "satire", reaction: "" },

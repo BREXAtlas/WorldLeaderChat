@@ -14,6 +14,10 @@ function msg(speaker, text, kind = "satire", reaction = "") {
   return { speaker, text, kind, reaction };
 }
 
+function participantFirst(messages) {
+  return messages[0]?.kind === "system" ? messages.slice(1) : messages;
+}
+
 function gazaDialogue() {
   return [
     msg("UN Admin", "New thread: Gaza roadmap. Fifteen points are in the file; withdrawal and disarmament are fighting over the order.", "system"),
@@ -308,24 +312,24 @@ export function dialogueNeedsRefinement(bundle, options = {}) {
 
 export function buildDirectDialogue(bundle) {
   const headline = headlineText(bundle);
-  if (/gaza|netanyahu.*peace plan|hamas.*disarm/.test(headline)) return gazaDialogue();
-  if (/houthi|saudi.*refinery|refinery.*saudi/.test(headline)) return houthiSaudiDialogue();
-  if (/ahrq|patient safety|hospital patients safe/.test(headline)) return healthcareAgencyDialogue();
-  if (/frederick richard|fred richard|gymnastics/.test(headline)) return gymnasticsDialogue();
-  if (/lisa cook|fed governor/.test(headline)) return fedCookDialogue();
-  if (/tariff.*refund|refund.*tariff|liberation day/.test(headline)) return tariffRefundDialogue();
-  if (/ukraine.*refiner|tatarstan|tyumen/.test(headline)) return ukraineRefineryDialogue();
-  if (/secretary.general|rebeca grynspan|head of un/.test(headline)) return unSecretaryDialogue();
-  if (/independent voters|progressive goals/.test(headline)) return independentVotersDialogue();
-  if (/cybersecurity|cyber model|astra model/.test(headline)) return cyberModelDialogue();
-  if (/moon|falcon|spacex/.test(headline)) return moonCrashDialogue();
-  if (/easyjet|apollo.*airline/.test(headline)) return easyJetDialogue();
-  if (/tan suit|larry david/.test(headline)) return tanSuitDialogue();
-  if (/fifa|infantino/.test(headline)) return fifaDialogue();
-  if (/lebanon/.test(headline)) return lebanonDialogue();
-  if (/artificial intelligence|\bai\b|openai/.test(headline)) return aiDialogue();
-  if (/taylor swift/.test(headline)) return taylorDialogue();
-  if (/immigration|border|deport/.test(headline)) return immigrationDialogue();
+  if (/gaza|netanyahu.*peace plan|hamas.*disarm/.test(headline)) return participantFirst(gazaDialogue());
+  if (/houthi|saudi.*refinery|refinery.*saudi/.test(headline)) return participantFirst(houthiSaudiDialogue());
+  if (/ahrq|patient safety|hospital patients safe/.test(headline)) return participantFirst(healthcareAgencyDialogue());
+  if (/frederick richard|fred richard|gymnastics/.test(headline)) return participantFirst(gymnasticsDialogue());
+  if (/lisa cook|fed governor/.test(headline)) return participantFirst(fedCookDialogue());
+  if (/tariff.*refund|refund.*tariff|liberation day/.test(headline)) return participantFirst(tariffRefundDialogue());
+  if (/ukraine.*refiner|tatarstan|tyumen/.test(headline)) return participantFirst(ukraineRefineryDialogue());
+  if (/secretary.general|rebeca grynspan|head of un/.test(headline)) return participantFirst(unSecretaryDialogue());
+  if (/independent voters|progressive goals/.test(headline)) return participantFirst(independentVotersDialogue());
+  if (/cybersecurity|cyber model|astra model/.test(headline)) return participantFirst(cyberModelDialogue());
+  if (/moon|falcon|spacex/.test(headline)) return participantFirst(moonCrashDialogue());
+  if (/easyjet|apollo.*airline/.test(headline)) return participantFirst(easyJetDialogue());
+  if (/tan suit|larry david/.test(headline)) return participantFirst(tanSuitDialogue());
+  if (/fifa|infantino/.test(headline)) return participantFirst(fifaDialogue());
+  if (/lebanon/.test(headline)) return participantFirst(lebanonDialogue());
+  if (/artificial intelligence|\bai\b|openai/.test(headline)) return participantFirst(aiDialogue());
+  if (/taylor swift/.test(headline)) return participantFirst(taylorDialogue());
+  if (/immigration|border|deport/.test(headline)) return participantFirst(immigrationDialogue());
   throw new Error("No approved deterministic conversation exists for this event; original dialogue generation is required.");
 }
 

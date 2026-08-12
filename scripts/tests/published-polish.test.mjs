@@ -58,7 +58,9 @@ test("published polish replaces stock dialogue while preserving article and sour
   assert.equal(result.changes.length, 1);
   const event = result.events[0];
   assert.match(event.title, /WISCONSIN/);
-  assert.equal(event.messages.length, 11);
+  assert.equal(event.messages.length, 10);
+  assert.notEqual(event.messages[0].kind, "system");
+  assert.notEqual(event.messages[0].speaker, "UN Admin");
   assert.equal(dialogueProblems({ event }).length, 0);
   assert.deepEqual(event.article, originalArticle);
   assert.deepEqual(event.sources, originalSources);

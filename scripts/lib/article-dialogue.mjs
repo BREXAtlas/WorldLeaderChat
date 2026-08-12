@@ -6,6 +6,10 @@ import {
 
 const msg = (speaker, text, kind = "satire") => ({ speaker, text, kind, reaction: "" });
 
+function participantFirst(messages) {
+  return messages[0]?.kind === "system" ? messages.slice(1) : messages;
+}
+
 function headlineText(bundle) {
   const event = bundle?.event || {};
   return `${event.title || ""} ${event.article?.headline || ""} ${event.summary || ""} ${(event.sources || []).map((source) => source.label).join(" ")}`.toLowerCase();
@@ -189,17 +193,17 @@ function taylorCopyrightDialogue() {
 
 export function buildDirectDialogue(bundle) {
   const text = headlineText(bundle);
-  if (/force.feed|gabar choli|port isabel|feeding tube.*ice/.test(text)) return iceForceFeedingDialogue();
-  if (/white house.*ai.*secret|ai safety framework|vet potentially dangerous ai|testing criteria.*private/.test(text)) return secretAiFrameworkDialogue();
-  if (/taylor swift.*song|songs removed.*trump|white house.*swift/.test(text)) return taylorCopyrightDialogue();
-  if (/francesca hong|wisconsin.*governor|wisconsin.*primary/.test(text)) return wisconsinPrimaryDialogue();
-  if (/simulate election threats|wargame democracy|election disruption.*exercise|democrats.*election.*scenario/.test(text)) return electionWargameDialogue();
-  if (/abortion surveillance|erica schwartz|cdc director.*hawley/.test(text)) return cdcSurveillanceDialogue();
-  if (/president xi never wastes|iran.*ukraine.*palestine.*xi|xi.*good crisis/.test(text)) return xiCrisisDialogue();
-  if (/asimov|three laws of ai|laws of robotics/.test(text)) return asimovAiDialogue();
-  if (/15% tariff.*chip|tariff.*chip material|chip material.*china/.test(text)) return chipTariffDialogue();
-  if (/israel.*election|election.*israel|jewish israelis.*election|october elections/.test(text)) return israelElectionDialogue();
-  if (/spacex.*launch|launch.*spacex|rocket mission|rocket launch/.test(text) && !/crash|struck the moon|hit the moon/.test(text)) return launchDialogue();
+  if (/force.feed|gabar choli|port isabel|feeding tube.*ice/.test(text)) return participantFirst(iceForceFeedingDialogue());
+  if (/white house.*ai.*secret|ai safety framework|vet potentially dangerous ai|testing criteria.*private/.test(text)) return participantFirst(secretAiFrameworkDialogue());
+  if (/taylor swift.*song|songs removed.*trump|white house.*swift/.test(text)) return participantFirst(taylorCopyrightDialogue());
+  if (/francesca hong|wisconsin.*governor|wisconsin.*primary/.test(text)) return participantFirst(wisconsinPrimaryDialogue());
+  if (/simulate election threats|wargame democracy|election disruption.*exercise|democrats.*election.*scenario/.test(text)) return participantFirst(electionWargameDialogue());
+  if (/abortion surveillance|erica schwartz|cdc director.*hawley/.test(text)) return participantFirst(cdcSurveillanceDialogue());
+  if (/president xi never wastes|iran.*ukraine.*palestine.*xi|xi.*good crisis/.test(text)) return participantFirst(xiCrisisDialogue());
+  if (/asimov|three laws of ai|laws of robotics/.test(text)) return participantFirst(asimovAiDialogue());
+  if (/15% tariff.*chip|tariff.*chip material|chip material.*china/.test(text)) return participantFirst(chipTariffDialogue());
+  if (/israel.*election|election.*israel|jewish israelis.*election|october elections/.test(text)) return participantFirst(israelElectionDialogue());
+  if (/spacex.*launch|launch.*spacex|rocket mission|rocket launch/.test(text) && !/crash|struck the moon|hit the moon/.test(text)) return participantFirst(launchDialogue());
   return buildBaseDialogue(bundle);
 }
 
