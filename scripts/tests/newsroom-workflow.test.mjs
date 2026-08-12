@@ -66,6 +66,19 @@ test("failed machine drafts stay newsroom work instead of becoming owner writing
   assert.match(queueWorkflow, /WLC_DRAFT_LIMIT: 50/);
 });
 
+test("all editorial drafting workflows share one non-cancelling production lock", async () => {
+  const workflows = await Promise.all([
+    read(".github/workflows/news-ingestion.yml"),
+    read(".github/workflows/draft-editorial-queue-now.yml"),
+    read(".github/workflows/editorial-redraft.yml"),
+    read(".github/workflows/editorial-regenerate.yml")
+  ]);
+  for (const workflow of workflows) {
+    assert.match(workflow, /group: world-leader-chat-editorial-production/);
+    assert.match(workflow, /cancel-in-progress: false/);
+  }
+});
+
 test("future publication requires article-to-source and chat-quality verification", async () => {
   const validation = await read("scripts/lib/validation.mjs");
   const publish = await read("scripts/publish-from-issue.mjs");

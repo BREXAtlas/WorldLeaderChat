@@ -36,6 +36,7 @@ These are the publication rules for the public newsroom and editor. They are str
 - The enabled partisan publisher pool must contain an equal number of distinct left- and right-designated outlets. The ingestion slate targets at least four distinct publishers from each side and no more than a one-publisher difference whenever timely, relevant feed coverage permits it.
 - Source balance never changes the facts, lowers verification standards or forces false balance into an individual report. Neutral, primary and specialty sources remain a separate cohort, and relevance and source quality still control whether a story advances.
 - A failed machine draft is production work, not owner work. It stays in automated drafting and must not be presented as an owner headline-writing assignment. The owner receives completed files for Approve & Publish, Rewrite or Reject.
+- Scheduled ingestion, bulk queue drafting and owner-requested rewrites share one non-cancelling production lock. They run in arrival order and may not edit the editorial queue concurrently.
 - Outlet orientation is not party affiliation. “Left” does not mean “Democratic Party,” and “Right” does not mean “Republican Party.” Ratings describe general sourcing orientation, not the truth of an individual report.
 
 ## Protected public behavior
