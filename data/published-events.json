@@ -3029,6 +3029,109 @@
     }
   },
   {
+    "id": "2026-08-11-what-is-the-nancy-grace-roman-space-telescope-grades-5-8",
+    "eventDate": "2026-08-11",
+    "year": 2026,
+    "date": "August 11, 2026",
+    "title": "NASA’s Roman Telescope Is Built to Survey the Big Questions",
+    "kicker": "The agency’s newest astrophysics observatory will scan broad stretches of space to study dark energy, dark matter and worlds beyond our solar system.",
+    "category": "Science & Space",
+    "summary": "This article is for students grades 5-8. The Nancy Grace Roman Space Telescope is NASA’s newest astrophysics observatory. The telescope will scan large sections of space. Roman will help astronomers answer questions about dark energy, dark matter, exoplanets, and more. ______________________________________________________________________ Words to Know Astrophysics: a branch of space science that applies physics and mathematics to […]",
+    "article": {
+      "headline": "NASA’s Roman Telescope Is Built to Survey the Big Questions",
+      "dek": "The agency’s newest astrophysics observatory will scan broad stretches of space to study dark energy, dark matter and worlds beyond our solar system.",
+      "body": [
+        "NASA’s Nancy Grace Roman Space Telescope is designed to look wide rather than stare at one narrow patch of sky. In an educational overview for students in grades five through eight, the agency describes Roman as its newest astrophysics observatory and explains that it will scan large sections of space for astronomers.",
+        "The mission’s question list is not shy. NASA says Roman will help researchers investigate dark energy, dark matter, exoplanets and other major subjects in modern astronomy. Those targets range from the forces shaping the universe on its largest scales to planets orbiting stars beyond our own solar system.",
+        "The student guide turns that ambitious program into accessible language and defines the science needed to follow it. Roman will not produce one tidy answer to everything on the list; its value is the breadth of observations it can collect. Space remains enormous, but the planned field of view gives astronomers a more efficient way to take attendance."
+      ],
+      "sourceCredit": "Based on original reporting from NASA."
+    },
+    "sources": [
+      {
+        "label": "What Is the Nancy Grace Roman Space Telescope? (Grades 5-8)",
+        "url": "https://www.nasa.gov/learning-resources/for-kids-and-students/what-is-the-nancy-grace-roman-space-telescope-grades-5-8/",
+        "publisher": "NASA"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Student Delegate",
+        "text": "If Roman can survey huge sections of space, I would like it to locate the missing answer key for dark matter.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "NASA Mission Control",
+        "text": "We are going wide: dark matter, dark energy, distant planets and whatever else refuses to explain itself.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Science Teacher",
+        "text": "Excellent. My students also prefer assignments where the known universe has not finished the answer key.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Student Delegate",
+        "text": "Can Roman find an exoplanet where group projects are illegal?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "NASA Mission Control",
+        "text": "The observatory can survey large regions of space. Educational policy remains outside the instrument package.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "European Space Agency",
+        "text": "A broad survey creates a useful map before everyone selects the most interesting mysteries.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Science Teacher",
+        "text": "And it demonstrates that ‘we do not know yet’ is the beginning of science, not a missing grade.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Student Delegate",
+        "text": "Fine, but dark energy still sounds like the universe named its own villain.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "NASA Mission Control",
+        "text": "It also refuses interviews, which has complicated the communications plan.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "European Space Agency",
+        "text": "Launch the telescope. The cosmos has been vague for long enough.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "Roman is taking the universe’s attendance; dark matter is once again present but refusing to raise its hand.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-12T21:07:47.710Z",
+    "editorial": {
+      "issueNumber": 193,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/193",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-12T21:07:47.710Z",
+      "fingerprint": "d0ae8f9f93f42e3bae5d8a155aa96a3fe248f43f63bba6e9263230404f9cd9d2",
+      "sourcePublishedAt": "2026-08-11T21:04:39.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Rewritten from the source summary after the queue-wide recycled-template audit. No headline recitation or shared dialogue skeleton remains. Opening narrator removed; the conversation now starts with a direct event participant. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-10-2026-fedex-st-jude-championship-odds-picks-surprising-prediction",
     "eventDate": "2026-08-10",
     "year": 2026,
