@@ -70,7 +70,7 @@ export async function runNewsroomJson(prompt, options = {}) {
       ],
       temperature: 0.78,
       top_p: 0.9,
-      max_tokens: Number(options.maxTokens || process.env.WLC_WRITER_MAX_TOKENS || 2600),
+      max_tokens: Number(options.maxTokens || process.env.WLC_WRITER_MAX_TOKENS || 1400),
       stream: false,
       response_format: { type: "json_object" }
     })
