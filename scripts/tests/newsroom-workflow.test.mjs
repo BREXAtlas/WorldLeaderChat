@@ -66,6 +66,8 @@ test("failed machine drafts stay newsroom work instead of becoming owner writing
   assert.match(editor, /Finish Today’s Drafts/);
   assert.match(editor, /draft-editorial-queue-now\.yml\/dispatches/);
   assert.match(queueWorkflow, /WLC_DRAFT_LIMIT: 100/);
+  assert.match(queueWorkflow, /target_issue/);
+  assert.match(queueWorkflow, /WLC_TARGET_ISSUE/);
   assert.match(queueWorkflow, /Automatically retry unfinished writing/);
   assert.match(queueWorkflow, /assert-editorial-readiness\.mjs/);
 });
