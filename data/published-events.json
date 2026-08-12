@@ -3816,6 +3816,119 @@
     }
   },
   {
+    "id": "2026-08-11-trump-wants-to-split-the-mmr-vaccine-experts-say-that-s-unlikely",
+    "eventDate": "2026-08-11",
+    "year": 2026,
+    "date": "August 11, 2026",
+    "title": "Trump Calls for Splitting MMR; Medical Guidance Supports the Combined Vaccine",
+    "kicker": "Experts say separating measles, mumps and rubella shots lacks scientific benefit, while current U.S. products and recommendations are built around MMR.",
+    "category": "Politics & Society",
+    "summary": "Doctors and other experts say that splitting the measles, mumps and rubella shot has no scientific basis and is unlikely to get off the ground.",
+    "article": {
+      "headline": "Trump Calls for Splitting MMR; Medical Guidance Supports the Combined Vaccine",
+      "dek": "Experts say separating measles, mumps and rubella shots lacks scientific benefit, while current U.S. products and recommendations are built around MMR.",
+      "body": [
+        "President Donald Trump has called for the measles, mumps and rubella vaccine to be split into separate shots, but doctors and other experts told CNBC that the proposal has no scientific basis and would be difficult to carry out. In the United States, protection against the three diseases is delivered through licensed combination MMR vaccines.",
+        "Current CDC guidance says no published scientific evidence shows a benefit from separating MMR into three individual shots. The agency also notes that separate vaccines for all three diseases are not available in the United States. Combination vaccines reduce the number of injections and can help children receive recommended protection on time.",
+        "The distinction between MMR and MMRV matters: clinicians may give MMR separately from the varicella, or chickenpox, vaccine in some young children. That is not the same as breaking measles, mumps and rubella into individual products. A presidential preference cannot substitute for licensed supply, clinical evidence or a vaccination schedule designed around preventing outbreaks."
+      ],
+      "sourceCredit": "Based on original reporting from CNBC and CDC."
+    },
+    "sources": [
+      {
+        "label": "Trump wants to split the MMR vaccine. Experts say that's unlikely — and comes with consequences",
+        "url": "https://www.cnbc.com/2026/08/11/mmr-vaccine-trump-wants-to-split-childhood-shot-up.html",
+        "publisher": "CNBC"
+      },
+      {
+        "label": "Measles, Mumps, Rubella (MMR) Vaccine Safety",
+        "url": "https://www.cdc.gov/vaccine-safety/vaccines/mmr.html",
+        "publisher": "CDC"
+      },
+      {
+        "label": "Combination Vaccines",
+        "url": "https://www.cdc.gov/vaccines-children/about/combination-vaccines.html",
+        "publisher": "CDC"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Pediatricians’ Council",
+        "text": "A request to split MMR does not create scientific benefit, licensed single-disease products or a safer schedule.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Donald Trump",
+        "text": "Parents should have the option to give these vaccines separately.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "CDC Immunization Desk",
+        "text": "There is no published evidence of a benefit, and separate products for all three diseases are not available here.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Pediatricians’ Council",
+        "text": "A preference is not a clinical schedule. It also does not manufacture vaccines that are not on the shelf.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Donald Trump",
+        "text": "I am asking why everything has to be combined.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "CDC Immunization Desk",
+        "text": "Fewer injections can make timely protection easier. The recommendation is based on evidence, not packaging aesthetics.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Parents’ Health Panel",
+        "text": "Then explain the difference between MMR and the shot that also includes chickenpox, because that confusion travels fast.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Pediatricians’ Council",
+        "text": "Correct: separating MMR from varicella in some children is not splitting measles, mumps and rubella apart.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Donald Trump",
+        "text": "Parents still deserve clear answers.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "CDC Immunization Desk",
+        "text": "Agreed. Clear answer: use licensed vaccines according to medical guidance, and take individual questions to a clinician.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "The proposal split three diseases into a talking point; the evidence declined to separate.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-12T21:27:59.186Z",
+    "editorial": {
+      "issueNumber": 168,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/168",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-12T21:27:59.186Z",
+      "fingerprint": "05d635c8a9773e5b4ec697154d6a280acf9cc54f86a923feba62872d49523eec",
+      "sourcePublishedAt": "2026-08-11T16:50:04.000Z",
+      "singleSourceException": "",
+      "reviewNotes": "Rewritten from the source summary after the queue-wide recycled-template audit. No headline recitation or shared dialogue skeleton remains. Opening narrator removed; the conversation now starts with a direct event participant. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-11-turkey-s-parliament-approves-a-pardon-like-bill-for-thousands-of",
     "eventDate": "2026-08-11",
     "year": 2026,

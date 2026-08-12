@@ -1247,5 +1247,19 @@
     "sourceUrls": [
       "https://techcrunch.com/2026/08/11/brad-lightcap-openais-longtime-coo-is-leaving-to-start-something-new/"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-11-trump-wants-to-split-the-mmr-vaccine-experts-say-that-s-unlikely",
+    "issueNumber": 168,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/168",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-12T21:27:59.186Z",
+    "fingerprint": "05d635c8a9773e5b4ec697154d6a280acf9cc54f86a923feba62872d49523eec",
+    "sourceUrls": [
+      "https://www.cnbc.com/2026/08/11/mmr-vaccine-trump-wants-to-split-childhood-shot-up.html",
+      "https://www.cdc.gov/vaccine-safety/vaccines/mmr.html",
+      "https://www.cdc.gov/vaccines-children/about/combination-vaccines.html"
+    ]
   }
 ]
