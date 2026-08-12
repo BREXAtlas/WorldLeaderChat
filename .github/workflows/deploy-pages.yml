@@ -164,7 +164,7 @@ jobs:
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/social-tools.js" | grep -F "Copy Article + Chat"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
-            "${PAGE_URL%/}/editor/" | grep -F "app.js?v=trash-rejections-20260811"
+            "${PAGE_URL%/}/editor/" | grep -F "app.js?v=organic-chats-20260811"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/editor/" | grep -F "Generate a custom article from links"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
@@ -179,6 +179,8 @@ jobs:
             "${PAGE_URL%/}/editor/app.js" | grep -F "No owner writing is needed"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/editor/app.js" | grep -F "Candidate rejected and saved in Trash"
+          curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
+            "${PAGE_URL%/}/editor/app.js" | grep -F "recycled fill-in-the-headline template"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/editor/app.js" | grep -F 'Feature in ${esc(cardDesk)} Carousel'
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \

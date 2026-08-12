@@ -88,6 +88,8 @@ Chat message kinds are:
 
 Every `public` message must include `sourceUrl`, and that exact URL must also appear in `event.sources`.
 
+Chats must read like an organic reaction to the event, not a newsroom summary of the file. Do not paste the headline into a message, write “I read [headline],” or recycle a fixed exchange by substituting new speakers, publishers or titles. Automated checks reject known filler phrases, headline echoes and structurally similar conversations before a file can return to Ready for Approval.
+
 Example:
 
 ```json
