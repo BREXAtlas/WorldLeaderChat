@@ -4800,6 +4800,109 @@
     }
   },
   {
+    "id": "2026-08-11-why-was-it-so-hard-for-sam-cooke-s-grandkids-to-drop-a-soul-albu",
+    "eventDate": "2026-08-11",
+    "year": 2026,
+    "date": "August 11, 2026",
+    "title": "The Womack Sisters Finally Step Forward With a Debut of Their Own",
+    "kicker": "Sam Cooke’s granddaughters are releasing a self-titled soul album after a difficult path shaped by both industry barriers and a formidable family legacy.",
+    "category": "Culture & Entertainment",
+    "summary": "The Womack Sisters will finally release a self-titled, tour-de-force debut album that carries their family legacy",
+    "article": {
+      "headline": "The Womack Sisters Finally Step Forward With a Debut of Their Own",
+      "dek": "Sam Cooke’s granddaughters are releasing a self-titled soul album after a difficult path shaped by both industry barriers and a formidable family legacy.",
+      "body": [
+        "The Womack Sisters are preparing to release their self-titled debut album, Rolling Stone reports, bringing a long-delayed project into public view. As the granddaughters of Sam Cooke and members of another major musical family, they arrive with a lineage that draws attention before the first track begins.",
+        "That inheritance can open doors while also narrowing how listeners and industry executives imagine an artist. The new album gives the sisters a chance to carry the family’s soul tradition without being reduced to a genealogy chart. Rolling Stone describes the record as a forceful debut, the result of a path that proved harder than their background might suggest.",
+        "The central achievement is not that famous names reappear in a press release. It is that the sisters completed a body of work under their own name and are finally able to present it as such. Legacy supplied the expectations. The debut supplies their answer—and, importantly, gives the audience something to hear instead of another discussion about the family tree."
+      ],
+      "sourceCredit": "Based on original reporting from Rolling Stone."
+    },
+    "sources": [
+      {
+        "label": "Why Was It So Hard for Sam Cooke’s Grandkids to Drop a Soul Album?",
+        "url": "https://www.rollingstone.com/music/music-features/womack-sisters-sam-cooke-granddaughters-debut-album-1235606528/",
+        "publisher": "Rolling Stone"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Artists’ Council",
+        "text": "The family history can introduce the Womack Sisters, but their own record deserves to speak before the genealogy does.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "The Womack Sisters",
+        "text": "We know where we come from. This record is where we are.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Soul Music Archive",
+        "text": "The lineage is extraordinary, but an archive should provide context, not a ceiling.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Record Industry",
+        "text": "Familiar history helps audiences understand the story around a new release.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "The Womack Sisters",
+        "text": "Then let the history introduce us and get out of the way before the first chorus.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Artists’ Council",
+        "text": "A famous family can open the meeting. It cannot perform the album for them.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Record Industry",
+        "text": "The debut will be judged on the songs and the audience response.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Soul Music Archive",
+        "text": "Good. That is how living music avoids becoming a museum label.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "The Womack Sisters",
+        "text": "We did not spend this long arriving just to be described as someone else’s descendants.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Artists’ Council",
+        "text": "Press play. The genealogy portion of the program has concluded.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "The family tree got them introduced; the album took the microphone away from it.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-12T21:32:13.811Z",
+    "editorial": {
+      "issueNumber": 160,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/160",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-12T21:32:13.811Z",
+      "fingerprint": "9385e4fe142e54652ecb67969f3c0ce338cf2e3ca30bd0bb0d7040192c9f3d2b",
+      "sourcePublishedAt": "2026-08-11T16:08:35.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Rewritten from the source summary after the queue-wide recycled-template audit. No headline recitation or shared dialogue skeleton remains. Opening narrator removed; the conversation now starts with a direct event participant. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-11-world-marks-second-warmest-july-on-record",
     "eventDate": "2026-08-11",
     "year": 2026,
