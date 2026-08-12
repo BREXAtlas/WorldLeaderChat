@@ -9,8 +9,8 @@ permissions:
   issues: write
 
 concurrency:
-  group: world-leader-chat-regenerate-${{ github.event.issue.number }}
-  cancel-in-progress: true
+  group: world-leader-chat-editorial-production
+  cancel-in-progress: false
 
 jobs:
   regenerate:
