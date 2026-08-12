@@ -28,6 +28,20 @@ const BANNED_RECYCLED_PHRASES = [
   "china supports returning to the agenda. china also predicts this will not happen"
 ];
 
+const BANNED_TEMPLATE_PATTERNS = [
+  /the verified event is pinned the argument is about its consequence/,
+  /i want the immediate consequence stated before anyone turns it into a victory lap/,
+  /that is the fact pattern we have to answer/,
+  /then my question on .* is who takes responsibility for what follows/,
+  /i will not turn .* into a slogan the public still needs the decision the timing and the cost separated/,
+  /my answer starts with this reported detail .* interpretation comes after that sentence not before it/,
+  /that is where the announcement meets the people expected to live with it/,
+  /i am not dodging .* i am saying the official line is shorter than the consequence/,
+  /i want each institution here to answer that record without borrowing a different story/,
+  /then answer the file we actually opened .* leave the substitute headline in drafts/,
+  /the verified details stayed pinned the spin requested a longer deadline/
+];
+
 const STOPWORDS = new Set([
   "about", "after", "again", "against", "also", "among", "another", "around", "because", "before", "being", "between",
   "could", "from", "have", "into", "just", "more", "most", "over", "said", "says", "than", "that", "their", "them", "there",
@@ -62,6 +76,53 @@ function contextTokens(bundle) {
   const article = event.article || {};
   const sourceLabels = (event.sources || []).map((source) => source.label).join(" ");
   return meaningfulTokens(`${event.title || ""} ${article.headline || ""} ${article.dek || ""} ${event.summary || ""} ${sourceLabels}`).slice(0, 18);
+}
+
+function wordTokens(value) {
+  return normalizeDialogueText(value).split(/\s+/).filter(Boolean);
+}
+
+function repeatsHeadline(bundle, text) {
+  const haystack = wordTokens(text);
+  const candidates = [
+    bundle?.event?.title,
+    bundle?.event?.article?.headline,
+    ...(bundle?.event?.sources || []).map((source) => source.label)
+  ];
+  return candidates.some((candidate) => {
+    const needle = wordTokens(candidate);
+    const run = Math.min(5, needle.length);
+    if (run < 3) return false;
+    for (let start = 0; start <= needle.length - run; start += 1) {
+      const phrase = needle.slice(start, start + run).join(" ");
+      if (haystack.join(" ").includes(phrase)) return true;
+    }
+    return false;
+  });
+}
+
+function structureShingles(bundle) {
+  const event = bundle?.event || {};
+  const context = new Set(wordTokens(`${event.title || ""} ${event.article?.headline || ""} ${event.article?.dek || ""} ${event.summary || ""} ${(event.sources || []).map((source) => source.label).join(" ")}`));
+  const shingles = new Set();
+  for (const message of event.messages || []) {
+    const masked = [];
+    for (const token of wordTokens(message?.text)) {
+      const next = context.has(token) || /^\d+$/.test(token) ? "context" : token;
+      if (next !== "context" || masked.at(-1) !== "context") masked.push(next);
+    }
+    for (let index = 0; index <= masked.length - 4; index += 1) shingles.add(masked.slice(index, index + 4).join(" "));
+  }
+  return shingles;
+}
+
+export function dialogueStructureSimilarity(leftBundle, rightBundle) {
+  const left = structureShingles(leftBundle);
+  const right = structureShingles(rightBundle);
+  if (!left.size || !right.size) return 0;
+  let overlap = 0;
+  for (const shingle of left) if (right.has(shingle)) overlap += 1;
+  return overlap / new Set([...left, ...right]).size;
 }
 
 function messageLines(messages) {
@@ -117,6 +178,8 @@ export function dialogueProblems(bundle, options = {}) {
     }
     if (META_NARRATION.test(text) || THIRD_PERSON_OPENING.test(text)) problems.push(`${label} describes a reaction instead of speaking in the person’s voice.`);
     if (BANNED_RECYCLED_PHRASES.some((phrase) => normalized.includes(phrase))) problems.push(`${label} contains a recycled stock line.`);
+    if (BANNED_TEMPLATE_PATTERNS.some((pattern) => pattern.test(normalized))) problems.push(`${label} contains a recycled fill-in-the-headline template.`);
+    if (repeatsHeadline(bundle, text)) problems.push(`${label} repeats the article headline instead of reacting naturally to the event.`);
     if (normalized && normalizedLines.has(normalized)) problems.push(`${label} duplicates another line in the same chat.`);
     normalizedLines.add(normalized);
   }
@@ -136,7 +199,8 @@ export function dialogueProblems(bundle, options = {}) {
   for (const other of options.existingBundles || []) {
     if (!other?.event || other.event.id === bundle?.event?.id) continue;
     const similarity = dialogueSimilarity(messages, other.event.messages);
-    if (similarity.exactOverlap >= 2 || similarity.jaccard >= 0.35) {
+    const structureSimilarity = dialogueStructureSimilarity(bundle, other);
+    if (similarity.exactOverlap >= 2 || similarity.jaccard >= 0.35 || structureSimilarity >= 0.28) {
       problems.push(`Chat reuses too much dialogue from ${other.event.title || other.event.id}.`);
       break;
     }

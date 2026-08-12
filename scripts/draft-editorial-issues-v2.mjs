@@ -3,8 +3,7 @@ import { resolve } from "node:path";
 import { extractStoryBundle, STORY_JSON_END, STORY_JSON_START } from "./lib/editorial.mjs";
 import { cleanWhitespace, readJson } from "./lib/io.mjs";
 import { dialogueProblems, stockMemeDetected } from "./lib/chat-quality.mjs";
-import { buildDirectDialogue, closingLineFor } from "./lib/newsroom-dialogue.mjs";
-import { articleProblems, expectedSourceCredit, normalizeArticle } from "./lib/article-standard.mjs";
+import { articleProblems, normalizeArticle } from "./lib/article-standard.mjs";
 
 const token = process.env.GITHUB_TOKEN;
 const repository = process.env.GITHUB_REPOSITORY;
@@ -98,6 +97,9 @@ ARTICLE RULES
 CHAT RULES — THESE ARE STRICT
 - Create 10–14 messages that sound like people texting each other, with replies, interruptions and callbacks.
 - Every line must be unique to THIS article and mention or respond to its actual people, decision, number, place, object or consequence.
+- Start in the middle of the reaction: a position, challenge, joke, contradiction or pointed question. Never write “I read [headline]”.
+- Never paste, recite or lightly trim the article headline or source headline inside a message. People discuss what happened; they do not read headlines to one another.
+- Do not use newsroom-process filler such as “the verified event is pinned”, “fact pattern”, “reported detail”, “answer the file”, “on the record”, “official line is shorter than the consequence” or “spin requested a longer deadline”.
 - At least two speakers must return later. Never place the same speaker in consecutive turns.
 - A speaker's text must be direct first-person dialogue. Never write narration such as “frames the stance”, “signals irritation”, “calls for”, “notes”, “observes”, “emphasizes”, “suggests”, “underlines”, “sees” or “warns”.
 - Do not recycle stock lines about “the strongest interpretation”, “I have thoughts”, “the facts are doing well”, “the personality test”, “the agenda”, “typing indicators” or changing the group name.
@@ -183,52 +185,6 @@ function applyCopilot(bundle, output) {
   return result;
 }
 
-function ensureArticle(bundle) {
-  const result = structuredClone(bundle);
-  const current = result.event?.article;
-  if (current) {
-    result.event.article = normalizeArticle(current, result.event.sources);
-    if (!articleProblems(result.event.article, result.event.sources).length) return result;
-  }
-  const summary = safeSummary(result.event.summary);
-  const headline = cleanWhitespace(result.event.sources?.[0]?.label || result.event.title).slice(0, 240);
-  result.ingestion = { ...(result.ingestion || {}), newsroomFormat: 2 };
-  result.event.summary = summary;
-  result.event.title = headline;
-  result.event.kicker = `The reported event is ${headline.toLowerCase()}; the sharper angle is who owns the consequence once the announcement leaves the podium.`.slice(0, 320);
-  result.event.article = {
-    headline,
-    dek: result.event.kicker,
-    body: [
-      summary,
-      `The original reporting establishes the event, chronology and immediate consequence. This version keeps those facts intact while making the public tension easier to read: who is claiming control, who is objecting and which official phrase is carrying more confidence than detail.`,
-      `The World Leader Chat angle is the gap between the public announcement and the pressure underneath it. The humor stays in that framing; it does not change the event, invent a motive or upgrade an implication into a fact.`,
-      `The source record remains the authority. The conversation below is an imagined exchange built around the people, institutions and consequences directly connected to this report, giving the reader a reason to enter the chat without mistaking the chat for reporting.`
-    ],
-    sourceCredit: expectedSourceCredit(result.event.sources)
-  };
-  return result;
-}
-
-function deterministicDraft(bundle) {
-  const result = ensureArticle(bundle);
-  result.event.messages = buildDirectDialogue(result);
-  result.event.meme = closingLineFor(result);
-  const sensitive = /killed|dead|death|hostage|missile|war|civilian|attack|disaster|gaza/i.test(`${result.event.title} ${result.event.summary}`);
-  result.event.tone = sensitive ? "sober" : "comic";
-  result.approval = {
-    ...(result.approval || {}),
-    reviewNotes: `${result.approval?.reviewNotes || ""} Deterministic safety draft used article-specific participants, facts and direct replies; no stock dialogue or named meme template.`.trim(),
-    articleStyle: "truth-first-sarcastic-news",
-    conversationStyle: "article-specific-direct-chat",
-    targetMessageCount: "10-14",
-    dialogueQuality: "unique first-person exchanges tied to this article; no stock lines or meta narration",
-    draftVersion: Number(result.approval?.draftVersion || 0) + 1,
-    dialogueRefinedAt: new Date().toISOString()
-  };
-  return result;
-}
-
 async function setLabels(issue, additions = [], removals = []) {
   const labels = labelsOf(issue);
   additions.forEach((label) => labels.add(label));
@@ -294,7 +250,7 @@ const queue = parsed
   .slice(0, limit);
 
 let drafted = 0;
-let fallbackCount = 0;
+let generationFailureCount = 0;
 let blocked = 0;
 for (const { issue, bundle: originalBundle } of queue) {
   try {
@@ -330,11 +286,11 @@ for (const { issue, bundle: originalBundle } of queue) {
     }
 
     if (!copilotWorked) {
-      fallbackCount += 1;
-      // Preserve a valid article/headline even when only the generated chat failed.
-      // The deterministic pass replaces the chat so owner review never receives
-      // placeholder copy or an assignment to write the newsroom's headline.
-      bundle = deterministicDraft(bestArticleCandidate || bundle);
+      generationFailureCount += 1;
+      // Never promote fill-in-the-headline copy as a safety fallback. Preserve the
+      // best source-locked attempt for a future automated retry, but let the quality
+      // gate keep the file out of Ready for Approval until original writing succeeds.
+      bundle = bestArticleCandidate || bundle;
     }
 
     const finalProblems = [
@@ -364,4 +320,4 @@ for (const { issue, bundle: originalBundle } of queue) {
   }
 }
 
-console.log(`Editorial drafting complete: ${drafted} ready, ${fallbackCount} deterministic fallback(s), ${blocked} blocked.`);
+console.log(`Editorial drafting complete: ${drafted} ready, ${generationFailureCount} generation failure(s) kept out of review, ${blocked} blocked.`);

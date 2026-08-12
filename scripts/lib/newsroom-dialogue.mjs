@@ -302,70 +302,31 @@ function immigrationDialogue() {
   ];
 }
 
-const KNOWN_ACTORS = [
-  ["Trump", /\btrump\b/], ["Obama", /\bobama\b/], ["Biden", /\bbiden\b/], ["Vance", /\bvance\b/],
-  ["Netanyahu", /\bnetanyahu\b/], ["Zelenskyy", /\bzelensk(?:y|yy)\b/], ["Putin", /\bputin\b/], ["Xi", /\bxi\b|\bchina\b/],
-  ["Meloni", /\bmeloni\b/], ["Macron", /\bmacron\b/], ["Milei", /\bmilei\b/], ["Elon Musk", /\belon musk\b|\bspacex\b|\btesla\b/],
-  ["Jeff Bezos", /\bjeff bezos\b|\bblue origin\b/], ["Sam Altman", /\bsam altman\b|\bopenai\b/], ["Taylor Swift", /\btaylor swift\b/],
-  ["Larry David", /\blarry david\b/], ["Lisa Cook", /\blisa cook\b/], ["Frederick Richard", /\bfrederick richard\b|\bfred richard\b/]
-];
-
-function shortClause(value, max = 105) {
-  const text = String(value || "").replace(/\s+/g, " ").trim().replace(/[.!?]+$/, "");
-  if (text.length <= max) return text;
-  return `${text.slice(0, max).replace(/\s+\S*$/, "")}…`;
-}
-
-function contextualDialogue(bundle) {
-  const text = fullText(bundle);
-  const event = bundle?.event || {};
-  const headline = shortClause(event.article?.headline || event.sources?.[0]?.label || event.title || "the latest development");
-  const fact = shortClause(event.summary || event.article?.dek || headline, 150);
-  const consequence = shortClause(event.article?.dek || event.kicker || fact, 125);
-  const publisher = shortClause(event.sources?.[0]?.publisher || "the linked reporting", 55);
-  const actors = KNOWN_ACTORS.filter(([, pattern]) => pattern.test(text)).map(([name]) => name);
-  const category = String(event.category || "").toLowerCase();
-  const context = `${category} ${text}`;
-  const defaults = /sport|football|soccer|gymnast|baseball|basketball|olympic|championship/.test(context)
-    ? ["League Office", "Players' Council", "Broadcast Desk", "Supporters' Section"]
-    : /culture|entertainment|music|film|television|actor|artist/.test(context)
-      ? ["Artists' Council", "Studio Office", "Rights Desk", "Audience Desk"]
-      : /hospital|patient|health|medical|vaccine|cancer/.test(context)
-        ? ["Clinical Staff", "Patient Safety Desk", "Health Agency", "Budget Office"]
-      : /science|space/.test(context)
-        ? ["Research Team", "Mission Control", "Science Desk", "Budget Office"]
-        : /technology|\bai\b|cyber/.test(context)
-          ? ["Product Team", "Platform Users", "Security Desk", "Industry Regulators"]
-          : /business|trade|tariff|market|company/.test(context)
-            ? ["Company Board", "Market Desk", "Workers' Committee", "Regulators"]
-            : /war|security|missile|military|hostage|ceasefire/.test(context)
-              ? ["Security Council Desk", "Civilian Protection Office", "Defense Ministry Desk", "Diplomatic Corps"]
-              : /politic|election|congress|court/.test(context)
-                ? ["Campaign Desk", "Election Officials", "Civil Rights Desk", "Congressional Staff"]
-                : ["Foreign Ministry Desk", "Regional Officials", "Diplomatic Corps", "Public Information Desk"];
-  const cast = [...new Set([...actors, ...defaults])].slice(0, 4);
-  const [a, b, c, d] = cast;
-  return [
-    msg("UN Admin", `Desk file: ${headline}. The verified event is pinned; the argument is about its consequence.`, "system"),
-    msg(a, `I read ${headline}. I want the immediate consequence stated before anyone turns it into a victory lap.`),
-    msg(b, `I am staying with what ${publisher} reported: ${fact}. That is the fact pattern we have to answer.`),
-    msg(a, `Then my question on ${shortClause(headline, 72)} is who takes responsibility for what follows.`),
-    msg(c, `I will not turn ${shortClause(headline, 68)} into a slogan. The public still needs the decision, the timing and the cost separated.`),
-    msg(b, `My answer starts with this reported detail: ${shortClause(fact, 105)}. Interpretation comes after that sentence, not before it.`),
-    msg(d, `I see the pressure point in ${shortClause(consequence, 92)}. That is where the announcement meets the people expected to live with it.`),
-    msg(a, `I am not dodging ${shortClause(headline, 64)}; I am saying the official line is shorter than the consequence.`),
-    msg(c, `${publisher} put ${shortClause(headline, 62)} on the record. I want each institution here to answer that record without borrowing a different story.`),
-    msg(b, `Then answer the file we actually opened—${shortClause(headline, 62)}—and leave the substitute headline in drafts.`),
-    msg("UN Admin", `File closed on ${shortClause(headline, 78)}. The verified details stayed pinned; the spin requested a longer deadline.`, "system")
-  ];
-}
-
 export function dialogueNeedsRefinement(bundle, options = {}) {
   return dialogueProblems(bundle, options).length > 0;
 }
 
 export function buildDirectDialogue(bundle) {
-  return contextualDialogue(bundle);
+  const headline = headlineText(bundle);
+  if (/gaza|netanyahu.*peace plan|hamas.*disarm/.test(headline)) return gazaDialogue();
+  if (/houthi|saudi.*refinery|refinery.*saudi/.test(headline)) return houthiSaudiDialogue();
+  if (/ahrq|patient safety|hospital patients safe/.test(headline)) return healthcareAgencyDialogue();
+  if (/frederick richard|fred richard|gymnastics/.test(headline)) return gymnasticsDialogue();
+  if (/lisa cook|fed governor/.test(headline)) return fedCookDialogue();
+  if (/tariff.*refund|refund.*tariff|liberation day/.test(headline)) return tariffRefundDialogue();
+  if (/ukraine.*refiner|tatarstan|tyumen/.test(headline)) return ukraineRefineryDialogue();
+  if (/secretary.general|rebeca grynspan|head of un/.test(headline)) return unSecretaryDialogue();
+  if (/independent voters|progressive goals/.test(headline)) return independentVotersDialogue();
+  if (/cybersecurity|cyber model|astra model/.test(headline)) return cyberModelDialogue();
+  if (/moon|falcon|spacex/.test(headline)) return moonCrashDialogue();
+  if (/easyjet|apollo.*airline/.test(headline)) return easyJetDialogue();
+  if (/tan suit|larry david/.test(headline)) return tanSuitDialogue();
+  if (/fifa|infantino/.test(headline)) return fifaDialogue();
+  if (/lebanon/.test(headline)) return lebanonDialogue();
+  if (/artificial intelligence|\bai\b|openai/.test(headline)) return aiDialogue();
+  if (/taylor swift/.test(headline)) return taylorDialogue();
+  if (/immigration|border|deport/.test(headline)) return immigrationDialogue();
+  throw new Error("No approved deterministic conversation exists for this event; original dialogue generation is required.");
 }
 
 export function closingLineFor(bundle) {
@@ -385,6 +346,5 @@ export function closingLineFor(bundle) {
   if (/tan suit|larry david/.test(headline)) return "The suit was beige. The national memory remained high-contrast.";
   if (/fifa|infantino/.test(headline)) return "The proposal left the field. The resignation calls stayed on the fixture list.";
   if (/lebanon/.test(headline)) return "Rome hosted the talks. Southern Lebanon delivered the follow-up in smoke.";
-  const event = bundle?.event || {};
-  return `${shortClause(event.article?.headline || event.title || "The event", 120)} — the facts stayed put while the spin changed seats.`;
+  throw new Error("No approved deterministic closing line exists for this event; original dialogue generation is required.");
 }

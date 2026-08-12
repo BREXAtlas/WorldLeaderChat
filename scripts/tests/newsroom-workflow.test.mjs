@@ -54,7 +54,7 @@ test("drafting prompt preserves factual conclusions and forbids recycled stock c
   assert.match(draft, /Never mention Drake/);
   assert.match(draft, /dialogueProblems/);
   assert.match(draft, /bestArticleCandidate/);
-  assert.match(draft, /Preserve a valid article\/headline/);
+  assert.match(draft, /Never promote fill-in-the-headline copy as a safety fallback/);
 });
 
 test("failed machine drafts stay newsroom work instead of becoming owner writing assignments", async () => {
@@ -95,11 +95,24 @@ test("Rewrite Chat preserves the article and replaces only dialogue", async () =
   assert.match(workflow, /github\.event\.label\.name == 'regenerate-requested'/);
   assert.match(workflow, /WLC_TARGET_ISSUE/);
   assert.match(workflow, /rewrite-chat-only\.mjs/);
-  assert.doesNotMatch(workflow, /copilot-requests|WLC_FORCE_REWRITE|draft-editorial-issues\.mjs/);
+  assert.match(workflow, /copilot-requests: write/);
+  assert.match(workflow, /Install GitHub Copilot CLI/);
+  assert.doesNotMatch(workflow, /WLC_FORCE_REWRITE|draft-editorial-issues\.mjs/);
   assert.match(rewrite, /const originalArticle = structuredClone/);
   assert.match(rewrite, /bundle\.event\.article = originalArticle/);
-  assert.match(rewrite, /bundle\.event\.messages = buildDirectDialogue/);
+  assert.match(rewrite, /runCopilot/);
+  assert.match(rewrite, /Never write “I read \[headline\]”/);
+  assert.doesNotMatch(rewrite, /buildDirectDialogue/);
   assert.match(rewrite, /article and sources were preserved/);
+});
+
+test("failed generation cannot promote a recycled deterministic fallback to owner review", async () => {
+  const draft = await read("scripts/draft-editorial-issues-v2.mjs");
+  const dialogue = await read("scripts/lib/newsroom-dialogue.mjs");
+  assert.doesNotMatch(draft, /deterministicDraft|Deterministic safety draft/);
+  assert.match(draft, /generation failure\(s\) kept out of review/);
+  assert.doesNotMatch(dialogue, /I read \$\{headline\}/);
+  assert.match(dialogue, /original dialogue generation is required/);
 });
 
 test("article failures can request a complete source-locked redraft", async () => {

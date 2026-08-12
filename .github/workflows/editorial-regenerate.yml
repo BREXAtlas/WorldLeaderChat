@@ -7,6 +7,7 @@ on:
 permissions:
   contents: read
   issues: write
+  copilot-requests: write
 
 concurrency:
   group: world-leader-chat-editorial-production
@@ -30,7 +31,10 @@ jobs:
           node-version: 24
           package-manager-cache: false
 
-      - name: Replace only the chat with article-specific direct dialogue
+      - name: Install GitHub Copilot CLI
+        run: npm install --global @github/copilot
+
+      - name: Generate a completely new article-specific chat
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WLC_TARGET_ISSUE: ${{ github.event.issue.number }}

@@ -29,6 +29,19 @@ const BANNED_LINES = [
   'the record has asked not to be involved',
   'can we discuss the actual event before someone changes the group name again'
 ];
+const BANNED_TEMPLATE_PATTERNS = [
+  /the verified event is pinned the argument is about its consequence/,
+  /i want the immediate consequence stated before anyone turns it into a victory lap/,
+  /that is the fact pattern we have to answer/,
+  /then my question on .* is who takes responsibility for what follows/,
+  /i will not turn .* into a slogan the public still needs the decision the timing and the cost separated/,
+  /my answer starts with this reported detail .* interpretation comes after that sentence not before it/,
+  /that is where the announcement meets the people expected to live with it/,
+  /i am not dodging .* i am saying the official line is shorter than the consequence/,
+  /i want each institution here to answer that record without borrowing a different story/,
+  /then answer the file we actually opened .* leave the substitute headline in drafts/,
+  /the verified details stayed pinned the spin requested a longer deadline/
+];
 const THIRD_PERSON = /^(frames|signals|calls for|counts|emphasizes|notes|observes|suggests|underlines|warns|describes|argues|states|says|sees|insists|urges|highlights|points to|maintains|reiterates|characterizes|portrays|indicates|acknowledges)\b/i;
 const META_NARRATION = /\b(imagined|hypothetical|would likely|would probably|plausible reaction|reaction consistent|response imagined|posture|style response|public-figure|voice would)\b/i;
 const GENERIC_SPEAKER = /^(world leader|u\.?s\.? official|american official|european diplomat|government official|public figure|political observer|analyst|expert|commentator)$/i;
@@ -37,6 +50,20 @@ const STOCK_MEME = /\bdrake(?: meme)?\b|distracted boyfriend|two buttons|change 
 const $ = (selector) => document.querySelector(selector);
 const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const normalize = (value) => String(value || '').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
+
+function repeatsHeadline(bundle, text) {
+  const haystack = normalize(text).split(/\s+/).filter(Boolean).join(' ');
+  const candidates = [bundle?.event?.title, bundle?.event?.article?.headline, ...(bundle?.event?.sources || []).map((source) => source.label)];
+  return candidates.some((candidate) => {
+    const words = normalize(candidate).split(/\s+/).filter(Boolean);
+    const run = Math.min(5, words.length);
+    if (run < 3) return false;
+    for (let start = 0; start <= words.length - run; start += 1) {
+      if (haystack.includes(words.slice(start, start + run).join(' '))) return true;
+    }
+    return false;
+  });
+}
 
 async function api(path, options = {}) {
   const response = await fetch(API + path, {
@@ -94,6 +121,8 @@ function dialogueProblems(bundle) {
     }
     if (THIRD_PERSON.test(text) || META_NARRATION.test(text)) problems.push(`Message ${index + 1} reads like commentary instead of a text message.`);
     if (BANNED_LINES.some((phrase) => line.includes(phrase))) problems.push(`Message ${index + 1} contains recycled stock dialogue.`);
+    if (BANNED_TEMPLATE_PATTERNS.some((pattern) => pattern.test(line))) problems.push(`Message ${index + 1} contains a recycled fill-in-the-headline template.`);
+    if (repeatsHeadline(bundle, text)) problems.push(`Message ${index + 1} repeats the article headline instead of reacting naturally.`);
     if (line && seen.has(line)) problems.push(`Message ${index + 1} repeats another line.`);
     seen.add(line);
   }
@@ -124,7 +153,11 @@ function laneOf(issue) {
   if (issue.state === 'closed') return null;
   if (busy.has(issue.number) || labels.has('editorial-approved')) return 'publishing';
   if (labels.has('publication-failed') || labels.has('regenerate-requested') || labels.has('redraft-requested') || labels.has('drafting') || labels.has('needs-editor')) return 'drafting';
-  if (labels.has('ready-for-approval')) return 'ready';
+  if (labels.has('ready-for-approval')) {
+    const readyBundle = parseBundle(issue.body || '');
+    if (!readyBundle || eventProblems(readyBundle).length || articleProblems(readyBundle).length || dialogueProblems(readyBundle).length) return 'drafting';
+    return 'ready';
+  }
   const bundle = parseBundle(issue.body || '');
   if (bundle && !JSON.stringify(bundle).includes('[EDITOR:') && !eventProblems(bundle).length && !articleProblems(bundle).length && !dialogueProblems(bundle).length) return 'ready';
   return 'new';

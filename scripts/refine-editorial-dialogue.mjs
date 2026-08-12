@@ -2,7 +2,6 @@ import { resolve } from "node:path";
 import { extractStoryBundle, STORY_JSON_END, STORY_JSON_START } from "./lib/editorial.mjs";
 import { readJson } from "./lib/io.mjs";
 import { dialogueProblems, stockMemeDetected } from "./lib/chat-quality.mjs";
-import { buildDirectDialogue, closingLineFor } from "./lib/newsroom-dialogue.mjs";
 
 const token = process.env.GITHUB_TOKEN;
 const repository = process.env.GITHUB_REPOSITORY;
@@ -124,9 +123,13 @@ for (const { issue, bundle } of queue) {
       continue;
     }
 
-    if (initialProblems.length) bundle.event.messages = buildDirectDialogue(bundle);
+    if (initialProblems.length || needsMemePolish) {
+      blocked += 1;
+      await setLabels(issue, ["needs-editor"], ["ready-for-approval", "drafting", "regenerate-requested"]);
+      console.error(`::warning title=Dialogue requires original rewrite::Issue #${issue.number}: ${[...initialProblems, ...(needsMemePolish ? ["Closing line uses a stock meme."] : [])].join(" | ")}`);
+      continue;
+    }
     bundle.event.messages = polishSystemLanguage(bundle.event.messages, bundle);
-    if (needsMemePolish || initialProblems.length) bundle.event.meme = closingLineFor(bundle);
 
     bundle.approval = {
       ...(bundle.approval || {}),

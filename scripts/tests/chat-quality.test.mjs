@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { dialogueProblems, dialogueSimilarity, stockMemeDetected } from "../lib/chat-quality.mjs";
+import { dialogueProblems, dialogueSimilarity, dialogueStructureSimilarity, stockMemeDetected } from "../lib/chat-quality.mjs";
 import { buildDirectDialogue, closingLineFor } from "../lib/article-dialogue.mjs";
 
 function bundle({ title, summary, source, messages, meme = "The source stayed put while the spin changed seats." }) {
@@ -40,6 +40,28 @@ test("recycled strongest-interpretation template is rejected", () => {
   const problems = dialogueProblems(candidate);
   assert.ok(problems.some((problem) => /recycled stock line/i.test(problem)));
   assert.ok(problems.some((problem) => /does not stay tied to the article/i.test(problem)));
+});
+
+test("fill-in-the-headline chat is rejected even when names and titles change", () => {
+  const templated = (title, speakers) => [
+    { speaker: "UN Admin", text: `Desk file: ${title}. The verified event is pinned; the argument is about its consequence.`, kind: "system" },
+    { speaker: speakers[0], text: `I read ${title}. I want the immediate consequence stated before anyone turns it into a victory lap.`, kind: "satire" },
+    { speaker: speakers[1], text: "That is the fact pattern we have to answer.", kind: "satire" },
+    { speaker: speakers[0], text: `Then my question on ${title} is who takes responsibility for what follows.`, kind: "satire" },
+    { speaker: speakers[2], text: `I will not turn ${title} into a slogan. The public still needs the decision, the timing and the cost separated.`, kind: "satire" },
+    { speaker: speakers[1], text: "My answer starts with this reported detail. Interpretation comes after that sentence, not before it.", kind: "satire" },
+    { speaker: speakers[3], text: "That is where the announcement meets the people expected to live with it.", kind: "satire" },
+    { speaker: speakers[0], text: `I am not dodging ${title}; I am saying the official line is shorter than the consequence.`, kind: "satire" },
+    { speaker: speakers[2], text: "I want each institution here to answer that record without borrowing a different story.", kind: "satire" },
+    { speaker: speakers[1], text: `Then answer the file we actually opened—${title}—and leave the substitute headline in drafts.`, kind: "satire" },
+    { speaker: "UN Admin", text: "The verified details stayed pinned; the spin requested a longer deadline.", kind: "system" }
+  ];
+  const first = bundle({ title: "Threads launches a VR app", summary: "Threads released a virtual-reality app.", messages: templated("Threads launches a VR app", ["Product Team", "Platform Users", "Security Desk", "Regulators"]) });
+  const second = bundle({ title: "NASA explains the Roman telescope", summary: "NASA published a guide to the Roman telescope.", messages: templated("NASA explains the Roman telescope", ["Mission Control", "NASA", "Science Desk", "Research Team"]) });
+  const problems = dialogueProblems(second, { existingBundles: [first] });
+  assert.ok(problems.some((problem) => /fill-in-the-headline template/i.test(problem)));
+  assert.ok(problems.some((problem) => /repeats the article headline/i.test(problem)));
+  assert.ok(dialogueStructureSimilarity(first, second) >= 0.28);
 });
 
 test("third-person reaction summaries and consecutive speakers are rejected", () => {

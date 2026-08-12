@@ -56,6 +56,7 @@
     const problems = [];
     if (!article || typeof article !== "object" || Array.isArray(article)) return ["The short report is missing."];
     const body = Array.isArray(article.body) ? article.body : [];
+    const boilerplate = `${article.headline || ""} ${article.dek || ""} ${body.join(" ")}`.toLowerCase();
     if (body.length < rules.minimumParagraphs || body.length > rules.maximumParagraphs) {
       problems.push(`The short report must contain ${rules.minimumParagraphs}–${rules.maximumParagraphs} paragraphs.`);
     }
@@ -77,6 +78,12 @@
     const expectedCredit = expectedSourceCredit(sources);
     if (String(article.sourceCredit || "").trim() !== expectedCredit) {
       problems.push("The source credit must name exactly the publishers linked in this file.");
+    }
+    if (/the reported event is .* the sharper angle is who owns the consequence once the announcement leaves the podium/.test(boilerplate)
+      || boilerplate.includes("the original reporting establishes the event, chronology and immediate consequence")
+      || boilerplate.includes("the world leader chat angle is the gap between the public announcement and the pressure underneath it")
+      || boilerplate.includes("the source record remains the authority. the conversation below is an imagined exchange")) {
+      problems.push("The short report uses a recycled fill-in-the-headline article template and must be rewritten from the actual source facts.");
     }
     return problems;
   }

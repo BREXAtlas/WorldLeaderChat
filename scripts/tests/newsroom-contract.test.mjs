@@ -25,6 +25,12 @@ test("article standard requires a readable source-locked short report", () => {
   assert.ok(articleProblems(tooShort, sources).some((problem) => problem.includes("3–5 paragraphs")));
   const wrongCredit = { ...article, sourceCredit: "Based on original reporting from Reuters and The Imaginary Times." };
   assert.ok(articleProblems(wrongCredit, sources).some((problem) => problem.includes("exactly the publishers")));
+  const boilerplate = { ...article, body: [
+    paragraphs[0],
+    "The original reporting establishes the event, chronology and immediate consequence. This version keeps those facts intact while making the public tension easier to read, but it says nothing specific about this story.",
+    "The World Leader Chat angle is the gap between the public announcement and the pressure underneath it. This recycled paragraph is not a finished report and cannot reach owner review."
+  ] };
+  assert.ok(articleProblems(boilerplate, sources).some((problem) => /fill-in-the-headline article template/i.test(problem)));
 });
 
 test("normalization removes stray credit paragraphs but never invents prose", () => {
