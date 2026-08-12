@@ -1,5 +1,108 @@
 [
   {
+    "id": "2026-08-11-adley-rutschman-set-to-be-activated-for-red-sox-debut-as-boston",
+    "eventDate": "2026-08-11",
+    "year": 2026,
+    "date": "August 11, 2026",
+    "title": "Adley Rutschman Set for Red Sox Debut as Boston’s Surge Continues",
+    "kicker": "The catcher acquired from Baltimore at the trade deadline is expected to come off the injured list and join one of baseball’s hottest teams.",
+    "category": "Sports & Soft Power",
+    "summary": "Rutschman, acquired from the Orioles at the trade deadline, has been on the IL since the middle of July",
+    "article": {
+      "headline": "Adley Rutschman Set for Red Sox Debut as Boston’s Surge Continues",
+      "dek": "The catcher acquired from Baltimore at the trade deadline is expected to come off the injured list and join one of baseball’s hottest teams.",
+      "body": [
+        "Adley Rutschman is expected to be activated for his Boston Red Sox debut after spending time on the injured list, CBS Sports reports. Boston acquired the catcher from the Baltimore Orioles at the trade deadline, but his first appearance with the new club had to wait while he recovered.",
+        "Rutschman has been sidelined since the middle of July, so activation is both a roster move and the delayed completion of a major trade. A new catcher must handle his own return to game speed while learning pitchers, preparation routines and a contending team’s expectations in the middle of a season.",
+        "The Red Sox enter that adjustment during a strong summer run, which reduces the need for one player to arrive as a rescue plan. It also raises the standard: Rutschman is joining a team with momentum and must fit without interrupting it. Boston ordered help at the deadline. The package is finally leaving the injured list."
+      ],
+      "sourceCredit": "Based on original reporting from CBS Sports."
+    },
+    "sources": [
+      {
+        "label": "Adley Rutschman set to be activated for Red Sox debut as Boston's red-hot summer continues",
+        "url": "https://www.cbssports.com/mlb/news/adley-rutschman-red-sox-debut/",
+        "publisher": "CBS Sports"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Orioles Alumni Chat",
+        "text": "We wish Rutschman a healthy debut and reserve the divisional right to dislike how useful he may be in Boston.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Red Sox Clubhouse",
+        "text": "Adley joins a team playing well. We need his preparation and catching, not a one-man rescue campaign.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Adley Rutschman",
+        "text": "I have waited through the injured list. I am ready to learn the staff and contribute.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Orioles Alumni Chat",
+        "text": "Seeing him in Boston colors remains an unnecessary test of divisional diplomacy.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Red Sox Pitching Staff",
+        "text": "The first assignment is names, signs and which mound visit requires a translator for sarcasm.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Adley Rutschman",
+        "text": "Give me the scouting reports. The sarcasm appears to be arriving without documentation.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Red Sox Clubhouse",
+        "text": "Winning helps introductions, but it also means nobody wants the rhythm disturbed.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Orioles Alumni Chat",
+        "text": "We wish him health and deeply inconvenient individual success.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Adley Rutschman",
+        "text": "That is the warmest possible message from inside the division.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Red Sox Pitching Staff",
+        "text": "Welcome to Boston. Your first meeting started five minutes ago.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "The trade deadline delivered the catcher; the injured list kept him in package tracking.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-12T21:32:48.028Z",
+    "editorial": {
+      "issueNumber": 159,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/159",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-12T21:32:48.028Z",
+      "fingerprint": "6e6d02d1efb8ae587d0c4fdd59fae339a853a89c57b7abd2d4f93aadf9e2ba07",
+      "sourcePublishedAt": "2026-08-11T14:11:02.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Rewritten from the source summary after the queue-wide recycled-template audit. No headline recitation or shared dialogue skeleton remains. Opening narrator removed; the conversation now starts with a direct event participant. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-11-anthropic-says-it-will-watermark-text-generated-by-its-ai-models",
     "eventDate": "2026-08-11",
     "year": 2026,
