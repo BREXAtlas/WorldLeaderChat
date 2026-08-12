@@ -4775,6 +4775,109 @@
     }
   },
   {
+    "id": "2026-08-11-us-state-department-has-canceled-over-175-000-visas-since-trump",
+    "eventDate": "2026-08-11",
+    "year": 2026,
+    "date": "August 11, 2026",
+    "title": "State Department Says Visa Revocations Have Surpassed 175,000 Since Trump’s Return",
+    "kicker": "The administration reports a fourfold acceleration from Biden’s final year, citing alleged crimes, rule violations, fraud and national-security concerns.",
+    "category": "Politics & Society",
+    "summary": "Revocations targeted foreign nationals who allegedly broke terms of their visas, government says The US Department of State has canceled more than 175,000 visas since Donald Trump returned to office, quadrupling the pace of revocations under Joe Biden’s final year in the White House, according to a new tally released by the department this week. The announcement said the revocations targeted foreign nationals who allegedly broke the terms of their visas, committed crimes, called for violence against Americans, defrauded US citizens, abused the immigration system or endangered national security. Many followed run-ins with law enforcement, the department said, with assault, drunk driving, theft and drug offenses the leading causes, alongside reckless driving, sexual assault, child abuse and fraud. Continue reading...",
+    "article": {
+      "headline": "State Department Says Visa Revocations Have Surpassed 175,000 Since Trump’s Return",
+      "dek": "The administration reports a fourfold acceleration from Biden’s final year, citing alleged crimes, rule violations, fraud and national-security concerns.",
+      "body": [
+        "The U.S. State Department says it has revoked more than 175,000 visas since Donald Trump returned to office. The Guardian reports that the new tally represents roughly four times the pace recorded during Joe Biden’s final year, reflecting an aggressive expansion of immigration enforcement through the visa system.",
+        "According to the department, revocations targeted foreign nationals accused of violating visa terms, committing crimes, calling for violence, defrauding Americans, abusing immigration processes or threatening national security. Officials said many actions followed encounters with law enforcement and listed offenses including assault, drunk driving, theft, drug crimes and fraud.",
+        "The scale invites scrutiny of both enforcement priorities and process. A visa is not the same as citizenship or permanent residence, but revocation can abruptly alter a person’s work, study, travel and family life. The government can cite categories; it must also show that individual decisions rely on evidence, consistent standards and whatever notice or review the law requires."
+      ],
+      "sourceCredit": "Based on original reporting from The Guardian."
+    },
+    "sources": [
+      {
+        "label": "US state department has canceled over 175,000 visas since Trump’s return to office",
+        "url": "https://www.theguardian.com/us-news/2026/aug/11/trump-state-department-visas",
+        "publisher": "The Guardian"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Immigration Lawyers’ Association",
+        "text": "A six-figure revocation total demands six-figure attention to evidence, notice and the chance to correct mistakes.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "State Department",
+        "text": "We are canceling visas when foreign nationals violate their terms, commit serious offenses or threaten public safety.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Immigration Lawyers’ Association",
+        "text": "Then disclose the standards, notice and review available before an allegation becomes a life-changing decision.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Consular Officers’ Council",
+        "text": "Cases vary by visa type, evidence and legal authority; the total combines many different circumstances.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "State Department",
+        "text": "The increased pace reflects stronger enforcement and information sharing across agencies.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Civil Liberties Monitor",
+        "text": "Faster information sharing can improve safety or accelerate error. Auditing distinguishes the two.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Consular Officers’ Council",
+        "text": "Front-line officers also need clear guidance that can be applied consistently across posts.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Immigration Lawyers’ Association",
+        "text": "And affected people need more than a category label when they challenge a mistake.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "State Department",
+        "text": "National security and immigration integrity require decisive action.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Civil Liberties Monitor",
+        "text": "Decisive and reviewable are not opposites. A large number does not grant an exemption from due process.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "The government announced the total; due process asked for the other 175,000 stories.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-12T21:36:29.845Z",
+    "editorial": {
+      "issueNumber": 155,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/155",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-12T21:36:29.845Z",
+      "fingerprint": "0c8098ff40d589bc9289393686212b4cac757b81e976bbe3c8393a82286f1d33",
+      "sourcePublishedAt": "2026-08-11T15:28:00.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Rewritten from the source summary after the queue-wide recycled-template audit. No headline recitation or shared dialogue skeleton remains. Opening narrator removed; the conversation now starts with a direct event participant. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-11-vietnam-s-vinspace-announces-deal-with-spacex-to-launch-first-sa",
     "eventDate": "2026-08-11",
     "year": 2026,
