@@ -1383,5 +1383,17 @@
     "sourceUrls": [
       "https://www.theguardian.com/us-news/2026/aug/11/trump-state-department-visas"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-11-hunter-biden-defends-tucker-carlson-over-netanyahu-comments",
+    "issueNumber": 154,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/154",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-12T21:37:24.506Z",
+    "fingerprint": "d714ff5b604a100b777b8d2d58b2d8de6717d4a7d2fb1b0f0c006a73a54fd334",
+    "sourceUrls": [
+      "https://www.aljazeera.com/video/newsfeed/2026/8/11/hunter-biden-defends-tucker-carlson-over-netanyahu-comments?traffic_source=rss"
+    ]
   }
 ]

@@ -1810,6 +1810,109 @@
     }
   },
   {
+    "id": "2026-08-11-hunter-biden-defends-tucker-carlson-over-netanyahu-comments",
+    "eventDate": "2026-08-11",
+    "year": 2026,
+    "date": "August 11, 2026",
+    "title": "Hunter Biden Defends Tucker Carlson’s Right to Criticize Netanyahu",
+    "kicker": "The president’s son and the conservative broadcaster found a narrow point of agreement over criticism of Israel’s prime minister, without erasing their long political hostility.",
+    "category": "Politics & Society",
+    "summary": "Hunter Biden defends Tucker Carlson over Netanyahu comments",
+    "article": {
+      "headline": "Hunter Biden Defends Tucker Carlson’s Right to Criticize Netanyahu",
+      "dek": "The president’s son and the conservative broadcaster found a narrow point of agreement over criticism of Israel’s prime minister, without erasing their long political hostility.",
+      "body": [
+        "Hunter Biden defended Tucker Carlson over the broadcaster’s comments about Israeli Prime Minister Benjamin Netanyahu, according to an Al Jazeera Newsfeed report. The exchange is notable because Carlson spent years amplifying attacks on the Biden family, making any public defense from the former president’s son an unexpected political alignment.",
+        "The defense is narrow: agreeing that criticism of Netanyahu can be legitimate does not endorse Carlson’s broader record or every claim attached to the Israel debate. It instead separates an argument about a particular leader and U.S. policy from the partisan identities of the people making it.",
+        "That separation is increasingly difficult in American media, where a speaker’s faction can determine the reaction before the sentence is heard. Biden and Carlson have not become allies by sharing one conclusion. They have demonstrated that political enemies can overlap on a specific point without signing a coalition agreement—or pretending the previous decade of conflict was merely a scheduling error."
+      ],
+      "sourceCredit": "Based on original reporting from Al Jazeera."
+    },
+    "sources": [
+      {
+        "label": "Hunter Biden defends Tucker Carlson over Netanyahu comments",
+        "url": "https://www.aljazeera.com/video/newsfeed/2026/8/11/hunter-biden-defends-tucker-carlson-over-netanyahu-comments?traffic_source=rss",
+        "publisher": "Al Jazeera"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Democratic Media Circle",
+        "text": "I can oppose Carlson’s record and still judge one criticism of Netanyahu on its merits. Those are separate decisions.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Hunter Biden",
+        "text": "Disagreeing with Benjamin Netanyahu does not make every critic illegitimate. Judge the argument being made.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Tucker Carlson",
+        "text": "That standard would be refreshing after years of treating foreign-policy dissent as disloyalty.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Democratic Media Circle",
+        "text": "A valid narrow point does not erase Carlson’s record of attacks and conspiracy-driven commentary.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Hunter Biden",
+        "text": "I did not erase anything. Defending a point is not adopting the speaker’s entire biography.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Conservative Media Circle",
+        "text": "We would like written confirmation that cross-partisan agreement remains legally permitted.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Tucker Carlson",
+        "text": "Keep the certificate. The question is whether Netanyahu’s decisions can be criticized on their merits.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Democratic Media Circle",
+        "text": "Yes—and whether the criticism stays factual rather than sliding into prejudice or unsupported claims.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Hunter Biden",
+        "text": "That is the line worth arguing about, not whether enemies are allowed to share one sentence.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Conservative Media Circle",
+        "text": "One sentence approved. The coalition has adjourned before anyone orders matching shirts.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "The political enemies agreed on one point and immediately installed an emergency exit.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-12T21:37:24.506Z",
+    "editorial": {
+      "issueNumber": 154,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/154",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-12T21:37:24.506Z",
+      "fingerprint": "d714ff5b604a100b777b8d2d58b2d8de6717d4a7d2fb1b0f0c006a73a54fd334",
+      "sourcePublishedAt": "2026-08-11T13:10:49.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Rewritten from the source summary after the queue-wide recycled-template audit. No headline recitation or shared dialogue skeleton remains. Opening narrator removed; the conversation now starts with a direct event participant. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-11-joby-flexes-military-muscle-with-500-million-defense-acquisition",
     "eventDate": "2026-08-11",
     "year": 2026,
