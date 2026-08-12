@@ -88,7 +88,7 @@ ARTICLE RULES
 - The headline must identify this specific event; never use a generic headline that could fit another article.
 
 CHAT RULES — THESE ARE STRICT
-- Create 10–14 concise messages that sound like people texting each other, with replies, interruptions and callbacks. Keep each message to 10–35 words.
+- Create 10–14 messages that sound like people texting each other, with replies, interruptions and callbacks. Keep every message concise at 10–35 words.
 - Every line must be unique to THIS article and mention or respond to its actual people, decision, number, place, object or consequence.
 - Start in the middle of the reaction: a position, challenge, joke, contradiction or pointed question. Never write “I read [headline]”.
 - The first message must come from a person or institution directly involved in the event. Never open with UN Admin, Admin, a narrator or a system message.
