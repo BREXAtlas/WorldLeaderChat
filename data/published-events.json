@@ -1720,6 +1720,114 @@
     }
   },
   {
+    "id": "2026-08-11-lockheed-martin-launches-modular-missile-tech-with-dedicated-sto",
+    "eventDate": "2026-08-11",
+    "year": 2026,
+    "date": "August 11, 2026",
+    "title": "Lockheed Opens a ‘Storefront’ for Modular Missile and Sensor Components",
+    "kicker": "The new Strigo line packages interoperable hardware as a menu of building blocks for weapons and sensing systems.",
+    "category": "War & Security",
+    "summary": "Lockheed Martin on Monday announced the launch of Strigo, a new line of modular missile and sensor hardware.",
+    "article": {
+      "headline": "Lockheed Opens a ‘Storefront’ for Modular Missile and Sensor Components",
+      "dek": "The new Strigo line packages interoperable hardware as a menu of building blocks for weapons and sensing systems.",
+      "body": [
+        "Lockheed Martin has launched Strigo, a product line of modular missile and sensor hardware, Defense News and Military Times report. The company is presenting the effort through a dedicated ‘storefront,’ language more familiar to commercial components than to the traditionally bespoke world of major weapons programs.",
+        "Modularity is meant to let customers combine common pieces, adapt systems and update capabilities without beginning every design from zero. For military buyers, that can promise faster integration and a broader supplier-style catalog. It also raises the ordinary acquisition questions in a new format: compatibility, testing, cost, control of interfaces and dependence on one prime contractor.",
+        "The storefront metaphor makes complex defense hardware sound as easy to configure as an online order. The real test will happen after selection, when components must perform together under operational conditions and procurement claims meet budgets. A modular catalog can shorten the path to a prototype. It cannot click ‘accept’ on reliability."
+      ],
+      "sourceCredit": "Based on original reporting from Defense News and Military Times."
+    },
+    "sources": [
+      {
+        "label": "Lockheed Martin launches modular missile tech with dedicated ‘storefront’",
+        "url": "https://www.defensenews.com/news/your-military/2026/08/11/lockheed-martin-launches-modular-missile-tech-with-dedicated-storefront/",
+        "publisher": "Defense News"
+      },
+      {
+        "label": "Lockheed Martin launches modular missile tech with dedicated ‘storefront’",
+        "url": "https://www.militarytimes.com/news/your-military/2026/08/11/lockheed-martin-launches-modular-missile-tech-with-dedicated-storefront/",
+        "publisher": "Military Times"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Defense Procurement Office",
+        "text": "A modular missile catalog is still a procurement program; show us the interfaces, test record and lifetime cost.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Lockheed Martin",
+        "text": "Strigo gives customers adaptable components that can be combined around changing mission needs.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Defense Procurement Office",
+        "text": "Show us the interface standards, test record and cost across the full lifecycle.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Allied Forces Buyer",
+        "text": "And confirm that ‘modular’ means interoperable, not merely available in several expensive shapes.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Lockheed Martin",
+        "text": "The architecture is designed to speed integration and support flexible configurations.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Defense Procurement Office",
+        "text": "Designed to is the product brochure’s favorite tense. We purchase in the tested tense.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Allied Forces Buyer",
+        "text": "Can another supplier connect to the system without requesting a ceremonial blessing?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Lockheed Martin",
+        "text": "Detailed compatibility information will be provided for each component and use case.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Defense Procurement Office",
+        "text": "Good. Put that information beside the price, not behind the checkout button.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Allied Forces Buyer",
+        "text": "The cart is saved. The due-diligence tab remains open.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "The missile parts got a storefront; procurement brought a cart full of footnotes.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-12T21:31:38.971Z",
+    "editorial": {
+      "issueNumber": 163,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/163",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-12T21:31:38.971Z",
+      "fingerprint": "b07b70e43d3ed61df7ed35e7792ae0f66a22bb478a78122ba45dd991d3ccc0b6",
+      "sourcePublishedAt": "2026-08-11T14:38:29.000Z",
+      "singleSourceException": "",
+      "reviewNotes": "Rewritten from the source summary after the queue-wide recycled-template audit. No headline recitation or shared dialogue skeleton remains. Opening narrator removed; the conversation now starts with a direct event participant. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-11-marina-signs-with-uta-in-all-areas-exclusive",
     "eventDate": "2026-08-11",
     "year": 2026,
