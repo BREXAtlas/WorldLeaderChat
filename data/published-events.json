@@ -1089,6 +1089,109 @@
     }
   },
   {
+    "id": "2026-08-11-how-to-save-on-a-masterclass-subscription",
+    "eventDate": "2026-08-11",
+    "year": 2026,
+    "date": "August 11, 2026",
+    "title": "Before Buying MasterClass, Price the Annual Commitment—not the Monthly Teaser",
+    "kicker": "The platform offers more than 200 courses, but the best saving begins with checking promotions, renewal terms and whether the library fits what you will actually use.",
+    "category": "Business & Power",
+    "summary": "The online education platform offers more than 200 courses on everything from fitness to cooking to business. Here's how to make it affordable",
+    "article": {
+      "headline": "Before Buying MasterClass, Price the Annual Commitment—not the Monthly Teaser",
+      "dek": "The platform offers more than 200 courses, but the best saving begins with checking promotions, renewal terms and whether the library fits what you will actually use.",
+      "body": [
+        "MasterClass sells access to more than 200 courses spanning fitness, cooking, business and other subjects, according to Rolling Stone’s subscription guide. For prospective members, the first calculation is not how many famous instructors appear in the catalog but how much of the catalog they realistically intend to use during the membership term.",
+        "Subscription prices are often presented as a monthly equivalent even when the charge is billed annually. A careful buyer should compare the full amount due at checkout, the renewal terms and any current promotion on the official offer page. A discount on an unused annual plan remains an extremely well-marketed expense.",
+        "The service can make sense for someone planning to sample several courses across the year. A person interested in one narrow lesson should compare the annual commitment with less expensive alternatives before buying. The useful consumer rule is pleasantly unglamorous: verify the live terms, set a renewal reminder and let intended use—not the celebrity trailer—decide whether the price is a saving."
+      ],
+      "sourceCredit": "Based on original reporting from Rolling Stone."
+    },
+    "sources": [
+      {
+        "label": "How to Save on a MasterClass Subscription",
+        "url": "https://www.rollingstone.com/product-recommendations/lifestyle/best-masterclass-deal-sale-promo-1090815/",
+        "publisher": "Rolling Stone"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Aspiring Student",
+        "text": "Before I buy two hundred courses, I should probably identify the five I will take and the date the annual plan renews.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "MasterClass Marketing",
+        "text": "Members receive access to hundreds of courses across creative, professional and practical subjects.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Consumer Protection Desk",
+        "text": "Please place the full annual charge next to the friendly monthly equivalent.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Aspiring Student",
+        "text": "I came to learn cooking and somehow enrolled in advanced subscription arithmetic.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "MasterClass Marketing",
+        "text": "Promotions can make broad access more affordable for people who use the library.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Consumer Protection Desk",
+        "text": "Correct. ‘Use’ is the important word; ‘promotion’ is wearing the brighter jacket.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Aspiring Student",
+        "text": "So I should list the courses I will actually take before the trailer convinces me I have twelve new careers.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "MasterClass Marketing",
+        "text": "Exploration is part of the value.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Consumer Protection Desk",
+        "text": "And a calendar reminder before renewal is part of informed consent.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Aspiring Student",
+        "text": "Lesson one complete: the cheapest class is the one I do not forget I purchased.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "The experts taught ambition; the checkout page taught annual billing.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-12T21:19:58.409Z",
+    "editorial": {
+      "issueNumber": 174,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/174",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-12T21:19:58.409Z",
+      "fingerprint": "f4134a44bb7f4360bc412c1d7880463022e16130b4863f38253ebedc33e965eb",
+      "sourcePublishedAt": "2026-08-11T19:55:45.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Rewritten from the source summary after the queue-wide recycled-template audit. No headline recitation or shared dialogue skeleton remains. Opening narrator removed; the conversation now starts with a direct event participant. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-11-joby-flexes-military-muscle-with-500-million-defense-acquisition",
     "eventDate": "2026-08-11",
     "year": 2026,
