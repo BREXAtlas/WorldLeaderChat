@@ -1192,6 +1192,109 @@
     }
   },
   {
+    "id": "2026-08-11-google-s-free-streaming-service-now-lets-you-pick-shows-and-movi",
+    "eventDate": "2026-08-11",
+    "year": 2026,
+    "date": "August 11, 2026",
+    "title": "Google TV Freeplay Adds More Than 10,000 On-Demand Titles",
+    "kicker": "The free, ad-supported service is expanding beyond always-on channels so viewers can choose what to watch and when to watch it.",
+    "category": "Technology & AI",
+    "summary": "Google TV Freeplay, the company's free, ad-supported streaming service, now supports video on demand. Instead of tuning into Google TV Freeplay's selection of always-on channels, you can now choose from over 10,000 shows and movies to watch whenever you want. The update introduces titles like Lady Bird, Seventeen Again, and Hell's Kitchen, according to Google's […]",
+    "article": {
+      "headline": "Google TV Freeplay Adds More Than 10,000 On-Demand Titles",
+      "dek": "The free, ad-supported service is expanding beyond always-on channels so viewers can choose what to watch and when to watch it.",
+      "body": [
+        "Google TV Freeplay now supports video on demand, allowing viewers to select shows and movies instead of relying only on the service’s lineup of continuous channels. The Verge reports that the update adds a catalog of more than 10,000 titles to Google’s free, advertising-supported streaming offer.",
+        "The company’s examples include Lady Bird, Seventeen Again and Hell’s Kitchen. The shift gives Freeplay a more familiar streaming structure: a viewer can browse for a specific title and start it on demand, while advertising continues to finance access rather than a monthly subscription fee.",
+        "Choice makes the service more useful, though a five-digit library creates its own household ritual of scrolling past thousands of options. Google is competing for viewing time by lowering the price to zero and reducing dependence on a channel schedule. The ads remain part of the bargain; indecision is still supplied by the user at no additional charge."
+      ],
+      "sourceCredit": "Based on original reporting from The Verge."
+    },
+    "sources": [
+      {
+        "label": "Google’s free streaming service now lets you pick shows and movies to watch",
+        "url": "https://www.theverge.com/tech/978152/google-tv-freeplay-on-demand",
+        "publisher": "The Verge"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Streaming Subscriber",
+        "text": "I welcome a free on-demand catalog, but I would also like the advertising bargain stated before the first movie begins.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Google TV",
+        "text": "Viewers can choose a title instead of waiting for an always-on channel to reach it.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Household Remote",
+        "text": "At last, autonomy. I assume the family will use it to browse for forty minutes.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Streaming Subscriber",
+        "text": "Free sounds persuasive. How much advertising is attached to the persuasion?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Google TV",
+        "text": "The catalog is ad-supported, which keeps access available without a subscription charge.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Household Remote",
+        "text": "So the payment method is attention and one recurring commercial nobody can forget.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Streaming Subscriber",
+        "text": "Still better than opening another monthly bill for a single show.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Google TV",
+        "text": "There are thousands of titles, including films and television programs across the catalog.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Household Remote",
+        "text": "Excellent. The search for something everyone agrees on can now achieve feature length.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Streaming Subscriber",
+        "text": "Press play before somebody proposes adding another service.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "Freeplay removed the channel schedule; the family kept its three-act browsing ceremony.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-12T21:24:55.708Z",
+    "editorial": {
+      "issueNumber": 172,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/172",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-12T21:24:55.708Z",
+      "fingerprint": "7087a5bc461affe7cd1c47b0f48b7c082eaa3bce74fa2ce39c4f13525894c7f8",
+      "sourcePublishedAt": "2026-08-11T18:35:16.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Rewritten from the source summary after the queue-wide recycled-template audit. No headline recitation or shared dialogue skeleton remains. Opening narrator removed; the conversation now starts with a direct event participant. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-11-how-to-save-on-a-masterclass-subscription",
     "eventDate": "2026-08-11",
     "year": 2026,
