@@ -1273,5 +1273,18 @@
     "sourceUrls": [
       "https://www.nasa.gov/missions/station/iss-research/nasa-shares-station-research-today-supporting-moon-mars-tomorrow/"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-11-trump-faces-lawsuit-over-push-to-limit-birthright-citizenship",
+    "issueNumber": 166,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/166",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-12T21:29:45.527Z",
+    "fingerprint": "4134f5055cfa2d5ad5c1677d1b7f1d5061532919b88b3b7ce852ec6332bad227",
+    "sourceUrls": [
+      "https://www.aljazeera.com/news/2026/8/11/trump-faces-lawsuit-over-push-to-limit-birthright-citizenship?traffic_source=rss",
+      "https://www.supremecourt.gov/opinions/25pdf/25-365_4hdj.pdf"
+    ]
   }
 ]

@@ -3556,6 +3556,114 @@
     }
   },
   {
+    "id": "2026-08-11-trump-faces-lawsuit-over-push-to-limit-birthright-citizenship",
+    "eventDate": "2026-08-11",
+    "year": 2026,
+    "date": "August 11, 2026",
+    "title": "New Lawsuit Challenges Trump’s Second Attempt to Narrow Birthright Citizenship",
+    "kicker": "The administration has returned with adjusted orders after the Supreme Court rejected its earlier restrictions, setting up another test of executive power and the Citizenship Clause.",
+    "category": "Politics & Society",
+    "summary": "Despite previous Supreme Court ruling, Trump has sought new approach to limit the longstanding practice.",
+    "article": {
+      "headline": "New Lawsuit Challenges Trump’s Second Attempt to Narrow Birthright Citizenship",
+      "dek": "The administration has returned with adjusted orders after the Supreme Court rejected its earlier restrictions, setting up another test of executive power and the Citizenship Clause.",
+      "body": [
+        "President Donald Trump’s renewed effort to restrict birthright citizenship is facing a new lawsuit, Al Jazeera reports. The administration issued adjusted orders after the Supreme Court rejected an earlier attempt to deny citizenship to many children born in the United States to parents who lack permanent legal status.",
+        "The June ruling preserved the longstanding rule that nearly everyone born on U.S. soil and subject to its jurisdiction is a citizen. Trump’s new approach seeks narrower exceptions and is framed as responding to that decision rather than repeating the same order. Challengers argue that the revised policy still conflicts with the Constitution and federal law.",
+        "Courts will decide whether the adjustments identify a lawful boundary or simply repackage a restriction already rejected. The case matters beyond any single executive order because citizenship determines a person’s legal membership from birth. Administrative ingenuity cannot settle that question by announcement; every new route still has to pass through the text, precedent and limits that stopped the first one."
+      ],
+      "sourceCredit": "Based on original reporting from Al Jazeera and Supreme Court of the United States."
+    },
+    "sources": [
+      {
+        "label": "Trump faces lawsuit over push to limit birthright citizenship",
+        "url": "https://www.aljazeera.com/news/2026/8/11/trump-faces-lawsuit-over-push-to-limit-birthright-citizenship?traffic_source=rss",
+        "publisher": "Al Jazeera"
+      },
+      {
+        "label": "Trump v. Barbara — opinion of the Court",
+        "url": "https://www.supremecourt.gov/opinions/25pdf/25-365_4hdj.pdf",
+        "publisher": "Supreme Court of the United States"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Constitutional Scholars’ Panel",
+        "text": "Adjusted wording does not avoid constitutional review; the new orders still have to survive the Citizenship Clause and federal law.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Donald Trump",
+        "text": "The new orders address specific abuses and respect the boundaries the Court identified.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Civil Rights Plaintiffs",
+        "text": "Changing the route does not make it lawful to deny citizenship the Constitution protects.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Justice Department",
+        "text": "The revised policy relies on recognized exceptions and will be defended on its actual terms.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Constitutional Scholars’ Panel",
+        "text": "Then the actual terms must survive both the Citizenship Clause and the federal statute.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Donald Trump",
+        "text": "The government has authority to stop exploitation of the system.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Civil Rights Plaintiffs",
+        "text": "A concern about enforcement does not create power to redefine who is American at birth.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Justice Department",
+        "text": "Those questions belong in the pending litigation, where the record can be developed.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Constitutional Scholars’ Panel",
+        "text": "Agreed. An executive order is an argument, not the final footnote.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Civil Rights Plaintiffs",
+        "text": "And the people affected are citizens, not a drafting experiment.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "The policy returned with narrower margins; the Constitution was still printed on the page.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-12T21:29:45.527Z",
+    "editorial": {
+      "issueNumber": 166,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/166",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-12T21:29:45.527Z",
+      "fingerprint": "4134f5055cfa2d5ad5c1677d1b7f1d5061532919b88b3b7ce852ec6332bad227",
+      "sourcePublishedAt": "2026-08-11T16:53:39.000Z",
+      "singleSourceException": "",
+      "reviewNotes": "Rewritten from the source summary after the queue-wide recycled-template audit. No headline recitation or shared dialogue skeleton remains. Opening narrator removed; the conversation now starts with a direct event participant. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-11-trump-reportedly-hid-in-catering-container-to-board-secret-fligh",
     "eventDate": "2026-08-11",
     "year": 2026,
