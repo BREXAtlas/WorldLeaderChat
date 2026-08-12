@@ -70,7 +70,7 @@ jobs:
         uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
           path: ${{ runner.tool_cache }}/world-leader-chat-writer
-          key: wlc-local-writer-qwen25-3b-b10375-v2-${{ runner.os }}
+          key: wlc-local-writer-qwen25-7b-b10375-v1-${{ runner.os }}
 
       - name: Start the no-credit local newsroom writer
         run: bash scripts/start-local-newsroom-writer.sh

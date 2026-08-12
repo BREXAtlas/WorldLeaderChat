@@ -87,7 +87,7 @@ export const chatPlanSchema = {
       type: "array",
       minItems: 12,
       maxItems: 12,
-      items: { type: "string", minLength: 30, maxLength: 240 }
+      items: { type: "string", minLength: 30, maxLength: 180 }
     },
     meme: { type: "string", minLength: 20, maxLength: 220 },
     reviewNotes: { type: "string", minLength: 20, maxLength: 400 }
@@ -158,6 +158,15 @@ export function messagesFromChatPlan(plan) {
   }
   if (!Array.isArray(plan?.turns) || plan.turns.length !== 12) {
     throw new Error("Chat plan must contain exactly twelve original turns.");
+  }
+  for (const [index, rawTurn] of plan.turns.entries()) {
+    const turn = String(rawTurn || "").trim();
+    const words = turn.split(/\s+/).filter(Boolean).length;
+    if (words < 8 || words > 28) throw new Error(`Chat turn ${index + 1} must contain 8–28 words; found ${words}.`);
+    if (!/[.!?…][\"')\]]?$/.test(turn)) throw new Error(`Chat turn ${index + 1} is cut off or lacks closing punctuation.`);
+    if (speakers.some((speaker) => turn.toLowerCase().startsWith(`${speaker.toLowerCase()}:`))) {
+      throw new Error(`Chat turn ${index + 1} repeats its speaker label inside the message.`);
+    }
   }
   return plan.turns.map((turn, index) => ({
     speaker: speakers[index % speakers.length],

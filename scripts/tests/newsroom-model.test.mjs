@@ -10,7 +10,7 @@ test("local newsroom JSON extraction tolerates a fenced or prefixed response", (
 test("chat plans enforce three recurring event participants across twelve turns", () => {
   const messages = messagesFromChatPlan({
     speakers: ["Wendy's", "Trian Fund", "Nelson Peltz"],
-    turns: Array.from({ length: 12 }, (_, index) => `Event-specific direct reply number ${index + 1} with enough detail.`)
+    turns: Array.from({ length: 12 }, (_, index) => `This event-specific direct reply number ${index + 1} contains enough concrete detail.`)
   });
   assert.equal(messages.length, 12);
   assert.deepEqual(messages.slice(0, 6).map((message) => message.speaker), [
@@ -21,6 +21,17 @@ test("chat plans enforce three recurring event participants across twelve turns"
     speakers: ["UN Admin", "Analyst", "World Leader"],
     turns: Array(12).fill("This invalid turn is long enough for the schema but not the participant gate.")
   }), /specific event participants/);
+});
+
+test("chat plans reject speaker prefixes and visibly cut-off turns", () => {
+  assert.throws(() => messagesFromChatPlan({
+    speakers: ["Apple", "iPhone Team", "Retailers"],
+    turns: ["Apple: This launch calendar is now the whole argument.", ...Array(11).fill("This event-specific reply has enough words and closes cleanly.")]
+  }), /speaker label/);
+  assert.throws(() => messagesFromChatPlan({
+    speakers: ["Apple", "iPhone Team", "Retailers"],
+    turns: ["This sentence reaches the required length but simply stops", ...Array(11).fill("This event-specific reply has enough words and closes cleanly.")]
+  }), /cut off/);
 });
 
 test("newsroom writing calls only the configured local endpoint", async () => {

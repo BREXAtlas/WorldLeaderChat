@@ -3,7 +3,8 @@ set -euo pipefail
 
 cache_dir="${RUNNER_TOOL_CACHE:-${HOME}/.cache}/world-leader-chat-writer"
 llama_dir="${cache_dir}/llama"
-model_path="${cache_dir}/qwen2.5-3b-instruct-q4_k_m.gguf"
+model_path="${cache_dir}/qwen2.5-7b-instruct-q4_k_m-00001-of-00002.gguf"
+model_path_2="${cache_dir}/qwen2.5-7b-instruct-q4_k_m-00002-of-00002.gguf"
 mkdir -p "${llama_dir}"
 
 if [[ ! -x "${llama_dir}/llama-server" ]]; then
@@ -15,12 +16,19 @@ if [[ ! -x "${llama_dir}/llama-server" ]]; then
   rm -f "${cache_dir}/llama.tar.gz"
 fi
 
-if [[ ! -s "${model_path}" ]]; then
+if [[ ! -s "${model_path}" || ! -s "${model_path_2}" ]]; then
+  rm -f "${model_path}" "${model_path_2}"
   curl --fail --show-error --location --retry 5 --retry-delay 2 --retry-all-errors \
-    "https://huggingface.co/Qwen/Qwen2.5-3B-Instruct-GGUF/resolve/main/qwen2.5-3b-instruct-q4_k_m.gguf" \
+    "https://huggingface.co/Qwen/Qwen2.5-7B-Instruct-GGUF/resolve/293ca9a10157b0e5fc5cb32af8b636a88bede891/qwen2.5-7b-instruct-q4_k_m-00001-of-00002.gguf" \
     --output "${model_path}"
-  echo "626b4a6678b86442240e33df819e00132d3ba7dddfe1cdc4fbb18e0a9615c62d  ${model_path}" | sha256sum --check
+  curl --fail --show-error --location --retry 5 --retry-delay 2 --retry-all-errors \
+    "https://huggingface.co/Qwen/Qwen2.5-7B-Instruct-GGUF/resolve/293ca9a10157b0e5fc5cb32af8b636a88bede891/qwen2.5-7b-instruct-q4_k_m-00002-of-00002.gguf" \
+    --output "${model_path_2}"
+  echo "dfce12e3862a5283ccfb88221b48480e58745165de856439950d0f22590580db  ${model_path}" | sha256sum --check
+  echo "539cf93f78e887edea1c04e2d7d8cdaca9d01dae9c9025bcb8accbe29df3d72a  ${model_path_2}" | sha256sum --check
 fi
+
+rm -f "${cache_dir}/qwen2.5-3b-instruct-q4_k_m.gguf"
 
 nohup "${llama_dir}/llama-server" \
   --model "${model_path}" \

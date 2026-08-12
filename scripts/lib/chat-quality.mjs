@@ -1,7 +1,7 @@
 const META_NARRATION = /\b(imagined|hypothetical|would likely|would probably|plausible reaction|reaction consistent|response imagined|posture|style response|public-figure|a .*? response would|voice would)\b/i;
 const THIRD_PERSON_OPENING = /^(frames|signals|calls for|counts|emphasizes|notes|observes|suggests|underlines|warns|describes|argues|states|says|sees|insists|urges|highlights|points to|maintains|reiterates|characterizes|portrays|indicates|acknowledges)\b/i;
 const GENERIC_SPEAKER = /^(world leader|u\.?s\.? official|american official|european diplomat|government official|public figure|political observer|analyst|expert|commentator)$/i;
-const STOCK_MEME = /\bdrake(?: meme)?\b|distracted boyfriend|two buttons|change my mind|expanding brain|this is fine dog|woman yelling at a cat/i;
+const STOCK_MEME = /\bdrake(?: meme)?\b|distracted boyfriend|two buttons|change my mind|expanding brain|this is fine dog|woman yelling at a cat|^(?:a |an )?(?:political )?(?:cartoon|image|picture|photo|graphic|meme) (?:showing|of|with|where)/i;
 const GENERIC_TITLE = /world leaders opened the news and immediately regretted having read receipts on/i;
 
 const BANNED_RECYCLED_PHRASES = [
@@ -175,6 +175,10 @@ export function dialogueProblems(bundle, options = {}) {
 
     if (!speaker || !text) problems.push(`${label} is missing a speaker or text.`);
     if (GENERIC_SPEAKER.test(speaker)) problems.push(`${label} uses a generic speaker (${speaker}).`);
+    const wordCount = text.split(/\s+/).filter(Boolean).length;
+    if (wordCount < 6 || wordCount > 28) problems.push(`${label} must contain 6–28 words; found ${wordCount}.`);
+    if (speaker && text.toLowerCase().startsWith(`${speaker.toLowerCase()}:`)) problems.push(`${label} repeats its speaker label inside the message.`);
+    if (text && !/[.!?…][\"')\]]?$/.test(text)) problems.push(`${label} is cut off or lacks closing punctuation.`);
     if (message?.kind !== "system") {
       counts.set(speaker, (counts.get(speaker) || 0) + 1);
       if (previousSpeaker && speaker === previousSpeaker) problems.push(`${label} repeats ${speaker} in consecutive turns.`);
