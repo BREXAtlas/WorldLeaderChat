@@ -574,6 +574,109 @@
     }
   },
   {
+    "id": "2026-08-11-european-championships-day-three-schedule-bbc-coverage",
+    "eventDate": "2026-08-11",
+    "year": 2026,
+    "date": "August 11, 2026",
+    "title": "European Athletics Day Three: The Events and BBC Coverage Times",
+    "kicker": "The Birmingham championships move into their third day with a full competition timetable and BBC broadcast schedule for viewers following from home.",
+    "category": "Sports & Soft Power",
+    "summary": "Timetable and BBC coverage times for the European Athletics Championships in Birmingham from 10-16 August.",
+    "article": {
+      "headline": "European Athletics Day Three: The Events and BBC Coverage Times",
+      "dek": "The Birmingham championships move into their third day with a full competition timetable and BBC broadcast schedule for viewers following from home.",
+      "body": [
+        "The European Athletics Championships continue in Birmingham on day three of the competition running from August 10 through August 16. BBC Sport has assembled the day’s timetable alongside its television and digital coverage times so viewers can match the track-and-field schedule to the appropriate screen.",
+        "A schedule story performs an unglamorous but essential service during a multi-event championship. Events overlap, sessions run across the day and the athletes do not wait for a viewer to locate the correct channel. The BBC guide puts competition times and coverage information in one place rather than asking fans to conduct their own qualifying heat through several listings.",
+        "The sporting stakes remain on the track; the administrative challenge belongs to everyone at home. Day three offers another block of European championship competition in Birmingham, while the broadcaster’s timetable supplies the route in. Set the reminder before the start, because ‘I was looking for the stream’ has never altered an official result."
+      ],
+      "sourceCredit": "Based on original reporting from BBC Sport."
+    },
+    "sources": [
+      {
+        "label": "European Championships: Day three schedule & BBC coverage",
+        "url": "https://www.bbc.co.uk/sport/athletics/articles/c9d338xxwp7o?at_medium=RSS&at_campaign=rss",
+        "publisher": "BBC Sport"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Athlete Village",
+        "text": "We trained for the championship. Viewers can meet us halfway by finding the BBC schedule before the starting gun.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "BBC Sport Desk",
+        "text": "We published the timetable and the coverage times in the same place. This is our contribution to continental peace.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Athlete Village",
+        "text": "Please locate the stream before our event, not during the medal ceremony.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Remote Control",
+        "text": "I have been passed between three family members and accused of bias.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "BBC Sport Desk",
+        "text": "The guide is clear. The household coalition is beyond our editorial remit.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "European Athletics",
+        "text": "Birmingham is ready. The lanes are marked more clearly than most television menus.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Athlete Village",
+        "text": "We trained for years. Someone at home can manage one calendar alert.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Remote Control",
+        "text": "I request diplomatic immunity from the person who keeps pressing Input.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "European Athletics",
+        "text": "Denied. Competition begins on time.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "BBC Sport Desk",
+        "text": "Schedule saved, channel found, excuses eliminated. A rare clean sweep.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "The fastest preliminary event was locating the BBC coverage before the athletes reached the blocks.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-12T21:09:31.610Z",
+    "editorial": {
+      "issueNumber": 190,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/190",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-12T21:09:31.610Z",
+      "fingerprint": "9ca53c8a1331c01b92db3913ac2675bc3852ae2501d9db923f9552dd5dd43974",
+      "sourcePublishedAt": "2026-08-11T21:14:57.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Rewritten from the source summary after the queue-wide recycled-template audit. No headline recitation or shared dialogue skeleton remains. Opening narrator removed; the conversation now starts with a direct event participant. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-11-joby-flexes-military-muscle-with-500-million-defense-acquisition",
     "eventDate": "2026-08-11",
     "year": 2026,

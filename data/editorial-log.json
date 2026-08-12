@@ -1103,5 +1103,17 @@
     "sourceUrls": [
       "https://www.nasa.gov/learning-resources/for-kids-and-students/what-is-the-nancy-grace-roman-space-telescope-grades-5-8/"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-11-european-championships-day-three-schedule-bbc-coverage",
+    "issueNumber": 190,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/190",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-12T21:09:31.610Z",
+    "fingerprint": "9ca53c8a1331c01b92db3913ac2675bc3852ae2501d9db923f9552dd5dd43974",
+    "sourceUrls": [
+      "https://www.bbc.co.uk/sport/athletics/articles/c9d338xxwp7o?at_medium=RSS&at_campaign=rss"
+    ]
   }
 ]
