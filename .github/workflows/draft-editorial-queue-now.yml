@@ -82,19 +82,10 @@ jobs:
           WLC_REFINE_LIMIT: 50
         run: node scripts/refine-editorial-dialogue.mjs
 
-      - name: Automatically retry unfinished writing
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WLC_DRAFT_BATCH_SIZE: "10"
-          WLC_DAILY_DRAFT_LIMIT: "30"
-          WLC_TODAY_ONLY: ${{ inputs.target_issue && '0' || (inputs.today_only && '1' || '0') }}
-          WLC_TARGET_ISSUE: ${{ inputs.target_issue || '' }}
-          WLC_MAX_ATTEMPTS: ${{ inputs.target_issue && '3' || '2' }}
-        run: node scripts/run-drafting-batches.mjs
-
-      - name: Require the selected queue to reach review
+      - name: Confirm the selected file or report the later-batch backlog
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WLC_TODAY_ONLY: ${{ inputs.target_issue && '0' || (inputs.today_only && '1' || '0') }}
           WLC_TARGET_ISSUE: ${{ inputs.target_issue || '' }}
+          WLC_ALLOW_BACKLOG: ${{ inputs.target_issue && '0' || '1' }}
         run: node scripts/assert-editorial-readiness.mjs

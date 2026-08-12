@@ -76,7 +76,7 @@ test("failed machine drafts stay newsroom work instead of becoming owner writing
   assert.match(queueWorkflow, /WLC_TARGET_ISSUE/);
   assert.match(queueWorkflow, /Refresh the selected custom article source/);
   assert.match(queueWorkflow, /enrich-custom-submission\.mjs/);
-  assert.match(queueWorkflow, /Automatically retry unfinished writing/);
+  assert.match(queueWorkflow, /Confirm the selected file or report the later-batch backlog/);
   assert.match(queueWorkflow, /assert-editorial-readiness\.mjs/);
 });
 
@@ -90,15 +90,16 @@ test("every scheduled sweep finishes and verifies the entire current-day writing
   assert.match(workflow, /WLC_DAILY_DRAFT_LIMIT: "30"/);
   assert.match(workflow, /WLC_DAILY_CANDIDATE_LIMIT: "30"/);
   assert.match(workflow, /WLC_TODAY_ONLY: "1"/);
-  assert.match(workflow, /Automatically retry today's unfinished writing/);
-  assert.match(workflow, /Require today's newsroom to reach review/);
+  assert.match(workflow, /Report the files retained for later writing batches/);
+  assert.match(workflow, /WLC_ALLOW_BACKLOG: "1"/);
   assert.match(draft, /todayOnly/);
   assert.match(draft, /daily-overflow/);
   assert.match(opening, /WLC_DAILY_CANDIDATE_LIMIT \|\| 30/);
   assert.match(opening, /dailyCounts/);
   assert.match(batches, /WLC_DRAFT_BATCH_SIZE \|\| 10/);
   assert.match(batches, /WLC_DAILY_DRAFT_LIMIT \|\| 30/);
-  assert.match(readiness, /remain outside Ready for Approval/);
+  assert.match(batches, /Starting one newsroom writing batch/);
+  assert.match(readiness, /remain outside Ready for Approval for later batches/);
   assert.match(readiness, /daily-overflow/);
 });
 

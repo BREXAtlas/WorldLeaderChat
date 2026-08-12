@@ -4,6 +4,7 @@ const token = process.env.GITHUB_TOKEN;
 const repository = process.env.GITHUB_REPOSITORY;
 const targetIssue = Number(process.env.WLC_TARGET_ISSUE || 0);
 const todayOnly = process.env.WLC_TODAY_ONLY === "1" || process.env.WLC_TODAY_ONLY === "true";
+const allowBacklog = process.env.WLC_ALLOW_BACKLOG === "1" || process.env.WLC_ALLOW_BACKLOG === "true";
 
 if (!token) throw new Error("GITHUB_TOKEN is required.");
 if (!repository || !repository.includes("/")) throw new Error("GITHUB_REPOSITORY must be owner/name.");
@@ -47,7 +48,9 @@ const unresolved = issues.filter((issue) => {
 
 if (unresolved.length) {
   const ids = unresolved.slice(0, 20).map((issue) => `#${issue.number}`).join(", ");
-  throw new Error(`${unresolved.length} ${todayOnly ? `${today} ` : ""}article(s) remain outside Ready for Approval: ${ids}${unresolved.length > 20 ? ", …" : ""}`);
+  const message = `${unresolved.length} ${todayOnly ? `${today} ` : ""}article(s) remain outside Ready for Approval for later batches: ${ids}${unresolved.length > 20 ? ", …" : ""}`;
+  if (allowBacklog) console.warn(`::warning title=Newsroom backlog retained::${message}`);
+  else throw new Error(message);
+} else {
+  console.log(`Readiness confirmed: every ${todayOnly ? `${today} ` : ""}candidate in scope is ready, publishing, published or rejected.`);
 }
-
-console.log(`Readiness confirmed: every ${todayOnly ? `${today} ` : ""}candidate in scope is ready, publishing, published or rejected.`);
