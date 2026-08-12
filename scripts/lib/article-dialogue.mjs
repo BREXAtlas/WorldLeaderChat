@@ -50,7 +50,7 @@ function launchDialogue() {
 function wisconsinPrimaryDialogue() {
   return [
     msg("UN Admin", "New thread: Wisconsin governor’s primary. Francesca Hong is leading late, and the party’s electability debate has escaped the strategy memo.", "system"),
-    msg("Francesca Hong", "Voters keep telling us they are tired of the status quo. Apparently the status quo has a very active donor list."),
+    msg("Francesca Hong", "People want a different direction. Apparently the current arrangement has a very active donor list."),
     msg("Wisconsin Democratic Establishment", "Winning a primary and winning statewide are not the same assignment."),
     msg("Hong", "Then make the case to voters. Sending every alarm at once is not a case."),
     msg("Trump", "I found the old tweets. Very radical. Wisconsin is going to love seeing every one of them."),
