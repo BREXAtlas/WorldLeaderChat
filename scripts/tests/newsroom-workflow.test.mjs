@@ -53,6 +53,17 @@ test("drafting prompt preserves factual conclusions and forbids recycled stock c
   assert.match(draft, /Do not default to Trump, Macron, Meloni and Xi/);
   assert.match(draft, /Never mention Drake/);
   assert.match(draft, /dialogueProblems/);
+  assert.match(draft, /bestArticleCandidate/);
+  assert.match(draft, /Preserve a valid article\/headline/);
+});
+
+test("failed machine drafts stay newsroom work instead of becoming owner writing assignments", async () => {
+  const editor = await read("editor/app.js");
+  const queueWorkflow = await read(".github/workflows/draft-editorial-queue-now.yml");
+  assert.match(editor, /No owner writing is needed/);
+  assert.match(editor, /labels\.has\('needs-editor'\)/);
+  assert.match(editor, /NEWSROOM PRODUCTION IN PROGRESS/);
+  assert.match(queueWorkflow, /WLC_DRAFT_LIMIT: 50/);
 });
 
 test("future publication requires article-to-source and chat-quality verification", async () => {

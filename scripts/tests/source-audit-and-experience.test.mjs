@@ -19,6 +19,8 @@ test("source audit exposes a transparent signed scale and distinguishes balanced
   assert.equal(reuters.score, -13);
   assert.equal(reuters.confidence, "high");
   assert.equal(audit.designation(audit.profileFor("Fox News Digital").score).label, "Right");
+  assert.equal(audit.designation(audit.profileFor("National Review").score).label, "Right");
+  assert.equal(audit.designation(audit.profileFor("The Dispatch").score).label, "Right-leaning");
 
   const balanced = audit.auditEvent({
     sources: [
@@ -122,10 +124,12 @@ test("compact cards use a word limit, ticker is capped, and featured selection f
 test("Pages build packages the audit and newsroom experience modules", async () => {
   const build = await read("scripts/build-site.mjs");
   const deploy = await read(".github/workflows/deploy-pages.yml");
-  assert.match(build, /source-audit\.js\?v=20260811-source-audit/);
+  assert.match(build, /source-audit\.js\?v=20260811-balanced-sources/);
   assert.match(build, /newsroom-experience\.js\?v=20260811-newsroom-experience/);
   assert.match(build, /cp\(resolve\(root, "source-audit\.js"\)/);
   assert.match(build, /cp\(resolve\(root, "newsroom-experience\.js"\)/);
+  assert.match(build, /data\/source-pool\.json/);
+  assert.match(await read("source-audit.js"), /MONITORED PARTISAN POOL/);
   assert.match(deploy, /HOW THE PERCENTAGES WORK/);
   assert.match(deploy, /CHECK OUT THESE RELATED ARTICLES/);
 });

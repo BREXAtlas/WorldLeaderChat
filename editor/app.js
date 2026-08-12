@@ -243,7 +243,7 @@ function cards(lane) {
     const article = bundle?.event?.article;
     const publishing = labels.has('editorial-approved') || busy.has(issue.number);
     const failed = labels.has('publication-failed');
-    const regenerating = labels.has('regenerate-requested') || labels.has('redraft-requested') || labels.has('drafting');
+    const regenerating = labels.has('regenerate-requested') || labels.has('redraft-requested') || labels.has('drafting') || labels.has('needs-editor');
     const blocked = labels.has('needs-editor') || problems.length > 0;
     const needsRedraft = eventIssues.length > 0 || articleIssues.length > 0;
     const cardDesk = deskOf(issue);
@@ -255,7 +255,7 @@ function cards(lane) {
       if (publishing) {
         actions = '<button class="btn pending" disabled>Publishing…</button><span class="action-note">Approval submitted once. No second tap is needed.</span>';
       } else if (regenerating && !failed) {
-        actions = '<button class="btn pending" disabled>Regenerating…</button><span class="action-note">A new article-specific chat is being written.</span>';
+        actions = '<button class="btn pending" disabled>Newsroom writing…</button><span class="action-note">The newsroom is correcting the headline, report and chat. No owner writing is needed.</span>';
       } else if (failed) {
         actions = `<button class="btn success" data-action="retry" data-issue="${issue.number}" ${blocked ? 'disabled' : ''}>Retry Publish</button><button class="btn ghost" data-action="${needsRedraft ? 'redraft' : 'regenerate'}" data-issue="${issue.number}">${needsRedraft ? 'Regenerate Article + Chat' : 'Rewrite Chat'}</button><button class="btn danger" data-action="reject" data-issue="${issue.number}">Reject</button>`;
       } else if (blocked) {
@@ -268,7 +268,9 @@ function cards(lane) {
     const articlePreview = article
       ? `<div class="article-preview"><div class="article-preview-label"><b>COMPLETE SHORT REPORT</b><span>${(article.body || []).length} paragraphs • ${globalThis.WLC_ARTICLE_STANDARD?.wordCount(article.body || []) || 0} words</span></div><strong>${esc(article.headline)}</strong><p class="article-dek">${esc(article.dek)}</p>${(article.body || []).map((paragraph) => `<p>${esc(paragraph)}</p>`).join('')}<div class="article-credit">${esc(article.sourceCredit || '')}</div></div>`
       : '';
-    const quality = problems.length
+    const quality = regenerating
+      ? '<div class="smart"><b>NEWSROOM PRODUCTION IN PROGRESS</b><br>The automated desk is finishing this file. It will move to Ready for Approval only after the headline, report and chat pass validation.</div>'
+      : problems.length
       ? `<div class="smart" style="background:#fee2e2;border-color:#b91c1c"><b>FILE NEEDS ATTENTION</b><br>${problems.map(esc).join('<br>')}</div>`
       : `<div class="smart"><b>S-M-A-R REVIEW</b><br>${esc(smartText(bundle))}<br><b>Chat quality:</b> article-specific, direct and ready.</div>`;
 

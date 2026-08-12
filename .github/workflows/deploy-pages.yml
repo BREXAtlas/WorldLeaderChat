@@ -19,6 +19,7 @@ on:
       - "editor/**"
       - "data/published-events.json"
       - "data/site-meta.json"
+      - "config/news-sources.json"
       - "scripts/build-site.mjs"
       - "scripts/validate-repository.mjs"
       - "scripts/lib/**"
@@ -107,11 +108,17 @@ jobs:
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL}" | grep -F "newsroom-contract.js?v=20260811"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
-            "${PAGE_URL}" | grep -F "source-audit.js?v=20260811-source-audit"
+            "${PAGE_URL}" | grep -F "source-audit.js?v=20260811-balanced-sources"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL}" | grep -F "newsroom-experience.js?v=20260811-newsroom-experience"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/source-audit.js" | grep -F "HOW THE PERCENTAGES WORK"
+          curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
+            "${PAGE_URL%/}/source-audit.js" | grep -F "MONITORED PARTISAN POOL"
+          curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
+            "${PAGE_URL%/}/data/source-pool.json" | grep -F '"right": 5'
+          curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
+            "${PAGE_URL%/}/data/source-pool.json" | grep -F '"publisher": "National Review"'
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/newsroom-experience.js" | grep -F "CHECK OUT THESE RELATED ARTICLES"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
@@ -157,7 +164,7 @@ jobs:
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/social-tools.js" | grep -F "Copy Article + Chat"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
-            "${PAGE_URL%/}/editor/" | grep -F "app.js?v=queue-transitions-20260811"
+            "${PAGE_URL%/}/editor/" | grep -F "app.js?v=newsroom-production-20260811"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/editor/" | grep -F "Generate a custom article from links"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
@@ -168,6 +175,8 @@ jobs:
             "${PAGE_URL%/}/editor/app.js" | grep -F "COMPLETE SHORT REPORT"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/editor/app.js" | grep -F "Rewrite Chat"
+          curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
+            "${PAGE_URL%/}/editor/app.js" | grep -F "No owner writing is needed"
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
             "${PAGE_URL%/}/editor/app.js" | grep -F 'Feature in ${esc(cardDesk)} Carousel'
           curl --fail --location --silent --show-error --retry 12 --retry-all-errors --retry-delay 5 \
