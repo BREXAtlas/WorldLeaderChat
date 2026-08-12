@@ -12,6 +12,8 @@ test("editor Published lane loads canonical site data instead of stale closed is
   assert.match(adapter, /publishedEvents\.map\(issueFromPublishedEvent\)/);
   assert.match(adapter, /labels: \[\{ name: "news-candidate" \}, \{ name: "published" \}\]/);
   assert.match(editor, /connect-src 'self' https:\/\/api\.github\.com/);
-  assert.match(editor, /published-data\.js\?v=canonical-20260810/);
+  assert.match(adapter, /state=closed&labels=rejected/);
+  assert.match(adapter, /\.\.\.rejected\.filter/);
+  assert.match(editor, /published-data\.js\?v=trash-rejections-20260811/);
   assert.match(build, /editor\/published-data\.js/);
 });
