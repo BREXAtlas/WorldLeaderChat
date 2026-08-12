@@ -2,7 +2,7 @@ import { resolve } from "node:path";
 import { extractStoryBundle, STORY_JSON_END, STORY_JSON_START } from "./lib/editorial.mjs";
 import { cleanWhitespace, readJson } from "./lib/io.mjs";
 import { dialogueProblems, stockMemeDetected } from "./lib/chat-quality.mjs";
-import { articleProblems, normalizeArticle } from "./lib/article-standard.mjs";
+import { articleProblems, expectedSourceCredit, normalizeArticle } from "./lib/article-standard.mjs";
 import { runNewsroomJson } from "./lib/newsroom-model.mjs";
 
 const token = process.env.GITHUB_TOKEN;
@@ -235,7 +235,7 @@ const queue = parsed
   .filter(({ issue }) => {
     const labels = labelsOf(issue);
     if (targetIssue && issue.number !== targetIssue) return false;
-    return !labels.has("published") && !labels.has("editorial-approved") && !labels.has("rejected");
+    return !labels.has("published") && !labels.has("editorial-approved") && !labels.has("rejected") && !labels.has("daily-overflow");
   })
   .filter(({ issue, bundle }) => {
     const labels = labelsOf(issue);

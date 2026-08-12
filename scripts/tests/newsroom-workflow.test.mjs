@@ -18,7 +18,7 @@ test("news ingestion runs four times daily, balances eight desks and drafts befo
   assert.match(workflow, /WLC_MAXIMUM_PER_PUBLISHER: "4"/);
   assert.match(workflow, /queue: max/);
   assert.match(workflow, /War & Security, World News, Politics & Society, Technology & AI, Science & Space, Business & Power, Culture & Entertainment, Sports & Soft Power/);
-  assert.match(workflow, /draft-editorial-issues\.mjs/);
+  assert.match(workflow, /run-drafting-batches\.mjs/);
   assert.match(workflow, /refine-editorial-dialogue\.mjs/);
   assert.match(workflow, /Nothing publishes without owner approval/);
 });
@@ -53,6 +53,7 @@ test("drafting prompt preserves factual conclusions and forbids recycled stock c
   assert.match(draft, /Do not default to Trump, Macron, Meloni and Xi/);
   assert.match(draft, /Never mention Drake/);
   assert.match(draft, /dialogueProblems/);
+  assert.match(draft, /import \{ articleProblems, expectedSourceCredit, normalizeArticle \}/);
   assert.match(draft, /bestArticleCandidate/);
   assert.match(draft, /Never promote fill-in-the-headline copy as a safety fallback/);
 });
@@ -65,7 +66,9 @@ test("failed machine drafts stay newsroom work instead of becoming owner writing
   assert.match(editor, /NEWSROOM PRODUCTION IN PROGRESS/);
   assert.match(editor, /Finish Today’s Drafts/);
   assert.match(editor, /draft-editorial-queue-now\.yml\/dispatches/);
-  assert.match(queueWorkflow, /WLC_DRAFT_LIMIT: 100/);
+  assert.match(queueWorkflow, /WLC_DRAFT_BATCH_SIZE: "10"/);
+  assert.match(queueWorkflow, /WLC_DAILY_DRAFT_LIMIT: "30"/);
+  assert.match(queueWorkflow, /run-drafting-batches\.mjs/);
   assert.match(queueWorkflow, /target_issue/);
   assert.match(queueWorkflow, /WLC_TARGET_ISSUE/);
   assert.match(queueWorkflow, /Automatically retry unfinished writing/);
@@ -75,13 +78,23 @@ test("failed machine drafts stay newsroom work instead of becoming owner writing
 test("every scheduled sweep finishes and verifies the entire current-day writing queue", async () => {
   const workflow = await read(".github/workflows/news-ingestion.yml");
   const draft = await read("scripts/draft-editorial-issues-v2.mjs");
+  const opening = await read("scripts/open-editorial-issues.mjs");
+  const batches = await read("scripts/run-drafting-batches.mjs");
   const readiness = await read("scripts/assert-editorial-readiness.mjs");
-  assert.match(workflow, /WLC_DRAFT_LIMIT: 100/);
+  assert.match(workflow, /WLC_DRAFT_BATCH_SIZE: "10"/);
+  assert.match(workflow, /WLC_DAILY_DRAFT_LIMIT: "30"/);
+  assert.match(workflow, /WLC_DAILY_CANDIDATE_LIMIT: "30"/);
   assert.match(workflow, /WLC_TODAY_ONLY: "1"/);
   assert.match(workflow, /Automatically retry today's unfinished writing/);
   assert.match(workflow, /Require today's newsroom to reach review/);
   assert.match(draft, /todayOnly/);
+  assert.match(draft, /daily-overflow/);
+  assert.match(opening, /WLC_DAILY_CANDIDATE_LIMIT \|\| 30/);
+  assert.match(opening, /dailyCounts/);
+  assert.match(batches, /WLC_DRAFT_BATCH_SIZE \|\| 10/);
+  assert.match(batches, /WLC_DAILY_DRAFT_LIMIT \|\| 30/);
   assert.match(readiness, /remain outside Ready for Approval/);
+  assert.match(readiness, /daily-overflow/);
 });
 
 test("all editorial drafting workflows share one non-cancelling production lock", async () => {

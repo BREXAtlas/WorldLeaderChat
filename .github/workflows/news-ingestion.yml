@@ -45,6 +45,7 @@ jobs:
       WLC_MAXIMUM_PER_PUBLISHER: "4"
       WLC_MINIMUM_PUBLISHERS_PER_ORIENTATION: "4"
       WLC_MAXIMUM_ORIENTATION_DIFFERENCE: "1"
+      WLC_DAILY_CANDIDATE_LIMIT: "30"
 
     steps:
       - name: Check out repository
@@ -77,10 +78,11 @@ jobs:
       - name: Draft truth-first short articles and back-and-forth chats
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WLC_DRAFT_LIMIT: 100
+          WLC_DRAFT_BATCH_SIZE: "10"
+          WLC_DAILY_DRAFT_LIMIT: "30"
           WLC_TODAY_ONLY: "1"
           WLC_MAX_ATTEMPTS: "2"
-        run: node scripts/draft-editorial-issues.mjs
+        run: node scripts/run-drafting-batches.mjs
 
       - name: Enforce direct first-person dialogue
         env:
@@ -91,10 +93,11 @@ jobs:
       - name: Automatically retry today's unfinished writing
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WLC_DRAFT_LIMIT: 100
+          WLC_DRAFT_BATCH_SIZE: "10"
+          WLC_DAILY_DRAFT_LIMIT: "30"
           WLC_TODAY_ONLY: "1"
           WLC_MAX_ATTEMPTS: "2"
-        run: node scripts/draft-editorial-issues.mjs
+        run: node scripts/run-drafting-batches.mjs
 
       - name: Require today's newsroom to reach review
         env:
@@ -115,6 +118,8 @@ jobs:
             echo "- Viewpoint-source guard: the monitored partisan pool is equal left/right, and each slate targets at least four distinct publishers per side with no more than a one-publisher difference when usable coverage permits"
             echo "- New editorial issues: ${{ steps.queue.outputs.issues_created }}"
             echo "- Existing candidates skipped: ${{ steps.queue.outputs.issues_skipped }}"
+            echo "- Daily article ceiling: 30; candidates beyond the ceiling in this sweep: ${{ steps.queue.outputs.issues_daily_limit }}"
+            echo "- Writing batch size: 10 articles, validated before the next batch starts"
             echo "- Every current-day candidate is drafted, automatically retried if needed and required to reach Ready for Approval or the sweep fails visibly."
             echo "- New candidates receive a sourced short article and a 10–14-message direct conversation before owner approval."
             echo "- Nothing publishes without owner approval."

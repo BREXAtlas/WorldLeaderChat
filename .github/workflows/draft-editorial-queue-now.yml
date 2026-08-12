@@ -62,11 +62,12 @@ jobs:
       - name: Create complete truth-first editorial suggestions
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WLC_DRAFT_LIMIT: 100
+          WLC_DRAFT_BATCH_SIZE: "10"
+          WLC_DAILY_DRAFT_LIMIT: "30"
           WLC_TODAY_ONLY: ${{ inputs.target_issue && '0' || (inputs.today_only && '1' || '0') }}
           WLC_TARGET_ISSUE: ${{ inputs.target_issue || '' }}
           WLC_MAX_ATTEMPTS: ${{ inputs.target_issue && '3' || '2' }}
-        run: node scripts/draft-editorial-issues.mjs
+        run: node scripts/run-drafting-batches.mjs
 
       - name: Replace meta narration with direct recurring-speaker dialogue
         env:
@@ -77,11 +78,12 @@ jobs:
       - name: Automatically retry unfinished writing
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WLC_DRAFT_LIMIT: 100
+          WLC_DRAFT_BATCH_SIZE: "10"
+          WLC_DAILY_DRAFT_LIMIT: "30"
           WLC_TODAY_ONLY: ${{ inputs.target_issue && '0' || (inputs.today_only && '1' || '0') }}
           WLC_TARGET_ISSUE: ${{ inputs.target_issue || '' }}
           WLC_MAX_ATTEMPTS: ${{ inputs.target_issue && '3' || '2' }}
-        run: node scripts/draft-editorial-issues.mjs
+        run: node scripts/run-drafting-batches.mjs
 
       - name: Require the selected queue to reach review
         env:

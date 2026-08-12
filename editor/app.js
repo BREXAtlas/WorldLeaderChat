@@ -147,7 +147,7 @@ function eventProblems(bundle) {
 
 function laneOf(issue) {
   const labels = labelSet(issue);
-  if (labels.has('deleted-permanently') || /<!--\s*WLC_DELETED\s*-->/i.test(issue.body || '')) return null;
+  if (labels.has('deleted-permanently') || labels.has('daily-overflow') || /<!--\s*WLC_DELETED\s*-->/i.test(issue.body || '')) return null;
   if (labels.has('published')) return 'published';
   if (labels.has('rejected')) return 'trash';
   if (issue.state === 'closed') return null;

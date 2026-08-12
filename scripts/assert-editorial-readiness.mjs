@@ -38,6 +38,7 @@ const unresolved = issues.filter((issue) => {
   try { bundle = extractStoryBundle(issue.body || ""); } catch { return true; }
   if (todayOnly && bundle.event?.eventDate !== today) return false;
   const labels = new Set((issue.labels || []).map((label) => typeof label === "string" ? label : label.name));
+  if (labels.has("daily-overflow")) return false;
   return !labels.has("ready-for-approval")
     && !labels.has("published")
     && !labels.has("rejected")
