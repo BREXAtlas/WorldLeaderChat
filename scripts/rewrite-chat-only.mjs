@@ -2,7 +2,7 @@ import { resolve } from "node:path";
 import { extractStoryBundle, STORY_JSON_END, STORY_JSON_START } from "./lib/editorial.mjs";
 import { cleanWhitespace, readJson } from "./lib/io.mjs";
 import { dialogueProblems } from "./lib/chat-quality.mjs";
-import { chatDraftSchema, runNewsroomJson } from "./lib/newsroom-model.mjs";
+import { chatPlanSchema, messagesFromChatPlan, runNewsroomJson } from "./lib/newsroom-model.mjs";
 
 const token = process.env.GITHUB_TOKEN;
 const repository = process.env.GITHUB_REPOSITORY;
@@ -47,7 +47,7 @@ function chatPrompt(bundle, feedback = []) {
   const event = bundle.event;
   const sourceFacts = (bundle.ingestion?.sourceDigests || []).map((item) => `${item.publisher}: ${item.excerpt}`).join("\n");
   const failures = feedback.length ? `\nTHE PREVIOUS ATTEMPT FAILED\n- ${feedback.join("\n- ")}\nRewrite every line from scratch.` : "";
-  return `Return ONLY valid JSON with keys messages, meme and reviewNotes. Rewrite only the imagined chat for this article; preserve the article exactly.
+  return `Return ONLY valid JSON with keys speakers, turns, meme and reviewNotes. Rewrite only the imagined chat for this article; preserve the article exactly.
 
 ARTICLE
 Headline: ${event.article?.headline || event.title}
@@ -58,18 +58,19 @@ Sources: ${(event.sources || []).map((source) => `${source.publisher}: ${source.
 Source facts: ${sourceFacts || "No additional digest."}
 ${failures}
 
-Write 10–14 messages that feel like an organic group chat among people or institutions naturally connected to this exact event. Keep every message concise at 10–35 words. Before writing, choose only 3–5 real people or institutions naturally connected to the event; every chosen speaker must appear at least twice. Alternate them throughout the chat, with no consecutive or one-line-only speaker. Start in the middle of a reaction—a position, challenge, contradiction, pointed question or joke. The first message must be a direct participant message, never UN Admin, Admin, a narrator or a system message. Use direct first-person replies, interruptions and callbacks. Every line must respond to the actual people, act, number, place, object or consequence in this article.
+Choose exactly three distinct, specific people, companies, agencies, teams or organizations named in or directly responsible for this event. Do not choose Admin, UN Admin, World Leader, an analyst, expert, observer, narrator or other generic role. Put those names in speakers.
+
+Write exactly twelve concise turns in turns. Turn 1 belongs to speakers[0], turn 2 to speakers[1], turn 3 to speakers[2], then repeat that rotation four times. Start in the middle of a reaction—a position, challenge, contradiction, pointed question or joke. Use direct first-person replies, interruptions and callbacks. Every line must respond to the actual people, act, number, place, object or consequence in this article.
 
 Never write “I read [headline]”. Never paste, recite or lightly trim the article or source headline in a message. Never use “the verified event is pinned”, “fact pattern”, “reported detail”, “answer the file”, “on the record”, “official line is shorter than the consequence”, “spin requested a longer deadline” or other newsroom-process filler. Do not reuse a conversation skeleton with swapped speakers. Do not invent factual claims, quotations or private conduct. For victims, war, death or illness, aim satire at power, policy and messaging.
 
 JSON shape:
-{"messages":[{"speaker":"natural participant","text":"direct event-specific opening position","kind":"satire","reaction":""},{"speaker":"another natural participant","text":"direct organic reply","kind":"satire","reaction":""}],"meme":"one original event-specific closing line","reviewNotes":"why this chat is unique to this article"}
-
-The two message objects above show the field structure only. Your returned messages array MUST contain 10–14 complete, original message objects. A two-message array is invalid.`;
+{"speakers":["specific participant one","specific participant two","specific participant three"],"turns":["turn one","turn two","turn three","turn four","turn five","turn six","turn seven","turn eight","turn nine","turn ten","turn eleven","turn twelve"],"meme":"one original event-specific closing line","reviewNotes":"why this chat is unique to this article"}`;
 }
 
 async function runWriter(bundle, feedback = []) {
-  return runNewsroomJson(chatPrompt(bundle, feedback), { schema: chatDraftSchema });
+  const plan = await runNewsroomJson(chatPrompt(bundle, feedback), { schema: chatPlanSchema, maxTokens: 1100, temperature: 0.7 });
+  return { ...plan, messages: messagesFromChatPlan(plan) };
 }
 
 function applyChat(bundle, output) {

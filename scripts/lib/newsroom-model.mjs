@@ -74,6 +74,28 @@ export const chatDraftSchema = {
   additionalProperties: false
 };
 
+export const chatPlanSchema = {
+  type: "object",
+  properties: {
+    speakers: {
+      type: "array",
+      minItems: 3,
+      maxItems: 3,
+      items: { type: "string", minLength: 2, maxLength: 100 }
+    },
+    turns: {
+      type: "array",
+      minItems: 12,
+      maxItems: 12,
+      items: { type: "string", minLength: 30, maxLength: 240 }
+    },
+    meme: { type: "string", minLength: 20, maxLength: 220 },
+    reviewNotes: { type: "string", minLength: 20, maxLength: 400 }
+  },
+  required: ["speakers", "turns", "meme", "reviewNotes"],
+  additionalProperties: false
+};
+
 export const articleDraftSchema = {
   type: "object",
   properties: {
@@ -106,12 +128,44 @@ export const articleOnlySchema = {
     title: articleDraftSchema.properties.title,
     kicker: articleDraftSchema.properties.kicker,
     category: articleDraftSchema.properties.category,
-    article: articleDraftSchema.properties.article,
+    article: {
+      ...articleDraftSchema.properties.article,
+      properties: {
+        ...articleDraftSchema.properties.article.properties,
+        body: {
+          type: "array",
+          minItems: 3,
+          maxItems: 3,
+          items: { type: "string", minLength: 220, maxLength: 700 }
+        }
+      }
+    },
     reviewNotes: articleDraftSchema.properties.reviewNotes
   },
   required: ["title", "kicker", "category", "article", "reviewNotes"],
   additionalProperties: false
 };
+
+const INVALID_PLANNED_SPEAKER = /^(?:un\s+)?admin$|^(?:world leader|u\.?s\.? official|american official|european diplomat|government official|public figure|political observer|analyst|expert|commentator)$/i;
+
+export function messagesFromChatPlan(plan) {
+  const speakers = Array.isArray(plan?.speakers)
+    ? plan.speakers.map((speaker) => String(speaker || "").trim()).filter(Boolean)
+    : [];
+  const unique = new Set(speakers.map((speaker) => speaker.toLowerCase()));
+  if (speakers.length !== 3 || unique.size !== 3 || speakers.some((speaker) => INVALID_PLANNED_SPEAKER.test(speaker))) {
+    throw new Error("Chat plan must name exactly three distinct, specific event participants; no admin, narrator or generic role.");
+  }
+  if (!Array.isArray(plan?.turns) || plan.turns.length !== 12) {
+    throw new Error("Chat plan must contain exactly twelve original turns.");
+  }
+  return plan.turns.map((turn, index) => ({
+    speaker: speakers[index % speakers.length],
+    text: String(turn || "").trim(),
+    kind: "satire",
+    reaction: ""
+  }));
+}
 
 export async function runNewsroomJson(prompt, options = {}) {
   const endpoint = options.endpoint || process.env.WLC_WRITER_ENDPOINT || "http://127.0.0.1:8080/v1/chat/completions";
@@ -130,7 +184,7 @@ export async function runNewsroomJson(prompt, options = {}) {
         },
         { role: "user", content: prompt }
       ],
-      temperature: 0.78,
+      temperature: Number(options.temperature ?? process.env.WLC_WRITER_TEMPERATURE ?? 0.55),
       top_p: 0.9,
       max_tokens: Number(options.maxTokens || process.env.WLC_WRITER_MAX_TOKENS || 1400),
       stream: false,

@@ -3,7 +3,7 @@ import { extractStoryBundle, STORY_JSON_END, STORY_JSON_START } from "./lib/edit
 import { cleanWhitespace, readJson } from "./lib/io.mjs";
 import { dialogueProblems, stockMemeDetected } from "./lib/chat-quality.mjs";
 import { articleProblems, expectedSourceCredit, normalizeArticle } from "./lib/article-standard.mjs";
-import { articleOnlySchema, chatDraftSchema, runNewsroomJson } from "./lib/newsroom-model.mjs";
+import { articleOnlySchema, chatPlanSchema, messagesFromChatPlan, runNewsroomJson } from "./lib/newsroom-model.mjs";
 
 const token = process.env.GITHUB_TOKEN;
 const repository = process.env.GITHUB_REPOSITORY;
@@ -135,8 +135,8 @@ async function runWriter(bundle, feedback = [], acceptedArticleOutput = null) {
   const articlePrompt = `${promptFor(bundle, feedback).split("CHAT RULES — THESE ARE STRICT")[0]}
 Return only this JSON object: {"title":"specific truthful headline","kicker":"event angle","category":"${bundle.ingestion?.newsroomDesk || bundle.event.category}","article":{"headline":"specific factual headline","dek":"factual deck","body":["paragraph 1","paragraph 2","paragraph 3"],"sourceCredit":"credit every listed publisher"},"reviewNotes":"factual fidelity note"}`;
   const articleOutput = acceptedArticleOutput
-    || await runNewsroomJson(articlePrompt, { schema: articleOnlySchema, maxTokens: 900 });
-  const chatPrompt = `Return only valid JSON with messages, meme and reviewNotes.
+    || await runNewsroomJson(articlePrompt, { schema: articleOnlySchema, maxTokens: 1100, temperature: 0.4 });
+  const chatPrompt = `Return only valid JSON with speakers, turns, meme and reviewNotes.
 
 SOURCE-LOCKED ARTICLE
 Headline: ${articleOutput.article?.headline}
@@ -146,8 +146,11 @@ Verified summary: ${safeSummary(bundle.event.summary)}
 Source facts: ${(bundle.ingestion?.sourceDigests || []).map((item) => `${item.publisher}: ${item.excerpt}`).join("\n") || "None"}
 ${feedback.length ? `Previous chat failures:\n- ${feedback.join("\n- ")}` : ""}
 
-Write 10–14 concise, original messages about this exact event. Choose only 3–5 real people or institutions naturally connected to it; every chosen speaker appears at least twice. Alternate speakers, never repeat a speaker in consecutive turns, and never use a one-line-only speaker. Start with a direct participant, never UN Admin, Admin, narration or a system message. Use first-person replies, interruptions and callbacks. Never write “I read [headline]”, recite the headline, invent facts or quotations, or use newsroom-process filler. Every line must depend on this event's actual person, decision, number, place, object or consequence.`;
-  const chatOutput = await runNewsroomJson(chatPrompt, { schema: chatDraftSchema, maxTokens: 900 });
+Choose exactly three distinct, specific people, companies, agencies, teams or organizations named in or directly responsible for this event. Do not choose Admin, UN Admin, World Leader, an analyst, expert, observer, narrator or other generic role. Put those names in speakers in the order they enter the chat.
+
+Write exactly twelve concise, original turns in turns. Turn 1 is spoken by speakers[0], turn 2 by speakers[1], turn 3 by speakers[2], then repeat that same rotation four times. Write every turn in that speaker's direct first-person voice so the rotation reads as an actual exchange with replies, interruptions and callbacks. Start with a position, challenge or pointed question, not narration. Never write “I read [headline]”, recite the headline, invent facts or quotations, or use newsroom-process filler. Every turn must depend on this event's actual person, decision, number, place, object or consequence.`;
+  const chatPlan = await runNewsroomJson(chatPrompt, { schema: chatPlanSchema, maxTokens: 1100, temperature: 0.7 });
+  const chatOutput = { ...chatPlan, messages: messagesFromChatPlan(chatPlan) };
   const output = {
     ...articleOutput,
     ...chatOutput,

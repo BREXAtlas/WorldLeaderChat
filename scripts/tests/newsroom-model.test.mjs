@@ -1,10 +1,26 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { articleDraftSchema, extractNewsroomJson, runNewsroomJson } from "../lib/newsroom-model.mjs";
+import { articleDraftSchema, extractNewsroomJson, messagesFromChatPlan, runNewsroomJson } from "../lib/newsroom-model.mjs";
 
 test("local newsroom JSON extraction tolerates a fenced or prefixed response", () => {
   assert.deepEqual(extractNewsroomJson('```json\n{"ready":true}\n```'), { ready: true });
   assert.deepEqual(extractNewsroomJson('Response:\n{"ready":true}\nDone.'), { ready: true });
+});
+
+test("chat plans enforce three recurring event participants across twelve turns", () => {
+  const messages = messagesFromChatPlan({
+    speakers: ["Wendy's", "Trian Fund", "Nelson Peltz"],
+    turns: Array.from({ length: 12 }, (_, index) => `Event-specific direct reply number ${index + 1} with enough detail.`)
+  });
+  assert.equal(messages.length, 12);
+  assert.deepEqual(messages.slice(0, 6).map((message) => message.speaker), [
+    "Wendy's", "Trian Fund", "Nelson Peltz", "Wendy's", "Trian Fund", "Nelson Peltz"
+  ]);
+  assert.ok(messages.every((message) => message.kind === "satire"));
+  assert.throws(() => messagesFromChatPlan({
+    speakers: ["UN Admin", "Analyst", "World Leader"],
+    turns: Array(12).fill("This invalid turn is long enough for the schema but not the participant gate.")
+  }), /specific event participants/);
 });
 
 test("newsroom writing calls only the configured local endpoint", async () => {
