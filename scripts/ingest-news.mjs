@@ -1,9 +1,11 @@
 import { resolve } from "node:path";
 import { selectDiverseCandidates, summarizePublisherCoverage } from "./lib/candidate-selection.mjs";
 import { candidateFingerprint } from "./lib/editorial.mjs";
+import { sameNewsEvent, topicBigrams, topicTerms } from "./lib/event-clustering.mjs";
 import { parseFeed } from "./lib/feed.mjs";
 import { cleanWhitespace, normalizeUrl, readJson, writeJson } from "./lib/io.mjs";
 import { scoreStory } from "./lib/scoring.mjs";
+import { classifySportsCoverageMarket } from "./lib/sports-market.mjs";
 
 const root = process.cwd();
 const configPath = resolve(root, "config/news-sources.json");
@@ -44,10 +46,6 @@ const COVERAGE_PRIORITY_DESKS = new Set([
   "Sports & Soft Power"
 ]);
 
-const stopwords = new Set([
-  "a","an","and","are","as","at","be","by","for","from","has","have","in","is","it","its","of","on","s","says","say","the","to","us","with","after","amid","latest","live","news","update","updates","new","report"
-]);
-
 async function fetchFeed(source) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
@@ -67,17 +65,9 @@ async function fetchFeed(source) {
   }
 }
 
-function topicTerms(value) {
-  return new Set(cleanWhitespace(value)
-    .toLowerCase()
-    .replace(/[’']/g, "")
-    .replace(/[^a-z0-9]+/g, " ")
-    .split(/\s+/)
-    .filter((term) => term.length > 2 && !stopwords.has(term)));
-}
-
 function normalizeNewsroomDesk(category, sourceDesk, text = "") {
   const combined = `${category || ""} ${sourceDesk || ""} ${text}`.toLowerCase();
+  if (sourceDesk === "Sports & Soft Power") return "Sports & Soft Power";
   if (category === "War & Security" || /\bwar\b|airstrike|missile|military|hostage|ceasefire|invasion|nuclear/.test(combined)) return "War & Security";
   if (category === "Technology & AI" || /technology|artificial intelligence|\bai\b|cyber|semiconductor|tiktok|openai/.test(combined)) return "Technology & AI";
   if (category === "Science & Space" || /science|space|rocket|nasa|moon|mars|telescope|asteroid|discovery/.test(combined)) return "Science & Space";
@@ -102,29 +92,14 @@ function chicagoDateKey(value = Date.now()) {
   return `${values.year}-${values.month}-${values.day}`;
 }
 
-function hoursApart(a, b) {
-  const left = new Date(a || 0).valueOf();
-  const right = new Date(b || 0).valueOf();
-  if (!Number.isFinite(left) || !Number.isFinite(right) || !left || !right) return 0;
-  return Math.abs(left - right) / 3600000;
-}
-
-function sameNewsEvent(a, b) {
-  if (hoursApart(a.publishedAt, b.publishedAt) > 36) return false;
-  const left = a.topicTerms;
-  const right = b.topicTerms;
-  const intersection = [...left].filter((term) => right.has(term)).length;
-  const union = new Set([...left, ...right]).size || 1;
-  const jaccard = intersection / union;
-  return jaccard >= 0.48 || (intersection >= 4 && jaccard >= 0.31);
-}
-
 function sourceRecord(candidate) {
   return {
     label: candidate.title,
     url: candidate.url,
     publisher: candidate.publisher,
     orientation: candidate.orientation,
+    market: candidate.sourceMarket,
+    coverageMarket: candidate.coverageMarket,
     publishedAt: candidate.publishedAt,
     excerpt: candidate.excerpt
   };
@@ -158,6 +133,9 @@ for (const source of config.sources.filter((entry) => entry.enabled)) {
 
       const scored = scoreStory(item, config.relevance);
       const newsroomDesk = normalizeNewsroomDesk(scored.category, item.sourceDesk, `${item.title} ${item.excerpt}`);
+      const coverageMarket = newsroomDesk === "Sports & Soft Power"
+        ? classifySportsCoverageMarket(item)
+        : item.sourceMarket;
       const deskMinimum = COVERAGE_PRIORITY_DESKS.has(newsroomDesk) ? Math.min(minimumScore, 0) : minimumScore;
       if (scored.score < deskMinimum) continue;
 
@@ -177,8 +155,11 @@ for (const source of config.sources.filter((entry) => entry.enabled)) {
       rawCandidates.push({
         fingerprint: candidateFingerprint({ ...item, url }),
         topicTerms: topicTerms(`${title} ${excerpt}`),
+        topicBigrams: topicBigrams(title),
         sourceId: item.sourceId,
         sourceDesk: item.sourceDesk,
+        sourceMarket: item.sourceMarket,
+        coverageMarket,
         newsroomDesk,
         publisher: item.publisher,
         orientation,
@@ -230,9 +211,10 @@ const candidates = selectDiverseCandidates(clusters, {
   minimumPublishersPerDesk,
   minimumPublishersPerOrientation,
   maximumOrientationDifference,
+  minimumCandidatesPerDeskMarket: config.coverageBalance?.minimumCandidatesPerDeskMarket || {},
   isCurrentDay: (candidate) => chicagoDateKey(candidate.publishedAt) === today
 })
-  .map(({ topicTerms: _topicTerms, ...candidate }) => candidate);
+  .map(({ topicTerms: _topicTerms, topicBigrams: _topicBigrams, ...candidate }) => candidate);
 
 const deskCoverage = Object.fromEntries(REQUIRED_DESKS.map((desk) => [desk, candidates.filter((candidate) => candidate.newsroomDesk === desk).length]));
 const currentDayDeskCoverage = Object.fromEntries(REQUIRED_DESKS.map((desk) => [

@@ -25,6 +25,10 @@ test("every topic desk has an array of at least three configured publishers", as
   assert.equal(config.sourceDiversity.maximumCandidatesPerPublisher, 4);
   assert.equal(config.sourceDiversity.minimumPublishersPerOrientation, 4);
   assert.equal(config.sourceDiversity.maximumOrientationDifference, 1);
+  assert.deepEqual(config.coverageBalance.minimumCandidatesPerDeskMarket["Sports & Soft Power"], {
+    US: 2,
+    international: 1
+  });
 
   const left = Object.entries(config.publisherOrientation).filter(([, orientation]) => orientation === "left").map(([publisher]) => publisher);
   const right = Object.entries(config.publisherOrientation).filter(([, orientation]) => orientation === "right").map(([publisher]) => publisher);
@@ -42,10 +46,54 @@ test("every topic desk has an array of at least three configured publishers", as
     assert.ok(deskPublishers.get(desk).size >= 3, `${desk} needs at least three configured publishers`);
   }
 
+  const sportsMarkets = config.sources
+    .filter((source) => source.enabled && source.desk === "Sports & Soft Power")
+    .reduce((counts, source) => ({ ...counts, [source.market]: (counts[source.market] || 0) + 1 }), {});
+  assert.ok(sportsMarkets.US >= 3, "Sports needs at least three U.S. publishers");
+  assert.ok(sportsMarkets.UK >= 2, "Sports needs international publisher coverage");
+
   const culture = deskPublishers.get("Culture & Entertainment");
   for (const publisher of ["BBC News", "The Guardian", "Rolling Stone", "Variety", "Deadline", "NPR"]) {
     assert.ok(culture.has(publisher), `Culture & Entertainment is missing ${publisher}`);
   }
+});
+
+test("sports selection reserves U.S. league coverage alongside international coverage", () => {
+  const sports = [
+    ["BBC Sport", "UK", 100],
+    ["The Guardian", "UK", 99],
+    ["ESPN", "US", 80],
+    ["CBS Sports", "US", 79],
+    ["Fox News", "US", 78]
+  ].map(([publisher, market, score], index) => ({
+    fingerprint: `sports-${index}`,
+    newsroomDesk: "Sports & Soft Power",
+    category: "Sports & Soft Power",
+    publisher,
+    sourceMarket: market,
+    coverageMarket: market === "US" ? "US" : "international",
+    sources: [{ publisher, market }],
+    relevanceScore: score,
+    publishedAt: "2026-08-12T14:00:00.000Z"
+  }));
+
+  const selected = selectDiverseCandidates(sports, {
+    limit: 4,
+    requiredDesks: ["Sports & Soft Power"],
+    minimumPerDesk: 2,
+    maximumPerDesk: 4,
+    maximumPerCategory: 4,
+    minimumPublishers: 0,
+    minimumPublishersPerDesk: 2,
+    minimumPublishersPerOrientation: 0,
+    minimumCandidatesPerDeskMarket: {
+      "Sports & Soft Power": { US: 2, international: 1 }
+    },
+    isCurrentDay: () => true
+  });
+
+  assert.ok(selected.filter((candidate) => candidate.coverageMarket === "US").length >= 2);
+  assert.ok(selected.some((candidate) => candidate.coverageMarket === "international"));
 });
 
 test("candidate selection keeps distinct left and right publishers in balance", () => {

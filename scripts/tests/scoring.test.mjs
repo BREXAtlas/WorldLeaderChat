@@ -41,6 +41,16 @@ test("major private-space reporting qualifies for a world-leader-adjacent conver
   assert.equal(result.category, "Science & Space");
 });
 
+test("American league stories stay in sports even when they contain business keywords", () => {
+  const result = scoreStory({
+    title: "Lakers sold in record deal as NBA owners approve company bid",
+    excerpt: "The basketball franchise sale changes the ownership picture before the season.",
+    sourceWeight: 1,
+    sourceDesk: "Sports & Soft Power"
+  }, config.relevance);
+  assert.equal(result.category, "Sports & Soft Power");
+});
+
 test("low-value lifestyle content without public significance stays below threshold", () => {
   const result = scoreStory({
     title: "Weekly recipe, horoscope and shopping deals roundup",

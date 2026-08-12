@@ -91,6 +91,7 @@ export function parseFeed(xml, source = {}) {
       publisher: source.publisher ?? "Unknown publisher",
       sourceWeight: Number(source.weight ?? 0),
       sourceDesk: source.desk ?? "World News",
+      sourceMarket: source.market ?? "global",
       title,
       url,
       guid,

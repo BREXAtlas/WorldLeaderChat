@@ -8,6 +8,22 @@ function candidatePublishers(candidate) {
   return [...new Set(values.filter(Boolean).map((publisher) => String(publisher).trim()))];
 }
 
+function marketKey(value) {
+  return String(value || "global").trim().toLocaleLowerCase("en-US");
+}
+
+function candidateMarkets(candidate) {
+  if (candidate.coverageMarket) {
+    const coverageMarket = marketKey(candidate.coverageMarket);
+    return new Set(coverageMarket === "us" ? ["us"] : [coverageMarket, "international"]);
+  }
+  const values = (candidate.sources || []).map((source) => source.market);
+  if (candidate.sourceMarket) values.push(candidate.sourceMarket);
+  const markets = new Set(values.filter(Boolean).map(marketKey));
+  if ([...markets].some((market) => market !== "us")) markets.add("international");
+  return markets;
+}
+
 function orientationKey(value) {
   const orientation = String(value || "neutral").trim().toLocaleLowerCase("en-US");
   return orientation === "left" || orientation === "right" ? orientation : "neutral";
@@ -63,6 +79,7 @@ export function selectDiverseCandidates(clusters, options = {}) {
     minimumPublishersPerDesk = 2,
     minimumPublishersPerOrientation = 4,
     maximumOrientationDifference = 1,
+    minimumCandidatesPerDeskMarket = {},
     isCurrentDay = () => false
   } = options;
 
@@ -159,10 +176,27 @@ export function selectDiverseCandidates(clusters, options = {}) {
     })[0];
   };
 
+  // Reserve configured market representation before the general desk pass.
+  // This keeps a high-volume international feed from crowding U.S. league
+  // coverage out of the Sports & Soft Power review slate (and vice versa).
+  for (const [desk, requirements] of Object.entries(minimumCandidatesPerDeskMarket)) {
+    for (const [market, minimum] of Object.entries(requirements || {})) {
+      while (selected.length < limit
+        && selected.filter((candidate) => candidate.newsroomDesk === desk
+          && candidateMarkets(candidate).has(marketKey(market))).length < Number(minimum || 0)) {
+        const candidate = choose(sorted.filter((item) => item.newsroomDesk === desk
+          && candidateMarkets(item).has(marketKey(market))
+          && canAdd(item)), desk);
+        if (!candidate) break;
+        add(candidate);
+      }
+    }
+  }
+
   // Give every public desk its required recommendations first. When a desk has
   // multiple publishers available, its first two recommendations use different ones.
   for (const desk of requiredDesks) {
-    for (let slot = 0; slot < minimumPerDesk && selected.length < limit; slot += 1) {
+    while ((deskCounts.get(desk) || 0) < minimumPerDesk && selected.length < limit) {
       const candidate = choose(sorted.filter((item) => item.newsroomDesk === desk && canAdd(item)), desk);
       if (!candidate) break;
       add(candidate);
