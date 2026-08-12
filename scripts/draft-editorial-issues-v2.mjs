@@ -94,7 +94,8 @@ CHAT RULES — THESE ARE STRICT
 - The first message must come from a person or institution directly involved in the event. Never open with UN Admin, Admin, a narrator or a system message.
 - Never paste, recite or lightly trim the article headline or source headline inside a message. People discuss what happened; they do not read headlines to one another.
 - Do not use newsroom-process filler such as “the verified event is pinned”, “fact pattern”, “reported detail”, “answer the file”, “on the record”, “official line is shorter than the consequence” or “spin requested a longer deadline”.
-- At least two speakers must return later. Never place the same speaker in consecutive turns.
+- Before writing the messages, choose only 3–5 real people or institutions naturally connected to this event. Every chosen speaker must appear at least twice.
+- Alternate those speakers throughout the chat. Never place the same speaker in consecutive turns, and never introduce a one-line speaker who does not return.
 - A speaker's text must be direct first-person dialogue. Never write narration such as “frames the stance”, “signals irritation”, “calls for”, “notes”, “observes”, “emphasizes”, “suggests”, “underlines”, “sees” or “warns”.
 - Do not recycle stock lines about “the strongest interpretation”, “I have thoughts”, “the facts are doing well”, “the personality test”, “the agenda”, “typing indicators” or changing the group name.
 - Do not default to Trump, Macron, Meloni and Xi for unrelated stories. At least half the participants must be people or institutions naturally adjacent to this event.
