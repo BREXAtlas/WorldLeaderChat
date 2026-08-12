@@ -1163,5 +1163,17 @@
     "sourceUrls": [
       "https://www.theguardian.com/us-news/2026/aug/11/south-carolina-senate-primary-runoff-darline-graham"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-11-breaking-down-the-aircraft-involved-in-trump-s-plan-to-thwart-ir",
+    "issueNumber": 185,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/185",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-12T21:16:26.537Z",
+    "fingerprint": "2196eb1c5056f29504aa8dc2350a8ff710119f1b164e75f733078869aa37bbd5",
+    "sourceUrls": [
+      "https://www.washingtonexaminer.com/policy/defense/4682612/trump-aircraft-switcheroo-air-force-one-assassination-attempt/"
+    ]
   }
 ]

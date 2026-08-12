@@ -447,6 +447,109 @@
     }
   },
   {
+    "id": "2026-08-11-breaking-down-the-aircraft-involved-in-trump-s-plan-to-thwart-ir",
+    "eventDate": "2026-08-11",
+    "year": 2026,
+    "date": "August 11, 2026",
+    "title": "Inside the Aircraft Shuffle Used to Protect Trump From an Iran Threat",
+    "kicker": "An elevated assassination threat after U.S. strikes prompted an unusual security plan and a presidential departure on an aircraft normally assigned to other senior officials.",
+    "category": "War & Security",
+    "summary": "The Secret Service’s elaborate plan to safeguard President Donald Trump due to an increased threat landscape following U.S. strikes on Iran last month meant flying him out of Turkey on the type of plane that the vice president, first lady, and Cabinet officials generally use. Trump flew to last month’s NATO summit in Ankara, Turkey, […]",
+    "article": {
+      "headline": "Inside the Aircraft Shuffle Used to Protect Trump From an Iran Threat",
+      "dek": "An elevated assassination threat after U.S. strikes prompted an unusual security plan and a presidential departure on an aircraft normally assigned to other senior officials.",
+      "body": [
+        "The Secret Service used an elaborate aircraft plan to move President Donald Trump after the threat environment increased following U.S. strikes on Iran, according to the Washington Examiner. During travel connected to the NATO summit in Ankara, Trump departed Turkey aboard the type of aircraft more commonly used by the vice president, first lady or Cabinet members.",
+        "The substitution was one visible piece of a larger protection operation intended to complicate any attempt to track or target the president. Different government aircraft carry different public expectations, but security planners can use that familiarity against an adversary when a predictable movement becomes a vulnerability.",
+        "The maneuver also shows the practical consequences of escalation. Threat assessments become routes, decoys, crews and last-minute instructions long before they become a public explanation. The aircraft may attract the headline, yet the underlying story is the degree of concern required to change how a president leaves an allied country after a major summit."
+      ],
+      "sourceCredit": "Based on original reporting from Washington Examiner."
+    },
+    "sources": [
+      {
+        "label": "Breaking down the aircraft involved in Trump’s plan to thwart Iranian assassination attempt",
+        "url": "https://www.washingtonexaminer.com/policy/defense/4682612/trump-aircraft-switcheroo-air-force-one-assassination-attempt/",
+        "publisher": "Washington Examiner"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "White House Travel Office",
+        "text": "Security replaced our itinerary with a different aircraft and several instructions that became explainable only after landing.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Secret Service Detail",
+        "text": "Predictability is convenient until the threat assessment starts using it too.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "White House Travel Office",
+        "text": "We had an itinerary. Security returned it with different wings.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Donald Trump",
+        "text": "The important thing is that the president moved safely and the mission continued.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Secret Service Detail",
+        "text": "Correct. The safest movement is often the one nobody can narrate in real time.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "NATO Host Team",
+        "text": "Our protocol staff would like to know which departure ceremony has been canceled retroactively.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "White House Travel Office",
+        "text": "All ceremonies remain beautiful in the version we are not publishing.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Donald Trump",
+        "text": "I have flown on many planes. This one completed the job.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Secret Service Detail",
+        "text": "That is the review we prefer: short, accurate and delivered after landing.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "NATO Host Team",
+        "text": "Understood. Next summit, the red carpet will be issued on a need-to-know basis.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "The itinerary listed one aircraft; the threat assessment packed a spare plot.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-12T21:16:26.537Z",
+    "editorial": {
+      "issueNumber": 185,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/185",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-12T21:16:26.537Z",
+      "fingerprint": "2196eb1c5056f29504aa8dc2350a8ff710119f1b164e75f733078869aa37bbd5",
+      "sourcePublishedAt": "2026-08-11T17:38:12.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Rewritten from the source summary after the queue-wide recycled-template audit. No headline recitation or shared dialogue skeleton remains. Opening narrator removed; the conversation now starts with a direct event participant. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-11-california-democratic-gubernatorial-nominee-xavier-becerra-says",
     "eventDate": "2026-08-11",
     "year": 2026,
