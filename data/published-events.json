@@ -3853,6 +3853,109 @@
     }
   },
   {
+    "id": "2026-08-11-world-marks-second-warmest-july-on-record",
+    "eventDate": "2026-08-11",
+    "year": 2026,
+    "date": "August 11, 2026",
+    "title": "WMO Says the World Just Recorded Its Second-Warmest July",
+    "kicker": "With heat, drought and wildfires straining multiple regions, the UN weather agency is pressing for stronger forecasts and early-warning systems.",
+    "category": "Science & Space",
+    "summary": "As multiple regions contend with unbearable heat, drought, wildfires and other extreme weather, the World Meteorological Organization (WMO) on Tuesday underlined the crucial need for stronger forecasts and early warning systems to protect lives and livelihoods.",
+    "article": {
+      "headline": "WMO Says the World Just Recorded Its Second-Warmest July",
+      "dek": "With heat, drought and wildfires straining multiple regions, the UN weather agency is pressing for stronger forecasts and early-warning systems.",
+      "body": [
+        "The world experienced its second-warmest July on record, according to the World Meteorological Organization. The UN weather agency issued the finding while communities across several regions were confronting extreme heat, drought, wildfires and other dangerous conditions tied to the month’s climate.",
+        "WMO used the record to emphasize a practical need: better forecasting and early-warning systems that can reach people before hazards become disasters. Temperature rankings describe the scale of the problem, but warnings translate scientific observation into decisions about evacuations, work hours, health services and emergency resources.",
+        "Being second on this list is not a silver medal. It is another indication that governments and local authorities must prepare for extremes that threaten lives and livelihoods now, not only in distant projections. Forecasts cannot lower the temperature or extinguish a fire. They can buy time, and during a heat emergency time is public infrastructure."
+      ],
+      "sourceCredit": "Based on original reporting from UN News."
+    },
+    "sources": [
+      {
+        "label": "World marks second warmest July on record",
+        "url": "https://news.un.org/feed/view/en/story/2026/08/1168115",
+        "publisher": "UN News"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Emergency Services",
+        "text": "Treat early warnings as infrastructure now, before another record month arrives as an ambulance schedule.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "World Meteorological Organization",
+        "text": "The record matters, but the warning reaching a person before danger matters more.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "City Mayor",
+        "text": "We need neighborhood-level notice, cooling plans and staff who know which residents cannot simply relocate indoors.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Finance Ministry",
+        "text": "Every emergency request is arriving with the word unprecedented attached.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Emergency Services",
+        "text": "Then stop budgeting as though the word means impossible to repeat.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "World Meteorological Organization",
+        "text": "Forecast skill has value only when authorities can convert it into action.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "City Mayor",
+        "text": "A perfect model without a working alert is an excellent report on what hurt us.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Finance Ministry",
+        "text": "Understood. Prevention needs a line item before response consumes the entire page.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Emergency Services",
+        "text": "And warnings must reach workers, older people and isolated communities before the thermometer becomes an ambulance call.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "World Meteorological Organization",
+        "text": "The climate supplied the headline. Preparedness still has time to change the ending.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "July nearly topped the heat chart; the early-warning budget was still waiting backstage.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-12T21:17:48.303Z",
+    "editorial": {
+      "issueNumber": 178,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/178",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-12T21:17:48.303Z",
+      "fingerprint": "0609d5dbc59c6923fd11c2f67bcd54fa43ee0344862c5919405bab724c626757",
+      "sourcePublishedAt": "2026-08-11T12:00:00.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Rewritten from the source summary after the queue-wide recycled-template audit. No headline recitation or shared dialogue skeleton remains. Opening narrator removed; the conversation now starts with a direct event participant. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-10-2026-fedex-st-jude-championship-odds-picks-surprising-prediction",
     "eventDate": "2026-08-10",
     "year": 2026,
