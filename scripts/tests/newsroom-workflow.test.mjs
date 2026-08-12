@@ -58,6 +58,9 @@ test("drafting prompt preserves factual conclusions and forbids recycled stock c
   assert.match(draft, /articleOnlySchema/);
   assert.match(draft, /chatPlanSchema/);
   assert.match(draft, /messagesFromChatPlan/);
+  assert.match(draft, /draftAuditSchema/);
+  assert.match(draft, /auditGeneratedDraft/);
+  assert.match(draft, /Source audit chat/);
   assert.match(draft, /acceptedArticleOutput/);
   assert.match(draft, /Never promote fill-in-the-headline copy as a safety fallback/);
 });

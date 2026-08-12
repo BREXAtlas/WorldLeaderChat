@@ -96,6 +96,31 @@ export const chatPlanSchema = {
   additionalProperties: false
 };
 
+export const draftAuditSchema = {
+  type: "object",
+  properties: {
+    verdict: { type: "string", enum: ["pass", "fail"] },
+    unsupportedArticleClaims: {
+      type: "array",
+      maxItems: 8,
+      items: { type: "string", minLength: 5, maxLength: 260 }
+    },
+    unsupportedChatClaims: {
+      type: "array",
+      maxItems: 8,
+      items: { type: "string", minLength: 5, maxLength: 260 }
+    },
+    genericOrPlaceholderCopy: {
+      type: "array",
+      maxItems: 8,
+      items: { type: "string", minLength: 5, maxLength: 260 }
+    },
+    reason: { type: "string", minLength: 10, maxLength: 500 }
+  },
+  required: ["verdict", "unsupportedArticleClaims", "unsupportedChatClaims", "genericOrPlaceholderCopy", "reason"],
+  additionalProperties: false
+};
+
 export const articleDraftSchema = {
   type: "object",
   properties: {

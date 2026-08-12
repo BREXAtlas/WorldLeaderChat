@@ -3,7 +3,7 @@ import { extractStoryBundle, STORY_JSON_END, STORY_JSON_START } from "./lib/edit
 import { cleanWhitespace, readJson } from "./lib/io.mjs";
 import { dialogueProblems, stockMemeDetected } from "./lib/chat-quality.mjs";
 import { articleProblems, expectedSourceCredit, normalizeArticle } from "./lib/article-standard.mjs";
-import { articleOnlySchema, chatPlanSchema, messagesFromChatPlan, runNewsroomJson } from "./lib/newsroom-model.mjs";
+import { articleOnlySchema, chatPlanSchema, draftAuditSchema, messagesFromChatPlan, runNewsroomJson } from "./lib/newsroom-model.mjs";
 
 const token = process.env.GITHUB_TOKEN;
 const repository = process.env.GITHUB_REPOSITORY;
@@ -133,7 +133,7 @@ The two message objects above show the field structure only. Your returned messa
 
 async function runWriter(bundle, feedback = [], acceptedArticleOutput = null) {
   const articlePrompt = `${promptFor(bundle, feedback).split("CHAT RULES — THESE ARE STRICT")[0]}
-Return only this JSON object: {"title":"specific truthful headline","kicker":"event angle","category":"${bundle.ingestion?.newsroomDesk || bundle.event.category}","article":{"headline":"specific factual headline","dek":"factual deck","body":["paragraph 1","paragraph 2","paragraph 3"],"sourceCredit":"credit every listed publisher"},"reviewNotes":"factual fidelity note"}`;
+Return only the schema fields for the final title, kicker, category, article and review notes. Write finished publication copy in every field; never return instructions, labels or placeholders such as “specific truthful headline.”`;
   const articleOutput = acceptedArticleOutput
     || await runNewsroomJson(articlePrompt, { schema: articleOnlySchema, maxTokens: 1100, temperature: 0.4 });
   const chatPrompt = `Return only valid JSON with speakers, turns, meme and reviewNotes.
@@ -163,11 +163,65 @@ Write exactly twelve concise, original turns in turns. Each turn is one complete
   return { output, articleOutput };
 }
 
+function generatedCopyProblems(candidate) {
+  const event = candidate.event || {};
+  const article = event.article || {};
+  const problems = [];
+  const placeholder = /\b(?:specific truthful headline|specific factual headline|event angle|factual deck|paragraph \d|write (?:the|a)|editor:|placeholder)\b/i;
+  for (const [label, value] of [
+    ["title", event.title], ["kicker", event.kicker], ["article headline", article.headline], ["article dek", article.dek]
+  ]) {
+    if (placeholder.test(String(value || ""))) problems.push(`Generated ${label} contains an instruction or placeholder.`);
+  }
+  const closing = String(event.meme || "").trim();
+  const closingWords = closing.split(/\s+/).filter(Boolean).length;
+  if (closingWords < 6 || closingWords > 28) problems.push(`Closing line must contain 6–28 words; found ${closingWords}.`);
+  if (closing && !/[.!?…][\"')\]]?$/.test(closing)) problems.push("Closing line is cut off or lacks closing punctuation.");
+  return problems;
+}
+
+async function auditGeneratedDraft(sourceBundle, candidate) {
+  const sourceRecord = [
+    `Verified RSS summary: ${safeSummary(sourceBundle.event?.summary)}`,
+    `Source headlines: ${(sourceBundle.event?.sources || []).map((source) => `${source.publisher}: ${source.label}`).join(" | ")}`,
+    `Source digests: ${(sourceBundle.ingestion?.sourceDigests || []).map((item) => `${item.publisher}: ${item.excerpt}`).join(" | ") || "None"}`
+  ].join("\n");
+  const draft = [
+    `Title: ${candidate.event?.title}`,
+    `Kicker: ${candidate.event?.kicker}`,
+    `Headline: ${candidate.event?.article?.headline}`,
+    `Dek: ${candidate.event?.article?.dek}`,
+    `Article: ${(candidate.event?.article?.body || []).join("\n")}`,
+    `Chat:\n${(candidate.event?.messages || []).map((message) => `${message.speaker}: ${message.text}`).join("\n")}`,
+    `Closing line: ${candidate.event?.meme}`
+  ].join("\n");
+  const audit = await runNewsroomJson(`You are the final source-support auditor. Compare the proposed draft only with the source record below.
+
+SOURCE RECORD
+${sourceRecord}
+
+PROPOSED DRAFT
+${draft}
+
+Fail any factual assertion, biographical detail, action, motive, location, campaign activity, quotation, outcome or private conduct that is not directly stated or clearly entailed by the source record. This includes invented claims placed inside satirical chat. Opinion or a joke may pass only when it does not smuggle in a new factual claim. Also fail instructions, placeholders, generic campaign platitudes, social-media hashtag piles, image descriptions, cut-off lines and copy that could be moved unchanged to an unrelated story.
+
+List each unsupported article claim, unsupported chat claim and generic/placeholder item separately. Set verdict to fail if any list is nonempty. Be strict and concise.`, {
+    schema: draftAuditSchema,
+    maxTokens: 900,
+    temperature: 0.1
+  });
+  const article = (audit.unsupportedArticleClaims || []).map((claim) => `Source audit article: ${claim}`);
+  const chat = (audit.unsupportedChatClaims || []).map((claim) => `Source audit chat: ${claim}`);
+  const generic = (audit.genericOrPlaceholderCopy || []).map((claim) => `Source audit copy: ${claim}`);
+  if (audit.verdict === "fail" && !article.length && !chat.length && !generic.length) generic.push(`Source audit failed: ${audit.reason}`);
+  return { article, chat: [...chat, ...generic] };
+}
+
 function applyGeneratedDraft(bundle, output) {
   const result = structuredClone(bundle);
   result.ingestion = { ...(result.ingestion || {}), newsroomFormat: 2 };
   result.event.summary = safeSummary(result.event.summary);
-  result.event.title = cleanWhitespace(output.title).slice(0, 240);
+  result.event.title = cleanWhitespace(output.article.headline || output.title).slice(0, 240);
   result.event.kicker = cleanWhitespace(output.kicker).slice(0, 320);
   result.event.category = cleanWhitespace(result.ingestion?.newsroomDesk || result.event.category || "World News").slice(0, 80);
   result.event.article = {
@@ -294,10 +348,16 @@ for (const { issue, bundle: originalBundle } of queue) {
         const candidate = applyGeneratedDraft(bundle, generated.output);
         const candidateArticleProblems = articleProblems(candidate.event?.article, candidate.event?.sources);
         acceptedArticleOutput = candidateArticleProblems.length ? null : generated.articleOutput;
-        const problems = [
+        let problems = [
           ...candidateArticleProblems.map((problem) => `Article: ${problem}`),
-          ...dialogueProblems(candidate, { existingBundles: acceptedBundles })
+          ...dialogueProblems(candidate, { existingBundles: acceptedBundles }),
+          ...generatedCopyProblems(candidate)
         ];
+        if (!problems.length && !stockMemeDetected(candidate.event?.meme)) {
+          const audit = await auditGeneratedDraft(bundle, candidate);
+          if (audit.article.length) acceptedArticleOutput = null;
+          problems = [...problems, ...audit.article, ...audit.chat];
+        }
         if (!candidateArticleProblems.length && problems.length < bestProblemCount) {
           bestArticleCandidate = candidate;
           bestProblemCount = problems.length;
@@ -323,7 +383,8 @@ for (const { issue, bundle: originalBundle } of queue) {
 
     const finalProblems = [
       ...articleProblems(bundle.event?.article, bundle.event?.sources).map((problem) => `Article: ${problem}`),
-      ...dialogueProblems(bundle, { existingBundles: acceptedBundles })
+      ...dialogueProblems(bundle, { existingBundles: acceptedBundles }),
+      ...generatedCopyProblems(bundle)
     ];
     if (finalProblems.length || stockMemeDetected(bundle.event?.meme)) {
       blocked += 1;

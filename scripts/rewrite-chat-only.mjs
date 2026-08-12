@@ -94,6 +94,15 @@ function applyChat(bundle, output) {
   return result;
 }
 
+function generatedChatProblems(bundle) {
+  const closing = String(bundle.event?.meme || "").trim();
+  const words = closing.split(/\s+/).filter(Boolean).length;
+  return [
+    ...(words < 6 || words > 28 ? [`Closing line must contain 6–28 words; found ${words}.`] : []),
+    ...(closing && !/[.!?…][\"')\]]?$/.test(closing) ? ["Closing line is cut off or lacks closing punctuation."] : [])
+  ];
+}
+
 async function setLabels(issue, additions = [], removals = []) {
   const labels = labelNames(issue);
   additions.forEach((label) => labels.add(label));
@@ -130,7 +139,7 @@ let generated = null;
 for (let attempt = 0; attempt < 3; attempt += 1) {
   try {
     const candidate = applyChat(bundle, await runWriter(bundle, attempt ? feedback : []));
-    const candidateProblems = dialogueProblems(candidate, { existingBundles });
+    const candidateProblems = [...dialogueProblems(candidate, { existingBundles }), ...generatedChatProblems(candidate)];
     if (!candidateProblems.length) { generated = candidate; break; }
     feedback = candidateProblems;
   } catch (error) {
@@ -148,7 +157,7 @@ bundle.event.article = originalArticle;
 bundle.event.title = originalTitle;
 bundle.event.kicker = originalKicker;
 bundle.event.category = originalCategory;
-const problems = dialogueProblems(bundle, { existingBundles });
+const problems = [...dialogueProblems(bundle, { existingBundles }), ...generatedChatProblems(bundle)];
 if (problems.length) {
   await setLabels(issue, ["needs-editor"], ["regenerate-requested", "drafting", "ready-for-approval"]);
   throw new Error(`Chat-only rewrite failed quality checks: ${problems.join(" | ")}`);

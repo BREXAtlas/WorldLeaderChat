@@ -1,7 +1,7 @@
 const META_NARRATION = /\b(imagined|hypothetical|would likely|would probably|plausible reaction|reaction consistent|response imagined|posture|style response|public-figure|a .*? response would|voice would)\b/i;
 const THIRD_PERSON_OPENING = /^(frames|signals|calls for|counts|emphasizes|notes|observes|suggests|underlines|warns|describes|argues|states|says|sees|insists|urges|highlights|points to|maintains|reiterates|characterizes|portrays|indicates|acknowledges)\b/i;
 const GENERIC_SPEAKER = /^(world leader|u\.?s\.? official|american official|european diplomat|government official|public figure|political observer|analyst|expert|commentator)$/i;
-const STOCK_MEME = /\bdrake(?: meme)?\b|distracted boyfriend|two buttons|change my mind|expanding brain|this is fine dog|woman yelling at a cat|^(?:a |an )?(?:political )?(?:cartoon|image|picture|photo|graphic|meme) (?:showing|of|with|where)/i;
+const STOCK_MEME = /\bdrake(?: meme)?\b|distracted boyfriend|two buttons|change my mind|expanding brain|this is fine dog|woman yelling at a cat|^(?:a |an )?(?:political )?(?:cartoon|image|picture|photo|graphic|meme) (?:showing|of|with|where)|#\w/i;
 const GENERIC_TITLE = /world leaders opened the news and immediately regretted having read receipts on/i;
 
 const BANNED_RECYCLED_PHRASES = [
