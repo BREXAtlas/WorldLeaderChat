@@ -11,6 +11,14 @@
     "minimumPublishersPerOrientation": 4,
     "maximumOrientationDifference": 1
   },
+  "coverageBalance": {
+    "minimumCandidatesPerDeskMarket": {
+      "Sports & Soft Power": {
+        "US": 2,
+        "international": 1
+      }
+    }
+  },
   "publisherOrientation": {
     "The Guardian": "left",
     "NPR": "left",
@@ -62,7 +70,8 @@
       "url": "https://moxie.foxnews.com/google-publisher/sports.xml",
       "enabled": true,
       "weight": 1,
-      "desk": "Sports & Soft Power"
+      "desk": "Sports & Soft Power",
+      "market": "US"
     },
     {
       "id": "new-york-post",
@@ -286,7 +295,8 @@
       "url": "https://www.theguardian.com/sport/rss",
       "enabled": true,
       "weight": 0,
-      "desk": "Sports & Soft Power"
+      "desk": "Sports & Soft Power",
+      "market": "UK"
     },
     {
       "id": "espn",
@@ -294,7 +304,8 @@
       "url": "https://www.espn.com/espn/rss/news",
       "enabled": true,
       "weight": 1,
-      "desk": "Sports & Soft Power"
+      "desk": "Sports & Soft Power",
+      "market": "US"
     },
     {
       "id": "cbs-sports",
@@ -302,7 +313,8 @@
       "url": "https://www.cbssports.com/rss/headlines/",
       "enabled": true,
       "weight": 1,
-      "desk": "Sports & Soft Power"
+      "desk": "Sports & Soft Power",
+      "market": "US"
     },
     {
       "id": "bbc-sport",
@@ -310,7 +322,8 @@
       "url": "https://feeds.bbci.co.uk/sport/rss.xml",
       "enabled": true,
       "weight": 1,
-      "desk": "Sports & Soft Power"
+      "desk": "Sports & Soft Power",
+      "market": "UK"
     },
     {
       "id": "rolling-stone",

@@ -9,6 +9,10 @@ function termHits(text, terms) {
 }
 
 export function suggestCategory(item) {
+  // A league story can mention a sale, media company, celebrity or lawsuit and
+  // still be sports coverage. Preserve the editorial desk selected by a
+  // dedicated sports feed before testing cross-desk keywords.
+  if (item.sourceDesk === "Sports & Soft Power") return "Sports & Soft Power";
   const text = normalize(`${item.title} ${item.excerpt}`);
   const categories = [
     ["Election", ["election", "vote", "ballot", "inauguration", "campaign", "midterm", "poll"]],
