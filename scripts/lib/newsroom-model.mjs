@@ -51,6 +51,55 @@ function diagnostic(value) {
   return stripDecoration(value).replace(/\s+/g, " ").slice(0, 1000);
 }
 
+const messageSchema = {
+  type: "object",
+  properties: {
+    speaker: { type: "string" },
+    text: { type: "string" },
+    kind: { type: "string", enum: ["satire", "system"] },
+    reaction: { type: "string" }
+  },
+  required: ["speaker", "text", "kind", "reaction"],
+  additionalProperties: false
+};
+
+export const chatDraftSchema = {
+  type: "object",
+  properties: {
+    messages: { type: "array", minItems: 10, maxItems: 14, items: messageSchema },
+    meme: { type: "string" },
+    reviewNotes: { type: "string" }
+  },
+  required: ["messages", "meme", "reviewNotes"],
+  additionalProperties: false
+};
+
+export const articleDraftSchema = {
+  type: "object",
+  properties: {
+    title: { type: "string" },
+    kicker: { type: "string" },
+    category: { type: "string" },
+    article: {
+      type: "object",
+      properties: {
+        headline: { type: "string" },
+        dek: { type: "string" },
+        body: { type: "array", minItems: 3, maxItems: 5, items: { type: "string" } },
+        sourceCredit: { type: "string" }
+      },
+      required: ["headline", "dek", "body", "sourceCredit"],
+      additionalProperties: false
+    },
+    messages: { type: "array", minItems: 10, maxItems: 14, items: messageSchema },
+    meme: { type: "string" },
+    tone: { type: "string", enum: ["comic", "sober"] },
+    reviewNotes: { type: "string" }
+  },
+  required: ["title", "kicker", "category", "article", "messages", "meme", "tone", "reviewNotes"],
+  additionalProperties: false
+};
+
 export async function runNewsroomJson(prompt, options = {}) {
   const endpoint = options.endpoint || process.env.WLC_WRITER_ENDPOINT || "http://127.0.0.1:8080/v1/chat/completions";
   const request = options.fetch || globalThis.fetch;
@@ -72,7 +121,9 @@ export async function runNewsroomJson(prompt, options = {}) {
       top_p: 0.9,
       max_tokens: Number(options.maxTokens || process.env.WLC_WRITER_MAX_TOKENS || 1400),
       stream: false,
-      response_format: { type: "json_object" }
+      response_format: options.schema
+        ? { type: "json_object", schema: options.schema }
+        : { type: "json_object" }
     })
   });
   const text = await response.text();

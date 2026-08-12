@@ -3,7 +3,7 @@ import { extractStoryBundle, STORY_JSON_END, STORY_JSON_START } from "./lib/edit
 import { cleanWhitespace, readJson } from "./lib/io.mjs";
 import { dialogueProblems, stockMemeDetected } from "./lib/chat-quality.mjs";
 import { articleProblems, expectedSourceCredit, normalizeArticle } from "./lib/article-standard.mjs";
-import { runNewsroomJson } from "./lib/newsroom-model.mjs";
+import { articleDraftSchema, runNewsroomJson } from "./lib/newsroom-model.mjs";
 
 const token = process.env.GITHUB_TOKEN;
 const repository = process.env.GITHUB_REPOSITORY;
@@ -131,7 +131,7 @@ The two message objects above show the field structure only. Your returned messa
 }
 
 async function runWriter(bundle, feedback = []) {
-  const output = await runNewsroomJson(promptFor(bundle, feedback));
+  const output = await runNewsroomJson(promptFor(bundle, feedback), { schema: articleDraftSchema });
   if (!output.article || !Array.isArray(output.article.body) || !Array.isArray(output.messages)) {
     throw new Error("Local writer JSON is missing article or messages.");
   }

@@ -2,7 +2,7 @@ import { resolve } from "node:path";
 import { extractStoryBundle, STORY_JSON_END, STORY_JSON_START } from "./lib/editorial.mjs";
 import { cleanWhitespace, readJson } from "./lib/io.mjs";
 import { dialogueProblems } from "./lib/chat-quality.mjs";
-import { runNewsroomJson } from "./lib/newsroom-model.mjs";
+import { chatDraftSchema, runNewsroomJson } from "./lib/newsroom-model.mjs";
 
 const token = process.env.GITHUB_TOKEN;
 const repository = process.env.GITHUB_REPOSITORY;
@@ -69,7 +69,7 @@ The two message objects above show the field structure only. Your returned messa
 }
 
 async function runWriter(bundle, feedback = []) {
-  return runNewsroomJson(chatPrompt(bundle, feedback));
+  return runNewsroomJson(chatPrompt(bundle, feedback), { schema: chatDraftSchema });
 }
 
 function applyChat(bundle, output) {
