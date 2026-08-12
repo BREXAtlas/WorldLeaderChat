@@ -68,9 +68,16 @@ test("editor has a wide active lane, daily mix tools, publishing status and a de
   assert.match(app, /\['publishing','Publishing'\]/);
   assert.match(app, /busy\.has\(issue\.number\) \|\| labels\.has\('editorial-approved'\)[\s\S]*return 'publishing'/);
   assert.match(app, /busy\.add\(number\);[\s\S]*activeLane = 'publishing';[\s\S]*render\(\)/);
-  assert.match(app, /if \(action === 'reject'\)[\s\S]*issues = issues\.filter\(\(issue\) => issue\.number !== number\);[\s\S]*Removing the rejected candidate/);
-  assert.match(html, /READY FOR APPROVAL → PUBLISHING → PUBLISHED/);
+  assert.match(app, /\['trash','🗑 Trash'\]/);
+  assert.match(app, /labels\.has\('rejected'\)[\s\S]*return 'trash'/);
+  assert.match(app, /async function rejectIssue\(number\)[\s\S]*replaceLocalIssue\(number, rejected\);[\s\S]*render\(\);[\s\S]*Saving the rejection/);
+  assert.match(app, /deskOf\(issue\) === desk && laneOf\(issue\) !== 'trash'/);
+  assert.match(app, /\['new','drafting','ready'\]\.includes\(laneOf\(issue\)\)/);
+  assert.match(app, /Restore to Review/);
+  assert.match(app, /Permanently Delete File/);
+  assert.match(html, /READY FOR APPROVAL → PUBLISHING → PUBLISHED • REJECTIONS → TRASH/);
   assert.match(html, /\.tag\.publishing\{/);
+  assert.match(html, /\.tag\.trash\{/);
 });
 
 test("featured-headline workflow persists one selected article per news desk", async () => {

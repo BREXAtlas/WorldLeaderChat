@@ -3,7 +3,7 @@ const REPO = 'WorldLeaderChat';
 const API = 'https://api.github.com';
 const START = '<!-- WLC_STORY_JSON_START -->';
 const END = '<!-- WLC_STORY_JSON_END -->';
-const lanes = [['new','New'],['drafting','Drafting'],['ready','Ready for Approval'],['publishing','Publishing'],['published','Published']];
+const lanes = [['new','New'],['drafting','Drafting'],['ready','Ready for Approval'],['publishing','Publishing'],['published','Published'],['trash','🗑 Trash']];
 
 let token = sessionStorage.getItem('wlc_editor_token') || '';
 let issues = [];
@@ -118,7 +118,9 @@ function eventProblems(bundle) {
 
 function laneOf(issue) {
   const labels = labelSet(issue);
+  if (labels.has('deleted-permanently') || /<!--\s*WLC_DELETED\s*-->/i.test(issue.body || '')) return null;
   if (labels.has('published')) return 'published';
+  if (labels.has('rejected')) return 'trash';
   if (issue.state === 'closed') return null;
   if (busy.has(issue.number) || labels.has('editorial-approved')) return 'publishing';
   if (labels.has('publication-failed') || labels.has('regenerate-requested') || labels.has('redraft-requested') || labels.has('drafting') || labels.has('needs-editor')) return 'drafting';
@@ -161,10 +163,10 @@ function renderCoverage() {
   const todayIssues = issues.filter((issue) => eventOf(issue)?.eventDate === today);
   const desks = globalThis.WLC_NEWSROOM?.desks || [];
   target.innerHTML = desks.map((desk) => {
-    const deskIssues = todayIssues.filter((issue) => deskOf(issue) === desk);
+    const deskIssues = todayIssues.filter((issue) => deskOf(issue) === desk && laneOf(issue) !== 'trash');
     const publishedCount = deskIssues.filter((issue) => laneOf(issue) === 'published').length;
     const publishingCount = deskIssues.filter((issue) => laneOf(issue) === 'publishing').length;
-    const reviewCount = deskIssues.length - publishedCount - publishingCount;
+    const reviewCount = deskIssues.filter((issue) => ['new','drafting','ready'].includes(laneOf(issue))).length;
     return `<span class="coverage-chip" data-desk="${esc(desk)}"><b>${deskIssues.length}</b><span>${esc(desk)}<small>${reviewCount} to review • ${publishingCount} publishing • ${publishedCount} published</small></span></span>`;
   }).join('');
   $('#coverageDate').textContent = new Intl.DateTimeFormat('en-US', {
@@ -204,13 +206,14 @@ async function connect() {
 }
 
 async function load() {
-  const [open, closed] = await Promise.all([
+  const [open, closed, rejected] = await Promise.all([
     api(`/repos/${OWNER}/${REPO}/issues?state=open&labels=news-candidate&per_page=100`),
-    api(`/repos/${OWNER}/${REPO}/issues?state=closed&labels=published&per_page=100`)
+    api(`/repos/${OWNER}/${REPO}/issues?state=closed&labels=published&per_page=100`),
+    api(`/repos/${OWNER}/${REPO}/issues?state=closed&labels=rejected&per_page=100`)
   ]);
-  issues = [...open.filter((item) => !item.pull_request), ...closed.filter((item) => !item.pull_request)];
+  issues = [...open.filter((item) => !item.pull_request), ...closed.filter((item) => !item.pull_request), ...rejected.filter((item) => !item.pull_request)];
   const available = new Set(issues.map(laneOf).filter(Boolean));
-  if (!available.has(activeLane)) activeLane = ['publishing','ready','drafting','new','published'].find((lane) => available.has(lane)) || 'new';
+  if (!available.has(activeLane)) activeLane = ['publishing','ready','drafting','new','published','trash'].find((lane) => available.has(lane)) || 'new';
   render();
 }
 
@@ -251,7 +254,9 @@ function cards(lane) {
     let actions = bundle?.event?.featured
       ? `<span class="tag featured">Featured in ${esc(cardDesk)}</span>`
       : `<button class="btn feature" data-action="feature" data-issue="${issue.number}" ${issue.number ? '' : 'disabled'}>Feature in ${esc(cardDesk)} Carousel</button>`;
-    if (lane !== 'published') {
+    if (lane === 'trash') {
+      actions = `<button class="btn ghost" data-action="restore" data-issue="${issue.number}">Restore to Review</button><button class="btn danger" data-action="purge" data-issue="${issue.number}">Permanently Delete File</button><span class="action-note">Trash keeps rejected stories from returning to the newsroom feed.</span>`;
+    } else if (lane !== 'published') {
       if (publishing) {
         actions = '<button class="btn pending" disabled>Publishing…</button><span class="action-note">Approval submitted once. No second tap is needed.</span>';
       } else if (regenerating && !failed) {
@@ -276,8 +281,9 @@ function cards(lane) {
 
     const sourceLinks = sources.map((source) => `<a class="source" target="_blank" rel="noopener" href="${esc(source.url)}">Open source: ${esc(source.publisher)}</a>`).join('');
     const chatPreview = `<details class="chat-preview"><summary>Conversation (${(bundle?.event?.messages || []).length} messages)</summary><div class="chat">${messages}</div></details>`;
-    const laneTag = lane === 'ready' ? 'ready' : lane === 'new' ? 'new' : lane === 'publishing' ? 'publishing' : 'draft';
-    return `<article class="card" data-desk="${esc(cardDesk)}"><div class="meta">ISSUE #${issue.number} • ${esc(bundle?.event?.date || '')}</div><span class="tag ${laneTag}">${publishing ? 'Publishing' : failed ? 'Publication failed' : regenerating ? 'Regenerating' : lane}</span><span class="tag desk-tag">${esc(cardDesk)}</span><h3>${esc(bundle?.event?.title || issue.title)}</h3><p class="summary">${esc(bundle?.event?.summary || '')}</p><div class="source-list">${sourceLinks}</div>${articlePreview}${chatPreview}<div class="meme"><b>LAST WORD</b>${esc(bundle?.event?.meme || '')}</div>${quality}<div class="actions">${actions}</div></article>`;
+    const laneTag = lane === 'ready' ? 'ready' : lane === 'new' ? 'new' : lane === 'publishing' ? 'publishing' : lane === 'trash' ? 'trash' : 'draft';
+    const statusText = lane === 'trash' ? 'Rejected' : publishing ? 'Publishing' : failed ? 'Publication failed' : regenerating ? 'Regenerating' : lane;
+    return `<article class="card" data-desk="${esc(cardDesk)}"><div class="meta">ISSUE #${issue.number} • ${esc(bundle?.event?.date || '')}</div><span class="tag ${laneTag}">${statusText}</span><span class="tag desk-tag">${esc(cardDesk)}</span><h3>${esc(bundle?.event?.title || issue.title)}</h3><p class="summary">${esc(bundle?.event?.summary || '')}</p><div class="source-list">${sourceLinks}</div>${articlePreview}${chatPreview}<div class="meme"><b>LAST WORD</b>${esc(bundle?.event?.meme || '')}</div>${quality}<div class="actions">${actions}</div></article>`;
   }).join('');
 }
 
@@ -299,9 +305,51 @@ async function waitForPublish(number) {
   return 'pending';
 }
 
+function replaceLocalIssue(number, nextIssue) {
+  issues = issues.map((issue) => issue.number === number ? nextIssue : issue);
+}
+
+async function rejectIssue(number) {
+  const previous = issues.find((issue) => issue.number === number);
+  if (!previous) {
+    notice('That candidate is no longer in the review queue.', 'warn');
+    return;
+  }
+  if (!confirm('Move this candidate to Trash? It will disappear from Ready for Approval immediately and stay blocked from future ingestion.')) return;
+
+  const rejected = {
+    ...previous,
+    state: 'closed',
+    state_reason: 'not_planned',
+    labels: [{name:'news-candidate'}, {name:'rejected'}]
+  };
+  replaceLocalIssue(number, rejected);
+  render();
+  notice('Moved to Trash. Saving the rejection…', 'info');
+
+  try {
+    const saved = await api(`/repos/${OWNER}/${REPO}/issues/${number}`, {
+      method:'PATCH',
+      body:JSON.stringify({state:'closed', state_reason:'not_planned', labels:['news-candidate','rejected']})
+    });
+    replaceLocalIssue(number, saved);
+    render();
+    notice('Candidate rejected and saved in Trash. It will not return to the review queue.', 'success');
+  } catch (error) {
+    replaceLocalIssue(number, previous);
+    render();
+    notice(`The rejection could not be saved, so the candidate was restored: ${error.message}`, 'error');
+  }
+}
+
 async function act(action, number) {
   if (busy.has(number)) {
     notice('That story is already processing. No second tap is needed.', 'warn');
+    return;
+  }
+
+  if (action === 'reject') {
+    await rejectIssue(number);
     return;
   }
 
@@ -320,6 +368,45 @@ async function act(action, number) {
       busy.delete(number);
       notice(`${featureDesk} carousel update queued. The other desk features will stay in place.`, 'success');
       await load();
+      return;
+    }
+
+
+    if (action === 'restore') {
+      if (!confirm('Restore this rejected candidate to the newsroom review queue?')) return;
+      const restoreBundle = parseBundle(currentIssue.body || '');
+      const ready = restoreBundle
+        && !JSON.stringify(restoreBundle).includes('[EDITOR:')
+        && !eventProblems(restoreBundle).length
+        && !articleProblems(restoreBundle).length
+        && !dialogueProblems(restoreBundle).length;
+      const restoreLabels = ['news-candidate', ready ? 'ready-for-approval' : 'needs-editor'];
+      replaceLocalIssue(number, {...currentIssue, state:'open', state_reason:'reopened', labels:restoreLabels.map((name) => ({name}))});
+      render();
+      notice(`Restored to ${ready ? 'Ready for Approval' : 'Drafting'}. Saving…`, 'info');
+      const saved = await api(`/repos/${OWNER}/${REPO}/issues/${number}`, {
+        method:'PATCH',
+        body:JSON.stringify({state:'open', state_reason:'reopened', labels:restoreLabels})
+      });
+      replaceLocalIssue(number, saved);
+      render();
+      notice(`Candidate restored to ${ready ? 'Ready for Approval' : 'Drafting'}.`, 'success');
+      return;
+    }
+
+    if (action === 'purge') {
+      if (!confirm('Permanently delete this saved article from Trash? Its headline, report, chat, and source links will be removed. A hidden fingerprint tombstone will remain only so the same feed item cannot return.')) return;
+      const fingerprint = String(currentIssue.body || '').match(/<!--\s*WLC_FINGERPRINT:\s*([a-f0-9]{64})\s*-->/i)?.[1];
+      if (!fingerprint) throw new Error('This file has no valid ingestion fingerprint, so it cannot be safely deleted without risking a duplicate.');
+      issues = issues.filter((issue) => issue.number !== number);
+      render();
+      notice('Deleting the article contents from Trash…', 'info');
+      const tombstone = `<!-- WLC_FINGERPRINT: ${fingerprint.toLowerCase()} -->\n<!-- WLC_DELETED -->\n\nThis rejected editorial file was permanently deleted from the editor. A minimal hidden fingerprint remains only to prevent the same feed item from being recreated.`;
+      await api(`/repos/${OWNER}/${REPO}/issues/${number}`, {
+        method:'PATCH',
+        body:JSON.stringify({title:`DELETED EDITORIAL FILE #${number}`, body:tombstone, state:'closed', state_reason:'not_planned', labels:['news-candidate','rejected']})
+      });
+      notice('The rejected article contents were permanently deleted. Its deduplication tombstone remains hidden.', 'success');
       return;
     }
 
@@ -346,19 +433,6 @@ async function act(action, number) {
       await setIssueLabels(currentIssue, ['redraft-requested'], ['ready-for-approval','editorial-approved','fact-checked','publication-failed','needs-editor','regenerate-requested']);
       busy.delete(number);
       notice('A new source-locked short report and article-specific chat have been queued.', 'success');
-      await load();
-      return;
-    }
-
-    if (action === 'reject') {
-      if (!confirm('Reject this candidate? It will be closed without publishing.')) return;
-      busy.add(number);
-      issues = issues.filter((issue) => issue.number !== number);
-      render();
-      notice('Removing the rejected candidate from the approval queue…', 'info');
-      await api(`/repos/${OWNER}/${REPO}/issues/${number}`, {method:'PATCH', body:JSON.stringify({state:'closed', state_reason:'not_planned', labels:['news-candidate','rejected']})});
-      busy.delete(number);
-      notice('Candidate rejected. Nothing was published.', 'success');
       await load();
       return;
     }

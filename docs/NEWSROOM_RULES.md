@@ -9,7 +9,7 @@ These are the publication rules for the public newsroom and editor. They are str
 - World Leaders Chat may use dry humor, comparison and sharp framing. It may not invent an event, result, statistic, quotation, motive, meeting, private communication or source.
 - The report may use only the verified source material attached to that editorial file. Source credit must name exactly those linked publishers and must remain outside the report body.
 - The editor displays the entire short report and blocks approval when the report or conversation fails validation. When the owner selects Approve & Publish, the item immediately leaves Ready for Approval and enters Publishing. A successful run moves it to Published; a failed run returns it to Drafting for correction and another explicit approval.
-- After the owner confirms Reject, the candidate immediately leaves its current editor queue while the rejection is saved. If the request fails, reloading restores the candidate so it cannot be silently lost.
+- After the owner confirms Reject, the candidate immediately leaves Ready for Approval, its review count updates in the same render, and the file moves to Trash while the rejection is saved. Rejected fingerprints remain blocked from future ingestion. Trash permits restoration or deliberate deletion of the stored article contents; deletion retains only a hidden fingerprint tombstone so the feed item cannot return. If the save request fails, the optimistic move rolls back and restores the candidate automatically.
 
 ## Daily newsroom and archive
 

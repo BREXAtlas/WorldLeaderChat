@@ -33,7 +33,7 @@ New issues receive:
 - `news-candidate`
 - `needs-editor`
 
-A rejected candidate should receive `rejected` and be closed. Retaining the issue prevents the same feed item from being opened repeatedly.
+A rejected candidate receives `rejected`, is closed, and moves immediately into the editor's Trash lane. It no longer contributes to the review count. Restoring it reopens the file in Ready for Approval when it still passes validation, or in Drafting when it needs correction. Permanently deleting it removes the article contents but retains a hidden fingerprint tombstone; that tombstone prevents the same feed item from being opened repeatedly.
 
 ### 2. Source review
 
