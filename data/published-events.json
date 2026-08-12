@@ -780,6 +780,109 @@
     }
   },
   {
+    "id": "2026-08-11-darline-graham-to-face-ralph-norman-in-south-carolina-republican",
+    "eventDate": "2026-08-11",
+    "year": 2026,
+    "date": "August 11, 2026",
+    "title": "Darline Graham and Ralph Norman Advance to South Carolina GOP Runoff",
+    "kicker": "A closely divided special primary sends the appointed senator and the congressman into a second round for the Republican nomination.",
+    "category": "Politics & Society",
+    "summary": "Norman beat out Russell Fry, a congressman, and Mark Sanford, a former governor, to advance is closely contested race US politics live – latest updates Sign up for the Breaking News US newsletter email Senator Darline Graham, appointed to complete the Senate term of her late brother, Lindsey Graham of South Carolina will face congressman Ralph Norman in a runoff election for the Republican nomination. Graham held a narrow lead in the polls going into the abbreviated special primary on Tuesday, which predicted a close contest for second place. Norman, Russell Fry, a congressman, and Mark Sanford, a former governor, had polled within a point of each other in the most recent survey from the Trafalgar Group. Continue reading...",
+    "article": {
+      "headline": "Darline Graham and Ralph Norman Advance to South Carolina GOP Runoff",
+      "dek": "A closely divided special primary sends the appointed senator and the congressman into a second round for the Republican nomination.",
+      "body": [
+        "South Carolina Republicans will choose between Senator Darline Graham and Representative Ralph Norman in a runoff after neither candidate settled the party’s special primary outright. The Guardian reports that Graham, appointed to complete the term of her late brother Lindsey Graham, entered election day with only a narrow polling advantage.",
+        "Norman advanced from a field that also included Representative Russell Fry and former governor Mark Sanford. Polling had placed the three men within roughly a point of one another in the contest for the second runoff position, making the result less a surprise than the formal start of another compressed campaign.",
+        "The runoff now turns a crowded race into a direct comparison. Graham can argue from incumbency and continuity; Norman can ask Republican voters to choose a different direction. Titles and family history got both candidates into the story, but they will not decide the next ballot by themselves. South Carolina voters receive the final edit."
+      ],
+      "sourceCredit": "Based on original reporting from The Guardian."
+    },
+    "sources": [
+      {
+        "label": "Darline Graham to face Ralph Norman in South Carolina Republican primary runoff",
+        "url": "https://www.theguardian.com/us-news/2026/aug/11/south-carolina-senate-primary-runoff-darline-graham",
+        "publisher": "The Guardian"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Republican Voters’ Panel",
+        "text": "The crowded primary is over. Graham and Norman now have to make their cases without hiding behind the rest of the field.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Darline Graham",
+        "text": "I entered this office to complete a term. Now I am asking voters for a mandate of my own.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Ralph Norman",
+        "text": "And I am asking them whether continuity is the same thing as the strongest choice.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "South Carolina GOP",
+        "text": "Please direct all family-history arguments and congressional résumés toward the runoff electorate.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Darline Graham",
+        "text": "Experience is not merely a last name, and I intend to make that case directly.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Ralph Norman",
+        "text": "Good. A two-person race leaves no room to campaign against the entire field.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Republican Voters’ Panel",
+        "text": "We noticed. You both have less space to hide behind crowded polling now.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "South Carolina GOP",
+        "text": "The first round selected the finalists. It did not issue anyone a crown.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Darline Graham",
+        "text": "Then the next weeks are about earning the office rather than borrowing its title.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Ralph Norman",
+        "text": "Agreed on the verb. We will disagree on the person.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "The primary cleared the stage; the runoff removed every place to stand except on the record.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-12T21:15:05.163Z",
+    "editorial": {
+      "issueNumber": 186,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/186",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-12T21:15:05.163Z",
+      "fingerprint": "c294d477b89025e61aebb1d64d8615755bb951ae856257fa4a9338763e1c385c",
+      "sourcePublishedAt": "2026-08-12T01:24:37.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Rewritten from the source summary after the queue-wide recycled-template audit. No headline recitation or shared dialogue skeleton remains. Opening narrator removed; the conversation now starts with a direct event participant. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-11-european-championships-day-three-schedule-bbc-coverage",
     "eventDate": "2026-08-11",
     "year": 2026,
