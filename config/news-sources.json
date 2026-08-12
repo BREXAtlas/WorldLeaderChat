@@ -7,9 +7,103 @@
   "sourceDiversity": {
     "minimumPublishersPerRun": 8,
     "minimumPublishersPerDesk": 2,
-    "maximumCandidatesPerPublisher": 4
+    "maximumCandidatesPerPublisher": 4,
+    "minimumPublishersPerOrientation": 4,
+    "maximumOrientationDifference": 1
+  },
+  "publisherOrientation": {
+    "The Guardian": "left",
+    "NPR": "left",
+    "CNBC": "left",
+    "Rolling Stone": "left",
+    "Al Jazeera": "left",
+    "Fox News": "right",
+    "New York Post": "right",
+    "Washington Examiner": "right",
+    "National Review": "right",
+    "The Dispatch": "right"
   },
   "sources": [
+    {
+      "id": "fox-world",
+      "publisher": "Fox News",
+      "url": "https://moxie.foxnews.com/google-publisher/world.xml",
+      "enabled": true,
+      "weight": 1,
+      "desk": "World News"
+    },
+    {
+      "id": "fox-politics",
+      "publisher": "Fox News",
+      "url": "https://moxie.foxnews.com/google-publisher/politics.xml",
+      "enabled": true,
+      "weight": 1,
+      "desk": "Politics & Society"
+    },
+    {
+      "id": "fox-tech",
+      "publisher": "Fox News",
+      "url": "https://moxie.foxnews.com/google-publisher/tech.xml",
+      "enabled": true,
+      "weight": 1,
+      "desk": "Technology & AI"
+    },
+    {
+      "id": "fox-science",
+      "publisher": "Fox News",
+      "url": "https://moxie.foxnews.com/google-publisher/science.xml",
+      "enabled": true,
+      "weight": 1,
+      "desk": "Science & Space"
+    },
+    {
+      "id": "fox-sports",
+      "publisher": "Fox News",
+      "url": "https://moxie.foxnews.com/google-publisher/sports.xml",
+      "enabled": true,
+      "weight": 1,
+      "desk": "Sports & Soft Power"
+    },
+    {
+      "id": "new-york-post",
+      "publisher": "New York Post",
+      "url": "https://nypost.com/feed/",
+      "enabled": true,
+      "weight": 1,
+      "desk": "World News"
+    },
+    {
+      "id": "washington-examiner-news",
+      "publisher": "Washington Examiner",
+      "url": "https://www.washingtonexaminer.com/news/feed/",
+      "enabled": true,
+      "weight": 1,
+      "desk": "Politics & Society"
+    },
+    {
+      "id": "washington-examiner-policy",
+      "publisher": "Washington Examiner",
+      "url": "https://www.washingtonexaminer.com/policy/feed/",
+      "enabled": true,
+      "weight": 1,
+      "desk": "War & Security"
+    },
+    {
+      "id": "national-review",
+      "publisher": "National Review",
+      "url": "https://www.nationalreview.com/feed/",
+      "enabled": true,
+      "weight": 1,
+      "desk": "Politics & Society"
+    },
+    {
+      "id": "the-dispatch",
+      "publisher": "The Dispatch",
+      "url": "https://thedispatch.com/feed/",
+      "enabled": true,
+      "weight": 1,
+      "desk": "Politics & Society"
+    },
     {
       "id": "bbc-world",
       "publisher": "BBC News",

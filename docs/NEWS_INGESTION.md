@@ -25,7 +25,7 @@ The initial configuration includes world or top-news feeds from:
 - UN News; and
 - NPR World.
 
-Feeds are configured in `config/news-sources.json`. Every public topic desk has a multi-publisher source pool, including broad entertainment, arts, film, television and music coverage for Culture & Entertainment. The selector prefers at least two publishers per desk and eight across a run, and the run summary shows the actual mix. Feed inclusion means only that a headline may enter the review queue. It is not an editorial endorsement, and the editor must independently assess source quality and framing.
+Feeds are configured in `config/news-sources.json`. Every public topic desk has a multi-publisher source pool, including broad entertainment, arts, film, television and music coverage for Culture & Entertainment. The partisan portion of the monitored pool is kept equal by distinct publisher: five left-designated and five right-designated outlets. The selector prefers at least two publishers per desk, eight across a run and four from each partisan side with a maximum one-publisher difference when usable current coverage permits it. Neutral, primary and specialty sources are counted separately. Feed inclusion means only that a headline may enter the review queue. It is not an editorial endorsement, and the editor must independently assess source quality and framing.
 
 ## Parsing
 
@@ -102,8 +102,8 @@ npm run validate
 
 A feed that requires cookies, JavaScript rendering, authentication or scraping is not a good fit for this service. Add a provider API only after documenting licensing, retention, cost, rate limits and secret management.
 
-## No automatic AI drafting
+## Automatic drafting, human publication decision
 
-The initial service deliberately does not call a language model. A current headline can be surfaced automatically, but historical context, quotation verification, tone and satire remain editorial work.
+After issue generation, the production workflow writes the source-locked headline, short report and article-specific chat. It retries failed generated copy and keeps a valid article when only the chat needs a deterministic replacement. Placeholder drafts remain newsroom production work; they are not presented as an assignment for the owner to write headlines in bulk.
 
-An AI drafting stage can be added later behind a separate `draft-generated` label, but generated text should still begin in draft status and pass the identical human approval gate. It must never apply `fact-checked` or `editorial-approved` itself.
+Automation never applies `fact-checked` or `editorial-approved`. A completed file moves to Ready for Approval, where the owner can approve and publish it, request a rewrite or reject it. The same source, article and chat validation gate applies regardless of how the draft was produced.

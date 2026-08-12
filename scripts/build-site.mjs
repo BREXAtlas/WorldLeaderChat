@@ -16,7 +16,7 @@ const publicHtml = await readFile(resolve(root, "index.html"), "utf8");
 const publicScripts = [
   '  <script src="./newsroom-contract.js?v=20260811"></script>',
   '  <script src="./newsroom-taxonomy.js?v=20260811"></script>',
-  '  <script src="./source-audit.js?v=20260811-source-audit"></script>',
+  '  <script src="./source-audit.js?v=20260811-balanced-sources"></script>',
   '  <script src="./newsroom-experience.js?v=20260811-newsroom-experience"></script>',
   '  <script src="./social-tools.js"></script>',
   '  <script src="./social-card-export.js?v=20260811-social-export-fix"></script>',
@@ -91,6 +91,33 @@ await cp(resolve(root, "editor/newsroom-upgrade.js"), resolve(output, "editor/ne
 await cp(resolve(root, "assets/world-leaders-chat-logo.webp"), resolve(output, "assets/world-leaders-chat-logo.webp"));
 await cp(resolve(root, "assets/world-leaders-chat-favicon.webp"), resolve(output, "assets/world-leaders-chat-favicon.webp"));
 const published = await readJson(resolve(root, "data/published-events.json"), []);
+const sourcesConfig = await readJson(resolve(root, "config/news-sources.json"), { sources: [], publisherOrientation: {} });
+const monitoredPublishers = new Map();
+for (const source of sourcesConfig.sources.filter((entry) => entry.enabled)) {
+  const current = monitoredPublishers.get(source.publisher) || {
+    publisher: source.publisher,
+    orientation: sourcesConfig.publisherOrientation?.[source.publisher] || "neutral",
+    feedCount: 0,
+    desks: new Set()
+  };
+  current.feedCount += 1;
+  current.desks.add(source.desk);
+  monitoredPublishers.set(source.publisher, current);
+}
+const sourcePoolPublishers = [...monitoredPublishers.values()]
+  .map((publisher) => ({ ...publisher, desks: [...publisher.desks].sort() }))
+  .sort((left, right) => left.publisher.localeCompare(right.publisher));
+const sourcePool = {
+  schemaVersion: 1,
+  generatedAt: new Date().toISOString(),
+  balance: {
+    left: sourcePoolPublishers.filter((publisher) => publisher.orientation === "left").length,
+    right: sourcePoolPublishers.filter((publisher) => publisher.orientation === "right").length,
+    neutral: sourcePoolPublishers.filter((publisher) => publisher.orientation === "neutral").length
+  },
+  publishers: sourcePoolPublishers
+};
+await writeFile(resolve(output, "data/source-pool.json"), `${JSON.stringify(sourcePool, null, 2)}\n`, "utf8");
 const publicPublished = published.map((event) => {
   const publicEvent = structuredClone(event);
   if (publicEvent.editorial) {
@@ -130,4 +157,4 @@ const conversationSize = (await readFile(resolve(output, "editor/conversation-up
 const editorNewsroomSize = (await readFile(resolve(output, "editor/newsroom-upgrade.js"))).byteLength;
 const logoSize = (await readFile(resolve(output, "assets/world-leaders-chat-logo.webp"))).byteLength;
 const faviconSize = (await readFile(resolve(output, "assets/world-leaders-chat-favicon.webp"))).byteLength;
-console.log(`Built GitHub Pages artifact in _site (${htmlSize} byte index, ${contractSize} byte newsroom contract, ${customSubmissionSize} byte custom submission generator, ${taxonomySize} byte newsroom taxonomy, ${sourceAuditSize} byte source audit, ${newsroomExperienceSize} byte newsroom experience, ${socialSize} byte social copy tools, ${socialCardSize} byte social PNG exporter, ${newsroomSize} byte newsroom UI, ${disclosureSize} byte disclosure polish, ${recencySize} byte recency order, ${rollingSize} byte rolling archive, ${editorSize} byte editor, ${appSize} byte editor app, ${publishedDataSize} byte canonical published adapter, ${conversationSize} byte conversation standard, ${editorNewsroomSize} byte article presentation, ${logoSize} byte logo, ${faviconSize} byte favicon, ${published.length} external event(s)).`);
+console.log(`Built GitHub Pages artifact in _site (${htmlSize} byte index, ${contractSize} byte newsroom contract, ${customSubmissionSize} byte custom submission generator, ${taxonomySize} byte newsroom taxonomy, ${sourceAuditSize} byte source audit, ${newsroomExperienceSize} byte newsroom experience, ${socialSize} byte social copy tools, ${socialCardSize} byte social PNG exporter, ${newsroomSize} byte newsroom UI, ${disclosureSize} byte disclosure polish, ${recencySize} byte recency order, ${rollingSize} byte rolling archive, ${editorSize} byte editor, ${appSize} byte editor app, ${publishedDataSize} byte canonical published adapter, ${conversationSize} byte conversation standard, ${editorNewsroomSize} byte article presentation, ${logoSize} byte logo, ${faviconSize} byte favicon, ${sourcePool.balance.left} left / ${sourcePool.balance.right} right monitored partisan publishers, ${published.length} external event(s)).`);

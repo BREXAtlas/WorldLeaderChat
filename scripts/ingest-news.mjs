@@ -19,6 +19,9 @@ const minimumPerDesk = Number(process.env.WLC_MINIMUM_PER_DESK || 2);
 const maximumPerPublisher = Number(process.env.WLC_MAXIMUM_PER_PUBLISHER || config.sourceDiversity?.maximumCandidatesPerPublisher || 4);
 const minimumPublishers = Number(process.env.WLC_MINIMUM_PUBLISHERS || config.sourceDiversity?.minimumPublishersPerRun || 8);
 const minimumPublishersPerDesk = Number(process.env.WLC_MINIMUM_PUBLISHERS_PER_DESK || config.sourceDiversity?.minimumPublishersPerDesk || 2);
+const minimumPublishersPerOrientation = Number(process.env.WLC_MINIMUM_PUBLISHERS_PER_ORIENTATION || config.sourceDiversity?.minimumPublishersPerOrientation || 4);
+const maximumOrientationDifference = Number(process.env.WLC_MAXIMUM_ORIENTATION_DIFFERENCE || config.sourceDiversity?.maximumOrientationDifference || 1);
+const publisherOrientation = config.publisherOrientation || {};
 const timeoutMs = Number(config.requestTimeoutMs || 20000);
 const cutoff = Date.now() - lookbackHours * 60 * 60 * 1000;
 const futureLimit = Date.now() + 48 * 60 * 60 * 1000;
@@ -121,6 +124,7 @@ function sourceRecord(candidate) {
     label: candidate.title,
     url: candidate.url,
     publisher: candidate.publisher,
+    orientation: candidate.orientation,
     publishedAt: candidate.publishedAt,
     excerpt: candidate.excerpt
   };
@@ -145,7 +149,8 @@ for (const source of config.sources.filter((entry) => entry.enabled)) {
     const xml = await fetchFeed(source);
     const items = parseFeed(xml, source);
     successfulSources += 1;
-    sourceReports.push({ sourceId: source.id, publisher: source.publisher, desk: source.desk, status: "ok", items: items.length });
+    const orientation = publisherOrientation[source.publisher] || "neutral";
+    sourceReports.push({ sourceId: source.id, publisher: source.publisher, orientation, desk: source.desk, status: "ok", items: items.length });
 
     for (const item of items) {
       const publishedTime = item.publishedAt ? new Date(item.publishedAt).valueOf() : null;
@@ -176,6 +181,7 @@ for (const source of config.sources.filter((entry) => entry.enabled)) {
         sourceDesk: item.sourceDesk,
         newsroomDesk,
         publisher: item.publisher,
+        orientation,
         title,
         url,
         publishedAt: item.publishedAt,
@@ -189,7 +195,7 @@ for (const source of config.sources.filter((entry) => entry.enabled)) {
     }
   } catch (error) {
     const message = error?.name === "AbortError" ? `Timed out after ${timeoutMs}ms` : error.message;
-    sourceReports.push({ sourceId: source.id, publisher: source.publisher, desk: source.desk, status: "error", error: message });
+    sourceReports.push({ sourceId: source.id, publisher: source.publisher, orientation: publisherOrientation[source.publisher] || "neutral", desk: source.desk, status: "error", error: message });
     console.error(`::warning title=Feed failed::${source.publisher}: ${message}`);
   }
 }
@@ -222,6 +228,8 @@ const candidates = selectDiverseCandidates(clusters, {
   maximumPerPublisher,
   minimumPublishers,
   minimumPublishersPerDesk,
+  minimumPublishersPerOrientation,
+  maximumOrientationDifference,
   isCurrentDay: (candidate) => chicagoDateKey(candidate.publishedAt) === today
 })
   .map(({ topicTerms: _topicTerms, ...candidate }) => candidate);
@@ -242,6 +250,17 @@ for (const desk of REQUIRED_DESKS) {
     diversityWarnings.push(`${desk} has ${count} selectable publisher(s); target is ${minimumPublishersPerDesk}.`);
   }
 }
+const leftPublishers = publisherCoverage.orientations.left.distinctPublishers;
+const rightPublishers = publisherCoverage.orientations.right.distinctPublishers;
+if (leftPublishers < minimumPublishersPerOrientation) {
+  diversityWarnings.push(`Only ${leftPublishers} left-designated publisher(s) had selectable coverage; target is ${minimumPublishersPerOrientation}.`);
+}
+if (rightPublishers < minimumPublishersPerOrientation) {
+  diversityWarnings.push(`Only ${rightPublishers} right-designated publisher(s) had selectable coverage; target is ${minimumPublishersPerOrientation}.`);
+}
+if (Math.abs(leftPublishers - rightPublishers) > maximumOrientationDifference) {
+  diversityWarnings.push(`Selected partisan source mix is ${leftPublishers} left to ${rightPublishers} right; maximum allowed difference is ${maximumOrientationDifference} when usable coverage exists.`);
+}
 const report = {
   schemaVersion: 4,
   generatedAt: new Date().toISOString(),
@@ -253,6 +272,8 @@ const report = {
     maximumPerPublisher,
     minimumPublishers,
     minimumPublishersPerDesk,
+    minimumPublishersPerOrientation,
+    maximumOrientationDifference,
     currentDay: today,
     requiredDesks: REQUIRED_DESKS
   },
@@ -270,5 +291,6 @@ console.log(`Desk coverage: ${JSON.stringify(deskCoverage)}`);
 console.log(`Current-day desk coverage (${today} Chicago): ${JSON.stringify(currentDayDeskCoverage)}`);
 console.log(`Publisher coverage (${publisherCoverage.distinctPublishers}): ${JSON.stringify(publisherCoverage.publishers)}`);
 console.log(`Publisher coverage by desk: ${JSON.stringify(publisherCoverage.desks)}`);
+console.log(`Publisher orientation coverage: ${JSON.stringify(publisherCoverage.orientations)}`);
 for (const warning of diversityWarnings) console.error(`::warning title=Source diversity::${warning}`);
 console.log(`Output: ${outputPath}`);

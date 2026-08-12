@@ -321,26 +321,42 @@ function contextualDialogue(bundle) {
   const event = bundle?.event || {};
   const headline = shortClause(event.article?.headline || event.sources?.[0]?.label || event.title || "the latest development");
   const fact = shortClause(event.summary || event.article?.dek || headline, 150);
+  const consequence = shortClause(event.article?.dek || event.kicker || fact, 125);
+  const publisher = shortClause(event.sources?.[0]?.publisher || "the linked reporting", 55);
   const actors = KNOWN_ACTORS.filter(([, pattern]) => pattern.test(text)).map(([name]) => name);
-  const defaults = /business|trade|tariff|market|company/.test(text)
-    ? ["Trump", "Markets", "Treasury", "Meloni"]
-    : /science|space|technology|ai|cyber/.test(text)
-      ? ["Trump", "Research Desk", "Xi", "Macron"]
-      : ["Trump", "Macron", "Meloni", "Xi"];
+  const category = String(event.category || "").toLowerCase();
+  const context = `${category} ${text}`;
+  const defaults = /sport|football|soccer|gymnast|baseball|basketball|olympic|championship/.test(context)
+    ? ["League Office", "Players' Council", "Broadcast Desk", "Supporters' Section"]
+    : /culture|entertainment|music|film|television|actor|artist/.test(context)
+      ? ["Artists' Council", "Studio Office", "Rights Desk", "Audience Desk"]
+      : /hospital|patient|health|medical|vaccine|cancer/.test(context)
+        ? ["Clinical Staff", "Patient Safety Desk", "Health Agency", "Budget Office"]
+      : /science|space/.test(context)
+        ? ["Research Team", "Mission Control", "Science Desk", "Budget Office"]
+        : /technology|\bai\b|cyber/.test(context)
+          ? ["Product Team", "Platform Users", "Security Desk", "Industry Regulators"]
+          : /business|trade|tariff|market|company/.test(context)
+            ? ["Company Board", "Market Desk", "Workers' Committee", "Regulators"]
+            : /war|security|missile|military|hostage|ceasefire/.test(context)
+              ? ["Security Council Desk", "Civilian Protection Office", "Defense Ministry Desk", "Diplomatic Corps"]
+              : /politic|election|congress|court/.test(context)
+                ? ["Campaign Desk", "Election Officials", "Civil Rights Desk", "Congressional Staff"]
+                : ["Foreign Ministry Desk", "Regional Officials", "Diplomatic Corps", "Public Information Desk"];
   const cast = [...new Set([...actors, ...defaults])].slice(0, 4);
   const [a, b, c, d] = cast;
   return [
-    msg("UN Admin", `New thread: ${headline}. Keep every reply tied to the decision in the source.`, "system"),
-    msg(a, `The headline is ${headline}. My question is who owns what happens next.`),
-    msg(b, `Your conclusion arrived before the briefing. The source says ${fact}.`),
-    msg(a, "I heard the fact. I am disputing the part where everyone else gets to define the consequence."),
-    msg(c, `The consequence cannot be separated from ${shortClause(event.title || headline, 70)} just because the press line is inconvenient.`),
-    msg(b, "Agreed. The argument is over the response, not permission to replace the event with a better slogan."),
-    msg(d, `Everyone has now quoted the same report and reached four different strategic lessons from ${shortClause(headline, 60)}.`),
-    msg(a, "That is why leadership matters. Somebody has to choose the lesson before the next headline chooses it for us."),
-    msg(c, "Leadership also means answering the detail you skipped, not merely speaking first and longest."),
-    msg(b, `Then return to the specific question raised by ${shortClause(headline, 55)} and answer it without changing the subject.`),
-    msg("UN Admin", `The source remained the same. The interpretations were archived in separate folders.`, "system")
+    msg("UN Admin", `Desk file: ${headline}. The verified event is pinned; the argument is about its consequence.`, "system"),
+    msg(a, `I read ${headline}. I want the immediate consequence stated before anyone turns it into a victory lap.`),
+    msg(b, `I am staying with what ${publisher} reported: ${fact}. That is the fact pattern we have to answer.`),
+    msg(a, `Then my question on ${shortClause(headline, 72)} is who takes responsibility for what follows.`),
+    msg(c, `I will not turn ${shortClause(headline, 68)} into a slogan. The public still needs the decision, the timing and the cost separated.`),
+    msg(b, `My answer starts with this reported detail: ${shortClause(fact, 105)}. Interpretation comes after that sentence, not before it.`),
+    msg(d, `I see the pressure point in ${shortClause(consequence, 92)}. That is where the announcement meets the people expected to live with it.`),
+    msg(a, `I am not dodging ${shortClause(headline, 64)}; I am saying the official line is shorter than the consequence.`),
+    msg(c, `${publisher} put ${shortClause(headline, 62)} on the record. I want each institution here to answer that record without borrowing a different story.`),
+    msg(b, `Then answer the file we actually opened—${shortClause(headline, 62)}—and leave the substitute headline in drafts.`),
+    msg("UN Admin", `File closed on ${shortClause(headline, 78)}. The verified details stayed pinned; the spin requested a longer deadline.`, "system")
   ];
 }
 
@@ -349,29 +365,6 @@ export function dialogueNeedsRefinement(bundle, options = {}) {
 }
 
 export function buildDirectDialogue(bundle) {
-  const headline = headlineText(bundle);
-  const text = fullText(bundle);
-
-  if (/gaza|netanyahu.*peace plan|hamas.*disarm/.test(headline)) return gazaDialogue();
-  if (/houthi|saudi.*refinery|refinery.*saudi/.test(headline)) return houthiSaudiDialogue();
-  if (/ahrq|agency.*healthcare research|hospital patients safe|patient safety/.test(headline)) return healthcareAgencyDialogue();
-  if (/frederick richard|fred richard|gymnastics.*title|national title.*gymnastics/.test(headline)) return gymnasticsDialogue();
-  if (/lisa cook|fed governor.*cook|mortgage fraud.*cook/.test(headline)) return fedCookDialogue();
-  if (/tariff.*refund|refund.*tariff|liberation day.*tariff/.test(headline)) return tariffRefundDialogue();
-  if (/ukraine.*refiner|refiner.*ukraine|tatarstan|tyumen/.test(headline)) return ukraineRefineryDialogue();
-  if (/secretary.general|next boss|head of un|rebeca grynspan/.test(headline)) return unSecretaryDialogue();
-  if (/independent voters|progressive goals|policies.*labels|labels.*policies/.test(headline)) return independentVotersDialogue();
-  if (/critical cybersecurity|cybersecurity risk|cyber model|astra model/.test(headline)) return cyberModelDialogue();
-  if (/crash.*moon|moon.*crash|spacex.*moon|falcon.*moon/.test(headline)) return moonCrashDialogue();
-  if (/easyjet|apollo.*airline|airline.*apollo/.test(headline)) return easyJetDialogue();
-  if (/tan suit|larry david/.test(headline)) return tanSuitDialogue();
-  if (/fifa|infantino|world cup.*rights/.test(headline)) return fifaDialogue();
-  if (/lebanon|southern lebanon|israeli soldiers/.test(headline)) return lebanonDialogue();
-  if (/taylor swift|songs removed|copyright.*tiktok|tiktok.*copyright/.test(headline)) return taylorDialogue();
-  if (/immigration|deportation|border|ice raid/.test(headline)) return immigrationDialogue();
-  if (/artificial intelligence|\bai\b|openai|sam altman|semiconductor|ai model/.test(headline)) return aiDialogue();
-  if (/gaza|netanyahu|hamas/.test(text)) return gazaDialogue();
-  if (/ukraine|zelensky|kyiv|russia|putin|serbia/.test(text) && !/refinery.*saudi|houthi/.test(text)) return ukraineRefineryDialogue();
   return contextualDialogue(bundle);
 }
 

@@ -33,6 +33,9 @@ These are the publication rules for the public newsroom and editor. They are str
 - Bands are 0–14 Neutral, 15–39 Left/Right-leaning, 40–69 Left/Right and 70–100 Strong Left/Right.
 - An article’s source-mix score is the arithmetic mean of one score per distinct publisher. Neutral can mean centered/primary/topic-limited sourcing or a left/right mix that balances near zero.
 - Primary sources remain visibly identified as first-party material. Unknown outlets remain Neutral with low confidence pending review; they are not silently treated as independently verified news.
+- The enabled partisan publisher pool must contain an equal number of distinct left- and right-designated outlets. The ingestion slate targets at least four distinct publishers from each side and no more than a one-publisher difference whenever timely, relevant feed coverage permits it.
+- Source balance never changes the facts, lowers verification standards or forces false balance into an individual report. Neutral, primary and specialty sources remain a separate cohort, and relevance and source quality still control whether a story advances.
+- A failed machine draft is production work, not owner work. It stays in automated drafting and must not be presented as an owner headline-writing assignment. The owner receives completed files for Approve & Publish, Rewrite or Reject.
 - Outlet orientation is not party affiliation. “Left” does not mean “Democratic Party,” and “Right” does not mean “Republican Party.” Ratings describe general sourcing orientation, not the truth of an individual report.
 
 ## Protected public behavior

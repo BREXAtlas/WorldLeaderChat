@@ -23,6 +23,14 @@ test("every topic desk has an array of at least three configured publishers", as
   assert.equal(config.sourceDiversity.minimumPublishersPerRun, 8);
   assert.equal(config.sourceDiversity.minimumPublishersPerDesk, 2);
   assert.equal(config.sourceDiversity.maximumCandidatesPerPublisher, 4);
+  assert.equal(config.sourceDiversity.minimumPublishersPerOrientation, 4);
+  assert.equal(config.sourceDiversity.maximumOrientationDifference, 1);
+
+  const left = Object.entries(config.publisherOrientation).filter(([, orientation]) => orientation === "left").map(([publisher]) => publisher);
+  const right = Object.entries(config.publisherOrientation).filter(([, orientation]) => orientation === "right").map(([publisher]) => publisher);
+  assert.equal(left.length, 5);
+  assert.equal(right.length, 5);
+  assert.deepEqual(new Set(right), new Set(["Fox News", "New York Post", "Washington Examiner", "National Review", "The Dispatch"]));
 
   const deskPublishers = new Map(REQUIRED_DESKS.map((desk) => [desk, new Set()]));
   for (const source of config.sources.filter((item) => item.enabled)) {
@@ -38,6 +46,39 @@ test("every topic desk has an array of at least three configured publishers", as
   for (const publisher of ["BBC News", "The Guardian", "Rolling Stone", "Variety", "Deadline", "NPR"]) {
     assert.ok(culture.has(publisher), `Culture & Entertainment is missing ${publisher}`);
   }
+});
+
+test("candidate selection keeps distinct left and right publishers in balance", () => {
+  const candidates = ["left", "right"].flatMap((orientation, sideIndex) =>
+    Array.from({ length: 5 }, (_, index) => {
+      const publisher = `${orientation} publisher ${index + 1}`;
+      const desk = REQUIRED_DESKS[(index * 2 + sideIndex) % REQUIRED_DESKS.length];
+      return {
+        fingerprint: `${orientation}-${index}`,
+        newsroomDesk: desk,
+        category: desk,
+        publisher,
+        orientation,
+        sources: [{ publisher, orientation }],
+        relevanceScore: 100 - index,
+        publishedAt: "2026-08-11T14:00:00.000Z"
+      };
+    })
+  );
+  const selected = selectDiverseCandidates(candidates, {
+    limit: 10,
+    requiredDesks: [],
+    maximumPerDesk: 10,
+    maximumPerCategory: 10,
+    minimumPublishers: 8,
+    minimumPublishersPerOrientation: 4,
+    maximumOrientationDifference: 1,
+    isCurrentDay: () => true
+  });
+  const coverage = summarizePublisherCoverage(selected);
+  assert.ok(coverage.orientations.left.distinctPublishers >= 4);
+  assert.ok(coverage.orientations.right.distinctPublishers >= 4);
+  assert.ok(Math.abs(coverage.orientations.left.distinctPublishers - coverage.orientations.right.distinctPublishers) <= 1);
 });
 
 test("candidate selection diversifies each desk and prevents a dominant feed from taking the slate", () => {
@@ -96,7 +137,10 @@ test("news workflow exposes and reports publisher diversity controls", async () 
   assert.match(workflow, /WLC_MINIMUM_PUBLISHERS: "8"/);
   assert.match(workflow, /WLC_MINIMUM_PUBLISHERS_PER_DESK: "2"/);
   assert.match(workflow, /WLC_MAXIMUM_PER_PUBLISHER: "4"/);
+  assert.match(workflow, /WLC_MINIMUM_PUBLISHERS_PER_ORIENTATION: "4"/);
+  assert.match(workflow, /WLC_MAXIMUM_ORIENTATION_DIFFERENCE: "1"/);
   assert.match(workflow, /report-ingestion-summary\.mjs/);
   assert.match(ingestion, /publisherCoverage/);
-  assert.match(ingestion, /sourceReports\.push\(\{ sourceId: source\.id, publisher: source\.publisher/);
+  assert.match(ingestion, /sourceReports\.push\(\{ sourceId: source\.id, publisher: source\.publisher, orientation/);
+  assert.match(ingestion, /Publisher orientation coverage/);
 });

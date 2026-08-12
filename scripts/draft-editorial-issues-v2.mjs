@@ -244,14 +244,21 @@ const labelDefinitions = [
   { name: "ready-for-approval", color: "0e8a16", description: "Completed article and chat are ready for owner review" },
   { name: "regenerate-requested", color: "fbca04", description: "Owner requested a completely new article-specific chat" },
   { name: "redraft-requested", color: "d4c5f9", description: "Owner requested a new source-locked article and chat" },
-  { name: "needs-editor", color: "d93f0b", description: "Draft failed automated chat-quality safeguards" }
+  { name: "needs-editor", color: "d93f0b", description: "Automated newsroom draft is being corrected before owner review" }
 ];
 
 async function ensureLabels() {
   const existing = await github(`/repos/${repository}/labels?per_page=100`);
-  const names = new Set(existing.map((label) => label.name));
+  const byName = new Map(existing.map((label) => [label.name, label]));
   for (const definition of labelDefinitions) {
-    if (!names.has(definition.name)) await github(`/repos/${repository}/labels`, { method: "POST", body: definition });
+    const current = byName.get(definition.name);
+    if (!current) await github(`/repos/${repository}/labels`, { method: "POST", body: definition });
+    else if (current.description !== definition.description || current.color !== definition.color) {
+      await github(`/repos/${repository}/labels/${encodeURIComponent(definition.name)}`, {
+        method: "PATCH",
+        body: { new_name: definition.name, color: definition.color, description: definition.description }
+      });
+    }
   }
 }
 
@@ -295,14 +302,21 @@ for (const { issue, bundle: originalBundle } of queue) {
     let bundle = originalBundle;
     let lastProblems = ["A new article-specific draft was requested."];
     let copilotWorked = false;
+    let bestArticleCandidate = null;
+    let bestProblemCount = Number.POSITIVE_INFINITY;
 
     for (let attempt = 0; attempt < 3; attempt += 1) {
       try {
         const candidate = applyCopilot(bundle, runCopilot(bundle, attempt ? lastProblems : []));
+        const candidateArticleProblems = articleProblems(candidate.event?.article, candidate.event?.sources);
         const problems = [
-          ...articleProblems(candidate.event?.article, candidate.event?.sources).map((problem) => `Article: ${problem}`),
+          ...candidateArticleProblems.map((problem) => `Article: ${problem}`),
           ...dialogueProblems(candidate, { existingBundles: acceptedBundles })
         ];
+        if (!candidateArticleProblems.length && problems.length < bestProblemCount) {
+          bestArticleCandidate = candidate;
+          bestProblemCount = problems.length;
+        }
         if (problems.length || stockMemeDetected(candidate.event?.meme)) {
           lastProblems = [...problems, ...(stockMemeDetected(candidate.event?.meme) ? ["The closing line used a named stock meme."] : [])];
           continue;
@@ -317,7 +331,10 @@ for (const { issue, bundle: originalBundle } of queue) {
 
     if (!copilotWorked) {
       fallbackCount += 1;
-      bundle = deterministicDraft(bundle);
+      // Preserve a valid article/headline even when only the generated chat failed.
+      // The deterministic pass replaces the chat so owner review never receives
+      // placeholder copy or an assignment to write the newsroom's headline.
+      bundle = deterministicDraft(bestArticleCandidate || bundle);
     }
 
     const finalProblems = [

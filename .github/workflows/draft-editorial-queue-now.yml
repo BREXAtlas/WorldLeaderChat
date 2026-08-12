@@ -46,7 +46,7 @@ jobs:
       - name: Create complete truth-first editorial suggestions
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WLC_DRAFT_LIMIT: 20
+          WLC_DRAFT_LIMIT: 50
         run: node scripts/draft-editorial-issues.mjs
 
       - name: Replace meta narration with direct recurring-speaker dialogue

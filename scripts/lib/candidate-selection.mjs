@@ -8,6 +8,28 @@ function candidatePublishers(candidate) {
   return [...new Set(values.filter(Boolean).map((publisher) => String(publisher).trim()))];
 }
 
+function orientationKey(value) {
+  const orientation = String(value || "neutral").trim().toLocaleLowerCase("en-US");
+  return orientation === "left" || orientation === "right" ? orientation : "neutral";
+}
+
+function candidatePublisherRecords(candidate) {
+  const records = (candidate.sources || []).map((source) => ({
+    publisher: String(source.publisher || "").trim(),
+    orientation: orientationKey(source.orientation)
+  }));
+  if (candidate.publisher) records.push({
+    publisher: String(candidate.publisher).trim(),
+    orientation: orientationKey(candidate.orientation)
+  });
+  const unique = new Map();
+  for (const record of records) {
+    if (!record.publisher) continue;
+    unique.set(`${publisherKey(record.publisher)}:${record.orientation}`, record);
+  }
+  return [...unique.values()];
+}
+
 function increment(map, key) {
   map.set(key, (map.get(key) || 0) + 1);
 }
@@ -39,6 +61,8 @@ export function selectDiverseCandidates(clusters, options = {}) {
     maximumPerPublisher = 4,
     minimumPublishers = 8,
     minimumPublishersPerDesk = 2,
+    minimumPublishersPerOrientation = 4,
+    maximumOrientationDifference = 1,
     isCurrentDay = () => false
   } = options;
 
@@ -49,6 +73,11 @@ export function selectDiverseCandidates(clusters, options = {}) {
   const primaryPublisherCounts = new Map();
   const coveredPublishers = new Set();
   const deskPublishers = new Map(requiredDesks.map((desk) => [desk, new Set()]));
+  const orientationPublishers = new Map([
+    ["left", new Set()],
+    ["right", new Set()],
+    ["neutral", new Set()]
+  ]);
   const compareBase = baseComparator(isCurrentDay);
   const sorted = [...clusters].sort(compareBase);
 
@@ -70,7 +99,25 @@ export function selectDiverseCandidates(clusters, options = {}) {
       coveredPublishers.add(publisherKey(publisher));
       deskSet.add(publisherKey(publisher));
     }
+    for (const record of candidatePublisherRecords(candidate)) {
+      orientationPublishers.get(record.orientation).add(publisherKey(record.publisher));
+    }
     deskPublishers.set(candidate.newsroomDesk, deskSet);
+  };
+
+  const addsOrientationPublisher = (candidate, orientation) => candidatePublisherRecords(candidate)
+    .some((record) => record.orientation === orientation
+      && !orientationPublishers.get(orientation).has(publisherKey(record.publisher)));
+
+  const preferredPartisanOrientation = () => {
+    const left = orientationPublishers.get("left").size;
+    const right = orientationPublishers.get("right").size;
+    if (left < minimumPublishersPerOrientation || right < minimumPublishersPerOrientation) {
+      if (left < right) return "left";
+      if (right < left) return "right";
+    }
+    if (Math.abs(left - right) > maximumOrientationDifference) return left < right ? "left" : "right";
+    return null;
   };
 
   const choose = (pool, desk = null) => {
@@ -94,6 +141,12 @@ export function selectDiverseCandidates(clusters, options = {}) {
       if (newForRun.length) choices = newForRun;
     }
 
+    const preferredOrientation = preferredPartisanOrientation();
+    if (preferredOrientation) {
+      const balancingChoices = choices.filter((candidate) => addsOrientationPublisher(candidate, preferredOrientation));
+      if (balancingChoices.length) choices = balancingChoices;
+    }
+
     const belowPublisherLimit = choices.filter((candidate) =>
       (primaryPublisherCounts.get(publisherKey(candidate.publisher)) || 0) < maximumPerPublisher
     );
@@ -114,6 +167,25 @@ export function selectDiverseCandidates(clusters, options = {}) {
       if (!candidate) break;
       add(candidate);
     }
+  }
+
+
+  // Fill partisan-source deficits before general extras. This is a source-pool
+  // guard, not an instruction to alter facts or force a viewpoint into a story.
+  while (selected.length < limit) {
+    const left = orientationPublishers.get("left").size;
+    const right = orientationPublishers.get("right").size;
+    const deficient = left < minimumPublishersPerOrientation
+      ? "left"
+      : right < minimumPublishersPerOrientation
+        ? "right"
+        : Math.abs(left - right) > maximumOrientationDifference
+          ? (left < right ? "left" : "right")
+          : null;
+    if (!deficient) break;
+    const candidate = choose(sorted.filter((item) => canAdd(item) && addsOrientationPublisher(item, deficient)));
+    if (!candidate) break;
+    add(candidate);
   }
 
   // Before adding general extras, represent additional publishers until the run
@@ -140,6 +212,11 @@ export function summarizePublisherCoverage(candidates, requiredDesks = []) {
   const publisherArticles = new Map();
   const primaryPublisherArticles = new Map();
   const desks = new Map(requiredDesks.map((desk) => [desk, new Map()]));
+  const orientations = new Map([
+    ["left", new Map()],
+    ["right", new Map()],
+    ["neutral", new Map()]
+  ]);
 
   for (const candidate of candidates) {
     increment(primaryPublisherArticles, candidate.publisher || "Unknown publisher");
@@ -147,6 +224,9 @@ export function summarizePublisherCoverage(candidates, requiredDesks = []) {
     for (const publisher of candidatePublishers(candidate)) {
       increment(publisherArticles, publisher);
       increment(desk, publisher);
+    }
+    for (const record of candidatePublisherRecords(candidate)) {
+      increment(orientations.get(record.orientation), record.publisher);
     }
     desks.set(candidate.newsroomDesk, desk);
   }
@@ -158,6 +238,10 @@ export function summarizePublisherCoverage(candidates, requiredDesks = []) {
     distinctPublishers: publisherArticles.size,
     publishers: sortedObject(publisherArticles),
     primaryPublishers: sortedObject(primaryPublisherArticles),
+    orientations: Object.fromEntries([...orientations.entries()].map(([orientation, publishers]) => [orientation, {
+      distinctPublishers: publishers.size,
+      publishers: sortedObject(publishers)
+    }])),
     desks: Object.fromEntries([...desks.entries()].map(([desk, publishers]) => [desk, {
       distinctPublishers: publishers.size,
       publishers: sortedObject(publishers)

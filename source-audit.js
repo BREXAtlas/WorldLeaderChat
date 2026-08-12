@@ -26,6 +26,7 @@
     ["fox news", profile(53, "medium", "news", "Public multipartisan rating data places Fox News Digital in the Right range.")],
     ["fox news digital", profile(53, "medium", "news", "Public multipartisan rating data places Fox News Digital in the Right range.")],
     ["military times", profile(0, "medium", "specialty", "Military community publication; topic focus is recorded separately from partisan orientation.")],
+    ["national review", profile(42, "high", "news", "Public multipartisan rating data places National Review news in the Lean Right range.")],
     ["nasa", profile(0, "high", "primary", "Primary scientific source. Its institutional statements are not treated as a partisan news-outlet rating.")],
     ["nasa jet propulsion laboratory", profile(0, "high", "primary", "Primary scientific source. Its institutional statements are not treated as a partisan news-outlet rating.")],
     ["newsnation", profile(4, "high", "news", "Public multipartisan rating data places NewsNation online written coverage in the Center range.")],
@@ -36,6 +37,7 @@
     ["reuters", profile(-13, "high", "news", "Public blind-survey and editorial-review data places Reuters in the Center range with a slight leftward score.")],
     ["rolling stone", profile(-58, "medium", "news", "Public media-bias reviews generally place its political coverage in the Left range.")],
     ["techcrunch", profile(-8, "medium", "specialty", "Technology trade outlet; assessed as broadly centered for the reporting used here.")],
+    ["the dispatch", profile(33, "medium", "news", "Public multipartisan rating data places The Dispatch in the Lean Right range.")],
     ["the atlantic", profile(-78, "low", "news", "Public multipartisan rating data places The Atlantic in the Left range.")],
     ["the daily beast", profile(-68, "high", "news", "Public multipartisan rating data places The Daily Beast in the Left range.")],
     ["the guardian", profile(-55, "high", "news", "Public media-bias reviews place The Guardian in the Left range.")],
@@ -52,6 +54,7 @@
     ["washington examiner", profile(38, "high", "news", "Public multipartisan rating data places Washington Examiner in the Lean Right range.")],
     ["world health organization", profile(0, "high", "primary", "Primary intergovernmental health source. Its statements are not treated as independent partisan reporting.")]
   ]);
+  let configuredSourcePool = { publishers: [], balance: { left: 0, right: 0, neutral: 0 } };
 
   function profile(score, confidence, kind, note) {
     return Object.freeze({ score, confidence, kind, note });
@@ -164,7 +167,7 @@
     ].join(" ");
   }
 
-  function collectSiteSources(events) {
+  function collectSiteSources(events, pool = configuredSourcePool) {
     const used = new Map();
     for (const event of events || []) {
       const seen = new Set();
@@ -176,7 +179,38 @@
         seen.add(key);
       }
     }
+    for (const monitored of pool?.publishers || []) {
+      const key = normalize(monitored.publisher);
+      if (!key) continue;
+      if (!used.has(key)) used.set(key, {
+        publisher: monitored.publisher,
+        source: { publisher: monitored.publisher },
+        files: 0,
+        monitored: true,
+        desks: monitored.desks || []
+      });
+      else {
+        used.get(key).monitored = true;
+        used.get(key).desks = monitored.desks || [];
+      }
+    }
     return [...used.values()].sort((a, b) => a.publisher.localeCompare(b.publisher));
+  }
+
+  async function loadSourcePool() {
+    if (typeof global.fetch !== "function") return configuredSourcePool;
+    try {
+      const response = await global.fetch("./data/source-pool.json", { cache: "no-store" });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const payload = await response.json();
+      if (!Array.isArray(payload.publishers)) throw new Error("Source pool is missing publishers.");
+      configuredSourcePool = payload;
+      const dialog = global.document?.getElementById("sourceAuditDialog");
+      if (dialog?.open) renderDialog();
+    } catch (error) {
+      console.warn("World Leader Chat source-pool audit could not be loaded:", error);
+    }
+    return configuredSourcePool;
   }
 
   function auditButtonHTML() {
@@ -187,9 +221,11 @@
     const current = profileFor(item.source);
     const rated = designation(current.score);
     const searchable = normalize(`${item.publisher} ${rated.label} ${rated.side} ${current.kind} ${current.note}`);
-    return `<article class="audit-source-row" data-audit-search="${esc(searchable)}">
+    const status = item.monitored ? "MONITORED NEWSROOM SOURCE" : "ARCHIVE SOURCE";
+    const desks = item.desks?.length ? ` • ${item.desks.join(", ")}` : "";
+    return `<article class="audit-source-row" data-audit-search="${esc(`${searchable} ${status} ${desks}`)}">
       <div><h3>${esc(item.publisher)}</h3><p>${esc(current.note)}</p></div>
-      <div class="audit-source-rating">${sourceBadgeHTML(item.source)}<span>${item.files} site file${item.files === 1 ? "" : "s"} • ${esc(current.confidence)} confidence</span></div>
+      <div class="audit-source-rating">${sourceBadgeHTML(item.source)}<span>${item.files} approved site file${item.files === 1 ? "" : "s"} • ${status}${desks} • ${esc(current.confidence)} confidence</span></div>
     </article>`;
   }
 
@@ -213,6 +249,7 @@
     if (!dialog) return null;
     const events = typeof global.allEvents === "function" ? global.allEvents() : [];
     const sources = collectSiteSources(events);
+    const balance = configuredSourcePool.balance || { left: 0, right: 0, neutral: 0 };
     dialog.innerHTML = `<div class="source-audit-page">
       <header class="source-audit-head">
         <div><span>TRANSPARENCY DESK</span><h2 id="sourceAuditTitle">SOURCE AUDIT</h2><p>How World Leaders Chat describes the political orientation of the original sourcing behind each file.</p></div>
@@ -221,6 +258,7 @@
       <section class="audit-summary">
         <div><b>−100</b><span>STRONG LEFT</span></div><div><b>0</b><span>NEUTRAL</span></div><div><b>+100</b><span>STRONG RIGHT</span></div>
       </section>
+      <p class="audit-pool-balance"><b>MONITORED PARTISAN POOL:</b> ${Number(balance.left) || 0} LEFT • ${Number(balance.right) || 0} RIGHT <span>• ${Number(balance.neutral) || 0} NEUTRAL / PRIMARY / SPECIALTY</span></p>
       <button type="button" class="audit-info-button" aria-expanded="false" aria-controls="auditMethod">ⓘ HOW THE PERCENTAGES WORK</button>
       <section id="auditMethod" class="audit-method" hidden>
         <h3>The WLC source-orientation scale</h3>
@@ -230,7 +268,7 @@
         <p><b>How outlets are reviewed:</b> public multipartisan blind-survey and editorial-panel research is used when available, then checked against article-level language, story selection, sourcing patterns and the outlet’s reporting type. Ratings describe a general sourcing orientation, not the truth of a specific story. “Left” does not mean “Democratic Party,” and “Right” does not mean “Republican Party.”</p>
         <p>Registry last reviewed ${esc(REVIEWED_ON)}. Scores can be revised as an outlet changes or stronger review evidence becomes available.</p>
       </section>
-      <div class="audit-list-head"><div><h3>SOURCES USED ON THIS SITE</h3><p>${sources.length} source designation${sources.length === 1 ? "" : "s"}, generated from the current archive.</p></div><label>FILTER SOURCES<input id="sourceAuditSearch" type="search" placeholder="Search outlet or designation"></label></div>
+      <div class="audit-list-head"><div><h3>MONITORED SOURCE POOL + SITE SOURCES</h3><p>${sources.length} source designation${sources.length === 1 ? "" : "s"}, including enabled newsroom feeds and the current archive.</p></div><label>FILTER SOURCES<input id="sourceAuditSearch" type="search" placeholder="Search outlet or designation"></label></div>
       <div id="sourceAuditList" class="audit-source-list">${sources.map(sourceRowHTML).join("") || '<p class="audit-empty">No sources are loaded yet.</p>'}</div>
     </div>`;
     dialog.querySelector(".source-audit-close").onclick = () => dialog.close();
@@ -284,6 +322,7 @@
       .source-audit-close{align-self:flex-start;border:1px solid #111;background:#fff;padding:8px 10px;font:900 10px Arial,sans-serif;cursor:pointer}
       .audit-summary{display:grid;grid-template-columns:1fr 1fr 1fr;background:linear-gradient(90deg,#d9e8fa 0 49%,#e9e6db 49% 51%,#f7ddd5 51% 100%);margin:20px 0 10px;border:1px solid #111}
       .audit-summary div{display:grid;place-items:center;padding:13px 5px}.audit-summary b{font:900 22px Georgia,serif}.audit-summary span{font:900 9px Arial,sans-serif;letter-spacing:.09em}
+      .audit-pool-balance{border:1px solid #111;background:#fff;padding:10px 12px;margin:0 0 10px;font:900 11px/1.4 Arial,sans-serif;letter-spacing:.055em}.audit-pool-balance span{color:#555}
       .audit-info-button{border:1px solid #111;background:#fff;padding:9px 12px;font:900 11px Arial,sans-serif;letter-spacing:.08em;cursor:pointer}
       .audit-info-button:hover,.audit-info-button:focus-visible{background:#111;color:#fff}
       .audit-method{border:2px solid #111;margin:9px 0 18px;padding:16px;background:#f4f0e5}.audit-method h3{font:900 24px Georgia,serif;margin:0 0 8px}.audit-method>p{font:13px/1.5 Arial,sans-serif}
@@ -316,6 +355,7 @@
     sourceBadgeHTML,
     searchTermsFor,
     collectSiteSources,
+    loadSourcePool,
     auditButtonHTML,
     open,
     bind
@@ -323,4 +363,5 @@
   global.WLC_SOURCE_AUDIT = api;
   injectStyles();
   patchSourceLinks();
+  loadSourcePool();
 })(globalThis);

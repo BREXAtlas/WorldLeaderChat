@@ -33,7 +33,7 @@ async function github(path, options = {}) {
 
 const labelDefinitions = [
   { name: "news-candidate", color: "b60205", description: "Automated world-news candidate awaiting editorial review" },
-  { name: "needs-editor", color: "d93f0b", description: "Needs fact checking and satirical chat drafting" },
+  { name: "needs-editor", color: "d93f0b", description: "Automated newsroom draft is being corrected before owner review" },
   { name: "fact-checked", color: "1d76db", description: "Editor confirms the factual fields and sources were checked" },
   { name: "editorial-approved", color: "0e8a16", description: "Authorized editor approves publication" },
   { name: "published", color: "5319e7", description: "Published to World Leader Chat" },
@@ -44,10 +44,16 @@ const labelDefinitions = [
 
 async function ensureLabels() {
   const existing = await github(`/repos/${repository}/labels?per_page=100`);
-  const names = new Set(existing.map((label) => label.name));
+  const byName = new Map(existing.map((label) => [label.name, label]));
   for (const definition of labelDefinitions) {
-    if (names.has(definition.name)) continue;
-    await github(`/repos/${repository}/labels`, { method: "POST", body: definition });
+    const current = byName.get(definition.name);
+    if (!current) await github(`/repos/${repository}/labels`, { method: "POST", body: definition });
+    else if (current.description !== definition.description || current.color !== definition.color) {
+      await github(`/repos/${repository}/labels/${encodeURIComponent(definition.name)}`, {
+        method: "PATCH",
+        body: { new_name: definition.name, color: definition.color, description: definition.description }
+      });
+    }
   }
 }
 

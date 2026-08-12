@@ -38,6 +38,7 @@ if (!Array.isArray(sourcesConfig.sources) || !sourcesConfig.sources.length) {
 } else {
   const sourceIds = new Set();
   const feedUrls = new Set();
+  const enabledPublishers = new Set(sourcesConfig.sources.filter((source) => source.enabled).map((source) => source.publisher));
   for (const source of sourcesConfig.sources) {
     if (!source.id || sourceIds.has(source.id)) errors.push(`Duplicate or missing feed id: ${source.id ?? "(missing)"}`);
     sourceIds.add(source.id);
@@ -49,6 +50,25 @@ if (!Array.isArray(sourcesConfig.sources) || !sourcesConfig.sources.length) {
     }
     if (feedUrls.has(source.url)) errors.push(`Duplicate feed URL: ${source.url}`);
     feedUrls.add(source.url);
+  }
+  const orientations = sourcesConfig.publisherOrientation || {};
+  for (const [publisher, orientation] of Object.entries(orientations)) {
+    if (!enabledPublishers.has(publisher)) errors.push(`Oriented publisher is not enabled in the source pool: ${publisher}`);
+    if (!new Set(["left", "right", "neutral"]).has(orientation)) errors.push(`Invalid publisher orientation for ${publisher}: ${orientation}`);
+  }
+  const leftPublishers = Object.entries(orientations).filter(([, orientation]) => orientation === "left").map(([publisher]) => publisher);
+  const rightPublishers = Object.entries(orientations).filter(([, orientation]) => orientation === "right").map(([publisher]) => publisher);
+  if (leftPublishers.length < 5 || rightPublishers.length < 5) {
+    errors.push(`The monitored partisan source pool must contain at least five publishers per side; found ${leftPublishers.length} left and ${rightPublishers.length} right.`);
+  }
+  if (leftPublishers.length !== rightPublishers.length) {
+    errors.push(`The monitored partisan source pool must be equal; found ${leftPublishers.length} left and ${rightPublishers.length} right.`);
+  }
+  if (Number(sourcesConfig.sourceDiversity?.minimumPublishersPerOrientation) < 4) {
+    errors.push("sourceDiversity.minimumPublishersPerOrientation must be at least 4.");
+  }
+  if (Number(sourcesConfig.sourceDiversity?.maximumOrientationDifference) > 1) {
+    errors.push("sourceDiversity.maximumOrientationDifference cannot exceed 1.");
   }
 }
 
