@@ -71,6 +71,8 @@ test("failed machine drafts stay newsroom work instead of becoming owner writing
   assert.match(queueWorkflow, /run-drafting-batches\.mjs/);
   assert.match(queueWorkflow, /target_issue/);
   assert.match(queueWorkflow, /WLC_TARGET_ISSUE/);
+  assert.match(queueWorkflow, /Refresh the selected custom article source/);
+  assert.match(queueWorkflow, /enrich-custom-submission\.mjs/);
   assert.match(queueWorkflow, /Automatically retry unfinished writing/);
   assert.match(queueWorkflow, /assert-editorial-readiness\.mjs/);
 });

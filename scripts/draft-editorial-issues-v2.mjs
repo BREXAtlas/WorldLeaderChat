@@ -288,9 +288,8 @@ for (const { issue, bundle: originalBundle } of queue) {
 
     if (!writerWorked) {
       generationFailureCount += 1;
-      // Never promote fill-in-the-headline copy as a safety fallback. Preserve the
-      // best source-locked attempt for a future automated retry, but let the quality
-      // gate keep the file out of Ready for Approval until original writing succeeds.
+      // Never promote fill-in-the-headline copy as a safety fallback. Keep the best
+      // attempt in memory for diagnostics, but do not save a failed draft to the issue.
       bundle = bestArticleCandidate || bundle;
     }
 
@@ -300,12 +299,6 @@ for (const { issue, bundle: originalBundle } of queue) {
     ];
     if (finalProblems.length || stockMemeDetected(bundle.event?.meme)) {
       blocked += 1;
-      if (bestArticleCandidate) {
-        await github(`/repos/${repository}/issues/${issue.number}`, {
-          method: "PATCH",
-          body: { body: replaceBundle(issue.body || "", bundle) }
-        });
-      }
       await setLabels(issue, ["needs-editor"], ["drafting", "ready-for-approval", "regenerate-requested", "redraft-requested"]);
       console.error(`::warning title=Draft blocked by chat quality::Issue #${issue.number}: ${[...lastProblems.map((problem) => `Generation: ${problem}`), ...finalProblems, ...(stockMemeDetected(bundle.event?.meme) ? ["stock meme"] : [])].join(" | ")}`);
       continue;

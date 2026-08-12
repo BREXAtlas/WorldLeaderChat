@@ -3,7 +3,7 @@ set -euo pipefail
 
 cache_dir="${RUNNER_TOOL_CACHE:-${HOME}/.cache}/world-leader-chat-writer"
 llama_dir="${cache_dir}/llama"
-model_path="${cache_dir}/qwen2.5-1.5b-instruct-q4_k_m.gguf"
+model_path="${cache_dir}/qwen2.5-3b-instruct-q4_k_m.gguf"
 mkdir -p "${llama_dir}"
 
 if [[ ! -x "${llama_dir}/llama-server" ]]; then
@@ -17,9 +17,9 @@ fi
 
 if [[ ! -s "${model_path}" ]]; then
   curl --fail --show-error --location --retry 5 --retry-delay 2 --retry-all-errors \
-    "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF/resolve/main/qwen2.5-1.5b-instruct-q4_k_m.gguf" \
+    "https://huggingface.co/Qwen/Qwen2.5-3B-Instruct-GGUF/resolve/main/qwen2.5-3b-instruct-q4_k_m.gguf" \
     --output "${model_path}"
-  echo "6a1a2eb6d15622bf3c96857206351ba97e1af16c30d7a74ee38970e434e9407e  ${model_path}" | sha256sum --check
+  echo "626b4a6678b86442240e33df819e00132d3ba7dddfe1cdc4fbb18e0a9615c62d  ${model_path}" | sha256sum --check
 fi
 
 nohup "${llama_dir}/llama-server" \

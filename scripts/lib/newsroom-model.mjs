@@ -54,8 +54,8 @@ function diagnostic(value) {
 const messageSchema = {
   type: "object",
   properties: {
-    speaker: { type: "string" },
-    text: { type: "string" },
+    speaker: { type: "string", minLength: 2, maxLength: 100 },
+    text: { type: "string", minLength: 30, maxLength: 300 },
     kind: { type: "string", enum: ["satire", "system"] },
     reaction: { type: "string" }
   },
@@ -83,9 +83,9 @@ export const articleDraftSchema = {
     article: {
       type: "object",
       properties: {
-        headline: { type: "string" },
-        dek: { type: "string" },
-        body: { type: "array", minItems: 3, maxItems: 5, items: { type: "string" } },
+        headline: { type: "string", minLength: 20, maxLength: 240 },
+        dek: { type: "string", minLength: 40, maxLength: 420 },
+        body: { type: "array", minItems: 3, maxItems: 5, items: { type: "string", minLength: 220, maxLength: 1200 } },
         sourceCredit: { type: "string" }
       },
       required: ["headline", "dek", "body", "sourceCredit"],
