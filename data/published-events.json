@@ -1775,6 +1775,109 @@
     }
   },
   {
+    "id": "2026-08-11-openai-launches-chatgpt-desktop-app-for-linux",
+    "eventDate": "2026-08-11",
+    "year": 2026,
+    "date": "August 11, 2026",
+    "title": "OpenAI Releases a Dedicated ChatGPT App for Linux",
+    "kicker": "Linux users finally get an official desktop client, closing a conspicuous platform gap for a community accustomed to building its own workaround.",
+    "category": "Technology & AI",
+    "summary": "OpenAI is finally bringing a dedicated ChatGPT desktop app to Linux operating systems.",
+    "article": {
+      "headline": "OpenAI Releases a Dedicated ChatGPT App for Linux",
+      "dek": "Linux users finally get an official desktop client, closing a conspicuous platform gap for a community accustomed to building its own workaround.",
+      "body": [
+        "OpenAI has launched a dedicated ChatGPT desktop application for Linux, TechCrunch reports. The release brings the company’s AI assistant to a platform whose users previously relied on the web experience or unofficial methods when they wanted ChatGPT integrated into desktop workflows.",
+        "A native client gives OpenAI a more direct way to manage desktop features, updates and user experience on Linux distributions. It also signals that the company considers the platform’s technical and professional audience large enough to support officially rather than leaving it at the edge of the product roadmap.",
+        "Linux users are famous for accepting neither software defaults nor celebratory marketing without inspection, so the app will quickly meet an audience prepared to test how native it really feels. The important change is simple: installation no longer begins with an explanation of why the operating system was skipped. The penguin has entered the product matrix."
+      ],
+      "sourceCredit": "Based on original reporting from TechCrunch."
+    },
+    "sources": [
+      {
+        "label": "OpenAI launches ChatGPT desktop app for Linux",
+        "url": "https://techcrunch.com/2026/08/11/openai-launches-chatgpt-desktop-app-for-linux/",
+        "publisher": "TechCrunch"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Linux Maintainer",
+        "text": "An official client is welcome. Now show us the supported distributions, package format, update path and documentation.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "OpenAI Product Team",
+        "text": "Linux users now have a dedicated client instead of being directed back to the browser.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Linux Maintainer",
+        "text": "Which distributions are supported, where is the package and who chose the update mechanism? Welcome.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "OpenAI Product Team",
+        "text": "We expected questions. We did not expect all of them before the download finished.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Tux",
+        "text": "The community has spent years creating unofficial solutions. Please arrive with documentation and humility.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Linux Maintainer",
+        "text": "Also checksums. Humility is helpful; checksums are verifiable.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "OpenAI Product Team",
+        "text": "The goal is a first-class desktop experience for Linux users.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Tux",
+        "text": "Then do not call us a niche in the next investor presentation.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "OpenAI Product Team",
+        "text": "Noted. Is there a preferred format for that promise?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Linux Maintainer",
+        "text": "Plain text, version controlled, no proprietary font.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "Linux finally got the official app and immediately opened an issue about how official it felt.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-12T21:17:12.252Z",
+    "editorial": {
+      "issueNumber": 179,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/179",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-12T21:17:12.252Z",
+      "fingerprint": "13092dec7feb3a05ec936b5c4ca37cb1212908eee687cb8a0246141ccc18d73c",
+      "sourcePublishedAt": "2026-08-11T19:15:35.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Rewritten from the source summary after the queue-wide recycled-template audit. No headline recitation or shared dialogue skeleton remains. Opening narrator removed; the conversation now starts with a direct event participant. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-11-pakistan-administered-kashmir-holds-elections-amid-calls-for-a-b",
     "eventDate": "2026-08-11",
     "year": 2026,
