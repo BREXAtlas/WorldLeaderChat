@@ -1969,6 +1969,109 @@
     }
   },
   {
+    "id": "2026-08-11-nasa-shares-station-research-today-supporting-moon-mars-tomorrow",
+    "eventDate": "2026-08-11",
+    "year": 2026,
+    "date": "August 11, 2026",
+    "title": "Space Station Research Builds the Workbench for Future Moon and Mars Missions",
+    "kicker": "NASA says experiments aboard the ISS in 2026 are testing science and operations that can support crews traveling farther from Earth.",
+    "category": "Science & Space",
+    "summary": "The International Space Station has been busy throughout 2026, as it continues to be a bustling workspace for astronauts conducting a variety of scientific experiments that lay the groundwork for missions to the Moon and beyond. NASA’s Artemis II mission in April was the first crewed flight around the Moon in more than 50 years, […]",
+    "article": {
+      "headline": "Space Station Research Builds the Workbench for Future Moon and Mars Missions",
+      "dek": "NASA says experiments aboard the ISS in 2026 are testing science and operations that can support crews traveling farther from Earth.",
+      "body": [
+        "The International Space Station has remained an active laboratory throughout 2026, with astronauts conducting experiments that NASA says will help prepare future missions to the Moon, Mars and beyond. The orbiting platform lets crews test research and procedures in microgravity while remaining much closer to Earth than those later destinations.",
+        "NASA links that work to a renewed period of human lunar exploration. The agency says Artemis II flew astronauts around the Moon in April, the first crewed lunar flight in more than 50 years. Station research provides an operational bridge between decades of experience in low Earth orbit and missions that will have less immediate access to supplies or assistance.",
+        "Not every experiment produces a dramatic photograph, but the cumulative results can shape equipment, health practices and mission planning. Mars remains far beyond the station’s orbit; that is exactly why failures and unknowns should be found closer to home first. The ISS is doing tomorrow’s homework in the one classroom where the floor does not keep the papers down."
+      ],
+      "sourceCredit": "Based on original reporting from NASA."
+    },
+    "sources": [
+      {
+        "label": "NASA Shares Station Research Today Supporting Moon, Mars Tomorrow",
+        "url": "https://www.nasa.gov/missions/station/iss-research/nasa-shares-station-research-today-supporting-moon-mars-tomorrow/",
+        "publisher": "NASA"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Mars Planning Office",
+        "text": "Find the equipment failures near Earth, please. A repair request from Mars has an unacceptable response time.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "NASA Mission Control",
+        "text": "Low Earth orbit lets us study systems and crew needs before distance removes the easy rescue options.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "ISS Crew",
+        "text": "We are the laboratory, the maintenance team and occasionally the control group for floating tools.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Artemis Program",
+        "text": "The lunar flight showed what is possible. Sustained exploration needs the less cinematic research too.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Mars Planning Office",
+        "text": "Please identify every failure mode before our return address takes several months to reach.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "ISS Crew",
+        "text": "We have a list. Microgravity keeps adding annotations in unexpected locations.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "NASA Mission Control",
+        "text": "Each experiment turns an unknown into a procedure, a design change or a better question.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Artemis Program",
+        "text": "And each procedure means the next crew spends less time inventing one far from home.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Mars Planning Office",
+        "text": "Excellent. Send data, not inspirational posters.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "ISS Crew",
+        "text": "Data is downloading. The poster is currently stuck to the ventilation intake.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "Mars is the destination; the space station is where the checklist learns humility.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-12T21:28:40.805Z",
+    "editorial": {
+      "issueNumber": 167,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/167",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-12T21:28:40.805Z",
+      "fingerprint": "be5b6e43cd85742685f096d9b43864fe2d7697bab2a3d4dcca6ca84cc4622fdf",
+      "sourcePublishedAt": "2026-08-11T14:00:00.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Rewritten from the source summary after the queue-wide recycled-template audit. No headline recitation or shared dialogue skeleton remains. Opening narrator removed; the conversation now starts with a direct event participant. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-11-north-korean-remote-it-staffer-worked-for-us-government-agency-s",
     "eventDate": "2026-08-11",
     "year": 2026,
