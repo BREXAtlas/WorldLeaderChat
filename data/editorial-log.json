@@ -1359,5 +1359,17 @@
     "sourceUrls": [
       "https://variety.com/2026/film/news/california-attorney-general-bonta-david-ellison-paramount-blackmail-attempt-1236832141/"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-11-zoomsday-hack-uncovered-using-fewer-than-20-ai-prompts",
+    "issueNumber": 156,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/156",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-12T21:35:51.096Z",
+    "fingerprint": "f82a6ba2e71d1c54444a3f231be8ac4d53c8c6a2dad56201b3b7563a06ea0fc0",
+    "sourceUrls": [
+      "https://www.theverge.com/ai-artificial-intelligence/977909/zoom-vulnerability-ai-attack"
+    ]
   }
 ]

@@ -5315,6 +5315,109 @@
     }
   },
   {
+    "id": "2026-08-11-zoomsday-hack-uncovered-using-fewer-than-20-ai-prompts",
+    "eventDate": "2026-08-11",
+    "year": 2026,
+    "date": "August 11, 2026",
+    "title": "Researchers Used Fewer Than 20 AI Prompts to Uncover a Major Zoom Flaw",
+    "kicker": "The patched ‘Zoomsday’ vulnerability could have let an attacker hijack a participant’s device through the meeting platform’s annotation feature.",
+    "category": "Technology & AI",
+    "summary": "Zoom has patched a major security vulnerability that could allow an attacker to hijack anyone's device during a meeting. In a blog post on Tuesday, researchers at A Security say they uncovered the flaw using \"fewer than 20 prompts on publicly available AI models,\" as reported earlier by Wired. The exploit involved Zoom's annotation feature, […]",
+    "article": {
+      "headline": "Researchers Used Fewer Than 20 AI Prompts to Uncover a Major Zoom Flaw",
+      "dek": "The patched ‘Zoomsday’ vulnerability could have let an attacker hijack a participant’s device through the meeting platform’s annotation feature.",
+      "body": [
+        "Zoom has patched a serious security vulnerability that researchers said could allow an attacker to take control of a person’s device during a meeting. The Verge reports that researchers at A Security named the flaw ‘Zoomsday’ and found it in the platform’s annotation feature.",
+        "The team said publicly available AI models helped uncover the weakness with fewer than 20 prompts. That detail does not mean an AI system independently performed the entire security investigation; it shows how researchers can use general-purpose models to accelerate parts of code analysis and vulnerability discovery.",
+        "Zoom’s patch closes the reported path, but the episode changes the economics on both sides of software defense. If researchers can reach a major finding with a short assisted workflow, attackers may seek the same leverage. Vendors will need faster testing, disclosure and updates—plus the humility to assume that the helpful meeting tool in the corner may be carrying far more authority than its icon suggests."
+      ],
+      "sourceCredit": "Based on original reporting from The Verge."
+    },
+    "sources": [
+      {
+        "label": "‘Zoomsday’ hack uncovered using fewer than 20 AI prompts",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/977909/zoom-vulnerability-ai-attack",
+        "publisher": "The Verge"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Enterprise IT",
+        "text": "I need the patch deployed before the next annotation tool decides it has authority over the entire device.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "A Security",
+        "text": "We used public AI tools to accelerate the investigation and reached the vulnerability in fewer than twenty prompts.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Zoom Security",
+        "text": "The reported flaw has been patched, and users should install current updates.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Enterprise IT",
+        "text": "Was the annotation feature applying for administrator privileges while we argued about microphone settings?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "A Security",
+        "text": "The issue involved how the feature handled interactions, not a magical prompt that replaced security research.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Zoom Security",
+        "text": "Responsible disclosure allowed us to investigate and ship a fix before public technical discussion.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "AI Safety Lab",
+        "text": "The speed matters. Defensive teams and attackers can both use models to shorten the search.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Enterprise IT",
+        "text": "Then patch windows measured in weeks are about to become historical fiction.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "A Security",
+        "text": "AI assisted the work; careful verification established the finding.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Zoom Security",
+        "text": "Update first. Debate whether the vulnerability needed a dramatic nickname after the devices are protected.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "The annotation tool drew one arrow too many; the patch meeting became mandatory.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-12T21:35:51.096Z",
+    "editorial": {
+      "issueNumber": 156,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/156",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-12T21:35:51.096Z",
+      "fingerprint": "f82a6ba2e71d1c54444a3f231be8ac4d53c8c6a2dad56201b3b7563a06ea0fc0",
+      "sourcePublishedAt": "2026-08-11T14:45:44.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Rewritten from the source summary after the queue-wide recycled-template audit. No headline recitation or shared dialogue skeleton remains. Opening narrator removed; the conversation now starts with a direct event participant. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-10-2026-fedex-st-jude-championship-odds-picks-surprising-prediction",
     "eventDate": "2026-08-10",
     "year": 2026,
