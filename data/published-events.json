@@ -756,6 +756,109 @@
     }
   },
   {
+    "id": "2026-08-11-california-attorney-general-slams-david-ellison-s-plan-to-pull-p",
+    "eventDate": "2026-08-11",
+    "year": 2026,
+    "date": "August 11, 2026",
+    "title": "California Attorney General Calls Paramount Exit Threat ‘Blackmail’ in Merger Standoff",
+    "kicker": "Rob Bonta rejected David Ellison’s warning that Paramount could leave California unless officials discuss settling the Warner Bros. Discovery antitrust case.",
+    "category": "Business & Power",
+    "summary": "Rob Bonta, the attorney general of California who is leading a 12-state coalition’s lawsuit seeking to block Paramount’s takeover of Warner Bros. Discovery, responded to David Ellison’s threat to pull Paramount out of the state unless Bonta agrees to settlement talks. “In a span of weeks, Paramount agreed to halt the merger until a court […]",
+    "article": {
+      "headline": "California Attorney General Calls Paramount Exit Threat ‘Blackmail’ in Merger Standoff",
+      "dek": "Rob Bonta rejected David Ellison’s warning that Paramount could leave California unless officials discuss settling the Warner Bros. Discovery antitrust case.",
+      "body": [
+        "California Attorney General Rob Bonta has accused Paramount leader David Ellison of attempting ‘blackmail’ after Ellison threatened to move the company out of the state unless Bonta entered settlement talks. Variety reports that Bonta leads a 12-state coalition seeking to block Paramount’s takeover of Warner Bros. Discovery.",
+        "The exchange escalates an antitrust lawsuit into a public contest over jobs, corporate location and negotiating pressure. Ellison’s warning raises the economic cost California might face if the dispute continues. Bonta’s response argues that a company cannot use that potential departure to force the state away from its competition case.",
+        "Settlement discussions are common in litigation, but a credible agreement must answer the legal concerns rather than merely make the threat quieter. The coalition has challenged the merger; Paramount wants the transaction to proceed. Moving headquarters is a corporate option, not an antitrust defense. Calling the threat blackmail is political language, but it identifies the core question: who is negotiating, and under whose leverage?"
+      ],
+      "sourceCredit": "Based on original reporting from Variety."
+    },
+    "sources": [
+      {
+        "label": "California Attorney General Slams David Ellison’s Plan to Pull Paramount Out of the State as ‘Blackmail’ Attempt That ‘Won’t Work’",
+        "url": "https://variety.com/2026/film/news/california-attorney-general-bonta-david-ellison-paramount-blackmail-attempt-1236832141/",
+        "publisher": "Variety"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Multistate Antitrust Coalition",
+        "text": "If Paramount wants settlement talks, it should bring enforceable competition remedies rather than an address-change threat.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "David Ellison",
+        "text": "If the state refuses even to discuss resolution, Paramount must evaluate whether California remains a workable home.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Rob Bonta",
+        "text": "Threatening to pull jobs unless we retreat from an antitrust case will not determine the public interest.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Paramount Board",
+        "text": "A prolonged legal blockade carries costs for the company, employees and the transaction.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Multistate Antitrust Coalition",
+        "text": "Then address the competition concerns with enforceable remedies, not a moving-van ultimatum.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "David Ellison",
+        "text": "Settlement talks are the practical forum for finding those terms.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Rob Bonta",
+        "text": "A conference room can be useful. It cannot be rented with a threat to the state’s economy.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Paramount Board",
+        "text": "Location decisions remain a legitimate part of corporate planning.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Multistate Antitrust Coalition",
+        "text": "And enforcement remains a legitimate part of governing. Neither fact cancels the other.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Rob Bonta",
+        "text": "Bring remedies to the table. Leave the hostage note out of the term sheet.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "Paramount threatened to change addresses; the lawsuit refused to forward itself.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-12T21:34:10.597Z",
+    "editorial": {
+      "issueNumber": 157,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/157",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-12T21:34:10.597Z",
+      "fingerprint": "9b3a97c72ab68a3f05728ba74eca9c68fc7f962a4733cdda480cbaf23965b5eb",
+      "sourcePublishedAt": "2026-08-11T16:24:55.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Rewritten from the source summary after the queue-wide recycled-template audit. No headline recitation or shared dialogue skeleton remains. Opening narrator removed; the conversation now starts with a direct event participant. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-11-california-democratic-gubernatorial-nominee-xavier-becerra-says",
     "eventDate": "2026-08-11",
     "year": 2026,
