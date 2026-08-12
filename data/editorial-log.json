@@ -1115,5 +1115,17 @@
     "sourceUrls": [
       "https://www.bbc.co.uk/sport/athletics/articles/c9d338xxwp7o?at_medium=RSS&at_campaign=rss"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-11-architect-of-california-s-billionaire-tax-plots-national-push-as",
+    "issueNumber": 189,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/189",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-12T21:10:12.845Z",
+    "fingerprint": "1b83aefe22d2c3f6fa71b39b0f88d049c30008b54b646758d4a3ba56a266826d",
+    "sourceUrls": [
+      "https://nypost.com/2026/08/11/us-news/californias-billionaire-tax-is-a-national-campaign-says-labor-leader/"
+    ]
   }
 ]

@@ -115,6 +115,109 @@
     }
   },
   {
+    "id": "2026-08-11-architect-of-california-s-billionaire-tax-plots-national-push-as",
+    "eventDate": "2026-08-11",
+    "year": 2026,
+    "date": "August 11, 2026",
+    "title": "California Billionaire-Tax Organizer Plans a National Campaign",
+    "kicker": "The labor leader behind a controversial state proposal says the wealth-tax fight will not stop at California’s border.",
+    "category": "Business & Power",
+    "summary": "The labor leader behind the controversial measure is now promising to bring it to a national stage.",
+    "article": {
+      "headline": "California Billionaire-Tax Organizer Plans a National Campaign",
+      "dek": "The labor leader behind a controversial state proposal says the wealth-tax fight will not stop at California’s border.",
+      "body": [
+        "The labor leader associated with California’s proposed billionaire tax is preparing to take the argument nationwide, according to the New York Post. The state measure has drawn a fierce response from wealthy residents and business interests, but its organizer is presenting the controversy as a launch point rather than a warning to retreat.",
+        "A national campaign would move the fight into a much larger political arena. Supporters can argue that extreme wealth should carry a greater public obligation; opponents can point to mobility, investment and the risk that targeted taxpayers simply change addresses. The source’s framing emphasizes wealthy Californians leaving, while the proposal’s advocate is emphasizing expansion.",
+        "Neither side lacks a headline. The harder question is what a workable policy would tax, how it would be enforced and whether revenue projections survive changes in taxpayer behavior. Turning a state battle into a national one may broaden the coalition. It also broadens the number of officials, voters and accountants entitled to ask for the actual math."
+      ],
+      "sourceCredit": "Based on original reporting from New York Post."
+    },
+    "sources": [
+      {
+        "label": "Architect of California’s billionaire tax plots national push as state’s richest flee",
+        "url": "https://nypost.com/2026/08/11/us-news/californias-billionaire-tax-is-a-national-campaign-says-labor-leader/",
+        "publisher": "New York Post"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Treasury Committee",
+        "text": "Bring the definitions, enforcement plan and revenue assumptions before this billionaire-tax campaign collects another slogan.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Labor Coalition",
+        "text": "If extraordinary fortunes operate nationally, the fairness debate cannot end at one state line.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "California Business Council",
+        "text": "Capital can cross that line faster than a campaign bus.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Treasury Committee",
+        "text": "Both of you have slogans. Which spreadsheet is willing to testify?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Labor Coalition",
+        "text": "Start with the public costs that helped create the market those fortunes use.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "California Business Council",
+        "text": "Then account for investment and residency changes after the tax arrives.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Treasury Committee",
+        "text": "Good. We have finally reached verbs more useful than ‘fair’ and ‘flee.’",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Labor Coalition",
+        "text": "A national push reduces the incentive to shop among states for the lowest obligation.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "California Business Council",
+        "text": "Unless the shopping moves outside the country. Your map needs another page.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Treasury Committee",
+        "text": "Bring the definitions, enforcement plan and revenue assumptions. The microphones already have enough passion.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "The tax campaign went national; the billionaires asked whether the exit signs did too.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-12T21:10:12.845Z",
+    "editorial": {
+      "issueNumber": 189,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/189",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-12T21:10:12.845Z",
+      "fingerprint": "1b83aefe22d2c3f6fa71b39b0f88d049c30008b54b646758d4a3ba56a266826d",
+      "sourcePublishedAt": "2026-08-12T01:48:45.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Rewritten from the source summary after the queue-wide recycled-template audit. No headline recitation or shared dialogue skeleton remains. Opening narrator removed; the conversation now starts with a direct event participant. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-11-ari-emanuel-s-mari-agrees-deal-to-buy-atg-owner-of-theater-venue",
     "eventDate": "2026-08-11",
     "year": 2026,
