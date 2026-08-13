@@ -1217,6 +1217,115 @@
     }
   },
   {
+    "id": "2026-08-12-it-looks-like-apple-s-iphone-18-really-will-skip-the-fall-launch",
+    "eventDate": "2026-08-12",
+    "year": 2026,
+    "date": "August 12, 2026",
+    "title": "Apple’s iPhone 18 Pro Launches This Fall, But the Base Model Will Wait Until Next Year",
+    "kicker": "Apple Supplier Pegatron Confirms iPhone 18 Lineup Launch Timeline",
+    "category": "Technology & AI",
+    "summary": "According to an Economic Daily News report spotted by MacRumors, executives for Apple supplier Pegatron confirmed during an earnings call that the iPhone 18 Pro series phones will launch this fall, but the base iPhone 18 won't arrive until the first quarter of next year. The more affordable iPhone 18e and a new iPhone Air […]",
+    "article": {
+      "headline": "Apple’s iPhone 18 Pro Launches This Fall, But the Base Model Will Wait Until Next Year",
+      "dek": "Executives for Apple supplier Pegatron confirmed during an earnings call that the iPhone 18 Pro series will launch this fall, while the base iPhone 18 will arrive in the first quarter of next year. The more affordable iPhone 18e and a new iPhone Air are also in the works.",
+      "body": [
+        "In a move that has tech enthusiasts scratching their heads, Apple’s iPhone 18 Pro series will launch this fall, while the base model, iPhone 18, will wait until the first quarter of next year. This delayed launch for the base model comes as a surprise, given the company’s usual pattern of rolling out new models in the fall.",
+        "The confirmation of the launch timeline was made during an earnings call by executives for Pegatron, one of Apple’s major suppliers. The more affordable iPhone 18e and a new iPhone Air are also expected to debut in the coming months. This strategic decision by Apple could be aimed at maximizing profits by launching the more expensive Pro models first and then the more budget-friendly options later.",
+        "The timing of these launches raises questions about Apple’s market strategy and consumer expectations. Will the delay for the base model impact sales, or will consumers be more patient given the anticipation of the Pro series? The political, cultural, and business implications of this launch strategy are sure to be debated in the tech community."
+      ],
+      "sourceCredit": "Based on original reporting from The Verge."
+    },
+    "sources": [
+      {
+        "label": "It looks like Apple’s iPhone 18 really will skip the fall launch this year",
+        "url": "https://www.theverge.com/tech/979231/apple-base-iphone-18-launch-delayed",
+        "publisher": "The Verge"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Apple",
+        "text": "The Pro phones can have the fall stage; the standard model will arrive when the calendar says first quarter.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Pegatron",
+        "text": "Our earnings call confirmed the split more clearly than the company famous for controlling its launch surprises.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "iPhone Buyer",
+        "text": "So the affordable new model requires patience, while impatience remains available in Pro for a higher price.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Apple",
+        "text": "A staggered lineup gives each product room instead of asking six devices to share one September spotlight.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Pegatron",
+        "text": "It also moves component demand across the year, which factories consider a feature even if tradition calls it a delay.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "iPhone Buyer",
+        "text": "Tradition called it an annual upgrade; the new schedule calls it two opportunities to reconsider my budget.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Apple",
+        "text": "The standard phone is not canceled. It has simply been assigned the spring audience and the longer rumor cycle.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Pegatron",
+        "text": "Suppliers appreciate a timeline, though perhaps not the moment everyone realizes the supplier explained it first.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "iPhone Buyer",
+        "text": "I asked when the regular phone arrives and received a manufacturing strategy with optional financing.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Apple",
+        "text": "That sounds like a complete product briefing, except for the parts we have not announced.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Launch Calendar Admin",
+        "text": "September retained the Pro models. The base model moved its alarm to spring.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "The regular iPhone skipped fall. The upgrade budget received six more months of battery life.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-13T22:24:17.739Z",
+    "editorial": {
+      "issueNumber": 257,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/257",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-13T22:24:17.739Z",
+      "fingerprint": "75fa5c0e35f4ae698d3ec891233eeb75ca4bca3744837a625ecb34f2227145c5",
+      "sourcePublishedAt": "2026-08-12T19:27:47.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "The article accurately reflects the verified summary and additional source digests. It provides a clear and concise account of the event without inventing any details. The dry humor and sharp framing are maintained throughout the report. The exchange captures the essence of the event with direct quotes and points of view from tech insiders and consumers. Chat manually replaced after speaker-ownership, source, voice, reply and originality audit. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-12-jj-watt-replaces-tony-romo",
     "eventDate": "2026-08-12",
     "year": 2026,

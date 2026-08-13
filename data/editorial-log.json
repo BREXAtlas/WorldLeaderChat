@@ -1575,5 +1575,17 @@
     "sourceUrls": [
       "https://www.theguardian.com/sport/2026/aug/13/katie-ledecky-1500m-pan-pacific-championships-swimming-gold"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-12-it-looks-like-apple-s-iphone-18-really-will-skip-the-fall-launch",
+    "issueNumber": 257,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/257",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-13T22:24:17.739Z",
+    "fingerprint": "75fa5c0e35f4ae698d3ec891233eeb75ca4bca3744837a625ecb34f2227145c5",
+    "sourceUrls": [
+      "https://www.theverge.com/tech/979231/apple-base-iphone-18-launch-delayed"
+    ]
   }
 ]
