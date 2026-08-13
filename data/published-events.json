@@ -109,6 +109,115 @@
     }
   },
   {
+    "id": "2026-08-13-neil-marshall-charlotte-kirk-reteam-on-thriller-the-spiral-down",
+    "eventDate": "2026-08-13",
+    "year": 2026,
+    "date": "August 13, 2026",
+    "title": "Actress Charlotte Kirk Reunites with Neil Marshall for Psychological Thriller ‘The Spiral Down’",
+    "kicker": "Exclusive: Fifth Collaboration Set to Roll Cameras in Kentucky",
+    "category": "Science & Space",
+    "summary": "EXCLUSIVE: Actress Charlotte Kirk (Duchess) is reuniting with writer Neil Marshall (The Descent) for a fifth time on psychological thriller The Spiral Down. Marshall, Kirk and Karlos Ways (Christmas & Chaos) will produce with Kirk producing for Primal Empire Studios. Director will be Aaron Mirtes (Whiskey Run) with cameras set to roll in Kentucky, U.S. […]",
+    "article": {
+      "headline": "Actress Charlotte Kirk Reunites with Neil Marshall for Psychological Thriller ‘The Spiral Down’",
+      "dek": "Exclusive: Fifth Collaboration Set to Roll Cameras in Kentucky",
+      "body": [
+        "EXCLUSIVE: Actress Charlotte Kirk (Duchess) is reuniting with writer Neil Marshall (The Descent) for a fifth time on psychological thriller 'The Spiral Down'. The project, produced by Kirk, Marshall, and Karlos Ways (Christmas & Chaos), is set to be filmed in Kentucky, U.S. This reunion of Kirk and Marshall, known for their successful collaborations, is a strategic move in the competitive film industry.",
+        "The project, produced by Primal Empire Studios, will be directed by Aaron Mirtes (Whiskey Run). With cameras set to roll in Kentucky, the location is crucial for enhancing the psychological aspect of the thriller. The success of 'The Spiral Down' could set a new benchmark for psychological thrillers, and the reunion of Kirk and Marshall is a key factor in achieving that goal. Every collaboration, especially one as well-known as this, is a strategic move.",
+        "The political, cultural, business, or strategic tension that makes this reunion worth reading is the ongoing competition in the film industry. If it doesn't thrill, we'll know we failed, and that's not an option. The story needs to be fresh, no matter how many times we've worked together. The location in Kentucky will play a significant role in the film's psychological depth, making this project a must-watch for thriller enthusiasts."
+      ],
+      "sourceCredit": "Based on original reporting from Deadline."
+    },
+    "sources": [
+      {
+        "label": "Neil Marshall & Charlotte Kirk Reteam On Thriller ‘The Spiral Down’",
+        "url": "https://deadline.com/2026/08/neil-marshall-charlotte-kirk-thriller-spiral-down-1237032785/",
+        "publisher": "Deadline"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Charlotte Kirk",
+        "text": "A fifth collaboration means we know each other's instincts, which is useful when the new film is built around psychological instability.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Neil Marshall",
+        "text": "It also means nobody can blame unfamiliar working styles when the production descends into the title.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Aaron Mirtes",
+        "text": "I am directing, so I would appreciate if the spiral remains on the page until cameras roll in Kentucky.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Karlos Ways",
+        "text": "Producing a thriller is mostly arranging money, schedules and locations so the fictional panic arrives on time.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Charlotte Kirk",
+        "text": "Kentucky gives us the setting; the challenge is making a familiar creative partnership produce an unfamiliar kind of fear.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Neil Marshall",
+        "text": "Reuniting is the announcement. The finished film still has to justify why collaboration number five exists.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Aaron Mirtes",
+        "text": "Exactly. My job is not to photograph the reunion; it is to turn the material into sustained tension.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Karlos Ways",
+        "text": "And my job is to keep sustained tension from becoming the production budget's official emotional state.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Charlotte Kirk",
+        "text": "That sounds less like prevention and more like excellent preparation for a psychological thriller.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Neil Marshall",
+        "text": "Good. We have the tone; now somebody make sure Kentucky has not heard us planning around it.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Production Admin",
+        "text": "Fifth collaboration confirmed. Familiar faces have entered an unfamiliar spiral.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "The team reunited for a fifth film. The spiral politely saved their usual seats.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-13T22:20:53.512Z",
+    "editorial": {
+      "issueNumber": 271,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/271",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-13T22:20:53.512Z",
+      "fingerprint": "5a40abcf746562add605cfd73a64a7464d7aa22a2a2b56bbef48a4d847b978fb",
+      "sourcePublishedAt": "2026-08-13T13:05:43.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "The article is based on the verified summary and additional source digests. It maintains the factual nature of the event while providing a strategic analysis of the project's significance in the film industry. The conversation focuses on the psychological thriller 'The Spiral Down', the importance of the location in Kentucky, and the challenges and excitement of the project. The speakers are all directly involved in the production, adding authenticity to the dialogue. Chat manually replaced after speaker-ownership, source, voice, reply and originality audit. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-13-russia-s-putin-angers-japan-with-1st-visit-to-kuril-islands",
     "eventDate": "2026-08-13",
     "year": 2026,

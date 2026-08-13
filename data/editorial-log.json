@@ -1515,5 +1515,17 @@
     "sourceUrls": [
       "https://www.theguardian.com/sport/2026/aug/13/the-lakers-have-become-a-poker-chip-for-some-of-the-most-powerful-men-in-america"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-13-neil-marshall-charlotte-kirk-reteam-on-thriller-the-spiral-down",
+    "issueNumber": 271,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/271",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-13T22:20:53.512Z",
+    "fingerprint": "5a40abcf746562add605cfd73a64a7464d7aa22a2a2b56bbef48a4d847b978fb",
+    "sourceUrls": [
+      "https://deadline.com/2026/08/neil-marshall-charlotte-kirk-thriller-spiral-down-1237032785/"
+    ]
   }
 ]
