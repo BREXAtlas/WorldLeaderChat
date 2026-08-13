@@ -115,6 +115,121 @@
     }
   },
   {
+    "id": "2026-08-12-deadly-attack-on-red-sea-ship-adds-to-global-supply-chain-uncert",
+    "eventDate": "2026-08-12",
+    "year": 2026,
+    "date": "August 12, 2026",
+    "title": "Deadly Red Sea Attack: Another Blow to Global Trade",
+    "kicker": "Yemeni Conflict Threatens Shipping Lanes",
+    "category": "War & Security",
+    "summary": "A strike on a merchant ship off the southern coast of Yemen that reportedly killed several seafarers on Tuesday threatens to reignite deep concerns about global trade, amid the ongoing Iran-US war that has choked shipping in the Strait of Hormuz.",
+    "article": {
+      "headline": "Deadly Red Sea Attack: Another Blow to Global Trade",
+      "dek": "A strike on a merchant ship off the southern coast of Yemen reportedly killed several seafarers, adding to global supply chain uncertainties amid the ongoing Iran-US conflict.",
+      "body": [
+        "In a development that has sent ripples through the global maritime community, a merchant ship was struck off the southern coast of Yemen on Tuesday, reportedly resulting in the deaths of several seafarers. This latest incident comes at a time when the Strait of Hormuz, a critical chokepoint for oil shipments, is already under duress due to the ongoing Iran-US conflict. The attack threatens to exacerbate the already fragile global trade landscape, as shipping companies and nations alike brace for potential disruptions.",
+        "The incident has reignited deep concerns about the stability of global trade routes. With the Strait of Hormuz already congested and vulnerable to further disruptions, any additional threat to shipping lanes could have significant economic repercussions. The United Nations has issued a statement, emphasizing the need for increased vigilance and cooperation to ensure the safety of maritime traffic in the region.",
+        "The political and strategic tensions in the region are palpable, with each new incident heightening the risk of escalation. As nations and international organizations grapple with the ongoing conflict, the safety of seafarers and the stability of global trade remain paramount concerns. The latest attack serves as a stark reminder of the vulnerabilities in the international shipping network and the need for robust security measures to protect these vital routes."
+      ],
+      "sourceCredit": "Based on original reporting from UN News."
+    },
+    "sources": [
+      {
+        "label": "Deadly attack on Red Sea ship adds to global supply chain uncertainty",
+        "url": "https://news.un.org/feed/view/en/story/2026/08/1168121",
+        "publisher": "UN News"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Captain Ahmed",
+        "text": "The attack off Yemen shows the dangers are escalating.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Maritime Security Analyst",
+        "text": "We need better security measures in the region.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Yemeni Coast Guard Officer",
+        "text": "We intercepted some suspicious vessels today.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Captain Ahmed",
+        "text": "Suspicions confirm, we're stepping up patrols.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Maritime Security Analyst",
+        "text": "This attack is a serious blow to trade routes.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Yemeni Coast Guard Officer",
+        "text": "Ships must be more vigilant now.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Captain Ahmed",
+        "text": "We can't afford another incident like this.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Maritime Security Analyst",
+        "text": "What can we do to prevent such attacks?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Yemeni Coast Guard Officer",
+        "text": "More ships will likely reroute, causing delays.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Captain Ahmed",
+        "text": "Supply chains might face new disruptions.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Maritime Security Analyst",
+        "text": "The global economy can't handle another shock.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Yemeni Coast Guard Officer",
+        "text": "We need a comprehensive security plan, fast.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "The seas are no longer safe for our ships.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-13T02:57:24.010Z",
+    "editorial": {
+      "issueNumber": 221,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/221",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-13T02:57:24.010Z",
+      "fingerprint": "e221c880e1e7a1aaa1f550e0d92eb4cfaf55036eacf7f3af5c4cdca87c7351dd",
+      "sourcePublishedAt": "2026-08-12T12:00:00.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "The article accurately reflects the verified summary and additional source digests. It provides a clear and concise account of the event, its implications, and the broader context of the ongoing conflict. The tone is appropriately dry and sharp, as expected from World Leader Chat reporting. Each speaker's turn reflects their role in the incident, and the rotation includes challenges, pointed questions, and reflections on the consequences of the attack. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-12-directly-responsible-progressives-blame-aoc-and-bernie-sanders-f",
     "eventDate": "2026-08-12",
     "year": 2026,
