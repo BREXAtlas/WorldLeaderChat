@@ -1599,5 +1599,17 @@
     "sourceUrls": [
       "https://deadline.com/2026/08/jesse-lee-soffer-strike-force-cbs-drama-matt-olmstead-1237032272/"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-12-as-ai-safety-concerns-mount-three-pioneers-make-the-case-for-sta",
+    "issueNumber": 248,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/248",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-13T22:25:30.274Z",
+    "fingerprint": "e5fb12b2ca18906542549d07671db5eef01b2b7f5d0cfe91f67e9181d9cb4514",
+    "sourceUrls": [
+      "https://techcrunch.com/2026/08/12/as-ai-safety-concerns-mount-three-pioneers-make-the-case-for-staying-open/"
+    ]
   }
 ]
