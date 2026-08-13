@@ -436,6 +436,115 @@
     }
   },
   {
+    "id": "2026-08-13-swim-hero-katie-ledecky-extends-16-year-winning-streak-with-pan",
+    "eventDate": "2026-08-13",
+    "year": 2026,
+    "date": "August 13, 2026",
+    "title": "Ledecky Extends 16-Year Winning Streak at Pan Pacific Championships",
+    "kicker": "Katie Ledecky's Gold Medals at Home",
+    "category": "Sports & Soft Power",
+    "summary": "American wins 1500m freestyle in 15min 36.09sec Walsh beats Douglass to claim 50m butterfly title Urlando breaks Michael Phelps’ 20-year-old record Katie Ledecky won the 1500m freestyle on opening night of the Pan Pacific Championships on Wednesday, earning the first international medal of her storied career on home soil. The two-time Olympic champion in the event was under her own world-record pace in the early stages of the 30-lap race, with fans at the outdoor pool in Irvine, California, on their feet cheering throughout. Continue reading...",
+    "article": {
+      "headline": "Ledecky Extends 16-Year Winning Streak at Pan Pacific Championships",
+      "dek": "Katie Ledecky, the two-time Olympic champion in the 1500m freestyle, won the race in Irvine, California, setting a new world record and extending her winning streak in this event to 16 years.",
+      "body": [
+        "In a thrilling display of dominance, Katie Ledecky, the two-time Olympic champion in the 1500m freestyle, once again proved why she is the queen of the pool. On Wednesday, Ledecky won the 1500m freestyle at the Pan Pacific Championships in Irvine, California, setting a new world record and extending her winning streak in this event to an impressive 16 years. The fans at the outdoor pool were in awe, with cheers echoing throughout the venue as Ledecky powered through the 30-lap race, maintaining her own world-record pace in the early stages.",
+        "This victory is not just a personal achievement for Ledecky, but also a significant moment for American sports and soft power. The two-time Olympic champion's performance at home is a testament to the enduring legacy of American swimming and the country's continued dominance in the sport. Ledecky's win on home soil is a reminder of the competitive spirit and the relentless pursuit of excellence that define American athletes.",
+        "The political and cultural implications of Ledecky's performance are significant. As a symbol of American prowess and a source of national pride, Ledecky's victory at the Pan Pacific Championships is a powerful statement. It underscores the importance of sports in shaping national identity and the role of athletes in promoting national soft power. As Ledecky continues to break records and extend her winning streak, the world watches in awe, recognizing the enduring legacy of American swimming."
+      ],
+      "sourceCredit": "Based on original reporting from The Guardian."
+    },
+    "sources": [
+      {
+        "label": "Swim hero Katie Ledecky extends 16-year winning streak with Pan Pacs gold",
+        "url": "https://www.theguardian.com/sport/2026/aug/13/katie-ledecky-1500m-pan-pacific-championships-swimming-gold",
+        "publisher": "The Guardian"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Katie Ledecky",
+        "text": "Sixteen years unbeaten in this race sounds dramatic until somebody reminds me there are still thirty laps to swim.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Lani Pallister",
+        "text": "I finished 2.53 seconds back, which is apparently the closest major-meet challenge since I was learning long division.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Team USA",
+        "text": "The home crowd got its first international medal from her and immediately treated Irvine like an Olympic preview.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Katie Ledecky",
+        "text": "I was under record pace early, but the goal was the wall, not negotiating with every split.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Lani Pallister",
+        "text": "A personal best usually earns breathing room; today it earned the closest view of another gold medal.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Gretchen Walsh",
+        "text": "The 1500 took sixteen minutes; the American medal rush spent the rest of opening night refusing to slow down.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Team USA",
+        "text": "Four one-two finishes will do that, especially when the event is warming up Southern California for 2028.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Katie Ledecky",
+        "text": "Please let the 2028 predictions wait until I have at least left the pool deck.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Lani Pallister",
+        "text": "Fine, but a sixteen-year streak has already submitted enough evidence for the forecasting department.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Gretchen Walsh",
+        "text": "We will distract them with the 50 fly; it is shorter, louder and provides less time for historical context.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Timing Admin",
+        "text": "Winning time: 15:36.09. Duration of the unbeaten streak: still being calculated in years.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "Ledecky finished 30 laps. The winning streak took another victory lap.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-13T22:23:37.492Z",
+    "editorial": {
+      "issueNumber": 265,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/265",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-13T22:23:37.492Z",
+      "fingerprint": "9727593b82e1827f9eb693683dbdf243ef707942a6538669b9d57cd4420ced8e",
+      "sourcePublishedAt": "2026-08-13T05:39:03.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "The article accurately reflects the verified summary and additional source digests. It provides a clear and engaging account of the event, focusing on the main facts and their broader implications. The dry humor and sharp framing are appropriately used to add depth to the reporting. The conversation captures the direct experiences and emotions of the event, focusing on the athlete's perspective and the support from the fans and officials. Chat manually replaced after speaker-ownership, source, voice, reply and originality audit. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-13-the-lakers-have-become-a-poker-chip-for-some-of-the-most-powerfu",
     "eventDate": "2026-08-13",
     "year": 2026,

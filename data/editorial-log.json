@@ -1563,5 +1563,17 @@
     "sourceUrls": [
       "https://www.foxnews.com/sports/packers-starters-open-against-steelers-backups-preseason-football-betting-edges-emerge"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-13-swim-hero-katie-ledecky-extends-16-year-winning-streak-with-pan",
+    "issueNumber": 265,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/265",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-13T22:23:37.492Z",
+    "fingerprint": "9727593b82e1827f9eb693683dbdf243ef707942a6538669b9d57cd4420ced8e",
+    "sourceUrls": [
+      "https://www.theguardian.com/sport/2026/aug/13/katie-ledecky-1500m-pan-pacific-championships-swimming-gold"
+    ]
   }
 ]
