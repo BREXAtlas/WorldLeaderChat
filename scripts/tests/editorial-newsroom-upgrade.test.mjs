@@ -77,10 +77,23 @@ test("editor has a wide active lane, daily mix tools, publishing status and a de
   assert.match(app, /deskOf\(issue\) === desk && laneOf\(issue\) !== 'trash'/);
   assert.match(app, /\['new','drafting','ready'\]\.includes\(laneOf\(issue\)\)/);
   assert.match(app, /Restore to Review/);
+  assert.match(app, /Restore & Rebuild/);
+  assert.match(app, /View Canonical Article #/);
+  assert.match(app, /function canonicalIssueNumber/);
+  assert.match(app, /function legacyBundle/);
+  assert.match(app, /editorial-redraft\.yml\/dispatches/);
   assert.match(app, /Permanently Delete File/);
+  assert.match(app, /data-trash-select/);
+  assert.match(app, /id="selectAllTrash"/);
+  assert.match(app, /Delete Selected/);
+  assert.match(app, /Delete All Trash/);
+  assert.match(app, /async function bulkPurge/);
+  assert.match(app, /slice\(start, start \+ 5\)/);
   assert.match(html, /READY FOR APPROVAL → PUBLISHING → PUBLISHED • REJECTIONS → TRASH/);
   assert.match(html, /\.tag\.publishing\{/);
   assert.match(html, /\.tag\.trash\{/);
+  assert.match(html, /\.trash-bulk\{/);
+  assert.match(html, /trash-bulk-restore-20260812/);
 });
 
 test("featured-headline workflow persists one selected article per news desk", async () => {
