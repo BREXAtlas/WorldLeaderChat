@@ -1479,5 +1479,17 @@
     "sourceUrls": [
       "https://news.un.org/feed/view/en/story/2026/08/1168121"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-13-russia-s-putin-angers-japan-with-1st-visit-to-kuril-islands",
+    "issueNumber": 281,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/281",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-13T22:15:44.322Z",
+    "fingerprint": "8c1b156793ee8164647d9d28dd4b24956891fce70589f61ecc6a0768866d0eab",
+    "sourceUrls": [
+      "https://www.dw.com/en/russia-s-putin-angers-japan-with-1st-visit-to-kuril-islands/a-78345291?maca=en-rss-en-top-1022-rdf"
+    ]
   }
 ]

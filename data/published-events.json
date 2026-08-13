@@ -1,5 +1,114 @@
 [
   {
+    "id": "2026-08-13-russia-s-putin-angers-japan-with-1st-visit-to-kuril-islands",
+    "eventDate": "2026-08-13",
+    "year": 2026,
+    "date": "August 13, 2026",
+    "title": "Japan Protests Putin’s Kuril Islands Visit, Summoning Russian Ambassador",
+    "kicker": "World Leader Chat",
+    "category": "Politics & Society",
+    "summary": "Japan says it has summoned the Russian ambassador to \"strongly protest\" President Vladimir Putin's trip to the disputed Kuril Islands.",
+    "article": {
+      "headline": "Japan Protests Putin’s Kuril Islands Visit, Summoning Russian Ambassador",
+      "dek": "In a move that underscores the ongoing territorial dispute, Japan has summoned the Russian ambassador to protest President Putin’s visit to the Kuril Islands.",
+      "body": [
+        "Japan has taken a firm stance against President Putin’s recent trip to the disputed Kuril Islands, summoning the Russian ambassador to express its strong disapproval. This diplomatic move comes as no surprise, given the long-standing territorial dispute between the two nations. The islands, known as the Northern Territories in Japan, have been a source of contention for decades, with both countries refusing to fully resolve the issue.",
+        "The summoning of the Russian ambassador is a clear indication of Japan’s dissatisfaction with Putin’s actions. This latest incident highlights the ongoing negotiations and diplomatic efforts that will continue to shape the future of these islands and the relationship between the two countries. As the world watches, the tension between Japan and Russia remains high, with both sides vowing not to back down from their stances.",
+        "The political and cultural tension surrounding the Kuril Islands is a reminder of the complex dynamics at play in East Asia. The dispute is not just about land but also about national pride and strategic positioning in the region. As the negotiations continue, the outcome will have significant implications for both nations and the broader geopolitical landscape."
+      ],
+      "sourceCredit": "Based on original reporting from DW."
+    },
+    "sources": [
+      {
+        "label": "Russia's Putin angers Japan with 1st visit to Kuril Islands",
+        "url": "https://www.dw.com/en/russia-s-putin-angers-japan-with-1st-visit-to-kuril-islands/a-78345291?maca=en-rss-en-top-1022-rdf",
+        "publisher": "DW"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Japan",
+        "text": "A presidential visit to disputed islands is not tourism; it is a territorial statement delivered with an itinerary.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Vladimir Putin",
+        "text": "The trip took place on territory administered by Russia, and Moscow does not request permission for that.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Russian Ambassador to Japan",
+        "text": "I have received the protest, although summoning me does not move an island or settle the dispute.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Japan",
+        "text": "No, but silence would let the visit pretend the dispute vanished when the plane landed.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Russia",
+        "text": "Our position has not changed, and another formal objection will not produce the postwar treaty both sides still lack.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Vladimir Putin",
+        "text": "Negotiation cannot begin from the premise that a presidential visit makes Russian administration less legitimate.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Japan",
+        "text": "Nor can negotiation survive if every act of administration is used to make our claim look ceremonial.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Russian Ambassador to Japan",
+        "text": "Then my diplomatic bag now contains the same disagreement, stamped urgent in two languages.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Russia",
+        "text": "Decades of dispute have made both governments fluent in protest and considerably less fluent in compromise.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Japan",
+        "text": "Fluency still matters; the Northern Territories question will not disappear because Moscow prefers a different vocabulary.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Diplomatic Admin",
+        "text": "The ambassador accepted the protest. The islands declined to update their status.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "Putin completed the visit. The territorial dispute refused to check out.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-13T22:15:44.322Z",
+    "editorial": {
+      "issueNumber": 281,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/281",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-13T22:15:44.322Z",
+      "fingerprint": "8c1b156793ee8164647d9d28dd4b24956891fce70589f61ecc6a0768866d0eab",
+      "sourcePublishedAt": "2026-08-13T06:06:00.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Ensured the article is based on the verified summary and additional source digests, maintaining a factual and dry tone. Added context to explain the political and cultural tensions involved. The exchange captures the tension and resolve of the Japanese stance, with clear dialogue and no extraneous information. Chat manually replaced after speaker-ownership, source, voice, reply and originality audit. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-12-bob-iger-joshua-kushner-buy-los-angeles-lakers-at-a-12-5-billion",
     "eventDate": "2026-08-12",
     "year": 2026,
