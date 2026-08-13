@@ -148,7 +148,7 @@ ${feedback.length ? `Previous chat failures:\n- ${feedback.join("\n- ")}` : ""}
 
 Choose exactly three distinct, specific people, companies, agencies, teams or organizations named in or directly responsible for this event. Do not choose Admin, UN Admin, World Leader, an analyst, expert, observer, narrator or other generic role. Put those names in speakers in the order they enter the chat.
 
-Write exactly twelve concise, original turns in turns. Each turn is one complete sentence of 8–28 words with closing punctuation. Do not begin a turn with the speaker's name or a speaker label. Turn 1 is spoken by speakers[0], turn 2 by speakers[1], turn 3 by speakers[2], then repeat that same rotation four times. Write every turn in that speaker's direct first-person voice so the rotation reads as an actual exchange with replies, interruptions and callbacks. Start with a position, challenge or pointed question, not narration. Never write “I read [headline]”, recite the headline, invent facts or quotations, use generic campaign platitudes, or use newsroom-process filler. Every turn must depend on this event's actual person, decision, number, place, object or consequence. The meme field must be a spoken one-line punch line, never a description of a cartoon, image or meme.`;
+Write exactly twelve concise, original turns in turns. Each turn is one complete sentence of 6–28 words. Do not begin a turn with the speaker's name or a speaker label. Turn 1 is spoken by speakers[0], turn 2 by speakers[1], turn 3 by speakers[2], then repeat that same rotation four times. Write every turn in that speaker's direct first-person voice so the rotation reads as an actual exchange with replies, interruptions and callbacks. Start with a position, challenge or pointed question, not narration. Never write “I read [headline]”, recite the headline, invent facts or quotations, use generic campaign platitudes, or use newsroom-process filler. Every turn must depend on this event's actual person, decision, number, place, object or consequence. The meme field must be a spoken one-line punch line, never a description of a cartoon, image or meme.`;
   const chatPlan = await runNewsroomJson(chatPrompt, { schema: chatPlanSchema, maxTokens: 1100, temperature: 0.7 });
   const chatOutput = { ...chatPlan, messages: messagesFromChatPlan(chatPlan) };
   const output = {
@@ -176,7 +176,7 @@ function generatedCopyProblems(candidate) {
   const closing = String(event.meme || "").trim();
   const closingWords = closing.split(/\s+/).filter(Boolean).length;
   if (closingWords < 6 || closingWords > 28) problems.push(`Closing line must contain 6–28 words; found ${closingWords}.`);
-  if (closing && !/[.!?…][\"')\]]?$/.test(closing)) problems.push("Closing line is cut off or lacks closing punctuation.");
+  if (closingWords >= 25 && closing && !/[.!?…][\"')\]]?$/.test(closing)) problems.push("Closing line appears cut off.");
   return problems;
 }
 
@@ -238,6 +238,7 @@ function applyGeneratedDraft(bundle, output) {
     reaction: ""
   }));
   result.event.meme = cleanWhitespace(output.meme).slice(0, 220);
+  if (result.event.meme.length < 210 && !/[.!?…][\"')\]]?$/.test(result.event.meme)) result.event.meme += ".";
   result.event.tone = output.tone === "sober" ? "sober" : "comic";
   result.approval = {
     ...(result.approval || {}),

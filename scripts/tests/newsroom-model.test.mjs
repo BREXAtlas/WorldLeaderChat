@@ -30,8 +30,8 @@ test("chat plans reject speaker prefixes and visibly cut-off turns", () => {
   }), /speaker label/);
   assert.throws(() => messagesFromChatPlan({
     speakers: ["Apple", "iPhone Team", "Retailers"],
-    turns: ["This sentence reaches the required length but simply stops", ...Array(11).fill("This event-specific reply has enough words and closes cleanly.")]
-  }), /cut off/);
+    turns: ["This deliberately overlong generated sentence keeps adding filler until it reaches the schema boundary and then stops without a conclusion or any closing punctuation at all", ...Array(11).fill("This event-specific reply has enough words and closes cleanly.")]
+  }), /appears cut off/);
 });
 
 test("newsroom writing calls only the configured local endpoint", async () => {

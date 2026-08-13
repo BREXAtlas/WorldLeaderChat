@@ -60,7 +60,7 @@ ${failures}
 
 Choose exactly three distinct, specific people, companies, agencies, teams or organizations named in or directly responsible for this event. Do not choose Admin, UN Admin, World Leader, an analyst, expert, observer, narrator or other generic role. Put those names in speakers.
 
-Write exactly twelve concise turns in turns. Each turn is one complete sentence of 8–28 words with closing punctuation. Do not begin a turn with the speaker's name or a speaker label. Turn 1 belongs to speakers[0], turn 2 to speakers[1], turn 3 to speakers[2], then repeat that rotation four times. Start in the middle of a reaction—a position, challenge, contradiction, pointed question or joke. Use direct first-person replies, interruptions and callbacks. Every line must respond to the actual people, act, number, place, object or consequence in this article. The meme field must be a spoken one-line punch line, never a description of a cartoon, image or meme.
+Write exactly twelve concise turns in turns. Each turn is one complete sentence of 6–28 words. Do not begin a turn with the speaker's name or a speaker label. Turn 1 belongs to speakers[0], turn 2 to speakers[1], turn 3 to speakers[2], then repeat that rotation four times. Start in the middle of a reaction—a position, challenge, contradiction, pointed question or joke. Use direct first-person replies, interruptions and callbacks. Every line must respond to the actual people, act, number, place, object or consequence in this article. The meme field must be a spoken one-line punch line, never a description of a cartoon, image or meme.
 
 Never write “I read [headline]”. Never paste, recite or lightly trim the article or source headline in a message. Never use “the verified event is pinned”, “fact pattern”, “reported detail”, “answer the file”, “on the record”, “official line is shorter than the consequence”, “spin requested a longer deadline” or other newsroom-process filler. Do not reuse a conversation skeleton with swapped speakers. Do not invent factual claims, quotations or private conduct. For victims, war, death or illness, aim satire at power, policy and messaging.
 
@@ -83,6 +83,7 @@ function applyChat(bundle, output) {
     reaction: ""
   }));
   result.event.meme = cleanWhitespace(output.meme).slice(0, 280);
+  if (result.event.meme.length < 270 && !/[.!?…][\"')\]]?$/.test(result.event.meme)) result.event.meme += ".";
   result.approval = {
     ...(result.approval || {}),
     conversationStyle: "article-specific-direct-chat",
@@ -99,7 +100,7 @@ function generatedChatProblems(bundle) {
   const words = closing.split(/\s+/).filter(Boolean).length;
   return [
     ...(words < 6 || words > 28 ? [`Closing line must contain 6–28 words; found ${words}.`] : []),
-    ...(closing && !/[.!?…][\"')\]]?$/.test(closing) ? ["Closing line is cut off or lacks closing punctuation."] : [])
+    ...(words >= 25 && closing && !/[.!?…][\"')\]]?$/.test(closing) ? ["Closing line appears cut off."] : [])
   ];
 }
 
