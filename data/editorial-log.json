@@ -1455,5 +1455,17 @@
     "sourceUrls": [
       "https://www.washingtonexaminer.com/news/world/4684383/ukraine-pauses-strikes-tankers-jd-vance-request-russian-threats/"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-12-members-of-trump-s-cabinet-remained-on-decoy-plane-after-preside",
+    "issueNumber": 229,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/229",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-13T02:56:42.623Z",
+    "fingerprint": "edaa7b3640ed37d9566a6bd0eb85dc0f9045f56614347ee9a8406b0bc2a45329",
+    "sourceUrls": [
+      "https://www.bbc.co.uk/news/articles/c4g306eln8wo?at_medium=RSS&at_campaign=rss"
+    ]
   }
 ]

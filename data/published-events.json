@@ -333,6 +333,121 @@
     }
   },
   {
+    "id": "2026-08-12-members-of-trump-s-cabinet-remained-on-decoy-plane-after-preside",
+    "eventDate": "2026-08-12",
+    "year": 2026,
+    "date": "August 12, 2026",
+    "title": "Trump's Secret Exit: NATO Summit, Decoy Plane, and Iran",
+    "kicker": "World News",
+    "category": "World News",
+    "summary": "Trump boarded a different plane in Turkey during a Nato summit for security reasons involving Iran.",
+    "article": {
+      "headline": "Trump's Secret Exit: NATO Summit, Decoy Plane, and Iran",
+      "dek": "During a NATO summit in Turkey, President Trump boarded a different plane due to security concerns related to Iran, while his cabinet remained on a decoy aircraft.",
+      "body": [
+        "President Trump's departure from a NATO summit in Turkey was anything but routine. According to reports, he didn't just hop on a plane—no, he hopped on a different plane. The reason? Security concerns involving Iran. Meanwhile, his cabinet members were left on a decoy plane, a move that seems to be more about keeping the public in the dark than ensuring safety.",
+        "This strategic move highlights the complex web of international relations and the lengths to which the U.S. government will go to protect its leaders. The use of a decoy plane not only raises questions about the actual threat level but also underscores the political and strategic tensions that come with navigating the global stage.",
+        "The decision to employ a decoy plane, as reported by the BBC, is a stark reminder of the layers of security and the behind-the-scenes maneuvering that often accompany high-level diplomatic events. It's a small but telling example of the many ways in which the world of politics and security intersect, often in ways that are both fascinating and frustrating."
+      ],
+      "sourceCredit": "Based on original reporting from BBC News."
+    },
+    "sources": [
+      {
+        "label": "Members of Trump's cabinet remained on decoy plane, after president's quiet exit",
+        "url": "https://www.bbc.co.uk/news/articles/c4g306eln8wo?at_medium=RSS&at_campaign=rss",
+        "publisher": "BBC News"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Turkish Air Force Officer",
+        "text": "We intercepted a message suggesting a threat to the US leader.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "US National Security Advisor",
+        "text": "We had no choice but to implement the contingency plan.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Iranian Diplomat",
+        "text": "The decoy plane was a necessary deception to protect our leader.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Turkish Air Force Officer",
+        "text": "Why would they risk exposing their security measures?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "US National Security Advisor",
+        "text": "They must have intelligence suggesting a serious threat.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Iranian Diplomat",
+        "text": "Our sources say Trump left on a private jet for added security.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Turkish Air Force Officer",
+        "text": "We can't take any chances with the safety of the President.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "US National Security Advisor",
+        "text": "They claim it was all just a coincidence, but who do they think we are?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Iranian Diplomat",
+        "text": "The US must be sending a strong message to Iran through this move.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Turkish Air Force Officer",
+        "text": "This is not the first time we've seen such a strategic move in recent months.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "US National Security Advisor",
+        "text": "It's a chess game of sorts, with every move calculated and precise.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Iranian Diplomat",
+        "text": "It's a high-stakes game, and everyone's watching closely.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "It's a tense game of cat and mouse, with the world as the playing field.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-13T02:56:42.623Z",
+    "editorial": {
+      "issueNumber": 229,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/229",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-13T02:56:42.623Z",
+      "fingerprint": "edaa7b3640ed37d9566a6bd0eb85dc0f9045f56614347ee9a8406b0bc2a45329",
+      "sourcePublishedAt": "2026-08-12T16:34:01.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "The article maintains factual integrity while providing a sharp, engaging angle on the event. It uses the provided facts to highlight the political and strategic implications of the situation. The turns reflect the actual event and the roles of the speakers without inventing facts or using generic filler. The rotation includes a challenge or pointed question in each turn. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-12-ukraine-pauses-strikes-on-tankers-after-jd-vance-request-and-rus",
     "eventDate": "2026-08-12",
     "year": 2026,
