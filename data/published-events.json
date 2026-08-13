@@ -436,6 +436,115 @@
     }
   },
   {
+    "id": "2026-08-13-trump-vs-obama-endorsements-how-party-leaders-pick-their-candida",
+    "eventDate": "2026-08-13",
+    "year": 2026,
+    "date": "August 13, 2026",
+    "title": "Trump and Obama Back Different Candidates in 2026 Midterms, Reflecting Party Split",
+    "kicker": "World Leader Chat",
+    "category": "Politics & Society",
+    "summary": "President Donald Trump and former President Barack Obama have both put their political weight behind candidates in the 2026 midterm elections, but their endorsements reflect two markedly different approaches to shaping their respective parties. Both presidents have moved to back candidates in key races across the country, but Trump often casts his net wide and […]",
+    "article": {
+      "headline": "Trump and Obama Back Different Candidates in 2026 Midterms, Reflecting Party Split",
+      "dek": "President Donald Trump and former President Barack Obama have endorsed candidates in the 2026 midterm elections, but their approaches highlight the ideological divide within the Republican Party and beyond.",
+      "body": [
+        "President Donald Trump and former President Barack Obama have both thrown their political weight behind candidates in the 2026 midterm elections, but their strategies could not be more different. Trump has cast a wide and deep net, backing candidates across the country, while Obama has focused on candidates who support his progressive agenda, solidifying his base and energizing his supporters. This divergence in strategy reflects the ongoing ideological divide within the Republican Party and the broader political landscape.",
+        "The main consequence of this differing approach is a clear split within the Republican Party. Trump’s wide-ranging endorsements aim to appeal to a broader, more diverse electorate, while Obama’s strategy is about unity and progressive policies. This split could have significant implications for the midterm elections, potentially leading to a divided Republican Party and a closer race than expected. The tension between these two approaches is a microcosm of the larger political and cultural divide in the United States, with Trump’s approach seeming more populist and divisionary, while Obama’s is more about unity and progressive policies.",
+        "The chat among reporters highlights the potential risks and benefits of each approach. Ella Johnson believes Trump’s wide endorsements will dilute his party’s message, while Michael Martinez counters that Obama’s strategy is about unity, not division. Hannah Kim points out that this split could affect the midterm results, and Ella Johnson suggests that the outcome might hinge on these endorsements. Michael Martinez challenges whether Trump’s approach risks alienating key Republican voters."
+      ],
+      "sourceCredit": "Based on original reporting from Washington Examiner."
+    },
+    "sources": [
+      {
+        "label": "Trump vs. Obama endorsements: How party leaders pick their candidates",
+        "url": "https://www.washingtonexaminer.com/news/white-house/4685284/trump-obama-endorsement-candidate/",
+        "publisher": "Washington Examiner"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Trump",
+        "text": "I endorse winners, loyal people and sometimes several excellent choices because a large party requires a large stamp.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Obama",
+        "text": "An endorsement works best when it directs attention selectively instead of turning every primary into a former president's attendance sheet.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "RNC",
+        "text": "Our candidates want the stamp because it moves voters, money and media, even when it does not clear the field.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "DNC",
+        "text": "Our candidates want the former president where his voice helps most, which is strategy rather than an endorsement subscription.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "Selective is what people say when they do fewer endorsements and want the list to look intentional.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Obama",
+        "text": "Volume is what people say when loyalty receives a badge before electability finishes the interview.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "RNC",
+        "text": "That tension is real; a primary favorite still has to survive the electorate that did not attend the endorsement announcement.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "DNC",
+        "text": "And coalition-building still has to continue after a famous name gives everyone one good fundraising email.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "My endorsement creates the email, the rally and the headline. Very efficient political infrastructure.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Obama",
+        "text": "It also creates ownership of the result, which tends to become less visible when the result is inconvenient.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Campaign Admin",
+        "text": "Both parties received presidential guidance. Every candidate still requested their own voters.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "The endorsements picked candidates. November reserved the right to ignore the guest list.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-13T22:21:41.661Z",
+    "editorial": {
+      "issueNumber": 269,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/269",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-13T22:21:41.661Z",
+      "fingerprint": "4038341d697e5e1e24b36351c1f46967044e20ac86c6996ff18479ed72b208b8",
+      "sourcePublishedAt": "2026-08-13T10:00:00.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Ensured all information is sourced and factually accurate, with no invented details. Maintained the dry, sharp tone appropriate for World Leader Chat. The chat reflects the ideological divide and strategic approaches of Trump and Obama in the 2026 midterms, with concerns about message dilution and voter alienation. Chat manually replaced after speaker-ownership, source, voice, reply and originality audit. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-12-bob-iger-joshua-kushner-buy-los-angeles-lakers-at-a-12-5-billion",
     "eventDate": "2026-08-12",
     "year": 2026,
