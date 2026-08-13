@@ -1,5 +1,120 @@
 [
   {
+    "id": "2026-08-12-directly-responsible-progressives-blame-aoc-and-bernie-sanders-f",
+    "eventDate": "2026-08-12",
+    "year": 2026,
+    "date": "August 12, 2026",
+    "title": "Hong’s Wisconsin Loss Opens a Progressive Fight Over the Endorsements That Never Came",
+    "kicker": "A narrow primary defeat becomes a national argument over whether famous allies should spend political capital before—or commentary after—the votes are counted.",
+    "category": "Politics & Society",
+    "summary": "Francesca Hong’s narrow loss in Wisconsin has sparked a progressive blame game, with some on the Left arguing that Rep. Alexandria Ocasio-Cortez (D-NY) and Sen. Bernie Sanders (I-VT) could have tipped the Democratic gubernatorial primary in the socialist candidate’s favor. Ocasio-Cortez and Sanders have campaigned heavily for antiestablishment Democrats this cycle, with their endorsements helping […]",
+    "article": {
+      "headline": "Hong’s Wisconsin Loss Opens a Progressive Fight Over the Endorsements That Never Came",
+      "dek": "Some progressives blame Alexandria Ocasio-Cortez and Bernie Sanders for staying out of Francesca Hong’s narrow gubernatorial-primary defeat; the result cannot prove their support would have reversed it.",
+      "body": [
+        "Francesca Hong’s narrow loss in Wisconsin’s Democratic gubernatorial primary has produced an immediate progressive blame fight. The Washington Examiner reported that some activists faulted Rep. Alexandria Ocasio-Cortez and Sen. Bernie Sanders for declining to back Hong, arguing that support from two of the country’s best-known progressives might have helped in a close race.",
+        "Neither national figure endorsed Hong. Ocasio-Cortez had said her electoral focus was winning back Congress, while Sanders said he was not sufficiently familiar with the Wisconsin contest and noted that he rarely enters gubernatorial primaries. Their choices are now being judged with the flawless strategic vision that politics traditionally discovers five minutes after the returns arrive.",
+        "The result creates a real argument but not a provable counterfactual. An endorsement can bring attention, volunteers and credibility; it cannot be rerun as a controlled experiment after Election Day. Hong’s defeat therefore leaves progressives debating two different questions at once: why she lost, and whether prominent allies owe movement candidates their intervention before a close race becomes a postmortem."
+      ],
+      "sourceCredit": "Based on original reporting from Washington Examiner."
+    },
+    "sources": [
+      {
+        "label": "‘Directly responsible’: Progressives blame AOC and Bernie Sanders for Francesca Hong’s Wisconsin loss",
+        "url": "https://www.washingtonexaminer.com/news/campaigns/state/4684819/directly-responsible-progressives-blame-aoc-bernie-sanders-francesca-hong-wisconsin-loss/",
+        "publisher": "Washington Examiner"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Francesca Hong",
+        "text": "If the national left wanted this race, the endorsement window closed before the ballots did.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Alexandria Ocasio-Cortez",
+        "text": "I was focused on Congress; a governor’s primary cannot become a loyalty test mailed from Washington.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Bernie Sanders",
+        "text": "I said I did not know this race well enough. Caution is not a secret endorsement for the winner.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Francesca Hong",
+        "text": "Fine, but silence from famous allies still speaks loudly when the margin is narrow.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Alexandria Ocasio-Cortez",
+        "text": "It speaks loudly because everyone buys a microphone after the result.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Bernie Sanders",
+        "text": "The voters chose. Our movement should study that before assigning three people to every ballot.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Francesca Hong",
+        "text": "Studying is useful; showing up before Election Day is usually more useful.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Alexandria Ocasio-Cortez",
+        "text": "Endorsing every socialist by reflex would make the word endorsement decorative.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Bernie Sanders",
+        "text": "Francesca deserved a fair hearing and an honest answer when I lacked enough information.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Francesca Hong",
+        "text": "Then the honest postmortem is that national progressives sat this one out and locals carried the bill.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Alexandria Ocasio-Cortez",
+        "text": "That is a postmortem. It is not proof we could have changed the result.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Bernie Sanders",
+        "text": "Good. A loss can have several authors and still refuse a ghostwriter.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "The endorsement arrived after the primary, wearing a name tag that said postmortem.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-13T00:28:35.091Z",
+    "editorial": {
+      "issueNumber": 259,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/259",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-13T00:28:35.091Z",
+      "fingerprint": "f598679697e9bbb566dcdd1d98f2e8f77c2bfd79656cb514dc48a4c0da879e81",
+      "sourcePublishedAt": "2026-08-12T20:47:21.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "ChatGPT source-locked rewrite: distinguishes reported blame from the unprovable claim that endorsements would have changed the result; every chat line is original to this event. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-12-jj-watt-replaces-tony-romo",
     "eventDate": "2026-08-12",
     "year": 2026,

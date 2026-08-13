@@ -1419,5 +1419,17 @@
     "sourceUrls": [
       "https://www.cleveland.com/sports/2026/08/tony-romos-replacement-at-cbs-speaks-out-about-new-role-calling-nfl-games.html"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-12-directly-responsible-progressives-blame-aoc-and-bernie-sanders-f",
+    "issueNumber": 259,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/259",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-13T00:28:35.091Z",
+    "fingerprint": "f598679697e9bbb566dcdd1d98f2e8f77c2bfd79656cb514dc48a4c0da879e81",
+    "sourceUrls": [
+      "https://www.washingtonexaminer.com/news/campaigns/state/4684819/directly-responsible-progressives-blame-aoc-bernie-sanders-francesca-hong-wisconsin-loss/"
+    ]
   }
 ]
