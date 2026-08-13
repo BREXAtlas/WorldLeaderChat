@@ -1623,5 +1623,17 @@
     "sourceUrls": [
       "https://www.cbssports.com/nfl/news/christian-gonzalez-contract-patriots-cryptic-message-extension/"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-12-nasa-astronaut-mike-fincke-leaves-nasa-career-includes-4-spacefl",
+    "issueNumber": 233,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/233",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-13T23:54:51.689Z",
+    "fingerprint": "08e639d9a596e15dfeaa8f561337ceca09522408c6041defe81ee2d491dcd97a",
+    "sourceUrls": [
+      "https://www.nasa.gov/news-release/nasa-astronaut-mike-fincke-leaves-nasa-career-includes-4-spaceflights/"
+    ]
   }
 ]

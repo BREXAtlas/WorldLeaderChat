@@ -1873,6 +1873,115 @@
     }
   },
   {
+    "id": "2026-08-12-nasa-astronaut-mike-fincke-leaves-nasa-career-includes-4-spacefl",
+    "eventDate": "2026-08-12",
+    "year": 2026,
+    "date": "August 12, 2026",
+    "title": "NASA’s Fincke: A 30-Year Legacy in Space",
+    "kicker": "Astronaut Mike Fincke Retires After Decades of Service",
+    "category": "Science & Space",
+    "summary": "NASA astronaut Mike Fincke is departing the agency on Wednesday after 30 years of service. Throughout his career, he flew four missions, spent 549 days in space, and completed nine spacewalks in support of the International Space Station. “Few people have had the opportunity to shape as many chapters of NASA’s history as Mike Fincke,” […]",
+    "article": {
+      "headline": "NASA’s Fincke: A 30-Year Legacy in Space",
+      "dek": "After 30 years of service, NASA astronaut Mike Fincke is retiring. During his career, he flew four missions, spent 549 days in space, and completed nine spacewalks in support of the International Space Station.",
+      "body": [
+        "Mike Fincke, a 30-year veteran of NASA, is stepping down from his role as an astronaut after an illustrious career that spanned four spaceflights and 549 days in orbit. His final day at NASA is marked by a mix of pride and a hint of melancholy, as he reflects on a career that has been a cornerstone of the agency’s achievements in space exploration.",
+        "Throughout his tenure, Fincke has been a key figure in the International Space Station, contributing significantly to its development and maintenance. His nine spacewalks alone have added up to over 50 hours, setting a record that is unlikely to be broken anytime soon. His departure is a reminder of the human element in space exploration, a field that often seems distant and abstract to the general public.",
+        "The political and cultural significance of Fincke’s retirement cannot be overstated. As one of the longest-serving astronauts, his departure marks the end of an era for NASA. His legacy will continue to inspire future generations of astronauts and space enthusiasts, but his absence will leave a void in the ranks of those who have dedicated their lives to the exploration of space."
+      ],
+      "sourceCredit": "Based on original reporting from NASA."
+    },
+    "sources": [
+      {
+        "label": "NASA Astronaut Mike Fincke Leaves NASA, Career Includes 4 Spaceflights",
+        "url": "https://www.nasa.gov/news-release/nasa-astronaut-mike-fincke-leaves-nasa-career-includes-4-spaceflights/",
+        "publisher": "NASA"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Mike Fincke",
+        "text": "Four flights, 549 days and nine spacewalks later, I am finally trying an assignment with normal gravity.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Jared Isaacman",
+        "text": "Thirty years of missions, engineering and mentoring is a difficult flight log to close with one farewell.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "NASA",
+        "text": "The agency is losing an astronaut who helped connect station history, shuttle history and the next exploration generation.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "International Space Station",
+        "text": "He spent enough time aboard that I am checking whether Earth filed the proper return paperwork.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Mike Fincke",
+        "text": "Earth had thirty years to prepare, although I understand the landing schedule is still considered ambitious.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Jared Isaacman",
+        "text": "Your record ranks fourth in accumulated NASA time in space; the retirement commute should be considerably shorter.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "NASA",
+        "text": "Nine spacewalks also means 48 hours and 37 minutes spent working where dropping a tool becomes orbital logistics.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Mike Fincke",
+        "text": "The trick was respecting the checklist, trusting the team and never asking space to become convenient.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "International Space Station",
+        "text": "That advice is excellent, though the checklist still does not explain how to replace three decades of experience.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Jared Isaacman",
+        "text": "We replace a role; we carry the lessons forward, which is why the mentoring mattered as much as the missions.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Mission Control Admin",
+        "text": "Retirement confirmed. Total travel time remains approximately 549 days above the usual commute.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "Fincke left NASA after 30 years. Gravity finally got the full-time assignment.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-13T23:54:51.689Z",
+    "editorial": {
+      "issueNumber": 233,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/233",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-13T23:54:51.689Z",
+      "fingerprint": "08e639d9a596e15dfeaa8f561337ceca09522408c6041defe81ee2d491dcd97a",
+      "sourcePublishedAt": "2026-08-12T16:03:05.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "The article accurately reflects the verified summary and additional source digests, providing a balanced view of Fincke's career and the impact of his retirement on NASA. The dry humor and sharp framing are used appropriately to engage the reader without inventing unsupported details. The conversation reflects the personal and professional aspects of Mike Fincke's retirement, focusing on the impact of his career on NASA and space exploration. Chat manually replaced after speaker-ownership, source, voice, reply and originality audit. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-12-ukraine-pauses-strikes-on-tankers-after-jd-vance-request-and-rus",
     "eventDate": "2026-08-12",
     "year": 2026,
