@@ -1,5 +1,114 @@
 [
   {
+    "id": "2026-08-13-kenny-omega-warns-will-ospreay-that-his-loose-alliances-has-made",
+    "eventDate": "2026-08-13",
+    "year": 2026,
+    "date": "August 13, 2026",
+    "title": "AEW 'Dynamite' Showdown: Will Ospreay and Kenny Omega Clash After Ambush",
+    "kicker": "Sports & Soft Power",
+    "category": "Sports & Soft Power",
+    "summary": "Will Ospreay and Kenny Omega had an intense face-to-face on AEW \"Dynamite\" after Don Callis Family members ambushed the world championship challenger.",
+    "article": {
+      "headline": "AEW 'Dynamite' Showdown: Will Ospreay and Kenny Omega Clash After Ambush",
+      "dek": "In a heated exchange following an ambush by Don Callis Family members, AEW stars Will Ospreay and Kenny Omega face off on 'Dynamite'.",
+      "body": [
+        "On the latest episode of AEW 'Dynamite', the tension between Will Ospreay and Kenny Omega reached a boiling point. Following an ambush by members of the Don Callis Family, Ospreay and Omega found themselves in a face-to-face confrontation. The event was a stark reminder of the cutthroat nature of professional wrestling and the importance of alliances in the ring.",
+        "The main facts of the encounter include the ambush, which set the stage for the clash, and the subsequent face-to-face meeting where the animosity was on full display. The consequence of this interaction is a heightened sense of competition and a potential shift in the dynamics of the AEW roster, particularly in the lead-up to the AEW All In title clash.",
+        "The political, cultural, and strategic tension surrounding this event lies in the delicate balance of alliances and rivalries within the AEW universe. The public perception of these star wrestlers and their interactions can significantly impact the business and cultural standing of AEW. This face-to-face encounter is a prime example of how personal conflicts can have far-reaching implications in the world of professional wrestling."
+      ],
+      "sourceCredit": "Based on original reporting from Fox News."
+    },
+    "sources": [
+      {
+        "label": "Kenny Omega warns Will Ospreay that his loose alliances has made him 'sloppy' ahead of AEW All In title clash",
+        "url": "https://www.foxnews.com/sports/kenny-omega-warns-will-ospreay-loose-alliances-made-him-sloppy-ahead-aew-all-in-title-clash",
+        "publisher": "Fox News"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Will Ospreay",
+        "text": "Four men jump me, Kenny arrives with a pipe, and somehow my choice of allies becomes tonight's character flaw.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Kenny Omega",
+        "text": "Because loose alliances keep placing you under furniture while I interrupt my own title preparation to rescue you.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Don Callis",
+        "text": "That was not furniture, it was a carefully organized family intervention with excellent television timing.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Will Ospreay",
+        "text": "Your family needed four people and still lost the final word to one man carrying hardware.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Kenny Omega",
+        "text": "Do not confuse a rescue with trust; All In still ends with you trying to take my championship.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Jon Moxley",
+        "text": "Trust is overrated. Knowing exactly when someone may hit you is the closest wrestling offers to stability.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Will Ospreay",
+        "text": "That is precisely why every friendship around this match arrives with medical tape and an expiration date.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Don Callis",
+        "text": "I prefer portfolio diversification: several dangerous people, one shared target and no sentimental exposure.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Kenny Omega",
+        "text": "You call it diversification because betrayal sounds worse in a sponsorship meeting.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Will Ospreay",
+        "text": "Fine. At Wembley the alliances can sit outside; the bell only needs two names.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "AEW Admin",
+        "text": "The ambush ended. The title match added three more trust issues to the card.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "All In booked one title match and several emergency contacts.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-13T22:16:38.037Z",
+    "editorial": {
+      "issueNumber": 273,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/273",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-13T22:16:38.037Z",
+      "fingerprint": "369f7e9607aeb8c79357f9991b13fe7dd900bccefdd1dd6cf9fa95388fd401f0",
+      "sourcePublishedAt": "2026-08-13T15:14:26.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "The article accurately reflects the verified summary and source material, maintaining a sharp and factual tone. The framing and context are appropriate for the given event. The exchange captures the tension and personal nature of the conflict between Ospreay and Omega following the ambush, with Don Callis's involvement adding depth to the dynamic. Chat manually replaced after speaker-ownership, source, voice, reply and originality audit. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-13-russia-s-putin-angers-japan-with-1st-visit-to-kuril-islands",
     "eventDate": "2026-08-13",
     "year": 2026,

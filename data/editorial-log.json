@@ -1491,5 +1491,17 @@
     "sourceUrls": [
       "https://www.dw.com/en/russia-s-putin-angers-japan-with-1st-visit-to-kuril-islands/a-78345291?maca=en-rss-en-top-1022-rdf"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-13-kenny-omega-warns-will-ospreay-that-his-loose-alliances-has-made",
+    "issueNumber": 273,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/273",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-13T22:16:38.037Z",
+    "fingerprint": "369f7e9607aeb8c79357f9991b13fe7dd900bccefdd1dd6cf9fa95388fd401f0",
+    "sourceUrls": [
+      "https://www.foxnews.com/sports/kenny-omega-warns-will-ospreay-loose-alliances-made-him-sloppy-ahead-aew-all-in-title-clash"
+    ]
   }
 ]
