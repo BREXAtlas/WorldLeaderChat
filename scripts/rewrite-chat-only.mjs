@@ -2,7 +2,7 @@ import { resolve } from "node:path";
 import { extractStoryBundle, STORY_JSON_END, STORY_JSON_START } from "./lib/editorial.mjs";
 import { cleanWhitespace, readJson } from "./lib/io.mjs";
 import { dialogueProblems } from "./lib/chat-quality.mjs";
-import { chatPlanSchema, messagesFromChatPlan, runNewsroomJson } from "./lib/newsroom-model.mjs";
+import { chatDraftSchema, runNewsroomJson } from "./lib/newsroom-model.mjs";
 
 const token = process.env.GITHUB_TOKEN;
 const repository = process.env.GITHUB_REPOSITORY;
@@ -47,7 +47,7 @@ function chatPrompt(bundle, feedback = []) {
   const event = bundle.event;
   const sourceFacts = (bundle.ingestion?.sourceDigests || []).map((item) => `${item.publisher}: ${item.excerpt}`).join("\n");
   const failures = feedback.length ? `\nTHE PREVIOUS ATTEMPT FAILED\n- ${feedback.join("\n- ")}\nRewrite every line from scratch.` : "";
-  return `Return ONLY valid JSON with keys speakers, turns, closingLine and reviewNotes. Rewrite only the imagined chat for this article; preserve the article exactly.
+  return `Return ONLY valid JSON with keys messages, meme and reviewNotes. Rewrite only the imagined chat for this article; preserve the article exactly. Match the established World Leader Chat format used by previously approved articles.
 
 ARTICLE
 Headline: ${event.article?.headline || event.title}
@@ -58,19 +58,22 @@ Sources: ${(event.sources || []).map((source) => `${source.publisher}: ${source.
 Source facts: ${sourceFacts || "No additional digest."}
 ${failures}
 
-Choose exactly three distinct, specific people, companies, agencies, teams or organizations named in or directly responsible for this event. Do not choose Admin, UN Admin, World Leader, an analyst, expert, observer, narrator or other generic role. Put those names in speakers.
+Write 10–14 messages that feel like the established organic group chats: character-aware voices, quick replies, interruptions, callbacks and a specific joke that develops from this event. Do not use a rigid speaker rotation. Let one participant challenge another and let the next line actually answer what was just said.
 
-Write exactly twelve concise turns in turns. Each turn is one complete sentence of 6–28 words. Do not begin a turn with the speaker's name or a speaker label. Turn 1 belongs to speakers[0], turn 2 to speakers[1], turn 3 to speakers[2], then repeat that rotation four times. Start in the middle of a reaction—a position, challenge, contradiction, pointed question or joke. Use direct first-person replies, interruptions and callbacks. Every line must respond to the actual people, act, number, place, object or consequence in this article. closingLine must be one natural spoken punch line about this exact event, never a description or name of a cartoon, image or meme template.
+Use people and institutions naturally connected to the event. At least two speakers must return. If a person's identity is not established by the source, use the named institution instead; never invent an officeholder, employee, reporter or official. An optional Admin/system punch line may appear only as the final message, never first.
+
+Every message object owns its speaker and text. Read each speaker/text pair together before returning it. The speaker must talk in first person and must never describe themselves by their own name or organization in third person. Start in the middle of a reaction—a position, challenge, contradiction, pointed question or joke. Every line must respond to the actual people, act, number, place, object or consequence in this article. Each line must be one complete sentence of 6–28 words. meme must be one natural spoken punch line about this exact event, never a description or name of a cartoon, image or meme template.
 
 Never write “I read [headline]”. Never paste, recite or lightly trim the article or source headline in a message. Never use “the verified event is pinned”, “fact pattern”, “reported detail”, “answer the file”, “on the record”, “official line is shorter than the consequence”, “spin requested a longer deadline” or other newsroom-process filler. Do not reuse a conversation skeleton with swapped speakers. Do not invent factual claims, quotations or private conduct. For victims, war, death or illness, aim satire at power, policy and messaging.
 
 JSON shape:
-{"speakers":["specific participant one","specific participant two","specific participant three"],"turns":["turn one","turn two","turn three","turn four","turn five","turn six","turn seven","turn eight","turn nine","turn ten","turn eleven","turn twelve"],"closingLine":"one original event-specific closing line","reviewNotes":"why this chat is unique to this article"}`;
+{"messages":[{"speaker":"specific participant","text":"direct event-specific opening position","kind":"satire","reaction":""},{"speaker":"another specific participant","text":"direct reply to the prior message","kind":"satire","reaction":""}],"meme":"one original event-specific closing line","reviewNotes":"why this chat is unique to this article"}
+
+The two objects show field structure only. Return 10–14 complete messages.`;
 }
 
 async function runWriter(bundle, feedback = []) {
-  const plan = await runNewsroomJson(chatPrompt(bundle, feedback), { schema: chatPlanSchema, maxTokens: 1100, temperature: 0.7 });
-  return { ...plan, meme: plan.closingLine, messages: messagesFromChatPlan(plan) };
+  return runNewsroomJson(chatPrompt(bundle, feedback), { schema: chatDraftSchema, maxTokens: 1100, temperature: 0.7 });
 }
 
 function applyChat(bundle, output) {

@@ -56,8 +56,8 @@ test("drafting prompt preserves factual conclusions and forbids recycled stock c
   assert.match(draft, /import \{ articleProblems, expectedSourceCredit, normalizeArticle \}/);
   assert.match(draft, /bestArticleCandidate/);
   assert.match(draft, /articleOnlySchema/);
-  assert.match(draft, /chatPlanSchema/);
-  assert.match(draft, /messagesFromChatPlan/);
+  assert.match(draft, /chatDraftSchema/);
+  assert.doesNotMatch(draft, /chatPlanSchema|messagesFromChatPlan|speakers\[index % speakers\.length\]/);
   assert.match(draft, /draftAuditSchema/);
   assert.match(draft, /auditGeneratedDraft/);
   assert.match(draft, /Source audit chat/);

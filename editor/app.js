@@ -47,10 +47,22 @@ const THIRD_PERSON = /^(frames|signals|calls for|counts|emphasizes|notes|observe
 const META_NARRATION = /\b(imagined|hypothetical|would likely|would probably|plausible reaction|reaction consistent|response imagined|posture|style response|public-figure|voice would)\b/i;
 const GENERIC_SPEAKER = /^(world leader|u\.?s\.? official|american official|european diplomat|government official|public figure|political observer|analyst|expert|commentator)$/i;
 const STOCK_MEME = /\bdrake(?: meme)?\b|distracted boyfriend|two buttons|change my mind|expanding brain|this is fine dog|woman yelling at a cat/i;
+const PERSON_NAME = /^[A-Z][A-Za-zÀ-ÖØ-öø-ÿ'’-]+(?:\s+[A-Z][A-Za-zÀ-ÖØ-öø-ÿ'’-]+){0,3}(?:,.*)?$/;
+const ORGANIZATION_WORD = /\b(?:administration|agency|analyst|association|board|bureau|coach|commission|committee|company|correspondent|council|department|desk|family|federation|government|group|league|ministry|network|nurse|office|organization|party|reporter|researcher|staff|team|university|voter)\b/i;
 
 const $ = (selector) => document.querySelector(selector);
 const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const normalize = (value) => String(value || '').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
+
+function selfReference(speaker, text) {
+  const label = String(speaker || '').split(',')[0].trim();
+  if (!label || /admin$/i.test(label)) return '';
+  const line = normalize(text);
+  const tokens = normalize(label).split(/\s+/).filter((token) => token.length >= 4);
+  const person = PERSON_NAME.test(String(speaker || '').trim()) && !ORGANIZATION_WORD.test(label);
+  const references = person ? tokens.slice(-1) : [normalize(label)];
+  return references.find((reference) => reference && new RegExp(`\\b${reference.replace(/\s+/g, '\\s+')}\\b`, 'i').test(line)) || '';
+}
 
 function repeatsHeadline(bundle, text) {
   const haystack = normalize(text).split(/\s+/).filter(Boolean).join(' ');
@@ -193,6 +205,8 @@ function dialogueProblems(bundle) {
     const line = normalize(text);
     if (!speaker || !text) problems.push(`Message ${index + 1} is incomplete.`);
     if (GENERIC_SPEAKER.test(speaker)) problems.push(`Message ${index + 1} uses a generic speaker (${speaker}).`);
+    if (message?.kind !== 'system' && selfReference(speaker, text)) problems.push(`Message ${index + 1} makes ${speaker} refer to themselves by name.`);
+    if (message?.kind === 'system' && index !== messages.length - 1) problems.push(`Message ${index + 1} is a system/admin line before the end of the chat.`);
     if (message?.kind !== 'system') {
       counts.set(speaker, (counts.get(speaker) || 0) + 1);
       if (previous === speaker) problems.push(`${speaker} appears twice in a row.`);

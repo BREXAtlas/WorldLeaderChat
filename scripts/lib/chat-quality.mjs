@@ -3,6 +3,8 @@ const THIRD_PERSON_OPENING = /^(frames|signals|calls for|counts|emphasizes|notes
 const GENERIC_SPEAKER = /^(world leader|u\.?s\.? official|american official|european diplomat|government official|public figure|political observer|analyst|expert|commentator)$/i;
 const STOCK_MEME = /\bdrake(?: meme)?\b|distracted boyfriend|two buttons|change my mind|expanding brain|this is fine dog|woman yelling at a cat|^(?:a |an )?(?:political )?(?:cartoon|image|picture|photo|graphic|meme) (?:showing|of|with|where)|#\w/i;
 const GENERIC_TITLE = /world leaders opened the news and immediately regretted having read receipts on/i;
+const PERSON_NAME = /^[A-Z][A-Za-zÀ-ÖØ-öø-ÿ'’-]+(?:\s+[A-Z][A-Za-zÀ-ÖØ-öø-ÿ'’-]+){0,3}(?:,.*)?$/;
+const ORGANIZATION_WORD = /\b(?:administration|agency|analyst|association|board|bureau|coach|commission|committee|company|correspondent|council|department|desk|family|federation|government|group|league|ministry|network|nurse|office|organization|party|reporter|researcher|staff|team|university|voter)\b/i;
 
 const BANNED_RECYCLED_PHRASES = [
   "new thread opened. the first confident reply arrived before the briefing finished loading",
@@ -154,6 +156,17 @@ function contextOverlap(bundle, messages) {
   return { tokens, matched };
 }
 
+function selfReference(speaker, text) {
+  const label = String(speaker || "").split(",")[0].trim();
+  if (!label || /admin$/i.test(label)) return "";
+  const normalizedText = normalizeDialogueText(text);
+  if (!normalizedText) return "";
+  const tokens = normalizeDialogueText(label).split(/\s+/).filter((token) => token.length >= 4);
+  const person = PERSON_NAME.test(String(speaker || "").trim()) && !ORGANIZATION_WORD.test(label);
+  const references = person ? tokens.slice(-1) : [normalizeDialogueText(label)];
+  return references.find((reference) => reference && new RegExp(`\\b${reference.replace(/\s+/g, "\\s+")}\\b`, "i").test(normalizedText)) || "";
+}
+
 export function dialogueProblems(bundle, options = {}) {
   const problems = [];
   const messages = bundle?.event?.messages;
@@ -178,6 +191,8 @@ export function dialogueProblems(bundle, options = {}) {
     const wordCount = text.split(/\s+/).filter(Boolean).length;
     if (wordCount < 6 || wordCount > 28) problems.push(`${label} must contain 6–28 words; found ${wordCount}.`);
     if (speaker && text.toLowerCase().startsWith(`${speaker.toLowerCase()}:`)) problems.push(`${label} repeats its speaker label inside the message.`);
+    if (message?.kind !== "system" && selfReference(speaker, text)) problems.push(`${label} makes ${speaker} refer to themselves by name instead of speaking in first person.`);
+    if (message?.kind === "system" && index !== messages.length - 1) problems.push(`${label} is a system/admin line before the end of the chat.`);
     if (text && !/[.!?…][\"')\]]?$/.test(text)) problems.push(`${label} is cut off or lacks closing punctuation.`);
     if (message?.kind !== "system") {
       counts.set(speaker, (counts.get(speaker) || 0) + 1);

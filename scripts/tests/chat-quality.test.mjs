@@ -134,6 +134,27 @@ test("UN Admin or any system narrator is rejected as the first chat message", ()
   assert.ok(problems.some((problem) => /must open with a direct event participant/i.test(problem)));
 });
 
+test("a generated line can never be assigned to a speaker it talks about", () => {
+  const messages = [
+    { speaker: "Japan", text: "We summoned the Russian ambassador because this visit crossed a diplomatic line.", kind: "satire" },
+    { speaker: "Vladimir Putin", text: "This move by Putin is unacceptable; we will not accept it.", kind: "satire" },
+    { speaker: "Russia", text: "We hear the protest, but our territorial position has not changed.", kind: "satire" },
+    { speaker: "Japan", text: "Then our protest will remain as direct as the visit itself.", kind: "satire" },
+    { speaker: "Vladimir Putin", text: "We will not negotiate sovereignty through a summoned ambassador.", kind: "satire" },
+    { speaker: "Russia", text: "The dispute has survived decades and another statement will not settle it.", kind: "satire" },
+    { speaker: "Japan", text: "A long dispute is not permission to make it disappear by presidential itinerary.", kind: "satire" },
+    { speaker: "Vladimir Putin", text: "The itinerary reflects our position, which Tokyo already knows.", kind: "satire" },
+    { speaker: "Russia", text: "We can acknowledge the protest without accepting the claim behind it.", kind: "satire" },
+    { speaker: "Japan", text: "Diplomacy remains open, but so does the objection you just flew across.", kind: "satire" }
+  ];
+  const problems = dialogueProblems(bundle({
+    title: "Japan protests Putin visit to disputed Kuril Islands",
+    summary: "Japan summoned Russia's ambassador to protest Vladimir Putin's visit to the disputed Kuril Islands.",
+    messages
+  }));
+  assert.ok(problems.some((problem) => /refer to themselves by name/i.test(problem)));
+});
+
 test("cross-article reuse of two or more lines is rejected", () => {
   const health = bundle({
     title: "AHRQ patient-safety research agency faces cuts",

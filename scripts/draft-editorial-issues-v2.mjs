@@ -4,7 +4,7 @@ import { extractStoryBundle, STORY_JSON_END, STORY_JSON_START } from "./lib/edit
 import { cleanWhitespace, readJson } from "./lib/io.mjs";
 import { dialogueProblems, stockMemeDetected } from "./lib/chat-quality.mjs";
 import { articleProblems, expectedSourceCredit, normalizeArticle } from "./lib/article-standard.mjs";
-import { articleOnlySchema, chatPlanSchema, draftAuditSchema, messagesFromChatPlan, runNewsroomJson } from "./lib/newsroom-model.mjs";
+import { articleOnlySchema, chatDraftSchema, draftAuditSchema, runNewsroomJson } from "./lib/newsroom-model.mjs";
 
 const token = process.env.GITHUB_TOKEN;
 const repository = process.env.GITHUB_REPOSITORY;
@@ -141,7 +141,7 @@ async function runWriter(bundle, feedback = [], acceptedArticleOutput = null) {
 Return only the schema fields for the final title, kicker, category, article and review notes. Write finished publication copy in every field; never return instructions, labels or placeholders such as “specific truthful headline.”`;
   const articleOutput = acceptedArticleOutput
     || await runNewsroomJson(articlePrompt, { schema: articleOnlySchema, maxTokens: 1100, temperature: 0.4 });
-  const chatPrompt = `Return only valid JSON with speakers, turns, closingLine and reviewNotes.
+  const chatPrompt = `Return only valid JSON with messages, meme and reviewNotes. Match the established World Leader Chat format used by previously approved articles.
 
 SOURCE-LOCKED ARTICLE
 Headline: ${articleOutput.article?.headline}
@@ -151,11 +151,14 @@ Verified summary: ${safeSummary(bundle.event.summary)}
 Source facts: ${(bundle.ingestion?.sourceDigests || []).map((item) => `${item.publisher}: ${item.excerpt}`).join("\n") || "None"}
 ${feedback.length ? `Previous chat failures:\n- ${feedback.join("\n- ")}` : ""}
 
-Choose exactly three distinct, specific people, companies, agencies, teams or organizations named in or directly responsible for this event. Do not choose Admin, UN Admin, World Leader, an analyst, expert, observer, narrator or other generic role. Put those names in speakers in the order they enter the chat.
+Write 10–14 messages that feel like the established organic group chats: character-aware voices, quick replies, interruptions, callbacks and a specific joke that develops from this event. Do not use a rigid speaker rotation. Let one participant challenge another and let the next line actually answer what was just said.
 
-Write exactly twelve concise, original turns in turns. Each turn is one complete sentence of 6–28 words. Do not begin a turn with the speaker's name or a speaker label. Turn 1 is spoken by speakers[0], turn 2 by speakers[1], turn 3 by speakers[2], then repeat that same rotation four times. Write every turn in that speaker's direct first-person voice so the rotation reads as an actual exchange with replies, interruptions and callbacks. Start with a position, challenge or pointed question, not narration. Never write “I read [headline]”, recite the headline, invent facts or quotations, use generic campaign platitudes, or use newsroom-process filler. Every turn must depend on this event's actual person, decision, number, place, object or consequence. closingLine must be one natural spoken punch line about this exact event, never a description or name of a cartoon, image or meme template.`;
-  const chatPlan = await runNewsroomJson(chatPrompt, { schema: chatPlanSchema, maxTokens: 1100, temperature: 0.7 });
-  const chatOutput = { ...chatPlan, meme: chatPlan.closingLine, messages: messagesFromChatPlan(chatPlan) };
+Use people and institutions naturally connected to the event. At least two speakers must return later. If a person's identity is not established by the source, use the named institution instead; never invent an officeholder, employee, reporter or official. An optional Admin/system punch line may appear only as the final message, never first.
+
+Every message object owns its speaker and text. Read each speaker/text pair together before returning it. The speaker must talk in first person and must never describe themselves by their own name or organization in third person. Start with a position, challenge, contradiction, pointed question or joke. Never write “I read [headline]”, recite the headline, invent facts or quotations, use generic campaign platitudes, or use newsroom-process filler. Every line must depend on this event's actual person, decision, number, place, object or consequence. Each line must be one complete sentence of 6–28 words.
+
+Return messages in the same reader-facing structure as approved chats: {"speaker":"specific participant","text":"direct event-specific message","kind":"satire","reaction":""}. Use kind "system" only for an optional final Admin closer. meme must be one natural spoken punch line about this exact event, never a description or name of a cartoon, image or meme template.`;
+  const chatOutput = await runNewsroomJson(chatPrompt, { schema: chatDraftSchema, maxTokens: 1100, temperature: 0.7 });
   const output = {
     ...articleOutput,
     ...chatOutput,
