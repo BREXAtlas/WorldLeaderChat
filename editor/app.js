@@ -495,7 +495,7 @@ async function act(action, number) {
       busy.add(number); render();
       await setIssueLabels(currentIssue, ['redraft-requested'], ['ready-for-approval','editorial-approved','fact-checked','publication-failed','needs-editor','regenerate-requested']);
       busy.delete(number);
-      notice('A new source-locked short report and article-specific chat have been queued.', 'success');
+      notice('This source-locked report and article-specific chat are queued for the controlled batch writer.', 'success');
       await load();
       return;
     }

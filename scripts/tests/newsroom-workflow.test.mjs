@@ -163,7 +163,10 @@ test("failed generation cannot promote a recycled deterministic fallback to owne
 test("article failures can request a complete source-locked redraft", async () => {
   const workflow = await read(".github/workflows/editorial-redraft.yml");
   const editor = await read("editor/app.js");
-  assert.match(workflow, /github\.event\.label\.name == 'redraft-requested'/);
+  assert.match(workflow, /workflow_dispatch:/);
+  assert.match(workflow, /target_issue:/);
+  assert.doesNotMatch(workflow, /types: \[labeled\]/);
+  assert.match(workflow, /WLC_TARGET_ISSUE: \$\{\{ inputs\.target_issue \}\}/);
   assert.match(workflow, /start-local-newsroom-writer\.sh/);
   assert.doesNotMatch(workflow, /copilot|models\.github/i);
   assert.match(workflow, /WLC_FORCE_REWRITE: "1"/);
