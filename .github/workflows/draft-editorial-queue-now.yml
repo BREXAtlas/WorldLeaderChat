@@ -36,7 +36,7 @@ jobs:
         startsWith(github.event.pull_request.head.ref, 'agent/run-editorial-draft')
       )
     runs-on: ubuntu-latest
-    timeout-minutes: 150
+    timeout-minutes: 300
 
     steps:
       - name: Check out the published drafting engine

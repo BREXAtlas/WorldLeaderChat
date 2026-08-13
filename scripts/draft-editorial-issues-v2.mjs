@@ -1,4 +1,5 @@
 import { resolve } from "node:path";
+import { writeFile } from "node:fs/promises";
 import { extractStoryBundle, STORY_JSON_END, STORY_JSON_START } from "./lib/editorial.mjs";
 import { cleanWhitespace, readJson } from "./lib/io.mjs";
 import { dialogueProblems, stockMemeDetected } from "./lib/chat-quality.mjs";
@@ -13,6 +14,10 @@ const targetIssue = Number(process.env.WLC_TARGET_ISSUE || 0);
 const forceRewrite = process.env.WLC_FORCE_REWRITE === "1";
 const todayOnly = process.env.WLC_TODAY_ONLY === "1" || process.env.WLC_TODAY_ONLY === "true";
 const maximumAttempts = Number(process.env.WLC_MAX_ATTEMPTS || (targetIssue ? 5 : 3));
+const skippedIssueNumbers = new Set((process.env.WLC_SKIP_ISSUES || "")
+  .split(",")
+  .map((value) => Number(value.trim()))
+  .filter(Number.isInteger));
 
 if (!token) throw new Error("GITHUB_TOKEN is required.");
 if (!repository || !repository.includes("/")) throw new Error("GITHUB_REPOSITORY must be owner/name.");
@@ -322,6 +327,7 @@ const queue = parsed
   .filter(({ issue }) => {
     const labels = labelsOf(issue);
     if (targetIssue && issue.number !== targetIssue) return false;
+    if (skippedIssueNumbers.has(issue.number)) return false;
     return !labels.has("published") && !labels.has("editorial-approved") && !labels.has("rejected") && !labels.has("daily-overflow");
   })
   .filter(({ issue, bundle }) => {
@@ -422,4 +428,12 @@ for (const { issue, bundle: originalBundle } of queue) {
 }
 
 console.log(`Editorial drafting complete: ${drafted} ready, ${generationFailureCount} generation failure(s) kept out of review, ${blocked} blocked.`);
+if (process.env.WLC_DRAFT_RESULT_PATH) {
+  await writeFile(resolve(process.env.WLC_DRAFT_RESULT_PATH), JSON.stringify({
+    selectedIssueNumbers: queue.map(({ issue }) => issue.number),
+    drafted,
+    generationFailureCount,
+    blocked
+  }));
+}
 if (targetIssue && blocked) process.exitCode = 1;

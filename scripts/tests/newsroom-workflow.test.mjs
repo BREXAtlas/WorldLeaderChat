@@ -92,7 +92,7 @@ test("owner-queued drafts run before quarantined model retries", async () => {
   assert.match(draft, /sort\(\(left, right\) => draftingPriority/);
 });
 
-test("every scheduled sweep finishes and verifies the entire current-day writing queue", async () => {
+test("every scheduled sweep continues through the current-day writing queue", async () => {
   const workflow = await read(".github/workflows/news-ingestion.yml");
   const draft = await read("scripts/draft-editorial-issues-v2.mjs");
   const opening = await read("scripts/open-editorial-issues.mjs");
@@ -112,7 +112,13 @@ test("every scheduled sweep finishes and verifies the entire current-day writing
   assert.match(opening, /dailyCounts/);
   assert.match(batches, /WLC_DRAFT_BATCH_SIZE \|\| 10/);
   assert.match(batches, /WLC_DAILY_DRAFT_LIMIT \|\| 30/);
-  assert.match(batches, /Starting one newsroom writing batch/);
+  assert.match(batches, /while \(attemptedIssues\.size < runLimit\)/);
+  assert.match(batches, /WLC_DRAFT_RESULT_PATH/);
+  assert.match(batches, /WLC_SKIP_ISSUES/);
+  assert.match(batches, /selected\.length < limit/);
+  assert.match(draft, /skippedIssueNumbers/);
+  assert.match(draft, /selectedIssueNumbers: queue\.map/);
+  assert.match(workflow, /groups of at most 10 continue automatically/);
   assert.match(readiness, /remain outside Ready for Approval for later batches/);
   assert.match(readiness, /daily-overflow/);
 });
