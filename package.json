@@ -10,8 +10,15 @@
   "scripts": {
     "test": "node --test scripts/tests/*.test.mjs",
     "validate": "node scripts/validate-repository.mjs",
+    "validate:migrations": "node scripts/validate-migrations.mjs",
+    "validate:env": "node scripts/validate-environment.mjs",
+    "test:database": "node scripts/run-database-tests.mjs",
+    "security": "npm audit --audit-level=high && node scripts/validate-environment.mjs",
     "build": "node scripts/build-site.mjs",
     "ingest": "node scripts/ingest-news.mjs",
     "editorial:preview": "node scripts/preview-issue-body.mjs"
+  },
+  "devDependencies": {
+    "supabase": "2.114.0"
   }
 }

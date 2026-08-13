@@ -14,6 +14,7 @@ The front page uses a dense, old-school headline layout. Every story opens into 
 - `config/leader-voice-notes.json` — broad parody cues and safety boundaries for recurring figures.
 - `scripts/` — feed parsing, scoring, issue creation, validation, publishing and static-site build logic.
 - `.github/workflows/` — continuous validation, scheduled ingestion, editorial publishing and GitHub Pages deployment.
+- `supabase/` — additive first-party audience/revenue schema and secure Edge Function source. See [Audience & Revenue Architecture](docs/AUDIENCE_REVENUE_ARCHITECTURE.md).
 
 ## The core rule
 

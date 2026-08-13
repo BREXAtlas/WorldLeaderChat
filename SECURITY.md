@@ -14,3 +14,6 @@ For a vulnerability that could permit unauthorized publishing, script injection,
 - Every rendered field is escaped before insertion into the page.
 - The public Pages artifact excludes scripts, configuration and editorial logs.
 - Workflows use explicit least-privilege permission blocks.
+- Audience, supporter, payment and sponsor records live behind Postgres row-level security and server-side Edge Functions; they are never copied into the Pages artifact.
+- Supabase service/secret keys, email transport keys and Stripe secrets are server-only. CI scans browser-delivered files for provider credentials and server-only variable names.
+- Subscriber action URLs contain scoped, expiring, signed identifiers rather than raw email addresses.
