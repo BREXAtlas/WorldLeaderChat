@@ -1539,5 +1539,17 @@
     "sourceUrls": [
       "https://www.washingtonexaminer.com/news/white-house/4685284/trump-obama-endorsement-candidate/"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-13-what-would-a-north-korean-surge-mean-for-ukraine-war",
+    "issueNumber": 268,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/268",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-13T22:22:19.681Z",
+    "fingerprint": "817cbabf8f779c32eb15df7e43fa5fd9e96a6081f33c6f85cf2eec0fe97b756a",
+    "sourceUrls": [
+      "https://www.dw.com/en/what-would-a-north-korean-surge-mean-for-ukraine-war/a-78350896?maca=en-rss-en-top-1022-rdf"
+    ]
   }
 ]

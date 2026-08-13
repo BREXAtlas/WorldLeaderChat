@@ -545,6 +545,115 @@
     }
   },
   {
+    "id": "2026-08-13-what-would-a-north-korean-surge-mean-for-ukraine-war",
+    "eventDate": "2026-08-13",
+    "year": 2026,
+    "date": "August 13, 2026",
+    "title": "North Korea Prepares Tens of Thousands More Troops for Russia, Ukraine Warns",
+    "kicker": "Ukraine fears a new wave of North Korean troops could shift the war’s balance, prompting an urgent call for closer ties with Seoul.",
+    "category": "War & Security",
+    "summary": "Ukraine is claiming that North Korea is preparing to send tens of thousands more troops to Russia, where they'll gain valuable battlefield experience. President Zelenskyy has urged South Korea to work closer with Kyiv.",
+    "article": {
+      "headline": "North Korea Prepares Tens of Thousands More Troops for Russia, Ukraine Warns",
+      "dek": "Ukraine is warning that North Korea is preparing to send tens of thousands more troops to Russia, where they will gain valuable battlefield experience. President Zelenskyy has urged South Korea to work closer with Kyiv in response.",
+      "body": [
+        "In a development that has sent shockwaves through the region, Ukraine has reported that North Korea is preparing to deploy tens of thousands more troops to Russia. This move is seen as a strategic gambit to bolster the Russian military presence and potentially alter the balance of the ongoing conflict. President Volodymyr Zelenskyy has taken the unprecedented step of urging South Korea to increase its cooperation with Ukraine, emphasizing the need for a united front against what he perceives as a growing threat from the North.",
+        "The main facts extracted from this development are that North Korea is preparing a significant troop deployment, which could provide valuable battlefield experience to Russian forces. This move is seen as a direct challenge to Ukraine and its allies, and a call for increased international cooperation. The political and strategic tension this situation creates is palpable, with Ukraine seeking to leverage its relationship with South Korea to counterbalance the perceived threat from the North. The urgency of this call for closer ties underscores the severity of the situation and the need for a coordinated response.",
+        "The political and strategic tension created by this development is significant. It highlights the complex web of alliances and rivalries in the region, where every move by one country can have far-reaching consequences. The call for closer ties with South Korea is a clear indication of the strategic importance of this relationship in the context of the ongoing conflict. This development also raises questions about the role of North Korea in regional conflicts and the potential for its involvement to escalate tensions further."
+      ],
+      "sourceCredit": "Based on original reporting from DW."
+    },
+    "sources": [
+      {
+        "label": "What would a North Korean surge mean for Ukraine war?",
+        "url": "https://www.dw.com/en/what-would-a-north-korean-surge-mean-for-ukraine-war/a-78350896?maca=en-rss-en-top-1022-rdf",
+        "publisher": "DW"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Volodymyr Zelenskyy",
+        "text": "Thirty thousand more North Korean troops would give Moscow manpower and give Pyongyang battlefield lessons aimed far beyond Ukraine.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Kim Jong Un",
+        "text": "Cooperation with Russia is our sovereign decision; Kyiv does not assign the limits of our partnerships.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "South Korea",
+        "text": "Combat experience, missile support and a returning force would make this European war an Asian security problem too.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Putin",
+        "text": "Russia works with partners who respect its security interests while the West supplies weapons without similar lectures.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Volodymyr Zelenskyy",
+        "text": "The difference is that your partner's soldiers would enter the invasion, learn from it and carry those lessons home.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "South Korea",
+        "text": "That is why closer cooperation with Kyiv involves our own deterrence, not charity at a distant battlefield.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Kim Jong Un",
+        "text": "Seoul calls every improvement in our capabilities a threat while expanding exercises and weapons of its own.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Putin",
+        "text": "And every Ukrainian claim about future deployments becomes a headline before Moscow confirms a passenger list.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Volodymyr Zelenskyy",
+        "text": "Preparation matters before the trains arrive; waiting for confirmation after deployment is not a defense strategy.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "South Korea",
+        "text": "Then intelligence sharing and practical cooperation must move faster than the argument over whose region this crisis belongs to.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "War Room Admin",
+        "text": "The front line stayed in Europe. The military lessons booked a return flight to Asia.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "Russia sought more troops. Asia received the battlefield experience invoice.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-13T22:22:19.681Z",
+    "editorial": {
+      "issueNumber": 268,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/268",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-13T22:22:19.681Z",
+      "fingerprint": "817cbabf8f779c32eb15df7e43fa5fd9e96a6081f33c6f85cf2eec0fe97b756a",
+      "sourcePublishedAt": "2026-08-13T10:54:00.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "The article accurately reflects the verified summary and additional source digests. It provides a clear and concise account of the event, including the main facts and their implications. The dry humor and sharp framing are appropriately used to engage the reader without inventing any details. This dialogue captures the tension and conflicting views between the speakers, reflecting the political and strategic implications of the reported troop deployment. Chat manually replaced after speaker-ownership, source, voice, reply and originality audit. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-12-bob-iger-joshua-kushner-buy-los-angeles-lakers-at-a-12-5-billion",
     "eventDate": "2026-08-12",
     "year": 2026,
