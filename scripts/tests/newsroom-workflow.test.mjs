@@ -117,7 +117,7 @@ test("all editorial drafting workflows share one non-cancelling production lock"
     read(".github/workflows/editorial-regenerate.yml")
   ]);
   for (const workflow of workflows) {
-    assert.match(workflow, /group: world-leader-chat-editorial-production/);
+    assert.match(workflow, /group: .*world-leader-chat-editorial-production/);
     assert.match(workflow, /cancel-in-progress: false/);
     assert.match(workflow, /start-local-newsroom-writer\.sh/);
     assert.doesNotMatch(workflow, /copilot|models\.github/i);
@@ -138,6 +138,7 @@ test("Rewrite Chat preserves the article and replaces only dialogue", async () =
   const workflow = await read(".github/workflows/editorial-regenerate.yml");
   const rewrite = await read("scripts/rewrite-chat-only.mjs");
   assert.match(workflow, /github\.event\.label\.name == 'regenerate-requested'/);
+  assert.match(workflow, /github\.event\.label\.name == 'regenerate-requested'[\s\S]*world-leader-chat-editorial-production[\s\S]*github\.run_id/);
   assert.match(workflow, /WLC_TARGET_ISSUE/);
   assert.match(workflow, /rewrite-chat-only\.mjs/);
   assert.match(workflow, /start-local-newsroom-writer\.sh/);
