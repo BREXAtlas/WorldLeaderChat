@@ -64,6 +64,8 @@ jobs:
           node --check scripts/enrich-custom-submission.mjs
           node --check scripts/ingest-news.mjs
           node --check scripts/set-featured-story.mjs
+          node --check supabase/functions/_shared/audience-core.js
+          node --check supabase/functions/audience-api/index.ts
 
       - name: Require owner approval for newsroom structure changes
         env:
@@ -77,7 +79,45 @@ jobs:
         run: npm test
 
       - name: Validate repository data and safeguards
-        run: npm run validate
+        run: |
+          npm run validate
+          npm run validate:migrations
+          npm run validate:env
+
+      - name: Run dependency and credential exposure checks
+        run: npm run security
 
       - name: Build the static site artifact
         run: npm run build
+
+  database:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Use Node.js 24
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install pinned tooling
+        run: npm ci
+
+      - name: Start the local database and apply every migration
+        run: |
+          npx supabase start -x gotrue,realtime,storage-api,imgproxy,kong,mailpit,postgrest,postgres-meta,studio,edge-runtime,logflare,vector,supavisor
+          npx supabase db reset
+
+      - name: Lint the migrated database
+        run: |
+          npm run test:database
+          npx supabase db lint --local --level error --fail-on error
+          npx supabase db advisors --local --type security --level info --fail-on error
+          npx supabase db advisors --local --type performance --level warn --fail-on error
+
+      - name: Stop local services
+        if: always()
+        run: npx supabase stop --no-backup

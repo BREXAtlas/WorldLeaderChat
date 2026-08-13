@@ -1,0 +1,2 @@
+-- Production-safe seed file. Configurable plans and existing network/house
+-- promotions are seeded by the versioned foundation migration.
