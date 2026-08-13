@@ -94,8 +94,12 @@ test("editor has a wide active lane, daily mix tools, publishing status and a de
   assert.match(html, /\.tag\.publishing\{/);
   assert.match(html, /\.tag\.trash\{/);
   assert.match(html, /\.trash-bulk\{/);
-  assert.match(html, /trash-bulk-restore-20260812/);
-  assert.match(deploy, /app\.js\?v=trash-bulk-restore-20260812/);
+  assert.match(app, /const activelyDrafting = labels\.has\('drafting'\)/);
+  assert.match(app, /const queuedForWriting = !activelyDrafting/);
+  assert.match(app, /activelyDrafting \? 'Writing' : queuedForWriting \? 'Queued'/);
+  assert.match(app, /Queued for writer/);
+  assert.match(html, /accurate-draft-status-20260812/);
+  assert.match(deploy, /app\.js\?v=accurate-draft-status-20260812/);
   assert.match(deploy, /grep -F "Delete All Trash"/);
   assert.match(deploy, /grep -F "Restore & Rebuild"/);
 });

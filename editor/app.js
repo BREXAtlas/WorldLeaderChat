@@ -406,7 +406,8 @@ function cards(lane) {
     const article = bundle?.event?.article;
     const publishing = labels.has('editorial-approved') || busy.has(issue.number);
     const failed = labels.has('publication-failed');
-    const regenerating = labels.has('regenerate-requested') || labels.has('redraft-requested') || labels.has('drafting');
+    const activelyDrafting = labels.has('drafting');
+    const queuedForWriting = !activelyDrafting && (labels.has('regenerate-requested') || labels.has('redraft-requested'));
     const blocked = labels.has('needs-editor') || problems.length > 0;
     const needsRedraft = eventIssues.length > 0 || articleIssues.length > 0;
     const cardDesk = deskOf(issue);
@@ -424,8 +425,10 @@ function cards(lane) {
     } else if (lane !== 'published') {
       if (publishing) {
         actions = '<button class="btn pending" disabled>Publishing…</button><span class="action-note">Approval submitted once. No second tap is needed.</span>';
-      } else if (regenerating && !failed) {
+      } else if (activelyDrafting && !failed) {
         actions = '<button class="btn pending" disabled>Newsroom writing…</button><span class="action-note">The newsroom is correcting the headline, report and chat. No owner writing is needed.</span>';
+      } else if (queuedForWriting && !failed) {
+        actions = '<button class="btn pending" disabled>Queued for writer…</button><span class="action-note">This draft is waiting for its turn. No owner writing or editing is needed.</span>';
       } else if (failed) {
         actions = `<button class="btn success" data-action="retry" data-issue="${issue.number}" ${blocked ? 'disabled' : ''}>Retry Publish</button><button class="btn ghost" data-action="${needsRedraft ? 'redraft' : 'regenerate'}" data-issue="${issue.number}">${needsRedraft ? 'Regenerate Article + Chat' : 'Rewrite Chat'}</button><button class="btn danger" data-action="reject" data-issue="${issue.number}">Reject</button>`;
       } else if (blocked) {
@@ -442,8 +445,10 @@ function cards(lane) {
       ? `<div class="smart"><b>GROUPED SOURCE RECORD</b><br>This source is already attached to canonical article #${canonicalNumber}. Use View Canonical Article instead of restoring a duplicate.</div>`
       : lane === 'trash' && !bundle
       ? '<div class="smart"><b>LEGACY SOURCE RECORD</b><br>Restore & Rebuild will create a valid source-locked draft before this file returns to review.</div>'
-      : regenerating
+      : activelyDrafting
       ? '<div class="smart"><b>NEWSROOM PRODUCTION IN PROGRESS</b><br>The automated desk is finishing this file. It will move to Ready for Approval only after the headline, report and chat pass validation.</div>'
+      : queuedForWriting
+      ? '<div class="smart"><b>NEWSROOM WRITING QUEUE</b><br>This file is waiting for the controlled writer. It will say Writing only when its drafting work has actually started.</div>'
       : labels.has('needs-editor')
       ? `<div class="smart" style="background:#fee2e2;border-color:#b91c1c"><b>AUTOMATIC DRAFT RECOVERY NEEDED</b><br>The writer did not finish this file. The next newsroom sweep retries it automatically, or Finish Draft can restart it now.<br>${problems.map(esc).join('<br>')}</div>`
       : problems.length
@@ -454,7 +459,7 @@ function cards(lane) {
       .map((source) => `<a class="source" target="_blank" rel="noopener" href="${esc(source.url)}">Open source: ${esc(source.publisher)}</a>`).join('');
     const chatPreview = `<details class="chat-preview"><summary>Conversation (${(bundle?.event?.messages || []).length} messages)</summary><div class="chat">${messages}</div></details>`;
     const laneTag = lane === 'ready' ? 'ready' : lane === 'new' ? 'new' : lane === 'publishing' ? 'publishing' : lane === 'trash' ? 'trash' : 'draft';
-    const statusText = lane === 'trash' ? 'Rejected' : publishing ? 'Publishing' : failed ? 'Publication failed' : regenerating ? 'Writing' : labels.has('needs-editor') ? 'Recovery needed' : lane;
+    const statusText = lane === 'trash' ? 'Rejected' : publishing ? 'Publishing' : failed ? 'Publication failed' : activelyDrafting ? 'Writing' : queuedForWriting ? 'Queued' : labels.has('needs-editor') ? 'Recovery needed' : lane;
     const selection = lane === 'trash'
       ? `<label class="trash-card-select"><input type="checkbox" data-trash-select="${issue.number}" ${selectedTrash.has(issue.number) ? 'checked' : ''}> Select article #${issue.number}</label>`
       : '';
