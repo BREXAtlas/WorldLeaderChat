@@ -146,6 +146,8 @@ test("future publication requires article-to-source and chat-quality verificatio
   assert.match(validation, /Article standard:/);
   assert.match(validation, /Chat quality:/);
   assert.match(publish, /existingBundles: published\.map/);
+  assert.match(publish, /assignRelatedEventGroup\(event, published\)/);
+  assert.match(publish, /Cross-referenced/);
 });
 
 test("Rewrite Chat preserves the article and replaces only dialogue", async () => {

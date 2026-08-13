@@ -254,23 +254,23 @@
     const universe = typeof global.allEvents === "function" ? global.allEvents() : [];
     const related = relatedEvents(event, universe);
     if (!related.length) return "";
-    return `<section class="related-coverage" aria-labelledby="relatedCoverageTitle">
-      <div class="related-coverage-head"><span>EVENT COVERAGE GROUP</span><h3 id="relatedCoverageTitle">CHECK OUT THESE RELATED ARTICLES</h3><p>These approved files cover the same underlying event from another source or publication point—not merely the same broad topic.</p></div>
+    return `<details class="related-coverage">
+      <summary><span>RELATED COVERAGE</span><strong>${related.length} SAME-EVENT ${related.length === 1 ? "ARTICLE" : "ARTICLES"}</strong><b aria-hidden="true">＋</b></summary>
+      <div class="related-coverage-head"><h3>CHECK OUT THESE RELATED ARTICLES</h3><p>These approved files cover the same underlying event from another source or publication point—not merely the same broad topic.</p></div>
       <div class="related-coverage-list">${related.map((item) => `<article>
         <div><span>${esc(item.date)} • ${esc(sectionFor(item))}</span><h4><button type="button" data-related-open="${esc(item.id)}">${esc(item.title)}</button></h4><p>${esc([...new Set((item.sources || []).map((source) => source.publisher).filter(Boolean))].join(" + ") || "Original sources")}</p></div>
         ${sourceMixBadge(item, "related-source-mix")}
-      </article>`).join("")}</div>
-    </section>`;
+      </article>`).join("")}</div></details>`;
   }
 
   function renderRelatedCoverage(event) {
-    const panel = document.getElementById("dialogArticle");
-    if (!panel) return;
-    panel.querySelector(".related-coverage")?.remove();
+    const sources = document.querySelector(".fact-panel .sources");
+    if (!sources) return;
+    sources.querySelector(".related-coverage")?.remove();
     const html = relatedCoverageHTML(event);
     if (!html) return;
-    panel.insertAdjacentHTML("beforeend", html);
-    panel.querySelectorAll("[data-related-open]").forEach((button) => {
+    sources.insertAdjacentHTML("beforeend", html);
+    sources.querySelectorAll("[data-related-open]").forEach((button) => {
       button.onclick = () => {
         if (typeof global.openEvent === "function") global.openEvent(button.dataset.relatedOpen);
       };
@@ -316,7 +316,7 @@
       .featured-carousel{min-width:0;border-right:1px solid #aaa;padding-right:18px}.featured-carousel-head{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #111;padding-bottom:5px;font:900 9px Arial,sans-serif;letter-spacing:.1em;color:#c40000}
       .featured-carousel .lead{border-right:0;padding:12px 0 5px;min-height:310px}.featured-slide[hidden]{display:none}.featured-carousel-controls{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;border-top:2px solid #111;padding-top:8px}.carousel-arrow{border:1px solid #111;background:#fff;width:34px;height:30px;font:900 18px Arial,sans-serif;cursor:pointer}.carousel-arrow:hover,.carousel-arrow:focus-visible{background:#111;color:#fff}.carousel-dots{display:flex;justify-content:center;gap:6px;flex-wrap:wrap}.carousel-dots button{width:9px;height:9px;border:1px solid #111;border-radius:50%;padding:0;background:#fff;cursor:pointer}.carousel-dots button.active{background:#c40000;border-color:#c40000}
       .news-ticker{display:grid;grid-template-columns:auto minmax(0,1fr);border-top:3px solid #111;border-bottom:1px solid #111;margin:18px 0 0;background:#fff;overflow:hidden}.ticker-label{position:relative;z-index:2;background:#c40000;color:#fff;padding:9px 12px;display:flex;flex-direction:column;justify-content:center}.ticker-label b{font:900 11px Arial,sans-serif;letter-spacing:.1em}.ticker-label span{font:800 7px Arial,sans-serif;letter-spacing:.05em;white-space:nowrap}.ticker-window{min-width:0;overflow:hidden;display:flex;align-items:center}.ticker-track{display:flex;width:max-content;animation:wlcTicker 85s linear infinite}.ticker-set{display:flex;align-items:center;gap:28px;padding-right:28px}.ticker-item{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;border:0;background:transparent;padding:9px 0;font:900 12px Georgia,serif;color:#111;cursor:pointer}.ticker-item span{font:900 8px Arial,sans-serif;color:#c40000;letter-spacing:.08em;text-transform:uppercase}.ticker-item:hover{text-decoration:underline}.news-ticker:hover .ticker-track,.news-ticker:focus-within .ticker-track{animation-play-state:paused}@keyframes wlcTicker{to{transform:translateX(-50%)}}
-      .related-coverage{border-top:7px double #111;margin-top:22px;padding-top:12px}.related-coverage-head>span{font:900 9px Arial,sans-serif;color:#c40000;letter-spacing:.12em}.related-coverage-head h3{font:900 22px/1 Georgia,serif!important;margin:4px 0 6px!important}.related-coverage-head p{font:12px/1.4 Arial,sans-serif!important;color:#555}.related-coverage-list{border-top:2px solid #111}.related-coverage-list article{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;padding:11px 0;border-bottom:1px solid #aaa}.related-coverage-list article>div>span{font:900 8px Arial,sans-serif;color:#666;letter-spacing:.08em}.related-coverage-list h4{font:900 18px/1.05 Georgia,serif;margin:4px 0}.related-coverage-list h4 button{border:0;background:transparent;padding:0;text-align:left;font:inherit;cursor:pointer}.related-coverage-list h4 button:hover{text-decoration:underline}.related-coverage-list p{font:11px Arial,sans-serif!important;margin:0!important}.related-source-mix{align-self:start}
+      .related-coverage{border-top:1px solid #999;margin-top:10px;padding-top:0}.related-coverage>summary{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:8px;cursor:pointer;list-style:none;padding:9px 0;font:900 9px Arial,sans-serif;letter-spacing:.08em}.related-coverage>summary::-webkit-details-marker{display:none}.related-coverage>summary span{color:#c40000}.related-coverage>summary b{font-size:16px}.related-coverage[open]>summary b{transform:rotate(45deg)}.related-coverage-head{padding:4px 0 8px}.related-coverage-head h3{font:900 18px/1 Georgia,serif!important;margin:4px 0 6px!important}.related-coverage-head p{font:12px/1.4 Arial,sans-serif!important;color:#555}.related-coverage-list{border-top:2px solid #111}.related-coverage-list article{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;padding:11px 0;border-bottom:1px solid #aaa}.related-coverage-list article>div>span{font:900 8px Arial,sans-serif;color:#666;letter-spacing:.08em}.related-coverage-list h4{font:900 18px/1.05 Georgia,serif;margin:4px 0}.related-coverage-list h4 button{border:0;background:transparent;padding:0;text-align:left;font:inherit;cursor:pointer}.related-coverage-list h4 button:hover{text-decoration:underline}.related-coverage-list p{font:11px Arial,sans-serif!important;margin:0!important}.related-source-mix{align-self:start}
       @media(prefers-reduced-motion:reduce){.ticker-track{animation:none}.ticker-set[aria-hidden="true"]{display:none}}
       @media(max-width:900px){.featured-carousel{border-right:0;padding-right:0;border-bottom:2px solid #111;padding-bottom:12px}.featured-carousel .lead{min-height:0}.news-ticker{grid-template-columns:1fr}.ticker-label{flex-direction:row;justify-content:space-between;gap:10px}.related-coverage-list article{grid-template-columns:1fr}}
     `;

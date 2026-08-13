@@ -2,6 +2,7 @@ import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { extractCandidateFingerprint, extractStoryBundle } from "./lib/editorial.mjs";
 import { appendGitHubOutput, readJson, writeJson } from "./lib/io.mjs";
+import { assignRelatedEventGroup } from "./lib/related-events.mjs";
 import { assertValid, validateApprovedBundle } from "./lib/validation.mjs";
 
 const root = process.cwd();
@@ -78,6 +79,11 @@ const event = {
     reviewNotes: String(bundle.approval.reviewNotes ?? "").trim()
   }
 };
+
+const relatedCoverage = assignRelatedEventGroup(event, published);
+if (relatedCoverage.related.length) {
+  console.log(`Cross-referenced '${event.id}' with ${relatedCoverage.related.map((item) => `'${item.id}'`).join(", ")} as '${relatedCoverage.eventGroup}'.`);
+}
 
 published.push(event);
 published.sort((a, b) => {

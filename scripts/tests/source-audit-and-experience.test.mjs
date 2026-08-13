@@ -85,6 +85,26 @@ test("event clustering joins same-event coverage without grouping broad-topic ne
   assert.deepEqual([...experience.collapseRelated([older, newer, separate])].map((event) => event.id), ["anthropic-reuters", "chatgpt-study-mode"]);
 });
 
+test("the two published Kushner-Iger Lakers files cross-reference in both directions", async () => {
+  const context = vm.createContext({ WLC_NEWSROOM: { desks: ["Sports & Soft Power"], sectionFor: (event) => event.category } });
+  vm.runInContext(await read("newsroom-experience.js"), context);
+  const experience = context.WLC_NEWSROOM_EXPERIENCE;
+  const events = JSON.parse(await read("data/published-events.json"));
+  context.allEvents = () => events;
+  const guardian = events.find((event) => event.id === "2026-08-13-the-lakers-have-become-a-poker-chip-for-some-of-the-most-powerfu");
+  const cnbc = events.find((event) => event.id === "2026-08-12-bob-iger-joshua-kushner-buy-los-angeles-lakers-at-a-12-5-billion");
+
+  assert.ok(guardian && cnbc);
+  assert.equal(guardian.eventGroup, cnbc.eventGroup);
+  assert.equal(experience.sameEvent(guardian, cnbc), true);
+  assert.deepEqual([...experience.relatedEvents(guardian, events)].map((event) => event.id), [cnbc.id]);
+  assert.deepEqual([...experience.relatedEvents(cnbc, events)].map((event) => event.id), [guardian.id]);
+  assert.match(experience.relatedCoverageHTML(guardian), /<details class="related-coverage">/);
+  assert.match(experience.relatedCoverageHTML(guardian), /SAME-EVENT ARTICLE/);
+  assert.match(await read("newsroom-experience.js"), /querySelector\("\.fact-panel \.sources"\)/);
+  assert.doesNotMatch(await read("newsroom-experience.js"), /getElementById\("dialogArticle"\)/);
+});
+
 test("compact cards use a word limit, ticker is capped, and featured selection fills desk slots", async () => {
   const context = vm.createContext({
     WLC_NEWSROOM: {
