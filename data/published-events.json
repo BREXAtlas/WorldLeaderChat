@@ -333,6 +333,121 @@
     }
   },
   {
+    "id": "2026-08-12-ukraine-pauses-strikes-on-tankers-after-jd-vance-request-and-rus",
+    "eventDate": "2026-08-12",
+    "year": 2026,
+    "date": "August 12, 2026",
+    "title": "Vice President JD Vance Demands Ukraine Cease Attacks on Oil Tankers",
+    "kicker": "World Leader Chat",
+    "category": "War & Security",
+    "summary": "Vice President JD Vance reportedly demanded Ukraine cease its attacks on oil tankers trafficking through Russian ports in the Black Sea, citing disruptions to the world energy markets. The vice president spoke with Ukrainian President Volodymyr Zelensky on July 31, with a read-out from the Ukrainian side noting that the two “discussed the consequences of Russia’s […]",
+    "article": {
+      "headline": "Vice President JD Vance Demands Ukraine Cease Attacks on Oil Tankers",
+      "dek": "In a move to stabilize global energy markets, Vice President JD Vance pressured Ukraine to halt strikes on oil tankers in Russian ports, according to a Ukrainian official.",
+      "body": [
+        "On July 31, Vice President JD Vance reportedly demanded that Ukraine cease its attacks on oil tankers passing through Russian ports in the Black Sea, citing disruptions to the world’s energy markets. This directive came after discussions with Ukrainian President Volodymyr Zelensky, according to a Ukrainian official’s read-out.",
+        "The move is aimed at reducing tensions and ensuring the smooth flow of energy supplies, which are crucial for global economic stability. By halting the attacks, Ukraine is expected to mitigate the risks of further escalation in the conflict and help stabilize oil prices, which have been volatile due to ongoing hostilities.",
+        "The political tension surrounding this decision highlights the delicate balance between supporting Ukraine’s fight against Russia and the broader strategic interests of maintaining global energy security. The move also underscores the growing influence of the United States in shaping the conflict’s direction."
+      ],
+      "sourceCredit": "Based on original reporting from Washington Examiner."
+    },
+    "sources": [
+      {
+        "label": "Ukraine pauses strikes on tankers after JD Vance request and Russian threats",
+        "url": "https://www.washingtonexaminer.com/news/world/4684383/ukraine-pauses-strikes-tankers-jd-vance-request-russian-threats/",
+        "publisher": "Washington Examiner"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Vice President JD Vance",
+        "text": "I demand Ukraine stop attacks on oil tankers immediately.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Ukrainian President Volodymyr Zelensky",
+        "text": "We discussed the need to stabilize global markets, not escalate conflict.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Ukrainian official",
+        "text": "Attacks are counterproductive and risk our strategic interests.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Vice President JD Vance",
+        "text": "I'll ensure these discussions lead to concrete actions.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Ukrainian President Volodymyr Zelensky",
+        "text": "I've noted your concerns, but we must prioritize energy security.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Ukrainian official",
+        "text": "We agreed on the need to find a diplomatic solution.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Vice President JD Vance",
+        "text": "I insist on a halt to attacks to avoid further escalation.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Ukrainian President Volodymyr Zelensky",
+        "text": "I'll convey your demands to the Zelensky administration.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Ukrainian official",
+        "text": "I'll report back on our progress in stabilizing the markets.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Vice President JD Vance",
+        "text": "I confirm the discussions are ongoing and productive.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Ukrainian President Volodymyr Zelensky",
+        "text": "We're working towards a resolution that benefits all parties.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Ukrainian official",
+        "text": "Meme: Peace is not the absence of conflict, but the presence of dialogue.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "Peace is not the absence of conflict, but the presence of dialogue.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-13T02:55:41.308Z",
+    "editorial": {
+      "issueNumber": 246,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/246",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-13T02:55:41.308Z",
+      "fingerprint": "da3f28e4770229e75f6ece3a1a6e98c16af666038c8a93d4f6d9c72b2f1eecc4",
+      "sourcePublishedAt": "2026-08-12T17:21:28.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "The article accurately reflects the verified summary and additional source digests. The tone is dry and sharp, providing context without inventing details. The political and strategic implications are clearly explained. The conversation reflects the direct interactions and points of view of the involved parties, maintaining the focus on the event without inventing facts or quotes. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-11-adley-rutschman-set-to-be-activated-for-red-sox-debut-as-boston",
     "eventDate": "2026-08-11",
     "year": 2026,

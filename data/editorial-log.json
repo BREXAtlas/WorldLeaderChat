@@ -1443,5 +1443,17 @@
     "sourceUrls": [
       "https://www.cnbc.com/2026/08/12/bob-iger-joshua-kushner-buy-los-angeles-lakers-from-mark-walter.html"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-12-ukraine-pauses-strikes-on-tankers-after-jd-vance-request-and-rus",
+    "issueNumber": 246,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/246",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-13T02:55:41.308Z",
+    "fingerprint": "da3f28e4770229e75f6ece3a1a6e98c16af666038c8a93d4f6d9c72b2f1eecc4",
+    "sourceUrls": [
+      "https://www.washingtonexaminer.com/news/world/4684383/ukraine-pauses-strikes-tankers-jd-vance-request-russian-threats/"
+    ]
   }
 ]
