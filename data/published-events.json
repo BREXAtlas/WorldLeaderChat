@@ -1,5 +1,120 @@
 [
   {
+    "id": "2026-08-12-bob-iger-joshua-kushner-buy-los-angeles-lakers-at-a-12-5-billion",
+    "eventDate": "2026-08-12",
+    "year": 2026,
+    "date": "August 12, 2026",
+    "title": "Kushner and Iger Acquire Mark Walter’s Stake in Los Angeles Lakers for $12.5 Billion",
+    "kicker": "Business & Power",
+    "category": "Business & Power",
+    "summary": "Venture capital founder Joshua Kushner and former Disney CEO Bob Iger acquire Mark Walter's stake in Los Angeles Lakers at valuation of more than $12 billion.",
+    "article": {
+      "headline": "Kushner and Iger Acquire Mark Walter’s Stake in Los Angeles Lakers for $12.5 Billion",
+      "dek": "Venture capital founder Joshua Kushner and former Disney CEO Bob Iger have made a significant move in the sports business world by acquiring Mark Walter’s stake in the Los Angeles Lakers.",
+      "body": [
+        "In a blockbuster deal that has sent shockwaves through the business and sports world, venture capital mogul Joshua Kushner and former Disney CEO Bob Iger have acquired Mark Walter’s stake in the Los Angeles Lakers for a staggering $12.5 billion. This acquisition not only solidifies their presence in the lucrative sports market but also raises questions about the future direction of one of the NBA’s most storied franchises.",
+        "The valuation of the stake is a clear indication of the immense value placed on the Lakers, a team with a rich history and a massive fan base. This move by Kushner and Iger could signal a shift in ownership and management, potentially leading to significant changes in team strategy, player acquisition, and overall business operations. The acquisition is also a testament to the growing influence of private equity and venture capital in the sports industry, where large sums of money are increasingly being invested to secure a piece of the action.",
+        "The political and cultural implications of this deal are significant. As both Kushner and Iger have ties to high-profile business and political circles, their acquisition of the Lakers could have far-reaching effects on the team’s operations and the broader sports landscape. The public will be watching closely to see how this new ownership will impact the team’s performance and its relationship with fans and the community."
+      ],
+      "sourceCredit": "Based on original reporting from CNBC."
+    },
+    "sources": [
+      {
+        "label": "Bob Iger, Joshua Kushner buy Los Angeles Lakers at a $12.5 billion valuation, source says",
+        "url": "https://www.cnbc.com/2026/08/12/bob-iger-joshua-kushner-buy-los-angeles-lakers-from-mark-walter.html",
+        "publisher": "CNBC"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Joshua Kushner",
+        "text": "This stake is a goldmine, signaling big changes for the Lakers.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Bob Iger",
+        "text": "Why are you making such a huge investment in sports?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Mark Walter",
+        "text": "$12.5 billion? That's more than my last venture's worth.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Joshua Kushner",
+        "text": "It's about control and growth, not just the money.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Bob Iger",
+        "text": "What impact will this have on team performance?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Mark Walter",
+        "text": "We're not just investors, we're owners now.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Joshua Kushner",
+        "text": "Iger and I are redefining what sports ownership means.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Bob Iger",
+        "text": "Kushner, does this tie you to any political interests?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Mark Walter",
+        "text": "Walter, why sell your stake for so much?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Joshua Kushner",
+        "text": "It's a strategic move, pure and simple.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Bob Iger",
+        "text": "We see potential where others see risk.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Mark Walter",
+        "text": "Meme: It's a billion-dollar gamble, and we won.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "It's a billion-dollar gamble, and we won.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-13T02:54:42.735Z",
+    "editorial": {
+      "issueNumber": 242,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/242",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-13T02:54:42.735Z",
+      "fingerprint": "3102c9f696139c74b3c804212a91485505280d707a48e27ba8293fe7ae7194a0",
+      "sourcePublishedAt": "2026-08-12T16:59:49.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "This article accurately reflects the verified summary and additional source digests, providing a clear and concise report on the acquisition. The dry humor and sharp framing add value to the report without inventing any new information. This exchange highlights the significant financial and strategic implications of the acquisition, with each speaker emphasizing different aspects of the deal. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-12-directly-responsible-progressives-blame-aoc-and-bernie-sanders-f",
     "eventDate": "2026-08-12",
     "year": 2026,

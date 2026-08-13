@@ -1431,5 +1431,17 @@
     "sourceUrls": [
       "https://www.washingtonexaminer.com/news/campaigns/state/4684819/directly-responsible-progressives-blame-aoc-bernie-sanders-francesca-hong-wisconsin-loss/"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-12-bob-iger-joshua-kushner-buy-los-angeles-lakers-at-a-12-5-billion",
+    "issueNumber": 242,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/242",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-13T02:54:42.735Z",
+    "fingerprint": "3102c9f696139c74b3c804212a91485505280d707a48e27ba8293fe7ae7194a0",
+    "sourceUrls": [
+      "https://www.cnbc.com/2026/08/12/bob-iger-joshua-kushner-buy-los-angeles-lakers-from-mark-walter.html"
+    ]
   }
 ]
