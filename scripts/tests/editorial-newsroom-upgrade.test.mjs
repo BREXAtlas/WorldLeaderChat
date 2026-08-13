@@ -55,6 +55,7 @@ test("public controls have no unexplained meme/fact mode or verbose exporter dis
 test("editor has a wide active lane, daily mix tools, publishing status and a desk-carousel feature action", async () => {
   const html = await read("editor/index.html");
   const app = await read("editor/app.js");
+  const deploy = await read(".github/workflows/deploy-pages.yml");
   assert.match(html, /\.lane\.show\{display:grid;grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/);
   assert.match(html, /id="editorSearch"/);
   assert.match(html, /id="editorDesk"/);
@@ -94,6 +95,9 @@ test("editor has a wide active lane, daily mix tools, publishing status and a de
   assert.match(html, /\.tag\.trash\{/);
   assert.match(html, /\.trash-bulk\{/);
   assert.match(html, /trash-bulk-restore-20260812/);
+  assert.match(deploy, /app\.js\?v=trash-bulk-restore-20260812/);
+  assert.match(deploy, /grep -F "Delete All Trash"/);
+  assert.match(deploy, /grep -F "Restore & Rebuild"/);
 });
 
 test("featured-headline workflow persists one selected article per news desk", async () => {
