@@ -51,7 +51,8 @@ jobs:
           package-manager-cache: false
 
       - name: Restore the no-credit local newsroom writer
-        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        id: writer-cache
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
           path: ${{ runner.tool_cache }}/world-leader-chat-writer
           key: wlc-local-writer-qwen25-7b-b10375-v1-${{ runner.os }}
@@ -89,3 +90,10 @@ jobs:
           WLC_TARGET_ISSUE: ${{ inputs.target_issue || '' }}
           WLC_ALLOW_BACKLOG: ${{ inputs.target_issue && '0' || '1' }}
         run: node scripts/assert-editorial-readiness.mjs
+
+      - name: Save the verified local newsroom writer
+        if: always() && steps.writer-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: ${{ runner.tool_cache }}/world-leader-chat-writer
+          key: wlc-local-writer-qwen25-7b-b10375-v1-${{ runner.os }}

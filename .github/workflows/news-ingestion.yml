@@ -67,7 +67,8 @@ jobs:
         run: node scripts/open-editorial-issues.mjs
 
       - name: Restore the no-credit local newsroom writer
-        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        id: writer-cache
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
           path: ${{ runner.tool_cache }}/world-leader-chat-writer
           key: wlc-local-writer-qwen25-7b-b10375-v1-${{ runner.os }}
@@ -115,4 +116,11 @@ jobs:
             echo "- New candidates receive a sourced short article and a 10–14-message direct conversation before owner approval."
             echo "- Nothing publishes without owner approval."
           } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Save the verified local newsroom writer
+        if: always() && steps.writer-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: ${{ runner.tool_cache }}/world-leader-chat-writer
+          key: wlc-local-writer-qwen25-7b-b10375-v1-${{ runner.os }}
           node scripts/report-ingestion-summary.mjs
