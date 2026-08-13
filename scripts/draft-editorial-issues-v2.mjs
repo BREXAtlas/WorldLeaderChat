@@ -309,6 +309,13 @@ function chicagoDateKey(value = Date.now()) {
 
 const newsroomToday = chicagoDateKey();
 
+function draftingPriority(issue) {
+  const labels = labelsOf(issue);
+  if (labels.has("redraft-requested") || labels.has("regenerate-requested")) return 0;
+  if (labels.has("needs-editor")) return 2;
+  return 1;
+}
+
 const queue = parsed
   .filter(({ issue, bundle }) => bundle)
   .filter(({ bundle }) => !todayOnly || bundle.event?.eventDate === newsroomToday)
@@ -328,6 +335,10 @@ const queue = parsed
       : ["Draft is incomplete."];
     return forceRewrite || labels.has("regenerate-requested") || labels.has("redraft-requested") || !complete || problems.length > 0 || stockMemeDetected(bundle.event?.meme);
   })
+  // Finish untouched owner-queued files before spending another slot on a
+  // quarantined model failure. Later batches still retry those failures.
+  .sort((left, right) => draftingPriority(left.issue) - draftingPriority(right.issue)
+    || right.issue.number - left.issue.number)
   .slice(0, limit);
 
 let drafted = 0;

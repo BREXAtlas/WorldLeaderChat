@@ -84,6 +84,14 @@ test("failed machine drafts stay newsroom work instead of becoming owner writing
   assert.match(queueWorkflow, /assert-editorial-readiness\.mjs/);
 });
 
+test("owner-queued drafts run before quarantined model retries", async () => {
+  const draft = await read("scripts/draft-editorial-issues-v2.mjs");
+  assert.match(draft, /function draftingPriority/);
+  assert.match(draft, /redraft-requested[\s\S]*regenerate-requested[\s\S]*return 0/);
+  assert.match(draft, /needs-editor[\s\S]*return 2/);
+  assert.match(draft, /sort\(\(left, right\) => draftingPriority/);
+});
+
 test("every scheduled sweep finishes and verifies the entire current-day writing queue", async () => {
   const workflow = await read(".github/workflows/news-ingestion.yml");
   const draft = await read("scripts/draft-editorial-issues-v2.mjs");
