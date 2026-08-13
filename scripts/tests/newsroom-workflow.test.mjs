@@ -93,6 +93,8 @@ test("every scheduled sweep finishes and verifies the entire current-day writing
   assert.match(workflow, /WLC_DRAFT_BATCH_SIZE: "10"/);
   assert.match(workflow, /WLC_DAILY_DRAFT_LIMIT: "30"/);
   assert.match(workflow, /WLC_DAILY_CANDIDATE_LIMIT: "30"/);
+  assert.match(workflow, /} >> "\$GITHUB_STEP_SUMMARY"\s+node scripts\/report-ingestion-summary\.mjs/);
+  assert.doesNotMatch(workflow, /key: wlc-local-writer[^\n]*\n\s+node /);
   assert.match(workflow, /WLC_TODAY_ONLY: "1"/);
   assert.match(workflow, /Report the files retained for later writing batches/);
   assert.match(workflow, /WLC_ALLOW_BACKLOG: "1"/);

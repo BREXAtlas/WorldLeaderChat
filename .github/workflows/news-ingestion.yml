@@ -116,6 +116,7 @@ jobs:
             echo "- New candidates receive a sourced short article and a 10–14-message direct conversation before owner approval."
             echo "- Nothing publishes without owner approval."
           } >> "$GITHUB_STEP_SUMMARY"
+          node scripts/report-ingestion-summary.mjs
 
       - name: Save the verified local newsroom writer
         if: always() && steps.writer-cache.outputs.cache-hit != 'true'
@@ -123,4 +124,3 @@ jobs:
         with:
           path: ${{ runner.tool_cache }}/world-leader-chat-writer
           key: wlc-local-writer-qwen25-7b-b10375-v1-${{ runner.os }}
-          node scripts/report-ingestion-summary.mjs
