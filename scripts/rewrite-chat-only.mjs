@@ -47,7 +47,7 @@ function chatPrompt(bundle, feedback = []) {
   const event = bundle.event;
   const sourceFacts = (bundle.ingestion?.sourceDigests || []).map((item) => `${item.publisher}: ${item.excerpt}`).join("\n");
   const failures = feedback.length ? `\nTHE PREVIOUS ATTEMPT FAILED\n- ${feedback.join("\n- ")}\nRewrite every line from scratch.` : "";
-  return `Return ONLY valid JSON with keys speakers, turns, meme and reviewNotes. Rewrite only the imagined chat for this article; preserve the article exactly.
+  return `Return ONLY valid JSON with keys speakers, turns, closingLine and reviewNotes. Rewrite only the imagined chat for this article; preserve the article exactly.
 
 ARTICLE
 Headline: ${event.article?.headline || event.title}
@@ -60,17 +60,17 @@ ${failures}
 
 Choose exactly three distinct, specific people, companies, agencies, teams or organizations named in or directly responsible for this event. Do not choose Admin, UN Admin, World Leader, an analyst, expert, observer, narrator or other generic role. Put those names in speakers.
 
-Write exactly twelve concise turns in turns. Each turn is one complete sentence of 6–28 words. Do not begin a turn with the speaker's name or a speaker label. Turn 1 belongs to speakers[0], turn 2 to speakers[1], turn 3 to speakers[2], then repeat that rotation four times. Start in the middle of a reaction—a position, challenge, contradiction, pointed question or joke. Use direct first-person replies, interruptions and callbacks. Every line must respond to the actual people, act, number, place, object or consequence in this article. The meme field must be a spoken one-line punch line, never a description of a cartoon, image or meme.
+Write exactly twelve concise turns in turns. Each turn is one complete sentence of 6–28 words. Do not begin a turn with the speaker's name or a speaker label. Turn 1 belongs to speakers[0], turn 2 to speakers[1], turn 3 to speakers[2], then repeat that rotation four times. Start in the middle of a reaction—a position, challenge, contradiction, pointed question or joke. Use direct first-person replies, interruptions and callbacks. Every line must respond to the actual people, act, number, place, object or consequence in this article. closingLine must be one natural spoken punch line about this exact event, never a description or name of a cartoon, image or meme template.
 
 Never write “I read [headline]”. Never paste, recite or lightly trim the article or source headline in a message. Never use “the verified event is pinned”, “fact pattern”, “reported detail”, “answer the file”, “on the record”, “official line is shorter than the consequence”, “spin requested a longer deadline” or other newsroom-process filler. Do not reuse a conversation skeleton with swapped speakers. Do not invent factual claims, quotations or private conduct. For victims, war, death or illness, aim satire at power, policy and messaging.
 
 JSON shape:
-{"speakers":["specific participant one","specific participant two","specific participant three"],"turns":["turn one","turn two","turn three","turn four","turn five","turn six","turn seven","turn eight","turn nine","turn ten","turn eleven","turn twelve"],"meme":"one original event-specific closing line","reviewNotes":"why this chat is unique to this article"}`;
+{"speakers":["specific participant one","specific participant two","specific participant three"],"turns":["turn one","turn two","turn three","turn four","turn five","turn six","turn seven","turn eight","turn nine","turn ten","turn eleven","turn twelve"],"closingLine":"one original event-specific closing line","reviewNotes":"why this chat is unique to this article"}`;
 }
 
 async function runWriter(bundle, feedback = []) {
   const plan = await runNewsroomJson(chatPrompt(bundle, feedback), { schema: chatPlanSchema, maxTokens: 1100, temperature: 0.7 });
-  return { ...plan, messages: messagesFromChatPlan(plan) };
+  return { ...plan, meme: plan.closingLine, messages: messagesFromChatPlan(plan) };
 }
 
 function applyChat(bundle, output) {

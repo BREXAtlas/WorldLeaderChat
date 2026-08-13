@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { articleDraftSchema, extractNewsroomJson, messagesFromChatPlan, runNewsroomJson } from "../lib/newsroom-model.mjs";
+import { articleDraftSchema, chatPlanSchema, extractNewsroomJson, messagesFromChatPlan, runNewsroomJson } from "../lib/newsroom-model.mjs";
 
 test("local newsroom JSON extraction tolerates a fenced or prefixed response", () => {
   assert.deepEqual(extractNewsroomJson('```json\n{"ready":true}\n```'), { ready: true });
@@ -8,6 +8,9 @@ test("local newsroom JSON extraction tolerates a fenced or prefixed response", (
 });
 
 test("chat plans enforce three recurring event participants across twelve turns", () => {
+  assert.ok(chatPlanSchema.properties.closingLine);
+  assert.equal(chatPlanSchema.properties.meme, undefined);
+  assert.ok(chatPlanSchema.required.includes("closingLine"));
   const messages = messagesFromChatPlan({
     speakers: ["Wendy's", "Trian Fund", "Nelson Peltz"],
     turns: Array.from({ length: 12 }, (_, index) => `This event-specific direct reply number ${index + 1} contains enough concrete detail.`)

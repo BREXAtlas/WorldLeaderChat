@@ -89,10 +89,10 @@ export const chatPlanSchema = {
       maxItems: 12,
       items: { type: "string", minLength: 30, maxLength: 180 }
     },
-    meme: { type: "string", minLength: 20, maxLength: 220 },
+    closingLine: { type: "string", minLength: 20, maxLength: 220 },
     reviewNotes: { type: "string", minLength: 20, maxLength: 400 }
   },
-  required: ["speakers", "turns", "meme", "reviewNotes"],
+  required: ["speakers", "turns", "closingLine", "reviewNotes"],
   additionalProperties: false
 };
 
