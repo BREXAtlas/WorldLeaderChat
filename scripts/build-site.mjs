@@ -23,7 +23,7 @@ const publicScripts = [
   '  <script src="./newsroom-site.js?v=20260811-source-audit"></script>',
   '  <script src="./disclosure-polish.js"></script>',
   '  <script src="./recency-order.js?v=20260810"></script>',
-  '  <script src="./rolling-archive.js?v=20260811-newsroom-experience"></script>'
+  '  <script src="./rolling-archive.js?v=20260812-all-published-visible"></script>'
 ];
 const brandMarkup = '<div class="brand-lockup"><img class="brand-logo" src="./assets/world-leaders-chat-logo.webp" alt="World Leaders Chat — News. Analysis. Satire." onerror="this.hidden=true;this.nextElementSibling.hidden=false"><div class="brand-fallback" role="img" aria-label="World Leaders Chat — News. Analysis. Satire." hidden><span>WORLD LEADERS</span><b>CHAT</b><small>NEWS. ANALYSIS. SATIRE.</small></div></div>';
 const brandStyles = `

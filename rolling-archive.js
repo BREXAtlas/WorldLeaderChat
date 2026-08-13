@@ -348,20 +348,20 @@
       colorLead(lead);
       const featuredIds = new Set(featured.map((event) => event.id));
       const featuredCurrentCount = recentEvents.filter((event) => featuredIds.has(event.id)).length;
-      const gridEvents = recentEvents.filter((event) => !featuredIds.has(event.id));
+      // The carousel is an additional spotlight, not a substitute for the
+      // newsroom list. Every published current file stays visibly listed.
+      const gridEvents = recentEvents;
       const belowCount = gridEvents.length;
 
       html += `<section class="current-news">
         ${globalThis.WLC_NEWSROOM_EXPERIENCE?.tickerHTML(recentEvents) || ""}
         <div class="current-month-title">
           <h2>LATEST ${globalThis.WLC_NEWSROOM_CONTRACT?.recentNewsroomDays || 8} DAYS // CURRENT NEWSROOM</h2>
-          <span>${recentEvents.length} EVENT${recentEvents.length === 1 ? "" : "S"}${featuredCurrentCount ? ` • ${featuredCurrentCount} FEATURED ABOVE • ${belowCount} BELOW` : ""}</span>
+          <span>${recentEvents.length} EVENT${recentEvents.length === 1 ? "" : "S"}${featuredCurrentCount ? ` • ${featuredCurrentCount} IN CAROUSEL • ALL ${belowCount} LISTED BELOW` : ""}</span>
         </div>
         ${gridEvents.length
           ? `<div class="current-columns">${balancedColumns(gridEvents, 3)}</div>`
-          : featuredCurrentCount
-            ? '<div class="empty">THE CURRENT NEWSROOM’S FEATURED FILES ARE ABOVE.</div>'
-            : '<div class="empty">NO RECENT FILES MATCH THIS VIEW.</div>'}
+          : '<div class="empty">NO RECENT FILES MATCH THIS VIEW.</div>'}
       </section>`;
 
       html += renderMonthArchive(archivedCurrentYearEvents, currentYear, currentMonthIndex, recentEvents.length);

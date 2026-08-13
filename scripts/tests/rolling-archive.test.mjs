@@ -20,7 +20,9 @@ test("current newsroom keeps eight inclusive Chicago calendar days", async () =>
   assert.match(source, /WLC_ARTICLE_STANDARD\?\.isRecentDate/);
   assert.match(source, /LATEST.*DAYS \/\/ CURRENT NEWSROOM/);
   assert.match(source, /featuredCurrentCount/);
-  assert.match(source, /FEATURED ABOVE/);
+  assert.match(source, /const gridEvents = recentEvents;/);
+  assert.doesNotMatch(source, /recentEvents\.filter\(\(event\) => !featuredIds\.has\(event\.id\)\)/);
+  assert.match(source, /IN CAROUSEL • ALL.*LISTED BELOW/);
   assert.match(source, /tickerHTML\(recentEvents\)/);
   assert.doesNotMatch(source, /CURRENT MONTH/);
 });
