@@ -1,5 +1,108 @@
 [
   {
+    "id": "2026-08-12-jj-watt-replaces-tony-romo",
+    "eventDate": "2026-08-12",
+    "year": 2026,
+    "date": "August 12, 2026",
+    "title": "CBS Calls an Audible as J.J. Watt Steps Into Tony Romo’s Booth",
+    "kicker": "A temporary broadcast substitution puts an NFL star’s legal trouble and a network’s contingency plan on the same screen.",
+    "category": "Sports & Soft Power",
+    "summary": "Cleveland.com reports that CBS is turning to J.J. Watt to fill Tony Romo’s NFL broadcast role while Romo is unavailable following a reported drunk-driving arrest.",
+    "article": {
+      "headline": "CBS Turns to J.J. Watt While Tony Romo Is Sidelined After Reported Arrest",
+      "dek": "The network’s temporary booth change gives Watt a larger assignment while Romo’s reported legal trouble moves off the sports page and into CBS’s schedule.",
+      "body": [
+        "Cleveland.com reports that CBS is turning to J.J. Watt to fill Tony Romo’s NFL broadcast role while Romo is unavailable following a reported drunk-driving arrest. Watt is not replacing a coach or a quarterback; he is stepping into a television assignment, where every pause, prediction and replay explanation will be judged in real time.",
+        "The move gives CBS a recognizable former NFL star for an unexpected vacancy and gives Watt a more prominent chance to show how his football knowledge translates inside the booth. It also leaves the network managing two stories at once: the game coverage viewers came to watch and the off-field legal matter that forced the lineup change.",
+        "That is the awkward part of the audible. Broadcast teams are sold as familiar weekly chemistry, but a sudden substitution makes the machinery visible. Watt now has to sound prepared without pretending the circumstances are ordinary, while CBS has to keep the telecast moving without treating Romo’s reported arrest as either entertainment or an invisible footnote."
+      ],
+      "sourceCredit": "Based on original reporting from Cleveland."
+    },
+    "sources": [
+      {
+        "label": "JJ Watt replaces Tony Romo",
+        "url": "https://www.cleveland.com/sports/2026/08/tony-romos-replacement-at-cbs-speaks-out-about-new-role-calling-nfl-games.html",
+        "publisher": "Cleveland"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "J.J. Watt",
+        "text": "CBS handed me the headset, so I’m preparing for the game and leaving the legal commentary to people who bill by the hour.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "CBS Sports",
+        "text": "We need the broadcast to stay focused, accurate and watchable. The booth cannot become a second pregame controversy desk.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Tony Romo",
+        "text": "I understand why the schedule changed. My situation should not force the crew to improvise the entire telecast.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "NFL Viewers",
+        "text": "We can accept a substitute analyst. We just do not need three quarters of everyone carefully avoiding why he is there.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "J.J. Watt",
+        "text": "Good. I’ll explain protections, pressure and missed assignments. That is already enough material for one Sunday.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "CBS Sports",
+        "text": "Exactly. Address the lineup once, then let the game earn the rest of the airtime.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Tony Romo",
+        "text": "The audience deserves a professional broadcast while the reported arrest is handled where it actually belongs.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "NFL Viewers",
+        "text": "Professional works for us. Chemistry would help too, because a famous name is not automatically a finished booth.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "J.J. Watt",
+        "text": "Fair. I spent a career reading offenses under pressure. Now I have to do it without tackling the explanation.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "CBS Sports",
+        "text": "That is the assignment: call the football clearly, respect the circumstances and keep the audible from becoming the whole playbook.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "CBS wanted continuity and got the rare audible where the replacement has to explain every audible.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-13T00:27:44.833Z",
+    "editorial": {
+      "issueNumber": 262,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/262",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-13T00:27:44.833Z",
+      "fingerprint": "0819274efc03dce2115db2375ce852f17a7aece7e94bdf60ed524a460feef7a9",
+      "sourcePublishedAt": "2026-08-12T21:23:18.810Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Written in the active Codex task from the submitted Cleveland.com source and owner-provided facts; the article distinguishes a CBS broadcast assignment from an NFL team role. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-11-adley-rutschman-set-to-be-activated-for-red-sox-debut-as-boston",
     "eventDate": "2026-08-11",
     "year": 2026,

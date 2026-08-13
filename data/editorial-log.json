@@ -1407,5 +1407,17 @@
     "sourceUrls": [
       "https://www.npr.org/2026/08/10/nx-s1-5921306/why-russia-and-ukraine-cant-stop-each-others-air-attacks"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-12-jj-watt-replaces-tony-romo",
+    "issueNumber": 262,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/262",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-13T00:27:44.833Z",
+    "fingerprint": "0819274efc03dce2115db2375ce852f17a7aece7e94bdf60ed524a460feef7a9",
+    "sourceUrls": [
+      "https://www.cleveland.com/sports/2026/08/tony-romos-replacement-at-cbs-speaks-out-about-new-role-calling-nfl-games.html"
+    ]
   }
 ]
