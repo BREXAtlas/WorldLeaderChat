@@ -1587,5 +1587,17 @@
     "sourceUrls": [
       "https://www.theverge.com/tech/979231/apple-base-iphone-18-launch-delayed"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-12-jesse-lee-soffer-to-star-in-strike-force-cbs-drama-from-matt-olm",
+    "issueNumber": 256,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/256",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-13T22:24:57.286Z",
+    "fingerprint": "cb95771dad5e0b2ce414e9c34f789193a3085a6e3931d1c0937beece6c32022a",
+    "sourceUrls": [
+      "https://deadline.com/2026/08/jesse-lee-soffer-strike-force-cbs-drama-matt-olmstead-1237032272/"
+    ]
   }
 ]

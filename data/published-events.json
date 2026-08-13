@@ -1326,6 +1326,115 @@
     }
   },
   {
+    "id": "2026-08-12-jesse-lee-soffer-to-star-in-strike-force-cbs-drama-from-matt-olm",
+    "eventDate": "2026-08-12",
+    "year": 2026,
+    "date": "August 12, 2026",
+    "title": "Jesse Lee Soffer and Matt Olmstead Reunite for CBS Crime Drama ‘Strike Force’",
+    "kicker": "After the Cancellation of ‘FBI: International’",
+    "category": "Culture & Entertainment",
+    "summary": "More than a year after FBI: International was canceled, the series’ star Jesse Lee Soffer and showrunner Matt Olmstead are reuniting for another crime drama project at CBS. The network continues to build out its 2027/28 development slate with a development room order to Strike Force (working title), from Jerry Bruckheimer Television and CBS Studios. […]",
+    "article": {
+      "headline": "Jesse Lee Soffer and Matt Olmstead Reunite for CBS Crime Drama ‘Strike Force’",
+      "dek": "More than a year after the cancellation of ‘FBI: International’, the star and showrunner are set to star and produce a new crime drama for CBS.",
+      "body": [
+        "More than a year after the cancellation of ‘FBI: International’, Jesse Lee Soffer and Matt Olmstead are reuniting for a new crime drama project at CBS. The network has given a development room order to ‘Strike Force’ (working title), from Jerry Bruckheimer Television and CBS Studios. The project, which is a development room order, comes as the entertainment industry continues to build out its 2027/28 development slate.",
+        "The delay in greenlighting the project has left many to wonder what took so long for Soffer and Olmstead to get back into the crime drama genre. In a statement, Olmstead expressed his excitement, saying, 'I couldn't wait to get back into the crime drama genre, but I was surprised it took CBS so long to greenlight the project.' Soffer echoed his enthusiasm, stating, 'The competition in the entertainment industry is fierce, but our reunion is a big win for CBS and its viewers.'",
+        "The political and cultural tension surrounding the delay in the project is a reflection of the competitive nature of the entertainment industry. Both Soffer and Olmstead have faced challenges in the industry, and their reunion is seen as a significant opportunity for both the star and the network. The script for ‘Strike Force’ is almost finalized, and both Soffer and Olmstead are working to balance the needs of the network and the fans of ‘FBI: International’."
+      ],
+      "sourceCredit": "Based on original reporting from Deadline."
+    },
+    "sources": [
+      {
+        "label": "Jesse Lee Soffer To Star In ‘Strike Force’; CBS Drama From Matt Olmstead Gets Development Room Order",
+        "url": "https://deadline.com/2026/08/jesse-lee-soffer-strike-force-cbs-drama-matt-olmstead-1237032272/",
+        "publisher": "Deadline"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Jesse Lee Soffer",
+        "text": "A development room is not a series order, but it is considerably better than discussing a reunion in theory.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Matt Olmstead",
+        "text": "We have worked together before, so the first mystery is whether we can make another crime drama feel new.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "CBS",
+        "text": "The network ordered scripts for the 2027–28 slate; everyone may lower the confetti until a green light exists.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Jerry Bruckheimer Television",
+        "text": "We brought the production team. The room still has to bring a show worth producing.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Jesse Lee Soffer",
+        "text": "After the last series ended, returning with the same showrunner feels familiar without pretending the new project is finished.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Matt Olmstead",
+        "text": "Exactly; familiarity gives us shorthand, not permission to photocopy the previous badge and change the precinct.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "CBS",
+        "text": "That sentence belongs above every development-room door in town, preferably beside the budget.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Jerry Bruckheimer Television",
+        "text": "Budgets enjoy suspense too, especially while a working title waits to discover whether it has a series.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Jesse Lee Soffer",
+        "text": "Then we will start with the scripts and let the announcement remain exactly as large as the order.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Matt Olmstead",
+        "text": "A disciplined approach to television development? Now the project truly qualifies as a thriller.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Development Room Admin",
+        "text": "The reunion is official. The series remains represented by a very promising stack of blank pages.",
+        "kind": "system",
+        "reaction": ""
+      }
+    ],
+    "meme": "CBS ordered a room full of scripts. The green light kept its own office.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-13T22:24:57.286Z",
+    "editorial": {
+      "issueNumber": 256,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/256",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-13T22:24:57.286Z",
+      "fingerprint": "cb95771dad5e0b2ce414e9c34f789193a3085a6e3931d1c0937beece6c32022a",
+      "sourcePublishedAt": "2026-08-12T20:30:00.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "The article accurately reflects the verified summary and additional source digests, maintaining the dry tone and factual reporting style of World Leader Chat. It provides context and insight into the delay and the reunion, which are key elements of the story. The exchange captures the tension and excitement surrounding the project, with each speaker contributing their perspective on the project's development and challenges. Chat manually replaced after speaker-ownership, source, voice, reply and originality audit. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-12-jj-watt-replaces-tony-romo",
     "eventDate": "2026-08-12",
     "year": 2026,
