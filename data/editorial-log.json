@@ -1683,5 +1683,17 @@
     "sourceUrls": [
       "https://www.hollywoodreporter.com/movies/movie-news/spider-man-brand-new-day-box-office-record-700-million-1236672909/?utm_source=firefox-newtab-en-us"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-13-flock-ceo-we-got-this-one-wrong",
+    "issueNumber": 270,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/270",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-14T19:45:34.714Z",
+    "fingerprint": "fcf68cee29a66ab7cdad0ffa9145d5bc2ae20a44f2b5abccf278cf5b160c0088",
+    "sourceUrls": [
+      "https://www.theverge.com/policy/979339/flock-ceo-audits-data-retention"
+    ]
   }
 ]

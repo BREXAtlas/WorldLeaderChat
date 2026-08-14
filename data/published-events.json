@@ -1,5 +1,120 @@
 [
   {
+    "id": "2026-08-13-flock-ceo-we-got-this-one-wrong",
+    "eventDate": "2026-08-13",
+    "year": 2026,
+    "date": "August 13, 2026",
+    "title": "Flock Makes Abuse Detection Mandatory After Police Misuse Reports",
+    "kicker": "The guardrails arrived after the surveillance system demonstrated exactly why optional was not enough.",
+    "category": "Technology & AI",
+    "summary": "Flock will require abnormal-search monitoring and case codes, shorten default data retention to seven days and add narrower sharing controls after reports of police misuse.",
+    "article": {
+      "headline": "Flock Makes Abuse Detection Mandatory After Police Misuse Reports",
+      "dek": "CEO Garrett Langley says Flock got its oversight approach wrong, while civil-liberties critics want independent proof that the new controls work.",
+      "body": [
+        "Flock is adding mandatory safeguards to its police surveillance products after reports that officers used the systems to stalk former romantic partners and others. Its Audit Assistance feature will flag abnormal searches and lock suspicious users out until an administrator reviews their activity. Users will also have to enter case codes for searches.",
+        "The company will cut its default retention period for automatic license-plate-reader data from 30 days to seven. Departments can extend that period or preserve case-linked searches through an Evidence Mode. New sharing controls will let local agencies limit another department's access by purpose instead of sharing everything or nothing.",
+        "CEO Garrett Langley told The Verge that making those protections optional was a mistake. The ACLU called shorter retention a possible step forward but said the value depends on implementation and independent review. After years of reports about misuse, the argument has shifted from whether safeguards are needed to whether the company can prove its safeguards catch abuse."
+      ],
+      "sourceCredit": "Based on original reporting from The Verge."
+    },
+    "sources": [
+      {
+        "label": "Flock CEO: ‘We got this one wrong’",
+        "url": "https://www.theverge.com/policy/979339/flock-ceo-audits-data-retention",
+        "publisher": "The Verge"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Garrett Langley",
+        "text": "I took too long to accept that optional safeguards were not enough for technology with this reach.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Flock Safety",
+        "text": "We will require abnormal-search monitoring and case codes instead of waiting for every agency to opt in.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "ACLU",
+        "text": "Shorter retention may help, but implementation and independent review will decide whether the change protects anyone.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Garrett Langley",
+        "text": "I called the case-code requirement an obvious way to curb abuse, and we got that choice wrong.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Flock Safety",
+        "text": "Our default retention period will fall from 30 days to seven, with case-linked preservation available.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "ACLU",
+        "text": "Evidence Mode needs scrutiny so an exception does not quietly rebuild the retention period it replaced.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Garrett Langley",
+        "text": "Administrators can override case codes for emergencies, and those searches will be automatically flagged for review.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Flock Safety",
+        "text": "A flag matters only if someone independent can verify the audit catches suspicious behavior consistently.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "ACLU",
+        "text": "I expect mandatory monitoring to reveal more abuse, including conduct that leads to firings or arrests.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Garrett Langley",
+        "text": "We are also replacing all-or-nothing sharing with limits tied to specific purposes and cases.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Flock Safety",
+        "text": "Granular sharing is better, but the public still needs enforceable limits on who can search and why.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "ACLU",
+        "text": "I asked for a fair shot; the only credible answer is to make these controls measurable.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "A seven-day default is progress, but the audit still needs an auditor who is not selling the camera.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-14T19:45:34.714Z",
+    "editorial": {
+      "issueNumber": 270,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/270",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-14T19:45:34.714Z",
+      "fingerprint": "fcf68cee29a66ab7cdad0ffa9145d5bc2ae20a44f2b5abccf278cf5b160c0088",
+      "sourcePublishedAt": "2026-08-13T13:00:00.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Source-locked article and unique direct recurring-speaker conversation completed after automated drafting quarantine. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-13-kenny-omega-warns-will-ospreay-that-his-loose-alliances-has-made",
     "eventDate": "2026-08-13",
     "year": 2026,
