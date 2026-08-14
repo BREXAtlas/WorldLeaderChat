@@ -1793,5 +1793,17 @@
     "sourceUrls": [
       "https://deadline.com/2026/08/paramount-warner-bros-trial-schedule-1237033223/"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-13-the-trump-admin-will-start-letting-private-firms-launch-internat",
+    "issueNumber": 282,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/282",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-14T19:57:36.714Z",
+    "fingerprint": "2dfaed261e33573eb0ccc42bd1a34f62698b57d024f5cf431ffc22ce79bf7d9a",
+    "sourceUrls": [
+      "https://www.theverge.com/policy/979734/trump-administration-cybercrime-private-firms"
+    ]
   }
 ]
