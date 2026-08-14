@@ -175,6 +175,15 @@ function generatedCopyProblems(candidate) {
   const event = candidate.event || {};
   const article = event.article || {};
   const problems = [];
+  const lengthRule = (label, value, minimum, maximum) => {
+    const length = String(value || "").trim().length;
+    if (length < minimum || length > maximum) problems.push(`Generated ${label} must be ${minimum}–${maximum} characters; found ${length}.`);
+  };
+  lengthRule("title", event.title, 10, 240);
+  lengthRule("kicker", event.kicker, 10, 320);
+  lengthRule("category", event.category, 2, 80);
+  lengthRule("summary", event.summary, 50, 1200);
+  lengthRule("closing line", event.meme, 10, 220);
   const placeholder = /\b(?:specific truthful headline|specific factual headline|event angle|factual deck|paragraph \d|write (?:the|a)|editor:|placeholder)\b/i;
   for (const [label, value] of [
     ["title", event.title], ["kicker", event.kicker], ["article headline", article.headline], ["article dek", article.dek]

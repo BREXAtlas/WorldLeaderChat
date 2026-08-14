@@ -232,10 +232,21 @@ function articleProblems(bundle) {
 }
 
 function eventProblems(bundle) {
-  const summaryLength = String(bundle?.event?.summary || '').trim().length;
-  return summaryLength >= 50 && summaryLength <= 1200
-    ? []
-    : [`Summary must be 50–1200 characters; this file has ${summaryLength}.`];
+  const event = bundle?.event || {};
+  const problems = [];
+  const lengthRule = (label, value, minimum, maximum) => {
+    const length = String(value || '').trim().length;
+    if (length < minimum || length > maximum) problems.push(`${label} must be ${minimum}–${maximum} characters; this file has ${length}.`);
+  };
+  lengthRule('Display date', event.date, 6, 80);
+  lengthRule('Title', event.title, 10, 240);
+  lengthRule('Kicker', event.kicker, 10, 320);
+  lengthRule('Category', event.category, 2, 80);
+  lengthRule('Summary', event.summary, 50, 1200);
+  lengthRule('Last Word', event.meme, 10, 220);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(String(event.eventDate || ''))) problems.push('Event date must use YYYY-MM-DD.');
+  if (!['comic', 'sober'].includes(event.tone)) problems.push('Tone must be comic or sober.');
+  return problems;
 }
 
 function laneOf(issue) {

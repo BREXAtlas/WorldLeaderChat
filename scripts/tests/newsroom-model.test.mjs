@@ -56,4 +56,6 @@ test("newsroom writing calls only the configured local endpoint", async () => {
   assert.equal(request.response_format.schema.properties.messages.minItems, 10);
   assert.equal(request.response_format.schema.properties.messages.maxItems, 14);
   assert.equal(request.response_format.schema.properties.article.properties.body.minItems, 3);
+  assert.equal(request.response_format.schema.properties.kicker.minLength, 10);
+  assert.equal(request.response_format.schema.properties.kicker.maxLength, 320);
 });

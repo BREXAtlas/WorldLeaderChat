@@ -208,11 +208,21 @@ test("publication serializes main writes and finalizes labels without assuming o
 
 test("editor adds fact-check first and approval second so only one publish event can win the race", async () => {
   const editor = await read("editor/app.js");
-  assert.match(editor, /Summary must be 50–1200 characters/);
+  assert.match(editor, /lengthRule\('Summary', event\.summary, 50, 1200\)/);
+  assert.match(editor, /lengthRule\('Kicker', event\.kicker, 10, 320\)/);
   assert.match(editor, /eventProblems\(bundle\)/);
   assert.match(editor, /articleProblems\(bundle\)/);
   assert.match(editor, /This file cannot publish yet/);
   const factCheckCall = editor.indexOf("setIssueLabels(updated, ['fact-checked']");
   const approvalCall = editor.indexOf("setIssueLabels(checked, ['editorial-approved']");
   assert.ok(factCheckCall >= 0 && approvalCall > factCheckCall);
+});
+
+test("drafting and editor enforce the publication kicker rule before owner approval", async () => {
+  const model = await read("scripts/lib/newsroom-model.mjs");
+  const draft = await read("scripts/draft-editorial-issues-v2.mjs");
+  const editor = await read("editor/app.js");
+  assert.match(model, /kicker: \{ type: "string", minLength: 10, maxLength: 320 \}/);
+  assert.match(draft, /lengthRule\("kicker", event\.kicker, 10, 320\)/);
+  assert.match(editor, /lengthRule\('Kicker', event\.kicker, 10, 320\)/);
 });

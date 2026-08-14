@@ -67,8 +67,8 @@ export const chatDraftSchema = {
   type: "object",
   properties: {
     messages: { type: "array", minItems: 10, maxItems: 14, items: messageSchema },
-    meme: { type: "string" },
-    reviewNotes: { type: "string" }
+    meme: { type: "string", minLength: 10, maxLength: 220 },
+    reviewNotes: { type: "string", minLength: 10, maxLength: 600 }
   },
   required: ["messages", "meme", "reviewNotes"],
   additionalProperties: false
@@ -124,9 +124,9 @@ export const draftAuditSchema = {
 export const articleDraftSchema = {
   type: "object",
   properties: {
-    title: { type: "string" },
-    kicker: { type: "string" },
-    category: { type: "string" },
+    title: { type: "string", minLength: 10, maxLength: 240 },
+    kicker: { type: "string", minLength: 10, maxLength: 320 },
+    category: { type: "string", minLength: 2, maxLength: 80 },
     article: {
       type: "object",
       properties: {
@@ -139,9 +139,9 @@ export const articleDraftSchema = {
       additionalProperties: false
     },
     messages: { type: "array", minItems: 10, maxItems: 14, items: messageSchema },
-    meme: { type: "string" },
+    meme: { type: "string", minLength: 10, maxLength: 220 },
     tone: { type: "string", enum: ["comic", "sober"] },
-    reviewNotes: { type: "string" }
+    reviewNotes: { type: "string", minLength: 10, maxLength: 600 }
   },
   required: ["title", "kicker", "category", "article", "messages", "meme", "tone", "reviewNotes"],
   additionalProperties: false
