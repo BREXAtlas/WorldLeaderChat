@@ -236,6 +236,121 @@
     "eventGroup": "event-2026-08-03-fresh-us-iran-talks-are-last-chance-for-tehran-to-avoid-war-esca"
   },
   {
+    "id": "2026-08-14-russian-ballistic-attacks-intensify-as-kyiv-claims-dnipropetrovs",
+    "eventDate": "2026-08-14",
+    "year": 2026,
+    "date": "August 14, 2026",
+    "title": "Ukraine Claims Liberation of 26 Southwestern Settlements Amid Intense Russian Attacks",
+    "kicker": "World News",
+    "category": "World News",
+    "summary": "Ukraine says it has liberated 26 settlements in the south as it retools under heavy bombardment.",
+    "article": {
+      "headline": "Ukraine Claims Liberation of 26 Southwestern Settlements Amid Intense Russian Attacks",
+      "dek": "In a significant push, Ukraine reports reclaiming 26 settlements in the south, but faces ongoing heavy bombardment from Russian forces.",
+      "body": [
+        "Ukraine has announced the liberation of 26 settlements in the south, a move that marks a strategic advance in the ongoing conflict. The reclamation of these areas, particularly Dnipropetrovsk, is seen as a crucial step in Ukraine's efforts to retake lost territories. However, the gains come at a cost, as the country continues to endure intense Russian ballistic attacks, which have intensified in recent days.",
+        "The main facts extracted from the verified summary indicate that Ukraine has made notable progress in the south, but the situation remains tense. The political and strategic implications of these developments are significant, as they highlight the ongoing challenges and complexities of the conflict. The reclamation of these settlements is a morale booster for Ukrainian forces and civilians, but it also underscores the need for continued support and resources to sustain the offensive.",
+        "The strategic tension surrounding this event is palpable. The advance in the south poses a direct challenge to Russian forces, who are likely to respond with increased military pressure. The international community is closely watching these developments, as they could have far-reaching implications for the broader conflict and regional stability."
+      ],
+      "sourceCredit": "Based on original reporting from Al Jazeera."
+    },
+    "sources": [
+      {
+        "label": "Russian ballistic attacks intensify as Kyiv claims Dnipropetrovsk advance",
+        "url": "https://www.aljazeera.com/news/2026/8/14/ukraine-liberates-dnipropetrovsk-as-russia-intensifies-missile-attacks?traffic_source=rss",
+        "publisher": "Al Jazeera"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Ukrainian Ministry of Defense",
+        "text": "We've reclaimed 26 settlements in the south. Progress, but the Russians are not backing down.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Ukrainian National Security and Defense Council",
+        "text": "The international community is watching. We need to keep the momentum going.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Ukrainian Ministry of Defense",
+        "text": "But the costs are high. We're losing valuable resources to Russian bombardments.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Ukrainian Armed Forces",
+        "text": "We can't just sit back. We need to counterattack before they can regroup.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Ukrainian Ministry of Defense",
+        "text": "Counterattack is risky. We need to secure these gains first.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Ukrainian National Security and Defense Council",
+        "text": "We need more supplies and better intelligence to support the troops.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Ukrainian Armed Forces",
+        "text": "And we need better morale. These reclaims are a morale booster.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Ukrainian Ministry of Defense",
+        "text": "True, but the enemy is not done. We need to prepare for their next move.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Ukrainian National Security and Defense Council",
+        "text": "We can't let our guard down. The enemy is always looking for weaknesses.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Ukrainian Armed Forces",
+        "text": "I heard they're using new tactics. We need to adapt quickly.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Ukrainian Ministry of Defense",
+        "text": "Adapt or perish. We need to stay one step ahead of the Russians.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Ukrainian National Security and Defense Council",
+        "text": "Let's hope our new defensive strategies work. We can't afford any more setbacks.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "We have to hold these gains at all costs. The Russians will not give up easily.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-14T19:53:03.425Z",
+    "editorial": {
+      "issueNumber": 294,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/294",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-14T19:53:03.425Z",
+      "fingerprint": "b64c1b5235f1a9f767b6e688914530b0b84e74e7e15bc53f30c7f44e8c4fdf3d",
+      "sourcePublishedAt": "2026-08-14T11:04:40.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "The article accurately reflects the verified summary and additional source digests. The tone and framing are appropriate for World Leader Chat's style, maintaining factual integrity while adding a sharp, dry commentary. This chat reflects the complex and tense situation in Ukraine, with the Ministry of Defense, National Security Council, and Armed Forces discussing the reclamation of settlements and the ongoing challenges of the conflict. The conversation maintains a realistic and tense tone, with challenges and counterpoints that are directly related to the event. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-14-superb-summer-mcintosh-bounces-back-with-400m-medley-gold-at-pan",
     "eventDate": "2026-08-14",
     "year": 2026,

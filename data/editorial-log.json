@@ -1744,5 +1744,17 @@
     "sourceUrls": [
       "https://pagesix.com/2026/08/14/hollywood/top-golden-globes-exec-ousted-amid-boardroom-coup/"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-14-russian-ballistic-attacks-intensify-as-kyiv-claims-dnipropetrovs",
+    "issueNumber": 294,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/294",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-14T19:53:03.425Z",
+    "fingerprint": "b64c1b5235f1a9f767b6e688914530b0b84e74e7e15bc53f30c7f44e8c4fdf3d",
+    "sourceUrls": [
+      "https://www.aljazeera.com/news/2026/8/14/ukraine-liberates-dnipropetrovsk-as-russia-intensifies-missile-attacks?traffic_source=rss"
+    ]
   }
 ]
