@@ -112,3 +112,13 @@ test("newsroom writing calls only the configured local endpoint", async () => {
   assert.equal(request.response_format.schema.properties.kicker.minLength, 10);
   assert.equal(request.response_format.schema.properties.kicker.maxLength, 320);
 });
+
+test("newsroom writing aborts a hung local request with a clear bounded error", async () => {
+  await assert.rejects(() => runNewsroomJson("Return JSON", {
+    endpoint: "http://local-writer.test/v1/chat/completions",
+    timeoutMs: 5,
+    fetch: async (_url, options) => new Promise((_resolve, reject) => {
+      options.signal.addEventListener("abort", () => reject(options.signal.reason), { once: true });
+    })
+  }), /timed out after 5ms/);
+});

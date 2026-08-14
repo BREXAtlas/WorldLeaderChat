@@ -286,30 +286,42 @@ export function messagesFromChatPlan(plan) {
 export async function runNewsroomJson(prompt, options = {}) {
   const endpoint = options.endpoint || process.env.WLC_WRITER_ENDPOINT || "http://127.0.0.1:8080/v1/chat/completions";
   const request = options.fetch || globalThis.fetch;
+  const timeoutMs = Math.max(1, Number(options.timeoutMs || process.env.WLC_WRITER_TIMEOUT_MS || 360000));
   if (typeof request !== "function") throw new Error("The local newsroom writer requires fetch.");
-
-  const response = await request(endpoint, {
-    method: "POST",
-    headers: { "content-type": "application/json" },
-    body: JSON.stringify({
-      model: process.env.WLC_WRITER_MODEL || "local-newsroom-writer",
-      messages: [
-        {
-          role: "system",
-          content: "You are a meticulous independent newsroom writer. Obey the source lock, make every conversation original to its event, and return exactly one valid JSON object."
-        },
-        { role: "user", content: prompt }
-      ],
-      temperature: Number(options.temperature ?? process.env.WLC_WRITER_TEMPERATURE ?? 0.55),
-      top_p: 0.9,
-      max_tokens: Number(options.maxTokens || process.env.WLC_WRITER_MAX_TOKENS || 1400),
-      stream: false,
-      response_format: options.schema
-        ? { type: "json_object", schema: options.schema }
-        : { type: "json_object" }
-    })
-  });
-  const text = await response.text();
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  let response;
+  let text;
+  try {
+    response = await request(endpoint, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      signal: controller.signal,
+      body: JSON.stringify({
+        model: process.env.WLC_WRITER_MODEL || "local-newsroom-writer",
+        messages: [
+          {
+            role: "system",
+            content: "You are a meticulous independent newsroom writer. Obey the source lock, make every conversation original to its event, and return exactly one valid JSON object."
+          },
+          { role: "user", content: prompt }
+        ],
+        temperature: Number(options.temperature ?? process.env.WLC_WRITER_TEMPERATURE ?? 0.55),
+        top_p: 0.9,
+        max_tokens: Number(options.maxTokens || process.env.WLC_WRITER_MAX_TOKENS || 1400),
+        stream: false,
+        response_format: options.schema
+          ? { type: "json_object", schema: options.schema }
+          : { type: "json_object" }
+      })
+    });
+    text = await response.text();
+  } catch (error) {
+    if (controller.signal.aborted) throw new Error(`Local newsroom writer timed out after ${timeoutMs}ms.`);
+    throw error;
+  } finally {
+    clearTimeout(timer);
+  }
   if (!response.ok) throw new Error(`Local newsroom writer ${response.status}: ${diagnostic(text)}`);
   let payload;
   try { payload = JSON.parse(text); } catch {
