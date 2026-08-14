@@ -62,6 +62,7 @@ jobs:
           node --check scripts/repair-editorial-articles.mjs
           node --check scripts/check-newsroom-structure-approval.mjs
           node --check scripts/enrich-custom-submission.mjs
+          node --check scripts/recover-interrupted-drafts.mjs
           node --check scripts/ingest-news.mjs
           node --check scripts/set-featured-story.mjs
           node --check supabase/functions/_shared/audience-core.js

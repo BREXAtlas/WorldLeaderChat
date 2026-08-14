@@ -1,8 +1,8 @@
 import { resolve } from "node:path";
 import { extractStoryBundle, STORY_JSON_END, STORY_JSON_START } from "./lib/editorial.mjs";
 import { cleanWhitespace, readJson } from "./lib/io.mjs";
-import { dialogueProblems } from "./lib/chat-quality.mjs";
-import { chatDraftSchema, runNewsroomJson } from "./lib/newsroom-model.mjs";
+import { closingLineProblems, dialogueProblems, stabilizeGeneratedConversation } from "./lib/chat-quality.mjs";
+import { chatDraftSchema, materializeChatDraft, runNewsroomJson } from "./lib/newsroom-model.mjs";
 
 const token = process.env.GITHUB_TOKEN;
 const repository = process.env.GITHUB_REPOSITORY;
@@ -47,10 +47,9 @@ function chatPrompt(bundle, feedback = []) {
   const event = bundle.event;
   const sourceFacts = (bundle.ingestion?.sourceDigests || []).map((item) => `${item.publisher}: ${item.excerpt}`).join("\n");
   const failures = feedback.length ? `\nTHE PREVIOUS ATTEMPT FAILED\n- ${feedback.join("\n- ")}\nRewrite every line from scratch.` : "";
-  return `Return ONLY valid JSON with keys messages, closingLine and reviewNotes. Rewrite only the imagined chat for this article; preserve the article exactly. Match the established World Leader Chat format used by previously approved articles.
+  return `Return ONLY valid JSON with keys participants, messages, closingLine and reviewNotes. Rewrite only the imagined chat for this article; preserve the article exactly. Match the established World Leader Chat format used by previously approved articles.
 
 ARTICLE
-Headline: ${event.article?.headline || event.title}
 Dek: ${event.article?.dek || event.kicker}
 Report: ${(event.article?.body || []).join("\n")}
 Verified summary: ${event.summary}
@@ -58,22 +57,22 @@ Sources: ${(event.sources || []).map((source) => `${source.publisher}: ${source.
 Source facts: ${sourceFacts || "No additional digest."}
 ${failures}
 
-Write 10–14 messages that feel like the established organic group chats: character-aware voices, quick replies, interruptions, callbacks and a specific joke that develops from this event. Do not use a rigid speaker rotation. Let one participant challenge another and let the next line actually answer what was just said.
+Choose exactly three real people or institutions naturally connected to this event and return them as participants a, b and c. Never invent placeholder people such as Alice, Bob, Charlie, David, Frank, Grace, Hannah or Julia. Write 12–14 messages that feel like the established organic group chats: character-aware voices, quick replies, interruptions, callbacks and a specific joke that develops from this event. Do not use a rigid speaker rotation. Let one participant challenge another and let the next line actually answer what was just said.
 
-Use people and institutions naturally connected to the event. At least two speakers must return. If a person's identity is not established by the source, use the named institution instead; never invent an officeholder, employee, reporter or official. An optional Admin/system punch line may appear only as the final message, never first.
+Every message must use speakerKey a, b or c. Use all three participants repeatedly, vary their order naturally and never assign consecutive messages to the same speakerKey. If a person's identity is not established by the source, use the named institution instead; never invent an officeholder, employee, reporter or official. Do not use Admin, UN Admin, a narrator or a system message.
 
 Every message object owns its speaker and text. Read each speaker/text pair together before returning it. The speaker must talk in first person and must never describe themselves by their own name or organization in third person. Start in the middle of a reaction—a position, challenge, contradiction, pointed question or joke. Every line must respond to the actual people, act, number, place, object or consequence in this article. Each line must be one complete sentence of 6–28 words. closingLine must be one natural spoken punch line about this exact event, never a description or name of a cartoon, image or stock template.
 
 Never write “I read [headline]”. Never paste, recite or lightly trim the article or source headline in a message. Never use “the verified event is pinned”, “fact pattern”, “reported detail”, “answer the file”, “on the record”, “official line is shorter than the consequence”, “spin requested a longer deadline” or other newsroom-process filler. Do not reuse a conversation skeleton with swapped speakers. Do not invent factual claims, quotations or private conduct. For victims, war, death or illness, aim satire at power, policy and messaging.
 
 JSON shape:
-{"messages":[{"speaker":"specific participant","text":"direct event-specific opening position","kind":"satire","reaction":""},{"speaker":"another specific participant","text":"direct reply to the prior message","kind":"satire","reaction":""}],"closingLine":"one original event-specific closing line","reviewNotes":"why this chat is unique to this article"}
+{"participants":{"a":"specific participant","b":"specific participant","c":"specific participant"},"messages":[{"speakerKey":"a","text":"direct event-specific opening position"}],"closingLine":"one original event-specific closing line","reviewNotes":"why this chat is unique to this article"}
 
 The two objects show field structure only. Return 10–14 complete messages.`;
 }
 
 async function runWriter(bundle, feedback = []) {
-  return runNewsroomJson(chatPrompt(bundle, feedback), { schema: chatDraftSchema, maxTokens: 1100, temperature: 0.7 });
+  return materializeChatDraft(await runNewsroomJson(chatPrompt(bundle, feedback), { schema: chatDraftSchema, maxTokens: 1100, temperature: 0.7 }));
 }
 
 function applyChat(bundle, output) {
@@ -99,12 +98,7 @@ function applyChat(bundle, output) {
 }
 
 function generatedChatProblems(bundle) {
-  const closing = String(bundle.event?.meme || "").trim();
-  const words = closing.split(/\s+/).filter(Boolean).length;
-  return [
-    ...(words < 6 || words > 28 ? [`Closing line must contain 6–28 words; found ${words}.`] : []),
-    ...(words >= 25 && closing && !/[.!?…][\"')\]]?$/.test(closing) ? ["Closing line appears cut off."] : [])
-  ];
+  return closingLineProblems(bundle.event?.meme);
 }
 
 async function setLabels(issue, additions = [], removals = []) {
@@ -142,7 +136,7 @@ let feedback = ["The owner requested a completely new, organic article-specific 
 let generated = null;
 for (let attempt = 0; attempt < 3; attempt += 1) {
   try {
-    const candidate = applyChat(bundle, await runWriter(bundle, attempt ? feedback : []));
+    const candidate = stabilizeGeneratedConversation(applyChat(bundle, await runWriter(bundle, attempt ? feedback : [])));
     const candidateProblems = [...dialogueProblems(candidate, { existingBundles }), ...generatedChatProblems(candidate)];
     if (!candidateProblems.length) { generated = candidate; break; }
     feedback = candidateProblems;

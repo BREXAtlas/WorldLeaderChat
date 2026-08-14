@@ -69,12 +69,20 @@ jobs:
       - name: Start the no-credit local newsroom writer
         run: bash scripts/start-local-newsroom-writer.sh
 
-      - name: Refresh the selected custom article source
-        if: env.WLC_REQUEST_TARGET != ''
+      - name: Refresh custom article sources before drafting
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WLC_TARGET_ISSUE: ${{ env.WLC_REQUEST_TARGET }}
-        run: node scripts/enrich-custom-submission.mjs
+        run: |
+          if [ -n "${WLC_REQUEST_TARGET}" ]; then
+            node scripts/enrich-custom-submission.mjs
+          else
+            gh issue list --repo "${GITHUB_REPOSITORY}" --state open --label news-candidate --limit 100 --json number,body --jq '.[] | select(.body | contains("WLC_CUSTOM_SUBMISSION")) | .number' |
+              while read -r issue_number; do
+                WLC_TARGET_ISSUE="${issue_number}" node scripts/enrich-custom-submission.mjs
+              done
+          fi
 
       - name: Create complete truth-first editorial suggestions
         env:
@@ -107,6 +115,12 @@ jobs:
           ISSUE_NUMBER: ${{ github.event.issue.number }}
           TRIGGER_LABEL: ${{ github.event.label.name }}
         run: gh issue edit "${ISSUE_NUMBER}" --repo "${GITHUB_REPOSITORY}" --remove-label "${TRIGGER_LABEL}" || true
+
+      - name: Recover any interrupted Drafting status
+        if: always()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/recover-interrupted-drafts.mjs
 
       - name: Save the verified local newsroom writer
         if: always() && steps.writer-cache.outputs.cache-hit != 'true'

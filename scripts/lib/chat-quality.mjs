@@ -156,6 +156,40 @@ function contextOverlap(bundle, messages) {
   return { tokens, matched };
 }
 
+export function messageRepeatsHeadline(bundle, text) {
+  return repeatsHeadline(bundle, text);
+}
+
+export function closingLineProblems(value) {
+  const closing = String(value || "").trim();
+  const wordCount = closing.split(/\s+/).filter(Boolean).length;
+  const problems = [];
+  if (closing.length < 10 || closing.length > 220) problems.push(`Closing line must contain 10–220 characters; found ${closing.length}.`);
+  if (wordCount < 6 || wordCount > 28) problems.push(`Closing line must contain 6–28 words; found ${wordCount}.`);
+  if (closing && !/[.!?…]["')\]]?$/.test(closing)) problems.push("Closing line is cut off or lacks closing punctuation.");
+  if (STOCK_MEME.test(closing)) problems.push("Closing line uses a stock named meme instead of an original event-specific punch line.");
+  return problems;
+}
+
+export function stabilizeGeneratedConversation(bundle) {
+  const event = bundle?.event;
+  if (!event || !Array.isArray(event.messages)) return bundle;
+  while (event.messages.length > 10) {
+    const repeatedIndex = event.messages.findIndex((message) => repeatsHeadline(bundle, message?.text));
+    if (repeatedIndex < 0) break;
+    event.messages.splice(repeatedIndex, 1);
+  }
+  if (!closingLineProblems(event.meme).length) return bundle;
+  for (let index = event.messages.length - 1; index >= 0 && event.messages.length > 10; index -= 1) {
+    const text = String(event.messages[index]?.text || "").trim();
+    if (closingLineProblems(text).length || repeatsHeadline(bundle, text)) continue;
+    event.meme = text;
+    event.messages.splice(index, 1);
+    break;
+  }
+  return bundle;
+}
+
 function selfReference(speaker, text) {
   const label = String(speaker || "").split(",")[0].trim();
   if (!label || /admin$/i.test(label)) return "";

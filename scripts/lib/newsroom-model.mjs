@@ -63,14 +63,34 @@ const messageSchema = {
   additionalProperties: false
 };
 
+const generatedMessageSchema = {
+  type: "object",
+  properties: {
+    speakerKey: { type: "string", enum: ["a", "b", "c"] },
+    text: { type: "string", minLength: 30, maxLength: 300 }
+  },
+  required: ["speakerKey", "text"],
+  additionalProperties: false
+};
+
 export const chatDraftSchema = {
   type: "object",
   properties: {
-    messages: { type: "array", minItems: 10, maxItems: 14, items: messageSchema },
+    participants: {
+      type: "object",
+      properties: {
+        a: { type: "string", minLength: 2, maxLength: 100 },
+        b: { type: "string", minLength: 2, maxLength: 100 },
+        c: { type: "string", minLength: 2, maxLength: 100 }
+      },
+      required: ["a", "b", "c"],
+      additionalProperties: false
+    },
+    messages: { type: "array", minItems: 12, maxItems: 14, items: generatedMessageSchema },
     closingLine: { type: "string", minLength: 10, maxLength: 220 },
     reviewNotes: { type: "string", minLength: 10, maxLength: 600 }
   },
-  required: ["messages", "closingLine", "reviewNotes"],
+  required: ["participants", "messages", "closingLine", "reviewNotes"],
   additionalProperties: false
 };
 
@@ -172,6 +192,30 @@ export const articleOnlySchema = {
 };
 
 const INVALID_PLANNED_SPEAKER = /^(?:un\s+)?admin$|^(?:world leader|u\.?s\.? official|american official|european diplomat|government official|public figure|political observer|analyst|expert|commentator)$/i;
+const PLACEHOLDER_SPEAKER = /^(?:alice|bob|charlie|david|frank|grace|hannah|julia|speaker\s*[abc])$/i;
+
+export function materializeChatDraft(draft) {
+  const participants = draft?.participants || {};
+  const names = [participants.a, participants.b, participants.c].map((name) => String(name || "").trim());
+  const unique = new Set(names.map((name) => name.toLowerCase()));
+  if (names.some((name) => !name) || unique.size !== 3 || names.some((name) => INVALID_PLANNED_SPEAKER.test(name) || PLACEHOLDER_SPEAKER.test(name))) {
+    throw new Error("Generated chat must name exactly three distinct, specific event participants; no admin, narrator, placeholder person or generic role.");
+  }
+  if (!Array.isArray(draft?.messages) || draft.messages.length < 12 || draft.messages.length > 14) {
+    throw new Error(`Generated chat must contain 12–14 keyed messages; found ${draft?.messages?.length || 0}.`);
+  }
+  const participantByKey = { a: names[0], b: names[1], c: names[2] };
+  const messages = draft.messages.map((message, index) => {
+    const speaker = participantByKey[message?.speakerKey];
+    if (!speaker) throw new Error(`Generated message ${index + 1} has an invalid participant key.`);
+    const escapedSpeaker = speaker.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const text = String(message?.text || "").trim()
+      .replace(/^[abc]\s*:\s*/i, "")
+      .replace(new RegExp(`^${escapedSpeaker}\\s*:\\s*`, "i"), "");
+    return { speaker, text, kind: "satire", reaction: "" };
+  });
+  return { ...draft, messages };
+}
 
 export function messagesFromChatPlan(plan) {
   const speakers = Array.isArray(plan?.speakers)

@@ -57,8 +57,11 @@ test("drafting prompt preserves factual conclusions and forbids recycled stock c
   assert.match(draft, /bestArticleCandidate/);
   assert.match(draft, /articleOnlySchema/);
   assert.match(draft, /chatDraftSchema/);
-  assert.match(draft, /valid JSON with messages, closingLine and reviewNotes/);
+  assert.match(draft, /valid JSON with participants, messages, closingLine and reviewNotes/);
   assert.match(draft, /meme: closingLine/);
+  assert.match(draft, /materializeChatDraft/);
+  assert.match(draft, /sourceSummary\.length >= 50 \? sourceSummary : generatedSummary/);
+  assert.match(draft, /stabilizeGeneratedConversation/);
   assert.doesNotMatch(draft, /chatPlanSchema|messagesFromChatPlan|speakers\[index % speakers\.length\]/);
   assert.match(draft, /draftAuditSchema/);
   assert.match(draft, /auditGeneratedDraft/);
@@ -85,8 +88,11 @@ test("failed machine drafts stay newsroom work instead of becoming owner writing
   assert.match(queueWorkflow, /run-drafting-batches\.mjs/);
   assert.match(queueWorkflow, /target_issue/);
   assert.match(queueWorkflow, /WLC_TARGET_ISSUE/);
-  assert.match(queueWorkflow, /Refresh the selected custom article source/);
+  assert.match(queueWorkflow, /Refresh custom article sources before drafting/);
   assert.match(queueWorkflow, /enrich-custom-submission\.mjs/);
+  assert.match(queueWorkflow, /WLC_CUSTOM_SUBMISSION/);
+  assert.match(queueWorkflow, /Recover any interrupted Drafting status/);
+  assert.match(queueWorkflow, /recover-interrupted-drafts\.mjs/);
   assert.match(queueWorkflow, /Confirm the selected file or report the later-batch backlog/);
   assert.match(queueWorkflow, /assert-editorial-readiness\.mjs/);
 });
@@ -170,8 +176,10 @@ test("Rewrite Chat preserves the article and replaces only dialogue", async () =
   assert.match(rewrite, /const originalArticle = structuredClone/);
   assert.match(rewrite, /bundle\.event\.article = originalArticle/);
   assert.match(rewrite, /runNewsroomJson/);
-  assert.match(rewrite, /keys messages, closingLine and reviewNotes/);
+  assert.match(rewrite, /keys participants, messages, closingLine and reviewNotes/);
   assert.match(rewrite, /output\.closingLine/);
+  assert.match(rewrite, /materializeChatDraft/);
+  assert.match(rewrite, /stabilizeGeneratedConversation/);
   assert.match(rewrite, /Never write “I read \[headline\]”/);
   assert.doesNotMatch(rewrite, /buildDirectDialogue/);
   assert.match(rewrite, /article and sources were preserved/);
@@ -234,4 +242,22 @@ test("drafting and editor enforce the publication kicker rule before owner appro
   assert.match(model, /kicker: \{ type: "string", minLength: 10, maxLength: 320 \}/);
   assert.match(draft, /lengthRule\("kicker", event\.kicker, 10, 320\)/);
   assert.match(editor, /lengthRule\('Kicker', event\.kicker, 10, 320\)/);
+});
+
+test("known newsroom failures remain documented and machine-guarded", async () => {
+  const ledger = await read("docs/NEWSROOM_FAILURE_LEDGER.md");
+  const recovery = await read("scripts/recover-interrupted-drafts.mjs");
+  const workflows = await Promise.all([
+    read(".github/workflows/draft-editorial-queue-now.yml"),
+    read(".github/workflows/news-ingestion.yml"),
+    read(".github/workflows/editorial-redraft.yml"),
+    read(".github/workflows/editorial-regenerate.yml")
+  ]);
+  for (const id of ["WLC-001", "WLC-003", "WLC-004", "WLC-005", "WLC-006", "WLC-007", "WLC-008", "WLC-009", "WLC-010", "WLC-011"]) {
+    assert.match(ledger, new RegExp(id));
+  }
+  assert.match(ledger, /A green workflow with zero ready articles does not count/);
+  assert.match(recovery, /labels\.delete\("drafting"\)/);
+  assert.match(recovery, /labels\.add\("needs-editor"\)/);
+  assert.ok(workflows.every((workflow) => /recover-interrupted-drafts\.mjs/.test(workflow)));
 });

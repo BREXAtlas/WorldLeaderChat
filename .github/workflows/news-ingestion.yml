@@ -118,6 +118,12 @@ jobs:
           } >> "$GITHUB_STEP_SUMMARY"
           node scripts/report-ingestion-summary.mjs
 
+      - name: Recover any interrupted Drafting status
+        if: always()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/recover-interrupted-drafts.mjs
+
       - name: Save the verified local newsroom writer
         if: always() && steps.writer-cache.outputs.cache-hit != 'true'
         uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4

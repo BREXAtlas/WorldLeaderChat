@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { articleDraftSchema, chatDraftSchema, chatPlanSchema, extractNewsroomJson, messagesFromChatPlan, runNewsroomJson } from "../lib/newsroom-model.mjs";
+import { articleDraftSchema, chatDraftSchema, chatPlanSchema, extractNewsroomJson, materializeChatDraft, messagesFromChatPlan, runNewsroomJson } from "../lib/newsroom-model.mjs";
 
 test("local newsroom JSON extraction tolerates a fenced or prefixed response", () => {
   assert.deepEqual(extractNewsroomJson('```json\n{"ready":true}\n```'), { ready: true });
@@ -27,10 +27,30 @@ test("chat plans enforce three recurring event participants across twelve turns"
 });
 
 test("direct chat drafts request a closing line without exposing the legacy meme field to the writer", () => {
+  assert.ok(chatDraftSchema.properties.participants);
+  assert.deepEqual(chatDraftSchema.properties.messages.items.properties.speakerKey.enum, ["a", "b", "c"]);
+  assert.equal(chatDraftSchema.properties.messages.minItems, 12);
   assert.ok(chatDraftSchema.properties.closingLine);
   assert.equal(chatDraftSchema.properties.meme, undefined);
   assert.ok(chatDraftSchema.required.includes("closingLine"));
   assert.ok(!chatDraftSchema.required.includes("meme"));
+});
+
+test("direct chat drafts materialize three recurring event participants into the approved reader format", () => {
+  const sequence = ["a", "b", "a", "c", "b", "a", "c", "b", "c", "a", "b", "c"];
+  const draft = materializeChatDraft({
+    participants: { a: "Trump Administration", b: "Cybersecurity Firms", c: "Congress" },
+    messages: sequence.map((speakerKey, index) => ({ speakerKey, text: `${speakerKey}: This event-specific response number ${index + 1} contains a complete direct position.` })),
+    closingLine: "The authorization arrived before the accountability plan finished loading.",
+    reviewNotes: "Every speaker is tied to the reported cyberattack policy."
+  });
+  assert.deepEqual(draft.messages.slice(0, 3).map((message) => message.speaker), ["Trump Administration", "Cybersecurity Firms", "Trump Administration"]);
+  assert.ok(draft.messages.every((message) => message.kind === "satire" && message.reaction === ""));
+  assert.ok(draft.messages.every((message) => !/^[abc]:/i.test(message.text)));
+  assert.throws(() => materializeChatDraft({
+    participants: { a: "Charlie", b: "David", c: "Frank" },
+    messages: sequence.map((speakerKey) => ({ speakerKey, text: "This placeholder exchange contains enough words but has invented speakers." }))
+  }), /specific event participants/);
 });
 
 test("chat plans reject speaker prefixes and visibly cut-off turns", () => {

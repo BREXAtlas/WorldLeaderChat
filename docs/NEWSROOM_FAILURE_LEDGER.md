@@ -1,0 +1,31 @@
+# World Leader Chat newsroom failure ledger
+
+This is the permanent incident record for the automated newsroom. A newsroom correction is not complete merely because code was pushed or a workflow is green. It is complete only when its regression guard passes and a deployed workflow produces the expected editorial state.
+
+| ID | Incident and observed symptom | Root cause | Permanent prevention and verification | Status |
+| --- | --- | --- | --- | --- |
+| WLC-001 | Recycled fill-in-the-headline chats appeared across dozens of unrelated articles, including “I read [headline]” openings. | A reusable conversation skeleton was populated with new titles and speakers. | `chat-quality.mjs` rejects banned stock phrases, headline substitution patterns, cross-article text overlap and structural similarity. Tests: `chat-quality.test.mjs`, `dialogue-quality.test.mjs`. | Guarded |
+| WLC-002 | UN Admin or a system narrator appeared above every chat. | The generator treated a disclosure/admin line as a required opener. | The first message must be a direct event participant; Admin/system openings fail validation. Site-level disclosure remains outside the imagined chat. | Guarded |
+| WLC-003 | Chats used fake placeholder speakers, one-off speaker parades, self-reference and speaker labels inside message text. | The local writer could invent unrestricted speaker strings for every message. | Writer output is constrained to exactly three named event participants and keyed messages; the stored reader format is materialized afterward. Recurrence, self-reference, consecutive turns and generic roles remain validated. | Implementing |
+| WLC-004 | Drafting depended on GitHub Copilot credits and stalled when credits were unavailable. | Production writing invoked a metered Copilot CLI. | All drafting workflows use the cached local no-credit newsroom writer and tests forbid Copilot or GitHub Models calls. | Guarded |
+| WLC-005 | “Finish Today’s Drafts” returned a GitHub 403 personal-access-token workflow-dispatch error. | The editor tried to call the Actions dispatch endpoint with a token lacking workflow scope. | Editor requests drafting through issue labels covered by existing issue-write permission; no browser dispatch call remains. | Guarded |
+| WLC-006 | Statuses claimed Writing/Publishing after no active worker existed, and canceled work could remain in Drafting. | UI state followed labels without guaranteed failure/cancellation cleanup. | Every drafting workflow has an `always()` recovery step that resets any interrupted `drafting` file to `needs-editor`; the UI reserves Drafting for a claimed file. | Implementing |
+| WLC-007 | Approved publication failed because `event.kicker` was shorter than the server’s 10-character rule. | Drafting and editor validation did not match publication validation. | Model schema, drafting validation and editor preflight all enforce the same 10–320-character kicker contract. | Guarded |
+| WLC-008 | Every generated article failed because Last Word was a named/stock-image meme, overlong or cut off. | The local model interpreted the legacy `meme` field as an image-description request and could ignore prose instructions. | The writer sees `closingLine`, never `meme`; invalid closers are replaced only with a valid event-specific line from that same generated conversation, never a shared template. | Implementing |
+| WLC-009 | A valid draft could never pass because its ingested summary contained only 34 characters. | Generation preserved a short source summary while validation required 50 characters. | When the source summary is short, the source-audited generated dek becomes the candidate summary before validation. | Implementing |
+| WLC-010 | A chat’s first line repeated the article headline despite explicit instructions not to do so. | The chat prompt displayed the headline immediately before generation, encouraging copying. | The chat generator receives the report and verified facts without the headline; surplus headline-echo messages are removed only while at least ten original messages remain. | Implementing |
+| WLC-011 | Owner-submitted custom links entered batch drafting without being enriched, causing invented facts about the wrong Spider-Man film. | Source enrichment ran only for single-target redrafts, not current-day batch requests. | Batch drafting enriches every open custom submission before writing; unsupported claims still fail the source audit. | Implementing |
+| WLC-012 | Published items remained in Ready for Approval or rejected files reappeared until refresh. | Editor state was not updated atomically after confirmation. | Approval moves files to Publishing immediately; rejection moves files to Trash immediately; counts update from the mutated local state and server labels. | Guarded |
+| WLC-013 | Published articles were labeled Published but absent from the live front page. | The editor and homepage could read different canonical data or stale issue bodies. | Published lane and public site use canonical `published-events.json`; deployment verification checks the live newsroom artifact. | Guarded |
+| WLC-014 | Same-event follow-ups appeared as unrelated standalone stories. | No persistent event-group identifier was assigned at publication. | Publication assigns two-way related-event groups only when event anchors match; broad-topic similarity alone is insufficient. | Guarded |
+| WLC-015 | Source audit initially presented left/neutral publishers without an equivalent right-leaning monitored pool. | The configured feed mix was not balanced before selection. | Source configuration maintains equal monitored left/right publisher pools and selection tests enforce slate diversity. | Guarded |
+
+## Completion rule
+
+For every new incident:
+
+1. Add or update a ledger row with the exact symptom and root cause.
+2. Add a regression test or machine-enforced workflow guard.
+3. Run the complete test, repository-validation and production-build suites.
+4. Deploy the correction.
+5. Verify the real affected article reaches its intended state. A green workflow with zero ready articles does not count.

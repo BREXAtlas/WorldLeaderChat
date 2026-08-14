@@ -2,9 +2,9 @@ import { resolve } from "node:path";
 import { writeFile } from "node:fs/promises";
 import { extractStoryBundle, STORY_JSON_END, STORY_JSON_START } from "./lib/editorial.mjs";
 import { cleanWhitespace, readJson } from "./lib/io.mjs";
-import { dialogueProblems, stockMemeDetected } from "./lib/chat-quality.mjs";
+import { closingLineProblems, dialogueProblems, stabilizeGeneratedConversation, stockMemeDetected } from "./lib/chat-quality.mjs";
 import { articleProblems, expectedSourceCredit, normalizeArticle } from "./lib/article-standard.mjs";
-import { articleOnlySchema, chatDraftSchema, draftAuditSchema, runNewsroomJson } from "./lib/newsroom-model.mjs";
+import { articleOnlySchema, chatDraftSchema, draftAuditSchema, materializeChatDraft, runNewsroomJson } from "./lib/newsroom-model.mjs";
 
 const token = process.env.GITHUB_TOKEN;
 const repository = process.env.GITHUB_REPOSITORY;
@@ -141,24 +141,23 @@ async function runWriter(bundle, feedback = [], acceptedArticleOutput = null) {
 Return only the schema fields for the final title, kicker, category, article and review notes. Write finished publication copy in every field; never return instructions, labels or placeholders such as “specific truthful headline.”`;
   const articleOutput = acceptedArticleOutput
     || await runNewsroomJson(articlePrompt, { schema: articleOnlySchema, maxTokens: 1100, temperature: 0.4 });
-  const chatPrompt = `Return only valid JSON with messages, closingLine and reviewNotes. Match the established World Leader Chat format used by previously approved articles.
+  const chatPrompt = `Return only valid JSON with participants, messages, closingLine and reviewNotes. Match the established World Leader Chat format used by previously approved articles.
 
 SOURCE-LOCKED ARTICLE
-Headline: ${articleOutput.article?.headline}
 Dek: ${articleOutput.article?.dek}
 Report: ${(articleOutput.article?.body || []).join("\n")}
 Verified summary: ${safeSummary(bundle.event.summary)}
 Source facts: ${(bundle.ingestion?.sourceDigests || []).map((item) => `${item.publisher}: ${item.excerpt}`).join("\n") || "None"}
 ${feedback.length ? `Previous chat failures:\n- ${feedback.join("\n- ")}` : ""}
 
-Write 10–14 messages that feel like the established organic group chats: character-aware voices, quick replies, interruptions, callbacks and a specific joke that develops from this event. Do not use a rigid speaker rotation. Let one participant challenge another and let the next line actually answer what was just said.
+Choose exactly three real people or institutions naturally connected to this event and return them as participants a, b and c. Never invent placeholder people such as Alice, Bob, Charlie, David, Frank, Grace, Hannah or Julia. Write 12–14 messages that feel like the established organic group chats: character-aware voices, quick replies, interruptions, callbacks and a specific joke that develops from this event. Do not use a rigid speaker rotation. Let one participant challenge another and let the next line actually answer what was just said.
 
-Use people and institutions naturally connected to the event. At least two speakers must return later. If a person's identity is not established by the source, use the named institution instead; never invent an officeholder, employee, reporter or official. An optional Admin/system punch line may appear only as the final message, never first.
+Every message must use speakerKey a, b or c. Use all three participants repeatedly, vary their order naturally and never assign consecutive messages to the same speakerKey. If a person's identity is not established by the source, use the named institution instead; never invent an officeholder, employee, reporter or official. Do not use Admin, UN Admin, a narrator or a system message.
 
 Every message object owns its speaker and text. Read each speaker/text pair together before returning it. The speaker must talk in first person and must never describe themselves by their own name or organization in third person. Start with a position, challenge, contradiction, pointed question or joke. Never write “I read [headline]”, recite the headline, invent facts or quotations, use generic campaign platitudes, or use newsroom-process filler. Every line must depend on this event's actual person, decision, number, place, object or consequence. Each line must be one complete sentence of 6–28 words.
 
-Return messages in the same reader-facing structure as approved chats: {"speaker":"specific participant","text":"direct event-specific message","kind":"satire","reaction":""}. Use kind "system" only for an optional final Admin closer. closingLine must be one natural spoken punch line about this exact event, never a description or name of a cartoon, image or stock template.`;
-  const chatOutput = await runNewsroomJson(chatPrompt, { schema: chatDraftSchema, maxTokens: 1100, temperature: 0.7 });
+Return this structure: {"participants":{"a":"specific participant","b":"specific participant","c":"specific participant"},"messages":[{"speakerKey":"a","text":"direct event-specific message"}],"closingLine":"one natural spoken punch line","reviewNotes":"why the chat fits this event"}. The message object demonstrates fields only; return 12–14 messages. closingLine must be about this exact event, never a description or name of a cartoon, image or stock template.`;
+  const chatOutput = materializeChatDraft(await runNewsroomJson(chatPrompt, { schema: chatDraftSchema, maxTokens: 1100, temperature: 0.7 }));
   const { closingLine, ...chatFields } = chatOutput;
   const output = {
     ...articleOutput,
@@ -185,17 +184,13 @@ function generatedCopyProblems(candidate) {
   lengthRule("kicker", event.kicker, 10, 320);
   lengthRule("category", event.category, 2, 80);
   lengthRule("summary", event.summary, 50, 1200);
-  lengthRule("closing line", event.meme, 10, 220);
   const placeholder = /\b(?:specific truthful headline|specific factual headline|event angle|factual deck|paragraph \d|write (?:the|a)|editor:|placeholder)\b/i;
   for (const [label, value] of [
     ["title", event.title], ["kicker", event.kicker], ["article headline", article.headline], ["article dek", article.dek]
   ]) {
     if (placeholder.test(String(value || ""))) problems.push(`Generated ${label} contains an instruction or placeholder.`);
   }
-  const closing = String(event.meme || "").trim();
-  const closingWords = closing.split(/\s+/).filter(Boolean).length;
-  if (closingWords < 6 || closingWords > 28) problems.push(`Closing line must contain 6–28 words; found ${closingWords}.`);
-  if (closingWords >= 25 && closing && !/[.!?…][\"')\]]?$/.test(closing)) problems.push("Closing line appears cut off.");
+  problems.push(...closingLineProblems(event.meme));
   return problems;
 }
 
@@ -239,7 +234,9 @@ List each unsupported article claim, unsupported chat claim and generic/placehol
 function applyGeneratedDraft(bundle, output) {
   const result = structuredClone(bundle);
   result.ingestion = { ...(result.ingestion || {}), newsroomFormat: 2 };
-  result.event.summary = safeSummary(result.event.summary);
+  const sourceSummary = safeSummary(result.event.summary);
+  const generatedSummary = cleanWhitespace(output.article.dek || output.article.body?.[0] || "");
+  result.event.summary = (sourceSummary.length >= 50 ? sourceSummary : generatedSummary).slice(0, 1200);
   result.event.title = cleanWhitespace(output.article.headline || output.title).slice(0, 240);
   result.event.kicker = cleanWhitespace(output.kicker).slice(0, 320);
   result.event.category = cleanWhitespace(result.ingestion?.newsroomDesk || result.event.category || "World News").slice(0, 80);
@@ -378,7 +375,7 @@ for (const { issue, bundle: originalBundle } of queue) {
     for (let attempt = 0; attempt < maximumAttempts; attempt += 1) {
       try {
         const generated = await runWriter(bundle, attempt ? lastProblems : [], acceptedArticleOutput);
-        const candidate = applyGeneratedDraft(bundle, generated.output);
+        const candidate = stabilizeGeneratedConversation(applyGeneratedDraft(bundle, generated.output));
         const candidateArticleProblems = articleProblems(candidate.event?.article, candidate.event?.sources);
         acceptedArticleOutput = candidateArticleProblems.length ? null : generated.articleOutput;
         let problems = [

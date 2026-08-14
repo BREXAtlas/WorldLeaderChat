@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { dialogueProblems, dialogueSimilarity, dialogueStructureSimilarity, stockMemeDetected } from "../lib/chat-quality.mjs";
+import { closingLineProblems, dialogueProblems, dialogueSimilarity, dialogueStructureSimilarity, stabilizeGeneratedConversation, stockMemeDetected } from "../lib/chat-quality.mjs";
 import { buildDirectDialogue, closingLineFor } from "../lib/article-dialogue.mjs";
 
 function bundle({ title, summary, source, messages, meme = "The source stayed put while the spin changed seats." }) {
@@ -90,6 +90,28 @@ test("third-person reaction summaries and consecutive speakers are rejected", ()
 test("named stock meme templates are rejected", () => {
   assert.equal(stockMemeDetected("Drake meme: reject policy, approve chaos"), true);
   assert.equal(stockMemeDetected("The Moon received four tons. It did not sign for the package."), false);
+});
+
+test("generated chats remove a surplus headline echo and rescue an invalid closer from their own event-specific dialogue", () => {
+  const candidate = bundle({
+    title: "Private firms receive authority to launch international cyberattacks",
+    summary: "The administration will permit selected private firms to conduct international cyberattacks under a new policy.",
+    messages: [
+      { speaker: "Trump Administration", text: "Private firms receive authority to launch international cyberattacks under the administration's new policy.", kind: "satire" },
+      ...Array.from({ length: 11 }, (_, index) => ({
+        speaker: ["Trump Administration", "Cybersecurity Firms", "Congress"][index % 3],
+        text: `We are answering the cyberattack authority question with event-specific response number ${index + 1}.`,
+        kind: "satire"
+      }))
+    ],
+    meme: "A meme showing the internet holding two buttons while policy catches fire"
+  });
+  const finalChatLine = candidate.event.messages.at(-1).text;
+  stabilizeGeneratedConversation(candidate);
+  assert.equal(candidate.event.messages.length, 10);
+  assert.equal(candidate.event.meme, finalChatLine);
+  assert.deepEqual(closingLineProblems(candidate.event.meme), []);
+  assert.ok(!candidate.event.messages.some((message) => /private firms receive authority to launch/i.test(message.text)));
 });
 
 test("article-specific builders create different conversations for different events", () => {
