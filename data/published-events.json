@@ -351,6 +351,121 @@
     "eventGroup": "event-2026-08-03-fresh-us-iran-talks-are-last-chance-for-tehran-to-avoid-war-esca"
   },
   {
+    "id": "2026-08-14-paris-jackson-speaks-on-her-dad-michael-jackson-s-neverland-ranch",
+    "eventDate": "2026-08-14",
+    "year": 2026,
+    "date": "August 14, 2026",
+    "title": "Paris Jackson Explains Why Masks and Chores Shaped Life Around Neverland",
+    "kicker": "Fame, privacy and the rules behind Neverland",
+    "category": "Culture & Entertainment",
+    "summary": "Paris Jackson said her father paired homework and chores with weekend rewards and used masks in public to protect his children's anonymity.",
+    "article": {
+      "headline": "Paris Jackson Explains Why Masks and Chores Shaped Life Around Neverland",
+      "dek": "Paris Jackson described how Michael Jackson paired ordinary household discipline with unusual privacy measures for children growing up inside extraordinary fame.",
+      "body": [
+        "Paris Jackson told the Call Her Daddy podcast that her father, Michael Jackson, required his children to finish homework and chores before they could enjoy weekend activities. She said he also limited television and movies and had the children wear masks in public so they could move through ordinary places without being immediately recognized.",
+        "Jackson also said the attractions at Neverland Ranch were not presented as private toys for Michael Jackson's own children. They were intended for visiting underprivileged and terminally ill children. As the family moved between locations, rewards for completed responsibilities could instead mean an outing to Circus Circus or Chuck E. Cheese—an ordinary family bargain operating under profoundly unordinary circumstances.",
+        "The masks were part of that same effort to create room for a childhood beyond the spotlight. Jackson said she understood that her father was famous, but not the full scale of his celebrity; when a hotel alias failed, the crowd outside made that scale unmistakable. The rule looked eccentric in public photographs, while its purpose was straightforward: preserve enough anonymity for a normal weekend to remain possible."
+      ],
+      "sourceCredit": "Based on original reporting from Fox News."
+    },
+    "sources": [
+      {
+        "label": "Paris Jackson says dad Michael’s unusual rule helped protect her childhood",
+        "url": "https://www.foxnews.com/entertainment/paris-jackson-says-dad-michaels-unusual-rule-helped-protect-her-childhood?dicbo=v2-D5gt53g",
+        "publisher": "Fox News"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Paris Jackson",
+        "text": "The mask was not a fashion statement. It was a way to reach Chuck E. Cheese without turning lunch into a press line.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Alexandra Cooper",
+        "text": "So the strange-looking rule protected the most ordinary reward: a weekend outing after homework and chores.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Prince Jackson",
+        "text": "That was the family equation people missed—famous father, normal responsibilities and unusually complicated trips outside.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Paris Jackson",
+        "text": "Neverland's attractions also were not presented as our private playground; visiting children were the reason they were there.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Alexandra Cooper",
+        "text": "That changes the picture. The spectacle outsiders saw came with boundaries the public rarely saw.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Prince Jackson",
+        "text": "A mask attracts attention in a photograph, but anonymity mattered after the photographers were gone.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Paris Jackson",
+        "text": "Exactly. I knew our father was famous; I did not understand the full size of that fame.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Alexandra Cooper",
+        "text": "Until an alias failed and the crowd outside the hotel supplied a fairly dramatic measurement.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Prince Jackson",
+        "text": "Most children learn consequences through a missed weekend. We had the same lesson with considerably stranger logistics.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Paris Jackson",
+        "text": "Homework still came first. Celebrity did not negotiate an exemption from chores.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Alexandra Cooper",
+        "text": "The rule sounded eccentric because the problem it addressed—constant recognition—was already eccentric.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Prince Jackson",
+        "text": "Normal childhood was the destination. The masks were simply the least normal route available.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "At Neverland, normal childhood came after homework—and occasionally with a disguise.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-14T23:14:02.994Z",
+    "editorial": {
+      "issueNumber": 304,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/304",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-14T23:14:02.994Z",
+      "fingerprint": "2baf81c3d78559b08ab45c1d965ea374848562ab8625d24744c9a7521e605b83",
+      "sourcePublishedAt": "2026-08-14T19:54:14.760Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Rebuilt directly from the opened Fox News report; removed invented quotations and the deceased-person chat participant. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-14-rising-golf-star-dead-at-18-after-brain-hemorrhage-while-playing",
     "eventDate": "2026-08-14",
     "year": 2026,

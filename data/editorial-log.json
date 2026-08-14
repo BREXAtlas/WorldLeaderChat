@@ -1817,5 +1817,17 @@
     "sourceUrls": [
       "https://www.nasa.gov/image-article/perseids-meteor-shower-2/"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-14-paris-jackson-speaks-on-her-dad-michael-jackson-s-neverland-ranch",
+    "issueNumber": 304,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/304",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-14T23:14:02.994Z",
+    "fingerprint": "2baf81c3d78559b08ab45c1d965ea374848562ab8625d24744c9a7521e605b83",
+    "sourceUrls": [
+      "https://www.foxnews.com/entertainment/paris-jackson-says-dad-michaels-unusual-rule-helped-protect-her-childhood?dicbo=v2-D5gt53g"
+    ]
   }
 ]
