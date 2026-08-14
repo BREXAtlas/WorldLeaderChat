@@ -230,6 +230,121 @@
     }
   },
   {
+    "id": "2026-08-14-luigi-mangione-pleads-guilty-in-court",
+    "eventDate": "2026-08-14",
+    "year": 2026,
+    "date": "August 14, 2026",
+    "title": "Luigi Mangione Pleads Guilty to Federal Stalking Charges in Brian Thompson Killing",
+    "kicker": "The federal plea resolved one courtroom battle while New York's case remained on the calendar.",
+    "category": "Politics & Society",
+    "summary": "Luigi Mangione pleaded guilty to federal stalking charges tied to Brian Thompson's killing and faces a possible life sentence before separate state proceedings.",
+    "article": {
+      "headline": "Luigi Mangione Pleads Guilty to Federal Stalking Charges in Brian Thompson Killing",
+      "dek": "Mangione admitted tracking Thompson and shooting him in Manhattan; sentencing is set for December 18 while other proceedings remain.",
+      "body": [
+        "Luigi Mangione pleaded guilty in federal court Friday to stalking charges connected to the December 2024 killing of UnitedHealthcare CEO Brian Thompson. U.S. District Judge Margaret Garnett confirmed that Mangione understood he could receive a maximum sentence of life in prison.",
+        "Addressing the court, Mangione said he called UnitedHealthcare while posing as an investor to learn about its conference, researched the location and traveled to New York intending to shoot Thompson. He then admitted that he shot Thompson in Manhattan on December 4, 2024.",
+        "Federal prosecutors summarized evidence they had prepared for trial, including surveillance video, DNA, fingerprints, cellphone evidence and the suspected weapon recovered after Mangione's arrest. Garnett scheduled sentencing for December 18. Thompson's family called the plea an important step toward justice while noting that proceedings in New York and Pennsylvania are still pending."
+      ],
+      "sourceCredit": "Based on original reporting from Fox News."
+    },
+    "sources": [
+      {
+        "label": "Luigi Mangione pleads guilty in federal court to stalking and killing UnitedHealthcare CEO Brian Thompson",
+        "url": "https://www.foxnews.com/us/luigi-mangione-pleads-guilty-federal-court-stalking-killing-unitedhealthcare-ceo-brian-thompson",
+        "publisher": "Fox News"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Luigi Mangione",
+        "text": "I pleaded guilty to the federal stalking charges and admitted traveling to Manhattan intending to shoot Brian Thompson.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "U.S. Attorney's Office",
+        "text": "We were prepared to present surveillance, DNA, fingerprints, cellphone records and the weapon recovered after the arrest.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Thompson Family",
+        "text": "We regard the plea as an important step toward justice, though it cannot ease our loss.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Luigi Mangione",
+        "text": "I told the judge I posed as an investor to obtain information about the conference.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "U.S. Attorney's Office",
+        "text": "The court confirmed that the maximum federal sentence can be life in prison.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Thompson Family",
+        "text": "We now expect the December sentencing to reflect the severity of Brian's killing.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Luigi Mangione",
+        "text": "I remained seated when first invited to speak, then gave the court the factual basis for my plea.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "U.S. Attorney's Office",
+        "text": "The guilty plea resolves these federal charges without erasing the separate proceedings still ahead.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Thompson Family",
+        "text": "New York and Pennsylvania still have cases pending, and our family will continue seeking accountability.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Luigi Mangione",
+        "text": "I understood the judge's questions about the plea and the potential sentence before answering yes.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "U.S. Attorney's Office",
+        "text": "Sentencing is scheduled for December 18, when the court will determine the federal punishment.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Thompson Family",
+        "text": "A courtroom admission matters, but Brian's absence remains larger than any procedural milestone.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "The plea answered the federal charges; sentencing, the state case and the family's loss did not disappear.",
+    "quote": null,
+    "tone": "sober",
+    "publishedAt": "2026-08-14T23:14:42.330Z",
+    "editorial": {
+      "issueNumber": 303,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/303",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-14T23:14:42.330Z",
+      "fingerprint": "514705e88efc9ad7430e6214b8e7e7158b8db5aea6b2760bc9869c02f98f6cd2",
+      "sourcePublishedAt": "2026-08-14T19:47:57.315Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Source-locked article and unique sober recurring-speaker conversation completed after the automated draft was quarantined. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-14-national-security-advisor-central-to-iran-negotiations-to-leave",
     "eventDate": "2026-08-14",
     "year": 2026,

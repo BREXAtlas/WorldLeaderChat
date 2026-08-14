@@ -1829,5 +1829,17 @@
     "sourceUrls": [
       "https://www.foxnews.com/entertainment/paris-jackson-says-dad-michaels-unusual-rule-helped-protect-her-childhood?dicbo=v2-D5gt53g"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-14-luigi-mangione-pleads-guilty-in-court",
+    "issueNumber": 303,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/303",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-14T23:14:42.330Z",
+    "fingerprint": "514705e88efc9ad7430e6214b8e7e7158b8db5aea6b2760bc9869c02f98f6cd2",
+    "sourceUrls": [
+      "https://www.foxnews.com/us/luigi-mangione-pleads-guilty-federal-court-stalking-killing-unitedhealthcare-ceo-brian-thompson"
+    ]
   }
 ]
