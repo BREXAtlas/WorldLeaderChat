@@ -1647,5 +1647,17 @@
     "sourceUrls": [
       "https://www.theguardian.com/commentisfree/2026/aug/12/openai-anthropic-ai-models"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-12-brendan-carr-is-one-firing-away-from-an-unchecked-fcc",
+    "issueNumber": 210,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/210",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-14T00:03:23.364Z",
+    "fingerprint": "c753e09a3f1747bad12d42b8aa44831fc3249ce8b2b866cdb7b47c68c2ca0db5",
+    "sourceUrls": [
+      "https://www.theverge.com/policy/978783/trump-fcc-nominee-quorum"
+    ]
   }
 ]
