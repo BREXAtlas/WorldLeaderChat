@@ -6282,6 +6282,109 @@
     }
   },
   {
+    "id": "2026-08-11-threads-has-a-vr-app-now",
+    "eventDate": "2026-08-11",
+    "year": 2026,
+    "date": "August 11, 2026",
+    "title": "Meta Brings Threads to Quest Headsets",
+    "kicker": "The social network now has a VR app, extending Threads from phones and glasses into a headset where the reply section can finally occupy the whole room.",
+    "category": "Technology & AI",
+    "summary": "Meta has launched a Threads app for Meta Quest VR headsets, the company announced on Tuesday. The launch follows Meta bringing the app to its Ray-Ban Display AR glasses last month and the recent news that the platform has crossed 500 million monthly active users. It seems like a pretty full-featured app. Meta says that […]",
+    "article": {
+      "headline": "Meta Brings Threads to Quest Headsets",
+      "dek": "The social network now has a VR app, extending Threads from phones and glasses into a headset where the reply section can finally occupy the whole room.",
+      "body": [
+        "Meta has launched a Threads application for its Quest virtual-reality headsets. The Verge reports that the new version offers a broad set of the platform’s familiar functions, giving users another way to read and post without leaving Meta’s hardware ecosystem.",
+        "The launch follows Threads arriving on Meta’s Ray-Ban Display glasses and comes after the company said the platform passed 500 million monthly active users. Together, those moves show Meta treating Threads less like a phone-only social feed and more like a service expected to follow users across the company’s devices.",
+        "A headset app does not answer whether people wanted social media closer to their eyes, but it does make Meta’s strategy visible. Quest owners can now move from immersive games and virtual environments into a scrolling public conversation without removing the device. The metaverse may still be under construction; the argument feed has already secured office space."
+      ],
+      "sourceCredit": "Based on original reporting from The Verge."
+    },
+    "sources": [
+      {
+        "label": "Threads has a VR app now",
+        "url": "https://www.theverge.com/tech/978181/meta-threads-quest-vr-app",
+        "publisher": "The Verge"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Quest Owner",
+        "text": "I entered virtual reality to leave the ordinary feed behind, and Threads was already waiting in the lobby.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Meta Product Team",
+        "text": "People can stay connected across phones, glasses and Quest without abandoning the conversation.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Quest Owner",
+        "text": "I put on the headset to visit another world. Why is the same discourse waiting in the lobby?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Threads Community Team",
+        "text": "Your interests travel with you. Some of them type in all caps.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Meta Product Team",
+        "text": "The app brings a familiar service into a more immersive format.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Quest Owner",
+        "text": "Nothing says immersion like a stranger correcting my breakfast opinion at life size.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Digital Wellbeing Office",
+        "text": "We recommend breaks, distance and occasionally remembering that a wall is real.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Threads Community Team",
+        "text": "The mute button remains available in every dimension.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Meta Product Team",
+        "text": "This is about meeting users where they are.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Quest Owner",
+        "text": "You found me inside a headset. I was specifically hiding there.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "Virtual reality promised new worlds; Threads delivered the old argument with better spatial audio.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-14T00:19:07.242Z",
+    "editorial": {
+      "issueNumber": 182,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/182",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-14T00:19:07.242Z",
+      "fingerprint": "bc9e4c401f9aec8d6e6b1618009fce0a8193730fb15aa8f468f36efd14c7f2e7",
+      "sourcePublishedAt": "2026-08-11T19:10:14.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Rewritten from the source summary after the queue-wide recycled-template audit. No headline recitation or shared dialogue skeleton remains. Opening narrator removed; the conversation now starts with a direct event participant. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-11-travis-barker-fights-through-the-pain-in-louder-than-fear-traile",
     "eventDate": "2026-08-11",
     "year": 2026,
