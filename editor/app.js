@@ -417,6 +417,9 @@ function trashToolbar() {
 function cards(lane) {
   const set = issues.filter((issue) => laneOf(issue) === lane && visibleInEditor(issue)).sort((a,b) => Number(b.number) - Number(a.number));
   if (!set.length) return '<div class="empty">Nothing here.</div>';
+  const today = chicagoDateKey();
+  const batchWriterActive = issues.some((issue) => eventOf(issue)?.eventDate === today
+    && labelSet(issue).has('draft-batch-requested'));
   return set.map((issue) => {
     const labels = labelSet(issue);
     const bundle = parseBundle(issue.body || '');
@@ -432,7 +435,11 @@ function cards(lane) {
     const publishing = labels.has('editorial-approved') || busy.has(issue.number);
     const failed = labels.has('publication-failed');
     const activelyDrafting = labels.has('drafting');
-    const queuedForWriting = !activelyDrafting && (labels.has('regenerate-requested') || labels.has('redraft-requested'));
+    const queuedForWriting = !activelyDrafting && (
+      labels.has('regenerate-requested')
+      || labels.has('redraft-requested')
+      || (batchWriterActive && eventOf(issue)?.eventDate === today && ['new', 'drafting'].includes(laneOf(issue)))
+    );
     const blocked = labels.has('needs-editor') || problems.length > 0;
     const needsRedraft = eventIssues.length > 0 || articleIssues.length > 0;
     const cardDesk = deskOf(issue);
