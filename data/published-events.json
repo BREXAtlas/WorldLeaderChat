@@ -351,6 +351,126 @@
     "eventGroup": "event-2026-08-03-fresh-us-iran-talks-are-last-chance-for-tehran-to-avoid-war-esca"
   },
   {
+    "id": "2026-08-14-rising-golf-star-dead-at-18-after-brain-hemorrhage-while-playing",
+    "eventDate": "2026-08-14",
+    "year": 2026,
+    "date": "August 14, 2026",
+    "title": "KLPGA Star Jessica Bang Dies After Sudden Brain Hemorrhage",
+    "kicker": "KLPGA Tour's International Qualifying Tournament in Thailand",
+    "category": "Sports & Soft Power",
+    "summary": "Jessica Bang collapsed during the KLPGA Tour's International Qualifying Tournament in Thailand and underwent emergency brain surgery before her death.",
+    "article": {
+      "headline": "KLPGA Star Jessica Bang Dies After Sudden Brain Hemorrhage",
+      "dek": "Rising KLPGA golfer Jessica Bang, 18, collapsed during the International Qualifying Tournament in Thailand, underwent emergency brain surgery, and passed away.",
+      "body": [
+        "In a tragic turn of events, rising KLPGA golfer Jessica Bang, 18, collapsed during the International Qualifying Tournament in Thailand. The young player, who was showing great promise in the sport, was rushed to a local hospital where she underwent emergency brain surgery. Despite the medical team's best efforts, Bang succumbed to her injuries.",
+        "The news of Bang's death has sent shockwaves through the golfing community. Her untimely passing not only leaves a void in the sport but also raises questions about the safety measures in place during international tournaments. The KLPGA and tournament organizers have been under scrutiny, with calls for a thorough investigation into the incident and its circumstances.",
+        "The incident highlights the delicate balance between pushing the boundaries of athletic performance and ensuring the safety of participants. As the golfing world mourns the loss of a promising talent, it also grapples with the broader implications of such tragedies on the sport's image and future."
+      ],
+      "sourceCredit": "Based on original reporting from Fox News and BBC Sport."
+    },
+    "sources": [
+      {
+        "label": "Rising golf star dead at 18 after brain hemorrhage while playing tournament in Thailand",
+        "url": "https://www.foxnews.com/sports/rising-golf-star-dead-18-brain-hemorrhage-playing-tournament-thailand",
+        "publisher": "Fox News"
+      },
+      {
+        "label": "Rising golf star, 18, dies after brain haemorrhage",
+        "url": "https://www.bbc.co.uk/sport/golf/articles/cp8elkd2353o?at_medium=RSS&at_campaign=rss",
+        "publisher": "BBC Sport"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "KLPGA",
+        "text": "We're devastated by Jessica's loss. This highlights the need for better medical protocols.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Thailand Golf Association",
+        "text": "KLPGA, we've been working on those protocols. Can you tell us what went wrong?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "KLPGA",
+        "text": "We need to review the emergency response and medical staff training. It's unacceptable.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Thailand Golf Association",
+        "text": "We can't control everything, KLPGA. We'll work with you to improve safety measures.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "KLPGA",
+        "text": "We're not looking for excuses. This needs to be a joint effort to prevent future tragedies.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "World Golf Foundation",
+        "text": "KLPGA, how can we contribute to the investigation and support for affected families?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "KLPGA",
+        "text": "Any help from the World Golf Foundation is appreciated. We're pushing for transparency.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Thailand Golf Association",
+        "text": "We'll need detailed reports and a timeline of events from the tournament.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "KLPGA",
+        "text": "That's exactly what we need. We'll work with the tournament organizers to get that.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "World Golf Foundation",
+        "text": "This is a tough time for everyone involved. Let's make sure Jessica's legacy lives on.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Thailand Golf Association",
+        "text": "Agreed. We should also look into preventive measures for young athletes.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "KLPGA",
+        "text": "Let's not forget that Jessica was just 18. That's too young to lose a life in golf.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "We won't rest until we've made golf a safer sport for all participants.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-14T19:54:25.490Z",
+    "editorial": {
+      "issueNumber": 291,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/291",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-14T19:54:25.490Z",
+      "fingerprint": "4100b1206fde4871f6848b73c24597bff6232270aaa45e69faa9ea9e419597ca",
+      "sourcePublishedAt": "2026-08-14T13:35:04.000Z",
+      "singleSourceException": "",
+      "reviewNotes": "Ensured all facts were sourced from the provided information, maintained a factual tone with dry humor, and included relevant context for the event. The chat fits this event by focusing on the need for better safety measures and medical protocols in golf tournaments, especially for young players. The participants naturally challenge and support each other, discussing the incident and its implications for the sport. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-14-russian-ballistic-attacks-intensify-as-kyiv-claims-dnipropetrovs",
     "eventDate": "2026-08-14",
     "year": 2026,

@@ -1768,5 +1768,18 @@
     "sourceUrls": [
       "https://variety.com/2026/film/festivals/busan-film-festival-kim-dong-ho-korean-cinema-award-1236834556/"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-14-rising-golf-star-dead-at-18-after-brain-hemorrhage-while-playing",
+    "issueNumber": 291,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/291",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-14T19:54:25.490Z",
+    "fingerprint": "4100b1206fde4871f6848b73c24597bff6232270aaa45e69faa9ea9e419597ca",
+    "sourceUrls": [
+      "https://www.foxnews.com/sports/rising-golf-star-dead-18-brain-hemorrhage-playing-tournament-thailand",
+      "https://www.bbc.co.uk/sport/golf/articles/cp8elkd2353o?at_medium=RSS&at_campaign=rss"
+    ]
   }
 ]
