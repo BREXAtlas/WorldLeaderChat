@@ -369,8 +369,6 @@ for (const { issue, bundle: originalBundle } of queue) {
     let lastProblems = ["A new article-specific draft was requested."];
     let writerWorked = false;
     let acceptedArticleOutput = null;
-    let bestArticleCandidate = null;
-    let bestProblemCount = Number.POSITIVE_INFINITY;
 
     for (let attempt = 0; attempt < maximumAttempts; attempt += 1) {
       try {
@@ -388,10 +386,6 @@ for (const { issue, bundle: originalBundle } of queue) {
           if (audit.article.length) acceptedArticleOutput = null;
           problems = [...problems, ...audit.article, ...audit.chat];
         }
-        if (!candidateArticleProblems.length && problems.length < bestProblemCount) {
-          bestArticleCandidate = candidate;
-          bestProblemCount = problems.length;
-        }
         if (problems.length || stockMemeDetected(candidate.event?.meme)) {
           lastProblems = [...problems, ...(stockMemeDetected(candidate.event?.meme) ? ["The closing line used a named stock meme."] : [])];
           continue;
@@ -406,9 +400,12 @@ for (const { issue, bundle: originalBundle } of queue) {
 
     if (!writerWorked) {
       generationFailureCount += 1;
-      // Never promote fill-in-the-headline copy as a safety fallback. Keep the best
-      // attempt in memory for diagnostics, but do not save a failed draft to the issue.
-      bundle = bestArticleCandidate || bundle;
+      blocked += 1;
+      // Every attempted candidate failed structural, conversation or source-support
+      // review. Do not save any "best" failed attempt or expose it for owner approval.
+      await setLabels(issue, ["needs-editor"], ["drafting", "ready-for-approval", "regenerate-requested", "redraft-requested"]);
+      console.error(`::warning title=Generation rejected before review::Issue #${issue.number}: ${lastProblems.map((problem) => `Generation: ${problem}`).join(" | ")}`);
+      continue;
     }
 
     const finalProblems = [

@@ -54,7 +54,6 @@ test("drafting prompt preserves factual conclusions and forbids recycled stock c
   assert.match(draft, /Never mention Drake/);
   assert.match(draft, /dialogueProblems/);
   assert.match(draft, /import \{ articleProblems, expectedSourceCredit, normalizeArticle \}/);
-  assert.match(draft, /bestArticleCandidate/);
   assert.match(draft, /articleOnlySchema/);
   assert.match(draft, /chatDraftSchema/);
   assert.match(draft, /valid JSON with participants, messages, closingLine and reviewNotes/);
@@ -67,7 +66,7 @@ test("drafting prompt preserves factual conclusions and forbids recycled stock c
   assert.match(draft, /auditGeneratedDraft/);
   assert.match(draft, /Source audit chat/);
   assert.match(draft, /acceptedArticleOutput/);
-  assert.match(draft, /Never promote fill-in-the-headline copy as a safety fallback/);
+  assert.match(draft, /Do not save any "best" failed attempt or expose it for owner approval/);
 });
 
 test("failed machine drafts stay newsroom work instead of becoming owner writing assignments", async () => {
@@ -189,6 +188,8 @@ test("failed generation cannot promote a recycled deterministic fallback to owne
   const draft = await read("scripts/draft-editorial-issues-v2.mjs");
   const dialogue = await read("scripts/lib/newsroom-dialogue.mjs");
   assert.doesNotMatch(draft, /deterministicDraft|Deterministic safety draft/);
+  assert.doesNotMatch(draft, /bestArticleCandidate/);
+  assert.match(draft, /if \(!writerWorked\) \{[\s\S]*?setLabels\(issue, \["needs-editor"\][\s\S]*?continue;[\s\S]*?\}\s*\n\s*const finalProblems/);
   assert.match(draft, /generation failure\(s\) kept out of review/);
   assert.doesNotMatch(dialogue, /I read \$\{headline\}/);
   assert.match(dialogue, /original dialogue generation is required/);
