@@ -196,12 +196,15 @@ const PLACEHOLDER_SPEAKER = /^(?:alice|bob|charlie|david|frank|grace|hannah|juli
 const GROUP_SPEAKER = /\b(?:administration|agency|association|board|bureau|commission|committee|company|congress|council|department|fans?|federation|firms?|government|group|league|mafia|ministry|network|office|organization|party|supporters|team|university|voters?)\b/i;
 
 export function firstPersonizeSpeakerText(speaker, value) {
-  const label = String(speaker || "").trim();
+  const fullLabel = String(speaker || "").trim();
+  const label = fullLabel.split(",")[0].trim();
   let text = String(value || "").trim();
   if (!label || !text) return text;
-  const escaped = label.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  const named = `(?:the\\s+)?${escaped}`;
-  const group = GROUP_SPEAKER.test(label);
+  const labels = [...new Set([fullLabel, label].filter(Boolean))]
+    .sort((left, right) => right.length - left.length)
+    .map((item) => item.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+  const named = `(?:the\\s+)?(?:${labels.join("|")})`;
+  const group = GROUP_SPEAKER.test(fullLabel);
   const subject = group ? "we" : "I";
   const object = group ? "us" : "me";
   const possessive = group ? "our" : "my";

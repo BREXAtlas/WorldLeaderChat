@@ -62,6 +62,10 @@ test("exact speaker-name self references are normalized into grammatical first p
     firstPersonizeSpeakerText("Nelson Peltz", "Nelson Peltz wants the board to explain its decision to Nelson Peltz."),
     "I want the board to explain its decision to me."
   );
+  assert.equal(
+    firstPersonizeSpeakerText("Buffalo Bills, NFL team", "The Buffalo Bills deserve an answer because the Buffalo Bills have to face their fans."),
+    "We deserve an answer because we have to face their fans."
+  );
 });
 
 test("chat plans reject speaker prefixes and visibly cut-off turns", () => {
