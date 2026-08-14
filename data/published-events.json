@@ -1258,6 +1258,122 @@
     }
   },
   {
+    "id": "2026-08-13-parties-lay-out-key-discovery-and-other-dates-for-pending-paramo",
+    "eventDate": "2026-08-13",
+    "year": 2026,
+    "date": "August 13, 2026",
+    "title": "Paramount’s California Conundrum: A Merger Merger Meets Antitrust Antics",
+    "kicker": "Deadline.com",
+    "category": "War & Security",
+    "summary": "This week has been dominated by headlines about Paramount’s threat to leave California, by unions and other officials urging a settlement and by Capitol Hill Democrats warning of investigations. But on Thursday, attorneys completed the rather routine step of proposing key dates and deadlines in advance of an antitrust trial over the proposed merger of […]",
+    "article": {
+      "headline": "Paramount’s California Conundrum: A Merger Merger Meets Antitrust Antics",
+      "dek": "In a routine procedural step, attorneys for Paramount and Warner Bros. have laid out key dates for an antitrust trial over their proposed merger, with unions and officials urging a settlement and Capitol Hill Democrats warning of investigations.",
+      "body": [
+        "This week has been dominated by the rather mundane procedural step of attorneys for Paramount and Warner Bros. proposing key dates and deadlines for an antitrust trial over their proposed merger. While the news cycle has been filled with headlines about Paramount’s threat to leave California, unions and other officials have been urging a settlement, and Capitol Hill Democrats have been warning of investigations. The routine nature of the proposed dates and deadlines has not dampened the political and cultural tensions surrounding this merger.",
+        "The main facts and consequences of this development are clear: the proposed merger between Paramount and Warner Bros. is facing significant legal scrutiny, with unions and officials pushing for a settlement to avoid a protracted and costly trial. Meanwhile, Capitol Hill Democrats are on high alert, ready to investigate any potential antitrust violations. The political and cultural tensions surrounding this merger are palpable, with each side vying for leverage in the ongoing negotiations and legal proceedings.",
+        "The strategic tension that makes this event worth reading is the delicate balance between the entertainment industry and the legal system. As the proposed merger faces antitrust challenges, the political and cultural implications are significant. The entertainment industry is at a crossroads, with the fate of a major merger hanging in the balance. The legal system, on the other hand, is tasked with ensuring fair competition and protecting consumers. The outcome of this trial could have far-reaching implications for the industry and the broader economy."
+      ],
+      "sourceCredit": "Based on original reporting from Deadline."
+    },
+    "sources": [
+      {
+        "label": "Parties Lay Out Key Discovery And Other Dates For Pending Paramount-WBD Antitrust Trial",
+        "url": "https://deadline.com/2026/08/paramount-warner-bros-trial-schedule-1237033223/",
+        "publisher": "Deadline"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Warner Bros.",
+        "text": "We're not backing down, but the unions are getting restless. What do you think, Paramount?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Paramount",
+        "text": "We're prepared for a lengthy trial, but a quick settlement would be better for everyone. Unions, what's your stance?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Unions",
+        "text": "Settlement or bust. We won't let you weaken the workforce. Warner Bros., you better have a plan.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Warner Bros.",
+        "text": "Bust is not an option. We're prepared for every contingency. Unions, what's your deadline?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Paramount",
+        "text": "Deadline? More like a countdown to a showdown. Unions, what's your leverage?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Unions",
+        "text": "Leverage? We've got the votes and the public on our side. Warner Bros., you're playing with fire.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Warner Bros.",
+        "text": "Fire or no fire, we're not backing down. Unions, how about a compromise instead of a showdown?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Paramount",
+        "text": "Compromise? More like a compromise with your demands. Unions, what's your next move?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Unions",
+        "text": "Next move? We'll see you in court if you don't budge. Warner Bros., you're making this hard.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Warner Bros.",
+        "text": "Hard or not, we'll see who's left standing. Unions, what's your final offer?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Paramount",
+        "text": "Final offer? More like a final deadline. Unions, you better have a strong case.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Unions",
+        "text": "Strong case or not, we'll fight for what's right. Warner Bros., you're making this a battle of wills.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "Another day, another deadline. This merger is shaping up to be a real rollercoaster.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-14T19:57:00.653Z",
+    "editorial": {
+      "issueNumber": 286,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/286",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-14T19:57:00.653Z",
+      "fingerprint": "df882eb34b879eb53baff3b0e2f71941e701d42161edefe78fbdb91b7d736979",
+      "sourcePublishedAt": "2026-08-13T22:33:25.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "The article maintains a sharp and dry tone, focusing on the factual aspects of the event without inventing any details. The political and cultural tensions are well-explained, providing context for the reader. The chat reflects the tension and negotiations surrounding the proposed merger between Warner Bros. and Paramount, with Unions pushing for a settlement and both companies preparing for a trial. The conversation naturally develops through challenges, pointed questions, and a developing joke about the rollercoaster of the situation. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    },
+    "eventGroup": "event-2026-08-11-california-attorney-general-slams-david-ellison-s-plan-to-pull-p"
+  },
+  {
     "id": "2026-08-13-russia-s-putin-angers-japan-with-1st-visit-to-kuril-islands",
     "eventDate": "2026-08-13",
     "year": 2026,
@@ -4223,7 +4339,8 @@
       "sourcePublishedAt": "2026-08-11T16:24:55.000Z",
       "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
       "reviewNotes": "Rewritten from the source summary after the queue-wide recycled-template audit. No headline recitation or shared dialogue skeleton remains. Opening narrator removed; the conversation now starts with a direct event participant. Owner approved the article-specific direct conversation after the chat-quality gate passed."
-    }
+    },
+    "eventGroup": "event-2026-08-11-california-attorney-general-slams-david-ellison-s-plan-to-pull-p"
   },
   {
     "id": "2026-08-11-california-democratic-gubernatorial-nominee-xavier-becerra-says",
