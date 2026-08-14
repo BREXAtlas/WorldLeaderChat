@@ -193,6 +193,33 @@ export const articleOnlySchema = {
 
 const INVALID_PLANNED_SPEAKER = /^(?:un\s+)?admin$|^(?:world leader|u\.?s\.? official|american official|european diplomat|government official|public figure|political observer|analyst|expert|commentator)$/i;
 const PLACEHOLDER_SPEAKER = /^(?:alice|bob|charlie|david|frank|grace|hannah|julia|speaker\s*[abc])$/i;
+const GROUP_SPEAKER = /\b(?:administration|agency|association|board|bureau|commission|committee|company|congress|council|department|fans?|federation|firms?|government|group|league|mafia|ministry|network|office|organization|party|supporters|team|university|voters?)\b/i;
+
+export function firstPersonizeSpeakerText(speaker, value) {
+  const label = String(speaker || "").trim();
+  let text = String(value || "").trim();
+  if (!label || !text) return text;
+  const escaped = label.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const named = `(?:the\\s+)?${escaped}`;
+  const group = GROUP_SPEAKER.test(label);
+  const subject = group ? "we" : "I";
+  const object = group ? "us" : "me";
+  const possessive = group ? "our" : "my";
+  text = text.replace(new RegExp(`${named}[’']s`, "gi"), possessive);
+  text = text.replace(new RegExp(`\\b(to|for|with|against|from|about|without|beside|behind)\\s+${named}\\b`, "gi"), (_, preposition) => `${preposition} ${object}`);
+  const verbs = new Map([
+    ["is", group ? "are" : "am"], ["are", group ? "are" : "am"], ["was", group ? "were" : "was"], ["were", group ? "were" : "was"],
+    ["has", "have"], ["does", "do"], ["wants", "want"], ["needs", "need"], ["deserves", "deserve"], ["expects", "expect"],
+    ["supports", "support"], ["rejects", "reject"], ["knows", "know"], ["sees", "see"], ["says", "say"], ["asks", "ask"],
+    ["demands", "demand"], ["believes", "believe"], ["thinks", "think"], ["gets", "get"], ["calls", "call"],
+    ["stands", "stand"], ["remains", "remain"], ["keeps", "keep"], ["looks", "look"], ["feels", "feel"]
+  ]);
+  for (const [thirdPerson, firstPerson] of verbs) {
+    text = text.replace(new RegExp(`\\b${named}\\s+${thirdPerson}\\b`, "gi"), `${subject} ${firstPerson}`);
+  }
+  text = text.replace(new RegExp(`\\b${named}\\b`, "gi"), subject);
+  return text.replace(/^./, (character) => character.toUpperCase());
+}
 
 export function materializeChatDraft(draft) {
   const participants = draft?.participants || {};
@@ -209,9 +236,9 @@ export function materializeChatDraft(draft) {
     const speaker = participantByKey[message?.speakerKey];
     if (!speaker) throw new Error(`Generated message ${index + 1} has an invalid participant key.`);
     const escapedSpeaker = speaker.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-    const text = String(message?.text || "").trim()
+    const text = firstPersonizeSpeakerText(speaker, String(message?.text || "").trim()
       .replace(/^[abc]\s*:\s*/i, "")
-      .replace(new RegExp(`^${escapedSpeaker}\\s*:\\s*`, "i"), "");
+      .replace(new RegExp(`^${escapedSpeaker}\\s*:\\s*`, "i"), ""));
     return { speaker, text, kind: "satire", reaction: "" };
   });
   return { ...draft, messages };

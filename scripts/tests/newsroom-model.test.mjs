@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { articleDraftSchema, chatDraftSchema, chatPlanSchema, extractNewsroomJson, materializeChatDraft, messagesFromChatPlan, runNewsroomJson } from "../lib/newsroom-model.mjs";
+import { articleDraftSchema, chatDraftSchema, chatPlanSchema, extractNewsroomJson, firstPersonizeSpeakerText, materializeChatDraft, messagesFromChatPlan, runNewsroomJson } from "../lib/newsroom-model.mjs";
 
 test("local newsroom JSON extraction tolerates a fenced or prefixed response", () => {
   assert.deepEqual(extractNewsroomJson('```json\n{"ready":true}\n```'), { ready: true });
@@ -51,6 +51,17 @@ test("direct chat drafts materialize three recurring event participants into the
     participants: { a: "Charlie", b: "David", c: "Frank" },
     messages: sequence.map((speakerKey) => ({ speakerKey, text: "This placeholder exchange contains enough words but has invented speakers." }))
   }), /specific event participants/);
+});
+
+test("exact speaker-name self references are normalized into grammatical first person", () => {
+  assert.equal(
+    firstPersonizeSpeakerText("Bills Mafia", "Bills Mafia deserves clear sightlines because the Bills Mafia has paid for these seats."),
+    "We deserve clear sightlines because we have paid for these seats."
+  );
+  assert.equal(
+    firstPersonizeSpeakerText("Nelson Peltz", "Nelson Peltz wants the board to explain its decision to Nelson Peltz."),
+    "I want the board to explain its decision to me."
+  );
 });
 
 test("chat plans reject speaker prefixes and visibly cut-off turns", () => {
