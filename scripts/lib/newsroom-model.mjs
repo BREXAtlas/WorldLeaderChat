@@ -191,7 +191,7 @@ export const articleOnlySchema = {
   additionalProperties: false
 };
 
-const INVALID_PLANNED_SPEAKER = /^(?:un\s+)?admin$|^(?:world leader|u\.?s\.? official|american official|european diplomat|government official|public figure|political observer|analyst|expert|commentator)$/i;
+const INVALID_PLANNED_SPEAKER = /^(?:un\s+)?admin$|^(?:world leader|u\.?s\.? official|american official|european diplomat|government official|public figure|political observer|analyst|expert|commentator|(?:the\s+)?(?:(?:federal|state)\s+)?(?:prosecutor|judge|lawyer|attorney))$/i;
 const PLACEHOLDER_SPEAKER = /^(?:alice|bob|charlie|david|frank|grace|hannah|julia|speaker\s*[abc])$/i;
 const GROUP_SPEAKER = /\b(?:administration|agency|association|board|bureau|commission|committee|company|congress|council|department|fans?|federation|firms?|government|group|league|mafia|ministry|network|office|organization|party|supporters|team|university|voters?)\b/i;
 
@@ -222,6 +222,14 @@ export function firstPersonizeSpeakerText(speaker, value) {
   }
   text = text.replace(new RegExp(`\\b${named}\\b`, "gi"), subject);
   return text.replace(/^./, (character) => character.toUpperCase());
+}
+
+export function stripStockEditorialFiller(value) {
+  const cleaned = String(value || "").trim().replace(
+    /^(?:in\s+)?(?:a\s+)?(?:bizarre|dramatic|shocking|stunning|surprising)\s+(?:turn\s+of\s+events|twist|development)[,;:\-–—]?\s*/i,
+    ""
+  );
+  return cleaned.replace(/^./, (character) => character.toUpperCase());
 }
 
 export function materializeChatDraft(draft) {

@@ -4,7 +4,7 @@ import { extractStoryBundle, STORY_JSON_END, STORY_JSON_START } from "./lib/edit
 import { cleanWhitespace, readJson } from "./lib/io.mjs";
 import { closingLineProblems, dialogueProblems, stabilizeGeneratedConversation, stockMemeDetected } from "./lib/chat-quality.mjs";
 import { articleProblems, expectedSourceCredit, normalizeArticle } from "./lib/article-standard.mjs";
-import { articleOnlySchema, chatDraftSchema, draftAuditSchema, materializeChatDraft, runNewsroomJson } from "./lib/newsroom-model.mjs";
+import { articleOnlySchema, chatDraftSchema, draftAuditSchema, materializeChatDraft, runNewsroomJson, stripStockEditorialFiller } from "./lib/newsroom-model.mjs";
 
 const token = process.env.GITHUB_TOKEN;
 const repository = process.env.GITHUB_REPOSITORY;
@@ -235,15 +235,15 @@ function applyGeneratedDraft(bundle, output) {
   const result = structuredClone(bundle);
   result.ingestion = { ...(result.ingestion || {}), newsroomFormat: 2 };
   const sourceSummary = safeSummary(result.event.summary);
-  const generatedSummary = cleanWhitespace(output.article.dek || output.article.body?.[0] || "");
+  const generatedSummary = cleanWhitespace(stripStockEditorialFiller(output.article.dek || output.article.body?.[0] || ""));
   result.event.summary = (sourceSummary.length >= 50 ? sourceSummary : generatedSummary).slice(0, 1200);
-  result.event.title = cleanWhitespace(output.article.headline || output.title).slice(0, 240);
-  result.event.kicker = cleanWhitespace(output.kicker).slice(0, 320);
+  result.event.title = cleanWhitespace(stripStockEditorialFiller(output.article.headline || output.title)).slice(0, 240);
+  result.event.kicker = cleanWhitespace(stripStockEditorialFiller(output.kicker)).slice(0, 320);
   result.event.category = cleanWhitespace(result.ingestion?.newsroomDesk || result.event.category || "World News").slice(0, 80);
   result.event.article = {
-    headline: cleanWhitespace(output.article.headline).slice(0, 240),
-    dek: cleanWhitespace(output.article.dek).slice(0, 420),
-    body: output.article.body.slice(0, globalThis.WLC_NEWSROOM_CONTRACT.article.maximumParagraphs).map((paragraph) => cleanWhitespace(paragraph).slice(0, 1400)),
+    headline: cleanWhitespace(stripStockEditorialFiller(output.article.headline)).slice(0, 240),
+    dek: cleanWhitespace(stripStockEditorialFiller(output.article.dek)).slice(0, 420),
+    body: output.article.body.slice(0, globalThis.WLC_NEWSROOM_CONTRACT.article.maximumParagraphs).map((paragraph) => cleanWhitespace(stripStockEditorialFiller(paragraph)).slice(0, 1400)),
     sourceCredit: expectedSourceCredit(result.event.sources)
   };
   result.event.article = normalizeArticle(result.event.article, result.event.sources);

@@ -92,6 +92,10 @@ test("named stock meme templates are rejected", () => {
   assert.equal(stockMemeDetected("The Moon received four tons. It did not sign for the package."), false);
 });
 
+test("generic togetherness closers are rejected", () => {
+  assert.ok(closingLineProblems("We're all in this together, but the defendant will make it difficult.").some((problem) => /recycled generic phrase/i.test(problem)));
+});
+
 test("generated chats remove a surplus headline echo and rescue an invalid closer from their own event-specific dialogue", () => {
   const candidate = bundle({
     title: "Private firms receive authority to launch international cyberattacks",

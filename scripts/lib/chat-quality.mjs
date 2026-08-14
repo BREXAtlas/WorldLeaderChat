@@ -1,6 +1,6 @@
 const META_NARRATION = /\b(imagined|hypothetical|would likely|would probably|plausible reaction|reaction consistent|response imagined|posture|style response|public-figure|a .*? response would|voice would)\b/i;
 const THIRD_PERSON_OPENING = /^(frames|signals|calls for|counts|emphasizes|notes|observes|suggests|underlines|warns|describes|argues|states|says|sees|insists|urges|highlights|points to|maintains|reiterates|characterizes|portrays|indicates|acknowledges)\b/i;
-const GENERIC_SPEAKER = /^(world leader|u\.?s\.? official|american official|european diplomat|government official|public figure|political observer|analyst|expert|commentator)$/i;
+const GENERIC_SPEAKER = /^(world leader|u\.?s\.? official|american official|european diplomat|government official|public figure|political observer|analyst|expert|commentator|(?:the\s+)?(?:(?:federal|state)\s+)?(?:prosecutor|judge|lawyer|attorney))$/i;
 const STOCK_MEME = /\bdrake(?: meme)?\b|distracted boyfriend|two buttons|change my mind|expanding brain|this is fine dog|woman yelling at a cat|^(?:a |an )?(?:political )?(?:cartoon|image|picture|photo|graphic|meme) (?:showing|of|with|where)|#\w/i;
 const GENERIC_TITLE = /world leaders opened the news and immediately regretted having read receipts on/i;
 const PERSON_NAME = /^[A-Z][A-Za-zÀ-ÖØ-öø-ÿ'’-]+(?:\s+[A-Z][A-Za-zÀ-ÖØ-öø-ÿ'’-]+){0,3}(?:,.*)?$/;
@@ -27,7 +27,8 @@ const BANNED_RECYCLED_PHRASES = [
   "the record has asked not to be involved",
   "can we discuss the actual event before someone changes the group name again",
   "fine. but the group name needs work",
-  "china supports returning to the agenda. china also predicts this will not happen"
+  "china supports returning to the agenda. china also predicts this will not happen",
+  "we're all in this together"
 ];
 
 const BANNED_TEMPLATE_PATTERNS = [
@@ -168,6 +169,9 @@ export function closingLineProblems(value) {
   if (wordCount < 6 || wordCount > 28) problems.push(`Closing line must contain 6–28 words; found ${wordCount}.`);
   if (closing && !/[.!?…]["')\]]?$/.test(closing)) problems.push("Closing line is cut off or lacks closing punctuation.");
   if (STOCK_MEME.test(closing)) problems.push("Closing line uses a stock named meme instead of an original event-specific punch line.");
+  if (BANNED_RECYCLED_PHRASES.some((phrase) => normalizeDialogueText(closing).includes(normalizeDialogueText(phrase)))) {
+    problems.push("Closing line uses a recycled generic phrase instead of an event-specific final line.");
+  }
   return problems;
 }
 

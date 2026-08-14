@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { articleDraftSchema, chatDraftSchema, chatPlanSchema, extractNewsroomJson, firstPersonizeSpeakerText, materializeChatDraft, messagesFromChatPlan, runNewsroomJson } from "../lib/newsroom-model.mjs";
+import { articleDraftSchema, chatDraftSchema, chatPlanSchema, extractNewsroomJson, firstPersonizeSpeakerText, materializeChatDraft, messagesFromChatPlan, runNewsroomJson, stripStockEditorialFiller } from "../lib/newsroom-model.mjs";
 
 test("local newsroom JSON extraction tolerates a fenced or prefixed response", () => {
   assert.deepEqual(extractNewsroomJson('```json\n{"ready":true}\n```'), { ready: true });
@@ -51,6 +51,17 @@ test("direct chat drafts materialize three recurring event participants into the
     participants: { a: "Charlie", b: "David", c: "Frank" },
     messages: sequence.map((speakerKey) => ({ speakerKey, text: "This placeholder exchange contains enough words but has invented speakers." }))
   }), /specific event participants/);
+  assert.throws(() => materializeChatDraft({
+    participants: { a: "The Federal Prosecutor", b: "Luigi Mangione", c: "Thompson Family" },
+    messages: sequence.map((speakerKey) => ({ speakerKey, text: "This legal exchange contains enough words but one participant is only a generic role." }))
+  }), /specific event participants/);
+});
+
+test("stock editorial throat-clearing is removed without changing the supported sentence", () => {
+  assert.equal(
+    stripStockEditorialFiller("In a bizarre turn of events, the defendant pleaded guilty to two federal stalking charges."),
+    "The defendant pleaded guilty to two federal stalking charges."
+  );
 });
 
 test("exact speaker-name self references are normalized into grammatical first person", () => {
