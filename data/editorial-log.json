@@ -1732,5 +1732,17 @@
     "sourceUrls": [
       "https://www.theverge.com/ai-artificial-intelligence/980160/apple-intelligence-china-custom-ai-model-alibaba"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-14-top-golden-globes-exec-ousted-in-ruthless-boardroom-coup-a-week",
+    "issueNumber": 295,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/295",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-14T19:51:55.243Z",
+    "fingerprint": "00c257430cd31f404bb033dd6c015e967c90790787d960721e8117d6b3fcda51",
+    "sourceUrls": [
+      "https://pagesix.com/2026/08/14/hollywood/top-golden-globes-exec-ousted-amid-boardroom-coup/"
+    ]
   }
 ]

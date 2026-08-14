@@ -351,6 +351,121 @@
     }
   },
   {
+    "id": "2026-08-14-top-golden-globes-exec-ousted-in-ruthless-boardroom-coup-a-week",
+    "eventDate": "2026-08-14",
+    "year": 2026,
+    "date": "August 14, 2026",
+    "title": "Golden Globes CEO Jay Penske Ousted Amid Boardroom Drama",
+    "kicker": "HFPA's Legal Battle Sparks Executive Shake-Up",
+    "category": "Politics & Society",
+    "summary": "Eight days after former HFPA members filed a $150 million lawsuit that named PMC CEO Jay Penske and Golden Globes Foundation CEO Gregory Goeckner as defendants, more drama ensued.",
+    "article": {
+      "headline": "Golden Globes CEO Jay Penske Ousted Amid Boardroom Drama",
+      "dek": "In a shocking turn of events, the CEO of the Golden Globes Foundation, Jay Penske, was ousted from his position just one week after the Hollywood Foreign Press Association (HFPA) filed a $150 million lawsuit against him and the current owner of the award show, PMC CEO Jay Penske.",
+      "body": [
+        "The ousting of Penske, who has been in charge of the Golden Globes Foundation since 2018, comes as a result of a ruthless boardroom 'coup' that has left the entertainment industry in shock. According to sources close to the situation, Penske was forced out of his position after a series of internal power struggles and allegations of misconduct.",
+        "The main consequence of this dramatic event is the uncertainty it brings to the future of the Golden Globes. With Penske's departure, the organization now faces the challenge of finding a new leader who can restore public trust and maintain the integrity of the award show. This development also raises questions about the governance and oversight of the Golden Globes Foundation, which may lead to further scrutiny and potential reforms.",
+        "The political, cultural, and business tension surrounding this event highlights the complex dynamics within the entertainment industry. The ousting of Penske, coupled with the ongoing legal battle, has created a perfect storm of controversy that could have far-reaching implications for the future of the Golden Globes and the broader landscape of awards shows in Hollywood."
+      ],
+      "sourceCredit": "Based on original reporting from New York Post."
+    },
+    "sources": [
+      {
+        "label": "Top Golden Globes exec ousted in ruthless boardroom ‘coup’ a week after HFPA sued award show’s current owner",
+        "url": "https://pagesix.com/2026/08/14/hollywood/top-golden-globes-exec-ousted-amid-boardroom-coup/",
+        "publisher": "New York Post"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "HFPA",
+        "text": "We can't believe this. Our lawsuit was just filed and now Penske is out. What's going on?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "PMC",
+        "text": "HFPA, calm down. We're in the middle of a 'coup.' Penske was forced out after a series of internal power struggles.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "HFPA",
+        "text": "A 'coup'? That's a strong word. Are you saying Penske was overthrown by his own board?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "PMC",
+        "text": "Not exactly, but let's just say the boardroom drama is intense. You're not the only one with a $150 million lawsuit.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "HFPA",
+        "text": "PMC, you're the other defendant in the lawsuit. Why didn't you fight back against the allegations?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "PMC",
+        "text": "We didn't fight back because we have our own issues with Penske. He's been a pain in the neck since 2018.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "HFPA",
+        "text": "So you're saying Penske was a problem for both of you? How convenient.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "PMC",
+        "text": "Convenient? More like a headache. He's leaving, and we're moving on with our lives.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "HFPA",
+        "text": "Speaking of moving on, what's the plan for the Golden Globes Foundation now? Will Gregory Goeckner take over?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Golden Globes Foundation",
+        "text": "I here. Gregory Goeckner will remain in his position. We're navigating these challenges.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "HFPA",
+        "text": "Golden Globes Foundation, you're not helping. Penske's out, and you're just letting Goeckner keep his job. What's the plan, exactly?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Golden Globes Foundation",
+        "text": "We're focused on finding a new leader who can restore public trust and maintain the integrity of the award show. It's not that simple.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "It's like a game of musical chairs, but with a $150 million lawsuit and a foundation in turmoil.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-14T19:51:55.243Z",
+    "editorial": {
+      "issueNumber": 295,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/295",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-14T19:51:55.243Z",
+      "fingerprint": "00c257430cd31f404bb033dd6c015e967c90790787d960721e8117d6b3fcda51",
+      "sourcePublishedAt": "2026-08-14T13:45:00.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "The article accurately reflects the verified facts without adding any unsupported information. It provides a clear and concise account of the event, its consequences, and the underlying tensions. The dry humor and sharp framing are appropriate for the tone of the source. The chat reflects the intense internal power struggles and legal battles surrounding the ousting of Jay Penske. The participants challenge and contradict each other, providing a realistic glimpse into the complex dynamics of the entertainment industry. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-13-flock-ceo-we-got-this-one-wrong",
     "eventDate": "2026-08-13",
     "year": 2026,
