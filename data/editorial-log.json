@@ -1695,5 +1695,18 @@
     "sourceUrls": [
       "https://www.theverge.com/policy/979339/flock-ceo-audits-data-retention"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-14-national-security-advisor-central-to-iran-negotiations-to-leave",
+    "issueNumber": 301,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/301",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-14T19:49:51.038Z",
+    "fingerprint": "afb2750b20e2ab9a688c677b5e2e2ce2b2bad3d701be7599971adad02befb248",
+    "sourceUrls": [
+      "https://www.washingtonexaminer.com/news/white-house/4687451/national-security-advisor-iran-negotiations-leave-white-house/",
+      "https://www.militarytimes.com/news/pentagon-congress/2026/08/14/white-house-national-security-official-to-depart-administration/"
+    ]
   }
 ]

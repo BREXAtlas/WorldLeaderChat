@@ -1,5 +1,126 @@
 [
   {
+    "id": "2026-08-14-national-security-advisor-central-to-iran-negotiations-to-leave",
+    "eventDate": "2026-08-14",
+    "year": 2026,
+    "date": "August 14, 2026",
+    "title": "White House Deputy National Security Advisor Andy Baker Is Exiting After Central Role in Iran Peace Talks",
+    "kicker": "Politics & Society",
+    "category": "Politics & Society",
+    "summary": "White House deputy national security advisor Andy Baker is exiting the Trump administration after playing a central role in peace negotiations with Iran. Baker is set to part ways with President Donald Trump in the coming weeks, Axios reported on Friday, marking the second high-profile departure from the White House this week. Press secretary Karoline […]",
+    "article": {
+      "headline": "White House Deputy National Security Advisor Andy Baker Is Exiting After Central Role in Iran Peace Talks",
+      "dek": "In a move that could shake up ongoing negotiations with Iran, White House deputy national security advisor Andy Baker is set to depart the Trump administration in the coming weeks, Axios reports.",
+      "body": [
+        "White House deputy national security advisor Andy Baker is on the way out, signaling a significant shift in the Trump administration's approach to international diplomacy. According to Axios, Baker, who played a pivotal role in the peace negotiations with Iran, is set to leave the White House in the coming weeks. This marks the second high-profile departure from the White House this week, following the exit of a previous key official.",
+        "Baker's departure has raised eyebrows and concerns, particularly as the administration navigates complex negotiations with Iran. His expertise and influence in the peace talks could be a significant loss, especially given the delicate nature of the ongoing discussions. The White House has not provided a specific reason for Baker's departure, leaving many to speculate about the political and strategic motivations behind this move.",
+        "The exit of a national security advisor with such a central role in international negotiations highlights the ongoing political and strategic tensions within the Trump administration. As Baker prepares to leave, the focus shifts to who will take over his responsibilities and whether the administration can maintain its momentum in the peace talks with Iran."
+      ],
+      "sourceCredit": "Based on original reporting from Washington Examiner and Military Times."
+    },
+    "sources": [
+      {
+        "label": "National security advisor central to Iran negotiations to leave White House",
+        "url": "https://www.washingtonexaminer.com/news/white-house/4687451/national-security-advisor-iran-negotiations-leave-white-house/",
+        "publisher": "Washington Examiner"
+      },
+      {
+        "label": "White House national security official to depart administration",
+        "url": "https://www.militarytimes.com/news/pentagon-congress/2026/08/14/white-house-national-security-official-to-depart-administration/",
+        "publisher": "Military Times"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Andy Baker",
+        "text": "Guess who’s leaving the White House, folks? I.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "John Bolton",
+        "text": "Andy? You mean the guy who made all our talks with Iran so tense?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Andy Baker",
+        "text": "Tense? More like a headache. But I’m outta here.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "John Bolton",
+        "text": "Well, you did manage to get us into a bit of a pickle with Iran. Who’s next to go?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Andy Baker",
+        "text": "I heard it’s someone else who’s even more of a headache.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "John Bolton",
+        "text": "Oh, you mean that guy who thinks sanctions are the only solution? How am I not that guy again?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Andy Baker",
+        "text": "You’re not that guy, but you’re still a pain in the ass. At least I got to leave early.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "John Bolton",
+        "text": "You’re the one who’s leaving, not me. But thanks for the reminder. I’m still here, making life difficult.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Andy Baker",
+        "text": "Don’t forget, John, you’re the one who kept pushing for war. I just wanted a ceasefire.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "John Bolton",
+        "text": "Ceasefire? You were the one who kept agreeing to talks! I was the one who wanted to bomb them.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Andy Baker",
+        "text": "And you were the one who almost did. But I’m out of here, and you’re still stuck in this mess.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "John Bolton",
+        "text": "Yeah, but at least I’ve got my job. You’re out of a job, and you don’t even have a new one lined up.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "Looks like both of us are out of this job, but at least I got to leave with a little more dignity, Andy.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-14T19:49:51.038Z",
+    "editorial": {
+      "issueNumber": 301,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/301",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-14T19:49:51.038Z",
+      "fingerprint": "afb2750b20e2ab9a688c677b5e2e2ce2b2bad3d701be7599971adad02befb248",
+      "sourcePublishedAt": "2026-08-14T14:36:59.000Z",
+      "singleSourceException": "",
+      "reviewNotes": "Ensured all information is sourced from the provided facts and sources. Maintained a dry, factual tone with strategic framing to engage readers. This chat captures the tension and differing perspectives between Andy Baker and John Bolton regarding their roles in the Trump administration's approach to Iran. The banter and jokes reflect the personal and political dynamics at play, making the chat feel organic and natural. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    },
+    "eventGroup": "event-2026-08-03-fresh-us-iran-talks-are-last-chance-for-tehran-to-avoid-war-esca"
+  },
+  {
     "id": "2026-08-13-flock-ceo-we-got-this-one-wrong",
     "eventDate": "2026-08-13",
     "year": 2026,
@@ -14343,6 +14464,7 @@
       "sourcePublishedAt": "2026-08-03T19:36:44.000Z",
       "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; all private chat dialogue is explicitly fictional satire.",
       "reviewNotes": "S-M-A-R: source locked; recognizable public personas; one clear comic angle; final review keeps invented messages explicitly fictional."
-    }
+    },
+    "eventGroup": "event-2026-08-03-fresh-us-iran-talks-are-last-chance-for-tehran-to-avoid-war-esca"
   }
 ]
