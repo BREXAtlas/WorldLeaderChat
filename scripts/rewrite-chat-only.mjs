@@ -47,7 +47,7 @@ function chatPrompt(bundle, feedback = []) {
   const event = bundle.event;
   const sourceFacts = (bundle.ingestion?.sourceDigests || []).map((item) => `${item.publisher}: ${item.excerpt}`).join("\n");
   const failures = feedback.length ? `\nTHE PREVIOUS ATTEMPT FAILED\n- ${feedback.join("\n- ")}\nRewrite every line from scratch.` : "";
-  return `Return ONLY valid JSON with keys messages, meme and reviewNotes. Rewrite only the imagined chat for this article; preserve the article exactly. Match the established World Leader Chat format used by previously approved articles.
+  return `Return ONLY valid JSON with keys messages, closingLine and reviewNotes. Rewrite only the imagined chat for this article; preserve the article exactly. Match the established World Leader Chat format used by previously approved articles.
 
 ARTICLE
 Headline: ${event.article?.headline || event.title}
@@ -62,12 +62,12 @@ Write 10–14 messages that feel like the established organic group chats: chara
 
 Use people and institutions naturally connected to the event. At least two speakers must return. If a person's identity is not established by the source, use the named institution instead; never invent an officeholder, employee, reporter or official. An optional Admin/system punch line may appear only as the final message, never first.
 
-Every message object owns its speaker and text. Read each speaker/text pair together before returning it. The speaker must talk in first person and must never describe themselves by their own name or organization in third person. Start in the middle of a reaction—a position, challenge, contradiction, pointed question or joke. Every line must respond to the actual people, act, number, place, object or consequence in this article. Each line must be one complete sentence of 6–28 words. meme must be one natural spoken punch line about this exact event, never a description or name of a cartoon, image or meme template.
+Every message object owns its speaker and text. Read each speaker/text pair together before returning it. The speaker must talk in first person and must never describe themselves by their own name or organization in third person. Start in the middle of a reaction—a position, challenge, contradiction, pointed question or joke. Every line must respond to the actual people, act, number, place, object or consequence in this article. Each line must be one complete sentence of 6–28 words. closingLine must be one natural spoken punch line about this exact event, never a description or name of a cartoon, image or stock template.
 
 Never write “I read [headline]”. Never paste, recite or lightly trim the article or source headline in a message. Never use “the verified event is pinned”, “fact pattern”, “reported detail”, “answer the file”, “on the record”, “official line is shorter than the consequence”, “spin requested a longer deadline” or other newsroom-process filler. Do not reuse a conversation skeleton with swapped speakers. Do not invent factual claims, quotations or private conduct. For victims, war, death or illness, aim satire at power, policy and messaging.
 
 JSON shape:
-{"messages":[{"speaker":"specific participant","text":"direct event-specific opening position","kind":"satire","reaction":""},{"speaker":"another specific participant","text":"direct reply to the prior message","kind":"satire","reaction":""}],"meme":"one original event-specific closing line","reviewNotes":"why this chat is unique to this article"}
+{"messages":[{"speaker":"specific participant","text":"direct event-specific opening position","kind":"satire","reaction":""},{"speaker":"another specific participant","text":"direct reply to the prior message","kind":"satire","reaction":""}],"closingLine":"one original event-specific closing line","reviewNotes":"why this chat is unique to this article"}
 
 The two objects show field structure only. Return 10–14 complete messages.`;
 }
@@ -85,7 +85,7 @@ function applyChat(bundle, output) {
     kind: message?.kind === "system" ? "system" : "satire",
     reaction: ""
   }));
-  result.event.meme = cleanWhitespace(output.meme).slice(0, 280);
+  result.event.meme = cleanWhitespace(output.closingLine).slice(0, 280);
   if (result.event.meme.length < 270 && !/[.!?…][\"')\]]?$/.test(result.event.meme)) result.event.meme += ".";
   result.approval = {
     ...(result.approval || {}),

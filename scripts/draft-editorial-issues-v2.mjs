@@ -141,7 +141,7 @@ async function runWriter(bundle, feedback = [], acceptedArticleOutput = null) {
 Return only the schema fields for the final title, kicker, category, article and review notes. Write finished publication copy in every field; never return instructions, labels or placeholders such as “specific truthful headline.”`;
   const articleOutput = acceptedArticleOutput
     || await runNewsroomJson(articlePrompt, { schema: articleOnlySchema, maxTokens: 1100, temperature: 0.4 });
-  const chatPrompt = `Return only valid JSON with messages, meme and reviewNotes. Match the established World Leader Chat format used by previously approved articles.
+  const chatPrompt = `Return only valid JSON with messages, closingLine and reviewNotes. Match the established World Leader Chat format used by previously approved articles.
 
 SOURCE-LOCKED ARTICLE
 Headline: ${articleOutput.article?.headline}
@@ -157,11 +157,13 @@ Use people and institutions naturally connected to the event. At least two speak
 
 Every message object owns its speaker and text. Read each speaker/text pair together before returning it. The speaker must talk in first person and must never describe themselves by their own name or organization in third person. Start with a position, challenge, contradiction, pointed question or joke. Never write “I read [headline]”, recite the headline, invent facts or quotations, use generic campaign platitudes, or use newsroom-process filler. Every line must depend on this event's actual person, decision, number, place, object or consequence. Each line must be one complete sentence of 6–28 words.
 
-Return messages in the same reader-facing structure as approved chats: {"speaker":"specific participant","text":"direct event-specific message","kind":"satire","reaction":""}. Use kind "system" only for an optional final Admin closer. meme must be one natural spoken punch line about this exact event, never a description or name of a cartoon, image or meme template.`;
+Return messages in the same reader-facing structure as approved chats: {"speaker":"specific participant","text":"direct event-specific message","kind":"satire","reaction":""}. Use kind "system" only for an optional final Admin closer. closingLine must be one natural spoken punch line about this exact event, never a description or name of a cartoon, image or stock template.`;
   const chatOutput = await runNewsroomJson(chatPrompt, { schema: chatDraftSchema, maxTokens: 1100, temperature: 0.7 });
+  const { closingLine, ...chatFields } = chatOutput;
   const output = {
     ...articleOutput,
-    ...chatOutput,
+    ...chatFields,
+    meme: closingLine,
     tone: "comic",
     reviewNotes: `${articleOutput.reviewNotes || ""} ${chatOutput.reviewNotes || ""}`.trim()
   };

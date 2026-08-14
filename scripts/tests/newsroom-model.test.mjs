@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { articleDraftSchema, chatPlanSchema, extractNewsroomJson, messagesFromChatPlan, runNewsroomJson } from "../lib/newsroom-model.mjs";
+import { articleDraftSchema, chatDraftSchema, chatPlanSchema, extractNewsroomJson, messagesFromChatPlan, runNewsroomJson } from "../lib/newsroom-model.mjs";
 
 test("local newsroom JSON extraction tolerates a fenced or prefixed response", () => {
   assert.deepEqual(extractNewsroomJson('```json\n{"ready":true}\n```'), { ready: true });
@@ -24,6 +24,13 @@ test("chat plans enforce three recurring event participants across twelve turns"
     speakers: ["UN Admin", "Analyst", "World Leader"],
     turns: Array(12).fill("This invalid turn is long enough for the schema but not the participant gate.")
   }), /specific event participants/);
+});
+
+test("direct chat drafts request a closing line without exposing the legacy meme field to the writer", () => {
+  assert.ok(chatDraftSchema.properties.closingLine);
+  assert.equal(chatDraftSchema.properties.meme, undefined);
+  assert.ok(chatDraftSchema.required.includes("closingLine"));
+  assert.ok(!chatDraftSchema.required.includes("meme"));
 });
 
 test("chat plans reject speaker prefixes and visibly cut-off turns", () => {

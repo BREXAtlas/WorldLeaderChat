@@ -67,10 +67,10 @@ export const chatDraftSchema = {
   type: "object",
   properties: {
     messages: { type: "array", minItems: 10, maxItems: 14, items: messageSchema },
-    meme: { type: "string", minLength: 10, maxLength: 220 },
+    closingLine: { type: "string", minLength: 10, maxLength: 220 },
     reviewNotes: { type: "string", minLength: 10, maxLength: 600 }
   },
-  required: ["messages", "meme", "reviewNotes"],
+  required: ["messages", "closingLine", "reviewNotes"],
   additionalProperties: false
 };
 

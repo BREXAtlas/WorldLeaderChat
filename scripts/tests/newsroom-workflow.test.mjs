@@ -57,6 +57,8 @@ test("drafting prompt preserves factual conclusions and forbids recycled stock c
   assert.match(draft, /bestArticleCandidate/);
   assert.match(draft, /articleOnlySchema/);
   assert.match(draft, /chatDraftSchema/);
+  assert.match(draft, /valid JSON with messages, closingLine and reviewNotes/);
+  assert.match(draft, /meme: closingLine/);
   assert.doesNotMatch(draft, /chatPlanSchema|messagesFromChatPlan|speakers\[index % speakers\.length\]/);
   assert.match(draft, /draftAuditSchema/);
   assert.match(draft, /auditGeneratedDraft/);
@@ -168,6 +170,8 @@ test("Rewrite Chat preserves the article and replaces only dialogue", async () =
   assert.match(rewrite, /const originalArticle = structuredClone/);
   assert.match(rewrite, /bundle\.event\.article = originalArticle/);
   assert.match(rewrite, /runNewsroomJson/);
+  assert.match(rewrite, /keys messages, closingLine and reviewNotes/);
+  assert.match(rewrite, /output\.closingLine/);
   assert.match(rewrite, /Never write “I read \[headline\]”/);
   assert.doesNotMatch(rewrite, /buildDirectDialogue/);
   assert.match(rewrite, /article and sources were preserved/);
