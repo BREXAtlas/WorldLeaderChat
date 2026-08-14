@@ -82,7 +82,8 @@ test("editor has a wide active lane, daily mix tools, publishing status and a de
   assert.match(app, /View Canonical Article #/);
   assert.match(app, /function canonicalIssueNumber/);
   assert.match(app, /function legacyBundle/);
-  assert.match(app, /editorial-redraft\.yml\/dispatches/);
+  assert.match(app, /\['redraft-requested'\]/);
+  assert.doesNotMatch(app, /actions\/workflows\/editorial-redraft\.yml\/dispatches/);
   assert.match(app, /Permanently Delete File/);
   assert.match(app, /data-trash-select/);
   assert.match(app, /id="selectAllTrash"/);

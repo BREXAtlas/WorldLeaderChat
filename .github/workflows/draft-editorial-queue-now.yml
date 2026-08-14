@@ -13,6 +13,8 @@ on:
         required: false
         default: ""
         type: string
+  issues:
+    types: [labeled]
   pull_request:
     types: [opened, reopened]
     branches: [main]
@@ -32,11 +34,18 @@ jobs:
     if: >-
       github.event_name == 'workflow_dispatch' ||
       (
+        github.event_name == 'issues' &&
+        (github.event.label.name == 'draft-batch-requested' || github.event.label.name == 'redraft-requested')
+      ) ||
+      (
         github.event.pull_request.head.repo.full_name == github.repository &&
         startsWith(github.event.pull_request.head.ref, 'agent/run-editorial-draft')
       )
     runs-on: ubuntu-latest
     timeout-minutes: 300
+    env:
+      WLC_REQUEST_TARGET: ${{ github.event_name == 'issues' && github.event.label.name == 'redraft-requested' && github.event.issue.number || inputs.target_issue || '' }}
+      WLC_REQUEST_TODAY_ONLY: ${{ github.event_name == 'issues' && github.event.label.name == 'draft-batch-requested' && '1' || (inputs.today_only && '1' || '0') }}
 
     steps:
       - name: Check out the published drafting engine
@@ -61,10 +70,10 @@ jobs:
         run: bash scripts/start-local-newsroom-writer.sh
 
       - name: Refresh the selected custom article source
-        if: inputs.target_issue != ''
+        if: env.WLC_REQUEST_TARGET != ''
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WLC_TARGET_ISSUE: ${{ inputs.target_issue }}
+          WLC_TARGET_ISSUE: ${{ env.WLC_REQUEST_TARGET }}
         run: node scripts/enrich-custom-submission.mjs
 
       - name: Create complete truth-first editorial suggestions
@@ -72,9 +81,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WLC_DRAFT_BATCH_SIZE: "10"
           WLC_DAILY_DRAFT_LIMIT: "30"
-          WLC_TODAY_ONLY: ${{ inputs.target_issue && '0' || (inputs.today_only && '1' || '0') }}
-          WLC_TARGET_ISSUE: ${{ inputs.target_issue || '' }}
-          WLC_MAX_ATTEMPTS: ${{ inputs.target_issue && '3' || '2' }}
+          WLC_TODAY_ONLY: ${{ env.WLC_REQUEST_TARGET != '' && '0' || env.WLC_REQUEST_TODAY_ONLY }}
+          WLC_TARGET_ISSUE: ${{ env.WLC_REQUEST_TARGET }}
+          WLC_MAX_ATTEMPTS: ${{ env.WLC_REQUEST_TARGET != '' && '3' || '2' }}
         run: node scripts/run-drafting-batches.mjs
 
       - name: Replace meta narration with direct recurring-speaker dialogue
@@ -86,10 +95,18 @@ jobs:
       - name: Confirm the selected file or report the later-batch backlog
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WLC_TODAY_ONLY: ${{ inputs.target_issue && '0' || (inputs.today_only && '1' || '0') }}
-          WLC_TARGET_ISSUE: ${{ inputs.target_issue || '' }}
-          WLC_ALLOW_BACKLOG: ${{ inputs.target_issue && '0' || '1' }}
+          WLC_TODAY_ONLY: ${{ env.WLC_REQUEST_TARGET != '' && '0' || env.WLC_REQUEST_TODAY_ONLY }}
+          WLC_TARGET_ISSUE: ${{ env.WLC_REQUEST_TARGET }}
+          WLC_ALLOW_BACKLOG: ${{ env.WLC_REQUEST_TARGET != '' && '0' || '1' }}
         run: node scripts/assert-editorial-readiness.mjs
+
+      - name: Clear the editor issue trigger
+        if: always() && github.event_name == 'issues'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          TRIGGER_LABEL: ${{ github.event.label.name }}
+        run: gh issue edit "${ISSUE_NUMBER}" --repo "${GITHUB_REPOSITORY}" --remove-label "${TRIGGER_LABEL}" || true
 
       - name: Save the verified local newsroom writer
         if: always() && steps.writer-cache.outputs.cache-hit != 'true'

@@ -512,10 +512,14 @@ async function finishTodaysDrafts() {
   button.disabled = true;
   button.textContent = 'Starting writer…';
   try {
-    await api(`/repos/${OWNER}/${REPO}/actions/workflows/draft-editorial-queue-now.yml/dispatches`, {
-      method: 'POST',
-      body: JSON.stringify({ref:'main', inputs:{today_only:'true'}})
-    });
+    const alreadyQueued = unfinished.find((issue) => labelSet(issue).has('draft-batch-requested'));
+    if (alreadyQueued) {
+      notice(`The batch writer is already queued from article #${alreadyQueued.number}.`, 'info');
+      return;
+    }
+    const trigger = [...unfinished].sort((left, right) => Number(right.number) - Number(left.number))[0];
+    const queued = await setIssueLabels(trigger, ['draft-batch-requested']);
+    replaceLocalIssue(trigger.number, queued);
     activeLane = 'drafting';
     render();
     notice(`The automated writer is finishing ${unfinished.length} current-day article${unfinished.length === 1 ? '' : 's'}. Completed files will move to Ready for Approval.`, 'success');
@@ -705,12 +709,6 @@ async function act(action, number) {
       });
       replaceLocalIssue(number, saved);
       render();
-      if (!ready) {
-        await api(`/repos/${OWNER}/${REPO}/actions/workflows/editorial-redraft.yml/dispatches`, {
-          method:'POST',
-          body:JSON.stringify({ref:'main', inputs:{target_issue:String(number)}})
-        });
-      }
       notice(`Candidate restored to ${ready ? 'Ready for Approval' : 'Drafting; its rebuild is queued'}.`, 'success');
       return;
     }

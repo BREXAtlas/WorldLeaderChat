@@ -72,7 +72,11 @@ test("failed machine drafts stay newsroom work instead of becoming owner writing
   assert.match(editor, /labels\.has\('needs-editor'\)/);
   assert.match(editor, /NEWSROOM PRODUCTION IN PROGRESS/);
   assert.match(editor, /Finish Today’s Drafts/);
-  assert.match(editor, /draft-editorial-queue-now\.yml\/dispatches/);
+  assert.match(editor, /\['draft-batch-requested'\]/);
+  assert.doesNotMatch(editor, /actions\/workflows\/draft-editorial-queue-now\.yml\/dispatches/);
+  assert.match(queueWorkflow, /issues:[\s\S]*types: \[labeled\]/);
+  assert.match(queueWorkflow, /github\.event\.label\.name == 'draft-batch-requested'/);
+  assert.match(queueWorkflow, /Clear the editor issue trigger/);
   assert.match(queueWorkflow, /WLC_DRAFT_BATCH_SIZE: "10"/);
   assert.match(queueWorkflow, /WLC_DAILY_DRAFT_LIMIT: "30"/);
   assert.match(queueWorkflow, /run-drafting-batches\.mjs/);

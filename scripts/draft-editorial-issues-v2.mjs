@@ -282,6 +282,7 @@ async function setLabels(issue, additions = [], removals = []) {
 
 const labelDefinitions = [
   { name: "drafting", color: "1d76db", description: "Article and chat are being drafted" },
+  { name: "draft-batch-requested", color: "fbca04", description: "Editor requested the current-day drafting batch" },
   { name: "ready-for-approval", color: "0e8a16", description: "Completed article and chat are ready for owner review" },
   { name: "regenerate-requested", color: "fbca04", description: "Owner requested a completely new article-specific chat" },
   { name: "redraft-requested", color: "d4c5f9", description: "Owner requested a new source-locked article and chat" },
