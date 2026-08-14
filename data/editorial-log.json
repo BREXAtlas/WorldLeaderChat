@@ -1671,5 +1671,17 @@
     "sourceUrls": [
       "https://www.theverge.com/tech/978181/meta-threads-quest-vr-app"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-13-spiderman-sets-a-new-record",
+    "issueNumber": 284,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/284",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-14T19:44:37.142Z",
+    "fingerprint": "15ce9228e5a1c9dd2cc39f542819b698b67274cd0c501213afd3a50b50e3c98e",
+    "sourceUrls": [
+      "https://www.hollywoodreporter.com/movies/movie-news/spider-man-brand-new-day-box-office-record-700-million-1236672909/?utm_source=firefox-newtab-en-us"
+    ]
   }
 ]

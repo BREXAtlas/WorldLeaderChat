@@ -436,6 +436,121 @@
     }
   },
   {
+    "id": "2026-08-13-spiderman-sets-a-new-record",
+    "eventDate": "2026-08-13",
+    "year": 2026,
+    "date": "August 13, 2026",
+    "title": "Spider-Man: Brand New Day Becomes Fastest Film to Reach $700 Million Domestically",
+    "kicker": "The neighborhood is now worldwide, and the box office needs a larger calculator.",
+    "category": "Culture & Entertainment",
+    "summary": "Sony's Spider-Man: Brand New Day reached $704.5 million domestically faster than any previous film and climbed to $1.108 billion overseas.",
+    "article": {
+      "headline": "Spider-Man: Brand New Day Becomes Fastest Film to Reach $700 Million Domestically",
+      "dek": "Sony's latest Spider-Man crossed $700 million domestically at record speed while passing No Way Home's overseas total.",
+      "body": [
+        "Spider-Man: Brand New Day reached $704.5 million at the domestic box office on Wednesday, making it the fastest film to cross $700 million in North America. The Sony release, which opened July 31, moved past Black Panther and into sixth place on the all-time domestic chart.",
+        "The movie also reached $1.108 billion internationally, edging past Spider-Man: No Way Home as Sony's biggest overseas release. The Hollywood Reporter said the earlier film's $1.9 billion worldwide total was now within reach for Brand New Day as its third weekend approached.",
+        "The Tom Holland film opened to $360 million domestically and carries a reported $225 million production budget. Its run helped the 2026 summer box office cross $4 billion, turning a superhero sequel into both a studio record book and a very expensive argument against theatrical pessimism."
+      ],
+      "sourceCredit": "Based on original reporting from Hollywoodreporter."
+    },
+    "sources": [
+      {
+        "label": "Spiderman sets a new record",
+        "url": "https://www.hollywoodreporter.com/movies/movie-news/spider-man-brand-new-day-box-office-record-700-million-1236672909/?utm_source=firefox-newtab-en-us",
+        "publisher": "Hollywoodreporter"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Sony Pictures",
+        "text": "We reached $704.5 million at home before the third weekend, so the web is holding.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Peter Parker",
+        "text": "I usually measure danger in villains, but sixth place on the domestic chart feels unusually specific.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Movie Theaters",
+        "text": "We kept hearing theatrical movies were finished; the ticket scanners apparently missed that memo.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Sony Pictures",
+        "text": "Our overseas total is $1.108 billion, just beyond the previous Sony record.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Peter Parker",
+        "text": "I passed my own overseas mark, which makes my toughest box-office rival another version of me.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Movie Theaters",
+        "text": "A $360 million opening gave us plenty of evidence before anyone reached for the obituary.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Sony Pictures",
+        "text": "We spent $225 million making the movie, and audiences supplied the much larger number.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Peter Parker",
+        "text": "The mask covers my face, not the arithmetic heading toward $1.9 billion worldwide.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Movie Theaters",
+        "text": "Summer ticket sales crossed $4 billion, so our concession stands request supporting-actor credit.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Sony Pictures",
+        "text": "The record book now needs separate columns for domestic speed, overseas scale and web-related puns.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Peter Parker",
+        "text": "I can stop a train, but apparently I cannot stop a studio from announcing another milestone.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Movie Theaters",
+        "text": "Keep swinging; every broken record gives the big screen another reason to stay open.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "The fastest trip to $700 million still took less time than choosing which Spider-Man record to announce.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-14T19:44:37.142Z",
+    "editorial": {
+      "issueNumber": 284,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/284",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-14T19:44:37.142Z",
+      "fingerprint": "15ce9228e5a1c9dd2cc39f542819b698b67274cd0c501213afd3a50b50e3c98e",
+      "sourcePublishedAt": "2026-08-14T00:14:06.265Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Source-locked article and unique direct recurring-speaker conversation completed after automated drafting quarantine. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-13-swim-hero-katie-ledecky-extends-16-year-winning-streak-with-pan",
     "eventDate": "2026-08-13",
     "year": 2026,
