@@ -77,6 +77,7 @@ test("failed machine drafts stay newsroom work instead of becoming owner writing
   assert.match(queueWorkflow, /issues:[\s\S]*types: \[labeled\]/);
   assert.match(queueWorkflow, /github\.event\.label\.name == 'draft-batch-requested'/);
   assert.match(queueWorkflow, /Clear the editor issue trigger/);
+  assert.match(queueWorkflow, /group: .*draft-batch-requested.*world-leader-chat-editorial-production.*github\.run_id/);
   assert.match(queueWorkflow, /WLC_DRAFT_BATCH_SIZE: "10"/);
   assert.match(queueWorkflow, /WLC_DAILY_DRAFT_LIMIT: "30"/);
   assert.match(queueWorkflow, /run-drafting-batches\.mjs/);

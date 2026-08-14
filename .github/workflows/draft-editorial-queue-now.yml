@@ -26,7 +26,7 @@ permissions:
   issues: write
 
 concurrency:
-  group: world-leader-chat-editorial-production
+  group: ${{ (github.event_name == 'workflow_dispatch' || github.event_name == 'pull_request' || github.event.label.name == 'draft-batch-requested' || github.event.label.name == 'redraft-requested') && 'world-leader-chat-editorial-production' || github.run_id }}
   cancel-in-progress: false
 
 jobs:
