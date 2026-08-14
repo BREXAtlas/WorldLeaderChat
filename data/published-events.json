@@ -1374,6 +1374,121 @@
     "eventGroup": "event-2026-08-11-california-attorney-general-slams-david-ellison-s-plan-to-pull-p"
   },
   {
+    "id": "2026-08-13-perseids-meteor-shower",
+    "eventDate": "2026-08-13",
+    "year": 2026,
+    "date": "August 13, 2026",
+    "title": "Perseid Meteor Shower Peaks but Remains Visible Through August",
+    "kicker": "The sky kept the headline short and supplied its own bright punctuation.",
+    "category": "Science & Space",
+    "summary": "NASA says the Perseid meteor shower peaked overnight August 12–13 after building since early July and will continue through the end of August.",
+    "article": {
+      "headline": "Perseid Meteor Shower Peaks but Remains Visible Through August",
+      "dek": "NASA marked the Perseids' August 12–13 peak with a 2018 photograph of two meteors framing Orion above Cedar Breaks National Monument.",
+      "body": [
+        "NASA highlighted the Perseid meteor shower with a photograph showing two Perseid meteors framing the constellation Orion. The image was captured on August 12, 2018, at Cedar Breaks National Monument in Utah and was credited to NASA's Bill Dunford.",
+        "The agency said the Perseids, one of the year's brightest and most popular meteor showers, had been building since early July. The 2026 shower reached its peak during the night of August 12 and the early morning of August 13.",
+        "The peak has passed, but the viewing season has not ended: NASA says the shower will continue through the end of August. Its image article also links to a replay of the August 13 shower, giving anyone who missed the overnight display a recorded route back to the sky."
+      ],
+      "sourceCredit": "Based on original reporting from NASA."
+    },
+    "sources": [
+      {
+        "label": "Perseids Meteor Shower",
+        "url": "https://www.nasa.gov/image-article/perseids-meteor-shower-2/",
+        "publisher": "NASA"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "NASA",
+        "text": "We marked the August peak with a photograph taken at Cedar Breaks National Monument in 2018.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Perseid Meteors",
+        "text": "We have been building since early July and will remain active through the end of August.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Orion",
+        "text": "I spent the photograph framed by two bright visitors and handled the background without complaint.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "NASA",
+        "text": "The shower peaked overnight from August 12 into the early morning of August 13.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Perseid Meteors",
+        "text": "A peak is one deadline; the rest of the month still belongs to the night sky.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Orion",
+        "text": "I appreciate that celestial scheduling uses fewer push notifications than everything happening below me.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "NASA",
+        "text": "We also provided a replay for viewers who missed the overnight display.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Perseid Meteors",
+        "text": "Recorded light is useful, although our preferred screen remains considerably larger than a phone.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Orion",
+        "text": "I have been a recognizable constellation for centuries, and somehow the streaks still steal the photograph.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "NASA",
+        "text": "The image credit belongs to Bill Dunford, who caught the Utah scene on August 12, 2018.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Perseid Meteors",
+        "text": "We accept the credit for movement; the photographer deserves the credit for timing.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Orion",
+        "text": "I will keep the frame steady while the final August streaks finish their run.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "The peak lasted one night; the sky kept the encore scheduled through the end of August.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-14T19:58:40.739Z",
+    "editorial": {
+      "issueNumber": 278,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/278",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-14T19:58:40.739Z",
+      "fingerprint": "4163033ea096338ee492e95410ef1622316643e19998d1e67e48fa2af4f5bf48",
+      "sourcePublishedAt": "2026-08-13T15:08:34.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Source-locked article and unique direct recurring-speaker conversation completed after automated drafting quarantine. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-13-russia-s-putin-angers-japan-with-1st-visit-to-kuril-islands",
     "eventDate": "2026-08-13",
     "year": 2026,

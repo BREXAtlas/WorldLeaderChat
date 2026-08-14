@@ -1805,5 +1805,17 @@
     "sourceUrls": [
       "https://www.theverge.com/policy/979734/trump-administration-cybercrime-private-firms"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-13-perseids-meteor-shower",
+    "issueNumber": 278,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/278",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-14T19:58:40.739Z",
+    "fingerprint": "4163033ea096338ee492e95410ef1622316643e19998d1e67e48fa2af4f5bf48",
+    "sourceUrls": [
+      "https://www.nasa.gov/image-article/perseids-meteor-shower-2/"
+    ]
   }
 ]
