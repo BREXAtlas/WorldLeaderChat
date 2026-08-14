@@ -1756,5 +1756,17 @@
     "sourceUrls": [
       "https://www.aljazeera.com/news/2026/8/14/ukraine-liberates-dnipropetrovsk-as-russia-intensifies-missile-attacks?traffic_source=rss"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-14-busan-film-festival-to-honor-founder-director-kim-dong-ho-with-k",
+    "issueNumber": 293,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/293",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-14T19:53:45.263Z",
+    "fingerprint": "944e26b01bf72f0b5eddc09c0e070e147cfe1eda7e057a914db1425d86591241",
+    "sourceUrls": [
+      "https://variety.com/2026/film/festivals/busan-film-festival-kim-dong-ho-korean-cinema-award-1236834556/"
+    ]
   }
 ]
