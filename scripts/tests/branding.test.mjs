@@ -11,7 +11,9 @@ test("Pages build installs the selected World Leader Chat masthead logo", async 
   assert.ok(logo.byteLength > 10000);
   assert.match(build, /world-leaders-chat-logo\.webp/);
   assert.match(build, /class=\"brand-logo\"/);
-  assert.match(build, /News\. Analysis\. Satire\./);
+  assert.match(build, /News\. Analysis\. Imagination\./);
+  assert.match(build, /NEWS\. ANALYSIS\. IMAGINATION\./);
+  assert.doesNotMatch(build, /NEWS\. ANALYSIS\. SATIRE\./);
   assert.match(build, /onerror=\"this\.hidden=true;this\.nextElementSibling\.hidden=false\"/);
   assert.match(build, /class=\"brand-fallback\"/);
   assert.match(build, /WORLD LEADERS/);
