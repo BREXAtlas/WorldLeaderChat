@@ -2,6 +2,7 @@ import { spawnSync } from "node:child_process";
 import { mkdtempSync, readFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
+import { zeroYieldFailure } from "./lib/editorial-run-result.mjs";
 
 const targetIssue = Number(process.env.WLC_TARGET_ISSUE || 0);
 const batchSize = Math.max(1, Number(process.env.WLC_DRAFT_BATCH_SIZE || 10));
@@ -9,6 +10,8 @@ const dailyLimit = Math.max(batchSize, Number(process.env.WLC_DAILY_DRAFT_LIMIT 
 const runLimit = targetIssue ? 1 : dailyLimit;
 const attemptedIssues = new Set();
 const resultDirectory = mkdtempSync(join(tmpdir(), "wlc-draft-batches-"));
+let totalReady = 0;
+let totalBlocked = 0;
 
 console.log(`Starting newsroom writing batches of up to ${batchSize} until the ${runLimit}-article run ceiling is reached or the eligible queue is empty.`);
 try {
@@ -30,6 +33,8 @@ try {
     const batch = JSON.parse(readFileSync(resultPath, "utf8"));
     const selected = Array.isArray(batch.selectedIssueNumbers) ? batch.selectedIssueNumbers : [];
     selected.forEach((issueNumber) => attemptedIssues.add(Number(issueNumber)));
+    totalReady += Number(batch.drafted || 0);
+    totalBlocked += Number(batch.blocked || 0);
     console.log(`Writing batch finished: ${selected.length} attempted, ${batch.drafted || 0} ready, ${batch.blocked || 0} blocked.`);
     if (selected.length < limit || targetIssue) break;
   }
@@ -38,3 +43,7 @@ try {
 }
 
 console.log(`Newsroom writing run finished after attempting ${attemptedIssues.size} unique article${attemptedIssues.size === 1 ? "" : "s"}.`);
+if (zeroYieldFailure(attemptedIssues.size, totalReady)) {
+  console.error(`No selected article reached Ready for Approval (${totalBlocked} blocked). A zero-output writing run is a failure.`);
+  process.exitCode = 1;
+}

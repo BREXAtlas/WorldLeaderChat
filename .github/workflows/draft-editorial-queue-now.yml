@@ -13,45 +13,86 @@ on:
         required: false
         default: ""
         type: string
+      target_action:
+        description: "For a focused recovery, regenerate the article and chat or only the chat"
+        required: false
+        default: "article"
+        type: choice
+        options:
+          - article
+          - chat
   issues:
     types: [labeled]
-  pull_request:
-    types: [opened, reopened]
-    branches: [main]
-    paths:
-      - ".github/editorial-draft-trigger/**"
 
 permissions:
   contents: read
   issues: write
 
+# User requests are durable labels on the issues. queue: max prevents GitHub from
+# discarding older waiting runs, and every run coalesces all outstanding labels.
 concurrency:
-  group: ${{ (github.event_name == 'workflow_dispatch' || github.event_name == 'pull_request' || github.event.label.name == 'draft-batch-requested' || github.event.label.name == 'redraft-requested') && 'world-leader-chat-editorial-production' || github.run_id }}
+  group: world-leader-chat-editorial-production
   cancel-in-progress: false
+  queue: max
 
 jobs:
-  draft:
+  prepare:
     if: >-
       github.event_name == 'workflow_dispatch' ||
       (
         github.event_name == 'issues' &&
-        (github.event.label.name == 'draft-batch-requested' || github.event.label.name == 'redraft-requested')
-      ) ||
-      (
-        github.event.pull_request.head.repo.full_name == github.repository &&
-        startsWith(github.event.pull_request.head.ref, 'agent/run-editorial-draft')
+        (
+          github.event.label.name == 'draft-batch-requested' ||
+          github.event.label.name == 'redraft-requested' ||
+          github.event.label.name == 'regenerate-requested'
+        )
       )
     runs-on: ubuntu-latest
-    timeout-minutes: 300
-    env:
-      WLC_REQUEST_TARGET: ${{ github.event_name == 'issues' && github.event.label.name == 'redraft-requested' && github.event.issue.number || inputs.target_issue || '' }}
-      WLC_REQUEST_TODAY_ONLY: ${{ github.event_name == 'issues' && github.event.label.name == 'draft-batch-requested' && '1' || (inputs.today_only && '1' || '0') }}
+    timeout-minutes: 10
+    outputs:
+      matrix: ${{ steps.queue.outputs.matrix }}
+      count: ${{ steps.queue.outputs.count }}
+      remaining: ${{ steps.queue.outputs.remaining }}
 
     steps:
-      - name: Check out the published drafting engine
+      - name: Check out the production newsroom worker
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: ${{ github.event_name == 'workflow_dispatch' && github.ref || 'main' }}
+          ref: main
+
+      - name: Use Node.js 24
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Build one durable work list from all outstanding editor requests
+        id: queue
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WLC_FORCE_BATCH: ${{ github.event_name == 'workflow_dispatch' || github.event.label.name == 'draft-batch-requested' && '1' || '0' }}
+          WLC_TODAY_ONLY: ${{ github.event_name == 'issues' && github.event.label.name == 'draft-batch-requested' && '1' || (inputs.today_only && '1' || '0') }}
+          WLC_TARGET_ISSUE: ${{ github.event_name == 'workflow_dispatch' && inputs.target_issue || '' }}
+          WLC_TARGET_ACTION: ${{ github.event_name == 'workflow_dispatch' && inputs.target_action || 'article' }}
+          WLC_WORKER_LIMIT: "20"
+        run: node scripts/prepare-editorial-worker.mjs
+
+  write:
+    name: "${{ matrix.action == 'chat' && 'Rewrite chat' || 'Draft article and chat' }} #${{ matrix.issue }}"
+    needs: prepare
+    if: needs.prepare.outputs.count != '0'
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix: ${{ fromJSON(needs.prepare.outputs.matrix) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Check out the production newsroom worker
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
 
       - name: Use Node.js 24
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
@@ -69,57 +110,41 @@ jobs:
       - name: Start the no-credit local newsroom writer
         run: bash scripts/start-local-newsroom-writer.sh
 
-      - name: Refresh custom article sources before drafting
+      - name: Refresh owner-submitted source material
+        if: matrix.action == 'article'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WLC_TARGET_ISSUE: ${{ env.WLC_REQUEST_TARGET }}
-        run: |
-          if [ -n "${WLC_REQUEST_TARGET}" ]; then
-            node scripts/enrich-custom-submission.mjs
-          else
-            gh issue list --repo "${GITHUB_REPOSITORY}" --state open --label news-candidate --limit 100 --json number,body --jq '.[] | select(.body | contains("WLC_CUSTOM_SUBMISSION")) | .number' |
-              while read -r issue_number; do
-                WLC_TARGET_ISSUE="${issue_number}" node scripts/enrich-custom-submission.mjs
-              done
-          fi
+          WLC_TARGET_ISSUE: ${{ matrix.issue }}
+        run: node scripts/enrich-custom-submission.mjs
 
-      - name: Create complete truth-first editorial suggestions
+      - name: Generate a source-locked article and original chat
+        if: matrix.action == 'article'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WLC_DRAFT_BATCH_SIZE: "10"
-          WLC_DAILY_DRAFT_LIMIT: "30"
-          WLC_TODAY_ONLY: ${{ env.WLC_REQUEST_TARGET != '' && '0' || env.WLC_REQUEST_TODAY_ONLY }}
-          WLC_TARGET_ISSUE: ${{ env.WLC_REQUEST_TARGET }}
-          WLC_MAX_ATTEMPTS: ${{ env.WLC_REQUEST_TARGET != '' && '3' || '2' }}
-        run: node scripts/run-drafting-batches.mjs
+          WLC_TARGET_ISSUE: ${{ matrix.issue }}
+          WLC_FORCE_REWRITE: "1"
+          WLC_DRAFT_LIMIT: "1"
+          WLC_MAX_ATTEMPTS: "3"
+        run: node scripts/draft-editorial-issues.mjs
 
-      - name: Replace meta narration with direct recurring-speaker dialogue
+      - name: Rewrite only the original article-specific chat
+        if: matrix.action == 'chat'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WLC_REFINE_LIMIT: 50
-        run: node scripts/refine-editorial-dialogue.mjs
+          WLC_TARGET_ISSUE: ${{ matrix.issue }}
+        run: node scripts/rewrite-chat-only.mjs
 
-      - name: Confirm the selected file or report the later-batch backlog
+      - name: Prove this file reached Ready for Approval
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WLC_TODAY_ONLY: ${{ env.WLC_REQUEST_TARGET != '' && '0' || env.WLC_REQUEST_TODAY_ONLY }}
-          WLC_TARGET_ISSUE: ${{ env.WLC_REQUEST_TARGET }}
-          WLC_ALLOW_BACKLOG: ${{ env.WLC_REQUEST_TARGET != '' && '0' || '1' }}
+          WLC_TARGET_ISSUE: ${{ matrix.issue }}
         run: node scripts/assert-editorial-readiness.mjs
 
-      - name: Clear the editor issue trigger
-        if: always() && github.event_name == 'issues'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ISSUE_NUMBER: ${{ github.event.issue.number }}
-          TRIGGER_LABEL: ${{ github.event.label.name }}
-        run: gh issue edit "${ISSUE_NUMBER}" --repo "${GITHUB_REPOSITORY}" --remove-label "${TRIGGER_LABEL}" || true
-
-      - name: Recover any interrupted Drafting status
+      - name: Recover only this interrupted file
         if: always()
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WLC_TARGET_ISSUE: ${{ matrix.issue }}
         run: node scripts/recover-interrupted-drafts.mjs
 
       - name: Save the verified local newsroom writer
@@ -128,3 +153,47 @@ jobs:
         with:
           path: ${{ runner.tool_cache }}/world-leader-chat-writer
           key: wlc-local-writer-qwen25-7b-b10375-v1-${{ runner.os }}
+
+  finish:
+    needs: [prepare, write]
+    if: always() && needs.prepare.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out the production newsroom worker
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+
+      - name: Use Node.js 24
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Clear completed Finish Today batch markers
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/clear-editorial-batch-triggers.mjs
+
+      - name: Report the real production result
+        env:
+          SELECTED: ${{ needs.prepare.outputs.count }}
+          REMAINING: ${{ needs.prepare.outputs.remaining }}
+          WRITE_RESULT: ${{ needs.write.result }}
+        run: |
+          {
+            echo "## Editorial worker"
+            echo
+            echo "- Selected files: ${SELECTED}"
+            echo "- Files retained for the next worker: ${REMAINING}"
+            echo "- Writing result: ${WRITE_RESULT}"
+            echo "- A file counts as completed only after it reaches Ready for Approval."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Fail visibly when any selected file did not become ready
+        if: needs.write.result == 'failure' || needs.write.result == 'cancelled'
+        run: |
+          echo "One or more selected files failed the article/chat quality gate. The affected file is labeled Needs Editor and the workflow is intentionally red." >&2
+          exit 1

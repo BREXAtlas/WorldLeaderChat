@@ -68,7 +68,7 @@ Never write “I read [headline]”. Never paste, recite or lightly trim the art
 JSON shape:
 {"participants":{"a":"specific participant","b":"specific participant","c":"specific participant"},"messages":[{"speakerKey":"a","text":"direct event-specific opening position"}],"closingLine":"one original event-specific closing line","reviewNotes":"why this chat is unique to this article"}
 
-The two objects show field structure only. Return 10–14 complete messages.`;
+The two objects show field structure only. Return 12–14 complete messages.`;
 }
 
 async function runWriter(bundle, feedback = []) {
@@ -77,6 +77,8 @@ async function runWriter(bundle, feedback = []) {
 
 function applyChat(bundle, output) {
   const result = structuredClone(bundle);
+  result.ingestion = { ...(result.ingestion || {}) };
+  delete result.ingestion.lastDraftFailure;
   if (!Array.isArray(output.messages)) throw new Error("Generated chat did not include messages.");
   result.event.messages = output.messages.map((message) => ({
     speaker: cleanWhitespace(message?.speaker).slice(0, 90),
@@ -111,6 +113,21 @@ async function setLabels(issue, additions = [], removals = []) {
   });
 }
 
+async function recordFailure(issue, bundle, problems) {
+  const failureBundle = structuredClone(bundle);
+  failureBundle.ingestion = {
+    ...(failureBundle.ingestion || {}),
+    lastDraftFailure: {
+      failedAt: new Date().toISOString(),
+      problems: problems.map((problem) => cleanWhitespace(problem).slice(0, 500)).slice(0, 12)
+    }
+  };
+  return github(`/repos/${repository}/issues/${issue.number}`, {
+    method: "PATCH",
+    body: { body: replaceBundle(issue.body || "", failureBundle) }
+  });
+}
+
 const issue = await github(`/repos/${repository}/issues/${issueNumber}`);
 const labels = labelNames(issue);
 if (issue.state !== "open" || labels.has("published") || labels.has("rejected")) {
@@ -118,6 +135,7 @@ if (issue.state !== "open" || labels.has("published") || labels.has("rejected"))
 }
 
 let bundle = extractStoryBundle(issue.body || "");
+const sourceBundle = structuredClone(bundle);
 const originalArticle = structuredClone(bundle.event?.article ?? null);
 const originalTitle = bundle.event?.title;
 const originalKicker = bundle.event?.kicker;
@@ -145,7 +163,8 @@ for (let attempt = 0; attempt < 3; attempt += 1) {
   }
 }
 if (!generated) {
-  await setLabels(issue, ["needs-editor"], ["regenerate-requested", "drafting", "ready-for-approval"]);
+  const failedIssue = await recordFailure(issue, sourceBundle, feedback);
+  await setLabels(failedIssue, ["needs-editor"], ["regenerate-requested", "drafting", "ready-for-approval"]);
   throw new Error(`Original chat generation failed quality checks: ${feedback.join(" | ")}`);
 }
 bundle = generated;
@@ -157,7 +176,8 @@ bundle.event.kicker = originalKicker;
 bundle.event.category = originalCategory;
 const problems = [...dialogueProblems(bundle, { existingBundles }), ...generatedChatProblems(bundle)];
 if (problems.length) {
-  await setLabels(issue, ["needs-editor"], ["regenerate-requested", "drafting", "ready-for-approval"]);
+  const failedIssue = await recordFailure(issue, sourceBundle, problems);
+  await setLabels(failedIssue, ["needs-editor"], ["regenerate-requested", "drafting", "ready-for-approval"]);
   throw new Error(`Chat-only rewrite failed quality checks: ${problems.join(" | ")}`);
 }
 

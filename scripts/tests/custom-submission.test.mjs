@@ -43,7 +43,7 @@ test("editor exposes an accessible custom-link generator and queues the existing
   const [html, app, workflow] = await Promise.all([
     read("editor/index.html"),
     read("editor/app.js"),
-    read(".github/workflows/editorial-redraft.yml")
+    read(".github/workflows/draft-editorial-queue-now.yml")
   ]);
   assert.match(html, /Generate a custom article from links/);
   assert.match(html, /id="customTopic"/);

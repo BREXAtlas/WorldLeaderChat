@@ -429,6 +429,9 @@ function cards(lane) {
     const problems = bundle
       ? [...eventIssues.map((problem) => `File: ${problem}`), ...articleIssues.map((problem) => `Article: ${problem}`), ...chatIssues]
       : ['Editorial JSON could not be read.'];
+    const generationProblems = Array.isArray(bundle?.ingestion?.lastDraftFailure?.problems)
+      ? bundle.ingestion.lastDraftFailure.problems.slice(0, 6)
+      : [];
     const messages = (bundle?.event?.messages || []).map((message) => `<div class="msg ${message.kind === 'system' ? 'system' : ''}"><b>${esc(message.speaker)}</b>${esc(message.text)}</div>`).join('');
     const sources = bundle?.event?.sources || [];
     const article = bundle?.event?.article;
@@ -482,7 +485,7 @@ function cards(lane) {
       : queuedForWriting
       ? '<div class="smart"><b>NEWSROOM WRITING QUEUE</b><br>This file is waiting for the controlled writer. It will say Writing only when its drafting work has actually started.</div>'
       : labels.has('needs-editor')
-      ? `<div class="smart" style="background:#fee2e2;border-color:#b91c1c"><b>AUTOMATIC DRAFT RECOVERY NEEDED</b><br>The writer did not finish this file. The next newsroom sweep retries it automatically, or Finish Draft can restart it now.<br>${problems.map(esc).join('<br>')}</div>`
+      ? `<div class="smart" style="background:#fee2e2;border-color:#b91c1c"><b>AUTOMATED DRAFT DID NOT PASS</b><br>The writer kept this file out of approval because it did not pass the source/article/chat gate. The next newsroom sweep retries it automatically, or Regenerate can restart it now.<br>${(generationProblems.length ? generationProblems : problems).map(esc).join('<br>')}</div>`
       : problems.length
       ? `<div class="smart" style="background:#fee2e2;border-color:#b91c1c"><b>FILE NEEDS ATTENTION</b><br>${problems.map(esc).join('<br>')}</div>`
       : `<div class="smart"><b>S-M-A-R REVIEW</b><br>${esc(smartText(bundle))}<br><b>Chat quality:</b> article-specific, direct and ready.</div>`;
@@ -491,7 +494,7 @@ function cards(lane) {
       .map((source) => `<a class="source" target="_blank" rel="noopener" href="${esc(source.url)}">Open source: ${esc(source.publisher)}</a>`).join('');
     const chatPreview = `<details class="chat-preview"><summary>Conversation (${(bundle?.event?.messages || []).length} messages)</summary><div class="chat">${messages}</div></details>`;
     const laneTag = lane === 'ready' ? 'ready' : lane === 'new' ? 'new' : lane === 'publishing' ? 'publishing' : lane === 'trash' ? 'trash' : 'draft';
-    const statusText = lane === 'trash' ? 'Rejected' : publishing ? 'Publishing' : failed ? 'Publication failed' : activelyDrafting ? 'Writing' : queuedForWriting ? 'Queued' : labels.has('needs-editor') ? 'Recovery needed' : lane;
+    const statusText = lane === 'trash' ? 'Rejected' : publishing ? 'Publishing' : failed ? 'Publication failed' : activelyDrafting ? 'Writing' : queuedForWriting ? 'Queued' : labels.has('needs-editor') ? 'Automated retry' : lane;
     const selection = lane === 'trash'
       ? `<label class="trash-card-select"><input type="checkbox" data-trash-select="${issue.number}" ${selectedTrash.has(issue.number) ? 'checked' : ''}> Select article #${issue.number}</label>`
       : '';

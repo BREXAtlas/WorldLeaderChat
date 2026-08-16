@@ -4,7 +4,7 @@ import { readFile } from "node:fs/promises";
 
 const read = (path) => readFile(new URL(`../../${path}`, import.meta.url), "utf8");
 
-test("news ingestion runs four times daily, balances eight desks and drafts before approval", async () => {
+test("news ingestion runs four times daily, balances eight desks and hands off without holding the writer", async () => {
   const workflow = await read(".github/workflows/news-ingestion.yml");
   assert.match(workflow, /cron: "20 7,11,15,19 \* \* \*"/);
   assert.match(workflow, /timezone: "America\/Chicago"/);
@@ -17,9 +17,9 @@ test("news ingestion runs four times daily, balances eight desks and drafts befo
   assert.match(workflow, /WLC_MINIMUM_PUBLISHERS_PER_DESK: "2"/);
   assert.match(workflow, /WLC_MAXIMUM_PER_PUBLISHER: "4"/);
   assert.match(workflow, /queue: max/);
-  assert.match(workflow, /one current recommendation from every desk/);
-  assert.match(workflow, /run-drafting-batches\.mjs/);
-  assert.match(workflow, /refine-editorial-dialogue\.mjs/);
+  assert.match(workflow, /gh workflow run draft-editorial-queue-now\.yml/);
+  assert.doesNotMatch(workflow, /run-drafting-batches\.mjs|start-local-newsroom-writer/);
+  assert.doesNotMatch(workflow, /world-leader-chat-editorial-production/);
   assert.match(workflow, /Nothing publishes without owner approval/);
 });
 
@@ -80,19 +80,19 @@ test("failed machine drafts stay newsroom work instead of becoming owner writing
   assert.doesNotMatch(editor, /actions\/workflows\/draft-editorial-queue-now\.yml\/dispatches/);
   assert.match(queueWorkflow, /issues:[\s\S]*types: \[labeled\]/);
   assert.match(queueWorkflow, /github\.event\.label\.name == 'draft-batch-requested'/);
-  assert.match(queueWorkflow, /Clear the editor issue trigger/);
-  assert.match(queueWorkflow, /group: .*draft-batch-requested.*world-leader-chat-editorial-production.*github\.run_id/);
-  assert.match(queueWorkflow, /WLC_DRAFT_BATCH_SIZE: "10"/);
-  assert.match(queueWorkflow, /WLC_DAILY_DRAFT_LIMIT: "30"/);
-  assert.match(queueWorkflow, /run-drafting-batches\.mjs/);
+  assert.match(queueWorkflow, /Clear completed Finish Today batch markers/);
+  assert.match(queueWorkflow, /group: world-leader-chat-editorial-production/);
+  assert.match(queueWorkflow, /queue: max/);
+  assert.match(queueWorkflow, /max-parallel: 4/);
+  assert.match(queueWorkflow, /WLC_WORKER_LIMIT: "20"/);
+  assert.match(queueWorkflow, /prepare-editorial-worker\.mjs/);
   assert.match(queueWorkflow, /target_issue/);
   assert.match(queueWorkflow, /WLC_TARGET_ISSUE/);
-  assert.match(queueWorkflow, /Refresh custom article sources before drafting/);
+  assert.match(queueWorkflow, /Refresh owner-submitted source material/);
   assert.match(queueWorkflow, /enrich-custom-submission\.mjs/);
-  assert.match(queueWorkflow, /WLC_CUSTOM_SUBMISSION/);
-  assert.match(queueWorkflow, /Recover any interrupted Drafting status/);
+  assert.match(queueWorkflow, /Recover only this interrupted file/);
   assert.match(queueWorkflow, /recover-interrupted-drafts\.mjs/);
-  assert.match(queueWorkflow, /Confirm the selected file or report the later-batch backlog/);
+  assert.match(queueWorkflow, /Prove this file reached Ready for Approval/);
   assert.match(queueWorkflow, /assert-editorial-readiness\.mjs/);
 });
 
@@ -104,23 +104,19 @@ test("owner-queued drafts run before quarantined model retries", async () => {
   assert.match(draft, /sort\(\(left, right\) => draftingPriority/);
 });
 
-test("every scheduled sweep continues through the current-day writing queue", async () => {
+test("scheduled intake dispatches the durable twenty-file writing queue", async () => {
   const workflow = await read(".github/workflows/news-ingestion.yml");
   const draft = await read("scripts/draft-editorial-issues-v2.mjs");
   const opening = await read("scripts/open-editorial-issues.mjs");
   const batches = await read("scripts/run-drafting-batches.mjs");
   const readiness = await read("scripts/assert-editorial-readiness.mjs");
-  assert.match(workflow, /WLC_DRAFT_BATCH_SIZE: "10"/);
-  assert.match(workflow, /WLC_DAILY_DRAFT_LIMIT: "30"/);
-  assert.match(workflow, /WLC_DAILY_CANDIDATE_LIMIT: "30"/);
+  assert.match(workflow, /WLC_DAILY_CANDIDATE_LIMIT: "20"/);
   assert.match(workflow, /} >> "\$GITHUB_STEP_SUMMARY"\s+node scripts\/report-ingestion-summary\.mjs/);
   assert.doesNotMatch(workflow, /key: wlc-local-writer[^\n]*\n\s+node /);
-  assert.match(workflow, /WLC_TODAY_ONLY: "1"/);
-  assert.match(workflow, /Report the files retained for later writing batches/);
-  assert.match(workflow, /WLC_ALLOW_BACKLOG: "1"/);
+  assert.match(workflow, /gh workflow run draft-editorial-queue-now\.yml[\s\S]*today_only=true/);
   assert.match(draft, /todayOnly/);
   assert.match(draft, /daily-overflow/);
-  assert.match(opening, /WLC_DAILY_CANDIDATE_LIMIT \|\| 30/);
+  assert.match(opening, /WLC_DAILY_CANDIDATE_LIMIT \|\| 20/);
   assert.match(opening, /dailyCounts/);
   assert.match(batches, /WLC_DRAFT_BATCH_SIZE \|\| 10/);
   assert.match(batches, /WLC_DAILY_DRAFT_LIMIT \|\| 30/);
@@ -130,24 +126,21 @@ test("every scheduled sweep continues through the current-day writing queue", as
   assert.match(batches, /selected\.length < limit/);
   assert.match(draft, /skippedIssueNumbers/);
   assert.match(draft, /selectedIssueNumbers: queue\.map/);
-  assert.match(workflow, /groups of at most 10 continue automatically/);
+  assert.match(workflow, /up to four files written in parallel/);
   assert.match(readiness, /remain outside Ready for Approval for later batches/);
   assert.match(readiness, /daily-overflow/);
 });
 
-test("all editorial drafting workflows share one non-cancelling production lock", async () => {
-  const workflows = await Promise.all([
-    read(".github/workflows/news-ingestion.yml"),
-    read(".github/workflows/draft-editorial-queue-now.yml"),
-    read(".github/workflows/editorial-redraft.yml"),
-    read(".github/workflows/editorial-regenerate.yml")
-  ]);
-  for (const workflow of workflows) {
-    assert.match(workflow, /group: .*world-leader-chat-editorial-production/);
-    assert.match(workflow, /cancel-in-progress: false/);
-    assert.match(workflow, /start-local-newsroom-writer\.sh/);
-    assert.doesNotMatch(workflow, /copilot|models\.github/i);
-  }
+test("one non-cancelling production worker owns every article and chat request", async () => {
+  const workflow = await read(".github/workflows/draft-editorial-queue-now.yml");
+  assert.match(workflow, /group: world-leader-chat-editorial-production/);
+  assert.match(workflow, /cancel-in-progress: false/);
+  assert.match(workflow, /queue: max/);
+  assert.match(workflow, /draft-batch-requested/);
+  assert.match(workflow, /redraft-requested/);
+  assert.match(workflow, /regenerate-requested/);
+  assert.match(workflow, /start-local-newsroom-writer\.sh/);
+  assert.doesNotMatch(workflow, /copilot|models\.github/i);
 });
 
 test("future publication requires article-to-source and chat-quality verification", async () => {
@@ -163,15 +156,16 @@ test("future publication requires article-to-source and chat-quality verificatio
 });
 
 test("Rewrite Chat preserves the article and replaces only dialogue", async () => {
-  const workflow = await read(".github/workflows/editorial-regenerate.yml");
+  const workflow = await read(".github/workflows/draft-editorial-queue-now.yml");
   const rewrite = await read("scripts/rewrite-chat-only.mjs");
   assert.match(workflow, /github\.event\.label\.name == 'regenerate-requested'/);
-  assert.match(workflow, /github\.event\.label\.name == 'regenerate-requested'[\s\S]*world-leader-chat-editorial-production[\s\S]*github\.run_id/);
+  assert.match(workflow, /github\.event\.label\.name == 'regenerate-requested'/);
   assert.match(workflow, /WLC_TARGET_ISSUE/);
   assert.match(workflow, /rewrite-chat-only\.mjs/);
   assert.match(workflow, /start-local-newsroom-writer\.sh/);
   assert.doesNotMatch(workflow, /copilot|models\.github/i);
-  assert.doesNotMatch(workflow, /WLC_FORCE_REWRITE|draft-editorial-issues\.mjs/);
+  assert.match(workflow, /if: matrix\.action == 'chat'[\s\S]*rewrite-chat-only\.mjs/);
+  assert.match(workflow, /if: matrix\.action == 'article'[\s\S]*draft-editorial-issues\.mjs/);
   assert.match(rewrite, /const originalArticle = structuredClone/);
   assert.match(rewrite, /bundle\.event\.article = originalArticle/);
   assert.match(rewrite, /runNewsroomJson/);
@@ -189,19 +183,19 @@ test("failed generation cannot promote a recycled deterministic fallback to owne
   const dialogue = await read("scripts/lib/newsroom-dialogue.mjs");
   assert.doesNotMatch(draft, /deterministicDraft|Deterministic safety draft/);
   assert.doesNotMatch(draft, /bestArticleCandidate/);
-  assert.match(draft, /if \(!writerWorked\) \{[\s\S]*?setLabels\(issue, \["needs-editor"\][\s\S]*?continue;[\s\S]*?\}\s*\n\s*const finalProblems/);
+  assert.match(draft, /if \(!writerWorked\) \{[\s\S]*?recordDraftFailure[\s\S]*?setLabels\(failedIssue, \["needs-editor"\][\s\S]*?continue;[\s\S]*?\}\s*\n\s*const finalProblems/);
   assert.match(draft, /generation failure\(s\) kept out of review/);
   assert.doesNotMatch(dialogue, /I read \$\{headline\}/);
   assert.match(dialogue, /original dialogue generation is required/);
 });
 
 test("article failures can request a complete source-locked redraft", async () => {
-  const workflow = await read(".github/workflows/editorial-redraft.yml");
+  const workflow = await read(".github/workflows/draft-editorial-queue-now.yml");
   const editor = await read("editor/app.js");
   assert.match(workflow, /workflow_dispatch:/);
   assert.match(workflow, /target_issue:/);
-  assert.doesNotMatch(workflow, /types: \[labeled\]/);
-  assert.match(workflow, /WLC_TARGET_ISSUE: \$\{\{ inputs\.target_issue \}\}/);
+  assert.match(workflow, /types: \[labeled\]/);
+  assert.match(workflow, /WLC_TARGET_ISSUE:/);
   assert.match(workflow, /start-local-newsroom-writer\.sh/);
   assert.doesNotMatch(workflow, /copilot|models\.github/i);
   assert.match(workflow, /WLC_FORCE_REWRITE: "1"/);
@@ -250,15 +244,14 @@ test("known newsroom failures remain documented and machine-guarded", async () =
   const recovery = await read("scripts/recover-interrupted-drafts.mjs");
   const workflows = await Promise.all([
     read(".github/workflows/draft-editorial-queue-now.yml"),
-    read(".github/workflows/news-ingestion.yml"),
-    read(".github/workflows/editorial-redraft.yml"),
-    read(".github/workflows/editorial-regenerate.yml")
+    read(".github/workflows/news-ingestion.yml")
   ]);
-  for (const id of ["WLC-001", "WLC-003", "WLC-004", "WLC-005", "WLC-006", "WLC-007", "WLC-008", "WLC-009", "WLC-010", "WLC-011"]) {
+  for (const id of ["WLC-001", "WLC-003", "WLC-004", "WLC-005", "WLC-006", "WLC-007", "WLC-008", "WLC-009", "WLC-010", "WLC-011", "WLC-020", "WLC-021", "WLC-022"]) {
     assert.match(ledger, new RegExp(id));
   }
   assert.match(ledger, /A green workflow with zero ready articles does not count/);
   assert.match(recovery, /labels\.delete\("drafting"\)/);
   assert.match(recovery, /labels\.add\("needs-editor"\)/);
-  assert.ok(workflows.every((workflow) => /recover-interrupted-drafts\.mjs/.test(workflow)));
+  assert.match(workflows[0], /recover-interrupted-drafts\.mjs/);
+  assert.doesNotMatch(workflows[1], /recover-interrupted-drafts\.mjs/);
 });

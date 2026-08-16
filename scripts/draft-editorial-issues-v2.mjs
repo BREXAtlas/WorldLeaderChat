@@ -78,14 +78,15 @@ Sources:\n${sources}
 Additional source digests:\n${digests || "None"}
 ${prior}
 
-Write a short, engaging treatment of the SAME real event. A reader who opens the original links must reach the same factual conclusion.
+Write a short, engaging treatment of the SAME real event. A reader who opens the original links must reach the same factual conclusion and must not encounter any factual detail that is absent from this source record.
 
 ARTICLE RULES
 - Never invent an event, outcome, statistic, quotation, private communication, motive, meeting or source.
 - Use dry sarcasm and sharp framing, not nonsense or unsupported certainty.
-- Write a complete 3–5 paragraph short report totaling roughly 140–300 words.
-- Paragraph 1 says what happened. Paragraph 2 extracts the main facts and consequence. Paragraph 3 explains the political, cultural, business or strategic tension that makes the imagined chat worth reading. Use a fourth paragraph only when the source supports useful context.
-- The prose should feel like World Leader Chat reporting the real news from a sharper angle: factual first, dry humor in the framing, never fabricated detail.
+- Write exactly three concise paragraphs totaling roughly 100–220 words. Each paragraph must be complete, but the article must stay proportional to the amount of verified source material.
+- Paragraph 1 says only what happened. Paragraph 2 explains only details and consequences expressly stated in the source record. Paragraph 3 identifies the visible tension in those same facts without predicting an outcome or inventing anyone's motive.
+- Do not claim that a person or institution hopes, aims, plans, fears, benefits, suffers, gains support or faces criticism unless the source record expressly says so.
+- The prose should feel like World Leader Chat reporting the real news from a sharper angle: factual first, dry humor in word choice or comparison, never an extra factual premise.
 - Do not paste a feed excerpt, add a source-credit line as an article paragraph or end with “Continue reading.”
 - Use only the facts present in the verified summary, listed source material and additional source digests. Do not name an unlisted publisher.
 - Give credit to every listed publisher in sourceCredit and to no publisher that is not linked in the file.
@@ -217,7 +218,9 @@ ${sourceRecord}
 PROPOSED DRAFT
 ${draft}
 
-Fail any factual assertion, biographical detail, action, motive, location, campaign activity, quotation, outcome or private conduct that is not directly stated or clearly entailed by the source record. This includes invented claims placed inside satirical chat. Opinion or a joke may pass only when it does not smuggle in a new factual claim. Also fail instructions, placeholders, generic campaign platitudes, social-media hashtag piles, image descriptions, cut-off lines and copy that could be moved unchanged to an unrelated story.
+Fail any factual assertion, biographical detail, action, motive, location, campaign activity, quotation, outcome or private conduct that is not directly stated or clearly entailed by the source record. The chat is openly presented to readers as an imagined conversation, so do not fail a line merely because the real person did not say it. Fail a chat line only when the imagined reaction asserts a new checkable event detail as fact. Opinions, questions, sarcasm and jokes may pass when they add no new factual premise.
+
+Put only the exact unsupported clause in an unsupported-claims array. Do not copy a whole paragraph, title, kicker, field label or valid source-supported sentence into an error array. Use genericOrPlaceholderCopy only for literal instructions, placeholders, hashtags, image descriptions, visibly cut-off text or reusable campaign filler that could move unchanged to an unrelated story.
 
 List each unsupported article claim, unsupported chat claim and generic/placeholder item separately. Set verdict to fail if any list is nonempty. Be strict and concise.`, {
     schema: draftAuditSchema,
@@ -226,14 +229,16 @@ List each unsupported article claim, unsupported chat claim and generic/placehol
   });
   const article = (audit.unsupportedArticleClaims || []).map((claim) => `Source audit article: ${claim}`);
   const chat = (audit.unsupportedChatClaims || []).map((claim) => `Source audit chat: ${claim}`);
-  const generic = (audit.genericOrPlaceholderCopy || []).map((claim) => `Source audit copy: ${claim}`);
-  if (audit.verdict === "fail" && !article.length && !chat.length && !generic.length) generic.push(`Source audit failed: ${audit.reason}`);
-  return { article, chat: [...chat, ...generic] };
+  // Structural and generic-copy checks are deterministic elsewhere in this file.
+  // The small local auditor previously copied entire valid fields into this array,
+  // causing 0/12 false-negative runs. Use the model only for factual support.
+  return { article, chat };
 }
 
 function applyGeneratedDraft(bundle, output) {
   const result = structuredClone(bundle);
   result.ingestion = { ...(result.ingestion || {}), newsroomFormat: 2 };
+  delete result.ingestion.lastDraftFailure;
   const sourceSummary = safeSummary(result.event.summary);
   const generatedSummary = cleanWhitespace(stripStockEditorialFiller(output.article.dek || output.article.body?.[0] || ""));
   result.event.summary = (sourceSummary.length >= 50 ? sourceSummary : generatedSummary).slice(0, 1200);
@@ -276,6 +281,21 @@ async function setLabels(issue, additions = [], removals = []) {
   await github(`/repos/${repository}/issues/${issue.number}`, {
     method: "PATCH",
     body: { labels: [...labels] }
+  });
+}
+
+async function recordDraftFailure(issue, bundle, problems) {
+  const failureBundle = structuredClone(bundle);
+  failureBundle.ingestion = {
+    ...(failureBundle.ingestion || {}),
+    lastDraftFailure: {
+      failedAt: new Date().toISOString(),
+      problems: problems.map((problem) => cleanWhitespace(problem).slice(0, 500)).slice(0, 12)
+    }
+  };
+  return github(`/repos/${repository}/issues/${issue.number}`, {
+    method: "PATCH",
+    body: { body: replaceBundle(issue.body || "", failureBundle) }
   });
 }
 
@@ -403,7 +423,8 @@ for (const { issue, bundle: originalBundle } of queue) {
       blocked += 1;
       // Every attempted candidate failed structural, conversation or source-support
       // review. Do not save any "best" failed attempt or expose it for owner approval.
-      await setLabels(issue, ["needs-editor"], ["drafting", "ready-for-approval", "regenerate-requested", "redraft-requested"]);
+      const failedIssue = await recordDraftFailure(issue, originalBundle, lastProblems);
+      await setLabels(failedIssue, ["needs-editor"], ["drafting", "ready-for-approval", "regenerate-requested", "redraft-requested"]);
       console.error(`::warning title=Generation rejected before review::Issue #${issue.number}: ${lastProblems.map((problem) => `Generation: ${problem}`).join(" | ")}`);
       continue;
     }
@@ -415,8 +436,10 @@ for (const { issue, bundle: originalBundle } of queue) {
     ];
     if (finalProblems.length || stockMemeDetected(bundle.event?.meme)) {
       blocked += 1;
-      await setLabels(issue, ["needs-editor"], ["drafting", "ready-for-approval", "regenerate-requested", "redraft-requested"]);
-      console.error(`::warning title=Draft blocked by chat quality::Issue #${issue.number}: ${[...lastProblems.map((problem) => `Generation: ${problem}`), ...finalProblems, ...(stockMemeDetected(bundle.event?.meme) ? ["stock meme"] : [])].join(" | ")}`);
+      const failureProblems = [...lastProblems, ...finalProblems, ...(stockMemeDetected(bundle.event?.meme) ? ["stock meme"] : [])];
+      const failedIssue = await recordDraftFailure(issue, originalBundle, failureProblems);
+      await setLabels(failedIssue, ["needs-editor"], ["drafting", "ready-for-approval", "regenerate-requested", "redraft-requested"]);
+      console.error(`::warning title=Draft blocked by chat quality::Issue #${issue.number}: ${failureProblems.map((problem) => `Generation: ${problem}`).join(" | ")}`);
       continue;
     }
 
@@ -431,7 +454,8 @@ for (const { issue, bundle: originalBundle } of queue) {
     console.log(`Drafted unique article-specific chat for issue #${issue.number}.`);
   } catch (error) {
     blocked += 1;
-    await setLabels(issue, ["needs-editor"], ["drafting", "ready-for-approval", "regenerate-requested", "redraft-requested"]).catch(() => {});
+    const failedIssue = await recordDraftFailure(issue, originalBundle, [error.message]).catch(() => issue);
+    await setLabels(failedIssue, ["needs-editor"], ["drafting", "ready-for-approval", "regenerate-requested", "redraft-requested"]).catch(() => {});
     console.error(`::warning title=Editorial draft failed::Issue #${issue.number}: ${error.message}`);
   }
 }

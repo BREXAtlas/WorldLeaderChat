@@ -7,7 +7,7 @@ const repository = process.env.GITHUB_REPOSITORY;
 const apiBase = process.env.GITHUB_API_URL || "https://api.github.com";
 const serverUrl = process.env.GITHUB_SERVER_URL || "https://github.com";
 const inputPath = resolve(process.cwd(), process.env.INGESTION_OUTPUT || "tmp/ingestion-candidates.json");
-const dailyCandidateLimit = Math.max(1, Number(process.env.WLC_DAILY_CANDIDATE_LIMIT || 30));
+const dailyCandidateLimit = Math.max(1, Number(process.env.WLC_DAILY_CANDIDATE_LIMIT || 20));
 
 if (!token) throw new Error("GITHUB_TOKEN is required.");
 if (!repository || !repository.includes("/")) throw new Error("GITHUB_REPOSITORY must be owner/name.");
