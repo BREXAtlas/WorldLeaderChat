@@ -1879,5 +1879,17 @@
       "https://www.bbc.co.uk/news/articles/c77gg5vn44yo?at_medium=RSS&at_campaign=rss",
       "https://www.aljazeera.com/news/2026/8/16/kushner-meets-hamas-in-egypt-to-push-trumps-gaza-plan?traffic_source=rss"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-16-americans-clash-over-transgender-athletes-as-debate-heats-up-jus",
+    "issueNumber": 344,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/344",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-17T02:18:09.114Z",
+    "fingerprint": "9a175b72f2648dcb813bb02242b76aacb286de84bba240897dc04327da1722bf",
+    "sourceUrls": [
+      "https://www.foxnews.com/politics/americans-clash-over-transgender-athletes-debate-heats-up-just-getting-outrageous"
+    ]
   }
 ]
