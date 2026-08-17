@@ -1928,5 +1928,17 @@
     "sourceUrls": [
       "https://www.washingtonexaminer.com/news/campaigns/congressional/4688333/jon-ossoff-georgias-first-jewish-senator-faces-angry-jewish-voters/"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-16-the-trouble-with-the-soft-sciences",
+    "issueNumber": 337,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/337",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-17T02:35:15.401Z",
+    "fingerprint": "94d9fd4699a20d3393171008049c5aba56a5ab815cab4d907606d47cc0b5beb2",
+    "sourceUrls": [
+      "https://www.nationalreview.com/2026/08/the-trouble-with-the-soft-sciences/"
+    ]
   }
 ]

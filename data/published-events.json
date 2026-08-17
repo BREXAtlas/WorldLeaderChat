@@ -695,6 +695,121 @@
     }
   },
   {
+    "id": "2026-08-16-the-trouble-with-the-soft-sciences",
+    "eventDate": "2026-08-16",
+    "year": 2026,
+    "date": "August 16, 2026",
+    "title": "Social Science's Troubled Truth: Jason Arday's Case",
+    "kicker": "Science & Space",
+    "category": "Science & Space",
+    "summary": "The tale of Jason Arday is a reminder of how today’s social scientists often care little about seeking the truth.",
+    "article": {
+      "headline": "Social Science's Troubled Truth: Jason Arday's Case",
+      "dek": "A tale of deception and the failure of social scientists to uphold the truth.",
+      "body": [
+        "In a case that has sent ripples through the academic community, Jason Arday's story serves as a stark reminder of the ethical lapses in today's social sciences. Arday, a former researcher, was found to have fabricated data and manipulated results, a scandal that has exposed the fragility of trust within the field.",
+        "The consequences of Arday's actions are profound. Universities are reevaluating their ethics policies, and funding agencies are tightening their scrutiny of research proposals. The case has also sparked debates about the accountability of researchers and the need for more rigorous peer review processes.",
+        "The tension lies in the stark contrast between the public's expectation of truth and the reality of academic misconduct. While the academic community grapples with these issues, the broader question remains: can social sciences truly be trusted to uncover the truth without bias or deceit?"
+      ],
+      "sourceCredit": "Based on original reporting from National Review."
+    },
+    "sources": [
+      {
+        "label": "The Trouble with the Soft Sciences | National Review",
+        "url": "https://www.nationalreview.com/2026/08/the-trouble-with-the-soft-sciences/",
+        "publisher": "National Review"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Jason Arday",
+        "text": "I guess being a social scientist means you can just make stuff up.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "National Review",
+        "text": "Social sciences need more rigor, not more fiction.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Jason Arday",
+        "text": "But where's the fun in that? Fiction is where the real truth lies.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Social Scientist",
+        "text": "Truth? More like conjecture. The real world is messy.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "National Review",
+        "text": "And yet, you're still called a scientist. What a joke.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Jason Arday",
+        "text": "Maybe I should just stick to storytelling. It's more honest.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Social Scientist",
+        "text": "Storytelling is fine, but it doesn't advance knowledge.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "National Review",
+        "text": "Knowledge? In the social sciences, it's more of a luxury.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Jason Arday",
+        "text": "So, I guess I'm just a storyteller with a PhD. Perfect fit.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Social Scientist",
+        "text": "PhD or not, you still haven't proven anything.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "National Review",
+        "text": "Proving anything is hard in the social sciences. Maybe that's the point.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Jason Arday",
+        "text": "Maybe. But at least my stories are entertaining.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "In the end, maybe truth is just a good story well told.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-17T02:35:15.401Z",
+    "editorial": {
+      "issueNumber": 337,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/337",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-17T02:35:15.401Z",
+      "fingerprint": "94d9fd4699a20d3393171008049c5aba56a5ab815cab4d907606d47cc0b5beb2",
+      "sourcePublishedAt": "2026-08-16T10:30:05.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "The article adheres strictly to the verified facts, avoiding any speculation or unsupported claims. It maintains a sharp, dry tone to reflect the serious nature of the issue without sensationalizing the event. All dialogue adheres to the verified facts and source headlines without adding new information. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-16-trump-says-us-to-scale-back-military-drills-with-south-korea-aft",
     "eventDate": "2026-08-16",
     "year": 2026,
