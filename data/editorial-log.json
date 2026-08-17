@@ -1841,5 +1841,17 @@
     "sourceUrls": [
       "https://www.foxnews.com/us/luigi-mangione-pleads-guilty-federal-court-stalking-killing-unitedhealthcare-ceo-brian-thompson"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-16-come-at-us-bro-el-sayed-taunts-trump-after-president-s-post-comp",
+    "issueNumber": 347,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/347",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-17T02:04:34.873Z",
+    "fingerprint": "bb55dd491e92d5ef7a51cb699df9f256fb477fb8de74b89f40a1ee8e70b970b4",
+    "sourceUrls": [
+      "https://www.washingtonexaminer.com/news/campaigns/congressional/4689061/come-at-us-bro-el-sayed-trump-post-wife/"
+    ]
   }
 ]

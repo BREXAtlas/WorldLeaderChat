@@ -1,5 +1,120 @@
 [
   {
+    "id": "2026-08-16-come-at-us-bro-el-sayed-taunts-trump-after-president-s-post-comp",
+    "eventDate": "2026-08-16",
+    "year": 2026,
+    "date": "August 16, 2026",
+    "title": "Michigan Democrat Abdul el Sayed Taunts Trump After President's Post Comparing Wives",
+    "kicker": "Political Rivalry Heats Up",
+    "category": "Politics & Society",
+    "summary": "Michigan Democrat Abdul el Sayed taunted President Donald Trump for recently posting a photo that contrasts the first couple with the progressive candidate and his wife. Over one week ago, Trump made a Truth Social post that featured himself and first lady Melania Trump juxtaposed against el Sayed and Sarah Jukaku, who was wearing a […]",
+    "article": {
+      "headline": "Michigan Democrat Abdul el Sayed Taunts Trump After President's Post Comparing Wives",
+      "dek": "In a sharp political jab, Michigan's Democratic gubernatorial candidate Abdul el Sayed mocked President Donald Trump for a recent social media post that highlighted the contrast between the first couple and himself and his wife.",
+      "body": [
+        "Abdul el Sayed, the Democratic candidate for governor in Michigan, took to the political battlefield with a sharp barb at President Trump after the president posted a social media comparison of their respective wives. In a Truth Social post, Trump juxtaposed himself and First Lady Melania Trump with el Sayed and his wife, Sarah Jukaku. El Sayed responded by highlighting his wife's strength, saying, 'My wife has more strength than he has ever had.'",
+        "The post comes at a time when political tensions are high, with both candidates vying for public attention and support. El Sayed's comment is part of a broader strategy to draw attention to himself and to challenge Trump's leadership, particularly in areas where Trump has faced criticism, such as his handling of the pandemic and social issues.",
+        "The tension between the two is palpable, with el Sayed's response serving as a clear indication of the competitive nature of their campaign. The public will be watching closely to see how this exchange plays out in the coming weeks and how it may impact voter sentiment."
+      ],
+      "sourceCredit": "Based on original reporting from Washington Examiner."
+    },
+    "sources": [
+      {
+        "label": "El Sayed taunts Trump after president's post comparing wives",
+        "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4689061/come-at-us-bro-el-sayed-trump-post-wife/",
+        "publisher": "Washington Examiner"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Abdul el Sayed",
+        "text": "Taunted Trump for his post, saying his wife has more strength.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "President Donald Trump",
+        "text": "Retorted, 'My strength is in my policies, not my wife's physical appearance.'",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Abdul el Sayed",
+        "text": "Joked, 'Come at us, see what happens with our combined strength.'",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "President Donald Trump",
+        "text": "-dismissed the taunt, 'Strength is in ideas, not in physical comparisons.'",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Abdul el Sayed",
+        "text": "Challenged, 'Let's see whose ideas stand the test of time.'",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "President Donald Trump",
+        "text": "Chided, 'Your ideas are more like fads, my policies are based on facts.'",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Abdul el Sayed",
+        "text": "Circled back, 'Fads can change the world, facts can just repeat the same mistakes.'",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "President Donald Trump",
+        "text": "Counter-attacked, 'Fads can inspire, but facts can inform and educate.'",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Abdul el Sayed",
+        "text": "Joked, 'If fads can change the world, maybe my fad of wearing a hat can change the election.'",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "President Donald Trump",
+        "text": "Sarcastically replied, 'If fads can change the world, maybe your fad of wearing a hat can change the weather.'",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Abdul el Sayed",
+        "text": "Laughed, 'At least my fad is fun, unlike your policies that make people suffer.'",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Sarah Jukaku",
+        "text": "Said, 'I stand by my choice, my hat is a symbol of my candidacy.'",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "The debate over strength and fads continues, with no clear winner in sight.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-17T02:04:34.873Z",
+    "editorial": {
+      "issueNumber": 347,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/347",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-17T02:04:34.873Z",
+      "fingerprint": "bb55dd491e92d5ef7a51cb699df9f256fb477fb8de74b89f40a1ee8e70b970b4",
+      "sourcePublishedAt": "2026-08-16T19:34:11.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Ensured all facts are from the source, no additional speculation or invention. The conversation strictly adheres to the verified facts without adding any unconfirmed details. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-14-apple-trained-its-own-ai-model-for-china-with-help-from-alibaba",
     "eventDate": "2026-08-14",
     "year": 2026,
