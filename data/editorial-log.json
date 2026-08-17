@@ -1904,5 +1904,17 @@
       "https://www.bbc.co.uk/news/articles/cx2lll7zvn0o?at_medium=RSS&at_campaign=rss",
       "https://www.aljazeera.com/news/2026/8/17/trump-says-us-to-substantially-reduce-military-drills-with-south-korea?traffic_source=rss"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-16-people-can-t-stop-buying-diamonds-on-tiktok-i-feel-like-thanos",
+    "issueNumber": 342,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/342",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-17T02:34:02.179Z",
+    "fingerprint": "79f7fa38a7615a78ae61b15a5e22ea0243878ee9dac41815fe1c707886f5e86d",
+    "sourceUrls": [
+      "https://www.rollingstone.com/culture/culture-features/tiktok-shop-diamonds-gems-trend-1235607866/"
+    ]
   }
 ]

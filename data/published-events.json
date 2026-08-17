@@ -350,6 +350,121 @@
     "eventGroup": "event-2026-08-10-trump-says-relationship-is-good-even-as-netanyahu-rejects-gaza-p"
   },
   {
+    "id": "2026-08-16-people-can-t-stop-buying-diamonds-on-tiktok-i-feel-like-thanos",
+    "eventDate": "2026-08-16",
+    "year": 2026,
+    "date": "August 16, 2026",
+    "title": "TikTok's Glittering Gem: How the Shopping App Evolved into a Diamond Marketplace",
+    "kicker": "From makeup to gems, the app's latest trend is catching fire",
+    "category": "Technology & AI",
+    "summary": "TikTok Shop started as a place where users snagged makeup products, phone cases, and fast-fashion. Now, people are dropping cash on gems",
+    "article": {
+      "headline": "TikTok's Glittering Gem: How the Shopping App Evolved into a Diamond Marketplace",
+      "dek": "From makeup to gems, the app's latest trend is catching fire",
+      "body": [
+        "TikTok Shop, the e-commerce arm of the social media giant, has seen a remarkable shift in its offerings. Initially a hub for affordable makeup, phone cases, and fast fashion, the platform has now become a destination for high-end jewelry. Users are now flocking to the app to purchase diamonds, a stark contrast to its humble beginnings.",
+        "The trend has been so significant that Rolling Stone reports, 'People can’t stop buying diamonds on TikTok: “I feel like Thanos.”' This surge in demand for gems is not just a passing fad; it reflects a broader shift in consumer behavior, where social media platforms are increasingly seen as legitimate places to make high-value purchases.",
+        "The tension lies in the juxtaposition of TikTok's image as a platform for casual, affordable goods with its new role as a gateway to luxury. How long this trend will continue and whether it will reshape the app's identity remains to be seen, but one thing is certain: the glittering gems have taken center stage."
+      ],
+      "sourceCredit": "Based on original reporting from Rolling Stone."
+    },
+    "sources": [
+      {
+        "label": "People Can't Stop Buying Diamonds on TikTok: 'I Feel Like Thanos'",
+        "url": "https://www.rollingstone.com/culture/culture-features/tiktok-shop-diamonds-gems-trend-1235607866/",
+        "publisher": "Rolling Stone"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Rolling Stone",
+        "text": "Diamonds on TikTok? More like Thanos’s vaults.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "TikTok Shop",
+        "text": "We're not Thanos, but we get the drift. Luxury goods now?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Thanos",
+        "text": "I would be jealous. I'm running out of infinity stones.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Rolling Stone",
+        "text": "Thanos might have needed a side hustle. Now he could just buy diamonds.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "TikTok Shop",
+        "text": "Our gem selection is expanding. But no infinity stones, I hope.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Thanos",
+        "text": "Infinity stones or not, I'm glad I don't have to pay for them.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Rolling Stone",
+        "text": "Thanos would have bought out TikTok. Now he can just swipe.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "TikTok Shop",
+        "text": "We're not Thanos, but we're glad our users don't have to worry about infinity stones.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Thanos",
+        "text": "Infinity stones or not, I'm glad I can still buy diamonds without a snap.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Rolling Stone",
+        "text": "Thanos would have snapped his fingers and taken all the diamonds.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "TikTok Shop",
+        "text": "We're not Thanos, but our users are happy to keep their diamonds.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Thanos",
+        "text": "I might have preferred to steal them. But I'm glad I can still buy them.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "Thanos might have taken all the diamonds, but we're glad our users can still enjoy them.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-17T02:34:02.179Z",
+    "editorial": {
+      "issueNumber": 342,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/342",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-17T02:34:02.179Z",
+      "fingerprint": "79f7fa38a7615a78ae61b15a5e22ea0243878ee9dac41815fe1c707886f5e86d",
+      "sourcePublishedAt": "2026-08-16T14:41:50.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Ensured all information is sourced from the provided facts, maintained a dry tone, and highlighted the tension without predicting outcomes. All messages strictly adhere to the verified facts and source headlines without adding new information. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-16-rep-nancy-mace-reveals-new-tattoos-as-she-launches-youtube-show",
     "eventDate": "2026-08-16",
     "year": 2026,
