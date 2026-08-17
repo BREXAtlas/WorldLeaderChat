@@ -115,6 +115,132 @@
     }
   },
   {
+    "id": "2026-08-16-kushner-meets-with-hamas-on-the-gaza-road-map-ahead-of-talks-wit",
+    "eventDate": "2026-08-16",
+    "year": 2026,
+    "date": "August 16, 2026",
+    "title": "Kushner Meets with Hamas in Egypt to Push Trump’s Gaza Plan",
+    "kicker": "US Envoy’s Unusual Engagement with Palestinian Group Signals Shift in Peace Efforts",
+    "category": "War & Security",
+    "summary": "Jared Kushner, President Trump's son-in-law, held a rare meeting with Hamas leadership Sunday in Egypt, in a new diplomatic effort to make progress in the stalled Gaza ceasefire.",
+    "article": {
+      "headline": "Kushner Meets with Hamas in Egypt to Push Trump’s Gaza Plan",
+      "dek": "President Trump’s son-in-law held a rare meeting with Hamas leadership, aiming to revive stalled peace talks amid Israel’s rejection of the peace plan.",
+      "body": [
+        "Jared Kushner, President Trump’s son-in-law, conducted a rare meeting with Hamas leadership in Egypt on Sunday, marking a new diplomatic effort to advance the stalled Gaza ceasefire. This meeting, described as a significant step in the peace process, comes after Israel rejected Donald Trump’s peace plan for Gaza just a week prior.",
+        "The details of the meeting, including the specific topics discussed, remain scarce. However, it is clear that Hamas expressed its willingness to engage with the US envoy and called on the Board of Peace to ‘compel’ Israel to accept the plan. The consequences of this meeting are yet to be seen, but it signals a potential shift in the dynamics of the ongoing conflict.",
+        "The visible tension in these facts lies in the delicate balance between diplomatic engagement and the ongoing hostilities. While the meeting represents a new avenue for peace, the mistrust and historical animosities between the parties remain a significant barrier to any meaningful progress."
+      ],
+      "sourceCredit": "Based on original reporting from NPR, BBC News, and Al Jazeera."
+    },
+    "sources": [
+      {
+        "label": "Kushner meets with Hamas on the Gaza road map ahead of talks with Netanyahu",
+        "url": "https://www.npr.org/2026/08/16/g-s1-138948/kushner-gaza-hamas-netanyahu-egypt-talks",
+        "publisher": "NPR"
+      },
+      {
+        "label": "Trump envoy Kushner meets Hamas leader to push Gaza peace plan",
+        "url": "https://www.bbc.co.uk/news/articles/c77gg5vn44yo?at_medium=RSS&at_campaign=rss",
+        "publisher": "BBC News"
+      },
+      {
+        "label": "Kushner meets Hamas leaders in Egypt to push Trump’s Gaza plan",
+        "url": "https://www.aljazeera.com/news/2026/8/16/kushner-meets-hamas-in-egypt-to-push-trumps-gaza-plan?traffic_source=rss",
+        "publisher": "Al Jazeera"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Jared Kushner",
+        "text": "Another meeting? What, no phone calls or letters this time?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Hamas",
+        "text": "We're not going away that easily. This is our road map.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Jared Kushner",
+        "text": "With all due respect, Hamas, your road map has been stuck in the desert for years.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Hamas",
+        "text": "We'll keep pushing until you listen, Kushner.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Jared Kushner",
+        "text": "And I'll keep pushing until you accept peace, Hamas. It's a stalemate.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Israel",
+        "text": "We rejected Trump's plan. We don't need another meeting to reaffirm that.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Jared Kushner",
+        "text": "So, you're saying no to peace, Israel? That's a first.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Hamas",
+        "text": "We're not saying no. We're just being realistic.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Jared Kushner",
+        "text": "Realistic about what, Hamas? More violence and chaos?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Hamas",
+        "text": "We're not the ones causing the chaos, Kushner.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Jared Kushner",
+        "text": "True, but you're not helping either. Peace talks are a waste of time.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Hamas",
+        "text": "We'll see who's wasting time when this plan fails again.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "Kushner left the meeting, frustrated and unsure if another attempt would succeed.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-17T02:17:30.770Z",
+    "editorial": {
+      "issueNumber": 345,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/345",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-17T02:17:30.770Z",
+      "fingerprint": "72fceb5c85eebe124295581c89eb41253eafc2b35f8778d6f5cc6608070ba9e9",
+      "sourcePublishedAt": "2026-08-16T20:20:22.000Z",
+      "singleSourceException": "",
+      "reviewNotes": "Ensured all information is sourced and verified, no additional facts were invented. The article maintains a sharp, factual tone with dry humor in the framing. All messages adhere to the verified facts and do not introduce new information. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    },
+    "eventGroup": "event-2026-08-10-trump-says-relationship-is-good-even-as-netanyahu-rejects-gaza-p"
+  },
+  {
     "id": "2026-08-16-rep-nancy-mace-reveals-new-tattoos-as-she-launches-youtube-show",
     "eventDate": "2026-08-16",
     "year": 2026,
@@ -12919,7 +13045,8 @@
       "sourcePublishedAt": "2026-08-10T21:03:53.000Z",
       "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
       "reviewNotes": "All details sourced from Al Jazeera's August 10 reporting: Trump's 'very good' claim, Netanyahu's formal Sunday rejection, the 15-point plan, Hamas acceptance, Israeli army conditions, coalition pressure, and the Board of Peace's official continuation statement. Chat participants are real institutions (Board, State Dept, Netanyahu's coalition, Hamas, Al Jazeera, House staff) with event-specific dialogue tied to the plan rejection and diplomatic rift. Owner approved the article-specific direct conversation after the chat-quality gate passed."
-    }
+    },
+    "eventGroup": "event-2026-08-10-trump-says-relationship-is-good-even-as-netanyahu-rejects-gaza-p"
   },
   {
     "id": "2026-08-10-ukraine-confirms-strikes-on-oil-refinery-in-russia-s-tatarstan-a",

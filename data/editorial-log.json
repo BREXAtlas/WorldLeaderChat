@@ -1865,5 +1865,19 @@
     "sourceUrls": [
       "https://nypost.com/2026/08/16/us-news/rep-nancy-mace-reveals-new-tattoos-as-she-launches-youtube-show-after-losing-political-career/"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-16-kushner-meets-with-hamas-on-the-gaza-road-map-ahead-of-talks-wit",
+    "issueNumber": 345,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/345",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-17T02:17:30.770Z",
+    "fingerprint": "72fceb5c85eebe124295581c89eb41253eafc2b35f8778d6f5cc6608070ba9e9",
+    "sourceUrls": [
+      "https://www.npr.org/2026/08/16/g-s1-138948/kushner-gaza-hamas-netanyahu-egypt-talks",
+      "https://www.bbc.co.uk/news/articles/c77gg5vn44yo?at_medium=RSS&at_campaign=rss",
+      "https://www.aljazeera.com/news/2026/8/16/kushner-meets-hamas-in-egypt-to-push-trumps-gaza-plan?traffic_source=rss"
+    ]
   }
 ]
