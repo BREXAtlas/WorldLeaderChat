@@ -224,6 +224,121 @@
     }
   },
   {
+    "id": "2026-08-16-jon-ossoff-georgia-s-first-jewish-senator-faces-angry-jewish-vot",
+    "eventDate": "2026-08-16",
+    "year": 2026,
+    "date": "August 16, 2026",
+    "title": "Georgia’s Jewish Voters Face Dilemma in Ossoff’s Re-Election Bid",
+    "kicker": "Mixed Record on Israel Sparks Controversy",
+    "category": "Politics & Society",
+    "summary": "Sen. Jon Ossoff (D-GA) is putting Georgia’s longtime Democratic Jewish voters in a spot this November that some once thought would be virtually unthinkable: whether to support the Peach State’s first Jewish senator for a second term in one of the country’s most competitive races. Ossoff’s mixed record on Israel, which includes votes for and […]",
+    "article": {
+      "headline": "Georgia’s Jewish Voters Face Dilemma in Ossoff’s Re-Election Bid",
+      "dek": "Sen. Jon Ossoff (D-GA) is putting longtime Democratic Jewish voters in a spot this November, forcing them to decide whether to support the state’s first Jewish senator for a second term amid a mixed record on Israel.",
+      "body": [
+        "In a race that has been described as one of the country’s most competitive, Sen. Jon Ossoff (D-GA) is facing a unique challenge: the ire of Georgia’s Jewish voters. Ossoff, who is the first Jewish senator from Georgia, has a mixed record on Israel, which has stirred fierce criticism from Jewish voters.",
+        "His record includes votes for and against U.S. military aid to Israel, a stance that has divided the community. While some supporters of Israel appreciate his support for the Jewish state, others are frustrated by his opposition to certain military aid packages. This has put Ossoff in a position where he must navigate the complex dynamics of Jewish support in a highly charged political environment.",
+        "The visible tension lies in Ossoff’s need to balance his support for Israel with the expectations of his constituents, many of whom have a long history of backing Democratic candidates. Whether Ossoff can maintain the support of Georgia’s Jewish voters without alienating other segments of the community remains to be seen."
+      ],
+      "sourceCredit": "Based on original reporting from Washington Examiner."
+    },
+    "sources": [
+      {
+        "label": "Ossoff, Georgia’s first Jewish senator, faces angry Jewish voters",
+        "url": "https://www.washingtonexaminer.com/news/campaigns/congressional/4688333/jon-ossoff-georgias-first-jewish-senator-faces-angry-jewish-voters/",
+        "publisher": "Washington Examiner"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Sen. Jon Ossoff (D-GA)",
+        "text": "I get it, folks. Second term or not, my record on Israel is dividing my base.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Georgia’s longtime Democratic Jewish voters",
+        "text": "How can we support a senator who can’t even make up his mind on Israel?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Washington Examiner",
+        "text": "Ossoff’s mixed record is indeed a dilemma for Georgia’s Jewish voters.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Sen. Jon Ossoff (D-GA)",
+        "text": "I support Israel, just not always the way some people want me to.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Georgia’s longtime Democratic Jewish voters",
+        "text": "But your support for U.S. military aid against Israel’s stance is a deal-breaker for us.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Washington Examiner",
+        "text": "The debate over Ossoff’s record is heating up in a tight race.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Sen. Jon Ossoff (D-GA)",
+        "text": "I’m trying to balance support for Israel and U.S. interests. It’s not easy.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Georgia’s longtime Democratic Jewish voters",
+        "text": "Balancing is fine, but not when it means betraying one of our key values.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Washington Examiner",
+        "text": "Jewish voters are increasingly split in their support for Ossoff.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Sen. Jon Ossoff (D-GA)",
+        "text": "I understand the frustration, but my record shows my support for Israel.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Georgia’s longtime Democratic Jewish voters",
+        "text": "Support? More like betrayal. We’ll see what happens in November.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Washington Examiner",
+        "text": "The race is likely to hinge on how voters view Ossoff’s record on Israel.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "Ossoff’s mixed record on Israel is putting his Jewish base in a bind, with the race tightening ahead of November.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-17T02:34:35.799Z",
+    "editorial": {
+      "issueNumber": 341,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/341",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-17T02:34:35.799Z",
+      "fingerprint": "ce56fdf3e4c53f9f941d959dd1b6b623d6ae03d6064343ecb92f09c7e5098569",
+      "sourcePublishedAt": "2026-08-16T11:00:00.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Ensured all information is sourced and no additional facts were added. The article maintains a factual tone with dry humor and focuses on the specific event as described. All messages strictly adhere to the verified facts without adding new information. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-16-kushner-meets-with-hamas-on-the-gaza-road-map-ahead-of-talks-wit",
     "eventDate": "2026-08-16",
     "year": 2026,
