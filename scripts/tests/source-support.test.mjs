@@ -14,6 +14,7 @@ test("editorial characterization without a new checkable fact is not a source fa
   const claim = "The debate has become increasingly outrageous, reflecting intense polarization.";
   assert.equal(auditClaimNeedsReview(claim, "Americans are sharply divided as the debate heats up and one participant called it outrageous."), false);
   assert.equal(auditClaimNeedsReview("Civil? Try polarizing. We need to stand up for our rights.", "Americans are sharply divided over transgender athletes."), false);
+  assert.equal(auditClaimNeedsReview("Jared Kushner: Hamas, we’ll see what happens. But I’m not holding my breath.", gazaRecord), false);
 });
 
 test("new actions, outcomes and people remain blocked", () => {

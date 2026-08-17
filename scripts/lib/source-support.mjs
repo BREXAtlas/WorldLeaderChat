@@ -31,6 +31,7 @@ function properNames(value) {
   const text = String(value || "");
   return [...text.matchAll(/\b[A-Z][A-Za-z'’-]{2,}\b/g)]
     .filter((match) => !["The", "This", "That", "After", "Before", "Source", "Audit"].includes(match[0]))
+    .filter((match) => !/^(?:i|we|you|he|she|it|they|that|there|what|who|let)['’][a-z]+$/i.test(match[0]))
     .filter((match) => {
       const prefix = text.slice(0, match.index).trimEnd();
       return prefix && !/[.!?]$/.test(prefix);
