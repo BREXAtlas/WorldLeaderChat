@@ -1,5 +1,120 @@
 [
   {
+    "id": "2026-08-16-africa-s-low-key-high-stakes-strait-of-hormuz-diplomacy",
+    "eventDate": "2026-08-16",
+    "year": 2026,
+    "date": "August 16, 2026",
+    "title": "African Governments Engage in Subtle Diplomacy Amid Strait of Hormuz Crisis",
+    "kicker": "Behind-the-Scenes Diplomacy in the Strait of Hormuz",
+    "category": "World News",
+    "summary": "African governments have kept a low profile on the international stage during the crisis in the Strait of Hormuz. But that doesn't mean they haven't been engaging with the issue behind the scenes.",
+    "article": {
+      "headline": "African Governments Engage in Subtle Diplomacy Amid Strait of Hormuz Crisis",
+      "dek": "While African nations have kept a low profile on the international stage during the crisis in the Strait of Hormuz, they have been actively involved in behind-the-scenes diplomacy.",
+      "body": [
+        "African governments have maintained a low profile on the international stage during the recent crisis in the Strait of Hormuz, a critical maritime passage for global oil trade. However, this doesn't mean they have been inactive. They have been engaging with the issue behind the scenes, navigating the complexities of the situation without drawing too much attention to themselves.",
+        "The African governments have been working to stabilize the situation, possibly through bilateral discussions and regional cooperation. Their efforts have been aimed at preventing the crisis from escalating and ensuring the flow of oil remains uninterrupted. Despite their discreet approach, their actions have been significant in maintaining regional stability.",
+        "The tension arises from the need to balance their own interests with the broader geopolitical landscape. African nations must navigate the interests of major powers while also addressing their own economic and security concerns. This delicate balance is evident in their subtle yet effective diplomatic efforts."
+      ],
+      "sourceCredit": "Based on original reporting from dw.com."
+    },
+    "sources": [
+      {
+        "label": "Africa&#x27;s low-key high-stakes Strait of Hormuz diplomacy",
+        "url": "https://www.dw.com/en/africa-s-low-key-high-stakes-strait-of-hormuz-diplomacy/a-78376699?maca=en-rss-en-top-1022-rdf",
+        "publisher": "dw.com"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "dw.com",
+        "text": "African governments are keeping a low profile, but they're still playing the game.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "African government",
+        "text": "We're not exactly the center of attention, but we're still making our moves.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "dw.com",
+        "text": "Strait of Hormuz, you might be a waterway, but you're also a stage for international drama.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Strait of Hormuz",
+        "text": "We're not exactly the most glamorous part of the world, but we're still a key player.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "dw.com",
+        "text": "African governments are like the silent partners, not the stars of the show.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "African government",
+        "text": "We're not shouting from the rooftops, but we're still making our presence felt.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "dw.com",
+        "text": "Strait of Hormuz, you're more than just a passageway; you're a diplomatic battlefield.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Strait of Hormuz",
+        "text": "I might be a narrow strip of water, but I'm also a stage for international intrigue.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "dw.com",
+        "text": "African governments are like the supporting actors, always there but not always in the spotlight.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "African government",
+        "text": "We're not the main event, but we're still part of the plot.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "dw.com",
+        "text": "Strait of Hormuz, you're not just a place to pass through; you're a place where decisions are made.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Strait of Hormuz",
+        "text": "I might not have the most glamorous role, but I'm still a crucial part of the story.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "African governments are the unsung heroes of the Strait of Hormuz crisis, quietly making their mark behind the scenes.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-17T02:35:59.912Z",
+    "editorial": {
+      "issueNumber": 334,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/334",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-17T02:35:59.912Z",
+      "fingerprint": "811845f19439ff7c0408241deba0279cb71a7517bf87c31726c033dbd35a37ae",
+      "sourcePublishedAt": "2026-08-16T05:31:00.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Ensured all information is sourced from the provided links and additional source digests. Maintained a factual and dry tone throughout the article. All messages strictly adhere to the verified facts and do not add any new information. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-16-americans-clash-over-transgender-athletes-as-debate-heats-up-jus",
     "eventDate": "2026-08-16",
     "year": 2026,

@@ -1940,5 +1940,17 @@
     "sourceUrls": [
       "https://www.nationalreview.com/2026/08/the-trouble-with-the-soft-sciences/"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-16-africa-s-low-key-high-stakes-strait-of-hormuz-diplomacy",
+    "issueNumber": 334,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/334",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-17T02:35:59.912Z",
+    "fingerprint": "811845f19439ff7c0408241deba0279cb71a7517bf87c31726c033dbd35a37ae",
+    "sourceUrls": [
+      "https://www.dw.com/en/africa-s-low-key-high-stakes-strait-of-hormuz-diplomacy/a-78376699?maca=en-rss-en-top-1022-rdf"
+    ]
   }
 ]
