@@ -5,7 +5,8 @@ const STOPWORDS = new Set([
   "when", "where", "which", "while", "with", "would"
 ]);
 
-const CONCRETE_CLAIM = /\b(?:announc(?:e|ed|ing)|arrest(?:ed)?|attack(?:ed)?|ban(?:ned)?|call(?:ed)?|cancel(?:led)?|claim(?:ed)?|compel(?:led)?|confirm(?:ed)?|demand(?:ed)?|deny|denied|dismiss(?:ed)?|elect(?:ed)?|face[ds]?|fir(?:e|ed|ing)|hold|held|hope[ds]?|jail(?:ed)?|kill(?:ed)?|launch(?:ed)?|lose|lost|meet|met|order(?:ed)?|plan(?:ned)?|post(?:ed)?|promise[ds]?|quit|reject(?:ed)?|resign(?:ed)?|say|said|sign(?:ed)?|suspend(?:ed)?|taunt(?:ed)?|vote[ds]?|want(?:ed)?|win|won)\b|[$€£%]|\b\d+(?:[.,]\d+)?\b/i;
+const SPECIFIC_NUMBER = /[$€£%]|\b\d+(?:[.,]\d+)?\b/i;
+const CONCRETE_CLAIM = /\b(?:announc(?:e|ed|ing)|arrest(?:ed)?|attack(?:ed)?|ban(?:ned)?|call(?:ed)?|cancel(?:led)?|claim(?:ed)?|compel(?:led)?|confirm(?:ed)?|demand(?:ed)?|deny|denied|dismiss(?:ed)?|elect(?:ed)?|face[ds]?|fir(?:e|ed|ing)|hold|held|hope[ds]?|jail(?:ed)?|kill(?:ed)?|launch(?:ed)?|lose|lost|meet|met|order(?:ed)?|plan(?:ned)?|post(?:ed)?|promise[ds]?|quit|reject(?:ed)?|resign(?:ed)?|say|said|sign(?:ed)?|suspend(?:ed)?|taunt(?:ed)?|vote[ds]?|want(?:ed)?|wins?|won)\b|[$€£%]|\b\d+(?:[.,]\d+)?\b/i;
 
 function stem(token) {
   return token
@@ -39,6 +40,14 @@ function properNames(value) {
     .map((match) => match[0]);
 }
 
+function titleLike(value) {
+  const text = String(value || "").trim();
+  if (/[.!?]["')\]]?$/.test(text)) return false;
+  const words = text.match(/\b[A-Za-z][A-Za-z'’-]*\b/g) || [];
+  if (words.length < 4) return false;
+  return words.filter((word) => /^[A-Z]/.test(word)).length / words.length >= 0.6;
+}
+
 export function claimClearlySupported(claim, sourceRecord) {
   const source = String(sourceRecord || "").toLowerCase();
   if (properNames(claim).some((name) => !source.includes(name.toLowerCase()))) return false;
@@ -53,6 +62,8 @@ export function auditClaimNeedsReview(claim, sourceRecord) {
   const value = String(claim || "").replace(/^[^:]{2,100}:\s*/, "").trim();
   if (!value || claimClearlySupported(value, sourceRecord)) return false;
   const source = String(sourceRecord || "").toLowerCase();
-  const introducesName = properNames(value).some((name) => !source.includes(name.toLowerCase()));
+  const rawIntroducesName = properNames(value).some((name) => !source.includes(name.toLowerCase()));
+  if (/\?["')\]]?$/.test(value) && !rawIntroducesName && !SPECIFIC_NUMBER.test(value)) return false;
+  const introducesName = titleLike(value) ? false : rawIntroducesName;
   return introducesName || CONCRETE_CLAIM.test(value);
 }

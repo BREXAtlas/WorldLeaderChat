@@ -183,6 +183,16 @@ export function closingLineProblems(value) {
 export function stabilizeGeneratedConversation(bundle) {
   const event = bundle?.event;
   if (!event || !Array.isArray(event.messages)) return bundle;
+  const seen = new Set();
+  for (let index = 0; index < event.messages.length;) {
+    const normalized = normalizeDialogueText(event.messages[index]?.text);
+    if (normalized && seen.has(normalized) && event.messages.length > 10) {
+      event.messages.splice(index, 1);
+      continue;
+    }
+    if (normalized) seen.add(normalized);
+    index += 1;
+  }
   while (event.messages.length > 10) {
     const repeatedIndex = event.messages.findIndex((message) => repeatsHeadline(bundle, message?.text));
     if (repeatedIndex < 0) break;
@@ -232,7 +242,7 @@ export function dialogueProblems(bundle, options = {}) {
     if (!speaker || !text) problems.push(`${label} is missing a speaker or text.`);
     if (GENERIC_SPEAKER.test(speaker)) problems.push(`${label} uses a generic speaker (${speaker}).`);
     const wordCount = text.split(/\s+/).filter(Boolean).length;
-    if (wordCount < 6 || wordCount > 28) problems.push(`${label} must contain 6–28 words; found ${wordCount}.`);
+    if (wordCount < 4 || wordCount > 28) problems.push(`${label} must contain 4–28 words; found ${wordCount}.`);
     if (speaker && text.toLowerCase().startsWith(`${speaker.toLowerCase()}:`)) problems.push(`${label} repeats its speaker label inside the message.`);
     if (message?.kind !== "system" && selfReference(speaker, text)) problems.push(`${label} makes ${speaker} refer to themselves by name instead of speaking in first person.`);
     if (message?.kind === "system" && index !== messages.length - 1) problems.push(`${label} is a system/admin line before the end of the chat.`);

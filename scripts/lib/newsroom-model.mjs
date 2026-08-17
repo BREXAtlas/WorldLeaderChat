@@ -269,7 +269,7 @@ export function messagesFromChatPlan(plan) {
   for (const [index, rawTurn] of plan.turns.entries()) {
     const turn = String(rawTurn || "").trim();
     const words = turn.split(/\s+/).filter(Boolean).length;
-    if (words < 6 || words > 28) throw new Error(`Chat turn ${index + 1} must contain 6–28 words; found ${words}.`);
+    if (words < 4 || words > 28) throw new Error(`Chat turn ${index + 1} must contain 4–28 words; found ${words}.`);
     if (words >= 25 && !/[.!?…][\"')\]]?$/.test(turn)) throw new Error(`Chat turn ${index + 1} appears cut off.`);
     if (speakers.some((speaker) => turn.toLowerCase().startsWith(`${speaker.toLowerCase()}:`))) {
       throw new Error(`Chat turn ${index + 1} repeats its speaker label inside the message.`);

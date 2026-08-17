@@ -24,6 +24,10 @@ test("chat plans enforce three recurring event participants across twelve turns"
     speakers: ["UN Admin", "Analyst", "World Leader"],
     turns: Array(12).fill("This invalid turn is long enough for the schema but not the participant gate.")
   }), /specific event participants/);
+  assert.equal(messagesFromChatPlan({
+    speakers: ["Coach", "Player", "Team"],
+    turns: Array(12).fill("Short natural replies belong here.")
+  })[0].text, "Short natural replies belong here.");
 });
 
 test("direct chat drafts request a closing line without exposing the legacy meme field to the writer", () => {

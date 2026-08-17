@@ -118,6 +118,23 @@ test("generated chats remove a surplus headline echo and rescue an invalid close
   assert.ok(!candidate.event.messages.some((message) => /private firms receive authority to launch/i.test(message.text)));
 });
 
+test("generated chats remove an exact duplicate when ten distinct turns remain", () => {
+  const candidate = bundle({
+    title: "The tournament begins in Memphis",
+    summary: "Players compete in Memphis for a place in the next tournament.",
+    messages: Array.from({ length: 12 }, (_, index) => ({
+      speaker: ["PGA Tour", "Players", "Tournament Officials"][index % 3],
+      text: `This Memphis tournament reply advances the distinct argument at turn ${index + 1}.`,
+      kind: "satire"
+    })),
+    meme: "The leaderboard moved faster than the explanation for it."
+  });
+  candidate.event.messages[11].text = candidate.event.messages[2].text;
+  stabilizeGeneratedConversation(candidate);
+  assert.equal(candidate.event.messages.length, 11);
+  assert.ok(!dialogueProblems(candidate).some((problem) => /duplicates another line/i.test(problem)));
+});
+
 test("article-specific builders create different conversations for different events", () => {
   const health = bundle({
     title: "AHRQ patient-safety research agency faces cuts",
