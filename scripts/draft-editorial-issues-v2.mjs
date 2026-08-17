@@ -5,6 +5,7 @@ import { cleanWhitespace, readJson } from "./lib/io.mjs";
 import { closingLineProblems, dialogueProblems, stabilizeGeneratedConversation, stockMemeDetected } from "./lib/chat-quality.mjs";
 import { articleProblems, expectedSourceCredit, normalizeArticle } from "./lib/article-standard.mjs";
 import { articleOnlySchema, chatDraftSchema, draftAuditSchema, materializeChatDraft, runNewsroomJson, stripStockEditorialFiller } from "./lib/newsroom-model.mjs";
+import { auditClaimNeedsReview } from "./lib/source-support.mjs";
 
 const token = process.env.GITHUB_TOKEN;
 const repository = process.env.GITHUB_REPOSITORY;
@@ -253,8 +254,12 @@ List each unsupported article claim, unsupported chat claim and generic/placehol
     maxTokens: 900,
     temperature: 0.1
   });
-  const article = (audit.unsupportedArticleClaims || []).map((claim) => `Source audit article: ${claim}`);
-  const chat = (audit.unsupportedChatClaims || []).map((claim) => `Source audit chat: ${claim}`);
+  const article = (audit.unsupportedArticleClaims || [])
+    .filter((claim) => auditClaimNeedsReview(claim, sourceRecord))
+    .map((claim) => `Source audit article: ${claim}`);
+  const chat = (audit.unsupportedChatClaims || [])
+    .filter((claim) => auditClaimNeedsReview(claim, sourceRecord))
+    .map((claim) => `Source audit chat: ${claim}`);
   // Structural and generic-copy checks are deterministic elsewhere in this file.
   // The small local auditor previously copied entire valid fields into this array,
   // causing 0/12 false-negative runs. Use the model only for factual support.
