@@ -37,6 +37,23 @@ test("one worker coalesces every durable article and chat request", () => {
   assert.equal(result.remaining, 0);
 });
 
+test("a focused recovery cannot fan out into a forced batch", () => {
+  const result = selectEditorialWork([
+    candidate(345, ["news-candidate", "needs-editor"]),
+    candidate(344, ["news-candidate", "needs-editor"]),
+    candidate(343, ["news-candidate", "redraft-requested"])
+  ], {
+    today: "2026-08-16",
+    forceBatch: true,
+    todayOnly: false,
+    targetIssue: "345",
+    targetAction: "article",
+    limit: 20
+  });
+  assert.deepEqual(result.selected, [{ issue: 345, action: "article" }]);
+  assert.equal(result.remaining, 0);
+});
+
 test("a Finish Today request selects only unfinished current-day files plus explicit older requests", () => {
   const result = selectEditorialWork([
     candidate(20, ["news-candidate", "draft-batch-requested"]),

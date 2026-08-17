@@ -58,6 +58,7 @@ export function selectEditorialWork(issues, options = {}) {
     const bundle = bundleOf(issue);
     const requestedAction = explicitAction(labels);
     const targeted = targetIssue > 0 && Number(issue.number) === targetIssue;
+    if (targetIssue > 0 && !targeted) return [];
     const explicit = targeted || Boolean(requestedAction);
     const current = bundle?.event?.eventDate === today;
     const batchEligible = batchRequested
