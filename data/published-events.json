@@ -465,6 +465,126 @@
     }
   },
   {
+    "id": "2026-08-16-trump-says-us-to-scale-back-military-drills-with-south-korea-aft",
+    "eventDate": "2026-08-16",
+    "year": 2026,
+    "date": "August 16, 2026",
+    "title": "Trump Downsizes Exercises, Cites ‘Very Good Relationship’ with North Korea’s Leader",
+    "kicker": "US Military Drills Reduced Amid Diplomatic Tensions",
+    "category": "War & Security",
+    "summary": "Trump cites his \"very good relationship\" with North Korea's leader in deciding to downsize the exercises.",
+    "article": {
+      "headline": "Trump Downsizes Exercises, Cites ‘Very Good Relationship’ with North Korea’s Leader",
+      "dek": "The United States has announced a reduction in joint military exercises with South Korea, citing improved relations with North Korea’s Kim Jong Un.",
+      "body": [
+        "In a surprising move, US President Donald Trump has decided to scale back joint military exercises with South Korea, citing his 'very good relationship' with North Korea's leader, Kim Jong Un. The decision comes as a diplomatic shift, signaling a potential easing of tensions on the Korean Peninsula.",
+        "According to multiple sources, including BBC News and Al Jazeera, the reduction in exercises is a direct consequence of Trump's improved rapport with the North Korean leader. The move is expected to reduce the frequency and intensity of drills, though the exact details and timeline have not been fully disclosed. This decision is part of a broader diplomatic strategy to engage with North Korea and potentially reduce military confrontations.",
+        "The visible tension in these facts lies in the delicate balance between diplomatic engagement and military readiness. While Trump cites improved relations, the reduction in exercises could be seen as a strategic move to reduce the risk of accidental conflict, yet it also signals a potential weakening of the US-South Korea alliance, a cornerstone of regional security."
+      ],
+      "sourceCredit": "Based on original reporting from BBC News and Al Jazeera."
+    },
+    "sources": [
+      {
+        "label": "Trump says US scaling back joint military operations with South Korea",
+        "url": "https://www.bbc.co.uk/news/articles/cx2lll7zvn0o?at_medium=RSS&at_campaign=rss",
+        "publisher": "BBC News"
+      },
+      {
+        "label": "Trump says US to ‘substantially reduce’ military drills with South Korea",
+        "url": "https://www.aljazeera.com/news/2026/8/17/trump-says-us-to-substantially-reduce-military-drills-with-south-korea?traffic_source=rss",
+        "publisher": "Al Jazeera"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Trump",
+        "text": "I'm not happy about the drills, but I have a 'very good relationship' with Kim.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Kim Jong Un",
+        "text": "That's a nice way of saying you're buttering me up, Trump.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "South Korea",
+        "text": "We're supposed to be allies, but Trump's 'very good relationship' seems to be more about him.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "South Korea, we're going to need to find a new way to show our strength without scaring the neighbors.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Kim Jong Un",
+        "text": "Trump, you're always thinking about your own interests first.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "South Korea",
+        "text": "This is a step in the right direction, but we still need to keep our defenses strong.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "Kim, I appreciate your understanding. Maybe we can work on a joint fitness program.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Kim Jong Un",
+        "text": "Trump, you're always coming up with bizarre ideas.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "South Korea",
+        "text": "We need to maintain our military readiness while also considering diplomatic solutions.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Trump",
+        "text": "South Korea, let's focus on what's best for the region. Peace is the ultimate goal.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Kim Jong Un",
+        "text": "Trump, your 'very good relationship' is starting to sound like a bad joke.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "South Korea",
+        "text": "We need to tread carefully and ensure that our actions don't escalate tensions.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "Trump's 'very good relationship' with Kim Jong Un seems to be the only thing keeping the peace for now.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-17T02:33:28.503Z",
+    "editorial": {
+      "issueNumber": 350,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/350",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-17T02:33:28.503Z",
+      "fingerprint": "b9db7e353616ef9d623ca1048c2dab476907bf1cf6d29209dda8098e7fb28861",
+      "sourcePublishedAt": "2026-08-17T00:06:05.000Z",
+      "singleSourceException": "",
+      "reviewNotes": "Article accurately reflects the source material, maintains a dry tone, and identifies the tension without predicting outcomes or inventing motives. All statements are based on verified facts and do not add any new events or actions. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-14-apple-trained-its-own-ai-model-for-china-with-help-from-alibaba",
     "eventDate": "2026-08-14",
     "year": 2026,

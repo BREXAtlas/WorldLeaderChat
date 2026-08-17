@@ -1891,5 +1891,18 @@
     "sourceUrls": [
       "https://www.foxnews.com/politics/americans-clash-over-transgender-athletes-debate-heats-up-just-getting-outrageous"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-16-trump-says-us-to-scale-back-military-drills-with-south-korea-aft",
+    "issueNumber": 350,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/350",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-17T02:33:28.503Z",
+    "fingerprint": "b9db7e353616ef9d623ca1048c2dab476907bf1cf6d29209dda8098e7fb28861",
+    "sourceUrls": [
+      "https://www.bbc.co.uk/news/articles/cx2lll7zvn0o?at_medium=RSS&at_campaign=rss",
+      "https://www.aljazeera.com/news/2026/8/17/trump-says-us-to-substantially-reduce-military-drills-with-south-korea?traffic_source=rss"
+    ]
   }
 ]
