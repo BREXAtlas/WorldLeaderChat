@@ -115,6 +115,121 @@
     }
   },
   {
+    "id": "2026-08-16-rep-nancy-mace-reveals-new-tattoos-as-she-launches-youtube-show",
+    "eventDate": "2026-08-16",
+    "year": 2026,
+    "date": "August 16, 2026",
+    "title": "Rep. Nancy Mace Debuts Spicy Tattoos on New YouTube Show",
+    "kicker": "Political Firebrand Embraces Post-Career Life",
+    "category": "World News",
+    "summary": "Outgoing firebrand Rep. Nancy Mace used her new YouTube talk show to debut spicy tattoos on both arms — as she went sleeveless in public for the first time in months.",
+    "article": {
+      "headline": "Rep. Nancy Mace Debuts Spicy Tattoos on New YouTube Show",
+      "dek": "Outgoing firebrand Rep. Nancy Mace launched her YouTube talk show and revealed new tattoos on both arms, marking the first time she has gone sleeveless in public since losing her political career.",
+      "body": [
+        "Outgoing firebrand Rep. Nancy Mace has taken to YouTube to launch her new talk show, where she made a bold statement by revealing new tattoos on both arms. The tattoos, described as 'spicy,' are a stark contrast to her previous public appearances where she was always fully dressed, particularly in sleeves.",
+        "This marks the first time Mace has gone sleeveless in public since her political career came to an end. The move is seen as a bold statement, perhaps signaling a new chapter in her life or a way to connect with a younger audience. Her decision to debut her tattoos on her new platform suggests a willingness to embrace a more personal and direct form of communication.",
+        "The visible tension in these facts lies in the stark shift from her previous public persona to this new, more revealing one. It raises questions about the extent of her transformation and whether this is a temporary phase or a permanent change in her public image."
+      ],
+      "sourceCredit": "Based on original reporting from New York Post."
+    },
+    "sources": [
+      {
+        "label": "Rep. Nancy Mace reveals new tattoos as she launches YouTube show after losing political career",
+        "url": "https://nypost.com/2026/08/16/us-news/rep-nancy-mace-reveals-new-tattoos-as-she-launches-youtube-show-after-losing-political-career/",
+        "publisher": "New York Post"
+      }
+    ],
+    "messages": [
+      {
+        "speaker": "Rep. Nancy Mace",
+        "text": "I'm not just tattooed, I'm sleeveless now. Welcome to my new show.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "New York Post",
+        "text": "Looks like Mace is using her new tattoos to distract from her lost political career.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Outgoing firebrand",
+        "text": "Sleeveless and spicier than ever. Mace's new show is all about making a statement.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Rep. Nancy Mace",
+        "text": "I can't hide behind a suit anymore. My tattoos speak louder than words.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "New York Post",
+        "text": "Mace's new tattoos and show are a bold move, but her political career is over.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Outgoing firebrand",
+        "text": "If tattoos can make a comeback, maybe Mace can too. Or at least get some more ink.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Rep. Nancy Mace",
+        "text": "My tattoos are a badge of honor. And my new show is just the beginning.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "New York Post",
+        "text": "Mace's tattoos and show are a risk, but she's not the first politician to reinvent herself.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Outgoing firebrand",
+        "text": "With tattoos and a new show, Mace is trying to stay relevant. But will it work?",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Rep. Nancy Mace",
+        "text": "Relevant or not, my tattoos and show are a reflection of who I am.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "New York Post",
+        "text": "Mace's tattoos and show are a gamble, but she's not the only one trying to make a comeback.",
+        "kind": "satire",
+        "reaction": ""
+      },
+      {
+        "speaker": "Outgoing firebrand",
+        "text": "Mace's tattoos and show are a bold move, but only time will tell if it pays off.",
+        "kind": "satire",
+        "reaction": ""
+      }
+    ],
+    "meme": "Mace's new tattoos and show are a bold statement, but only time will tell if it catches on.",
+    "quote": null,
+    "tone": "comic",
+    "publishedAt": "2026-08-17T02:16:55.512Z",
+    "editorial": {
+      "issueNumber": 346,
+      "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/346",
+      "approvedBy": "BREXAtlas",
+      "approvedAt": "2026-08-17T02:16:55.512Z",
+      "fingerprint": "a5a66a49e55f7eca05626b0869630ef911ae9c1b7d8a115414cfe9dc524d5744",
+      "sourcePublishedAt": "2026-08-16T19:55:29.000Z",
+      "singleSourceException": "Owner editorial approval accepts this single-source candidate because the factual setup is narrowly limited to the linked report; imagined dialogue does not add factual claims.",
+      "reviewNotes": "Ensured all facts are from the source record, no additional information was added. The article maintains a factual first approach with dry humor in word choice. All reactions and messages are based on the verified facts provided. Owner approved the article-specific direct conversation after the chat-quality gate passed."
+    }
+  },
+  {
     "id": "2026-08-14-apple-trained-its-own-ai-model-for-china-with-help-from-alibaba",
     "eventDate": "2026-08-14",
     "year": 2026,

@@ -1853,5 +1853,17 @@
     "sourceUrls": [
       "https://www.washingtonexaminer.com/news/campaigns/congressional/4689061/come-at-us-bro-el-sayed-trump-post-wife/"
     ]
+  },
+  {
+    "schemaVersion": 1,
+    "eventId": "2026-08-16-rep-nancy-mace-reveals-new-tattoos-as-she-launches-youtube-show",
+    "issueNumber": 346,
+    "issueUrl": "https://github.com/BREXAtlas/WorldLeaderChat/issues/346",
+    "approvedBy": "BREXAtlas",
+    "approvedAt": "2026-08-17T02:16:55.512Z",
+    "fingerprint": "a5a66a49e55f7eca05626b0869630ef911ae9c1b7d8a115414cfe9dc524d5744",
+    "sourceUrls": [
+      "https://nypost.com/2026/08/16/us-news/rep-nancy-mace-reveals-new-tattoos-as-she-launches-youtube-show-after-losing-political-career/"
+    ]
   }
 ]
