@@ -48,14 +48,25 @@ test("multiple original reports remain attached to one editorial file", () => {
   const multiSource = {
     ...candidate,
     sources: [
-      { label: candidate.title, url: candidate.url, publisher: candidate.publisher },
-      { label: "Official ceasefire statement", url: "https://example.org/official-statement", publisher: "Foreign Ministry" }
+      { label: candidate.title, url: candidate.url, publisher: candidate.publisher, excerpt: candidate.excerpt },
+      { label: "Official ceasefire statement", url: "https://example.org/official-statement", publisher: "Foreign Ministry", excerpt: "The ministry said monitoring arrangements remain under negotiation." }
     ],
     coveragePublishers: ["Test News", "Foreign Ministry"]
   };
   const bundle = createDraftBundle(multiSource);
   assert.equal(bundle.event.sources.length, 2);
   assert.deepEqual(bundle.ingestion.coveragePublishers, ["Test News", "Foreign Ministry"]);
+  assert.deepEqual(bundle.ingestion.sourceDigests, [
+    { publisher: "Test News", url: candidate.url, excerpt: candidate.excerpt },
+    { publisher: "Foreign Ministry", url: "https://example.org/official-statement", excerpt: "The ministry said monitoring arrangements remain under negotiation." }
+  ]);
+});
+
+test("single-source automated candidates retain their feed excerpt for the writer", () => {
+  const bundle = createDraftBundle(candidate);
+  assert.deepEqual(bundle.ingestion.sourceDigests, [
+    { publisher: candidate.publisher, url: candidate.url, excerpt: candidate.excerpt }
+  ]);
 });
 
 test("a fully edited article-and-chat bundle passes the approval gate", () => {

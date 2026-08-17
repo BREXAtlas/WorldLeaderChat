@@ -63,6 +63,20 @@ function candidateSources(candidate, sourceTitle, publisher) {
     .filter((source) => source.url && !seen.has(source.url) && seen.add(source.url));
 }
 
+function candidateSourceDigests(candidate, sourceTitle, publisher) {
+  const incoming = Array.isArray(candidate.sources) && candidate.sources.length
+    ? candidate.sources
+    : [{ publisher, url: candidate.url, excerpt: candidate.excerpt || sourceTitle }];
+  const seen = new Set();
+  return incoming
+    .map((source) => ({
+      publisher: sanitizeUntrustedText(source.publisher || publisher).slice(0, 120),
+      url: String(source.url || candidate.url),
+      excerpt: sanitizeUntrustedText(source.excerpt || "").slice(0, 1200)
+    }))
+    .filter((source) => source.excerpt && !seen.has(source.url) && seen.add(source.url));
+}
+
 export function createDraftBundle(candidate, now = new Date()) {
   const candidateDate = dateKeyInTimeZone(candidate.publishedAt);
   const today = dateKeyInTimeZone(now);
@@ -73,6 +87,7 @@ export function createDraftBundle(candidate, now = new Date()) {
   const publisher = sanitizeUntrustedText(candidate.publisher || "Unknown publisher").slice(0, 120);
   const id = `${eventDate}-${slugify(sourceTitle, 64)}`;
   const sources = candidateSources(candidate, sourceTitle, publisher);
+  const sourceDigests = candidateSourceDigests(candidate, sourceTitle, publisher);
 
   return {
     schemaVersion: 1,
@@ -87,7 +102,8 @@ export function createDraftBundle(candidate, now = new Date()) {
       newsroomDesk: candidate.newsroomDesk || candidate.category || candidate.sourceDesk || "World News",
       sourcePublishedAt: candidate.publishedAt,
       newsroomFormat: 2,
-      coveragePublishers: candidate.coveragePublishers || sources.map((source) => source.publisher)
+      coveragePublishers: candidate.coveragePublishers || sources.map((source) => source.publisher),
+      sourceDigests
     },
     event: {
       id,

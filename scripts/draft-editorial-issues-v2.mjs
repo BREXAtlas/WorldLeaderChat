@@ -59,14 +59,40 @@ function safeSummary(value) {
     .slice(0, 1200);
 }
 
+function sourceFactLines(bundle) {
+  const values = [
+    safeSummary(bundle.event?.summary),
+    ...(bundle.ingestion?.sourceDigests || []).map((item) => cleanWhitespace(item?.excerpt))
+  ].filter(Boolean);
+  const seen = new Set();
+  return values.filter((value) => {
+    const key = value.toLowerCase();
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+function retryGuidance(problems = []) {
+  const text = problems.join(" ").toLowerCase();
+  const guidance = [];
+  if (/source audit|unsupported|invent/.test(text)) guidance.push("Use only the numbered verified facts; express reactions as opinions or questions without adding biographical or event claims.");
+  if (/duplicate|recycled|reuse/.test(text)) guidance.push("Make every turn advance the exchange with distinct wording and a direct response to a preceding message.");
+  if (/first person|refer to themselves|speaker label/.test(text)) guidance.push("Each participant speaks as I or we and never writes their own display name inside their message.");
+  if (/admin|narrator|system|placeholder|generic|instruction/.test(text)) guidance.push("Return finished character dialogue only; no instructions, labels, narration or process language may appear as dialogue.");
+  if (/cut off|punctuation|characters|words/.test(text)) guidance.push("Write complete, punctuated sentences between 6 and 28 words.");
+  return guidance.length ? [...new Set(guidance)] : ["Rewrite the chat from the verified facts with a different exchange and no additional factual claims."];
+}
+
 function promptFor(bundle, feedback = []) {
   const sources = (bundle.event.sources || [])
     .map((source, index) => `${index + 1}. ${source.publisher}: ${source.label} — ${source.url}`)
     .join("\n");
   const digests = (bundle.ingestion.sourceDigests || [])
+    .filter((item) => cleanWhitespace(item?.excerpt))
     .map((item, index) => `${index + 1}. ${item.publisher}: ${item.excerpt}`)
     .join("\n");
-  const prior = feedback.length ? `\nTHE LAST DRAFT FAILED FOR THESE REASONS\n- ${feedback.join("\n- ")}\nRewrite it completely; do not patch the failed lines.` : "";
+  const prior = feedback.length ? `\nRETRY GUIDANCE\n- ${retryGuidance(feedback).join("\n- ")}` : "";
 
   return `You are the World Leader Chat newsroom editor. Return ONLY valid JSON, no markdown fences.
 
@@ -142,23 +168,23 @@ async function runWriter(bundle, feedback = [], acceptedArticleOutput = null) {
 Return only the schema fields for the final title, kicker, category, article and review notes. Write finished publication copy in every field; never return instructions, labels or placeholders such as “specific truthful headline.”`;
   const articleOutput = acceptedArticleOutput
     || await runNewsroomJson(articlePrompt, { schema: articleOnlySchema, maxTokens: 1100, temperature: 0.4 });
-  const chatPrompt = `Return only valid JSON with participants, messages, closingLine and reviewNotes. Match the established World Leader Chat format used by previously approved articles.
+  const facts = sourceFactLines(bundle);
+  const retry = feedback.length ? `\nRETRY GUIDANCE\n- ${retryGuidance(feedback).join("\n- ")}` : "";
+  const chatPrompt = `Return only valid JSON with participants, messages, closingLine and reviewNotes.
 
-SOURCE-LOCKED ARTICLE
-Dek: ${articleOutput.article?.dek}
-Report: ${(articleOutput.article?.body || []).join("\n")}
-Verified summary: ${safeSummary(bundle.event.summary)}
-Source facts: ${(bundle.ingestion?.sourceDigests || []).map((item) => `${item.publisher}: ${item.excerpt}`).join("\n") || "None"}
-${feedback.length ? `Previous chat failures:\n- ${feedback.join("\n- ")}` : ""}
+VERIFIED FACTS — THE ONLY CHECKABLE FACTS ALLOWED IN THE CHAT
+${facts.map((fact, index) => `${index + 1}. ${fact}`).join("\n")}
 
-Choose exactly three real people or institutions naturally connected to this event and return them as participants a, b and c. Never invent placeholder people such as Alice, Bob, Charlie, David, Frank, Grace, Hannah or Julia. Write 12–14 messages that feel like the established organic group chats: character-aware voices, quick replies, interruptions, callbacks and a specific joke that develops from this event. Do not use a rigid speaker rotation. Let one participant challenge another and let the next line actually answer what was just said.
+SOURCE HEADLINES — USE THESE ONLY TO IDENTIFY REAL PARTICIPANTS AND THE EVENT
+${(bundle.event?.sources || []).map((source, index) => `${index + 1}. ${source.publisher}: ${source.label}`).join("\n")}
+${retry}
 
-Every message must use speakerKey a, b or c. Use all three participants repeatedly, vary their order naturally and never assign consecutive messages to the same speakerKey. If a person's identity is not established by the source, use the named institution instead; never invent an officeholder, employee, reporter or official. Do not use Admin, UN Admin, a narrator or a system message.
+Choose exactly three people or named institutions that appear in the verified facts or source headlines. Return their exact names as participants a, b and c. Write 12–14 concise messages using only speakerKey a, b or c.
 
-Every message object owns its speaker and text. Read each speaker/text pair together before returning it. The speaker must talk in first person and must never describe themselves by their own name or organization in third person. Start with a position, challenge, contradiction, pointed question or joke. Never write “I read [headline]”, recite the headline, invent facts or quotations, use generic campaign platitudes, or use newsroom-process filler. Every line must depend on this event's actual person, decision, number, place, object or consequence. Each line must be one complete sentence of 6–28 words.
+Make this one organic conversation. Begin with a direct reaction. Each next turn must answer, challenge, clarify or joke about a preceding turn. Use all three participants repeatedly in a natural order, with no consecutive turns by the same participant. Every message must be complete first-person dialogue of 6–28 words. Reactions may be opinions, questions or sarcasm about the verified facts, but may not add another event, action, quotation, motive, job history or biographical claim. The JSON values must contain finished publication copy only.
 
-Return this structure: {"participants":{"a":"specific participant","b":"specific participant","c":"specific participant"},"messages":[{"speakerKey":"a","text":"direct event-specific message"}],"closingLine":"one natural spoken punch line","reviewNotes":"why the chat fits this event"}. The message object demonstrates fields only; return 12–14 messages. closingLine must be about this exact event, never a description or name of a cartoon, image or stock template.`;
-  const chatOutput = materializeChatDraft(await runNewsroomJson(chatPrompt, { schema: chatDraftSchema, maxTokens: 1100, temperature: 0.7 }));
+Return this structure: {"participants":{"a":"exact source participant","b":"exact source participant","c":"exact source participant"},"messages":[{"speakerKey":"a","text":"complete direct reaction"}],"closingLine":"one spoken event-specific punch line","reviewNotes":"one sentence about the factual boundary"}. The sample message shows fields only; return 12–14 different messages.`;
+  const chatOutput = materializeChatDraft(await runNewsroomJson(chatPrompt, { schema: chatDraftSchema, maxTokens: 1100, temperature: 0.45 }));
   const { closingLine, ...chatFields } = chatOutput;
   const output = {
     ...articleOutput,

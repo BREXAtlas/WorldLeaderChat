@@ -110,7 +110,7 @@ jobs:
       - name: Start the no-credit local newsroom writer
         run: bash scripts/start-local-newsroom-writer.sh
 
-      - name: Refresh owner-submitted source material
+      - name: Refresh source material for this article
         if: matrix.action == 'article'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -124,7 +124,7 @@ jobs:
           WLC_TARGET_ISSUE: ${{ matrix.issue }}
           WLC_FORCE_REWRITE: "1"
           WLC_DRAFT_LIMIT: "1"
-          WLC_MAX_ATTEMPTS: "3"
+          WLC_MAX_ATTEMPTS: "2"
         run: node scripts/draft-editorial-issues.mjs
 
       - name: Rewrite only the original article-specific chat

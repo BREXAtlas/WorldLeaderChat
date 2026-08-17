@@ -42,7 +42,12 @@ const BANNED_TEMPLATE_PATTERNS = [
   /i am not dodging .* i am saying the official line is shorter than the consequence/,
   /i want each institution here to answer that record without borrowing a different story/,
   /then answer the file we actually opened .* leave the substitute headline in drafts/,
-  /the verified details stayed pinned the spin requested a longer deadline/
+  /the verified details stayed pinned the spin requested a longer deadline/,
+  /admin un admin a narrator or a system message/,
+  /jokes generic campaign platitudes or newsroom process filler/,
+  /verified facts the only checkable facts allowed/,
+  /source headlines use these only to identify/,
+  /return finished character dialogue only/
 ];
 
 const STOPWORDS = new Set([

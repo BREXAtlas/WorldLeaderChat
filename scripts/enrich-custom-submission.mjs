@@ -8,7 +8,7 @@ const issueNumber = Number(process.env.WLC_TARGET_ISSUE || 0);
 const apiBase = process.env.GITHUB_API_URL || "https://api.github.com";
 
 if (!token) throw new Error("GITHUB_TOKEN is required.");
-if (!Number.isInteger(issueNumber) || issueNumber < 1) throw new Error("WLC_TARGET_ISSUE must identify the custom editorial issue.");
+if (!Number.isInteger(issueNumber) || issueNumber < 1) throw new Error("WLC_TARGET_ISSUE must identify the editorial issue.");
 
 async function github(path, options = {}) {
   const response = await fetch(`${apiBase}${path}`, {
@@ -145,11 +145,6 @@ function replaceBundle(body, bundle) {
 
 const issue = await github(`/repos/${repository}/issues/${issueNumber}`);
 const bundle = extractStoryBundle(issue.body || "");
-if (!bundle.ingestion?.customSubmission) {
-  console.log(`Issue #${issueNumber} is not a custom submission; source enrichment skipped.`);
-  process.exit(0);
-}
-
 const previews = [];
 for (const source of (bundle.event.sources || []).slice(0, 5)) {
   await assertPublicHttps(source.url);
@@ -163,10 +158,22 @@ for (const source of (bundle.event.sources || []).slice(0, 5)) {
 bundle.event.sources = previews.map((item) => item.source);
 bundle.ingestion.coveragePublishers = bundle.event.sources.map((source) => source.publisher);
 const editorNotes = (bundle.ingestion.sourceDigests || []).filter((item) => item.publisher === "Editor submission notes");
-bundle.ingestion.sourceDigests = [...editorNotes, ...previews.map((item) => ({ publisher: item.source.publisher, excerpt: item.digest }))];
+const existingByUrl = new Map((bundle.ingestion.sourceDigests || [])
+  .filter((item) => item.url && item.excerpt)
+  .map((item) => [item.url, item]));
+bundle.ingestion.sourceDigests = [
+  ...editorNotes,
+  ...previews.map((item) => {
+    const existing = existingByUrl.get(item.source.url);
+    const excerpt = String(existing?.excerpt || "").length >= String(item.digest || "").length
+      ? existing.excerpt
+      : item.digest;
+    return { publisher: item.source.publisher, url: item.source.url, excerpt };
+  })
+];
 
 await github(`/repos/${repository}/issues/${issueNumber}`, {
   method: "PATCH",
   body: JSON.stringify({ body: replaceBundle(issue.body, bundle) })
 });
-console.log(`Enriched ${previews.length} public source link(s) for custom issue #${issueNumber}.`);
+console.log(`Enriched ${previews.length} public source link(s) for editorial issue #${issueNumber}.`);

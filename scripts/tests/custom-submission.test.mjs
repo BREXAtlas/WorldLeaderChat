@@ -64,6 +64,8 @@ test("source enrichment blocks private-network fetches and caps remote content",
   assert.match(source, /total > 2_000_000/);
   assert.match(source, /redirects >= 3/);
   assert.match(source, /controller\.abort/);
+  assert.doesNotMatch(source, /not a custom submission; source enrichment skipped/);
+  assert.match(source, /Enriched.*editorial issue/);
 });
 
 test("Pages packages and smoke-checks the custom submission generator", async () => {

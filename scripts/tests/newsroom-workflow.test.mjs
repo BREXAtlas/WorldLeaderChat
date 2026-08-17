@@ -66,6 +66,9 @@ test("drafting prompt preserves factual conclusions and forbids recycled stock c
   assert.match(draft, /auditGeneratedDraft/);
   assert.match(draft, /Source audit chat/);
   assert.match(draft, /acceptedArticleOutput/);
+  assert.match(draft, /VERIFIED FACTS — THE ONLY CHECKABLE FACTS ALLOWED IN THE CHAT/);
+  assert.match(draft, /retryGuidance/);
+  assert.doesNotMatch(draft, /Previous chat failures:\\n- \$\{feedback\.join/);
   assert.match(draft, /Do not save any "best" failed attempt or expose it for owner approval/);
 });
 
@@ -88,7 +91,7 @@ test("failed machine drafts stay newsroom work instead of becoming owner writing
   assert.match(queueWorkflow, /prepare-editorial-worker\.mjs/);
   assert.match(queueWorkflow, /target_issue/);
   assert.match(queueWorkflow, /WLC_TARGET_ISSUE/);
-  assert.match(queueWorkflow, /Refresh owner-submitted source material/);
+  assert.match(queueWorkflow, /Refresh source material for this article/);
   assert.match(queueWorkflow, /enrich-custom-submission\.mjs/);
   assert.match(queueWorkflow, /Recover only this interrupted file/);
   assert.match(queueWorkflow, /recover-interrupted-drafts\.mjs/);
